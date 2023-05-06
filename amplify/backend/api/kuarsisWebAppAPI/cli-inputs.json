@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "paths": {
+    "/users": {
+      "name": "/users",
+      "lambdaFunction": "kuarsisWebAppServer",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/products": {
+      "name": "/products",
+      "lambdaFunction": "kuarsisWebAppServer",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/config/paypal": {
+      "name": "/config/paypal",
+      "lambdaFunction": "kuarsisWebAppServer",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "kuarsisWebAppServer",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/upload": {
+      "name": "/upload",
+      "lambdaFunction": "kuarsisWebAppServer",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
