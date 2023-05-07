@@ -61,7 +61,7 @@ const Header = ({ history }) => {
                       fontSize: 'xx-small',
                     }}
                   >
-                    <td>A Kuarsis Company</td>
+                    <td>A Silver Company</td>
                   </tr>
                 </td>
               </tr>
