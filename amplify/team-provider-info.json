@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarsiswebapp-dev-151719-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarsiswebapp-dev-151719-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarsiswebapp-dev-151719-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarsiswebapp-dev-151719-deployment",
+      "UnauthRoleName": "amplify-kuarsiswebapp-dev-151719-unauthRole",
+      "StackName": "amplify-kuarsiswebapp-dev-151719",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarsiswebapp-dev-151719/b094ac30-52e3-11ec-a90d-0a6d0ea052a7",
+      "AmplifyAppId": "d2zqth0d2er18d"
+    },
+    "categories": {
+      "function": {
+        "kuarsisWebAppServer": {
+          "deploymentBucketName": "amplify-kuarsiswebapp-dev-151719-deployment",
+          "s3Key": "amplify-builds/kuarsisWebAppServer-52454a7a2f37624f5235-build.zip",
+          "nodeEnv": "development",
+          "port": "5000",
+          "mongoUri": "mongodb+srv://kuarsis-web-app-devusr:tQOfzCAg4T42vRr0@kuarsis-web-app-cluster.we4g156.mongodb.net/kuarsis-web-app-dev?retryWrites=true&w=majority",
+          "jwtSecret": "abc123",
+          "paypalClientId": "AcrzlY3GQU46MNRFCFrNrt_bP2fNYvTV0T0H027U1yqgPhwMPhLQZmQLk7e6UOH6vYIoOnouLf5ygmcZ",
+          "kuarsisAwsProductsS3AccessKey": "AKIA2IBUQWRTTQTXHD3I",
+          "kuarsisAwsProductsS3SecretKey": "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",
+          "kuarsisAwsKuarsisMainRegion": "us-east-1",
+          "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
+          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2zqth0d2er18d",
+          "type": "manual"
+        }
+      },
+      "api": {
+        "kuarsisWebAppAPI": {}
+      }
+    }
+  }
+}

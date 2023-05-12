@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "@aws-amplify/cli": "^7.6.2",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "name": "kuarsis-web-app",
+  "version": "1.0.0",
+  "description": "Kuarsis Companies Web App version 1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node amplify/backend/function/kuarsisWebAppServer/src/app",
+    "server": "nodemon amplify/backend/function/kuarsisWebAppServer/src/app",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "Kuarsis",
+    "Kuarsis-Tech",
+    "Kuarsis-Pixan",
+    "Kuarsis-Taanah",
+    "software",
+    "photography",
+    "houses",
+    "rent",
+    "technology",
+    "management",
+    "scrum",
+    "project"
+  ],
+  "author": "Silverio Rodriguez Alcorta",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15"
+  }
+}
