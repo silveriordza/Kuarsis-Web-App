@@ -1,7 +1,3 @@
-
-
-
-
 ///Change the BACKEND_ENDPOINT to point to the desired endpoint for the target environment.
 //In case I want to test the BACKEND_ENDPOINT in the local machine then I can change it to 'http://localhost:5000'
 //In case I want to test the BACKEND_ENDPOINT in the AWS enviornment, then I can change it to 'https://ikhmic2rag.execute-api.us-east-1.amazonaws.com/dev'
@@ -24,12 +20,12 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 */
 
 //CONSTANTS FOR DEV.KUARSIS.COM ENVIRONMENT
+
 export const BACKEND_ENDPOINT = 'https://ikhmic2rag.execute-api.us-east-1.amazonaws.com/dev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://dev.kuarsis.com/images'
 export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL = 'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
 
-//START
 //CONSTANTS FOR PIXANDEV.KUARSIS.COM (DEV) ENVIRONMENT
 /*
 export const BACKEND_ENDPOINT =
