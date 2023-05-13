@@ -1,0 +1,141 @@
+{
+  "api": {
+    "kuarsisWebAppAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {},
+  "function": {
+    "kuarsisWebAppServer": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_kuarsisWebAppServer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_jwtSecret": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAwsKuarsisMainRegion": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAwsProductsS3AccessKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisPrivateBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisPublicBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_mongoUri": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_nodeEnv": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_paypalClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_port": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    }
+  },
+  "storage": {}
+}

@@ -1,0 +1,61 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "nodeEnv",
+      "environmentVariableName": "NODE_ENV"
+    },
+    {
+      "cloudFormationParameterName": "port",
+      "environmentVariableName": "PORT"
+    },
+    {
+      "cloudFormationParameterName": "mongoUri",
+      "environmentVariableName": "MONGO_URI"
+    },
+    {
+      "cloudFormationParameterName": "jwtSecret",
+      "environmentVariableName": "JWT_SECRET"
+    },
+    {
+      "cloudFormationParameterName": "paypalClientId",
+      "environmentVariableName": "PAYPAL_CLIENT_ID"
+    },
+    {
+      "cloudFormationParameterName": "nodeEnv",
+      "environmentVariableName": "NODE_ENV"
+    },
+    {
+      "cloudFormationParameterName": "port",
+      "environmentVariableName": "PORT"
+    },
+    {
+      "cloudFormationParameterName": "mongoUri",
+      "environmentVariableName": "MONGO_URI"
+    },
+    {
+      "cloudFormationParameterName": "jwtSecret",
+      "environmentVariableName": "JWT_SECRET"
+    },
+    {
+      "cloudFormationParameterName": "paypalClientId",
+      "environmentVariableName": "PAYPAL_CLIENT_ID"
+    },
+    {
+      "cloudFormationParameterName": "kuarsisAwsProductsS3AccessKey",
+      "environmentVariableName": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY"
+    },
+    {
+      "cloudFormationParameterName": "kuarsisAwsKuarsisMainRegion",
+      "environmentVariableName": "KUARSIS_AWS_KUARSIS_MAIN_REGION"
+    },
+    {
+      "cloudFormationParameterName": "kuarsisPublicBucketName",
+      "environmentVariableName": "KUARSIS_PUBLIC_BUCKET_NAME"
+    },
+    {
+      "cloudFormationParameterName": "kuarsisPrivateBucketName",
+      "environmentVariableName": "KUARSIS_PRIVATE_BUCKET_NAME"
+    }
+  ]
+}
