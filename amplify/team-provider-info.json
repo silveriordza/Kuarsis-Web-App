@@ -15,17 +15,20 @@
       "function": {
         "kuarsisWebAppServer": {
           "deploymentBucketName": "amplify-kuarsiswebapp-dev-151719-deployment",
-          "s3Key": "amplify-builds/kuarsisWebAppServer-52454a7a2f37624f5235-build.zip",
-          "nodeEnv": "development",
+          "s3Key": "amplify-builds/kuarsisWebAppServer-466d6a375a4c45324c72-build.zip",
+          "secretsPathAmplifyAppId": "d2zqth0d2er18d",
           "port": "5000",
-          "mongoUri": "mongodb+srv://kuarsis-web-app-devusr:tQOfzCAg4T42vRr0@kuarsis-web-app-cluster.we4g156.mongodb.net/kuarsis-web-app-dev?retryWrites=true&w=majority",
-          "jwtSecret": "abc123",
-          "paypalClientId": "AcrzlY3GQU46MNRFCFrNrt_bP2fNYvTV0T0H027U1yqgPhwMPhLQZmQLk7e6UOH6vYIoOnouLf5ygmcZ",
-          "kuarsisAwsProductsS3AccessKey": "AKIA2IBUQWRTTQTXHD3I",
-          "kuarsisAwsProductsS3SecretKey": "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",
           "kuarsisAwsKuarsisMainRegion": "us-east-1",
+          "nodeEnv": "development",
           "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
-          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev"
+          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev",
+          "kuarsisAmplifyAppid": "d2zqth0d2er18d",
+          "kuarsisAmplifyEnvironmentName": "dev",
+          "mongoUriVar": "MONGO_URI",
+          "jwtSecretVar": "JWT_SECRET",
+          "paypalClientIdVar": "PAYPAL_CLIENT_ID",
+          "kuarsisAwsProductsS3AccessKeyVar": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY",
+          "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY"
         }
       },
       "hosting": {
@@ -36,6 +39,13 @@
       },
       "api": {
         "kuarsisWebAppAPI": {}
+      }
+    }
+  },
+  "prod": {
+    "categories": {
+      "function": {
+        "kuarsisWebAppServer": {}
       }
     }
   }

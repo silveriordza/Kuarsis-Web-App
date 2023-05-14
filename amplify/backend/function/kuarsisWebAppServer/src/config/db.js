@@ -2,6 +2,7 @@ let mongoose = require('mongoose')
 let colors = require('colors')
 
 const connectDB = async () => {
+  console.log('MongoDB Connection MONGO_URI is: ', process.env.MONGO_URI)
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI, {
       useUnifiedTopology: true,

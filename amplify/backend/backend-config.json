@@ -40,7 +40,23 @@
         }
       ]
     },
-    "AMPLIFY_function_kuarsisWebAppServer_jwtSecret": {
+    "AMPLIFY_function_kuarsisWebAppServer_jwtSecretVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAmplifyAppid": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAmplifyEnvironmentName": {
       "usedBy": [
         {
           "category": "function",
@@ -56,7 +72,7 @@
         }
       ]
     },
-    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAwsProductsS3AccessKey": {
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAwsProductsS3AccessKeyVar": {
       "usedBy": [
         {
           "category": "function",
@@ -64,7 +80,7 @@
         }
       ]
     },
-    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAwsProductsS3SecretKey": {
+    "AMPLIFY_function_kuarsisWebAppServer_kuarsisAwsProductsS3SecretKeyVar": {
       "usedBy": [
         {
           "category": "function",
@@ -88,7 +104,7 @@
         }
       ]
     },
-    "AMPLIFY_function_kuarsisWebAppServer_mongoUri": {
+    "AMPLIFY_function_kuarsisWebAppServer_mongoUriVar": {
       "usedBy": [
         {
           "category": "function",
@@ -104,7 +120,7 @@
         }
       ]
     },
-    "AMPLIFY_function_kuarsisWebAppServer_paypalClientId": {
+    "AMPLIFY_function_kuarsisWebAppServer_paypalClientIdVar": {
       "usedBy": [
         {
           "category": "function",
@@ -121,6 +137,14 @@
       ]
     },
     "AMPLIFY_function_kuarsisWebAppServer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarsisWebAppServer"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarsisWebAppServer_secretsPathAmplifyAppId": {
       "usedBy": [
         {
           "category": "function",

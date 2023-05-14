@@ -1,4 +1,18 @@
 /*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
+/*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
     http://aws.amazon.com/apache2.0/
@@ -15,13 +29,101 @@ See the License for the specific language governing permissions and limitations 
 	JWT_SECRET
 	PAYPAL_CLIENT_ID
 Amplify Params - DO NOT EDIT */
+
+
+//Environment Variables from .env file or AWS lambda environment
+
 let dotenv = require('dotenv')
-dotenv.config()
+let myEnv = dotenv.config()
+
+const getSecretParamNameFromEnv = (varName) => {
+  const parameterName = '/amplify/' + process.env.KUARSIS_AMPLIFY_APPID + '/' + process.env.KUARSIS_AMPLIFY_ENVIRONMENT_NAME + '/AMPLIFY_kuarsisWebAppServer_' + varName
+  return parameterName
+}
+const mongoUriParam = getSecretParamNameFromEnv(process.env.MONGO_URI_VAR)
+const jwtSecretParam = getSecretParamNameFromEnv(process.env.JWT_SECRET_VAR)
+const paypalClientIdParam = getSecretParamNameFromEnv(process.env.PAYPAL_CLIENT_ID_VAR)
+const accessKeyParam = getSecretParamNameFromEnv(process.env.KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY_VAR)
+const secretKeyParam = getSecretParamNameFromEnv(process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR)
+
+//Added the dotenv expand feature, to expand the variables in the .env file that have references to other variables using the ${variablename} format. Look into the .env file for more information. 
+//let newExpandedEnv = dotenvExpand.expand(myEnv)
+
+const aws = require('aws-sdk');
+
+//SSM is the AWS Systems Management SDK that Kuarsis is using to get secrets from the Parameters Store which are encrypted. 
+const ssm = new aws.SSM({region: 'us-east-1'})
+
+//loadParameters is a function used as a call back by the SSM (AWS Systems Management) call to get secret values from the Parameters Store in AWS.
+const loadParameters = (data) => {
+  console.log('loadParameteres STARTED')
+  
+  //In the switch below, the env variables ending in _PARAM, is the name of the parameter as amplify stored it in the AWS SSM (systems management) Parameters Store, this are devined in the .env file and also as environment variables of the Lambda function using "amplify function update" option Environment Variables and added the variables there.  The variables ending in _VAR are also in the .env file, and those are the final names that the _PARAM variables will end up having in the process.env list.  Param.Value is the value of the secret variable that was provided by the ssm.getParameters function. 
+  //We did the code below to add the secret values coming from the AWS Parameters Store, and added them to the process.env. 
+
+  data.Parameters.map(param => {
+    console.log('Processing param.Name: ', param.Name, ' value is: ', param.Value)
+    switch (param.Name)
+    {
+      case mongoUriParam:
+      {
+        process.env[process.env.MONGO_URI_VAR] = param.Value;
+        break;
+      }
+      case jwtSecretParam:
+        process.env[process.env.JWT_SECRET_VAR] = param.Value;
+        break;
+      case paypalClientIdParam:
+        process.env[process.env.PAYPAL_CLIENT_ID_VAR] = param.Value;
+        break;
+      case accessKeyParam:
+        process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY_VAR] = param.Value;
+        break;
+      case secretKeyParam:
+        process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR] = param.Value;
+        break;
+      default:
+        break;
+    }
+  })
+
+//Connecting to MongoDB via mongoose
+//Moved the connectDB call inside the callback function loadParameters which is invoked by the ssm.getParameters (below). The getParameters function is in nature asyncrhonous, the execution will not wait for the getParameters to return, if the connectDB() is invoked outside the loadParameters (which is callback of getParameters), it will be invoked before the MONGO_URI is updated with its secret value from getParameters, hence the connectDB will fail because it has an undefined URI. Therefore, connectDB is not invoked within the callback function loadParameters.
+connectDB()
+
+}
+
+const params = 
+  {
+    Names: [
+      mongoUriParam, 
+      jwtSecretParam,
+      paypalClientIdParam,
+      accessKeyParam,
+      secretKeyParam
+    ],
+    WithDecryption: true,
+  }
+
+  console.log('app.js: parameters passed to getParameters are: ', params)
+
+  //The user that amplify is using to authenticate into the AWS account, has to have the permissions to execute the getParameters using SSM.
+  //After studying the ssm.getParameters function it turns out it returns an AWS.Request object, and in case getParameters does not provide a callback function (which is the case in code below), it will return an AWS.request that has not been sent yet (not requested). There are 2 ways of executing the request in this case, one is registering to a request even with Parameters.On(event, callback), or by invoking the .promise() function which in turn will return a Promise object, that can be handled with the usual .then and .catch.  In this case .then of the AWS.request promise recevies 2 parameters, one is the callback in case the request is successful (in case below it will callback loadParameters), and the 2nd. parameter is the error in case the request failed. 
+  const Parameters = ssm
+      .getParameters(params)
+      .promise()
+
+  Parameters.then(loadParameters, error=>{
+    console.error('NodeJS: app.js at server startup: Error getting secret parameters from AWS Systems Management Parameters Store: ', error)
+  })
+
 let path = require('path')
 let express = require('express')
 let morgan = require('morgan')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+console.log('Before let connectDB')
 let connectDB = require('./config/db.js')
+console.log('After let connectDB')
 let userRoutes = require('./routes/userRoutes.js')
 let productRoutes = require('./routes/productRoutes.js')
 let orderRoutes = require('./routes/orderRoutes.js')
@@ -29,10 +131,6 @@ let uploadRoutes = require('./routes/uploadRoutes.js')
 
 var bodyParser = require('body-parser')
 var fs = require('fs')
-
-//Initialize the environment variables
-
-connectDB()
 
 // declare a new express app
 var app = express()
@@ -68,7 +166,10 @@ console.log('Express products route added')
 
 app.listen(5000, () => {
   console.log('App started')
+
 })
+
+
 
 // Export the app object. When executing the application local this does nothing. However,
 // to port it to AWS Lambda we will create a wrapper around that will load the app from

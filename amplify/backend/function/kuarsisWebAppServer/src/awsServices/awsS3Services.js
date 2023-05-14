@@ -1,15 +1,14 @@
 const AWS = require('aws-sdk')
 const { json } = require('body-parser')
 const fs = require('fs')
-const { awsConfigs } = require('./awsConfigs.js')
 
 function createS3Instance() {
   const s3 = new AWS.S3({
     credentials: {
-      accessKeyId: awsConfigs.s3.kuarsisProductsS3AccessKey,
-      secretAccessKey: awsConfigs.s3.kuarsisProductsS3SecretyKey,
+      accessKeyId: process.env.KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY,
+      secretAccessKey: process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY,
     },
-    region: awsConfigs.Globals.awsMainRegion,
+    region: process.env.KUARSIS_AWS_KUARSIS_MAIN_REGION,
   })
   return s3
 }
@@ -21,11 +20,11 @@ async function uploadKuarsisProductToS3(fileObj) {
   const fileStream = fs.createReadStream(fileObj.filepath)
   console.log(
     'awsS3Service: publicBucketName: ',
-    awsConfigs.s3.publicBucketName
+    process.env.KUARSIS_PUBLIC_BUCKET_NAME
   )
   const params = {
     Body: fileStream,
-    Bucket: awsConfigs.s3.publicBucketName,
+    Bucket: process.env.KUARSIS_PUBLIC_BUCKET_NAME,
     Key: `PIXPUB_${Date.now()}-${fileObj.originalFilename}`,
   }
   const uploadDataPublic = await s3.upload(params).promise()
@@ -35,7 +34,7 @@ async function uploadKuarsisProductToS3(fileObj) {
 
   const params2 = {
     Body: fileStream2,
-    Bucket: awsConfigs.s3.privateBucketName,
+    Bucket: process.env.KUARSIS_PRIVATE_BUCKET_NAME,
     Key: `PIXPRIV_${Date.now()}-${fileObj.originalFilename}`,
   }
 
@@ -51,12 +50,12 @@ async function uploadKuarsisProductToS3(fileObj) {
 function createS3InstanceForListProducts() {
   const s3 = new AWS.S3({
     credentials: {
-      accessKeyId: awsConfigs.s3.kuarsisProductsS3AccessKey,
-      secretAccessKey: awsConfigs.s3.kuarsisProductsS3SecretyKey,
+      accessKeyId: process.env.KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY,
+      secretAccessKey: process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY,
     },
-    region: awsConfigs.Globals.awsMainRegion,
+    region: process.env.KUARSIS_AWS_KUARSIS_MAIN_REGION,
     apiVersion: '2006-03-01',
-    params: { Bucket: awsConfigs.s3.publicBucketName },
+    params: { Bucket: process.env.KUARSIS_PRIVATE_BUCKET_NAME },
   })
   return s3
 }
@@ -89,14 +88,14 @@ async function listKuarsisProducts() {
 async function getPresignedURL(key) {
   const s3 = createS3Instance()
   const params = {
-    Bucket: awsConfigs.s3.privateBucketName,
+    Bucket: process.env.KUARSIS_PRIVATE_BUCKET_NAME,
     Key: key,
     Expires: 600, //The presigned URL will expire in 60 seconds
     ResponseContentDisposition: `attachment; filename="${key}"`,
   }
   console.log(
     'Before getSignedURL: ',
-    awsConfigs.s3.privateBucketName,
+    process.env.KUARSIS_PRIVATE_BUCKET_NAME,
     ' Key: ',
     key
   )
@@ -111,7 +110,7 @@ async function getUploadPublicPrivatePresignedURL() {
   const s3 = createS3Instance()
   let filename = Date.now() // random file name
   const paramsPublicBucket = {
-    Bucket: awsConfigs.s3.publicBucketName,
+    Bucket: process.env.KUARSIS_PUBLIC_BUCKET_NAME,
     Key: `${filename}.jpg`,
     //Here use image/jpeg as ContentType because the Public URL is not for automatic download, only for read and show the photo in the brownser.
     ContentType: 'image/jpeg',
@@ -123,7 +122,7 @@ async function getUploadPublicPrivatePresignedURL() {
   console.log('awsS3Services.getPublicPresignedURL signedURL: ', urlPublic)
 
   const paramsPrivateBucket = {
-    Bucket: awsConfigs.s3.privateBucketName,
+    Bucket: process.env.KUARSIS_PRIVATE_BUCKET_NAME,
     Key: `${filename}.jpg`,
     /*
     Set the content type to octet-stream, to allow the photo to be downloaded when the user clicks the download button.
