@@ -42,6 +42,49 @@
       }
     }
   },
+  "kuarwfed": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarsiswebapp-kuarwfed-172319-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarsiswebapp-kuarwfed-172319-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarsiswebapp-kuarwfed-172319-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarsiswebapp-kuarwfed-172319-deployment",
+      "UnauthRoleName": "amplify-kuarsiswebapp-kuarwfed-172319-unauthRole",
+      "StackName": "amplify-kuarsiswebapp-kuarwfed-172319",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarsiswebapp-kuarwfed-172319/8a9e3110-f754-11ed-8d98-0e76f40a6c87",
+      "AmplifyAppId": "d2zqth0d2er18d"
+    },
+    "categories": {
+      "function": {
+        "kuarsisWebAppServer": {
+          "secretsPathAmplifyAppId": "d2zqth0d2er18d",
+          "nodeEnv": "development",
+          "kuarsisAmplifyAppid": "d2zqth0d2er18d",
+          "kuarsisAmplifyEnvironmentName": "dev",
+          "port": "5000",
+          "kuarsisAwsKuarsisMainRegion": "us-east-1",
+          "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
+          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev",
+          "mongoUriVar": "MONGO_URI",
+          "jwtSecretVar": "JWT_SECRET",
+          "paypalClientIdVar": "PAYPAL_CLIENT_ID",
+          "kuarsisAwsProductsS3AccessKeyVar": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY",
+          "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY",
+          "deploymentBucketName": "amplify-kuarsiswebapp-kuarwfed-172319-deployment",
+          "s3Key": "amplify-builds/kuarsisWebAppServer-44584c427461732f7a77-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2zqth0d2er18d",
+          "type": "manual"
+        }
+      },
+      "api": {
+        "kuarsisWebAppAPI": {}
+      }
+    }
+  },
   "prod": {
     "categories": {
       "function": {
