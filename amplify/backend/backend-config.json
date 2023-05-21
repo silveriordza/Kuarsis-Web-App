@@ -24,13 +24,7 @@
       "service": "Lambda"
     }
   },
-  "hosting": {
-    "amplifyhosting": {
-      "providerPlugin": "awscloudformation",
-      "service": "amplifyhosting",
-      "type": "manual"
-    }
-  },
+  "hosting": {},
   "parameters": {
     "AMPLIFY_function_kuarsisWebAppServer_deploymentBucketName": {
       "usedBy": [
@@ -149,22 +143,6 @@
         {
           "category": "function",
           "resourceName": "kuarsisWebAppServer"
-        }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_appId": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
-        }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_type": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
         }
       ]
     }
