@@ -58,7 +58,7 @@
       "function": {
         "kuarsisWebAppServer": {
           "deploymentBucketName": "amplify-kuarsiswebapp-kuarxbedev-203234-deployment",
-          "s3Key": "amplify-builds/kuarsisWebAppServer-37366c2b674d34416332-build.zip",
+          "s3Key": "amplify-builds/kuarsisWebAppServer-646a694c375a707a7866-build.zip",
           "secretsPathAmplifyAppId": "d2zqth0d2er18d",
           "port": "5000",
           "kuarsisAwsKuarsisMainRegion": "us-east-1",

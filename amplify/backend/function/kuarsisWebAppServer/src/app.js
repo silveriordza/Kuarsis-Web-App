@@ -49,7 +49,7 @@ Amplify Params - DO NOT EDIT */
 
 let dotenv = require('dotenv')
 let myEnv = dotenv.config()
-
+  
 const getSecretParamNameFromEnv = (varName) => {
   const parameterName = '/amplify/' + process.env.KUARSIS_AMPLIFY_APPID + '/' + process.env.ENV + '/AMPLIFY_kuarsisWebAppServer_' + varName
   return parameterName
