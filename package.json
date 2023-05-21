@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node amplify/backend/function/kuarsisWebAppServer/src/app",
-    "server": "nodemon amplify/backend/function/kuarsisWebAppServer/src/app",
+    "server": "nodemon ../../backend/Kuarsis-Web-App/amplify/backend/function/kuarsisWebAppServer/src/app.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
