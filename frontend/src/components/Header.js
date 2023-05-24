@@ -37,16 +37,35 @@ const Header = ({ history }) => {
       >
         <Container>
           <Navbar.Brand href='/'>
-            <Image
-              src={
-                KUARSIS_PUBLIC_STATIC_FOLDER + '/' + KUARSIS_BANNER_MAIN_LOGO
-              }
-              alt='KuarsisLogoMissing'
-              width='50'
-              height='50'
-              fluid
-            />
-            <span style={{ marginLeft: '10px' }}>Kuarsis Companies</span>
+            <table>
+              <tr>
+                <td>
+                  <Image
+                    src={
+                      KUARSIS_PUBLIC_STATIC_FOLDER +
+                      '/' +
+                      KUARSIS_BANNER_MAIN_LOGO
+                    }
+                    alt='KuarsisLogoMissing'
+                    width='50'
+                    height='50'
+                    fluid
+                  />
+                </td>
+                <td style={{ paddingLeft: '5px' }}>
+                  <tr>
+                    <td>Pixan</td>
+                  </tr>
+                  <tr
+                    style={{
+                      fontSize: 'xx-small',
+                    }}
+                  >
+                    <td>A Kuarsis Company</td>
+                  </tr>
+                </td>
+              </tr>
+            </table>
           </Navbar.Brand>
           {/* Navbar.Toggle is the tag that makes the Hamburger menu button to appear on mobiles, if you remove this line, the hamburger will not show up on mobile devices */}
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -55,27 +74,16 @@ const Header = ({ history }) => {
             className='justify-content-start'
           >
             <Nav>
-              <NavDropdown title='Vision Mision' id='visionmision'>
-                <LinkContainer to='/kuarsistech'>
-                  <NavDropdown.Item>Kuarsis Tech</NavDropdown.Item>
+              <NavDropdown title='Information' id='visionmision'>
+                <LinkContainer to='/kuarsispixan'>
+                  <NavDropdown.Item>Vision and Mision</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to='/kuarsispixan'>
-                  <NavDropdown.Item>Kuarsis Pixan</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/kuarsistaanah'>
-                  <NavDropdown.Item>Kuarsis Taanah</NavDropdown.Item>
+                  <NavDropdown.Item>Contact us</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
-            </Nav>
-            <Nav>
-              <LinkContainer to='/kuarsistech'>
-                <Nav.Link>Tech</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to='/pixan'>
-                <Nav.Link>Pixan</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to='/kuarsistaanah'>
-                <Nav.Link>Taanah</Nav.Link>
+              <LinkContainer to='/'>
+                <Nav.Link>Photos</Nav.Link>
               </LinkContainer>
             </Nav>
             <Nav className='me-auto'>
@@ -104,15 +112,15 @@ const Header = ({ history }) => {
               )}
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title='Admin' id='adminmenu'>
-                  <LinkContainer to='/admin/userlist'>
+                  {/* <LinkContainer to='/admin/userlist'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
-                  </LinkContainer>
+                  </LinkContainer> */}
                   <LinkContainer to='/admin/productlist'>
                     <NavDropdown.Item>Products</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/orderlist'>
+                  {/* <LinkContainer to='/admin/orderlist'>
                     <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
+                  </LinkContainer> */}
                 </NavDropdown>
               )}
               <LinkContainer to='/cart'>

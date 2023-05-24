@@ -11,6 +11,11 @@
       "src": "/images/KuarsisLogo256px.png",
       "type": "image/png",
       "sizes": "50x50"
+    },
+    {
+      "src": "/images/PixanLogo256px.png",
+      "type": "image/png",
+      "sizes": "50x50"
     }
   ],
   "start_url": ".",

@@ -68,11 +68,6 @@ const ProductEditScreen = ({ match, history }) => {
       )
       const { preSignedPublicURL, preSignedPrivateURL, fileS3Name } = data
 
-      console.log(
-        'ProductEditScreen.uploadFileHandler preSignedPublicURL: ',
-        preSignedPublicURL
-      )
-
       //----------START FILE SIZE REDUCTION AND WATERMARKING
       let newFile = null
 
@@ -89,11 +84,6 @@ const ProductEditScreen = ({ match, history }) => {
               headers: {
                 'Content-Type': 'image/jpeg',
               },
-              onUploadProgress: (e2) => {
-                //  Show progress
-                var percentCompleted = Math.round((e2.loaded * 100) / e2.total)
-                console.log('Public Upload Progress: ', percentCompleted)
-              },
             })
             .then(function ({ data }) {
               console.log('Public Upload Progress: Upload Completed', data)
@@ -107,38 +97,15 @@ const ProductEditScreen = ({ match, history }) => {
         headers: {
           'Content-Type': 'image/jpeg',
         },
-        onUploadProgress: (e2) => {
-          //  Show progress
-          var percentCompleted = Math.round((e2.loaded * 100) / e2.total)
-          //document.getElementById('uploadPercent').innerHTML = percentCompleted
-          console.log('Public Upload Progress: ', percentCompleted)
-        },
       })
       console.log('Public Upload Progress: Upload Completed')
-
-      //UPLOAD PRIVATE FILE:
-      console.log(
-        'ProductEditScreen.uploadFileHandler preSignedPrivateURL: ',
-        preSignedPrivateURL
-      )
       await axios.put(preSignedPrivateURL, file, {
         headers: {
           'Content-Type': 'application/octet-stream',
         },
-        onUploadProgress: (e2) => {
-          //  Show progress
-          var percentCompleted = Math.round((e2.loaded * 100) / e2.total)
-          //document.getElementById('uploadPercent').innerHTML = percentCompleted
-          console.log('Private Upload Progress: ', percentCompleted)
-        },
       })
       console.log('Private Upload Progress: Upload Completed')
 
-      /*const { data } = await axios.put(
-                BACKEND_ENDPOINT + '/upload',
-                formData
-                /*config*/
-      //)
       console.log('LOG after upload file path: ', fileS3Name)
       setImage(fileS3Name)
       setUploading(false)

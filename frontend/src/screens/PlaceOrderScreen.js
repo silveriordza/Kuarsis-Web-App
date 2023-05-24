@@ -164,6 +164,17 @@ const PlaceOrderScreen = ({ history }) => {
                     License Agreement.
                   </ListGroup.Item>
                   <ListGroup.Item as='li'>
+                    Photo purchases are not refundable.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Customer accepts to pay for the photos using PayPal service
+                    as intermediary.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
+                    Pixan will charge the cost of the photos to the customer's
+                    PayPal account on customer behalf.
+                  </ListGroup.Item>
+                  <ListGroup.Item as='li'>
                     <input
                       type='checkbox'
                       id='AgreeWithLicense'

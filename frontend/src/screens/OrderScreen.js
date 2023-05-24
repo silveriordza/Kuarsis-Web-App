@@ -94,19 +94,11 @@ const OrderScreen = ({ match, history }) => {
     if (downloadSuccess) {
       const link = document.createElement('a')
       link.href = eProductSignedURL
-      // link.href =
-      //   'https://kuarsis-products-s3-public.s3.amazonaws.com/1656042006477.jpg'
-      //link.id = 'downloadFileURL'
-      console.log('download url: ', eProductSignedURL)
       link.setAttribute('download', 'file.jpg')
       document.body.appendChild(link)
-      console.log('Before Link CLICK')
       link.click()
-      console.log('After Link CLICK')
       link.remove()
-      console.log('After Link Remove')
       dispatch({ type: ORDER_DELIVER_DOWNLOAD_RESET })
-      //window.open(eProductSignedURL, '_blank')
     }
   }, [
     dispatch,
@@ -131,7 +123,7 @@ const OrderScreen = ({ match, history }) => {
 
   const fileDownload = (productIdToDownload) => {
     dispatch(downloadOrderedProduct(productIdToDownload))
-    dispatch(deliverOrder(order))
+    //dispatch(deliverOrder(order))
   }
 
   const printReceiptHandler = () => {

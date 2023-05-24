@@ -161,6 +161,10 @@ export const PageSettings = [
         sidebarText:
           'Pixan offers photos of sunsets, sunrises, bridges, traveling, nighscapes, seascapes and more.',
       },
+      {
+        sidebarId: 2,
+        sidebarText: 'Contact us for any questions: customercare@kuarsis.com',
+      },
     ],
     linkToCompanyWebsite: '/pixan',
     settings: [

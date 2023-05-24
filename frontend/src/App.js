@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import TechScreen from './screens/TechScreen'
 import PixanScreen from './screens/PixanScreen'
@@ -68,7 +67,7 @@ const App = () => {
             <Route path='/shipping' component={ShippingScreen} />
             <Route path='/payment' component={PaymentScreen} />
             <Route path='/placeorder' component={PlaceOrderScreen} />
-            <Route path='/' component={HomeScreen} exact />
+            <Route path='/' component={PixanHomeScreen} exact />
           </Container>
         </main>
         <Footer />

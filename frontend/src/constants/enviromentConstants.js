@@ -1,5 +1,3 @@
-//PIXANDEV FILE
-
 ///Change the BACKEND_ENDPOINT to point to the desired endpoint for the target environment.
 //In case I want to test the BACKEND_ENDPOINT in the local machine then I can change it to 'http://localhost:5000'
 //In case I want to test the BACKEND_ENDPOINT in the AWS enviornment, then I can change it to 'https://ikhmic2rag.execute-api.us-east-1.amazonaws.com/dev'
@@ -20,44 +18,24 @@ export const KUARSIS_BANNER_MAIN_LOGO = '/KuarsisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
 */
-
-// LOCALHOST PROD VARIABLES
+//CONSTANTS FOR DEV.KUARSIS.COM ENVIRONMENT
 /*
-export const BACKEND_ENDPOINT = 'http://localhost:5000'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'http://localhost:3000/images'
-export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
-export const KUARSIS_PUBLIC_BUCKET_URL =
-  'https://kuarsis-products-s3-public.s3.amazonaws.com/'
-*/
-
-//CONSTANTS FOR WWW.KUARSIS.COM PROD ENVIRONMENT
-/*
-export const BACKEND_ENDPOINT =
-  'https://oatdnj177e.execute-api.us-east-1.amazonaws.com/prod'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://www.kuarsis.com/images'
-export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
-export const KUARSIS_PUBLIC_BUCKET_URL =
-  'https://kuarsis-products-s3-public.s3.amazonaws.com/'
-*/
-
-
-//CONSTANTS FOR DEV.KUARXIS.COM ENVIRONMENT
-
-export const BACKEND_ENDPOINT = 'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://dev.kuarxis.com/images' 
+export const BACKEND_ENDPOINT = 'https://ikhmic2rag.execute-api.us-east-1.amazonaws.com/dev'
+export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://dev.kuarsis.com/images'
 export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL = 'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
+*/
 
 //CONSTANTS FOR PIXANDEV.KUARSIS.COM (DEV) ENVIRONMENT
-/*
+
 export const BACKEND_ENDPOINT =
-  'https://r8chx2099g.execute-api.us-east-1.amazonaws.com/pixandev'
+  'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER =
   'https://pixandev.kuarsis.com/images'
 export const KUARSIS_BANNER_MAIN_LOGO = 'PixanLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
-*/
+
 
 //CONSTANTS FOR PIXAN.KUARSIS.COM (PROD) ENVIRONMENT
 /*
