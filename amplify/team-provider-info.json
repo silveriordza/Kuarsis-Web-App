@@ -55,5 +55,26 @@
         "kuarxbedevFunction": {}
       }
     }
+  },
+  "kuarxwfprd": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfprd-223316-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfprd-223316-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfprd-223316-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfprd-223316-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfprd-223316-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-kuarxwfprd-223316",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfprd-223316/575e3820-f9db-11ed-999d-0eba04984243",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d26emoszy6nzyt",
+          "type": "manual"
+        }
+      }
+    }
   }
 }

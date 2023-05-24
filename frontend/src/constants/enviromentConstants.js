@@ -31,23 +31,23 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 */
 
 //CONSTANTS FOR WWW.KUARSIS.COM PROD ENVIRONMENT
-/*
+
 export const BACKEND_ENDPOINT =
-  'https://oatdnj177e.execute-api.us-east-1.amazonaws.com/prod'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://www.kuarsis.com/images'
+  'https://we568vitke.execute-api.us-east-1.amazonaws.com/kuarxbeprd'
+export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://www.kuarxis.com/images'
 export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public.s3.amazonaws.com/'
-*/
+
 
 
 //CONSTANTS FOR DEV.KUARXIS.COM ENVIRONMENT
-
+/*
 export const BACKEND_ENDPOINT = 'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://dev.kuarxis.com/images' 
 export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL = 'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
-
+*/
 //CONSTANTS FOR PIXANDEV.KUARSIS.COM (DEV) ENVIRONMENT
 /*
 export const BACKEND_ENDPOINT =
