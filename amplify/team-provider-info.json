@@ -76,5 +76,26 @@
         }
       }
     }
+  },
+  "arpixwfprd": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-arpixwfprd-232351-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-arpixwfprd-232351-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-arpixwfprd-232351-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-arpixwfprd-232351-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-arpixwfprd-232351-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-arpixwfprd-232351",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-arpixwfprd-232351/68800960-f9e2-11ed-9817-0a085b01e0af",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d26emoszy6nzyt",
+          "type": "manual"
+        }
+      }
+    }
   }
 }
