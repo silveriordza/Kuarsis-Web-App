@@ -41,10 +41,10 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 */
 
 
-//CONSTANTS FOR DEV.KUARSIS.COM ENVIRONMENT
+//CONSTANTS FOR DEV.KUARXIS.COM ENVIRONMENT
 
-export const BACKEND_ENDPOINT = 'https://yjyoo02s49.execute-api.us-east-1.amazonaws.com/kuarxbedev'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://kuarxwfdev.kuarsis.com/images' 
+export const BACKEND_ENDPOINT = 'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
+export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://dev.kuarxis.com/images' 
 export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL = 'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
 

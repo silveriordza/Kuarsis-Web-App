@@ -1,6 +1,5 @@
 {
   "api": {},
-  "auth": {},
   "function": {},
   "hosting": {
     "amplifyhosting": {
@@ -26,6 +25,5 @@
         }
       ]
     }
-  },
-  "storage": {}
+  }
 }
