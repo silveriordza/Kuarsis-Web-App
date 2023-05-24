@@ -31,12 +31,6 @@
     "kuarsisAwsKuarsisMainRegion": {
       "Type": "String"
     },
-    "kuarsisPublicBucketName": {
-      "Type": "String"
-    },
-    "kuarsisPrivateBucketName": {
-      "Type": "String"
-    },
     "mongoUriVar": {
       "Type": "String"
     },
@@ -234,12 +228,6 @@
             "KUARSIS_AWS_KUARSIS_MAIN_REGION": {
               "Ref": "kuarsisAwsKuarsisMainRegion"
             },
-            "KUARSIS_PUBLIC_BUCKET_NAME": {
-              "Ref": "kuarsisPublicBucketName"
-            },
-            "KUARSIS_PRIVATE_BUCKET_NAME": {
-              "Ref": "kuarsisPrivateBucketName"
-            },
             "MONGO_URI_VAR": {
               "Ref": "mongoUriVar"
             },
@@ -258,8 +246,16 @@
             "KUARSIS_AMPLIFY_FUNCTION_NAME": {
               "Ref": "kuarsisAmplifyFunctionName"
             },
+<<<<<<< HEAD
             "LOG_LEVEL": {
               "Ref": "logLevel"
+=======
+            "KUARSIS_PUBLIC_BUCKET_NAME": {
+              "Ref": "kuarsisPublicBucketName"
+            },
+            "KUARSIS_PRIVATE_BUCKET_NAME": {
+              "Ref": "kuarsisPrivateBucketName"
+>>>>>>> 06ed53d (First commit for kuarxbeprd)
             }
           }
         },

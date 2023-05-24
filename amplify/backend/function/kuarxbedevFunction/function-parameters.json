@@ -19,14 +19,6 @@
       "environmentVariableName": "KUARSIS_AWS_KUARSIS_MAIN_REGION"
     },
     {
-      "cloudFormationParameterName": "kuarsisPublicBucketName",
-      "environmentVariableName": "KUARSIS_PUBLIC_BUCKET_NAME"
-    },
-    {
-      "cloudFormationParameterName": "kuarsisPrivateBucketName",
-      "environmentVariableName": "KUARSIS_PRIVATE_BUCKET_NAME"
-    },
-    {
       "cloudFormationParameterName": "mongoUriVar",
       "environmentVariableName": "MONGO_URI_VAR"
     },
