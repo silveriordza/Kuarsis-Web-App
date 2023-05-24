@@ -1,0 +1,148 @@
+{
+  "api": {
+    "kuarxbedevAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "kuarxbedevFunction": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_kuarxbedevFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_jwtSecretVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisAmplifyAppid": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisAmplifyEnvironmentName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisAmplifyFunctionName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisAwsKuarsisMainRegion": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisAwsProductsS3AccessKeyVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisAwsProductsS3SecretKeyVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisPrivateBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisPublicBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_mongoUriVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_paypalClientIdVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_port": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_kuarxbedevFunction_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    }
+  }
+}

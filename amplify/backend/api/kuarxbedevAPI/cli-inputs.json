@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "paths": {
+    "/users": {
+      "name": "/users",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/products": {
+      "name": "/products",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/config/paypal": {
+      "name": "/config/paypal",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/upload": {
+      "name": "/upload",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
