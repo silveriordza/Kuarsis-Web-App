@@ -31,7 +31,7 @@ export const KUARSIS_PUBLIC_BUCKET_URL = 'https://kuarsis-products-s3-public-dev
 export const BACKEND_ENDPOINT =
   'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER =
-  'https://pixandev.kuarsis.com/images'
+  'https://artpixandev.kuarxis.com/images'
 export const KUARSIS_BANNER_MAIN_LOGO = 'PixanLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
