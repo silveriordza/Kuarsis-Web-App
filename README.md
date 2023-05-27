@@ -6,7 +6,7 @@ Version Description: First version published to public which uses a shared backe
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: v1.0.0.1-front
+Git Tag: v1.0.0.1-front-dev
 Version date: 5/14/23
 Modificator name: Silverio Rodriguez Alcorta
 
