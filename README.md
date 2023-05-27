@@ -1,12 +1,12 @@
 Kuarsis Web App is the code for the official website of Kuarsis Companies.
 Author: Silverio Rodriguez Alcorta
 Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
-Version 1.0.0
-Version Description: This is the initial version of the Kuarsis Web App, it is still in its initial draft and has not been published to wider audiences yet, still requires a goot makeup of the UI.
-Date: 11/26/21
+Version 1.0.0.0
+Version Description: First version published to public which uses a shared backend for multiple frontends owned by Kuarxis.
+Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: v1.0.0.0
+Git Tag: v1.0.0.1-front
 Version date: 5/14/23
 Modificator name: Silverio Rodriguez Alcorta
 
