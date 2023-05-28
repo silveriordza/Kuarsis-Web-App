@@ -209,6 +209,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
 
 export const listOrders = () => async (dispatch, getState) => {
   try {
+    console.log('Intro listOrders')
     dispatch({
       type: ORDER_LIST_REQUEST,
     })
@@ -220,12 +221,13 @@ export const listOrders = () => async (dispatch, getState) => {
     const config = {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     }
-    const { data } = await axios.get(/*BACKEND_ENDPOINT + */ `/orders`, config)
+    const { data } = await axios.get(BACKEND_ENDPOINT +  `/orders`, config)
 
     dispatch({
       type: ORDER_LIST_SUCCESS,
       payload: data,
     })
+    console.log('Outro listOrders data=', data)
   } catch (error) {
     dispatch({
       type: ORDER_LIST_FAIL,
