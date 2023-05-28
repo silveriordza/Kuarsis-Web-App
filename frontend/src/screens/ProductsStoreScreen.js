@@ -8,7 +8,7 @@ import Paginate from '../components/Paginate'
 import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions'
 
-const PixanHomeScreen = ({ match }) => {
+const ProductsStoreScreen = ({ match }) => {
   const keyword = match.params.keyword
   const pageNumber = match.params.pageNumber || 1
 
@@ -24,7 +24,7 @@ const PixanHomeScreen = ({ match }) => {
   return (
     <>
       <Meta />
-      <h1>Pixan Photos by Silver</h1>
+      <h1>Art by Silver</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -49,4 +49,4 @@ const PixanHomeScreen = ({ match }) => {
   )
 }
 
-export default PixanHomeScreen
+export default ProductsStoreScreen

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Carousel, Image } from 'react-bootstrap'
-import { PageSettings } from '../database'
+import { BusinessConfigurations } from '../businessconfigurations'
 
 const KuarsisCarousel = ({ pageToDisplay }) => {
-  const carouselSettings = PageSettings.find(
+  const carouselSettings = BusinessConfigurations.find(
     (carousel) => carousel.pageName === pageToDisplay
   ).settings.sort((first, second) => {
     return first.priority - second.priority

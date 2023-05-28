@@ -46,7 +46,7 @@ const Header = ({ history }) => {
                       '/' +
                       KUARSIS_BANNER_MAIN_LOGO
                     }
-                    alt='KuarsisLogoMissing'
+                    alt='Kuarxis Companies'
                     width='50'
                     height='50'
                     fluid
@@ -54,14 +54,14 @@ const Header = ({ history }) => {
                 </td>
                 <td style={{ paddingLeft: '5px' }}>
                   <tr>
-                    <td>Pixan</td>
+                    <td>ArtPixan</td>
                   </tr>
                   <tr
                     style={{
                       fontSize: 'xx-small',
                     }}
                   >
-                    <td>A Kuarsis Company</td>
+                    <td>A Kuarxis Company</td>
                   </tr>
                 </td>
               </tr>
@@ -75,10 +75,10 @@ const Header = ({ history }) => {
           >
             <Nav>
               <NavDropdown title='Information' id='visionmision'>
-                <LinkContainer to='/kuarsispixan'>
+                <LinkContainer to='/businessinformation'>
                   <NavDropdown.Item>Vision and Mision</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='/kuarsispixan'>
+                <LinkContainer to='/businessinformation'>
                   <NavDropdown.Item>Contact us</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
@@ -115,7 +115,7 @@ const Header = ({ history }) => {
                   {/* <LinkContainer to='/admin/userlist'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer> */}
-                  <LinkContainer to='/admin/productlist'>
+                  <LinkContainer to='/admin/productlistadmin'>
                     <NavDropdown.Item>Products</NavDropdown.Item>
                   </LinkContainer>
                   {/* <LinkContainer to='/admin/orderlist'>

@@ -35,7 +35,7 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
-      <Link className='btn btn-light my-3' to='/pixan'>
+      <Link className='btn btn-light my-3' to='/productsstore'>
         Go Back to Photos
       </Link>
       <Row>

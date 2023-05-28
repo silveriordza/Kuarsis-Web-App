@@ -3,17 +3,17 @@
   "name": "Kuarsis Web App",
   "icons": [
     {
-      "src": "./images/Kuarsis16px.ico",
+      "src": "./images/Kuarxis16px.ico",
       "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "/images/KuarsisLogo256px.png",
+      "src": "/images/KuarxisLogo256px.png",
       "type": "image/png",
       "sizes": "50x50"
     },
     {
-      "src": "/images/PixanLogo256px.png",
+      "src": "/images/ArtPixanLogo256px.png",
       "type": "image/png",
       "sizes": "50x50"
     }

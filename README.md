@@ -1,8 +1,7 @@
-Kuarsis Web App is the code for the official website of Kuarsis Companies.
+Kuarsis Web App is the code for the official website of Kuarxis Companies.
 Author: Silverio Rodriguez Alcorta
 Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
-Version 1.0.0.0
-Version Description: First version published to public which uses a shared backend for multiple frontends owned by Kuarxis.
+Version Description: ArtPixan WebPage part of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------

@@ -12,10 +12,10 @@ const Meta = ({ title, description, keywords }) => {
 }
 
 Meta.defaultProps = {
-  title: 'Welcome to Pixan',
+  title: 'Welcome to ArtPixan',
   keywords:
     'photo, stock, landscapes, bridges, sunsets, sunset, bridge, photos, photography, sunrise, seascapes, astrophotography, images, nature',
-  description: 'Pixan is an photo stock online store',
+  description: 'ArtPixan is an art stock online store',
 }
 
 export default Meta

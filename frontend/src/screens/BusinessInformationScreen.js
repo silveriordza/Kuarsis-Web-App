@@ -2,17 +2,17 @@ import React from 'react'
 import KuarsisCarousel from '../components/KuarsisCarousel'
 import KuarsisMainWithSides from '../components/KuarsisMainWithSides'
 
-const PixanScreen = () => {
+const BusinessInformationScreen = () => {
   return (
     <section>
       <section>
-        <KuarsisCarousel pageToDisplay='Pixan' />
+        <KuarsisCarousel pageToDisplay='ArtPixan' />
       </section>
       <section className='mt-2'>
-        <KuarsisMainWithSides pageToDisplay='Pixan' />
+        <KuarsisMainWithSides pageToDisplay='ArtPixan' />
       </section>
     </section>
   )
 }
 
-export default PixanScreen
+export default BusinessInformationScreen

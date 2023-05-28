@@ -1,10 +1,10 @@
 import React from 'react'
-import { PageSettings } from '../database'
+import { BusinessConfigurations } from '../businessconfigurations'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const KuarsisMainWithSides = ({ pageToDisplay }) => {
-  const pageSettings = PageSettings.find(
+  const businessConfiguration = BusinessConfigurations.find(
     (page) => page.pageName === pageToDisplay
   )
 
@@ -12,20 +12,20 @@ const KuarsisMainWithSides = ({ pageToDisplay }) => {
     <div>
       <Row>
         <Col xs={8} className=''>
-          <h1>{pageSettings.title1}</h1>
-          <p>{pageSettings.description1}</p>
-          <h1>{pageSettings.title2}</h1>
-          <p>{pageSettings.description2}</p>
-          <h1>{pageSettings.title3}</h1>
+          <h1>{businessConfiguration.title1}</h1>
+          <p>{businessConfiguration.description1}</p>
+          <h1>{businessConfiguration.title2}</h1>
+          <p>{businessConfiguration.description2}</p>
+          <h1>{businessConfiguration.title3}</h1>
           <ul>
-            {pageSettings.description3.map((description) => (
+            {businessConfiguration.description3.map((description) => (
               <li key={description.descId}>{description.desc.toString()}</li>
             ))}
           </ul>
         </Col>
         <Col>
           <div className='sidebar'>
-            {pageSettings.sidebar.map((sidebar) => (
+            {businessConfiguration.sidebar.map((sidebar) => (
               <div key={sidebar.sidebarId}>
                 {sidebar.sidebarText.toString()}
                 <br />
@@ -33,11 +33,11 @@ const KuarsisMainWithSides = ({ pageToDisplay }) => {
               </div>
             ))}
             {/* <div> */}
-            {pageSettings.linkToCompanyWebsite ? (
+            {businessConfiguration.linkToCompanyWebsite ? (
               <p>
-                To visit {pageSettings.pageName} webpage click{' '}
+                To visit {businessConfiguration.pageName} webpage click{' '}
                 <Link
-                  to={pageSettings.linkToCompanyWebsite}
+                  to={businessConfiguration.linkToCompanyWebsite}
                   className='sidebarLink'
                 >
                   here
