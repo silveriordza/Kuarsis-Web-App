@@ -13,7 +13,7 @@ let {
 } = require('../controllers/userController.js')
 let { protect, admin } = require('../middleware/authMiddleware.js')
 
-router.route('/').post(registerUser).get(/*protect, admin,*/ getUsers)
+router.route('/').post(registerUser).get(protect, admin, getUsers)
 
 router.post('/sign-in', authUser)
 

@@ -5,6 +5,16 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxbedev-v1.0.0.2
+Version date: 5/28/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- Updated orderController to enable sending back the OrderList based on a user id, back to the calling client.
+2.- Updated the userRoutes to enable the token protection for getting list of Users of the application that is only displayed when the caller user has the Admin flag set to true, only admin users have access to see all users registered into the application.  
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: v1.0.0.1-back-dev
 Version date: 5/14/23
 Modificator name: Silverio Rodriguez Alcorta
