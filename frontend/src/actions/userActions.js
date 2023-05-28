@@ -11,6 +11,7 @@ import {
   USER_REGISTER_FAILED,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
+  USER_REGISTER_RESET,
   USER_UPDATE_PROFILE_FAILED,
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
@@ -24,7 +25,6 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAILED,
-  USER_REGISTER_RESET,
 } from '../constants/userConstants'
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 
@@ -115,6 +115,7 @@ export const register = (name, email, password) => async (dispatch) => {
 
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
+    console.log('getUserDetails intro id=', id)
     dispatch({
       type: USER_DETAILS_REQUEST,
     })

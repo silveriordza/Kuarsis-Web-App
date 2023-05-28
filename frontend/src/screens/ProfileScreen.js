@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button /*Row, Col, Table*/ } from 'react-bootstrap'
-// import { LinkContainer } from 'react-router-bootstrap'
+import { Form, Button, Row, Col, Table } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
-import FormContainer from '../components/FormContainer'
-//import { listMyOrders } from '../actions/orderActions'
+//import FormContainer from '../components/FormContainer'
+import { listMyOrders } from '../actions/orderActions'
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -27,8 +27,8 @@ const ProfileScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
 
-  // const orderListMy = useSelector((state) => state.orderListMy)
-  // const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
+   const orderListMy = useSelector((state) => state.orderListMy)
+   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
 
   useEffect(() => {
     if (!userInfo) {
@@ -38,7 +38,7 @@ const ProfileScreen = ({ location, history }) => {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         //if there is no user name, then passing 'profile' as parameter of the getUserDetails if you look into its code, it will do a request to /api/user/profile which is the function that will get the user profile information, even thou the code says /api/users/:id  the :id will be replaced with 'profile' instead of an actual user 'id'
         dispatch(getUserDetails('profile'))
-        //dispatch(listMyOrders())
+        dispatch(listMyOrders())
       } else {
         setName(user.name)
         setEmail(user.email)
@@ -56,8 +56,8 @@ const ProfileScreen = ({ location, history }) => {
   }
 
   return (
-    <FormContainer>
-      {/* <Col md={3}> */}
+    <Row>
+    <Col md={3}>
       <h2>User Profile</h2>
       {message && <Message variant='danger'> {message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
@@ -104,7 +104,7 @@ const ProfileScreen = ({ location, history }) => {
           Update
         </Button>
       </Form>
-      {/* </Col>
+      </Col>
       <Col md={9}>
         <h2>MY ORDERS</h2>
         {loadingOrders ? (
@@ -155,8 +155,8 @@ const ProfileScreen = ({ location, history }) => {
             </tbody>
           </Table>
         )}
-      </Col> */}
-    </FormContainer>
+      </Col>
+    </Row>
   )
 }
 

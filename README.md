@@ -4,6 +4,16 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: arpixwfdev-v1.0.0.3
+Version date: 5/27/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- Added Admin Users List and the Update User Details pages, now the page is able to administer users, see them change password and mark/unmark them as Admins.
+2.- Added Admin Orders List, now the page is able to manage the orders, see them and mark them as delivered. 
+3.- Added the Orders List to the User Profile screen, now the users are able to see their own orders on their profile. 
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: arpixwfdev-v1.0.0.2
 Version date: 5/27/23
 Modificator name: Silverio Rodriguez Alcorta
