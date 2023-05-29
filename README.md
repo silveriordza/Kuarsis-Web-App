@@ -5,7 +5,7 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: kuarxbedev-v1.0.0.2
+Git Tag: kuarxbeprd-v1.0.0.2
 Version date: 5/28/23
 Modificator name: Silverio Rodriguez Alcorta
 
