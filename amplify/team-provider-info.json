@@ -28,8 +28,11 @@
           "port": "5000",
           "secretsPathAmplifyAppId": "d26emoszy6nzyt",
           "deploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
-          "s3Key": "amplify-builds/kuarxbedevFunction-6b6d764a79717464444b-build.zip"
+          "s3Key": "amplify-builds/kuarxbedevFunction-49306d6f576148564256-build.zip"
         }
+      },
+      "api": {
+        "kuarxbedevAPI": {}
       }
     }
   }
