@@ -19,8 +19,8 @@ ENHANCEMENTS:
 7.- Improved the OrderScreen useEffect logic, separating static from dynamic objects, loading the static ones only once and the dynamic ones everytime one or more  objects change.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: arpixwfdev-v1.0.0.3
-Version date: 5/27/23
+Git Tag: arpixwfprd-v1.0.0.3
+Version date: 5/28/23
 Modificator name: Silverio Rodriguez Alcorta
 
 ENHANCEMENTS:
