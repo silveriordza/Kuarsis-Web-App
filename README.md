@@ -5,6 +5,15 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxbedev-v1.0.0.3
+Version date: 5/30/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- Added the isShippable flag to the products model in mongo DB, also updated all related productController functions to take the flag into account. 
+2.- Added a LogThis function into the Logger.js file in the utils folder. This function will log a user provided message into the console.log only when the LOG_LEVEL environment variable is equal or greater to 1, this value can be set in the .env file and it also has to be added as an ENVIRONMENT variable in the cloud Lambda Function.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxbedev-v1.0.0.2
 Version date: 5/28/23
 Modificator name: Silverio Rodriguez Alcorta
