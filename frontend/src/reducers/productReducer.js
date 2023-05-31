@@ -1,3 +1,5 @@
+import {LogThis} from '../libs/Logger'
+
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -93,7 +95,10 @@ export const productUpdateReducer = (state = { product: {} }, action) => {
     case PRODUCT_UPDATE_REQUEST:
       return { loading: true }
     case PRODUCT_UPDATE_SUCCESS:
+      {
+        LogThis(`productReducer, productUpdateReducer, PRODUCT_UDPATE_SUCCESS, action.payload=${JSON.stringify(action.payload)}`)
       return { loading: false, success: true, product: action.payload }
+    }
     case PRODUCT_UPDATE_FAIL:
       return { loading: false, error: action.payload }
     case PRODUCT_UPDATE_RESET:

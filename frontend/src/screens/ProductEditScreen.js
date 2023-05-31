@@ -7,9 +7,11 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listProductDetails, updateProduct } from '../actions/productActions'
-import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
+import { PRODUCT_UPDATE_RESET, PRODUCT_DETAILS_SUCCESS } from '../constants/productConstants'
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 import { convert } from '../libs/imagesLib'
+import { LogThis } from '../libs/Logger'
+
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id
@@ -18,6 +20,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [price, setPrice] = useState(null)
   const [image, setImage] = useState('')
   const [brand, setBrand] = useState('')
+  const [isShippable, setIsShippable] = useState(false)
   const [category, setCategory] = useState('')
   const [countInStock, setCountInStock] = useState(null)
   const [description, setDescription] = useState('')
@@ -28,17 +31,24 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
 
+  LogThis(`ProductEditScreen, product=${JSON.stringify(product)}`)
+
   const productUpdate = useSelector((state) => state.productUpdate)
 
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
+    product: updatedProduct
   } = productUpdate
-
+  LogThis(`ProductEditScreen, updatedProduct=${JSON.stringify(updatedProduct)}`)
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET })
+      dispatch({
+        type: PRODUCT_DETAILS_SUCCESS,
+        payload: updatedProduct,
+      })
       history.push('/admin/productlistadmin')
     } else {
       if (!product.name || product._id !== productId) {
@@ -49,13 +59,15 @@ const ProductEditScreen = ({ match, history }) => {
           setPrice(product.price)
           setImage(product.image)
           setBrand(product.brand)
+          LogThis('ProductEditScreen, useEffect, product.isShippable =', product.isShippable) 
+          setIsShippable(product.isShippable)
           setCategory(product.category)
           setCountInStock(product.countInStock)
           setDescription(product.description)
         }
       }
     }
-  }, [dispatch, history, productId, product, successUpdate])
+  }, [dispatch, history, productId, product, updatedProduct, successUpdate])
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]
@@ -124,6 +136,7 @@ const ProductEditScreen = ({ match, history }) => {
         price,
         image,
         brand,
+        isShippable,
         category,
         description,
         countInStock,
@@ -165,7 +178,6 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId='image'>
               <Form.Label>Image</Form.Label>
               <Form.Control
@@ -196,7 +208,6 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId='countInStock'>
               <Form.Label>Count In Stock</Form.Label>
               <Form.Control
@@ -206,7 +217,6 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId='category'>
               <Form.Label>Category</Form.Label>
               <Form.Control
@@ -216,7 +226,6 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId='description'>
               <Form.Label>Description</Form.Label>
               <Form.Control
@@ -225,6 +234,19 @@ const ProductEditScreen = ({ match, history }) => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
+            </Form.Group>
+            <br/>
+            <Form.Group controlId='isShippable'>
+              {LogThis(`ProductEditScreen, CheckboxControl, isShippable=${isShippable}`)}
+              <Form.Check
+                type='checkbox'
+                label='Product is shippable'
+                checked={isShippable}
+                onChange={(e) => {
+                  LogThis(`ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`)
+                  setIsShippable(e.target.checked)
+                }}
+              ></Form.Check>
             </Form.Group>
             <br />
             <Button type='submit' variant='primary'>
