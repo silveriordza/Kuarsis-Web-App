@@ -54,6 +54,9 @@
     },
     "kuarsisAmplifyFunctionName": {
       "Type": "String"
+    },
+    "logLevel": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -254,6 +257,9 @@
             },
             "KUARSIS_AMPLIFY_FUNCTION_NAME": {
               "Ref": "kuarsisAmplifyFunctionName"
+            },
+            "LOG_LEVEL": {
+              "Ref": "logLevel"
             }
           }
         },

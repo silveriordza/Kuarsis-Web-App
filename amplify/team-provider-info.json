@@ -14,21 +14,22 @@
     "categories": {
       "function": {
         "kuarxbedevFunction": {
-          "jwtSecretVar": "JWT_SECRET",
-          "kuarsisAmplifyAppid": "d26emoszy6nzyt",
-          "kuarsisAmplifyEnvironmentName": "kuarxbedev",
-          "kuarsisAmplifyFunctionName": "kuarxbedevFunction",
-          "kuarsisAwsKuarsisMainRegion": "us-east-1",
-          "kuarsisAwsProductsS3AccessKeyVar": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY",
-          "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY",
-          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev",
-          "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
-          "mongoUriVar": "MONGO_URI",
-          "paypalClientIdVar": "PAYPAL_CLIENT_ID",
-          "port": "5000",
           "secretsPathAmplifyAppId": "d26emoszy6nzyt",
           "deploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
-          "s3Key": "amplify-builds/kuarxbedevFunction-49306d6f576148564256-build.zip"
+          "s3Key": "amplify-builds/kuarxbedevFunction-5a4d5a54512f62534167-build.zip",
+          "kuarsisAmplifyAppid": "d26emoszy6nzyt",
+          "kuarsisAmplifyEnvironmentName": "kuarxbedev",
+          "port": "5000",
+          "kuarsisAwsKuarsisMainRegion": "us-east-1",
+          "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
+          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev",
+          "mongoUriVar": "MONGO_URI",
+          "jwtSecretVar": "JWT_SECRET",
+          "paypalClientIdVar": "PAYPAL_CLIENT_ID",
+          "kuarsisAwsProductsS3AccessKeyVar": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY",
+          "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY",
+          "kuarsisAmplifyFunctionName": "kuarxbedevFunction",
+          "logLevel": "0"
         }
       },
       "api": {
