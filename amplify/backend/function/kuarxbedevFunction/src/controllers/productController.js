@@ -1,5 +1,6 @@
 let asyncHandler = require('express-async-handler')
 let Product = require('../models/productModel.js')
+let LogThis = require('../utils/Logger.js')
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -37,6 +38,7 @@ const getProductById = asyncHandler(async (req, res) => {
   console.log('Getting product by id', req.params.id, 'START')
   const product = await Product.findById(req.params.id)
   if (product) {
+    LogThis(`productController, getProductById, product=${product}`)
     res.json(product)
   } else {
     res.status(404)
@@ -69,6 +71,7 @@ const createProduct = asyncHandler(async (req, res) => {
     user: req.user._id,
     image: '/images/sample.jpg',
     brand: 'Sample brand',
+    isShippable: false,
     category: 'Sample category',
     countInStock: 0,
     numReviews: 0,
@@ -90,11 +93,14 @@ const updateProduct = asyncHandler(async (req, res) => {
     description,
     image,
     brand,
+    isShippable,
     category,
     countInStock,
     isCreated,
   } = req.body
   const product = await Product.findById(req.params.id)
+
+  LogThis(`productController, updateProduct, isShippable=${isShippable}`)
 
   if (product) {
     product.name = name
@@ -102,10 +108,13 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.description = description
     product.image = image
     product.brand = brand
+    product.isShippable = isShippable
     product.category = category
     product.countInStock = countInStock
     product.isCreated = isCreated
+    LogThis(`productController, updateProduct, product.isShippable=${product.isShippable}`)
     const updatedProduct = await product.save()
+    LogThis(`productController, updateProduct, updatedProduct=${updatedProduct}`)
     res.json(updatedProduct)
   } else {
     res.status(404)

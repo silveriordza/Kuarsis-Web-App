@@ -43,6 +43,10 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    isShippable: {
+      type: Boolean,
+      required: true,
+    },
     isCreated: {
       type: Boolean,
       required: false,
