@@ -29,7 +29,7 @@ const authUser = asyncHandler(async (req, res) => {
 // @route   POST /users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
+  const { name, email, password, address, internalNumber, city, state, postalCode, country } = req.body
 
   const userExists = await User.findOne({ email })
 
@@ -42,6 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password,
+    address, internalNumber, city, state, postalCode, country
   })
 
   if (user) {
@@ -50,6 +51,12 @@ const registerUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      address: user.address,
+      internalNumber: user.internalNumber,
+      city: user.city,
+      state: user.state,
+      postalCode: user.postalCode,
+      country: user.country,
       token: generateToken(user._id),
     })
   } else {
@@ -70,6 +77,12 @@ const getUserProfile = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      address: user.address,
+      internalNumber: user.internalNumber,
+      city: user.city,
+      state: user.state,
+      postalCode: user.postalCode,
+      country: user.country,
     })
   } else {
     res.status(404)
@@ -89,12 +102,25 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password
     }
+    user.address = req.body.address || user.address
+    user.internalNumber = req.body.internalNumber || user.internalNumber
+    user.city = req.body.city || user.city
+    user.state = req.body.state || user.state
+    user.postalCode = req.body.postalCode || user.postalCode
+    user.country = req.body.country || user.country
+
     const updatedUser = await user.save()
     res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
+      address: updatedUser.address,
+      internalNumber: updatedUser.internalNumber,
+      city: updatedUser.city,
+      state: updatedUser.state,
+      postalCode: updatedUser.postalCode,
+      country: updatedUser.country,
       token: generateToken(updatedUser._id),
     })
   } else {
@@ -149,6 +175,12 @@ const updateUser = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
     user.isAdmin = req.body.isAdmin
+    user.address = req.body.address || user.address
+    user.internalNumber = req.body.internalNumber || user.internalNumber
+    user.city = req.body.city || user.city
+    user.state = req.body.state || user.state
+    user.postalCode = req.body.postalCode || user.postalCode
+    user.country = req.body.country || user.country
     const updatedUser = await user.save()
 
     res.json({
@@ -156,6 +188,12 @@ const updateUser = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
+      address: updatedUser.address,
+      internalNumber: updatedUser.internalNumber,
+      city: updatedUser.city,
+      state: updatedUser.state,
+      postalCode: updatedUser.postalCode,
+      country: updatedUser.country,
     })
   } else {
     res.status(404)

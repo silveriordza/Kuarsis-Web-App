@@ -72,6 +72,9 @@ const createProduct = asyncHandler(async (req, res) => {
     image: '/images/sample.jpg',
     brand: 'Sample brand',
     isShippable: false,
+    isDownloadable: false,
+    isImageProtected: false,
+    isBookable: false,
     category: 'Sample category',
     countInStock: 0,
     numReviews: 0,
@@ -94,6 +97,9 @@ const updateProduct = asyncHandler(async (req, res) => {
     image,
     brand,
     isShippable,
+    isDownloadable,
+    isImageProtected,
+    isBookable,
     category,
     countInStock,
     isCreated,
@@ -109,10 +115,13 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.image = image
     product.brand = brand
     product.isShippable = isShippable
+    product.isDownloadable = isDownloadable
+    product.isImageProtected = isImageProtected
+    product.isBookable = isBookable
     product.category = category
     product.countInStock = countInStock
     product.isCreated = isCreated
-    LogThis(`productController, updateProduct, product.isShippable=${product.isShippable}`)
+    LogThis(`productController, updateProduct, product=${product}`)
     const updatedProduct = await product.save()
     LogThis(`productController, updateProduct, updatedProduct=${updatedProduct}`)
     res.json(updatedProduct)

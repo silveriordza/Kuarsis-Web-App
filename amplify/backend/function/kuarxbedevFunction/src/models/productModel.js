@@ -46,6 +46,22 @@ const productSchema = mongoose.Schema(
     isShippable: {
       type: Boolean,
       required: true,
+      default: false
+    },
+    isDownloadable: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+    isImageProtected: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+    isBookable: {
+      type: Boolean,
+      required: true,
+      default: false
     },
     isCreated: {
       type: Boolean,
