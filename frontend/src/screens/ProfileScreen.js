@@ -14,6 +14,12 @@ const ProfileScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [address, setaddress] = useState('')
+  const [internalNumber, setinternalNumber] = useState('')
+  const [city, setcity] = useState('')
+  const [state, setstate] = useState('')
+  const [postalCode, setpostalCode] = useState('')
+  const [country, setcountry] = useState('')
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
@@ -42,6 +48,12 @@ const ProfileScreen = ({ location, history }) => {
       } else {
         setName(user.name)
         setEmail(user.email)
+        setaddress(user.address)
+        setinternalNumber(user.internalNumber)
+        setcity(user.city)
+        setstate(user.state)
+        setpostalCode(user.postalCode)
+        setcountry(user.country)
       }
     }
   }, [dispatch, history, userInfo, user, success])
@@ -51,7 +63,7 @@ const ProfileScreen = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else {
-      dispatch(updateUserProfile({ id: user._id, name, email, password }))
+      dispatch(updateUserProfile({ id: user._id, name, email, password, address, internalNumber, city, state, postalCode, country }))
     }
   }
 
@@ -98,6 +110,60 @@ const ProfileScreen = ({ location, history }) => {
             placeholder='Confirm Password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='address'>
+          <Form.Label>Address</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter address'
+            value={address}
+            onChange={(e) => setaddress(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='internalNumber'>
+          <Form.Label>Internal Number</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter internal number'
+            value={internalNumber}
+            onChange={(e) => setinternalNumber(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='city'>
+          <Form.Label>City</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter city'
+            value={city}
+            onChange={(e) => setcity(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='state'>
+          <Form.Label>State</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter state'
+            value={state}
+            onChange={(e) => setstate(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='postalCode'>
+          <Form.Label>Postal code</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter postal code'
+            value={postalCode}
+            onChange={(e) => setpostalCode(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId='country'>
+          <Form.Label>Country</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Enter country'
+            value={country}
+            onChange={(e) => setcountry(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Button type='submit' variant='primary' className='mt-3'>

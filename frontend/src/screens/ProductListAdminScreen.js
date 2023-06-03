@@ -102,6 +102,9 @@ const ProductListAdminScreen = ({ history, match }) => {
                 <th>CATEGORY</th>
                 <th>BRAND</th>
                 <th>SHIPPABLE</th>
+                <th>DOWNLOADABLE</th>
+                <th>IMAGE PROTECTED</th>
+                <th>BOOKABLE</th>
                 <th></th>
               </tr>
             </thead>
@@ -114,6 +117,9 @@ const ProductListAdminScreen = ({ history, match }) => {
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>{product.isShippable? 'YES':'NO'}</td>
+                  <td>{product.isDownloadable? 'YES':'NO'}</td>
+                  <td>{product.isImageProtected? 'YES':'NO'}</td>
+                  <td>{product.isBookable? 'YES':'NO'}</td>
                   <td>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
                       <Button variant='light' className='btn-sm'>

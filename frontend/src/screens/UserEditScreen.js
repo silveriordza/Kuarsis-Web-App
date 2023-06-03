@@ -14,6 +14,12 @@ const UserEditScreen = ({ match, history }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
+  const [address, setaddress] = useState('')
+  const [internalNumber, setinternalNumber] = useState('')
+  const [city, setcity] = useState('')
+  const [state, setstate] = useState('')
+  const [postalCode, setpostalCode] = useState('')
+  const [country, setcountry] = useState('')
 
   const dispatch = useDispatch()
 
@@ -38,13 +44,19 @@ const UserEditScreen = ({ match, history }) => {
         setName(user.name)
         setEmail(user.email)
         setIsAdmin(user.isAdmin)
+        setaddress(user.address)
+        setinternalNumber(user.internalNumber)
+        setcity(user.city)
+        setstate(user.state)
+        setpostalCode(user.postalCode)
+        setcountry(user.country)
       }
     }
   }, [dispatch, history, user, userId, successUpdate])
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(updateUser({ _id: userId, name, email, isAdmin }))
+    dispatch(updateUser({ _id: userId, name, email, isAdmin, address, internalNumber, city, state, postalCode, country }))
   }
 
   return (
@@ -88,6 +100,60 @@ const UserEditScreen = ({ match, history }) => {
                 onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
+            <Form.Group controlId='address'>
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter address'
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId='internalNumber'>
+            <Form.Label>Internal Number</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter internal number'
+              value={internalNumber}
+              onChange={(e) => setinternalNumber(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId='city'>
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter city'
+              value={city}
+              onChange={(e) => setcity(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId='state'>
+            <Form.Label>State</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter state'
+              value={state}
+              onChange={(e) => setstate(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId='postalCode'>
+            <Form.Label>Postal code</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter postal code'
+              value={postalCode}
+              onChange={(e) => setpostalCode(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId='country'>
+            <Form.Label>Country</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='Enter country'
+              value={country}
+              onChange={(e) => setcountry(e.target.value)}
+            ></Form.Control>
+        </Form.Group>
             <Button type='submit' variant='primary' className='mt-3'>
               Update
             </Button>

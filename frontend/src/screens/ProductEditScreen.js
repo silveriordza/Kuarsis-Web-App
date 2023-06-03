@@ -20,7 +20,10 @@ const ProductEditScreen = ({ match, history }) => {
   const [price, setPrice] = useState(null)
   const [image, setImage] = useState('')
   const [brand, setBrand] = useState('')
-  const [isShippable, setIsShippable] = useState(false)
+  const [isShippable, setisShippable] = useState(false)
+  const [isDownloadable, setisDownloadable] = useState(false)
+  const [isImageProtected, setisImageProtected] = useState(false)
+  const [isBookable, setisBookable] = useState(false)
   const [category, setCategory] = useState('')
   const [countInStock, setCountInStock] = useState(null)
   const [description, setDescription] = useState('')
@@ -59,8 +62,11 @@ const ProductEditScreen = ({ match, history }) => {
           setPrice(product.price)
           setImage(product.image)
           setBrand(product.brand)
-          LogThis('ProductEditScreen, useEffect, product.isShippable =', product.isShippable) 
-          setIsShippable(product.isShippable)
+          LogThis('ProductEditScreen, useEffect, product =', product) 
+          setisShippable(product.isShippable)
+          setisDownloadable(product.isDownloadable)
+          setisImageProtected(product.isImageProtected)
+          setisBookable(product.isBookable)
           setCategory(product.category)
           setCountInStock(product.countInStock)
           setDescription(product.description)
@@ -137,6 +143,9 @@ const ProductEditScreen = ({ match, history }) => {
         image,
         brand,
         isShippable,
+        isDownloadable,
+        isImageProtected,
+        isBookable,
         category,
         description,
         countInStock,
@@ -244,7 +253,43 @@ const ProductEditScreen = ({ match, history }) => {
                 checked={isShippable}
                 onChange={(e) => {
                   LogThis(`ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`)
-                  setIsShippable(e.target.checked)
+                  setisShippable(e.target.checked)
+                }}
+              ></Form.Check>
+            </Form.Group>
+            <Form.Group controlId='isDownloadable'>
+              {LogThis(`ProductEditScreen, CheckboxControl, isDownloadable=${isDownloadable}`)}
+              <Form.Check
+                type='checkbox'
+                label='Product is downloadable'
+                checked={isDownloadable}
+                onChange={(e) => {
+                  LogThis(`ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`)
+                  setisDownloadable(e.target.checked)
+                }}
+              ></Form.Check>
+            </Form.Group>
+            <Form.Group controlId='isImageProtected'>
+              {LogThis(`ProductEditScreen, CheckboxControl, isImageProtected=${isImageProtected}`)}
+              <Form.Check
+                type='checkbox'
+                label='Product is image protected'
+                checked={isImageProtected}
+                onChange={(e) => {
+                  LogThis(`ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`)
+                  setisImageProtected(e.target.checked)
+                }}
+              ></Form.Check>
+            </Form.Group>
+            <Form.Group controlId='isBookable'>
+              {LogThis(`ProductEditScreen, CheckboxControl, isBookable=${isBookable}`)}
+              <Form.Check
+                type='checkbox'
+                label='Product is bookable'
+                checked={isBookable}
+                onChange={(e) => {
+                  LogThis(`ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`)
+                  setisBookable(e.target.checked)
                 }}
               ></Form.Check>
             </Form.Group>
