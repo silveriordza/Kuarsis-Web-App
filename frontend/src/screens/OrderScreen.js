@@ -6,6 +6,8 @@ import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import {LogThis} from '../libs/Logger'
+
 import {
   getOrderDetails,
   payOrder,
@@ -18,6 +20,8 @@ import {
   ORDER_DELIVER_DOWNLOAD_RESET,
 } from '../constants/orderConstants'
 
+import { getUserDetails} from '../actions/userActions'
+
 import {
   BACKEND_ENDPOINT,
   KUARSIS_PUBLIC_BUCKET_URL,
@@ -27,10 +31,25 @@ import { CART_RESET } from '../constants/cartConstants'
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id
+  
+  const [isShippable, seisShippable] = useState(false)
+
+  let isDownloadable = false;
+  let isBookable = false;
+
+  const [address, setaddress] = useState('')
+  const [internalNumber, setinternalNumber] = useState('')
+  const [city, setcity] = useState('')
+  const [state, setstate] = useState('')
+  const [postalCode, setpostalCode] = useState('')
+  const [country, setcountry] = useState('')
 
   const [sdkReady, setSdkReady] = useState(false)
 
   const dispatch = useDispatch()
+
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user, success : usersuccess } = userDetails
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
@@ -63,7 +82,19 @@ const OrderScreen = ({ match, history }) => {
     if (!userInfo) {
       history.push('/login')
     }
-
+    if (!user || !user.name) {
+      dispatch(getUserDetails('profile'))
+      LogThis(`OrderScreen, requested getUserDetails`)
+    }
+    else{
+      setaddress(user.address)
+      setinternalNumber(user.internalNumber)
+      setcity(user.city)
+      setstate(user.state)
+      setpostalCode(user.postalCode)
+      setcountry(user.country)
+      LogThis(`OrderScreen, else of gotUserDetails: user=${JSON.stringify(user)}`)
+    }
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get(
         BACKEND_ENDPOINT + '/config/paypal'
@@ -100,17 +131,39 @@ const OrderScreen = ({ match, history }) => {
       link.remove()
       dispatch({ type: ORDER_DELIVER_DOWNLOAD_RESET })
     }
+    //Checking if at least one of the products in the order is shippable.
+    /*
+    isShippable = order ? ((order.orderItems.find((item) => {item.isShippable==true}) === undefined) ? false : true ): false
+    */
+    if(order && order.orderItems){
+      LogThis(`OrderScreen, UseEffect, Before orderItems.find: isShippable=${isShippable}; order.orderItems=${JSON.stringify(order.orderItems)}`)
+      let shippableItemIs=order.orderItems.find(x => x.isShippable === true)
+      seisShippable( (shippableItemIs?? false)? true: false)
+      LogThis(`OrderScreen, UseEffect, After orderItems.find: isShippable=${isShippable}; shippableItemIs=${JSON.stringify(shippableItemIs)}`)
+      
+    }
+    else {
+      seisShippable(false);
+      LogThis(`OrderScreen, UseEffect, isShippable=${isShippable}; order=null`)
+    }
   }, [
     dispatch,
     orderId,
     successPay,
     successDeliver,
     order,
+    isShippable,
     eProductSignedURL,
     downloadSuccess,
     history,
     userInfo,
+    user
   ])
+
+/*   const isOrderShippable = (productsOrdered) => {
+    if (productsOrdered !== null)
+    return productsOrdered.find(item => item.isShippable == true) ?? false
+  } */
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult))
@@ -141,7 +194,7 @@ const OrderScreen = ({ match, history }) => {
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Licensing to</h2>
+              <h2>Downloadable products licensed to:</h2>
               <p>
                 <strong>Name: </strong>
                 {order.user.name}
@@ -150,13 +203,21 @@ const OrderScreen = ({ match, history }) => {
                 <strong>Email: </strong>
                 <a href={`mailto:${order.user.email}`}> {order.user.email}</a>
               </p>
-              {/* {order.isDelivered ? (
-                <Message variant='success'>
-                  Delivered on {order.deliveredAt}
-                </Message>
-              ) : (
-                <Message variant='danger'>Not Delivered</Message>
-              )} */}
+              {LogThis(`OrderScreen, Displaying Shippable: isShippable=${isShippable}`)}
+              {isShippable ? (
+                 <div>
+                  <h2>Shippable products will be delivered at:</h2>
+                  <p>{`${address??''}${internalNumber? (' '+ internalNumber) : ''}, ${city??''}, ${state??''}, ${postalCode??''}, ${country??''}`}</p>
+                  { order.isDelivered ? (
+                                          <Message variant='success'>
+                                              Shipped on {order.deliveredAt}
+                                          </Message>
+                    ) : (
+                      <Message variant='danger'>Not Shipped Yet</Message>
+                    )
+                  }
+                 </div>
+                 ) : <></>}
             </ListGroup.Item>
             <ListGroup.Item>
               <h2>Payment Method</h2>
@@ -195,20 +256,43 @@ const OrderScreen = ({ match, history }) => {
                           {item.qty} x $ {item.price} = ${' '}
                           {item.qty * item.price}
                         </Col>
-                        {order.isPaid ? (
-                          <Col>
-                            <Button
-                              type='button'
-                              className='btn-block'
-                              disabled={!order.isPaid}
-                              onClick={() => fileDownload(item.product)}
-                            >
-                              Download
-                            </Button>
-                          </Col>
-                        ) : (
-                          <></>
-                        )}
+                        {order.isPaid ? ( !item.isShippable&&!item.isBookable&&item.isDownloadable?
+                                          (
+                                              <Col>
+                                                <Button
+                                                  type='button'
+                                                  className='btn-block'
+                                                  disabled={!order.isPaid}
+                                                  onClick={() => fileDownload(item.product)}
+                                                >
+                                                  Download
+                                                </Button>
+                                              </Col>
+                                          )
+                                          :
+                                          ( item.isShippable&&!item.isBookable&&!item.isDownloadable?
+                                            (
+                                              <Col><strong>{order.isDelivered? 'Shipped' : 'To be shipped'}</strong></Col>
+                                            )
+                                            :
+                                            (!item.isShippable&&item.isBookable&&!item.isDownloadable?
+                                              (
+                                                <Col><strong>{order.isDelivered? 'Booked' : 'To be booked'}</strong></Col>
+                                              )
+                                              :
+                                              (
+                                                <></>
+                                              )
+                                            )
+                                          )
+                                        )
+                                        :
+                                        (
+                                          <Col>
+                                          </Col>
+                                        )
+                          }
+                                              
                       </Row>
                     </ListGroup.Item>
                   ))}
@@ -269,7 +353,7 @@ const OrderScreen = ({ match, history }) => {
               {userInfo &&
                 userInfo.isAdmin &&
                 order.isPaid &&
-                false && //This false should be replaced by a flag that can be part of the product attributes to configure when a product needs to be physically delivered.
+                isShippable && //This false should be replaced by a flag that can be part of the product attributes to configure when a product needs to be physically delivered.
                 !order.isDelivered && (
                   <ListGroup.Item>
                     <Button

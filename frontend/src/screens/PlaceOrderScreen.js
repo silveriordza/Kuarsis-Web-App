@@ -24,7 +24,7 @@ const PlaceOrderScreen = ({ history }) => {
 
   const orderCreate = useSelector((state) => state.orderCreate)
   const { order, success, error, orderPaid } = orderCreate
-
+ 
   useEffect(() => {
     console.log('orderPaid variable is: ', orderPaid)
     if (success && !orderPaid) {
