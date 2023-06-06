@@ -13,6 +13,22 @@ const orderSchema = mongoose.Schema(
         qty: { type: Number, required: true },
         image: { type: String, required: true },
         price: { type: Number, required: true },
+        isShippable: {
+          type: Boolean,
+          required: true,
+        },
+        isDownloadable: {
+          type: Boolean,
+          required: true,
+        },
+        isImageProtected: {
+          type: Boolean,
+          required: true,
+        },
+        isBookable: {
+          type: Boolean,
+          required: true,
+        },
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
