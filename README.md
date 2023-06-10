@@ -5,13 +5,16 @@ Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on sel
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: arpixwfdev-v1.0.0.3
+Git Tag: arpixwfdev-v1.0.0.4
 Version date: 5/30/23
 Modificator name: Silverio Rodriguez Alcorta
 
 ENHANCEMENTS:
 1.- Added the isShippable flag to the ProductEditScreen and to the ProductListAdminScreen, to show when the product is shippable or not, and also to create product with this flag or update the product with this flag. 
 2.- Added a LogThis function into the Logger.js file in the utils folder. This function will log a user provided message into the console.log only when the LOG_LEVEL constant is equal or greater to 1, this value can be set in the environmentConstants.js file.
+3.- Added address information (address, internal number, city, state, postal code, country) into the User Profile, User Registration, User Details Admin. 
+4.- Added product types to the products to mark when they are shippable, downloadable, bookable, and image protected, including columns in the Product List Admin. 
+5.- Added logic into the OrderScreen that identifies when any of the products in the order, are shippable, in which case it shows up the Mark as Delivered button (if the user is admin), shows Download button only for downloadable products, the "To be shipped"/"Shipped" message, and the "To be booked" "booked" message for products that are shippable and bookable correspondingly. If the order has not been paid, the Download button will not show up, nor the shipped or booked messages.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: arpixwfdev-v1.0.0.3
