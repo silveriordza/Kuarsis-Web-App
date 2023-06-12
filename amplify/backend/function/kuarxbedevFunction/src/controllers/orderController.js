@@ -3,6 +3,7 @@ let Order = require('../models/orderModel.js')
 let path = require('node:path')
 let Product = require('../models/productModel.js')
 let awsS3Services = require('../awsServices/awsS3Services')
+let LogThis = require('../utils/Logger.js')
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -102,6 +103,7 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
 // @access  Private
 const getMyOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id })
+  LogThis(`orderController, getMyOrders: req.user._id=${req.user._id}, orders=${JSON.stringify(orders)}`)
   res.json(orders)
   
 })
