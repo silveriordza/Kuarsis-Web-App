@@ -26,6 +26,8 @@ import {
 
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 
+import {LogThis} from '../libs/Logger'
+
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -176,6 +178,8 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
 
 export const listMyOrders = () => async (dispatch, getState) => {
   try {
+    
+    LogThis(`orderActions, listMyOrders: entering`)
     dispatch({
       type: ORDER_LIST_MY_REQUEST,
     })
@@ -187,11 +191,12 @@ export const listMyOrders = () => async (dispatch, getState) => {
     const config = {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     }
+    LogThis(`orderActions, listMyOrders: userLogin=${JSON.stringify(userInfo??'undefined')}`)
     const { data } = await axios.get(
       BACKEND_ENDPOINT + `/orders/myorders`,
       config
     )
-
+    LogThis(`orderActions, listMyOrders: data=${JSON.stringify(data??'underfined')}`)
     dispatch({
       type: ORDER_LIST_MY_SUCCESS,
       payload: data,

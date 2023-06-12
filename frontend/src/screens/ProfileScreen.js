@@ -8,6 +8,7 @@ import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 //import FormContainer from '../components/FormContainer'
 import { listMyOrders } from '../actions/orderActions'
+import {LogThis} from '../libs/Logger'
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -38,10 +39,14 @@ const ProfileScreen = ({ location, history }) => {
 
   useEffect(() => {
     if (!userInfo) {
+      LogThis(`ProfileScreen, useEffect, no userInfo available`)
       history.push('/sign-in')
     } else {
-      if (!user || !user.name || success) {
+      LogThis(`ProfileScreen, useEffect, userInfo user=${JSON.stringify(user)}, success=${success}`)
+      if (!user || !user.name || success || user._id != userInfo._id) {
+        
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
+        LogThis(`ProfileScreen, useEffect, about to call getUserDetails with 'profile' as id`)
         //if there is no user name, then passing 'profile' as parameter of the getUserDetails if you look into its code, it will do a request to /api/user/profile which is the function that will get the user profile information, even thou the code says /api/users/:id  the :id will be replaced with 'profile' instead of an actual user 'id'
         dispatch(getUserDetails('profile'))
         dispatch(listMyOrders())
@@ -54,6 +59,7 @@ const ProfileScreen = ({ location, history }) => {
         setstate(user.state)
         setpostalCode(user.postalCode)
         setcountry(user.country)
+        dispatch(listMyOrders())
       }
     }
   }, [dispatch, history, userInfo, user, success])

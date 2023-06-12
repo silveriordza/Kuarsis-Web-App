@@ -336,6 +336,7 @@ const OrderScreen = ({ match, history }) => {
                   </Button>
                 </ListGroup.Item>
               )}
+              {LogThis(`OrderScreen, PayPalButton render, order=${JSON.stringify(order)}, loadingPay=${loadingPay}, sdkReady=${sdkReady}`)}
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
