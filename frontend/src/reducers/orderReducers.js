@@ -25,7 +25,9 @@ import {
   ORDER_DELIVER_DOWNLOAD_FAIL,
   ORDER_DELIVER_DOWNLOAD_RESET,
   ORDER_CREATE_PAID,
+  ORDER_CREATE_RESET,
 } from '../constants/orderConstants'
+import { LogThis } from '../libs/Logger'
 
 export const orderCreateReducer = (state = {}, action) => {
   switch (action.type) {
@@ -37,7 +39,7 @@ export const orderCreateReducer = (state = {}, action) => {
       return {
         loading: false,
         success: true,
-        orderPaid: false,
+        orderPaid: true,
         order: action.payload,
       }
     case ORDER_CREATE_FAIL:
@@ -49,6 +51,9 @@ export const orderCreateReducer = (state = {}, action) => {
       return {
         orderPaid: true,
       }
+    case ORDER_CREATE_RESET:
+      LogThis(`orderReducer, ORDER_CREATE_RESET, resetting order create`)
+      return {}
     default:
       return state
   }

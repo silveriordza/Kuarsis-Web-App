@@ -5,6 +5,7 @@ import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
+import {ORDER_CREATE_RESET} from '../constants/orderConstants'
 
 //Match is for getting the product id to add to the cart. Location is to find the qty (cuantity) parameter in the URL, and history is for redirecting to a different page with history.push
 const CartScreen = ({ match, location, history }) => {
@@ -30,7 +31,8 @@ const CartScreen = ({ match, location, history }) => {
   }
 
   const checkoutHandler = () => {
-    history.push('/sign-in?redirect=placeorder')
+    dispatch({type: ORDER_CREATE_RESET})
+    history.push('/sign-in?redirect=order')
   }
 
   return (
