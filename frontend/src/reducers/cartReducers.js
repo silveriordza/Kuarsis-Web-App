@@ -7,6 +7,8 @@ import {
   CART_SET_AS_PAID
 } from '../constants/cartConstants'
 
+import {LogThis} from '../libs/Logger'
+
 export const cartReducer = (
   state = { cartItems: [], shippingAddress: {}, isPaid: false },
   action
@@ -49,6 +51,7 @@ export const cartReducer = (
         isPaid: true,
       }
     case CART_RESET:
+      LogThis(`cartReducer, CART_RESET, resetting cart`)
       return { cartItems: [], shippingAddress: {}, isPaid: false }
     default:
       return state

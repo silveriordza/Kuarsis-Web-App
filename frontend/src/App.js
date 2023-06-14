@@ -72,7 +72,6 @@ const App = () => {
             <Route path='/orderdetail/:id' component={OrderDetailScreen} />
             <Route path='/shipping' component={ShippingScreen} />
             <Route path='/payment' component={PaymentScreen} />
-            <Route path='/placeorder' component={PlaceOrderScreen} />
             <Route path='/' component={ProductsStoreScreen} exact />
           </Container>
         </main>

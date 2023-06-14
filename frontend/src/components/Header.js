@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Image, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom';
 import { logout } from '../actions/userActions'
 import { useEffect } from 'react'
 import {
@@ -19,7 +20,7 @@ const Header = ({ history }) => {
       history.push('/')
     }
     // eslint-disable-next-line
-  }, [history, logedout])
+  }, [history, userLogin])
 
   const logoutHandler = () => {
     dispatch(logout())
@@ -36,8 +37,10 @@ const Header = ({ history }) => {
         collapseOnSelect
       >
         <Container>
-          <Navbar.Brand href='/'>
+          <Navbar.Brand>
+            <Link to='/' className='HeaderBrandLink'>
             <table>
+              <tbody>
               <tr>
                 <td>
                   <Image
@@ -65,7 +68,9 @@ const Header = ({ history }) => {
                   </tr>
                 </td>
               </tr>
+              </tbody>
             </table>
+            </Link>
           </Navbar.Brand>
           {/* Navbar.Toggle is the tag that makes the Hamburger menu button to appear on mobiles, if you remove this line, the hamburger will not show up on mobile devices */}
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

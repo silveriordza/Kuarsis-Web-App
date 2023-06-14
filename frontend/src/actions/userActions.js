@@ -27,6 +27,7 @@ import {
   USER_UPDATE_FAILED,
 } from '../constants/userConstants'
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
+import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -72,6 +73,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_REGISTER_RESET })
   dispatch({ type: USER_DETAILS_RESET })
   dispatch({ type: USER_LIST_RESET })
+  dispatch({ type: ORDER_CREATE_RESET })
 }
 
 export const register = (name, email, password, address, internalNumber, city, state, postalCode, country) => async (dispatch) => {

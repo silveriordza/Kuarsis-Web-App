@@ -105,8 +105,8 @@ const PixanProductScreen = ({ history, match }) => {
                                 </option>
                               )
                             )} */}
-                            <option key='1' value='1' selected>
-                              1
+                            <option key='1' value='1' defaultValue={1}>
+                              1 
                             </option>
                           </Form.Control>
                         </Col>

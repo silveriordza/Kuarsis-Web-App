@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import {LogThis} from '../libs/Logger'
-import {addDecimals} from '../libs/Functions'
+import {addDecimals, addPayPalScript} from '../libs/Functions'
 
 import {
   getOrderDetails,
@@ -55,7 +55,7 @@ const OrderScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const userDetails = useSelector((state) => state.userDetails)
-  const { user, success : usersuccess } = userDetails
+  const { user, loading : userLoading } = userDetails
 
   /*
   const orderDetails = useSelector((state) => state.orderDetails)
@@ -92,7 +92,23 @@ const OrderScreen = ({ history }) => {
   cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
   cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.taxPrice)).toFixed(2)*/
   
-
+  const addPayPalScript = async () => {
+    LogThis(`OrderScreen, addPayPalScript: started`)
+    const { data: clientId } = await axios.get(
+      BACKEND_ENDPOINT + '/config/paypal'
+    )
+    console.log('PayPal Client Id: ', clientId)
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
+    script.async = true
+    script.onload = () => {
+      LogThis(`OrderScreen, addPayPalScript: onload about to call setSdkReady`)
+      setSdkReady(true)
+    }
+    document.body.appendChild(script)
+    LogThis(`OrderScreen, addPayPalScript: ended`)
+  }
   
 
   useEffect(() => {
@@ -100,7 +116,8 @@ const OrderScreen = ({ history }) => {
       history.push('/login')
     }
     
-    if (!user || !user.name) {
+    if (!userLoading){ 
+      if(!user || !user.name) {
       dispatch(getUserDetails('profile'))
       LogThis(`OrderScreen, requested getUserDetails`)
     }
@@ -113,24 +130,12 @@ const OrderScreen = ({ history }) => {
       setcountry(user.country)
       LogThis(`OrderScreen, else of gotUserDetails: user=${JSON.stringify(user)}`)
     }
+  }
 
     /*
     TODO: Check if this addPayPalScrit function definition can be moved outside of the useEffect, this could be one of the reasons why the paypal buttons are dissapearing.
     */
-    const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get(
-        BACKEND_ENDPOINT + '/config/paypal'
-      )
-      console.log('PayPal Client Id: ', clientId)
-      const script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-      script.async = true
-      script.onload = () => {
-        setSdkReady(true)
-      }
-      document.body.appendChild(script)
-    }
+   
 
     /*if (!order || successPay || successDeliver || order._id !== orderId) {
       dispatch({ type: ORDER_PAY_RESET })
@@ -140,6 +145,7 @@ const OrderScreen = ({ history }) => {
     } else*/
     // Calculate prices
     //dispatch({ type: CART_RESET }) 
+    
     if(cart)
     {
        if(cart.cartItems)
@@ -164,16 +170,14 @@ const OrderScreen = ({ history }) => {
          cart.totalPrice=0
        }
      }
-    
-        if (!order&&!orderSuccess) 
-        {
-          if (!window.paypal) {
-            addPayPalScript()
-          } else {
-            setSdkReady(true)
-          }
-        }
-        else if(order&&orderSuccess)
+     if (!window.paypal) {
+      LogThis(`OrderScreen, useEffect, checking windows paypal: window.paypal=${window.paypal??'not found'}`)
+      addPayPalScript()
+    } else {
+      setSdkReady(true)
+    }
+
+        if(order&&orderSuccess)
         {
           dispatch({type: CART_RESET})
           history.push(`/orderdetail/${order._id}`)
@@ -195,10 +199,12 @@ const OrderScreen = ({ history }) => {
     dispatch,
     cart,
     orderCreate,
-    isShippable,
     history,
     userInfo,
-    user
+    userDetails,
+    user,
+    sdkReady,
+    isShippable
   ])
 
 /*   const isOrderShippable = (productsOrdered) => {
@@ -242,7 +248,11 @@ const OrderScreen = ({ history }) => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : */
-  return (
+  return userLoading ? (
+    <Loader />
+  ) : error ? (
+    <Message variant='danger'>{error}</Message>
+  ) : (
     <>
       <h1>Order to be placed for the following:</h1>
       <Row>
@@ -335,19 +345,7 @@ const OrderScreen = ({ history }) => {
                   <Col>$ {cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {cart.isPaid && (
-                <ListGroup.Item>
-                  <Button
-                    type='button'
-                    className='btn btn-block'
-                    onClick={printReceiptHandler}
-                  >
-                    Print Receipt
-                  </Button>
-                </ListGroup.Item>
-              )}
-              {LogThis(`OrderScreen, PayPalButton render, order=${JSON.stringify(cart)}, sdkReady=${sdkReady}`)}
-              {!cart.isPaid && (
+              {LogThis(`OrderScreen, PayPalButton render, !orderSuccess=${!orderSuccess}, sdkReady=${sdkReady}`)}
                 <ListGroup.Item>
                   {/*loadingPay && <Loader />*/}
                   {!sdkReady ? (
@@ -359,37 +357,12 @@ const OrderScreen = ({ history }) => {
                     />
                   )}
                 </ListGroup.Item>
-              )}
             </ListGroup>
           </Card>
-          {cart.isPaid && (
-            <Card>
-              <ListGroup variant='flush'>
-                <ListGroup.Item>
-                  Thank you for your purchase! <br />
-                  <br />
-                  The "Download" button will expire 5 minutes after the
-                  purchase, please click it as soon as possible to download your
-                  photos.
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  The order number that appears at the top of this screen is
-                  your Pixan Photo License number it is proof that you licensed
-                  the photo, please keep it for your records.
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  The current page is your receipt, you can print it for your
-                  records.
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          )}
         </Col>
       </Row>
     </>
   )
 }
-
-
 
 export default OrderScreen

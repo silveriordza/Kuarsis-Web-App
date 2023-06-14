@@ -51,7 +51,7 @@ const CartScreen = ({ match, location, history }) => {
           ) : (
             <ListGroup variant='flush'>
               {cartItems.map((item) => (
-                <ListGroup.Item key='item.product'>
+                <ListGroup.Item key={item.product}>
                   <Row>
                     <Col md={2}>
                       <Image
@@ -81,7 +81,7 @@ const CartScreen = ({ match, location, history }) => {
                           {x + 1}
                         </option>
                       ))} */}
-                        <option key='1' value='1' selected>
+                        <option key='1' value='1' defaultValue={1}>
                           1
                         </option>
                       </Form.Control>
