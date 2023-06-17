@@ -10,7 +10,7 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 
 //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
-export const LOG_LEVEL = 1
+export const LOG_LEVEL = 0
 export const BACKEND_ENDPOINT =
   'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER =
