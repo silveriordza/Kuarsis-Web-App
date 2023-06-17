@@ -49,6 +49,12 @@
     "kuarsisAmplifyFunctionName": {
       "Type": "String"
     },
+    "kuarsisPublicBucketName": {
+      "Type": "String"
+    },
+    "kuarsisPrivateBucketName": {
+      "Type": "String"
+    },
     "logLevel": {
       "Type": "String"
     }
@@ -246,16 +252,14 @@
             "KUARSIS_AMPLIFY_FUNCTION_NAME": {
               "Ref": "kuarsisAmplifyFunctionName"
             },
-<<<<<<< HEAD
-            "LOG_LEVEL": {
-              "Ref": "logLevel"
-=======
             "KUARSIS_PUBLIC_BUCKET_NAME": {
               "Ref": "kuarsisPublicBucketName"
             },
             "KUARSIS_PRIVATE_BUCKET_NAME": {
               "Ref": "kuarsisPrivateBucketName"
->>>>>>> 06ed53d (First commit for kuarxbeprd)
+            },
+            "LOG_LEVEL": {
+              "Ref": "logLevel"
             }
           }
         },

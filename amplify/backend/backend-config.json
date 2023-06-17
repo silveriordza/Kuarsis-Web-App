@@ -104,14 +104,6 @@
         }
       ]
     },
-    "AMPLIFY_function_kuarxbedevFunction_logLevel": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "kuarxbedevFunction"
-        }
-      ]
-    },
     "AMPLIFY_function_kuarxbedevFunction_mongoUriVar": {
       "usedBy": [
         {

@@ -43,6 +43,14 @@
       "environmentVariableName": "KUARSIS_AMPLIFY_FUNCTION_NAME"
     },
     {
+      "cloudFormationParameterName": "kuarsisPublicBucketName",
+      "environmentVariableName": "KUARSIS_PUBLIC_BUCKET_NAME"
+    },
+    {
+      "cloudFormationParameterName": "kuarsisPrivateBucketName",
+      "environmentVariableName": "KUARSIS_PRIVATE_BUCKET_NAME"
+    },
+    {
       "cloudFormationParameterName": "logLevel",
       "environmentVariableName": "LOG_LEVEL"
     }
