@@ -5,6 +5,14 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxbedev-v1.0.0.4
+Version date: 6/14/23
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Updated orderController to add order paid information when the order is being created, given that there are no orders that are not paid.
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxbedev-v1.0.0.3
 Version date: 5/30/23
 Modificator name: Silverio Rodriguez Alcorta

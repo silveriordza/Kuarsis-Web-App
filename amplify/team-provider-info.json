@@ -28,7 +28,8 @@
           "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY",
           "kuarsisAmplifyFunctionName": "kuarxbedevFunction",
           "kuarsisPublicBucketName": "kuarsis-products-s3-public",
-          "kuarsisPrivateBucketName": "kuarsis-products-s3-private"
+          "kuarsisPrivateBucketName": "kuarsis-products-s3-private",
+          "logLevel": "0"
         }
       },
       "api": {
