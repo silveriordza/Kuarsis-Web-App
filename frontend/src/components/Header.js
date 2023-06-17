@@ -56,6 +56,8 @@ const Header = ({ history }) => {
                   />
                 </td>
                 <td style={{ paddingLeft: '5px' }}>
+                  <table>
+                  <tbody>
                   <tr>
                     <td>ArtPixan</td>
                   </tr>
@@ -66,6 +68,8 @@ const Header = ({ history }) => {
                   >
                     <td>A Kuarxis Company</td>
                   </tr>
+                  </tbody>
+                  </table>
                 </td>
               </tr>
               </tbody>

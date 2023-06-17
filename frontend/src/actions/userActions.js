@@ -28,9 +28,10 @@ import {
 } from '../constants/userConstants'
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 import { ORDER_CREATE_RESET } from '../constants/orderConstants'
+//import { LogThis } from '../libs/Logger'
 
 export const login = (email, password) => async (dispatch) => {
-  try {
+  try { 
     dispatch({
       type: USER_LOGIN_REQUEST,
     })
@@ -117,7 +118,6 @@ export const register = (name, email, password, address, internalNumber, city, s
 
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
-    console.log('getUserDetails intro id=', id)
     dispatch({
       type: USER_DETAILS_REQUEST,
     })

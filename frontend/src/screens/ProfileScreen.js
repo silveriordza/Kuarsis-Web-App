@@ -43,7 +43,7 @@ const ProfileScreen = ({ location, history }) => {
       history.push('/sign-in')
     } else {
       LogThis(`ProfileScreen, useEffect, userInfo user=${JSON.stringify(user)}, success=${success}`)
-      if (!user || !user.name || success || user._id != userInfo._id) {
+      if (!user || !user.name || success || user._id !== userInfo._id) {
         
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         LogThis(`ProfileScreen, useEffect, about to call getUserDetails with 'profile' as id`)

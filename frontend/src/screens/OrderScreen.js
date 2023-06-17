@@ -2,25 +2,16 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
-import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import {LogThis} from '../libs/Logger'
-import {addDecimals, addPayPalScript} from '../libs/Functions'
+import {addDecimals} from '../libs/Functions'
 
 import {
-  getOrderDetails,
-  payOrder,
-  deliverOrder,
   createOrder,
-  downloadOrderedProduct,
 } from '../actions/orderActions'
-import {
-  ORDER_PAY_RESET,
-  ORDER_DELIVER_RESET,
-  ORDER_DELIVER_DOWNLOAD_RESET,
-} from '../constants/orderConstants'
 
 import { getUserDetails} from '../actions/userActions'
 
@@ -29,19 +20,12 @@ import {
   KUARSIS_PUBLIC_BUCKET_URL,
 } from '../constants/enviromentConstants'
 
-import { CART_RESET, CART_SET_AS_PAID } from '../constants/cartConstants'
+import { CART_RESET } from '../constants/cartConstants'
 
 
 
 const OrderScreen = ({ history }) => {
-  //const orderId = match.params.id
-  
   const [isShippable, setisShippable] = useState(false)
-
-  /*
-  let isDownloadable = false;
-  let isBookable = false;
-  */
 
   const [address, setaddress] = useState('')
   const [internalNumber, setinternalNumber] = useState('')
@@ -49,211 +33,186 @@ const OrderScreen = ({ history }) => {
   const [state, setstate] = useState('')
   const [postalCode, setpostalCode] = useState('')
   const [country, setcountry] = useState('')
-
+  const [itemsPrice, setitemsPrice] = useState(0.0)
+  const [taxPrice, settaxPrice] = useState(0.0)
+  const [totalPrice, settotalPrice] = useState(0.0)
+  const [payPalLoading, setpayPalLoading] = useState(false)
   const [sdkReady, setSdkReady] = useState(false)
-
+  
   const dispatch = useDispatch()
 
   const userDetails = useSelector((state) => state.userDetails)
-  const { user, loading : userLoading } = userDetails
-
-  /*
-  const orderDetails = useSelector((state) => state.orderDetails)
-  const { order, loading, error } = orderDetails
-  */
-  
+  const { user, loading : userDetailsLoading, error: userDetailsError } = userDetails
+ 
   const cart = useSelector((state) => state.cart)
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  /*
-  const orderPay = useSelector((state) => state.orderPay)
-  const { loading: loadingPay, success: successPay } = orderPay
-  */
   const orderCreate = useSelector((state) => state.orderCreate)
-  const { order, success: orderSuccess, error } = orderCreate
-  
-  /*
-  const orderDeliver = useSelector((state) => state.orderDeliver)
-  const { loading: loadingDeliver, success: successDeliver } = orderDeliver
-  */
-  
-  /*const orderDeliverDownloadURL = useSelector(
-    (state) => state.orderDeliverDownloadURL
-  )
-  const { success: downloadSuccess, productSignedURL: eProductSignedURL } =
-    orderDeliverDownloadURL
-  */
-  // Calculate prices
-  /*cart.itemsPrice = addDecimals(
-    cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-  )
-  cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
-  cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.taxPrice)).toFixed(2)*/
+  const { order, success: orderSuccess, error:orderCreateError } = orderCreate
   
   const addPayPalScript = async () => {
-    LogThis(`OrderScreen, addPayPalScript: started`)
-    const { data: clientId } = await axios.get(
-      BACKEND_ENDPOINT + '/config/paypal'
-    )
-    console.log('PayPal Client Id: ', clientId)
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-    script.async = true
-    script.onload = () => {
-      LogThis(`OrderScreen, addPayPalScript: onload about to call setSdkReady`)
-      setSdkReady(true)
+    try{
+        LogThis(`OrderScreen, addPayPalScript: started`)
+        setpayPalLoading(true)
+        const { data: clientId } = await axios.get(
+          BACKEND_ENDPOINT + '/config/paypal'
+        )
+        LogThis(`OrderScreen, addPayPalScript: clientId=${clientId}`)
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
+        script.async = true
+        script.onload = () => { 
+          LogThis(`OrderScreen, addPayPalScript: onload calling setSdkReady`)
+          setSdkReady(true)
+          setpayPalLoading(false)
+          LogThis(`OrderScreen, addPayPalScript: onload called setSdkReady, sdkReady=${sdkReady}, payPalLoading=${payPalLoading}`)
+        }
+        LogThis(`OrderScreen, addPayPalScript: before appendChild, sdkReady=${sdkReady}, payPalLoading=${payPalLoading}`)
+        document.body.appendChild(script)
+        LogThis(`OrderScreen, addPayPalScript, after appendChild: sdkReady=${sdkReady}, payPalLoading=${payPalLoading}`)
+        LogThis(`OrderScreen, addPayPalScript, ended: payPalLoading=${payPalLoading}`)
+    } catch (ex){
+      LogThis(`OrderScreen, addPayPalScript, ended with exception: ex.message = ${ex.Message}`)
     }
-    document.body.appendChild(script)
-    LogThis(`OrderScreen, addPayPalScript: ended`)
   }
-  
-
   useEffect(() => {
     if (!userInfo) {
+      LogThis(`OrderScreen, useEffect: pushing loging because userInfo is null or undefined, ${JSON.stringify(userInfo)}`)
       history.push('/login')
     }
     
-    if (!userLoading){ 
+    if (!userDetailsLoading){ 
       if(!user || !user.name) {
-      dispatch(getUserDetails('profile'))
-      LogThis(`OrderScreen, requested getUserDetails`)
-    }
-    else{
-      setaddress(user.address)
-      setinternalNumber(user.internalNumber)
-      setcity(user.city)
-      setstate(user.state)
-      setpostalCode(user.postalCode)
-      setcountry(user.country)
-      LogThis(`OrderScreen, else of gotUserDetails: user=${JSON.stringify(user)}`)
-    }
+          LogThis(`OrderScreen, useEffect,  getUserDetails('profile'): dispatching`)
+          dispatch(getUserDetails('profile'))
+          LogThis(`OrderScreen, useEffect,  getUserDetails('profile'): dispatched`)
+      }
+      else{
+        setaddress(user.address)
+        setinternalNumber(user.internalNumber)
+        setcity(user.city)
+        setstate(user.state)
+        setpostalCode(user.postalCode)
+        setcountry(user.country)
+        LogThis(`OrderScreen, useEffect, setting user details, userDetailsLoading=${userDetailsLoading}; user=${JSON.stringify(user)}`)
+      }
   }
+// eslint-disable-next-line
+  }, [
+    dispatch,
+    history,
+    userInfo,
+    userDetailsLoading,
+    user,
+    /*userDetailsError,
+    orderCreateError,
+    payPalLoading,
+    sdkReady, 
+    order,
+    orderSuccess,*/
+  ])
 
-    /*
-    TODO: Check if this addPayPalScrit function definition can be moved outside of the useEffect, this could be one of the reasons why the paypal buttons are dissapearing.
-    */
-   
-
-    /*if (!order || successPay || successDeliver || order._id !== orderId) {
-      dispatch({ type: ORDER_PAY_RESET })
-      dispatch({ type: ORDER_DELIVER_RESET })
-
-      dispatch(getOrderDetails(orderId))
-    } else*/
-    // Calculate prices
-    //dispatch({ type: CART_RESET }) 
-    
-    if(cart)
+ useEffect(() => {
+    if(order&&orderSuccess)
     {
-       if(cart.cartItems)
-       {
-         cart.itemsPrice = addDecimals(
-           cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-         )
-         
-         cart.taxPrice = addDecimals(Number((0.07 * cart.itemsPrice).toFixed(2)))
-         cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.taxPrice)).toFixed(2)
+      dispatch({type: CART_RESET})
+      history.push(`/orderdetail/${order._id}`)
+    }     
+// eslint-disable-next-line
+  }, [
+    dispatch,
+    order,
+    orderSuccess,
+  ])
 
-         LogThis(`OrderScreen, UseEffect, Before cartItems.find: isShippable=${isShippable}; cart.cartItems=${JSON.stringify(cart.cartItems)}`)
+  useEffect(() => {
+  let _itemsPrice = 0
+  let _taxPrice = 0
+  let _totalPrice = 0
+
+    if(cart??false)
+    {
+       if(cart.cartItems??false){
+        LogThis(`OrderScreen, UseEffect, Calculating Summary: cart.cartItems=${JSON.stringify(cart.cartItems)}`)
+        _itemsPrice = addDecimals(cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0))
+        _taxPrice = addDecimals(Number((0.07 * _itemsPrice).toFixed(2)))
+         _totalPrice = (Number(_itemsPrice) + Number(_taxPrice)).toFixed(2)
+         LogThis(`OrderScreen, UseEffect, Calculating local summary: _itemsPrice=${_itemsPrice}, _taxPrice=${_taxPrice}, _totalPrice=${_totalPrice}`)
+         setitemsPrice(_itemsPrice)
+         settaxPrice(_taxPrice)
+         settotalPrice(_totalPrice)
+         LogThis(`OrderScreen, UseEffect, Calculating global summary: itemsPrice=${itemsPrice}, taxPrice=${taxPrice}, totalPrice=${totalPrice}`)
+         LogThis(`OrderScreen, UseEffect, Before cartItems.find: isShippable=${isShippable}`)
          let shippableItemIs=cart.cartItems.find(x => x.isShippable === true)
          setisShippable( (shippableItemIs?? false)? true: false)
          LogThis(`OrderScreen, UseEffect, After cartItems.find: isShippable=${isShippable}; shippableItemIs=${JSON.stringify(shippableItemIs)}`)
+         
        }
        else {
-         setisShippable(false);
-         LogThis(`OrderScreen, UseEffect, isShippable=${isShippable}; cart.itemsPrice is null or undefined`)
-         cart.itemsPrice=0
-         cart.taxPrice=0
-         cart.totalPrice=0
+        setisShippable(false);
+        LogThis(`OrderScreen, UseEffect, Cart is undefined: isShippable=${isShippable}`)
+        setitemsPrice(0)
+        settaxPrice(0)
+        settotalPrice(0)
+        LogThis(`OrderScreen, UseEffect, Cart is undefined: itemsPrice=${itemsPrice}, taxPrice=${taxPrice}, totalPrice=${totalPrice}`)
        }
-     }
-     if (!window.paypal) {
-      LogThis(`OrderScreen, useEffect, checking windows paypal: window.paypal=${window.paypal??'not found'}`)
-      addPayPalScript()
-    } else {
-      setSdkReady(true)
-    }
-
-        if(order&&orderSuccess)
-        {
-          dispatch({type: CART_RESET})
-          history.push(`/orderdetail/${order._id}`)
-        }
-
-     
-     
-
-    // if (downloadSuccess) {
-    //   const link = document.createElement('a')
-    //   link.href = eProductSignedURL
-    //   link.setAttribute('download', 'file.jpg')
-    //   document.body.appendChild(link)
-    //   link.click()
-    //   link.remove()
-    //   dispatch({ type: ORDER_DELIVER_DOWNLOAD_RESET })
-    // }
+     }    
+// eslint-disable-next-line
   }, [
-    dispatch,
-    cart,
-    orderCreate,
-    history,
-    userInfo,
-    userDetails,
-    user,
-    sdkReady,
-    isShippable
   ])
-
-/*   const isOrderShippable = (productsOrdered) => {
-    if (productsOrdered !== null)
-    return productsOrdered.find(item => item.isShippable == true) ?? false
-  } */
+  
+  useEffect(() => {
+   if (!payPalLoading&&!sdkReady) {
+      //LogThis(`OrderScreen, useEffect, checking windows paypal: window.paypal=${window.paypal??'not found'}`)
+      
+      if (!window.paypal) {
+     LogThis(`OrderScreen, useEffect, before invoking addPayPalScript: payPalLoading=${payPalLoading}, sdkReady=${sdkReady}, !window.paypal=${!window.paypal}`)
+      addPayPalScript()
+      LogThis(`OrderScreen, useEffect, after invoking addPayPalScript: payPalLoading=${payPalLoading}, sdkReady=${sdkReady}, !window.paypal=${!window.paypal}`)
+      }
+      else {
+      LogThis(`OrderScreen, useEffect, window.paypal exists, setting payPayPalLoading to false and sdkReady to true: payPalLoading=${payPalLoading}, sdkReady=${sdkReady}, !window.paypal=${!window.paypal}`)
+      setpayPalLoading(false)
+      setSdkReady(true)
+      }
+    }
+    else if(payPalLoading&&!sdkReady){
+      LogThis(`OrderScreen, useEffect, payPalScript is still loading: payPalLoading=${payPalLoading}, sdkReady=${sdkReady}, !window.paypal=${!window.paypal}`)
+    }
+    else if(!payPalLoading&&sdkReady){
+      LogThis(`OrderScreen, useEffect, payPalScript finished loading: payPalLoading=${payPalLoading}, sdkReady=${sdkReady}, !window.paypal=${!window.paypal}`)
+    }
+    else{
+      LogThis(`OrderScreen, useEffect, sdkReady updated, but loading still going: payPalLoading=${payPalLoading}, sdkReady=${sdkReady}, !window.paypal=${!window.paypal}`)
+    }
+  // eslint-disable-next-line
+    }, [payPalLoading,sdkReady])
 
   const successPaymentHandler = (paymentResult) => {
-    /*
-    dispatch(payOrder(orderId, paymentResult))
-    */
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
-        itemsPrice: cart.itemsPrice,
+        itemsPrice: itemsPrice,
         shippingPrice: cart.shippingPrice,
-        taxPrice: cart.taxPrice,
-        totalPrice: cart.totalPrice,
+        taxPrice: taxPrice,
+        totalPrice: totalPrice,
         orderPaymentResult: paymentResult
       })
     )
-   //dispatch({ type: CART_SET_AS_PAID })
   }
-
-  /*const deliverHandler = () => {
-    dispatch(deliverOrder(order))
-  }*/
-
-  const fileDownload = (productIdToDownload) => {
-    dispatch(downloadOrderedProduct(productIdToDownload))
-    //dispatch(deliverOrder(order))
-  }
-
-  const printReceiptHandler = () => {
-    window.print()
-  }
-/*false ? (
+  LogThis(`OrderScreen, Rendering, Before Start: userDetailsLoading=${userDetailsLoading}, userDetailsError=${userDetailsError??'undefined'}, orderCreateError=${orderCreateError}, user=${JSON.stringify(user??'undefined')}, sdkReady=${sdkReady??'undefined'}, cart=${JSON.stringify(cart??'undefined')}`)
+  return userDetailsLoading??true ? (
     <Loader />
-  ) : error ? (
-    <Message variant='danger'>{error}</Message>
-  ) : */
-  return userLoading ? (
-    <Loader />
-  ) : error ? (
-    <Message variant='danger'>{error}</Message>
+  ) : (orderCreateError||userDetailsError) ? (
+    <Message variant='danger'>{(userDetailsError??'No user Error') + ' ' + (orderCreateError??'No Order Error') }</Message>
   ) : (
     <>
+    {LogThis(`OrderScreen, Rendering, Started: userDetailsLoading=${userDetailsLoading}, userDetailsError=${userDetailsError??'undefined'}, orderCreateError=${orderCreateError}, user=${JSON.stringify(user??'undefined')}, sdkReady=${sdkReady??'undefined'}, cart=${JSON.stringify(cart??'undefined')}`)}
       <h1>Order to be placed for the following:</h1>
       <Row>
         <Col md={8}>
@@ -268,7 +227,7 @@ const OrderScreen = ({ history }) => {
                 <strong>Email: </strong>
                 <a href={`mailto:${user.email}`}> {user.email}</a>
               </p>
-              {LogThis(`OrderScreen, Displaying Shippable: isShippable=${isShippable}`)}
+              {LogThis(`OrderScreen, Rendering, Displaying Shippable: isShippable=${isShippable}`)}
               {isShippable ? (
                  <div>
                   <h2>Shippable products will be delivered at:</h2>
@@ -297,6 +256,7 @@ const OrderScreen = ({ history }) => {
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
+                        {LogThis(`OrderScreen, Rendering, Displaying Image: item.image=${item.image??'undefined'}`)}
                           <Image
                             src={KUARSIS_PUBLIC_BUCKET_URL + item.image}
                             alt={item.name}
@@ -327,32 +287,32 @@ const OrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
+              {LogThis(`OrderScreen, Rendering, Displaying Order Summary: itemsPrice=${itemsPrice}, taxPrice=${taxPrice}, totalPrice=${totalPrice}`)}
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>$ {cart.itemsPrice}</Col>
+                  <Col>$ {itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>$ {cart.taxPrice}</Col>
+                  <Col>$ {taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>$ {cart.totalPrice}</Col>
+                  <Col>$ {totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {LogThis(`OrderScreen, PayPalButton render, !orderSuccess=${!orderSuccess}, sdkReady=${sdkReady}`)}
+              {LogThis(`OrderScreen, Rendering, PayPalButton, !orderSuccess=${!orderSuccess}, sdkReady=${sdkReady}`)}
                 <ListGroup.Item>
-                  {/*loadingPay && <Loader />*/}
-                  {!sdkReady ? (
+                  {!sdkReady ? ( 
                     <Loader />
                   ) : (
                     <PayPalButton
-                      amount={cart.totalPrice}
+                      amount={totalPrice}
                       onSuccess={successPaymentHandler}
                     />
                   )}

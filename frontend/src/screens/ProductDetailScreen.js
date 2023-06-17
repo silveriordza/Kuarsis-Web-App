@@ -9,12 +9,6 @@ import { listProductDetails } from '../actions/productActions'
 import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
 
 const PixanProductScreen = ({ history, match }) => {
-  console.log(
-    'Entering PixanProductScreen history: ',
-    history,
-    ' match: ',
-    match
-  )
   const [qty, setQty] = useState(1)
 
   const dispatch = useDispatch()
@@ -95,16 +89,6 @@ const PixanProductScreen = ({ history, match }) => {
                             onChange={(e) => setQty(e.target.value)}
                             disabled
                           >
-                            {/* {[...Array(product.countInStock).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                  {console.log(
-                                    `Adding Option to Drop Down option humber is${x}`
-                                  )}
-                                </option>
-                              )
-                            )} */}
                             <option key='1' value='1' defaultValue={1}>
                               1 
                             </option>

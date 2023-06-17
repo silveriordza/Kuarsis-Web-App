@@ -28,6 +28,8 @@ import {
   USER_UPDATE_FAILED,
 } from '../constants/userConstants'
 
+import {LogThis} from '../libs/Logger'
+
 export const userLoginReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
@@ -45,7 +47,7 @@ export const userLoginReducer = (state = {}, action) => {
 
 export const userRegisterReducer = (state = {}, action) => {
   switch (action.type) {
-    case USER_REGISTER_REQUEST:
+    case USER_REGISTER_REQUEST: 
       return { loading: true }
     case USER_REGISTER_SUCCESS:
       return { loading: false, userInfo: action.payload }
@@ -61,13 +63,17 @@ export const userRegisterReducer = (state = {}, action) => {
 export const userDetailsReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case USER_DETAILS_REQUEST:
+      LogThis(`userReducers, USER_DETAILS_REQUEST, loading=true`)
       return { ...state, loading: true }
     case USER_DETAILS_SUCCESS:
+      LogThis(`userReducers, USER_DETAILS_SUCCESS, loading=false, action.payload=${JSON.stringify(action.payload)}`)
       return { loading: false, user: action.payload }
     case USER_DETAILS_FAILED:
+      LogThis(`userReducers, USER_DETAILS_FAILED, loading=false, action.payload=${JSON.stringify(action.payload)}`)
       return { loading: false, error: action.payload }
     case USER_DETAILS_RESET:
-      return { user: {} }
+      LogThis(`userReducers, USER_DETAILS_RESET, {}`)
+      return {}
     default:
       return state
   }

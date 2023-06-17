@@ -34,9 +34,6 @@ const OrderDetailScreen = ({ match, history }) => {
   
   const [isShippable, seisShippable] = useState(false)
 
-  let isDownloadable = false;
-  let isBookable = false;
-
   const [address, setaddress] = useState('')
   const [internalNumber, setinternalNumber] = useState('')
   const [city, setcity] = useState('')
@@ -49,7 +46,7 @@ const OrderDetailScreen = ({ match, history }) => {
   const dispatch = useDispatch()
 
   const userDetails = useSelector((state) => state.userDetails)
-  const { user, success : usersuccess } = userDetails
+  const { user } = userDetails
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
