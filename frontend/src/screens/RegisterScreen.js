@@ -6,6 +6,8 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
+import {configsGetAddressStates} from '../actions/configsActions'
+import {LogThis} from '../libs/Logger'
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -19,10 +21,13 @@ const RegisterScreen = ({ location, history }) => {
   const [postalCode, setpostalCode] = useState('')
   const [country, setcountry] = useState('')
   const [message, setMessage] = useState(null)
-
+  const [logSettings, setlogSettings] = useState({sourceFilename:'RegisterScreen', sourceFunction:''})
   const dispatch = useDispatch()
 
   const userRegister = useSelector((state) => state.userRegister)
+
+  const configsAddressStates = useSelector((state) => state.configsAddressStates)
+  const { loading: addressStatesLoading, error: addressStatesError, addressStates: localAddressStates } = configsAddressStates
 
   const { loading, error, userInfo } = userRegister
 
@@ -32,7 +37,11 @@ const RegisterScreen = ({ location, history }) => {
     if (userInfo) {
       history.push(redirect)
     }
-  }, [history, userInfo, redirect])
+    if(!localAddressStates&&!addressStatesLoading&&!addressStatesError)
+    {
+      dispatch(configsGetAddressStates())
+    }
+  }, [dispatch, history, userInfo, redirect, localAddressStates, addressStatesLoading, addressStatesError])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -42,13 +51,23 @@ const RegisterScreen = ({ location, history }) => {
       dispatch(register(name, email, password, address, internalNumber, city, state, postalCode, country))
     }
   }
-
+  LogThis(logSettings, `Before Rendering: localAddressStates=${JSON.stringify(localAddressStates)}, 
+  addressStatesLoading=${JSON.stringify(addressStatesLoading)},
+  addressStatesError=${JSON.stringify(addressStatesError)}`)
   return (
     <FormContainer>
       <h1>Sign Up</h1>
       {message && <Message variant='danger'> {message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
+      {((addressStatesLoading??true)||!localAddressStates)? (<Loader />)
+      : addressStatesError? (<Message variant='danger'>{addressStatesError}</Message>)
+      : 
+      (
+      <>
+      {LogThis(logSettings, `Rendering started: localAddressStates=${JSON.stringify(localAddressStates)}, 
+  addressStatesLoading=${JSON.stringify(addressStatesLoading)},
+  addressStatesError=${JSON.stringify(addressStatesError)}`)}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -116,11 +135,20 @@ const RegisterScreen = ({ location, history }) => {
         <Form.Group controlId='state'>
           <Form.Label>State</Form.Label>
           <Form.Control
-            type='text'
-            placeholder='Enter state'
+             as='select'
             value={state}
             onChange={(e) => setstate(e.target.value)}
-          ></Form.Control>
+          >
+            <option key='-1' value='-1'>
+                -- Enter a State --
+              </option>
+            {LogThis(logSettings, `Rendering, Displaying States, ${JSON.stringify(localAddressStates)}`)}
+            {localAddressStates[0].value?.map((addressState) => (
+              <option key={addressState.acronym} value={addressState.acronym}>
+                {`${addressState.acronym} - ${addressState.name}`}
+              </option>
+            ))}
+          </Form.Control>
         </Form.Group>
         <Form.Group controlId='postalCode'>
           <Form.Label>Postal code</Form.Label>
@@ -152,6 +180,8 @@ const RegisterScreen = ({ location, history }) => {
           </Link>
         </Col>
       </Row>
+      </>
+      )}
     </FormContainer>
   )
 }

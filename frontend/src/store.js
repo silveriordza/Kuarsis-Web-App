@@ -24,6 +24,8 @@ import {
 
 import { cartReducer } from './reducers/cartReducers'
 
+import { configsAddressStatesReducer } from './reducers/configsReducer'
+
 import {
   orderCreateReducer,
   orderDetailsReducer,
@@ -62,6 +64,7 @@ const reducer = combineReducers({
   orderList: orderListReducer,
   orderDeliver: orderDeliverReducer,
   orderDeliverDownloadURL: orderDeliverDownloadURLReducer,
+  configsAddressStates: configsAddressStatesReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
