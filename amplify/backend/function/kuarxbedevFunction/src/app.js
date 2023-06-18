@@ -157,7 +157,7 @@ let userRoutes = require('./routes/userRoutes.js')
 let productRoutes = require('./routes/productRoutes.js')
 let orderRoutes = require('./routes/orderRoutes.js')
 let uploadRoutes = require('./routes/uploadRoutes.js')
-
+let configsRoutes = require('./routes/configsRoutes.js') 
 var bodyParser = require('body-parser')
 var fs = require('fs')
 
@@ -187,7 +187,10 @@ app.use('/users', userRoutes)
 app.use('/products', productRoutes)
 app.use('/orders', orderRoutes)
 app.use('/upload', uploadRoutes)
+app.use('/configs', configsRoutes)
 app.get('/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID))
+
+
 
 // This route is only to fetch the server for the paypal client id which is in an environment variable and then return it to the client to execute the payment.
 //app.get('/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID))
