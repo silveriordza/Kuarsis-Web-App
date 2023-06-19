@@ -5,7 +5,7 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: artpixan-v1.0.0.4
+Git Tag: kuarxbedev-v1.0.0.4
 Version date: 6/19/23
 Modificator name: Silverio Rodriguez Alcorta
 
