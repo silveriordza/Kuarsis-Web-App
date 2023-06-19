@@ -5,6 +5,19 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 Date: 5/26/23
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: artpixan-v1.0.0.4
+Version date: 6/19/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- Into the Products and Orders tables: added product types flags for shippable, downloadable, bookable, and image protected.
+2.- Added a LogThis function into the Logger.js file in the utils folder. This function will log a user provided message into the console.log only when the LOG_LEVEL constant is equal or greater to 1, this value can be set with an environment variable LOG_LEVEL.
+3.- Added information into the Users table to store the  address information (address, internal number, city, state, postal code, country) to support the User Registration process and the User Profile, User Registration, User Details Admin screens in the front end. 
+4.- Added logic into the GetOrderDetailsById function to return flags shippable, downloadable, bookable and image protected.
+5.- Added a new API Path named Configs and its corresponding configsRoutes, configsController, configs model in mongoose, and also the logic to get the Address States via the controller function getAddressStates, to support returning a list of valid states from the USA country to the client. 
+6.- Created the Configs table in the Atlas MongoDB, and added an entry named AddressStates which has the list of valid USA states stored. 
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxbedev-v1.0.0.3
 Version date: 5/30/23
 Modificator name: Silverio Rodriguez Alcorta
