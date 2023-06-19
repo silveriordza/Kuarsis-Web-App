@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import {CURRENT_VERSION} from '../constants/enviromentConstants'
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
             &copy; 2023 Kuarxis Companies. All rights reserved. <br />
             This webpage is under construction, please don't use real credit
             cards or real paypal accounts. <br/> 
-            ArtPixan version v1.0.0.4 Last Updated {new Date().toLocaleString()}
+            ArtPixan version {CURRENT_VERSION}
           </Col>
         </Row>
       </Container>
