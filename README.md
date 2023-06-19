@@ -5,7 +5,7 @@ Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on sel
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: artpixan-v1.0.0.4
+Git Tag: arpixwfdev-v1.0.0.4
 Version date: 6/19/23
 Modificator name: Silverio Rodriguez Alcorta
 
