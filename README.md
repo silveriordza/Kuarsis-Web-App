@@ -5,8 +5,8 @@ Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on sel
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: arpixwfdev-v1.0.0.4
-Version date: 5/30/23
+Git Tag: artpixan-v1.0.0.4
+Version date: 6/19/23
 Modificator name: Silverio Rodriguez Alcorta
 
 ENHANCEMENTS:
@@ -17,6 +17,7 @@ ENHANCEMENTS:
 5.- Added logic into the OrderScreen that identifies when any of the products in the order, are shippable, in which case it shows up the Mark as Delivered button (if the user is admin), shows Download button only for downloadable products, the "To be shipped"/"Shipped" message, and the "To be booked" "booked" message for products that are shippable and bookable correspondingly. If the order has not been paid, the Download button will not show up, nor the shipped or booked messages.
 6.- Issue resolved: PayPalButtons disappearing from the OrderScreen.  Redesigned OrderScreen useEffect to separate static values from dynamic values and added a semaphore flag to avoid charging PayPalButton script more than once while the script is still being loaded. 
 7.- Improved the OrderScreen useEffect logic, separating static from dynamic objects, loading the static ones only once and the dynamic ones everytime one or more  objects change.
+8.- Added logic into the RegisterScreen to display a list of states as a drop down to validate the State when user is providing the address information. Added configsReducer, configsActions, configsConstants, and updated the RegisterScreen to get the AddressStates information from the backend. 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: arpixwfdev-v1.0.0.3
