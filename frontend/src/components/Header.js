@@ -17,12 +17,13 @@ const Header = ({ history }) => {
 
   useEffect(() => {
     if (logedout) {
-      history.push('/')
+      //history.push('/')
     }
     // eslint-disable-next-line
   }, [history, userLogin])
 
   const logoutHandler = () => {
+    history.push('/')
     dispatch(logout())
   }
 

@@ -21,9 +21,9 @@ const RegisterScreen = ({ location, history }) => {
   const [postalCode, setpostalCode] = useState('')
   const [country, setcountry] = useState('')
   const [message, setMessage] = useState(null)
-  const [logSettings, setlogSettings] = useState({sourceFilename:'RegisterScreen', sourceFunction:''})
+  const [logSettings, setlogSettings] = useState()
   const dispatch = useDispatch()
-
+  const sourceFileName = 'RegisterScreen'
   const userRegister = useSelector((state) => state.userRegister)
 
   const configsAddressStates = useSelector((state) => state.configsAddressStates)
@@ -51,11 +51,12 @@ const RegisterScreen = ({ location, history }) => {
       dispatch(register(name, email, password, address, internalNumber, city, state, postalCode, country))
     }
   }
+  setlogSettings({sourceFilename: sourceFileName, sourceFunction:'MainPageFunction'})
   LogThis(logSettings, `Before Rendering: localAddressStates=${JSON.stringify(localAddressStates)}, 
   addressStatesLoading=${JSON.stringify(addressStatesLoading)},
   addressStatesError=${JSON.stringify(addressStatesError)}`)
   return (
-    <FormContainer>
+    <FormContainer> 
       <h1>Sign Up</h1>
       {message && <Message variant='danger'> {message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
