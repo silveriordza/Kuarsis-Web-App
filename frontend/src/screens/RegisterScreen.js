@@ -21,9 +21,9 @@ const RegisterScreen = ({ location, history }) => {
   const [postalCode, setpostalCode] = useState('')
   const [country, setcountry] = useState('')
   const [message, setMessage] = useState(null)
-  const [logSettings, setlogSettings] = useState()
   const dispatch = useDispatch()
-  const sourceFileName = 'RegisterScreen'
+  let logSettings = {sourceFilename:'RegisterScreen', sourceFunction:'Main'}
+
   const userRegister = useSelector((state) => state.userRegister)
 
   const configsAddressStates = useSelector((state) => state.configsAddressStates)
@@ -32,7 +32,7 @@ const RegisterScreen = ({ location, history }) => {
   const { loading, error, userInfo } = userRegister
 
   const redirect = location.search ? location.search.split('=')[1] : '/'
-
+  
   useEffect(() => {
     if (userInfo) {
       history.push(redirect)
@@ -51,7 +51,6 @@ const RegisterScreen = ({ location, history }) => {
       dispatch(register(name, email, password, address, internalNumber, city, state, postalCode, country))
     }
   }
-  setlogSettings({sourceFilename: sourceFileName, sourceFunction:'MainPageFunction'})
   LogThis(logSettings, `Before Rendering: localAddressStates=${JSON.stringify(localAddressStates)}, 
   addressStatesLoading=${JSON.stringify(addressStatesLoading)},
   addressStatesError=${JSON.stringify(addressStatesError)}`)
@@ -68,7 +67,7 @@ const RegisterScreen = ({ location, history }) => {
       <>
       {LogThis(logSettings, `Rendering started: localAddressStates=${JSON.stringify(localAddressStates)}, 
   addressStatesLoading=${JSON.stringify(addressStatesLoading)},
-  addressStatesError=${JSON.stringify(addressStatesError)}`)}
+      addressStatesError=${JSON.stringify(addressStatesError)}`)}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -143,7 +142,7 @@ const RegisterScreen = ({ location, history }) => {
             <option key='-1' value='-1'>
                 -- Enter a State --
               </option>
-            {LogThis(logSettings, `Rendering, Displaying States, ${JSON.stringify(localAddressStates)}`)}
+            {/*LogThis(logSettings, `Rendering, Displaying States, ${JSON.stringify(localAddressStates)}`)*/}
             {localAddressStates[0].value?.map((addressState) => (
               <option key={addressState.acronym} value={addressState.acronym}>
                 {`${addressState.acronym} - ${addressState.name}`}

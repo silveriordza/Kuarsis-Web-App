@@ -265,7 +265,7 @@ const OrderScreen = ({ history }) => {
                           />
                         </Col>
                         <Col>
-                          <Link to={`/product/${item.product}`}>
+                          <Link to={`/productdetail/${item.product}`}>
                             {item.name}
                           </Link>
                         </Col>

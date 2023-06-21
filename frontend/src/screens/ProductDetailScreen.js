@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link/*, useNavigate*/ } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Message from '../components/Message'
@@ -12,6 +12,7 @@ const PixanProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
 
   const dispatch = useDispatch()
+  //const leapToPage = useNavigate();
 
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
@@ -27,7 +28,7 @@ const PixanProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <Link className='btn btn-light my-3' to='/productsstore'>
+      <Link className='btn btn-light my-3' onClick={()=>history.go(-1)}>
         Go Back
       </Link>
       {loading ? (
