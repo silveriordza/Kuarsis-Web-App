@@ -25,7 +25,7 @@ const getProducts = asyncHandler(async (req, res) => {
   //The skip function will cause the effect of getting the next page of whatever the page is minus one.
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
-    .skip(pageSize * (page - 1))
+    .skip(pageSize * (page - 1)).lean()
 
   res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })

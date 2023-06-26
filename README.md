@@ -2,7 +2,14 @@ Kuarsis Web App is the code for the official website of Kuarsis Companies.
 Author: Silverio Rodriguez Alcorta
 Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing. 
-Date: 5/26/23
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxbedev-v1.0.0.5
+Version date: 6/26/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- productCotroller, getProducts function: Added the a call to the function .lean() of mongoose to make sure the JSON returns a list of javascript native objects rather than mongoose objects, whicih may cause problems when calling to functions on the object returned to the front end. 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxbedev-v1.0.0.4
