@@ -5,6 +5,18 @@ Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on sel
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: arpixwfdev-v1.0.0.5
+Version date: 6/26/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- Added functionality to the Store Screen to show the store products grouped by Category. User can now set the same Category to a subset of products and a different category to another subset, then the Store Screen will group all products that have the same Category in the Store Screen.
+2.- Fixed bug Jira KXWA-24: Logout from Product List Admin screen cannot read isAdmim JIRA.
+3.- Fixed bug Jira KXWA-35: OrderScreen user clicks product name link that then shows a blank page; now it is showing the Product Detail screen. 
+4.- Fixed bug Jira KXWA-53: OrderScreen user clicks product name link when order is already paid, that then shows a blank page; it is now showing the Product Detail screen. 
+5.- Fixed bug Jira KXWA-33: After user pays an order, and still on the order paid confirmation screen, if the user logout, a blank page shows up; now it is taking the user back to the Store Screen. 
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: arpixwfdev-v1.0.0.4
 Version date: 6/19/23
 Modificator name: Silverio Rodriguez Alcorta

@@ -10,7 +10,7 @@ const Product = ({ product }) => {
       className='my-3 p-3 rounded'
       style={{ width: '18rem', height: '18rem' }}
     >
-      <Link to={`/productdetail/${product._id}`}>
+      <Link to={`/${product.isBookable?'servicedetail':'productdetail'}/${product._id}`}>
         <Card.Img
           src={KUARSIS_PUBLIC_BUCKET_URL + product.image}
           variant='top'
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
         />
       </Link>
       <Card.Body>
-        <Link to={`/productdetail/${product._id}`}>
+        <Link to={`/${product.isBookable?'servicedetail':'productdetail'}/${product._id}`}>
           <Card.Title as='div'>
             <strong>{product.name}</strong>
           </Card.Title>

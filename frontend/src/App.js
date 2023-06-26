@@ -10,6 +10,7 @@ import RegisterScreen from './screens/RegisterScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import ProductsStoreScreen from './screens/ProductsStoreScreen'
 import ProductDetailScreen from './screens/ProductDetailScreen'
+import ServiceDetailScreen from './screens/ServiceDetailScreen'
 import CartScreen from './screens/CartScreen'
 import ShippingScreen from './screens/ShippingScreen'
 import PaymentScreen from './screens/PaymentScreen'
@@ -61,12 +62,18 @@ const App = () => {
             />
 
             <Route
+              path='/servicedetail/:id'
+              component={ServiceDetailScreen}
+            />
+
+            <Route
               path='/admin/product/:id/edit'
               component={ProductEditScreen}
             />
 
             <Route path='/admin/orderlist' component={OrderListScreen} />
             <Route path='/cart/:id?' component={CartScreen} />
+            {/* <Route path='/bookappointment/:id' component={BookAppointmentScreen} /> */}
             <Route path='/order' component={OrderScreen} />
             <Route path='/orderdetail/:id' component={OrderDetailScreen} />
             <Route path='/shipping' component={ShippingScreen} />

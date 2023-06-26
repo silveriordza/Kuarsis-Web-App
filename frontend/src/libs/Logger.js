@@ -10,4 +10,3 @@ export const LogThis = (logSettings=null, logMessage) => {
     }
 }
 
-

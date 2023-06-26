@@ -1,7 +1,7 @@
 // LOCALHOST DEV VARIABLES
 
 export const LOG_LEVEL = 1
-export const CURRENT_VERSION = `v1.0.0.4-2023-06-19-1335`
+export const CURRENT_VERSION = `v1.0.0.5-2023-06-26-18:12`
 export const BACKEND_ENDPOINT = 'http://localhost:5000'
 export const KUARSIS_PUBLIC_STATIC_FOLDER = 'http://localhost:3000/images'
 export const KUARSIS_BANNER_MAIN_LOGO = '/ArtPixanLogo256px.png'
@@ -12,7 +12,7 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
 /*
 export const LOG_LEVEL = 1
-export const CURRENT_VERSION = `v1.0.0.4-2023-06-19-1335`
+export const CURRENT_VERSION = `v1.0.0.5-2023-06-26-18:12`
 export const BACKEND_ENDPOINT =
   'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER =
