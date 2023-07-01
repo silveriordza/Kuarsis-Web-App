@@ -16,7 +16,7 @@
         "kuarxbedevFunction": {
           "secretsPathAmplifyAppId": "d26emoszy6nzyt",
           "deploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
-          "s3Key": "amplify-builds/kuarxbedevFunction-6a6f325943795369337a-build.zip",
+          "s3Key": "amplify-builds/kuarxbedevFunction-704f502f7a6f2b757139-build.zip",
           "kuarsisAmplifyAppid": "d26emoszy6nzyt",
           "kuarsisAmplifyEnvironmentName": "kuarxbedev",
           "port": "5000",
