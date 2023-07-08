@@ -2,12 +2,12 @@ let mongoose = require('mongoose')
 
 const scheduleSchema = mongoose.Schema(
   {
-    serviceProvider: {
+    providerId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User',
     },
-    serviceClient: {
+    clientId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User',
@@ -69,4 +69,23 @@ const scheduleSchema = mongoose.Schema(
 
 const Schedule = mongoose.model('Schedule', scheduleSchema)
 
-module.exports = Schedule
+
+const providerBlockedScheduleSchema = mongoose.Schema(
+  {
+    providerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
+    scheduleData: {
+        type: mongoose.Schema.Types.Mixed
+    },
+  },
+  {
+    timestamps: true,
+  }
+)
+
+const ProviderBlockedSchedule = mongoose.model('ProviderBlockedSchedule', providerBlockedScheduleSchema)
+
+module.exports = {Schedule, ProviderBlockedSchedule}

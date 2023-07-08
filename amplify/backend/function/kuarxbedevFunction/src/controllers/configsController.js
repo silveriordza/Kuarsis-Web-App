@@ -1,13 +1,15 @@
 let asyncHandler = require('express-async-handler')
 let Configs = require('../models/configsModel.js')
-let LogThis = require('../utils/Logger.js')
+let {LogThis, initLogSettings} = require('../utils/Logger.js')
 
 // @desc    Get Address States
 // @route   POST /api/AddressStates
 // @access  Public
 const getAddressStates = asyncHandler(async (req, res) => {
+  const logSettings = initLogSettings('configsController', 'getAddressStates')
   const addressStates = await Configs.find({ name: 'AddressStates' })
-  LogThis(`configsController, getAddressStates: addressStates=${JSON.stringify(addressStates??'undefined')}`)
+  LogThis ( logSettings,`addressStates=${JSON.stringify(addressStates??'undefined')}`)
+  
   if (addressStates) {
     res.json(addressStates)
   } else {

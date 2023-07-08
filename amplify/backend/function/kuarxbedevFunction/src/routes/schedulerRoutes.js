@@ -7,7 +7,7 @@ let { protect, admin } = require('../middleware/authMiddleware.js')
 // router.route('/').post(protect, addOrderItems).get(protect, admin, getOrders)
 
 // router.route('/downloadOrderedProduct/:id').get(protect, downloadOrderedProduct)
-
+  
 // router.route('/myorders').get(protect, getMyOrders)
 // // Make sure the route that uses the :id is at the bottom of your routes, otherwise, it the router will treat all other routes as if they were ids.
 router.route('/').get(protect, getScheduleByProviderId)
