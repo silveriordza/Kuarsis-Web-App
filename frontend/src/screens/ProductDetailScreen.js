@@ -8,7 +8,7 @@ import Meta from '../components/Meta'
 import { listProductDetails } from '../actions/productActions'
 import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
 
-const PixanProductScreen = ({ history, match }) => {
+const ProductDetailScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
 
   const dispatch = useDispatch()
@@ -116,4 +116,4 @@ const PixanProductScreen = ({ history, match }) => {
   )
 }
 
-export default PixanProductScreen
+export default ProductDetailScreen

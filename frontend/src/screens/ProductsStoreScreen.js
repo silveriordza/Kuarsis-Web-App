@@ -23,7 +23,7 @@ const ProductsStoreScreen = ({ match }) => {
   
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber))
-    
+  // eslint-disable-next-line 
   }, [dispatch, keyword, pageNumber])
   
   useEffect(() => {
@@ -43,7 +43,7 @@ const ProductsStoreScreen = ({ match }) => {
       productsOfCategory = products.filter(product => product.category === 'Digital Photos Licenses')
       setcategoryList(localCategoryList)
       LogThis(logSettings, `!loading=${JSON.stringify(!loading)}, products=${JSON.stringify(products)}, productsOfCategory = ${JSON.stringify(productsOfCategory)}, categoryList=${JSON.stringify(localCategoryList)}`)
-      
+  // eslint-disable-next-line    
   }}, [productList, products, loading])
 
   return (
@@ -53,7 +53,7 @@ const ProductsStoreScreen = ({ match }) => {
       {LogThis(logSettings, `ProductStoreScreen, Rendering, about to check loading: loading=${loading}, products=${JSON.stringify(products)}, categoryList=${JSON.stringify(categoryList)}`)}
       {loading || (!products??true) || (categoryList.length===0) || (products.length===0)? (
         <>
-        {LogThis(logSettings, `ProductStoreScreen, Rendering, Still loading cycle: loading=${loading}, products??true=${products??true}, categoryList.length==0=${categoryList.length==0}, products.length==0=${products.length==0}, products=${JSON.stringify(products)}, categoryList=${JSON.stringify(categoryList)}`)}
+        {LogThis(logSettings, `ProductStoreScreen, Rendering, Still loading cycle: loading=${loading}, products??true=${products??true}, categoryList.length==0=${categoryList.length===0}, products.length==0=${products.length===0}, products=${JSON.stringify(products)}, categoryList=${JSON.stringify(categoryList)}`)}
         <Loader />
         </>
       ) : error ? (

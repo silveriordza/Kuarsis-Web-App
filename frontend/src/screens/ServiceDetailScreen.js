@@ -1,51 +1,57 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, /*useRef*/ } from 'react'
 import { Link/*, useNavigate*/ } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Scheduler from '../components/Scheduler'
 import Meta from '../components/Meta'
 import { listProductDetails } from '../actions/productActions'
 import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import { LogThis, initLogSettings} from '../libs/Logger'
 
-const PixanProductScreen = ({ history, match }) => {
+const logSettings = initLogSettings('ServiceDetailScreen')
+
+const ServiceDetailScreen = ({ history, match }) => {
+  logSettings.sourceFunction = 'ServiceDetailScreen'
   const [qty, setQty] = useState(1)
-  
-  const [hrs, sethrs] = useState('8:00')
-  const [selectedDate, setSelectedDate] = useState(null);
   const dispatch = useDispatch()
   //const leapToPage = useNavigate();
 
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
 
+  const schedulerDetails = useSelector((state) => state.schedulerDetails)
+  const { loading: scheduleLoading, /*error: scheduleError,*/ schedule } = schedulerDetails
+
   useEffect(() => {
+    logSettings.sourceFunction = 'useEffect'
+    LogThis(logSettings, `dispatching listProductDetails: match.params.id=${match.params.id}`)
     dispatch(listProductDetails(match.params.id))
+    LogThis(logSettings, `dispatched listProductDetails: match.params.id=${match.params.id}`)
   }, [dispatch, match])
 
-  //Adding handler for the Add Cart button here:
-  const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`)
-  }
+  // //Adding handler for the Add Cart button here:
+  // const addToCartHandler = () => {
+  //   history.push(`/cart/${match.params.id}?qty=${qty}`)
+  // }
 
   const bookAppointment = () => {
-    history.push(`/bookappointment/${match.params.id}`)
+    //history.push(`/bookappointment/${match.params.id}`)
+    logSettings.sourceFunction = 'bookAppointment'
+    if(!scheduleLoading&&!error&&schedule)
+    {
+      LogThis(logSettings, `schedule=${JSON.stringify(schedule)}`)
+    }
   }
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
+ 
+  
   return (
     <>
       <Link className='btn btn-light my-3' onClick={()=>history.go(-1)}>
         Go Back
       </Link>
-      {loading ? (
+      {loading && product && (!product.user??true) ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>
@@ -124,50 +130,23 @@ const PixanProductScreen = ({ history, match }) => {
             </Col>
           </Row>
           <h1>Service calendar availability:</h1>
-
-      <DatePicker 
-        selected={selectedDate}
-        onChange={handleDateChange}
-        dateFormat="dd/MM/yyyy"
-        placeholderText="Select a date"
-      />
-          <h3>Available hours: 8:00, 9:00, 10:00</h3>
-          <Form.Control
-              as='select'
-              value={hrs}
-              placeholder='Pick time'
-              onChange={(e) => sethrs(e.target.value)}
-            >
-               <option key='1' value='8:00' defaultValue={1}>
-                    8:00 
-              </option>
-              <option key='2' value='9:00'>
-                    9:00 
-              </option>
-              <option key='3' value='10:00'>
-                    9:00 
-              </option>
-          </Form.Control>
-          <br/>
-          <br/>
-          <br/>
-      <ToggleButtonGroup type="checkbox" defaultValue={[1, 3]} className="mb-2">
-          <ToggleButton id="tbg-check-1" value={1} style={{display:'none'}}>
-            Checkbox 1 (pre-checked)
-          </ToggleButton>
-          <ToggleButton id="tbg-check-2" value={2} style={{display:'none'}}>
-            Checkbox 2
-          </ToggleButton>
-          <ToggleButton id="tbg-check-3" value={3} style={{display:'none'}}>
-            Checkbox 3 (pre-checked)
-          </ToggleButton>
-      </ToggleButtonGroup>
-
-
-        </>
+          {/* <div className='schedulerClass'> 
+              <ScheduleComponent id='scheduler' currentView='Day' eventSettings={eventSettings} actionComplete={onActionComplete} actionBegin={onActionBegin} dataBound={onAppointmentListModified}  dragStart={(onDragStart.bind(this))} resizeStart={(onResizeStart.bind(this))} beforeQuickPopupOpen={onBeforeQuickPopupOpen} beforeAppointmentCreate={onbeforeAppointmentCreate}> 
+                    <ViewsDirective>
+                      <ViewDirective option='Day' interval={7} displayName='3 Days' startHour='08:00' endHour='20:00'></ViewDirective>
+                    </ViewsDirective>
+                    <Inject services={[Day, DragAndDrop, Resize]} />
+              </ScheduleComponent>
+          </div> */}
+          {/* {console.log(`ServiceDetailScreen, Before rendering Scheduler: ${eventSettingsLocal}`)}
+          <Scheduler eventSettingsLocal={eventSettingsLocal}/> */}
+          {logSettings.functionName='Render'}
+          {LogThis(logSettings, `product=${JSON.stringify(product)}`)}
+          <Scheduler providerId={product.user}/>
+      </>
       )}
     </>
   )
 }
 
-export default PixanProductScreen
+export default ServiceDetailScreen

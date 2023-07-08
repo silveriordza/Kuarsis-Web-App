@@ -1,6 +1,6 @@
 import { LOG_LEVEL } from '../constants/enviromentConstants'
 
-export const LogThis = (logSettings=null, logMessage) => {
+export const LogThis = (logSettings=null, logMessage='') => {
     
   if(LOG_LEVEL>=1) {
     !logSettings? 
@@ -8,5 +8,12 @@ export const LogThis = (logSettings=null, logMessage) => {
     :
     (console.log("%s: %s, %s: %s", new Date().toLocaleTimeString(), logSettings.sourceFilename??'NA', logSettings.sourceFunction??'NA', logMessage)) 
     }
+}
+
+export const initLogSettings = (fileName='', functionName='') => {
+  return {
+    sourceFilename: fileName,
+    sourceFunction: functionName
+  }
 }
 

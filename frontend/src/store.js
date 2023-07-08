@@ -36,6 +36,13 @@ import {
   orderDeliverDownloadURLReducer,
 } from './reducers/orderReducers'
 
+import {
+  schedulerDetailsReducer,
+  schedulerUpdateReducer
+} from './reducers/schedulerReducer.js'
+
+
+
 // Any new reducers will be combined here, right now we will add an empty object since we don't have any reducers yet
 const reducer = combineReducers({
   //User Reducers
@@ -64,7 +71,9 @@ const reducer = combineReducers({
   orderList: orderListReducer,
   orderDeliver: orderDeliverReducer,
   orderDeliverDownloadURL: orderDeliverDownloadURLReducer,
-  configsAddressStates: configsAddressStatesReducer
+  configsAddressStates: configsAddressStatesReducer,
+  schedulerDetails: schedulerDetailsReducer,
+  schedulerUpdate: schedulerUpdateReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
