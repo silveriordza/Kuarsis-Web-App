@@ -1,6 +1,6 @@
 let asyncHandler = require('express-async-handler')
 let Product = require('../models/productModel.js')
-let LogThis = require('../utils/Logger.js')
+let {LogThis} = require('../utils/Logger.js')
 
 // @desc    Fetch all products
 // @route   GET /api/products

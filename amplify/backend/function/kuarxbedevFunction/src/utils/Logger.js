@@ -7,4 +7,11 @@ const LogThis = (logSettings=null, logMessage) => {
     }
 }
 
-module.exports = LogThis
+const initLogSettings = (fileName='', functionName='') => {
+  return {
+    sourceFilename: fileName,
+    sourceFunction: functionName
+  }
+}
+
+module.exports = {LogThis, initLogSettings}
