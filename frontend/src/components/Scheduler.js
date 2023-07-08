@@ -3,17 +3,17 @@
 //import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
 import {Inject, ScheduleComponent, Day, DragAndDrop, Resize, ViewsDirective, ViewDirective} from '@syncfusion/ej2-react-schedule';
 import {LogThis, initLogSettings} from '../libs/Logger'
-
-import React, { useEffect, useRef} from 'react'
+ 
+import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
-import Loader from '../components/Loader' 
+import Message from './Message'
+import Loader from './Loader'  
 import { getScheduleDetails, updateScheduleDetails} from '../actions/schedulerActions'
 //import {SCHEDULE_DETAILS_SUCCESS} from '../constants/schedulerConstants'
 
 const logSettings=initLogSettings('Scheduler')
 
-const Scheduler = ({providerId}) => {
+const Scheduler = ({providerId, product}) => {
 
   logSettings.functionName = 'Scheduler'
   LogThis(logSettings, `Entering to the Scheduler: providerId=${providerId}`)
@@ -22,7 +22,9 @@ const Scheduler = ({providerId}) => {
   
   const schedulerDetails = useSelector((state) => state.schedulerDetails)
   const { loading, error, schedule } = schedulerDetails
-
+  //const {isOverlapped = useRef(false)
+  
+  const [isOverlapped, setisOverlapped] = useState(false)
   //const isInitialLoad = useRef(true)
 
   //const onDragStart = (dragEventArgs) => {
@@ -39,7 +41,7 @@ const Scheduler = ({providerId}) => {
       //ragEventArgs.excludeSelectors = 'e-all-day-cells,e-work-cells'
       }*/
     //}
-   
+    
   //const onResizeStart = (resizeEventArgs) => {
     //Enable enables the resize.
     /*if(resizeEventArgs){
@@ -86,9 +88,10 @@ const Scheduler = ({providerId}) => {
     LogThis(logSettings, `6`)
     */
    //} 
-
+    
    const onActionBegin = (args) => { 
     logSettings.sourceFunction='onActionBegin'
+    setisOverlapped(false)
     if (args.requestType === 'toolbarItemRendering') {
     // This block is execute before toolbarItem render
     }
@@ -107,11 +110,12 @@ const Scheduler = ({providerId}) => {
       //let newSchedule = [...scheduler]
       LogThis(logSettings, `eventChange: appointments=${JSON.stringify(appointments)}`)
       const isAppointmentOveralapped = IsSlotAvailable(args.addedRecords[0], appointments)
+      setisOverlapped(isAppointmentOveralapped)
       if(isAppointmentOveralapped){
-        alert('Appointments overlapped')
+        //alert('Appointments overlapped')
         args.cancel = isAppointmentOveralapped
         }
-    }
+    }  
     if (args.requestType === 'eventChange') {
     // This block is execute before an appointment change
      // This block is execute before an appointment create
@@ -122,8 +126,9 @@ const Scheduler = ({providerId}) => {
        //let newSchedule = [...scheduler]
        LogThis(logSettings, `eventChange: appointments=${JSON.stringify(appointments)}`)
        const isAppointmentOveralapped = IsSlotAvailable(args.changedRecords[0], appointments)
+       setisOverlapped(isAppointmentOveralapped)
        if(isAppointmentOveralapped){
-       alert('Appointments overlapped')
+       //alert('Appointments overlapped')
        args.cancel = isAppointmentOveralapped
        }
      //}
@@ -132,11 +137,11 @@ const Scheduler = ({providerId}) => {
     // This block is execute before an appointment remove
     }
 } 
-
+      
 const IsSlotAvailable = (newEvent, eventList) => {
   logSettings.sourceFunction = 'IsSlotAvailable'
   let isOverlapped = 0
-  let newEventList = eventList.filter(e => e.Guid!=newEvent.Guid)
+  let newEventList = eventList.filter(e => e.Guid!==newEvent.Guid)
   newEventList.some(eventScheduled => {
     if (   (newEvent.StartTime >= eventScheduled.StartTime && newEvent.StartTime < eventScheduled.EndTime)
         || (newEvent.EndTime > eventScheduled.StartTime && newEvent.EndTime <= eventScheduled.EndTime)
@@ -176,7 +181,7 @@ const IsSlotAvailable = (newEvent, eventList) => {
         const newSchedule = schedule
         //LogThis(logSettings, `2 newSchedule=${newSchedule}`) 
         newSchedule.scheduleData=wholeSchedule
-        dispatch(updateScheduleDetails(newSchedule))
+        dispatch(updateScheduleDetails(newSchedule, product))
     }  
     if (args.requestType === 'eventChanged') { 
         // This block is execute after an appointment change
@@ -239,27 +244,31 @@ const IsSlotAvailable = (newEvent, eventList) => {
     LogThis(logSettings, `loading=${JSON.stringify(loading)}; schedule=${JSON.stringify(schedule)}; error=${JSON.stringify(error)};`)
 // eslint-disable-next-line  
   }, [loading, schedule, error])
-     
+ 
+  
    
     return ( 
-        <div className='schedulerClass'>  
+        <div className='schedulerClass'>  schedule
         {console.log(`Scheduler, Rendering before loadingcheck: loading=${JSON.stringify(loading)}; schedule=${JSON.stringify(schedule)}`)}
         {loading&&(!schedule??true) ? ( 
         <>
         {console.log(`Scheduler, Rendering Loading: loading=${JSON.stringify(loading)}; schedule=${JSON.stringify(schedule)}`)}
         <Loader />
         </>  
-      ) : error ? (
+      ) : error ? ( 
         <Message variant='danger'>{error}</Message>
-      ) : (  
+      ) : (    
         <>
-            {console.log(`Scheduler, Rendering Start: loading=${JSON.stringify(loading)}; schedule.scheduleData=${JSON.stringify(schedule[0].scheduleData)} `)}
-            <ScheduleComponent id='scheduler' currentView='Day' eventSettings={{eventOverlap: false, dataSource:schedule[0].scheduleData}}  actionBegin={onActionBegin} actionComplete={onActionComplete} > 
+            {console.log(`Scheduler, Rendering Start: loading=${JSON.stringify(loading)}; schedule.scheduleData=${JSON.stringify(schedule.scheduleData)} `)}
+            {isOverlapped && <div className='schedulerAlertMessage'><Message variant='warning'>{'Appoinments are overlapping, please select different date/times.'}</Message> </div> }
+            <div style={{display: 'block'}}>
+            <ScheduleComponent id='scheduler' currentView='Day' eventSettings={{dataSource:schedule.scheduleData}}  actionBegin={onActionBegin} actionComplete={onActionComplete} > 
             <ViewsDirective>
               <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='08:00' endHour='20:00'></ViewDirective>
             </ViewsDirective>
             <Inject services={[Day, DragAndDrop, Resize]} />
           </ScheduleComponent> 
+          </div>
         </>)  
       } 
       {/* {logSettings.sourceFunction='Render: before isInitialLoad.current checks'}

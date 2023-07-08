@@ -28,8 +28,9 @@ export const getScheduleDetails = (providerId) => async (dispatch, getState) => 
             Authorization: `Bearer ${userInfo.token}`,
             },
         }
+        //const clientId = userInfo._id
         LogThis(logSettings, `Before axios get: providerId=${providerId}; userInfo._id=${userInfo._id}`)
-        const {data} = await axios.get(BACKEND_ENDPOINT + `/scheduler?providerid=${providerId}&clientid=${userInfo._id}`, config)
+        const {data} = await axios.get(BACKEND_ENDPOINT + `/scheduler?providerId=${providerId}&clientId=${userInfo._id}`, config)
         LogThis(logSettings, `After axios get, result: data=${JSON.stringify(data)}`)
         dispatch({
             type: SCHEDULE_DETAILS_SUCCESS,
@@ -46,10 +47,10 @@ export const getScheduleDetails = (providerId) => async (dispatch, getState) => 
     }
   }
 
-  export const updateScheduleDetails = (schedule) => async (dispatch, getState) => { 
+  export const updateScheduleDetails = (_schedule, _product) => async (dispatch, getState) => { 
     try {
         logSettings.sourceFunction='updateScheduleDetails'
-        LogThis(logSettings, `Entering: schedule=${JSON.stringify(schedule)}`)
+        LogThis(logSettings, `Entering: _schedule=${JSON.stringify(_schedule)}`)
         dispatch({
             type: SCHEDULE_DETAILS_REQUEST,
         })
@@ -64,10 +65,15 @@ export const getScheduleDetails = (providerId) => async (dispatch, getState) => 
             Authorization: `Bearer ${userInfo.token}`,
             },
         }
-        LogThis(logSettings, `Before axios put: schedule=${JSON.stringify(schedule)}; userInfo._id=${userInfo._id}`)
+        LogThis(logSettings, `Before axios put: _schedule=${JSON.stringify(_schedule)}; userInfo._id=${userInfo._id}; product=${_product}`)
         const {data} = await axios.put(
             BACKEND_ENDPOINT + `/scheduler`, 
-            {scheduleRequestUpdate: schedule},
+            {
+                scheduleRequestUpdate: {
+                    schedule: _schedule,
+                    product: _product
+                }
+            },
             config
             )
         LogThis(logSettings, `After axios put, result: data=${JSON.stringify(data)}`)

@@ -103,11 +103,22 @@ h2 {
 
 .schedulerClass{
   position: relative;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   /* width: 100%; */
   }
+
+.schedulerAlertMessage{
+  opacity: 1;
+  animation: fade-out 6s linear;
+  animation-fill-mode: forwards ;
+}
+
+@keyframes fade-out {
+  from { opacity: 1 }
+  to { opacity: 0; display: none }
+}
 
 @media (max-width: 900px) {
   .carousel-caption h2 {

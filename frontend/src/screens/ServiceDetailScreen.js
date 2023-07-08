@@ -142,7 +142,7 @@ const ServiceDetailScreen = ({ history, match }) => {
           <Scheduler eventSettingsLocal={eventSettingsLocal}/> */}
           {logSettings.functionName='Render'}
           {LogThis(logSettings, `product=${JSON.stringify(product)}`)}
-          <Scheduler providerId={product.user}/>
+          <Scheduler providerId={product.user} product={match.params.id}/>
       </>
       )}
     </>
