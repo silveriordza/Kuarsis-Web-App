@@ -1,0 +1,34 @@
+[{
+  "providerId": {
+    "$oid": "62e551baf5c6b51f61e0ef93"
+  },
+  "clientId": {
+    "$oid": "62e551baf5c6b51f61e0ef93"
+  },
+  "product": {
+    "$oid": "6497772db683f275e421c0e1"
+  },
+  "scheduleData": [
+    {
+      "Subject": "PEDRO",
+      "Id": 2,
+      "StartTime": "2023-07-09T19:30:00.000Z",
+      "EndTime": "2023-07-09T20:00:00.000Z",
+      "IsAllDay": false,
+      "Guid": "f8330fbf-5a19-99e4-78a8-aeada219a81b"
+    },
+    {
+      "Subject": "PEDRO 2",
+      "Id": null,
+      "StartTime": "2023-07-10T21:30:00.000Z",
+      "EndTime": "2023-07-10T22:00:00.000Z",
+      "IsAllDay": false,
+      "Guid": "a99d9a91-0c08-b146-188c-5ba651e8b564"
+    }
+  ],
+  "itemsPrice": 0,
+  "taxPrice": 0,
+  "totalPrice": 0,
+  "isPaid": false,
+  "isServiceProvided": false
+}]
