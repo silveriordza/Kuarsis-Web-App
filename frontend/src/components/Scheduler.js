@@ -3,6 +3,7 @@
 //import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
 import {Inject, ScheduleComponent, Day, DragAndDrop, Resize, ViewsDirective, ViewDirective} from '@syncfusion/ej2-react-schedule';
 import {LogThis, initLogSettings} from '../libs/Logger'
+import { v4 as uuidv4 } from 'uuid';
  
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -25,69 +26,7 @@ const Scheduler = ({providerId, product}) => {
   //const {isOverlapped = useRef(false)
   
   const [isOverlapped, setisOverlapped] = useState(false)
-  //const isInitialLoad = useRef(true)
-
-  //const onDragStart = (dragEventArgs) => {
-      /*if(dragEventArgs){ 
-      ////Enable enables the drag and drop.
-      dragEventArgs.enable = false
-      ////The scroll by controls the speed of how quicly the scroll moves.
-      dragEventArgs.scrollBy = 500
-      ////Interval is when dragging, the appointment will jump from interval to interval, if the interval is 60 then if user drags it will move the appointment back or forward by 60 min. 
-      dragEventArgs.interval = 60
-      ////Navitaion allows user to drag and drop appointments outside of the current date range selection and the calenar will auto move to the previous or next date range.
-      dragEventArgs.navigation.enable = true
-      ////Exclude Selectors will block the appointment from being drop into the excluded areas.
-      //ragEventArgs.excludeSelectors = 'e-all-day-cells,e-work-cells'
-      }*/
-    //}
-    
-  //const onResizeStart = (resizeEventArgs) => {
-    //Enable enables the resize.
-    /*if(resizeEventArgs){
-      console.log(1)
-    resizeEventArgs.enable = false
-    console.log(resizeEventArgs)
-    resizeEventArgs.scrollBy = 500
-    console.log(2)
-    resizeEventArgs.interval = 60
-    console.log(3)
-    ////Navigation property is not available in the ResizeEventArgs type. 
-    //resizeEventArgs.navigation.enable = true
-    console.log(4)
-    } */ 
-  //}
-        
-  //const ondataBound = (args) => {  
-  /*
-    logSettings.sourceFunction = 'onAppointmentListModified'
-    LogThis(logSettings, `Entering onAppointmentListModified`)  
-
-    let scheduler = document.getElementById('scheduler').ej2_instances[0] 
-    let appointments = scheduler.getEvents()   
-
-    LogThis(logSettings, `Appointments: ${JSON.stringify(appointments)}`)
-    LogThis(logSettings, `1`) 
-
-    const newSchedule = schedule
-    //LogThis(logSettings, `2 newSchedule=${newSchedule}`)
-    newSchedule.scheduleData=appointments
-    //LogThis(logSettings, `3 newSchedule=${newSchedule}`)
-    LogThis(logSettings, `3 Dispatching updateScheduleDetails: newSchedule=${JSON.stringify(newSchedule)}`)
-    LogThis(logSettings, `4`) 
-    if(!isInitialLoad.current){
-      LogThis(logSettings, `InitLoad is not: !isInitialLoad.current=${!isInitialLoad.current}`)
-      !loading? dispatch(updateScheduleDetails(newSchedule)):LogThis(logSettings, 'update already loading') 
-      isInitialLoad.current=true
-    } else {
-      LogThis(logSettings, `InitLoad is yes: !isInitialLoad.current=${!isInitialLoad.current}`)
-      isInitialLoad.current=false
-    }
-    LogThis(logSettings, `5`)
-    LogThis(logSettings, `Dispatched updateScheduleDetails: newSchedule=${JSON.stringify(newSchedule)}`)
-    LogThis(logSettings, `6`)
-    */
-   //} 
+  
     
    const onActionBegin = (args) => { 
     logSettings.sourceFunction='onActionBegin'
@@ -114,7 +53,9 @@ const Scheduler = ({providerId, product}) => {
       if(isAppointmentOveralapped){
         //alert('Appointments overlapped')
         args.cancel = isAppointmentOveralapped
-        }
+      } else { 
+        args.data[0].schedulerEventId = uuidv4() 
+      }
     }  
     if (args.requestType === 'eventChange') {
     // This block is execute before an appointment change
@@ -158,29 +99,33 @@ const IsSlotAvailable = (newEvent, eventList) => {
     LogThis(logSettings, `event is overlapped: true`)
     return true;
   }
-  LogThis(logSettings, `event is overlapped: false`)
+  LogThis(logSettings, `event is overlapped: false`)  
   return false;  
 }
 
-   const onActionComplete = (args) => { 
+   const onActionComplete = (args) => {   
      
     logSettings.sourceFunction='onActionComplete'
     LogThis(logSettings, ` args.requestType = ${JSON.stringify(args.requestType)}; args.data = ${JSON.stringify(args.data)}`)
 
-    if (args.requestType === 'eventCreated' /*|| args.requestType === 'eventChanged' || args.requestType === 'eventRemoved'*/) {
+    if (args.requestType === 'eventCreated' /*|| args.requestType === 'eventChanged' || args.requestType === 'eventRemoved'*/) { 
         // This block is execute after an appointment create
         LogThis(logSettings, `eventCreated: Entering`)
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
         let appointments = scheduler.getEvents()
-        let blockedTimes = scheduler.getBlockEvents()
-        const wholeSchedule = appointments.concat(blockedTimes).concat(args.data)
-
+        //let blockedTimes = scheduler.getBlockEvents()
+        //const wholeSchedule = appointments.concat(blockedTimes).concat(args.data)
+        //const wholeSchedule = appointments
+        // const newAppointment = [...args.data]
+        // newAppointment.schedulerEventId = Guid()
+        appointments = appointments.concat(args.data)
          
-        LogThis(logSettings, `eventCreated wholeSchedule=${JSON.stringify(wholeSchedule)}`)
+        //LogThis(logSettings, `eventCreated wholeSchedule=${JSON.stringify(wholeSchedule)}`)
+        LogThis(logSettings, `eventCreated appointments=${JSON.stringify(appointments)}`)
         //setcalendarSchedule({dataSource: wholeSchedule})
-        const newSchedule = schedule
+        const newSchedule = schedule 
         //LogThis(logSettings, `2 newSchedule=${newSchedule}`) 
-        newSchedule.scheduleData=wholeSchedule
+        newSchedule.scheduleData=appointments
         dispatch(updateScheduleDetails(newSchedule, product))
     }  
     if (args.requestType === 'eventChanged') { 
@@ -188,35 +133,35 @@ const IsSlotAvailable = (newEvent, eventList) => {
         LogThis(logSettings, `eventChanged: Entering`)
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
         let appointments = scheduler.getEvents()
-        let blockedTimes = scheduler.getBlockEvents()
+        //let blockedTimes = scheduler.getBlockEvents()
         LogThis(logSettings, `eventChanged: Before updating Appointments index: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}`)
    
         const newAppointments = appointments.filter(appt => (args.data.find( dt => appt.Guid===dt.Guid)?false:true))
         
         LogThis(logSettings, `eventChanged: After updating Appointments: newAppointments=${JSON.stringify(newAppointments)}`)
  
-        const wholeSchedule = newAppointments.concat(args.data).concat(blockedTimes)
+        const wholeSchedule = newAppointments.concat(args.data)
         
         LogThis(logSettings, `eventChanged wholeSchedue=${JSON.stringify(wholeSchedule)}`)
         //setcalendarSchedule({dataSource: wholeSchedule})
         const newSchedule = schedule
         //LogThis(logSettings, `2 newSchedule=${newSchedule}`)
         newSchedule.scheduleData=wholeSchedule
-        dispatch(updateScheduleDetails(newSchedule))
+        dispatch(updateScheduleDetails(newSchedule, product))
     } 
     if(args.requestType === 'eventRemoved') {  
         // This block is execute after an appointment remove
         // This block is execute after an appointment change
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
         let appointments = scheduler.getEvents()
-        let blockedTimes = scheduler.getBlockEvents()
+        //let blockedTimes = scheduler.getBlockEvents()
         LogThis(logSettings, `eventRemoved: Before filtering Appointments: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}`)
         
         const newAppointments = appointments.filter(appt => (args.data.find( dt => appt.Guid===dt.Guid)?false:true))
 
         LogThis(logSettings, `eventRemoved: After filtering Appointments: appointments=${JSON.stringify(newAppointments)}`)
 
-        const wholeSchedule = newAppointments.concat(blockedTimes)
+        const wholeSchedule = newAppointments
         LogThis(logSettings, `eventRemoved: After contatenating Appointments: wholeSchedule=${JSON.stringify(wholeSchedule)}`)
 
        //setcalendarSchedule({dataSource: wholeSchedule})

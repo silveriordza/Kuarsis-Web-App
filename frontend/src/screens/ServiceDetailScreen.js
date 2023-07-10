@@ -129,7 +129,7 @@ const ServiceDetailScreen = ({ history, match }) => {
               </Card>
             </Col>  
           </Row> 
-          <h1>Service calendar availability:</h1> 
+          <h1>Service calendar availability:</h1>
           {/* <div className='schedulerClass'> 
               <ScheduleComponent id='scheduler' currentView='Day' eventSettings={eventSettings} actionComplete={onActionComplete} actionBegin={onActionBegin} dataBound={onAppointmentListModified}  dragStart={(onDragStart.bind(this))} resizeStart={(onResizeStart.bind(this))} beforeQuickPopupOpen={onBeforeQuickPopupOpen} beforeAppointmentCreate={onbeforeAppointmentCreate}> 
                     <ViewsDirective>

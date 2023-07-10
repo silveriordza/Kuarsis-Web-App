@@ -48,7 +48,7 @@ export const getScheduleDetails = (providerId) => async (dispatch, getState) => 
   }
 
   export const updateScheduleDetails = (_schedule, _product) => async (dispatch, getState) => { 
-    try {
+    try { 
         logSettings.sourceFunction='updateScheduleDetails'
         LogThis(logSettings, `Entering: _schedule=${JSON.stringify(_schedule)}`)
         dispatch({
