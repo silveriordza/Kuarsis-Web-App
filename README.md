@@ -4,6 +4,22 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing. 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxbedev-v1.0.0.6
+Version date: 7/09/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.-  Added ScheduleComponent from syncfusion, and coded logic to:
+    1.1 Store appointments on the database.
+    1.2 User can modify calendar appointments, resize, drag and drop, delete appoinments. 
+    1.3 User is blocked from overlapping appointments. 
+    1.4 User is blocked from adding appointments which start time is not greater than current time by two hours. 
+    1.5 user can delete multiple appointments by selecting them all at once.
+2.- Appointments can be booked against a particular product which in turn is provided by a service provider. The scheulde also handles Busy times from provider when he is booked by other users and other products. 
+3.- Users can only see their own appoitments, but if the provider is busy with other users, thoes timeframes will show up as Busy and Blocked, the user can't book appointments on busy/blocked timeframes. 
+4.- Added a Message component into the Scheduler component to show error messages when user overlaps appointments, or creates/modify appointments that are no greater than 2 horus of the current time. 
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxbedev-v1.0.0.5
 Version date: 6/26/23
 Modificator name: Silverio Rodriguez Alcorta
