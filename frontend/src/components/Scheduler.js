@@ -26,8 +26,10 @@ const Scheduler = ({providerId, product}) => {
   //const {isOverlapped = useRef(false)
   
   const [isOverlapped, setisOverlapped] = useState(false)
+
+  const [isEnoughNoticeInAdvanced, setisEnoughNoticeInAdvanced] = useState(true)
   
-    
+ 
    const onActionBegin = (args) => { 
     logSettings.sourceFunction='onActionBegin'
     setisOverlapped(false)
@@ -48,31 +50,35 @@ const Scheduler = ({providerId, product}) => {
       let appointments = scheduler.getEvents()
       //let newSchedule = [...scheduler]
       LogThis(logSettings, `eventChange: appointments=${JSON.stringify(appointments)}`)
-      const isAppointmentOveralapped = IsSlotAvailable(args.addedRecords[0], appointments)
-      setisOverlapped(isAppointmentOveralapped)
-      if(isAppointmentOveralapped){
+      const _isAppointmentOveralapped = IsSlotAvailable(args.addedRecords[0], appointments)
+      setisOverlapped(_isAppointmentOveralapped)
+      
+      const _isEnoughNoticeInAdvanced = IsEnoughNoticeInAdvanced(args.addedRecords[0])
+      setisEnoughNoticeInAdvanced(_isEnoughNoticeInAdvanced)
+
+      if(_isAppointmentOveralapped || !_isEnoughNoticeInAdvanced){
         //alert('Appointments overlapped')
-        args.cancel = isAppointmentOveralapped
+        args.cancel = true
       } else { 
         args.data[0].schedulerEventId = uuidv4() 
       }
     }  
     if (args.requestType === 'eventChange') {
-    // This block is execute before an appointment change
-     // This block is execute before an appointment create
-     LogThis(logSettings, `eventChange: Entering, args=${JSON.stringify(args)}`)
-     //if(args.changedRecords.length > 0) {
-       let scheduler = document.getElementById('scheduler').ej2_instances[0]
-       let appointments = scheduler.getEvents()
-       //let newSchedule = [...scheduler]
-       LogThis(logSettings, `eventChange: appointments=${JSON.stringify(appointments)}`)
-       const isAppointmentOveralapped = IsSlotAvailable(args.changedRecords[0], appointments)
-       setisOverlapped(isAppointmentOveralapped)
-       if(isAppointmentOveralapped){
-       //alert('Appointments overlapped')
-       args.cancel = isAppointmentOveralapped
-       }
-     //}
+      // This block is execute before an appointment change
+      LogThis(logSettings, `eventChange: Entering, args=${JSON.stringify(args)}`)
+
+      let scheduler = document.getElementById('scheduler').ej2_instances[0]
+      let appointments = scheduler.getEvents()
+
+      LogThis(logSettings, `eventChange: appointments=${JSON.stringify(appointments)}`)
+      const _isAppointmentOveralapped = IsSlotAvailable(args.changedRecords[0], appointments)
+      setisOverlapped(_isAppointmentOveralapped)
+      const _isEnoughNoticeInAdvanced = IsEnoughNoticeInAdvanced(args.changedRecords[0])
+      setisEnoughNoticeInAdvanced(_isEnoughNoticeInAdvanced)
+
+      if(_isAppointmentOveralapped || !_isEnoughNoticeInAdvanced){
+        args.cancel = true
+      }
     }
     if (args.requestType === 'eventRemove') {
     // This block is execute before an appointment remove
@@ -82,11 +88,12 @@ const Scheduler = ({providerId, product}) => {
 const IsSlotAvailable = (newEvent, eventList) => {
   logSettings.sourceFunction = 'IsSlotAvailable'
   let isOverlapped = 0
-  let newEventList = eventList.filter(e => e.Guid!==newEvent.Guid)
-  newEventList.some(eventScheduled => {
-    if (   (newEvent.StartTime >= eventScheduled.StartTime && newEvent.StartTime < eventScheduled.EndTime)
-        || (newEvent.EndTime > eventScheduled.StartTime && newEvent.EndTime <= eventScheduled.EndTime)
-        || ( newEvent.StartTime===eventScheduled.StartTime && newEvent.EndTime === eventScheduled.EndTime)
+  let newEventList = eventList.filter(e => e.schedulerEventId!==newEvent.schedulerEventId)
+  newEventList.some(eventAlreadyScheduled => {
+    if (   (newEvent.StartTime >= eventAlreadyScheduled.StartTime && newEvent.StartTime < eventAlreadyScheduled.EndTime)
+        || (newEvent.EndTime > eventAlreadyScheduled.StartTime && newEvent.EndTime <= eventAlreadyScheduled.EndTime)
+        || ( newEvent.StartTime===eventAlreadyScheduled.StartTime && newEvent.EndTime === eventAlreadyScheduled.EndTime)
+        || ( newEvent.StartTime<eventAlreadyScheduled.StartTime && newEvent.EndTime > eventAlreadyScheduled.EndTime)
         ) {
           LogThis(logSettings, `overlap identified`)
           isOverlapped=true
@@ -101,6 +108,16 @@ const IsSlotAvailable = (newEvent, eventList) => {
   }
   LogThis(logSettings, `event is overlapped: false`)  
   return false;  
+}
+
+const IsEnoughNoticeInAdvanced = (newEvent) => {
+  const currentTime = new Date()
+  const currentTimePlusHours = new Date(currentTime.getTime() + (2*60*60*1000)) 
+  const eventStartTime = new Date()
+  if(newEvent.StartTime >= currentTimePlusHours){
+    return true;
+  }
+  return false;
 }
 
    const onActionComplete = (args) => {   
@@ -190,10 +207,8 @@ const IsSlotAvailable = (newEvent, eventList) => {
 // eslint-disable-next-line  
   }, [loading, schedule, error])
  
-  
-   
     return ( 
-        <div className='schedulerClass'>  schedule
+        <div className='schedulerClass'>
         {console.log(`Scheduler, Rendering before loadingcheck: loading=${JSON.stringify(loading)}; schedule=${JSON.stringify(schedule)}`)}
         {loading&&(!schedule??true) ? ( 
         <>
@@ -205,11 +220,12 @@ const IsSlotAvailable = (newEvent, eventList) => {
       ) : (    
         <>
             {console.log(`Scheduler, Rendering Start: loading=${JSON.stringify(loading)}; schedule.scheduleData=${JSON.stringify(schedule.scheduleData)} `)}
-            {isOverlapped && <div className='schedulerAlertMessage'><Message variant='warning'>{'Appoinments are overlapping, please select different date/times.'}</Message> </div> }
+            {isOverlapped && <div className='schedulerAlertMessage'><Message variant='danger'>{'Appoinments are overlapping, please select different date/times.'}</Message> </div> }
+            {!isEnoughNoticeInAdvanced && <div className='schedulerAlertMessage'><Message variant='danger'>{'Start Time must be at least 2 hours ahead of current time to give enough notice in advanced to provider.'}</Message> </div> }
             <div style={{display: 'block'}}>
             <ScheduleComponent id='scheduler' currentView='Day' eventSettings={{dataSource:schedule.scheduleData}}  actionBegin={onActionBegin} actionComplete={onActionComplete} > 
             <ViewsDirective>
-              <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='08:00' endHour='20:00'></ViewDirective>
+              <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='8:00' endHour='20:00'></ViewDirective>
             </ViewsDirective>
             <Inject services={[Day, DragAndDrop, Resize]} />
           </ScheduleComponent> 
