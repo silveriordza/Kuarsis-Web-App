@@ -42,6 +42,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/scheduler": {
+      "name": "/scheduler",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

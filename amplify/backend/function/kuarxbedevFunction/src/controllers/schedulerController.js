@@ -1,7 +1,7 @@
 let asyncHandler = require('express-async-handler')
 let {Schedule, ProviderBlockedSchedule} = require('../models/scheduleModel.js')
 let {LogThis, initLogSettings} = require('../utils/Logger.js')
-
+let {EVENT_STATUS_CONFIRMED} = require('../config/schedulerComponentConstants.js')
 
 
 const updateScheduleByProviderId = asyncHandler(async (req, res) => {
@@ -32,16 +32,8 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
         const newScheduleData = []
         if (originalSchedule&&originalSchedule.length>0) {
           LogThis(logSettings, `originalSchedule has data`)
-          
-          
-          finalEvents = originalSchedule[0].scheduleData.filter
-          (
-            originalEvent => !updatedSchedule.schedule.scheduleData.some(updatedEvent => originalEvent.schedulerEventId == updatedEvent.schedulerEventId)
-          )
-          
-          finalEvents = finalEvents.concat(updatedSchedule.schedule.scheduleData)
-          
-          originalSchedule[0].scheduleData = finalEvents
+
+          originalSchedule[0].scheduleData = updatedSchedule.schedule.scheduleData
 
           LogThis(logSettings, `After updating schedule data: originalSchedule=${JSON.stringify(originalSchedule)}`)
           originalSchedule = await originalSchedule[0].save()
@@ -105,9 +97,14 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
         LogThis(logSettings, `Provider Schedule has data`)
         providerSchedule.forEach(sch => {
           sch.scheduleData.forEach(event => {
-            event.Subject = 'Busy'
-            event.IsBlock = true
-            _scheduleData.push(event)
+            let endTime = new Date(event.EndTime)
+            let currentTime = new Date()
+
+            if (endTime >= currentTime){
+              event.Subject = 'Busy'
+              event.IsBlock = true
+              _scheduleData.push(event)
+            }
           })
         })
       }
@@ -128,16 +125,34 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
                 sch.scheduleData.forEach
                 (event => 
                     {
-                    event.Subject = 'Busy'
-                    event.IsBlock = true
-                    _scheduleData.push(event)
+                      let endTime = new Date(event.EndTime)
+                      let currentTime = new Date()
+          
+                      if (endTime >= currentTime){
+                        event.Subject = 'Busy'
+                        event.IsBlock = true
+                        _scheduleData.push(event)
+                      }
                     }
                 )
               } 
               else 
               {
-                sch.scheduleData.forEach(event => {
-                  _scheduleData.push(event)
+                  sch.scheduleData.forEach(event => {
+                  let endTime = new Date(event.EndTime)
+                  let currentTime = new Date()
+            
+                  if (   endTime < currentTime 
+                      && event.schedulerEventStatus == EVENT_STATUS_CONFIRMED
+                      )
+                  {
+                    event.IsBlock = true
+                    _scheduleData.push(event)
+                  }
+                  else 
+                  {
+                    _scheduleData.push(event)
+                  }
                 })
               }
             }
@@ -202,7 +217,7 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
           scheduleResponse = {
             providerId: _providerId, 
             clientId: _clientId,
-            product: '6497772db683f275e421c0e1',
+            product: _product,
             scheduleData: []
           }
           LogThis(logSettings, `schedule=0 and providerBlockedSchedule=0: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
