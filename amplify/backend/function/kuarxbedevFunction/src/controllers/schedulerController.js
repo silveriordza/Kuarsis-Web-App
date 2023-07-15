@@ -63,9 +63,6 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
           res.json(updatedScheduleResponse)
         }
       } else {
-        const schedulerEventIds = updatedSchedule.schedule.scheduleData.map( event => event.schedulerEventId)
-        LogThis(logSettings, `Provider=Client: schedulerEventIds=${schedulerEventIds}`)
-        
         originalSchedule = await Schedule.find
           (
             { 
@@ -99,7 +96,7 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
               }
             })
           })
-        
+          LogThis(logSettings, `After updating appointments: originalSchedule=${JSON.stringify(originalSchedule)}`)
           let providerIsClientIndex = originalSchedule.findIndex(sch => (sch.providerId == updatedSchedule.schedule.providerId) && (sch.clientId==updatedSchedule.schedule.providerId))
           //Now add the new events the provider has added for himself
           if(providerIsClientIndex > -1){
@@ -107,17 +104,19 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
 
             const updatedScheduleData = updatedSchedule.schedule.scheduleData.filter( updatedEvent => !originalSchedule.some(sch => sch.scheduleData.some(event => updatedEvent.schedulerEventId==event.schedulerEventId)))
 
-            LogThis(logSettings, `provider same as client FOUND: updatedScheduleData=${JSON.stringify(updatedScheduleData)}`)
+            LogThis(logSettings, `After filtering updatedScheduleData to keep only new appts: updatedScheduleData=${JSON.stringify(updatedScheduleData)}`)
 
             originalSchedule[providerIsClientIndex].scheduleData = originalSchedule[providerIsClientIndex].scheduleData.concat(updatedScheduleData)
             LogThis(logSettings, `AFTER UPDATING SCHEDULE DATA: originalSchedule[providerIsClientIndex].scheduleData=${JSON.stringify(originalSchedule[providerIsClientIndex].scheduleData)}`)
           } else {
+            LogThis(logSettings, `provider same as client not found`)
             const newSchedule = await Schedule.create({
                 providerId: updatedSchedule.schedule.providerId, 
                 clientId:updatedSchedule.schedule.clientId,
                 product: updatedSchedule.product,
                 scheduleData: updatedSchedule.schedule.scheduleData.filter( updatedEvent => !originalSchedule.some(sch => sch.scheduleData.some(event => updatedEvent.schedulerEventId==event.schedulerEventId)))
             })
+            LogThis(logSettings, `provider same as client created new record: originalSchedule=${JSON.stringify(newSchedule)}`)
           }
 
           
@@ -143,7 +142,11 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
           
           // //originalSchedule = await originalSchedule.save()
           
-          originalSchedule.forEach(sch => sch.save())
+          //originalSchedule.forEach(sch => sch.save())
+          let currentSchedule = null
+          for (let i=0; i < originalSchedule.length; i++){
+            currentSchedule = await originalSchedule[i].save()
+          }
 
           LogThis(logSettings, `After updating database: originalSchedule=${JSON.stringify(originalSchedule)}`)
           const updatedScheduleResponse = await helper_getScheduleByProviderId(updatedSchedule.schedule.providerId, updatedSchedule.schedule.clientId, updatedSchedule.product)
