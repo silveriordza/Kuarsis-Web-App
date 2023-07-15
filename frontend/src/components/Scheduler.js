@@ -87,17 +87,14 @@ const IsSlotAvailable = (newEvent, eventList) => {
   logSettings.sourceFunction = 'IsSlotAvailable'
   let isOverlapped = 0
   let newEventList = eventList.filter(e => e.schedulerEventId!==newEvent.schedulerEventId)
-  newEventList.some(eventAlreadyScheduled => {
-    if (   (newEvent.StartTime >= eventAlreadyScheduled.StartTime && newEvent.StartTime < eventAlreadyScheduled.EndTime)
+  isOverlapped = newEventList.some(eventAlreadyScheduled => 
+    (
+        (   newEvent.StartTime >= eventAlreadyScheduled.StartTime && newEvent.StartTime < eventAlreadyScheduled.EndTime)
         || (newEvent.EndTime > eventAlreadyScheduled.StartTime && newEvent.EndTime <= eventAlreadyScheduled.EndTime)
         || ( newEvent.StartTime===eventAlreadyScheduled.StartTime && newEvent.EndTime === eventAlreadyScheduled.EndTime)
         || ( newEvent.StartTime<eventAlreadyScheduled.StartTime && newEvent.EndTime > eventAlreadyScheduled.EndTime)
-        ) {
-          LogThis(logSettings, `overlap identified`)
-          isOverlapped=true
-          return true;
-        }
-  })
+    )
+  )
 
   if(isOverlapped)
   { 
@@ -108,22 +105,22 @@ const IsSlotAvailable = (newEvent, eventList) => {
   return false;  
 }
 
-const IsEnoughNoticeInAdvanced = (newEvent) => {
+const IsEnoughNoticeInAdvanced = (newEvent) => { 
   const currentTime = new Date()
   const currentTimePlusHours = new Date(currentTime.getTime() + (2*60*60*1000)) 
-  const eventStartTime = new Date()
+  //const eventStartTime = new Date()
   if(newEvent.StartTime >= currentTimePlusHours){
     return true;
   }
   return false;
-}
-
+} 
+ 
    const onActionComplete = (args) => {   
      
     logSettings.sourceFunction='onActionComplete'
     LogThis(logSettings, ` args.requestType = ${JSON.stringify(args.requestType)}; args.data = ${JSON.stringify(args.data)}`)
 
-    if (args.requestType === 'eventCreated') { 
+    if (args.requestType === 'eventCreated') {  
         // This block is execute after an appointment create
         LogThis(logSettings, `eventCreated: Entering`)
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
@@ -133,19 +130,20 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
         LogThis(logSettings, `eventCreated appointments=${JSON.stringify(appointments)}`)
         const newSchedule = schedule 
         newSchedule.scheduleData=appointments
-        dispatch(updateScheduleDetails(newSchedule, product))
+        dispatch(updateScheduleDetails(newSchedule, product)) 
     }  
-    if (args.requestType === 'eventChanged') { 
+    if (args.requestType === 'eventChanged') {   
         // This block is execute after an appointment change
         LogThis(logSettings, `eventChanged: Entering`)
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
         let appointments = scheduler.getEvents()
         LogThis(logSettings, `eventChanged: Before updating Appointments index: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}`)
-   
+    
         const newAppointments = appointments.filter(appt => (!args.data.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
         
         LogThis(logSettings, `eventChanged: After updating Appointments: newAppointments=${JSON.stringify(newAppointments)}`)
  
+
         const wholeSchedule = newAppointments.concat(args.data)
         
         LogThis(logSettings, `eventChanged wholeSchedue=${JSON.stringify(wholeSchedule)}`)
@@ -153,18 +151,18 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
         newSchedule.scheduleData=wholeSchedule
         dispatch(updateScheduleDetails(newSchedule, product))
     } 
-    if(args.requestType === 'eventRemoved') {  
+    if(args.requestType === 'eventRemoved') {    
         // This block is execute after an appointment remove
         // This block is execute after an appointment change
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
         let appointments = scheduler.getEvents()
-        //let blockedTimes = scheduler.getBlockEvents()
+        //let blockedTimes = scheduler.getBlockEvents() 
         LogThis(logSettings, `eventRemoved: Before filtering Appointments: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}`)
-        
+         
         const newAppointments = appointments.filter(appt => (!args.data.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
 
         LogThis(logSettings, `eventRemoved: After filtering Appointments: appointments=${JSON.stringify(newAppointments)}`)
-
+   
         const wholeSchedule = newAppointments
         LogThis(logSettings, `eventRemoved: After contatenating Appointments: wholeSchedule=${JSON.stringify(wholeSchedule)}`)
        
@@ -175,13 +173,13 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
        LogThis(logSettings, `eventRemoved: After updating newSchedule with updated events: newSchedule=${JSON.stringify(newSchedule)}`)
 
        dispatch(updateScheduleDetails(newSchedule, product))
-    } 
+    }  
     LogThis(logSettings, `eventCreated event Ended`)
   }
 
   useEffect(() => { 
     if(providerId){
-    dispatch(getScheduleDetails(providerId))
+    dispatch(getScheduleDetails(providerId, product))
     } 
 // eslint-disable-next-line  
   }, [providerId])
@@ -190,7 +188,7 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
     logSettings.sourceFunction='useEffect checking schedule'
     LogThis(logSettings, `loading=${JSON.stringify(loading)}; schedule=${JSON.stringify(schedule)}; error=${JSON.stringify(error)};`)
 // eslint-disable-next-line  
-  }, [loading, schedule, error])  
+  }, [loading, schedule, error])   
  
     return ( 
         <div className='schedulerClass'>
@@ -210,7 +208,8 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
             <div style={{display: 'block'}}>
             <ScheduleComponent id='scheduler' currentView='Day' eventSettings={{dataSource:schedule.scheduleData}}  actionBegin={onActionBegin} actionComplete={onActionComplete} > 
             <ViewsDirective>
-              <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='00:00' endHour='23:59'></ViewDirective>
+              <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='08:00' endHour='23:59'></ViewDirective>
+              {/* <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='08:00' endHour='20:00'></ViewDirective> */}
             </ViewsDirective>
             <Inject services={[Day, DragAndDrop, Resize]} />
           </ScheduleComponent> 

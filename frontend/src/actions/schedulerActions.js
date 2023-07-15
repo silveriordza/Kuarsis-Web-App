@@ -11,10 +11,10 @@ import {LogThis, initLogSettings} from '../libs/Logger'
 
 const logSettings = initLogSettings('schedulerActions')
 
-export const getScheduleDetails = (providerId) => async (dispatch, getState) => {
+export const getScheduleDetails = (providerId, product) => async (dispatch, getState) => {
     try {
         logSettings.sourceFunction='getScheduleDetails'
-        LogThis(logSettings, `Entering: providerId=${providerId}`)
+        LogThis(logSettings, `Entering: providerId=${providerId}, providerId=${product}`)
         dispatch({
             type: SCHEDULE_DETAILS_REQUEST,
         })
@@ -30,7 +30,7 @@ export const getScheduleDetails = (providerId) => async (dispatch, getState) => 
         }
         //const clientId = userInfo._id
         LogThis(logSettings, `Before axios get: providerId=${providerId}; userInfo._id=${userInfo._id}`)
-        const {data} = await axios.get(BACKEND_ENDPOINT + `/scheduler?providerId=${providerId}&clientId=${userInfo._id}`, config)
+        const {data} = await axios.get(BACKEND_ENDPOINT + `/scheduler?providerId=${providerId}&clientId=${userInfo._id}&product=${product}`, config)
         LogThis(logSettings, `After axios get, result: data=${JSON.stringify(data)}`)
         dispatch({
             type: SCHEDULE_DETAILS_SUCCESS,
