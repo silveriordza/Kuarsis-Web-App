@@ -16,8 +16,8 @@ const logSettings=initLogSettings('Scheduler')
 
 const Scheduler = ({providerId, product}) => {
 
-  logSettings.functionName = 'Scheduler'
-  LogThis(logSettings, `Entering to the Scheduler: providerId=${providerId}`)
+  logSettings.functionName = 'Scheduler' 
+  LogThis(logSettings, `Entering to the Scheduler: providerId=${providerId}`)  
 
   const dispatch = useDispatch() 
   
@@ -32,6 +32,7 @@ const Scheduler = ({providerId, product}) => {
  
    const onActionBegin = (args) => { 
     logSettings.sourceFunction='onActionBegin'
+    LogThis(logSettings, `Entering onActionBegin: args=${JSON.stringify(args)}`)
     setisOverlapped(false)
     if (args.requestType === 'toolbarItemRendering') {
     // This block is execute before toolbarItem render
@@ -46,7 +47,7 @@ const Scheduler = ({providerId, product}) => {
     // This block is execute before an appointment create
      LogThis(logSettings, `eventCreate: Entering, args=${JSON.stringify(args)}`)
       let scheduler = document.getElementById('scheduler').ej2_instances[0]
-      let appointments = scheduler.getEvents()
+      let appointments = scheduler.getEvents() 
       LogThis(logSettings, `eventChange: appointments=${JSON.stringify(appointments)}`)
       const _isAppointmentOveralapped = IsSlotAvailable(args.addedRecords[0], appointments)
       setisOverlapped(_isAppointmentOveralapped)
@@ -118,8 +119,8 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
    const onActionComplete = (args) => {   
      
     logSettings.sourceFunction='onActionComplete'
-    LogThis(logSettings, ` args.requestType = ${JSON.stringify(args.requestType)}; args.data = ${JSON.stringify(args.data)}`)
-
+    LogThis(logSettings, ` args.requestType = ${JSON.stringify(args.requestType)}; args.data = ${JSON.stringify(args.data)}; args.deletedRecords=${JSON.stringify(args.deletedRecords)}; args.changedRecords=${JSON.stringify(args.changedRecords)}`)
+    
     if (args.requestType === 'eventCreated') {  
         // This block is execute after an appointment create
         LogThis(logSettings, `eventCreated: Entering`)
@@ -137,9 +138,25 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
         LogThis(logSettings, `eventChanged: Entering`)
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
         let appointments = scheduler.getEvents()
-        LogThis(logSettings, `eventChanged: Before updating Appointments index: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}`)
-    
-        const newAppointments = appointments.filter(appt => (!args.data.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
+        
+        if(args.deletedRecords&&args.deletedRecords.length > 0)
+        {
+          appointments = appointments.filter (appt => !args.deletedRecords.some(delEvent => appt.schedulerEventId == delEvent.schedulerEventId))
+        }
+
+        LogThis(logSettings, `eventChanged: Before updating Appointments index: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}; args.changedRecords=${JSON.stringify(args.changedRecords)}, args.deletedRecords=${JSON.stringify(args.deletedRecords)}`)
+        let newAppointments = null
+        if (   args.changedRecords&&args.changedRecords.length > 0 
+            && args.data && args.data.length > 0 
+            && (args.data[0].RecurrenceID??false)
+            && (args.changedRecords[0].Id == args.data[0].RecurrenceID)
+        ){ 
+          args.changedRecords[0].schedulerEventId = uuidv4()
+          newAppointments = appointments.filter(appt => (!args.changedRecords.some( dt => appt.Id===dt.Id)))
+          newAppointments = newAppointments.concat(args.changedRecords)
+        } else {
+          newAppointments = appointments.filter(appt => (!args.data.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
+        }
         
         LogThis(logSettings, `eventChanged: After updating Appointments: newAppointments=${JSON.stringify(newAppointments)}`)
  
@@ -155,11 +172,19 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
         // This block is execute after an appointment remove
         // This block is execute after an appointment change
         let scheduler = document.getElementById('scheduler').ej2_instances[0]
-        let appointments = scheduler.getEvents()
+        let appointments = scheduler.getEvents() 
+        //let scheduleRemoved = null
         //let blockedTimes = scheduler.getBlockEvents() 
-        LogThis(logSettings, `eventRemoved: Before filtering Appointments: appointments=${JSON.stringify(appointments)} args.data=${JSON.stringify(args.data)}`)
-         
-        const newAppointments = appointments.filter(appt => (!args.data.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
+        LogThis(logSettings, `eventRemoved: Before filtering Appointments: appointments=${JSON.stringify(appointments)}; args.data=${JSON.stringify(args.data)}; args.args.deletedRecords=${JSON.stringify(args.deletedRecords)}; args.changedRecords=${JSON.stringify(args.changedRecords)}`)
+        let newAppointments = null
+        if (args.deletedRecords.length > 0){
+          newAppointments = appointments.filter(appt => (!args.deletedRecords.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
+        } else if (args.changedRecords.length > 0) {
+          const changedAppointmentIndex = appointments.findIndex(appt => appt.schedulerEventId == args.changedRecords[0].schedulerEventId)
+          newAppointments = appointments
+          newAppointments[changedAppointmentIndex] = args.changedRecords[0]
+        }
+        //const newAppointments = appointments.filter(appt => (!args.deletedRecords.some( dt => appt.schedulerEventId===dt.schedulerEventId)))
 
         LogThis(logSettings, `eventRemoved: After filtering Appointments: appointments=${JSON.stringify(newAppointments)}`)
    
@@ -173,7 +198,7 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
        LogThis(logSettings, `eventRemoved: After updating newSchedule with updated events: newSchedule=${JSON.stringify(newSchedule)}`)
 
        dispatch(updateScheduleDetails(newSchedule, product))
-    }  
+    }   
     LogThis(logSettings, `eventCreated event Ended`)
   }
 
@@ -208,7 +233,7 @@ const IsEnoughNoticeInAdvanced = (newEvent) => {
             <div style={{display: 'block'}}>
             <ScheduleComponent id='scheduler' currentView='Day' eventSettings={{dataSource:schedule.scheduleData}}  actionBegin={onActionBegin} actionComplete={onActionComplete} > 
             <ViewsDirective>
-              <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='08:00' endHour='23:59'></ViewDirective>
+              <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='00:00' endHour='23:59'></ViewDirective>
               {/* <ViewDirective option='Day' interval={7} displayName='7 Days' startHour='08:00' endHour='20:00'></ViewDirective> */}
             </ViewsDirective>
             <Inject services={[Day, DragAndDrop, Resize]} />
