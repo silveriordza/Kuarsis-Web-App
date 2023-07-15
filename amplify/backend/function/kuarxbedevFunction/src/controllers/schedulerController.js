@@ -1,5 +1,5 @@
 let asyncHandler = require('express-async-handler')
-let {Schedule, ProviderBlockedSchedule} = require('../models/scheduleModel.js')
+let {Schedule/*, ProviderBlockedSchedule*/} = require('../models/scheduleModel.js')
 let {LogThis, initLogSettings} = require('../utils/Logger.js')
 let {EVENT_STATUS_CONFIRMED} = require('../config/schedulerComponentConstants.js')
 
@@ -87,18 +87,18 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
             sch.scheduleData = sch.scheduleData.filter(event => updatedSchedule.schedule.scheduleData.some(updatedEvent => event.schedulerEventId == updatedEvent.schedulerEventId))
           })
           LogThis(logSettings, `After delete: originalSchedule=${JSON.stringify(originalSchedule)}`)
-          // //Now updated the updated events for each schedule found:
+          //Now updated the updated events for each schedule found:
   
-          // originalSchedule.forEach( sch => {
-          //   sch.scheduleData = sch.scheduleData.map(event => {
-          //     updatedScheduleData = updatedSchedule.schedule.scheduleData.find(updatedEvent => event.schedulerEventId == updatedEvent.schedulerEventId)
-          //     if(updatedScheduleData){
-          //       return updatedScheduleData
-          //     } else {
-          //       return event
-          //     }
-          //   })
-          // })
+          originalSchedule.forEach( sch => {
+            sch.scheduleData = sch.scheduleData.map(event => {
+              updatedScheduleData = updatedSchedule.schedule.scheduleData.find(updatedEvent => event.schedulerEventId == updatedEvent.schedulerEventId)
+              if(updatedScheduleData){
+                return updatedScheduleData
+              } else {
+                return event
+              }
+            })
+          })
         
           let providerIsClientIndex = originalSchedule.findIndex(sch => (sch.providerId == updatedSchedule.schedule.providerId) && (sch.clientId==updatedSchedule.schedule.providerId))
           //Now add the new events the provider has added for himself
@@ -175,19 +175,19 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
 
 const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) => {
   try
-    {
+    { 
       const logSettings = initLogSettings('schedulerController', 'helper_getScheduleByProviderId')
       //LogThis(logSettings, `logSettings=${JSON.stringify(logSettings)}`)
 
       LogThis(logSettings, `Started: _providerId=${_providerId}; _clientId=${_clientId}; _product=${_product}`)
-      let providerBlockedSchedule = null
+      //let providerBlockedSchedule = null
       let providerSchedule = null
       let clientSchedule = null
       let _scheduleData = []
       let schedule = null
-      LogThis(logSettings, `Before ProviderBlockedSchedule.find: _providerId=${_providerId}`)
-      providerBlockedSchedule = await ProviderBlockedSchedule.find({providerId: _providerId})
-      LogThis(logSettings, `After ProviderBlockedSchedule.find: providerBlockedSchedule=${JSON.stringify(providerBlockedSchedule)}`)
+      // LogThis(logSettings, `Before ProviderBlockedSchedule.find: _providerId=${_providerId}`)
+      // providerBlockedSchedule = await ProviderBlockedSchedule.find({providerId: _providerId})
+      // LogThis(logSettings, `After ProviderBlockedSchedule.find: providerBlockedSchedule=${JSON.stringify(providerBlockedSchedule)}`)
 
       LogThis(logSettings, `Before Provider Schedule.find: _providerId=${_providerId}; _clientId=${_clientId}`)
       
@@ -218,7 +218,6 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
                 event.IsBlock = true
                 _scheduleData.push(event)
               }
-              
             }
           })
         })
@@ -274,35 +273,38 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
           )
       }
       LogThis(logSettings, `Client Schedule: _scheduleData=${JSON.stringify(_scheduleData)}`)
-      schedule = [{
+      let scheduleResponse = null
+      scheduleResponse = {
         providerId: _providerId,
         clientId: _clientId,
         product: _product,
         scheduleData: _scheduleData
-      }]
-      LogThis(logSettings, `After populating schedule with scheduleData: schedule=${JSON.stringify(JSON.stringify(schedule))}`)
+      }
+      LogThis(logSettings, `After populating scheduleResponse with _scheduleData: scheduleResponse=${JSON.stringify(JSON.stringify(scheduleResponse))}`)
       
-      let scheduleResponse = null
-      let _otherScheduleData = null
-      if ((schedule&&schedule.length>0)||(providerBlockedSchedule&&providerBlockedSchedule.length>0)) {
-            LogThis(logSettings, `schedule or providerBlockedSchedule have scheduleData: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
-            
-            if(schedule.length>0&&providerBlockedSchedule.length>0){
-                LogThis(logSettings, `schedule>0 and providerBlockedSchedule>0: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
-                _otherScheduleData = providerBlockedSchedule[0].scheduleData.concat(schedule[0].scheduleData)
-                LogThis(logSettings, `schedule>0 and providerBlockedSchedule>0 after concatenation: _otherScheduleData=${JSON.stringify(_otherScheduleData)}`)
+      
+      //let _otherScheduleData = null
+      //if ((schedule&&schedule.length>0)/*||(providerBlockedSchedule&&providerBlockedSchedule.length>0)*/) {
+            //LogThis(logSettings, `schedule or providerBlockedSchedule have scheduleData: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
+            //LogThis(logSettings, `schedule have scheduleData: schedule.length=${schedule.length}`) 
+            //if(schedule.length>0/*&&providerBlockedSchedule.length>0*/){
+                // LogThis(logSettings, `schedule>0 and providerBlockedSchedule>0: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
+                // _otherScheduleData = providerBlockedSchedule[0].scheduleData.concat(schedule[0].scheduleData)
+                // LogThis(logSettings, `schedule>0 and providerBlockedSchedule>0 after concatenation: _otherScheduleData=${JSON.stringify(_otherScheduleData)}`)
+                // LogThis(logSettings, `schedule>0 schedule.length=${schedule.length}`) 
                 
-                scheduleResponse = {
-                  providerId, 
-                  clientId, 
-                  product, 
-                  scheduleData, 
-                } = schedule[0]
+                // scheduleResponse = {
+                //   providerId, 
+                //   clientId, 
+                //   product, 
+                //   scheduleData, 
+                // } = schedule[0]
                 
-                scheduleResponse.scheduleData = _otherScheduleData
-                LogThis(logSettings, `schedule>0 and providerBlockedSchedule>0: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
-
-            } else if (schedule.length===0&&providerBlockedSchedule.length>0){
+                //scheduleResponse.scheduleData = _otherScheduleData
+                //scheduleResponse.scheduleData = schedule[0].scheduleData
+                //LogThis(logSettings, `schedule>0 and providerBlockedSchedule>0: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
+                //LogThis(logSettings, `schedule>0 : scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
+            /*} else if (schedule.length===0&&providerBlockedSchedule.length>0){
 
                 LogThis(logSettings, `schedule=0 and providerBlockedSchedule>0: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
 
@@ -326,17 +328,17 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
                 } = schedule[0]
                 scheduleResponse.scheduleData = _otherScheduleData
                 LogThis(logSettings, `schedule>0 and providerBlockedSchedule=0: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
-            } 
-      } else {
-          LogThis(logSettings, `schedule=0 and providerBlockedSchedule=0: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
-          scheduleResponse = {
-            providerId: _providerId, 
-            clientId: _clientId,
-            product: _product,
-            scheduleData: []
-          }
-          LogThis(logSettings, `schedule=0 and providerBlockedSchedule=0: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
-      }
+            } */
+      // } else {
+      //     LogThis(logSettings, `schedule=0 and providerBlockedSchedule=0: schedule.length=${schedule.length}; providerBlockedSchedule.length=${providerBlockedSchedule.length}`) 
+      //     scheduleResponse = {
+      //       providerId: _providerId, 
+      //       clientId: _clientId,
+      //       product: _product,
+      //       scheduleData: []
+      //     }
+      //     LogThis(logSettings, `schedule=0 and providerBlockedSchedule=0: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
+      // }
           LogThis(logSettings, `About to send back res.json: scheduleResponse=${JSON.stringify(scheduleResponse)}`) 
           return scheduleResponse
     } catch (ex) 

@@ -1,4 +1,7 @@
 [{
+  "_id": {
+    "$oid": "64a9c171ea46708cf0d2fe49"
+  },
   "providerId": {
     "$oid": "62e551baf5c6b51f61e0ef93"
   },
@@ -15,5 +18,12 @@
       "IsBlock": true,
       "appointmentType": "provider-busy"
     }
-  ]
+  ],
+  "createdAt": {
+    "$date": "2023-07-08T20:05:05.920Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-08T20:05:05.920Z"
+  },
+  "__v": 0
 }]
