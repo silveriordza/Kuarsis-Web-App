@@ -20,8 +20,8 @@ export const KUARSIS_PUBLIC_STATIC_FOLDER =
 export const KUARSIS_BANNER_MAIN_LOGO = 'ArtPixanLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
-*/
 
+*/
 //CONSTANTS FOR ARTPIXAN.KUARXIS.COM (PROD) ENVIRONMENT
 /*
 export const LOG_LEVEL = 0
