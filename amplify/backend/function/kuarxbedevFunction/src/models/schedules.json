@@ -12,18 +12,20 @@
     {
       "Subject": "PEDRO",
       "Id": 2,
-      "StartTime": "2023-07-09T19:30:00.000Z",
-      "EndTime": "2023-07-09T20:00:00.000Z",
+      "StartTime": "2023-07-15T19:30:00.000Z",
+      "EndTime": "2023-07-15T20:00:00.000Z",
       "IsAllDay": false,
-      "schedulerEventId" : "436d0f3c-f294-453e-aa0f-64d0edc76e7f" 
+      "schedulerEventId" : "436d0f3c-f294-453e-aa0f-64d0edc76e7f", 
+      "schedulerEventStatus" : "EVENT_STATUS_RESERVED"
     },
     {
       "Subject": "PEDRO 2",
       "Id": null,
-      "StartTime": "2023-07-10T21:30:00.000Z",
-      "EndTime": "2023-07-10T22:00:00.000Z",
+      "StartTime": "2023-07-16T21:30:00.000Z",
+      "EndTime": "2023-07-16T22:00:00.000Z",
       "IsAllDay": false,
-      "schedulerEventId" : "436d0f3c-f294-453e-aa0f-64d0edc76e8f"
+      "schedulerEventId" : "436d0f3c-f294-453e-aa0f-64d0edc76e8f", 
+      "schedulerEventStatus" : "EVENT_STATUS_RESERVED"
     }
   ],
   "itemsPrice": 0,

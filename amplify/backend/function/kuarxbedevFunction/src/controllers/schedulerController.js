@@ -16,17 +16,22 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
         } = scheduleRequestUpdate
 
         LogThis(logSettings, `Entering: updatedSchedule=${JSON.stringify(updatedSchedule)}`)
-        let originalSchedule = await Schedule.find
-        (
-          { 
-            $and: 
-            [
-              {providerId: updatedSchedule.schedule.providerId}, 
-              {clientId: updatedSchedule.schedule.clientId},
-              {product: updatedSchedule.product}
-            ]
-          }
-        )
+        let originalSchedule = null
+        if(updatedSchedule.schedule.providerId != updatedSchedule.schedule.clientId)
+        {
+          originalSchedule = await Schedule.find
+          (
+            { 
+              $and: 
+              [
+                {providerId: updatedSchedule.schedule.providerId}, 
+                {clientId: updatedSchedule.schedule.clientId},
+                {product: updatedSchedule.product}
+              ]
+            }
+          )
+        
+
 
         LogThis(logSettings, `originalSchedule=${JSON.stringify(originalSchedule)}`)
         const newScheduleData = []
@@ -57,6 +62,109 @@ const updateScheduleByProviderId = asyncHandler(async (req, res) => {
           
           res.json(updatedScheduleResponse)
         }
+      } else {
+        const schedulerEventIds = updatedSchedule.schedule.scheduleData.map( event => event.schedulerEventId)
+        LogThis(logSettings, `Provider=Client: schedulerEventIds=${schedulerEventIds}`)
+        
+        originalSchedule = await Schedule.find
+          (
+            { 
+              $and: 
+              [
+                {providerId: updatedSchedule.schedule.providerId}, 
+                {product: updatedSchedule.product}
+              ]
+            }
+          )
+
+          LogThis(logSettings, `Provider=Client: originalSchedule=${JSON.stringify(originalSchedule)}`)
+        const newScheduleData = []
+        if (originalSchedule&&originalSchedule.length>0) {
+          LogThis(logSettings, `originalSchedule has data`)
+          
+          //Check for items that are deleted: for each schedule found, check the scheduleData if the id is not in the updatedSchedule event list it means it was removed, hence it will be filtered form the original Schedule Data.
+          originalSchedule.forEach( sch => {
+            sch.scheduleData = sch.scheduleData.filter(event => updatedSchedule.schedule.scheduleData.some(updatedEvent => event.schedulerEventId == updatedEvent.schedulerEventId))
+          })
+          LogThis(logSettings, `After delete: originalSchedule=${JSON.stringify(originalSchedule)}`)
+          // //Now updated the updated events for each schedule found:
+  
+          // originalSchedule.forEach( sch => {
+          //   sch.scheduleData = sch.scheduleData.map(event => {
+          //     updatedScheduleData = updatedSchedule.schedule.scheduleData.find(updatedEvent => event.schedulerEventId == updatedEvent.schedulerEventId)
+          //     if(updatedScheduleData){
+          //       return updatedScheduleData
+          //     } else {
+          //       return event
+          //     }
+          //   })
+          // })
+        
+          let providerIsClientIndex = originalSchedule.findIndex(sch => (sch.providerId == updatedSchedule.schedule.providerId) && (sch.clientId==updatedSchedule.schedule.providerId))
+          //Now add the new events the provider has added for himself
+          if(providerIsClientIndex > -1){
+            LogThis(logSettings, `provider same as client FOUND: originalSchedule[providerIsClientIndex].scheduleData=${JSON.stringify(originalSchedule[providerIsClientIndex].scheduleData)}`)
+
+            const updatedScheduleData = updatedSchedule.schedule.scheduleData.filter( updatedEvent => !originalSchedule.some(sch => sch.scheduleData.some(event => updatedEvent.schedulerEventId==event.schedulerEventId)))
+
+            LogThis(logSettings, `provider same as client FOUND: updatedScheduleData=${JSON.stringify(updatedScheduleData)}`)
+
+            originalSchedule[providerIsClientIndex].scheduleData = originalSchedule[providerIsClientIndex].scheduleData.concat(updatedScheduleData)
+            LogThis(logSettings, `AFTER UPDATING SCHEDULE DATA: originalSchedule[providerIsClientIndex].scheduleData=${JSON.stringify(originalSchedule[providerIsClientIndex].scheduleData)}`)
+          } else {
+            const newSchedule = await Schedule.create({
+                providerId: updatedSchedule.schedule.providerId, 
+                clientId:updatedSchedule.schedule.clientId,
+                product: updatedSchedule.product,
+                scheduleData: updatedSchedule.schedule.scheduleData.filter( updatedEvent => !originalSchedule.some(sch => sch.scheduleData.some(event => updatedEvent.schedulerEventId==event.schedulerEventId)))
+            })
+          }
+
+          
+          
+
+          // {
+          //   if((sch.providerId == updatedSchedule.schedule.providerId) && (sch.clientId==updatedSchedule.schedule.providerId)){
+          //     sch.scheduleData =sch.scheduleData.filer( event => {
+          //       updatedScheduleData = updatedSchedule.schedule.find(updatedEvent => event.schedulerEventId == updatedEvent.schedulerEventId)
+          //       if(updatedScheduleData){}
+          //     })
+          //     updatedSchedule.schedule.scheduleData
+          //   } else {
+          //     return sch
+          //   }
+          // })
+        
+
+
+
+          // LogThis(logSettings, `After updating schedule data: originalSchedule=${JSON.stringify(originalSchedule)}`)
+          
+          
+          // //originalSchedule = await originalSchedule.save()
+          
+          originalSchedule.forEach(sch => sch.save())
+
+          LogThis(logSettings, `After updating database: originalSchedule=${JSON.stringify(originalSchedule)}`)
+          const updatedScheduleResponse = await helper_getScheduleByProviderId(updatedSchedule.schedule.providerId, updatedSchedule.schedule.clientId, updatedSchedule.product)
+
+          LogThis(logSettings, `Updating Schedule case, After helper_getScheduleByProviderId: updatedScheduleResponse=${JSON.stringify(updatedScheduleResponse)}`)
+          
+          res.json(updatedScheduleResponse)
+        } else {   
+          const newSchedule = await Schedule.create({
+              providerId: updatedSchedule.schedule.providerId, 
+              clientId:updatedSchedule.schedule.clientId,
+              product: updatedSchedule.product,
+              scheduleData: updatedSchedule.schedule.scheduleData,
+            })
+            const updatedScheduleResponse = await helper_getScheduleByProviderId(updatedSchedule.schedule.providerId, updatedSchedule.schedule.clientId, updatedSchedule.product)
+
+          LogThis(logSettings, `NEW Schedule Case, after helper_getScheduleByProviderId: updatedScheduleResponse=${JSON.stringify(updatedScheduleResponse)}`)
+          
+          res.json(updatedScheduleResponse)
+        }
+      }
   } catch (ex){
     const logSettings = initLogSettings('schedulerController', 'updateScheduleByProviderId')
     LogThis(logSettings,`Exception error: ex.message=${ex.message}; ex.stack=${ex.stack}`)
@@ -69,6 +177,7 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
   try
     {
       const logSettings = initLogSettings('schedulerController', 'helper_getScheduleByProviderId')
+      //LogThis(logSettings, `logSettings=${JSON.stringify(logSettings)}`)
 
       LogThis(logSettings, `Started: _providerId=${_providerId}; _clientId=${_clientId}; _product=${_product}`)
       let providerBlockedSchedule = null
@@ -81,7 +190,7 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
       LogThis(logSettings, `After ProviderBlockedSchedule.find: providerBlockedSchedule=${JSON.stringify(providerBlockedSchedule)}`)
 
       LogThis(logSettings, `Before Provider Schedule.find: _providerId=${_providerId}; _clientId=${_clientId}`)
-    
+      
       providerSchedule = await Schedule.find 
       (
         {
@@ -91,6 +200,7 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
           ]
         }
       )
+
       LogThis(logSettings, `After Provider Schedule.find: providerSchedule=${JSON.stringify(providerSchedule)}`)
       if(providerSchedule&&providerSchedule.length>0)
       {
@@ -99,11 +209,16 @@ const helper_getScheduleByProviderId = async (_providerId, _clientId, _product) 
           sch.scheduleData.forEach(event => {
             let endTime = new Date(event.EndTime)
             let currentTime = new Date()
-
-            if (endTime >= currentTime){
-              event.Subject = 'Busy'
-              event.IsBlock = true
+            //If the if the provider is equal to the client, it means that the provider is the one that is loged in and requesting his own schedule, therefore he is able to see all his appointments with his clients with the original subject line and not as Busy. Also the appoinments will not show as blocked, and can be modified by the provider at will. Also the provider will be able to see past due (even if not confirmed) and future appointments. 
+            if(_providerId==_clientId){
               _scheduleData.push(event)
+            } else {
+              if (endTime >= currentTime){
+                event.Subject = 'Busy'
+                event.IsBlock = true
+                _scheduleData.push(event)
+              }
+              
             }
           })
         })
