@@ -95,6 +95,9 @@ const Header = ({ history }) => {
               <LinkContainer to='/'>
                 <Nav.Link>Photos</Nav.Link>
               </LinkContainer>
+              <LinkContainer to='/show3d'>
+                <Nav.Link>3D Show</Nav.Link>
+              </LinkContainer>
             </Nav>
             <Nav className='me-auto'>
               {userInfo ? (

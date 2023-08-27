@@ -12,7 +12,7 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
 /*
 export const LOG_LEVEL = 1
-export const CURRENT_VERSION = `v1.0.0.7-2023-07-14-22:27`
+export const CURRENT_VERSION = `v1.0.0.7-2023-07-15-19:26`
 export const BACKEND_ENDPOINT =
   'https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev'
 export const KUARSIS_PUBLIC_STATIC_FOLDER =
@@ -20,8 +20,8 @@ export const KUARSIS_PUBLIC_STATIC_FOLDER =
 export const KUARSIS_BANNER_MAIN_LOGO = 'ArtPixanLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
-
 */
+
 //CONSTANTS FOR ARTPIXAN.KUARXIS.COM (PROD) ENVIRONMENT
 /*
 export const LOG_LEVEL = 0

@@ -24,6 +24,7 @@ import OrderListScreen from './screens/OrderListScreen'
 
 
 import dotenv from 'dotenv'
+import Show3DScreen from './screens/Show3DScreen'
 
 //https://dev.d2zqth0d2er18d.amplifyapp.com
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
         <main>
           <Container>
             <Route path='/profile' component={ProfileScreen} />
+            <Route path='/show3d' component={Show3DScreen} />
             <Route path='/sign-up' component={RegisterScreen} exact />
             <Route path='/sign-in' component={LoginScreen} exact />
             <Route path='/admin/userlist' component={UserListScreen} />
