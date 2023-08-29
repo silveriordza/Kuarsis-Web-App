@@ -4,7 +4,7 @@ import {
   KUARSIS_PUBLIC_STATIC_FOLDER,
 } from '../constants/enviromentConstants'
 
-const scenePath = 'http://localhost:3000/models/scene.gltf' 
+const scenePath = './images/scene.gltf'
 
 export const LoadGLTFByPath = (scene) => {
     return new Promise((resolve, reject) => {
@@ -18,6 +18,7 @@ export const LoadGLTFByPath = (scene) => {
 
         resolve();
       }, undefined, (error) => {
+        console.log(`Error Loading Scene`)
         reject(error);
       });
     });

@@ -15,6 +15,10 @@ import { LoadGLTFByPath } from '../libs/ModelHelper.js'
 import {PointerLockControls} from 'three-stdlib'
 //import {displayPaintingInfo, hidePaintingInfo} from './paintingInfo'
 
+import {
+  KUARSIS_PUBLIC_STATIC_FOLDER,
+} from '../constants/enviromentConstants'
+
 let controls = null
 let playButton = null
 let clock = null
@@ -109,13 +113,20 @@ function hideMenu()
 {
     const menu = document.getElementById("menu")
     menu.style.display = 'none'
+
+    
+    // const show3doverlay = document.getElementById("show3doverlay")
+    // show3doverlay.style.display = 'block'
 }
 
 //Show menu function
 function showMenu()
 {
-    const menu = document.getElementById("menu")
-    menu.style.display = 'block'
+  // const show3doverlay = document.getElementById("show3doverlay")
+  // show3doverlay.style.display = 'none'  
+  const menu = document.getElementById("menu")
+  menu.style.display = 'block'
+    
 }
 
 
@@ -199,7 +210,7 @@ const Show3DScreen = ({ location, history }) => {
               console.log(`object found UUID: ${frameFound.uuid}`)
               
               frameFound.material = createPainting(
-                `./img/${i}.jpg`,
+                `${KUARSIS_PUBLIC_STATIC_FOLDER}/${i}.jpg`,
                 )
                 frameFound.rotateY(Math.PI/2*-1)
             
@@ -210,73 +221,69 @@ const Show3DScreen = ({ location, history }) => {
             }
             
           }  
+
+          console.log(`Adding camera`)
+          scene.add(camera)
+          console.log(`Initial Scene: ${JSON.stringify(scene)}`)
+          camera.position.z = 5
+          camera.position.y = 1
+          camera.position.x = 1
+  
+          //Renderer does the job of rendering the graphics
+          renderer = new THREE.WebGLRenderer({
+            antialias: true,
+          });
+  
+          renderer.setSize(window.innerWidth, window.innerHeight);
+  
+          renderer.setClearColor(0xffffff, 0);
+          const show3dElement = document.getElementById('show3doverlay')
+          show3dElement.appendChild(renderer.domElement)
+  
+          //Controls for hiding the Virtual Museum Menu
+          /**
+          * The PointerLockControl is attached to the camera and the document.body of the HTML.
+          */
+          controls = new PointerLockControls(camera, document.body)
+          playButton = document.getElementById("play_button")
+          playButton.addEventListener("click", startExperience)
+          controls.addEventListener('unlock', showMenu)
+  
+          // Event listener for when we press the keys.
+          // The event is triggered only once when the user pressed. To keep the movement going we have to separate the keydown from keyup.
+          document.addEventListener(
+            'keydown', //`keydown` is an event that fires when a key is pressed
+            (event) => {
+                
+                if(event.key in keysPressed){
+                    console.log(`KeyDown ${event.key}`)
+                    //check if the key pressed is in the keysPressed object
+                    keysPressed[event.key] = true //if it is, set the value to true
+                }
+            }, 
+            false
+            )
+          // Event listener for when we release the keys
+          document.addEventListener(
+            'keyup', //`keyup` is an event that fires when a key is released
+            (event) => {
+                if(event.key in keysPressed){
+                    console.log(`KeyUp ${event.key}`)
+                    //check if the key pressed is in the keysPressed object
+                    keysPressed[event.key] = false //if it is, set the value to false
+                }
+            }, 
+            false
+            )
+          clock = new THREE.Clock()
+          render()
         
           
         })
         .catch((error) => {
           console.error('Error loading JSON scene:', error);
         });
-        console.log(`Adding camera`)
-        scene.add(camera)
-        console.log(`Initial Scene: ${JSON.stringify(scene)}`)
-        camera.position.z = 5
-        camera.position.y = 1
-        camera.position.x = 1
-        //camera.rotateX(Math.PI/4)
-
-        const targetObjectName = 'Cube.009'; // Adjust this to the name of the object you're looking for
-
-        // Traverse the model's hierarchy to find the object by name
-
-
-
-        //Renderer does the job of rendering the graphics
-        renderer = new THREE.WebGLRenderer({
-          antialias: true,
-        });
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        renderer.setClearColor(0xffffff, 0);
-        document.body.appendChild(renderer.domElement)
-
-        //Controls for hiding the Virtual Museum Menu
-        /**
-        * The PointerLockControl is attached to the camera and the document.body of the HTML.
-        */
-        controls = new PointerLockControls(camera, document.body)
-        playButton = document.getElementById("play_button")
-        playButton.addEventListener("click", startExperience)
-        controls.addEventListener('unlock', showMenu)
-
-        // Event listener for when we press the keys.
-        // The event is triggered only once when the user pressed. To keep the movement going we have to separate the keydown from keyup.
-        document.addEventListener(
-          'keydown', //`keydown` is an event that fires when a key is pressed
-          (event) => {
-              
-              if(event.key in keysPressed){
-                  console.log(`KeyDown ${event.key}`)
-                  //check if the key pressed is in the keysPressed object
-                  keysPressed[event.key] = true //if it is, set the value to true
-              }
-          }, 
-          false
-          )
-        // Event listener for when we release the keys
-        document.addEventListener(
-          'keyup', //`keyup` is an event that fires when a key is released
-          (event) => {
-              if(event.key in keysPressed){
-                  console.log(`KeyUp ${event.key}`)
-                  //check if the key pressed is in the keysPressed object
-                  keysPressed[event.key] = false //if it is, set the value to false
-              }
-          }, 
-          false
-          )
-        clock = new THREE.Clock()
-        render()
+       
   }, [])
 
   useEffect(() => {
@@ -301,9 +308,11 @@ requestAnimationFrame(render)
 
   return (
     <div class="background_menu">
+        <div id="show3doverlay">
+        </div>
         <div id="menu">
             <div id="img_container">
-                <Image src={"http://localhost:3000/img/starrynight.jpg"} alt={"newport bridge"}/>
+                <Image src={KUARSIS_PUBLIC_STATIC_FOLDER + '/starrynight.jpg'} alt={"newport bridge"}/>
             </div>
             <div id="content">
                 <h1> 3D Art Gallery in 3D</h1>
