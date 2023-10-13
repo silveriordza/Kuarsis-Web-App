@@ -1,10 +1,7 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import {
-  KUARSIS_PUBLIC_STATIC_FOLDER,
-} from '../constants/enviromentConstants'
 
-const scenePath = './images/scene.gltf'
+const scenePath = '/images/scene.json'
 
 export const LoadGLTFByPath = (scene) => {
     return new Promise((resolve, reject) => {
