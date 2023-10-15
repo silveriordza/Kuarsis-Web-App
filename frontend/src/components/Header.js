@@ -134,6 +134,9 @@ const Header = ({ history }) => {
                   <LinkContainer to='/admin/orderlist'>
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   </LinkContainer>
+                  <LinkContainer to='/admin/uploadsurveyanswers'>
+                    <NavDropdown.Item>Respuestas Encuestas</NavDropdown.Item>
+                  </LinkContainer>
                 </NavDropdown>
               )}
               <LinkContainer to='/cart'>

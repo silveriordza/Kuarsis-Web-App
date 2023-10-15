@@ -21,6 +21,7 @@ import ProductEditScreen from './screens/ProductEditScreen'
 import UserListScreen from './screens/UserListScreen'
 import UserEditScreen from './screens/UserEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
+import UploadSurveyAnswers from './screens/UploadSurveyAnswers'
 
 
 import dotenv from 'dotenv'
@@ -74,6 +75,7 @@ const App = () => {
             />
 
             <Route path='/admin/orderlist' component={OrderListScreen} />
+            <Route path='/admin/uploadsurveyanswers' component={UploadSurveyAnswers} />
             <Route path='/cart/:id?' component={CartScreen} />
             {/* <Route path='/bookappointment/:id' component={BookAppointmentScreen} /> */}
             <Route path='/order' component={OrderScreen} />
