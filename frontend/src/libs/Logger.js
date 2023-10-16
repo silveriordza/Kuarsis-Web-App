@@ -9,6 +9,7 @@ export const LogThis = (logSettings=null, logMessage='') => {
     (console.log("%s: %s, %s: %s", new Date().toLocaleTimeString(), logSettings.sourceFilename??'NA', logSettings.sourceFunction??'NA', logMessage)) 
     }
 }
+export const objLogSettings = {sourceFilename: '', sourceFunction: ''}
 
 export const initLogSettings = (fileName='', functionName='') => {
   return {

@@ -13,13 +13,14 @@ import {
   SRV_CONCAT_1STROW_HEADER_2NDROW_HEADER,
   SRV_FIRST_ROW_HAS_HEADERS,
   SRV_SECOND_ROW_HAS_HEADERS} from '../constants/surveyConstants'
-  
+
+import {rowCleaner, saveStringAsCSV, convertSurveyJsonToCSV } from '../libs/csvProcessingLib'
 import {surveysConfigurations} from '../surveysConfigurations'
 // import { listProductDetails, updateProduct } from '../actions/productActions'
 // import { PRODUCT_UPDATE_RESET, PRODUCT_DETAILS_SUCCESS } from '../constants/productConstants'
 // import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 // import { convert } from '../libs/imagesLib'
-// import { LogThis } from '../libs/Logger'
+ import { LogThis, objLogSettings } from '../libs/Logger'
  
 
 const UploadSurveyAnswers = ({ match, history }) => {
@@ -28,69 +29,27 @@ const UploadSurveyAnswers = ({ match, history }) => {
   const [uploading, setUploading] = useState(false)
   const [fileContents, setfileContents] = useState(null)
   const [fileContentsReady, setfileContentsReady] = useState(false)
+
+
+  const [nombreDeArchivoDatosReales, setnombreDeArchivoDatosReales] = useState('')
+
+  const [uploadingReales, setuploadingReales] = useState(false)
+  const [fileContentsReales, setfileContentsReales] = useState(null)
+  const [fileContentsRealesReady, setfileContentsRealesReady] = useState(false)
+
   const dispatch = useDispatch()
 
-  
-  const rowCleaner = (rowToClean) => {
-    let Row1Clean = rowToClean
-  
-    let quotesCount = 0
-    let semiColonChar = ";"
-    const rowArray = Row1Clean.split('') 
-    for (let i = 0; i < rowArray.length; i++)
-    {
-      if(rowArray[i]=='"'){
-        if(quotesCount==0)
-        {
-          console.log(`opening quotes identified at column i=${i}`)
-          quotesCount++
-        } else {
-          console.log(`closing quotes  identified at column i=${i}`)
-          quotesCount--
-        }
-      } else{
-        if(quotesCount>0 && rowArray[i]==','){
-          console.log(`replacing comma at column i=${i}`)
-          rowArray[i] = semiColonChar
-          console.log(`replaced comma at column i=${i}`)
-        }
-      }
-    }
-    return rowArray.join('')
-  }
-const saveStringAsCSV = (stringData, fileName) => {
-    const blob = new Blob([stringData], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
-
-const convertSurveyJsonToCSV = (headersJson, dataJson) => {
-
-    let csvText = ''
-    let header = ''
-    for (let i = 0; i < headersJson.length - 1; i++) {
-      csvText = csvText + headersJson[i] + ',';
-    }
-
-    csvText = csvText + headersJson[headersJson.length-1] + '\r\n'
-    dataJson.forEach(dataRow => {
-      csvText = csvText + dataRow
-    })
-
-    return csvText
-}
-
 const processCSVData = () => {
-if (fileContents) {
+  objLogSettings.sourceFilename = 'UploadSurveyAnswers.js'
+  objLogSettings.sourceFunction = 'processCSVData'
+  LogThis(objLogSettings, `START`)
+  if (fileContents) {
 
     const rows = fileContents.split('\n');
-
+    const rowsReales = fileContentsReales.split('\n')
+    rowsReales.shift()
+    rowsReales.shift()
+    LogThis(objLogSettings, `rowsReales=${rowsReales}; rowsReales.lenght=${rowsReales.length}`)
     let Row1 = rows[0];
     let Row2 = rows[1];
     console.log(Row1)
@@ -113,7 +72,7 @@ if (fileContents) {
           switch (hpm.modificator){
             case SRV_BLANK_CONCAT_2NDROW_PREVIOUS_HEADER:
               {
-                let currentValue = '';
+                let currentValue = ''; 
                 let previousNonEmpty = ''
               
               for (let col = hpm.startColumn; col <= hpm.endColumn; col++) {
@@ -218,10 +177,10 @@ if (fileContents) {
       console.log(dataRows)
       dataRows.shift()
       dataRows.shift()
-      dataRows.pop()
+      //dataRows.pop()
       console.log(`dataRows 2nd removed`)
       console.log(dataRows)
-      const surveyCSVData = convertSurveyJsonToCSV(finalHeaders, dataRows)
+      const surveyCSVData = convertSurveyJsonToCSV(finalHeaders, dataRows, rowsReales)
       console.log(`surveyCSVData`)
       console.log(surveyCSVData)
       saveStringAsCSV(surveyCSVData, `${new Date().getTime()/1000}_data.csv`)
@@ -230,16 +189,46 @@ if (fileContents) {
 
 
    useEffect(() => {
-        console.log(`in useEffect cycle uploading=${uploading}; fileContentsReady=${fileContentsReady}`)
-        if(!uploading && fileContentsReady)
+    objLogSettings.sourceFilename = 'UploadSurveyAnswers.js'
+    objLogSettings.sourceFunction = 'useEffect'
+    LogThis(objLogSettings, `START`)
+    LogThis(objLogSettings, `in useEffect cycle uploading=${uploading}; fileContentsReady=${fileContentsReady}`)
+        if(!uploading && fileContentsReady && !uploadingReales && fileContentsRealesReady)
         {
-          console.log(`processing CSV uploading=${uploading}; fileContentsReady=${fileContentsReady}`)
-        processCSVData()
+          LogThis(objLogSettings, `processing CSV uploading=${uploading}; fileContentsReady=${fileContentsReady}; uploadingReales=${uploadingReales}; fileContentsRealesReady=${fileContentsRealesReady}`)
+          processCSVData()
       }
       
-  }, [dispatch, fileContents, fileContentsReady, uploading])
+  }, [dispatch, fileContents, fileContentsReady, uploading, uploadingReales, fileContentsRealesReady])
   
-  //const fileContents = null;     
+  const uploadFileRealesHandler = async (e) => {
+    objLogSettings.sourceFilename = 'UploadSurveyAnswers.js'
+    objLogSettings.sourceFunction = 'uploadFileRealesHandler'
+    LogThis(objLogSettings, `START`)
+
+    const file = e.target.files[0]
+   
+    setuploadingReales(true)
+    setfileContentsRealesReady(false)
+    try {
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          LogThis(objLogSettings, `setting file contents`)
+          LogThis(objLogSettings, e.target.result)
+          setfileContentsReales(e.target.result);
+          setfileContentsRealesReady(true)
+        }
+        reader.readAsText(file);
+      }
+      setuploadingReales(false)
+    } catch (error) {
+      console.error(error)
+      setuploadingReales(false)
+    }
+  }
+    
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]
     console.log(`uploadFileHandler start`)
@@ -264,25 +253,10 @@ if (fileContents) {
     }
   }
 
+  
+
   const submitHandler = (e) => {
     e.preventDefault()
-    // dispatch(
-    //   updateProduct({
-    //     _id: productId,
-    //     name,
-    //     price,
-    //     image,
-    //     brand,
-    //     isShippable,
-    //     isDownloadable,
-    //     isImageProtected,
-    //     isBookable,
-    //     category,
-    //     description,
-    //     countInStock,
-    //     isCreated: true,
-    //   })
-    // )
   }
 
 return (
@@ -300,11 +274,11 @@ return (
           <Message variant='danger'>{error}</Message>
         ) : ( */}
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId='nombreDeArchivo'>
-              <Form.Label>Folder y nombre de archivo</Form.Label>
+            <Form.Group controlId='nombreDeArchivoNumerico'>
+              <Form.Label>Folder y nombre de archivo con datos numericos</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Seleccionar el archivo'
+                placeholder='Seleccionar el archivo datos numericos'
                 value={nombreDeArchivo}
                 onChange={(e) => setnombreDeArchivo(e.target.value)}
               ></Form.Control>
@@ -315,10 +289,25 @@ return (
               ></Form.Control>
               {uploading && <Loader />}
             </Form.Group>
-            <br />
+            <Form.Group controlId='nombreDeArchivoReales'>
+              <Form.Label>Folder y nombre de archivo con datos reales</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Seleccionar el archivo datos reales'
+                value={nombreDeArchivoDatosReales}
+                onChange={(e) => setnombreDeArchivoDatosReales(e.target.value)}
+              ></Form.Control>
+              <Form.Control
+                type='file'
+                className=''
+                onChange={uploadFileRealesHandler}
+              ></Form.Control>
+              {uploadingReales && <Loader />}
+            </Form.Group>
+            {/* <br />
             <Button type='submit' variant='primary'>
               Update
-            </Button>
+            </Button> */}
           </Form>
         {/* )} */}
       </FormContainer>
