@@ -169,6 +169,7 @@ let connectDB = require("./config/db.js");
 console.log("After let connectDB");
 let userRoutes = require("./routes/userRoutes.js");
 let productRoutes = require("./routes/productRoutes.js");
+let surveyRoutes = require("./routes/surveyRoutes.js");
 let orderRoutes = require("./routes/orderRoutes.js");
 let schedulerRoutes = require("./routes/schedulerRoutes.js");
 let uploadRoutes = require("./routes/uploadRoutes.js");

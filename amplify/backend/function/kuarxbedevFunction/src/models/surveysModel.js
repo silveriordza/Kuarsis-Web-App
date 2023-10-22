@@ -14,7 +14,6 @@ const superSurveyModel = mongoose.Schema(
     surveyName: { type: String, required: true },
     surveyShortName: { type: String, required: true },
     description: { type: String, required: false },
-    creationDate: { type: Date, required: true },
   },
   {
     timestamps: true,
@@ -29,11 +28,10 @@ const surveyModel = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    SurveyName: { type: String, required: true },
-    SurveyShortName: { type: String, required: true },
+    surveyName: { type: String, required: true },
+    surveyShortName: { type: String, required: true },
     description: { type: String, required: false },
     instructions: { type: String, required: false },
-    creationDate: { type: Date, required: true },
   },
   {
     timestamps: true,
@@ -49,7 +47,7 @@ const questionModel = mongoose.Schema(
       ref: "Survey",
     },
     question: { type: String, required: true },
-    questionShortDescription: { type: String, required: true },
+    questionShort: { type: String, required: true },
     fieldName: { type: String, required: true },
     subScale: { type: Number, required: true },
     sequence: { type: Number, required: true },
@@ -78,8 +76,7 @@ const multiSurveyModel = mongoose.Schema(
       required: true,
       ref: "Survey",
     },
-    surveySequence: { type: Number, required: true },
-    creationDate: { type: Date, required: true },
+    sequence: { type: Number, required: true },
   },
   {
     timestamps: true,
@@ -137,7 +134,7 @@ const surveyResponseModel = mongoose.Schema(
 const SurveyResponse = mongoose.model("SurveyResponse", surveyResponseModel);
 
 module.exports = {
-  SuperSuvey,
+  SuperSurvey,
   Survey,
   MultiSurvey,
   Question,

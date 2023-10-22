@@ -22,12 +22,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "server": "nodemon app"
+    "server": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^6.4.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.22"
   }
 }
