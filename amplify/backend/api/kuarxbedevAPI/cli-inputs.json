@@ -49,6 +49,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/surveys": {
+      "name": "/surveys",
+      "lambdaFunction": "kuarxbedevFunction",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

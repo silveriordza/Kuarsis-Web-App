@@ -12,14 +12,17 @@ let {
   SuperSurveyCollected,
   SurveyResponse,
 } = require("../models/surveysModel.js");
-let { LogThis } = require("../utils/Logger.js");
+let { LogThis, LoggerSettings } = require("../utils/Logger.js");
+const srcFileName = "surveyController.js";
+
+const fs = require("fs");
 
 //let onCareSuperSurvey = require("../models/surveyOnCareTreatmentTalentos2020.json");
 
-// @desc    Update a product
+// @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
 // @access  Private/Admin
-const createSurveyConfiguration = asyncHandler(async (req, res) => {
+const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   const {
     superSurveyConfig,
     //   price,
@@ -34,7 +37,7 @@ const createSurveyConfiguration = asyncHandler(async (req, res) => {
     //   countInStock,
     //   isCreated,
   } = req.body;
-  let ownerId = "652b0b3e1d61edfd4b8d4e8e";
+  let ownerId = req.user._id;
   // const superSurvey = new SuperSuvey({
   //   owner: "652b0b3e1d61edfd4b8d4e8e",
   //   surveyName: "Oncare Treatment Center 2020 Talentos",
@@ -158,47 +161,32 @@ const createSurveyConfiguration = asyncHandler(async (req, res) => {
   });
 });
 
-// @desc    Update a product
+// @desc    Upload Answers to a Super Survey
 // @route   PUT /api/surveys/:id
 // @access  Private/Admin
-const surveyProcessing = asyncHandler(async (req, res) => {
-  // const {
-  //   name,
-  //   price,
-  //   description,
-  //   image,
-  //   brand,
-  //   isShippable,
-  //   isDownloadable,
-  //   isImageProtected,
-  //   isBookable,
-  //   category,
-  //   countInStock,
-  //   isCreated,
-  // } = req.body
-  const fieldName = "1";
-  const Surveys = await MultiSurvey.find({ fieldName: fieldName }).exec();
+const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
+  const functionName = "superSurveyUploadAnswers";
+  const log = new LoggerSettings(srcFileName, functionName);
+  LogThis(log, `START`);
 
-  LogThis(`surveyController, surveyProcessing`);
+  const superSurveyId = req.params.id;
+  const user = req.user;
 
-  if (Surveys) {
-    //   product.name = name
-    //   product.price = price
-    //   product.description = description
-    //   product.image = image
-    //   product.brand = brand
-    //   product.isShippable = isShippable
-    //   product.isDownloadable = isDownloadable
-    //   product.isImageProtected = isImageProtected
-    //   product.isBookable = isBookable
-    //   product.category = category
-    //   product.countInStock = countInStock
-    //   product.isCreated = isCreated
-    //   LogThis(`productController, updateProduct, product=${product}`)
-    //   const updatedProduct = await product.save()
-    //   LogThis(`productController, updateProduct, updatedProduct=${updatedProduct}`)
-    //res.json(updatedProduct)
-    res.status(200);
+  // Access the uploaded file
+  const fileData = req.file;
+
+  const answersData = fileData.buffer.toString("utf8");
+  //console.log(answersData);
+  let answersRows = answersData.replace(/\r/g, "").split("\n");
+
+  if (answersRows.length > 0) {
+    LogThis(log, `END`);
+    res.status(200).json({
+      owner: user._id,
+      superSurveyId: superSurveyId,
+      answerRowsLength: answersRows.length,
+      answersRows: answersRows,
+    });
   } else {
     res.status(404);
     throw new Error("Product not found");
@@ -206,6 +194,6 @@ const surveyProcessing = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  surveyProcessing,
-  createSurveyConfiguration,
+  superSurveyUploadAnswers,
+  superSurveyCreateConfig,
 };
