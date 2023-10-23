@@ -13,6 +13,8 @@ let {
   SurveyResponse,
 } = require("../models/surveysModel.js");
 let { LogThis, LoggerSettings } = require("../utils/Logger.js");
+
+let { rowCleaner } = require("../utils/csvProcessingLib.js");
 const srcFileName = "surveyController.js";
 
 const fs = require("fs");
@@ -23,29 +25,8 @@ const fs = require("fs");
 // @route   POST /api/surveys/
 // @access  Private/Admin
 const superSurveyCreateConfig = asyncHandler(async (req, res) => {
-  const {
-    superSurveyConfig,
-    //   price,
-    //   description,
-    //   image,
-    //   brand,
-    //   isShippable,
-    //   isDownloadable,
-    //   isImageProtected,
-    //   isBookable,
-    //   category,
-    //   countInStock,
-    //   isCreated,
-  } = req.body;
+  const { superSurveyConfig } = req.body;
   let ownerId = req.user._id;
-  // const superSurvey = new SuperSuvey({
-  //   owner: "652b0b3e1d61edfd4b8d4e8e",
-  //   surveyName: "Oncare Treatment Center 2020 Talentos",
-  //   surveyShortName: "TALENTOS_2020",
-  //   description:
-  //     "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
-  //   creationDate: Date.now(),
-  // });
 
   await SuperSurvey.deleteMany({});
   await Survey.deleteMany({});
@@ -55,13 +36,6 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   console.log("superSurveyConfig INPUT values are:");
   console.log(superSurveyConfig);
   console.log("Survey Configuration Values STRINGIFIED:");
-  //console.log(JSON.stringify(onCareSuperSurvey));
-
-  //console.log(onCareSuperSurvey.surveyList[0].questionList);
-  //const superSurveyObject = JSON.parse(superSurveyConfig);
-
-  //console.log(JSON.stringify(superSurveyObject));
-  //let superSurveyConfigTest = onCareSuperSurvey;
 
   let superSurveyConfigTest = superSurveyConfig;
   const superSurvey = new SuperSurvey({
@@ -73,21 +47,11 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 
   const createdSuperSurvey = await superSurvey.save();
 
-  // superSurveyConfigTest.surveyList.forEach(surveyItem => {
-  //   let survey = new Survey({
-  //     owner: "652b0b3e1d61edfd4b8d4e8e",
-  //     surveyName: surveyItem.surveyName,
-  //     surveyShortName: surveyItem.surveyShortName,
-  //     description: surveyItem.description,
-  //     instructions: surveyItem.instructions,
-  //   })
-  //   let surveyCreated = await survey.save()
-  // })
   let surveysCreated = [];
   let questionsCreated = [];
   let surveyCreated = null;
   let questions = [];
-  let question = null;
+  //let question = null;
   let questionItem = null;
   for (let i = 0; i < superSurveyConfigTest.surveyList.length; i++) {
     let surveyItem = superSurveyConfigTest.surveyList[i];
@@ -111,15 +75,6 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 
     for (let x = 0; x < surveyItem.questionList.length; x++) {
       questionItem = surveyItem.questionList[x];
-
-      // question = {
-      //   surveyId: surveyCreated._id,
-      //   question: questionItem.question,
-      //   questionShort: questionItem.questionShort,
-      //   fieldName: questionItem.fieldName,
-      //   subScale: questionItem.subScale,
-      //   sequence: questionItem.sequence,
-      // };
       questions.push({
         surveyId: surveyCreated._id,
         question: questionItem.question,
@@ -128,32 +83,14 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
         subScale: questionItem.subScale,
         sequence: questionItem.sequence,
       });
-      console.log(`Saving Question ${questionItem.questionShort}`);
-      //let questionCreated = await question.save();
-      console.log(`Saved Question ${questionItem.questionShort}`);
-      //questionsCreated.push(questionCreated);
-      // console.log(`Pushed Question Created ${questionCreated.questionShort}`);
     }
     console.log("About to insert many");
     console.log(JSON.stringify(questions));
-    //let questionQuery = new Question();
     questionsCreated = await Question.insertMany(questions);
+    questions = [];
     console.log("Inserted many");
   }
 
-  // const surveys = []
-
-  // superSurveyConfig
-
-  // new Survey ({
-
-  // })
-
-  // const createdSuperSurvey = await superSurvey.save();
-
-  // const survey = new Survey({
-  //   owner: "22",
-  // });
   console.log("about to respond");
   res.status(201).json({
     surveysCreated: surveysCreated,
@@ -169,8 +106,10 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   const log = new LoggerSettings(srcFileName, functionName);
   LogThis(log, `START`);
 
+  await SurveyResponse.deleteMany({});
   const superSurveyId = req.params.id;
   const user = req.user;
+  const owner = req.user._id;
 
   // Access the uploaded file
   const fileData = req.file;
@@ -178,18 +117,101 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   const answersData = fileData.buffer.toString("utf8");
   //console.log(answersData);
   let answersRows = answersData.replace(/\r/g, "").split("\n");
+  answersRows.shift();
+  answersRows.shift();
+
+  //STARTING LOGIC TO SAVE ANSWERS TO DATABASE
+  /**
+   * Get the Super Survey and the list of its Surveys
+   */
+
+  let multiSurveys = await MultiSurvey.find({
+    superSurveyId: superSurveyId,
+    owner: owner,
+  })
+    .select("surveyId sequence")
+    .sort({ sequence: 1 })
+    .lean();
+
+  if (!multiSurveys) {
+    res.status(404);
+    throw new Error("Multi Surveys not found");
+  }
+  const surveyIdsList = [];
+  multiSurveys.map((multiSurveyItem) => {
+    surveyIdsList.push(multiSurveyItem.surveyId);
+  });
+  LogThis(log, `surveyIdsList=${surveyIdsList}`);
+  const questions = await Question.find({
+    surveyId: { $in: surveyIdsList },
+  })
+    .select("_id surveyId sequence")
+    .lean();
+  LogThis(log, `resultset questions=${JSON.stringify(questions)}`);
+  const surveyResponses = [];
+  surveyIdsList.map((surveyId) => {
+    let surveyQuestions = questions
+      .filter(
+        (question) => question.surveyId.toString() === surveyId.toString()
+      )
+      .sort((a, b) => b.sequence - a.sequence);
+    LogThis(
+      log,
+      `surveyQuestions=${surveyQuestions}; surveyId=${surveyId}; questions=${JSON.stringify(
+        questions
+      )}`
+    );
+
+    let rowClean = "";
+    let answers = [];
+
+    for (let r = 0; r < answersRows.length; r++) {
+      rowClean = rowCleaner(answersRows[r]);
+      answers = rowClean.split(",");
+      LogThis(log, `answers=${answers}`);
+      let row = r + 1;
+      for (let a = 0; a < surveyQuestions.length; a++) {
+        LogThis(
+          log,
+          `row=${row}; surveyQuestions[a]._id=${surveyQuestions[a]._id}; answers[a]=${answers[a]}`
+        );
+        surveyResponses.push({
+          questionId: surveyQuestions[a]._id,
+          row: row,
+          col: a + 1,
+          response: answers[a],
+        });
+      }
+    }
+  });
+  surveyResponses;
+  LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
+
+  const surveyResponseCreated = await SurveyResponse.insertMany(
+    surveyResponses
+  );
+
+  if (!questions) {
+    res.status(404);
+    throw new Error("Questions not found");
+  }
+  //ENDING LOGIC TO SAVE ANSWERS TO DATABASE
 
   if (answersRows.length > 0) {
     LogThis(log, `END`);
     res.status(200).json({
       owner: user._id,
+      surveyIdsList: surveyIdsList,
+      surveyResponseCreated: surveyResponseCreated,
       superSurveyId: superSurveyId,
+      multiSurveys: multiSurveys,
       answerRowsLength: answersRows.length,
+      questions: questions,
       answersRows: answersRows,
     });
   } else {
     res.status(404);
-    throw new Error("Product not found");
+    throw new Error("Uncought Exception loading answers");
   }
 });
 

@@ -25,6 +25,7 @@ const rowCleaner = (rowToClean) => {
       }
     }
   }
+  rowArray[rowArray.length] = "\n";
   return rowArray.join("");
 };
 

@@ -114,17 +114,19 @@ const SuperSurveyCollected = mongoose.model(
 
 const surveyResponseModel = mongoose.Schema(
   {
-    surveyCollectedId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "SuperSurveyCollected",
-    },
+    // surveyCollectedId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: "SuperSurveyCollected",
+    // },
     questionId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "Question",
     },
-    response: { type: String, required: true },
+    row: { type: Number, required: true },
+    col: { type: Number, required: true },
+    response: { type: String, required: false, default: "" },
   },
   {
     timestamps: true,
