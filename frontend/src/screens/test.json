@@ -1,4 +1,95 @@
 {
+  "owner": "652b0b3e1d61edfd4b8d4e8e",
+  "superSurveyId": "6534de82edd78c422c37f91b",
+  "multiSurveys": [
+    {
+      "_id": "6534de82edd78c422c37f91f",
+      "owner": "652b0b3e1d61edfd4b8d4e8e",
+      "superSurveyId": {
+        "_id": "6534de82edd78c422c37f91b",
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Oncare Treatment Center 2020 Talentos",
+        "surveyShortName": "TALENTOS_2020",
+        "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
+        "createdAt": "2023-10-22T08:34:10.687Z",
+        "updatedAt": "2023-10-22T08:34:10.687Z",
+        "__v": 0
+      },
+      "surveyId": {
+        "_id": "6534de82edd78c422c37f91d",
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "createdAt": "2023-10-22T08:34:10.730Z",
+        "updatedAt": "2023-10-22T08:34:10.730Z",
+        "__v": 0
+      },
+      "sequence": 1,
+      "createdAt": "2023-10-22T08:34:10.765Z",
+      "updatedAt": "2023-10-22T08:34:10.765Z",
+      "__v": 0
+    },
+    {
+      "_id": "6534de82edd78c422c37f92d",
+      "owner": "652b0b3e1d61edfd4b8d4e8e",
+      "superSurveyId": {
+        "_id": "6534de82edd78c422c37f91b",
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Oncare Treatment Center 2020 Talentos",
+        "surveyShortName": "TALENTOS_2020",
+        "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
+        "createdAt": "2023-10-22T08:34:10.687Z",
+        "updatedAt": "2023-10-22T08:34:10.687Z",
+        "__v": 0
+      },
+      "surveyId": {
+        "_id": "6534de82edd78c422c37f92b",
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-10-22T08:34:10.854Z",
+        "updatedAt": "2023-10-22T08:34:10.854Z",
+        "__v": 0
+      },
+      "sequence": 2,
+      "createdAt": "2023-10-22T08:34:10.888Z",
+      "updatedAt": "2023-10-22T08:34:10.888Z",
+      "__v": 0
+    },
+    {
+      "_id": "6534de83edd78c422c37f948",
+      "owner": "652b0b3e1d61edfd4b8d4e8e",
+      "superSurveyId": {
+        "_id": "6534de82edd78c422c37f91b",
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Oncare Treatment Center 2020 Talentos",
+        "surveyShortName": "TALENTOS_2020",
+        "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
+        "createdAt": "2023-10-22T08:34:10.687Z",
+        "updatedAt": "2023-10-22T08:34:10.687Z",
+        "__v": 0
+      },
+      "surveyId": {
+        "_id": "6534de82edd78c422c37f946",
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-10-22T08:34:10.970Z",
+        "updatedAt": "2023-10-22T08:34:10.970Z",
+        "__v": 0
+      },
+      "sequence": 3,
+      "createdAt": "2023-10-22T08:34:11.003Z",
+      "updatedAt": "2023-10-22T08:34:11.003Z",
+      "__v": 0
+    }
+  ],
   "answerRowsLength": 1024,
   "answersRows": [
     "respondent_id,collector_id,date_created,date_modified,ip_address,email_address,first_name,last_name,custom_1,Nombre completo:,Edad,Fecha de nacimiento (dd/mm/aaaa),Sexo,Estado civil,Estado de procedencia,,Municipio de residencia actual:,Medio de transporte:,Distancia aproximada de traslado entre su hogar y trabajo:,Último grado de estudios:,Ocupación actual,Área a la que aplica:,A1 Se ha sentido perfectamente bien y con buena salud.,,A2 Ha sentido la necesidad de un buen tónico,,A3 Se ha sentido agotado y sin motivaciones.,A4 Se ha sentido enfermo.,A5 Ha tenido dolores de cabeza.,A6 Ha sentido tensión o presión en la cabeza.,A7 Ha tenido ráfagas de calor o frío.,B1 Ha tenido dificultades para dormir por estar preocupado.,B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.,B3 Se ha sentido constantemente bajo presión.,B4 Se ha sentido irritable y de mal humor.,B5 Se ha sentido asustado o con pánico sin ninguna razón.,B6 Ha tenido la sensación de que no puede manejar las situaciones.,B7 Se ha sentido nervioso y tenso todo el tiempo.,\"C1 Se las ha ingeniado para mantenerse \"\"muy ocupado\"\".\",C2 Se tarda más tiempo en hacer las cosas. ,C3 En general siente que ha hecho las cosas bien.,C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.,C5 Se ha sentido útil y parte importante de lo que lo rodea.,C6 Se ha sentido capaz de tomar decisiones.,C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.,D1  Se ha sentido como una persona de poca valía.,D2 Ha sentido que la vida no vale nada.,D3 Ha sentido que no vale la pena vivir.,D4 Ha pensado en la posibilidad de quitarse la vida.,D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.,D6 Ha sentido ganas de estar muerto y acabar con todo.,D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.,\"FIAD-15 (NOFP)Instrucciones: El FIAD-15 le ayudará a describir sus ideas, sentimientos y actitudes hacia sí mismo y hacía los demás. Los resultados podrían ayudarle a conocerse a sí mismo o a identificar la naturaleza de sus problemas y la mejor manera de ayudarle a usted en particular. Lea cuidadosamente cada uno de los enunciados, todos describen formas y maneras de ser de las personas. Después de leer cada enunciado decida qué número (del 0 al 4) corresponde a lo más cercano a su manera de ser. Todos los enunciados son en algún grado posibles, no hay respuestas correctas o incorrectas, todas son válidas y solo tiene que contestar con lo que venga a su mente como el mejor número que lo describa. Tome el tiempo que requiera para contestar, pero se le recomienda responder tan rápido como le sea posible.\",,,,,,,,,,,,,,,\"Instrucciones: Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta\",,,,,,,,,,,,,,,,,,,,,,Instrucciones: a continuación marque los sucesos que ha vivido en el último año.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Instrucciones: La respuesta corresponde a los 7 días previos. Deberá calificarse el grado de intensidad de acuerdo a la siguiente escala. Anotando el número correspondiente dentro del paréntesis.,,,,,,,,,,,,,Instrucciones: Indique el grado hasta el que está de acuerdo o en desacuerdo con cada una de las siguientes afirmaciones según la siguiente escala.,,,,,,,,,,,,,,,,,,,,1.,,,,2.,,,,3.,,,,4.,,,,5.,,,,6.,,,,7.,,,,8.,,,,9.,,,,10.,,,,11.,,,,12.,13. ,14. ,15. ,16. ,17.,18.,19.,20.,21.,Señale hasta que punto se ha sentido molesto por el síntoma:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Instrucciones: Indique su grado de acuerdo o desacuerdo en cada una de las siguientes afirmaciones marcando el espacio apropiado. Utilice la siguiente escala de 7 puntos (un mayor número en la escala indica un mayor acuerdo).,,,,,,,,,,,,,,,,,,,,1. ,2. ,3. ,4. ,5. ,6. ,,7. ,8. ,9. ,10.,11.,12.,13.,14.,15.,16.,17.,[1] ¿Alguien de su familia ha vivido violencia? Si contestó NO pase a la pregunta 4.,\"[2]Si contestó SI, señale ¿Quién?\",,,,,,,,,,,,,[3]Señale el (los) tipo(s) de Violencia Familiar que hayan vivido estas personas.,,,,,,,\"[4]Usted siente que ha sufrido en algún momento, algún tipo de maltrato. Si contestó NO pase a la pregunta 7.\",[5]Si contestó SI aclare de qué tipo.,,,,,,,[6]Aclare de quien:,,,,,,,,,,,,,[7]Usted siente que ha maltratado en algún momento a alguien cercano. Si contestó NO pase a la pregunta 10.,[8]Si contestó SI aclare de que tipo:,,,,,,,[9]Aclare a quien:,,,,,,,,,,,,,[10]Vive su padre,[11]Vive su madre,[12]Sus padres están separados o divorciados,[13]¿Qué edad tenía cuando se separaron?,[14]Si falleció su padre ¿Qué edad tenía usted?,[15]Si falleció su madre ¿Qué edad tenía usted?,[16]Actividades de su padre,[17]Actividades de su madre,[18]En lo mejor de su conocimiento por favor indique de las siguientes afirmaciones la que mejor describa su situación cuando usted tenía menos de 5 años,Indique su grado de acuerdo y desacuerdo en cada una de las siguientes oraciones,,,,,,,,,,,,,,\"Instrucciones:Por favor indique su grado de acuerdo o desacuerdo con cada una de las siguientes declaraciones marcando la opición apropiada. Para el propósito de este estudio, enfermería se define como “un enfermero(a) registrado quién está ocupado o directamente supervisando el cuidado de pacientes hospitalizados”.\",,,,,,,,,,,,,,,\"1. Si usted tuviera la habilidad y condiciones adecuadas, a que se dedicaría:\",,,,2. Cuando ve un accidente usted:,,,, 3. Es usted un maestro de primaria y uno de sus alumnos le ofrece un costoso obsequio con el fin de obtener una mayor calificación usted:,,,,\"4. Al conducir su automóvil por descuido usted se pasa un alto, el agente de tránsito lo detiene y para permitirle circular nuevamente, le solicita cierta suma de dinero usted.\",,,,5. Prefiere una amistad que:,,,, 6. Si al llegar a su trabajo encuentra en el baño un reloj en el lavabo usted:,,,,7. Un buen gobierno debería:,,,,\"8. Un amigo suyo desea obtener un ascenso dentro de su trabajo, usted le aconseja:\",,,,9. Si Luis al llegar a su casa observa que le están robando las llantas al automóvil de su vecino:,,,,\"10. Un empleado de 60 años que ha sido leal a la empresa durante 28 años, se queja del exceso de trabajo, lo mejor sería:\",,,,11. Usted visita a un amigo enfermo y lo mejor sería:,,,,\"12. Al salir de viaje sus vecinos le piden cuidar su casa, durante su ausencia usted:\",,,,13. Si encuentra a un niño llorando sólo en una tienda comercial usted:,,,,14. Si usted viviera en provincia y tuviera más entradas de las que necesita que preferiría hacer con el dinero:,,,,15. Su hijo ha dejado sus estudios por un tiempo:,,,,16. A qué actividad prefiere dedicarse durante sus vacaciones:,,,,\"17. La familia de pero tiene un hijo drogadicto y es amigo de su hijo desde pequeño, al saberlo usted:\",,,,\"18. Su esposa le comenta que al terminar de realizar sus actividades cotidianas le queda mucho tiempo libre, usted le sugiere:\",,,,\"19. Quiere pedir un favor a un conocido, que beneficiará a la empresa para la cual trabaja:\",,,,20. Cual de las siguientes ocupaciones escogería:,,,",

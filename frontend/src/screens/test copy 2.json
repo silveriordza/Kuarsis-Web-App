@@ -1,418 +1,58 @@
-[
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "respondent_id",
-    "questionShort": "respondent_id",
-    "fieldName": "SCOLINFO_1",
-    "subScale": 1,
-    "sequence": 1
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "collector_id",
-    "questionShort": "collector_id",
-    "fieldName": "SCOLINFO_2",
-    "subScale": 1,
-    "sequence": 2
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "date_created",
-    "questionShort": "date_created",
-    "fieldName": "SCOLINFO_3",
-    "subScale": 1,
-    "sequence": 3
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "date_modified",
-    "questionShort": "date_modified",
-    "fieldName": "SCOLINFO_4",
-    "subScale": 1,
-    "sequence": 4
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "ip_address",
-    "questionShort": "ip_address",
-    "fieldName": "SCOLINFO_5",
-    "subScale": 1,
-    "sequence": 5
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "email_address",
-    "questionShort": "email_address",
-    "fieldName": "SCOLINFO_6",
-    "subScale": 1,
-    "sequence": 6
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "first_name",
-    "questionShort": "first_name",
-    "fieldName": "SCOLINFO_7",
-    "subScale": 1,
-    "sequence": 7
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "last_name",
-    "questionShort": "last_name",
-    "fieldName": "SCOLINFO_8",
-    "subScale": 1,
-    "sequence": 8
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feabf",
-    "question": "custom_1",
-    "questionShort": "custom_1",
-    "fieldName": "SCOLINFO_9",
-    "subScale": 1,
-    "sequence": 9
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Nombre completo:",
-    "questionShort": "Nombre",
-    "fieldName": "GENINFO_10",
-    "subScale": 1,
-    "sequence": 10
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Edad",
-    "questionShort": "Edad",
-    "fieldName": "GENINFO_11",
-    "subScale": 1,
-    "sequence": 11
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Fecha de nacimiento (dd/mm/aaaa)",
-    "questionShort": "Nacimiento",
-    "fieldName": "GENINFO_12",
-    "subScale": 1,
-    "sequence": 12
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Sexo",
-    "questionShort": "Sexo",
-    "fieldName": "GENINFO_13",
-    "subScale": 1,
-    "sequence": 13
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Estado civil",
-    "questionShort": "Civil",
-    "fieldName": "GENINFO_14",
-    "subScale": 1,
-    "sequence": 14
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Estado de procedencia",
-    "questionShort": "Estado",
-    "fieldName": "GENINFO_15",
-    "subScale": 1,
-    "sequence": 15
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Otro país (especifique)",
-    "questionShort": "OtroPais",
-    "fieldName": "GENINFO_16",
-    "subScale": 1,
-    "sequence": 16
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Municipio de residencia actual:",
-    "questionShort": "Municipio",
-    "fieldName": "GENINFO_17",
-    "subScale": 1,
-    "sequence": 17
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Medio de transporte:",
-    "questionShort": "Transporte",
-    "fieldName": "GENINFO_18",
-    "subScale": 1,
-    "sequence": 18
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
-    "questionShort": "DistanciaTrabajo",
-    "fieldName": "GENINFO_19",
-    "subScale": 1,
-    "sequence": 19
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Último grado de estudios:",
-    "questionShort": "GradoEstudios",
-    "fieldName": "GENINFO_20",
-    "subScale": 1,
-    "sequence": 20
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Ocupación actual",
-    "questionShort": "Ocupacion",
-    "fieldName": "GENINFO_21",
-    "subScale": 1,
-    "sequence": 21
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feacb",
-    "question": "Área a la que aplica:",
-    "questionShort": "AreaOcupacion",
-    "fieldName": "GENINFO_22",
-    "subScale": 1,
-    "sequence": 22
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
-    "questionShort": "A1",
-    "fieldName": "CSG_A1_1",
-    "subScale": 1,
-    "sequence": 1
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A1_Otro",
-    "questionShort": "A1_Otro",
-    "fieldName": "CSG_A1_Otro_2",
-    "subScale": 1,
-    "sequence": 2
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A2 Ha sentido la necesidad de un buen tónico",
-    "questionShort": "A2",
-    "fieldName": "CSG_A2_3",
-    "subScale": 1,
-    "sequence": 3
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A2_Otro",
-    "questionShort": "A2_Otro",
-    "fieldName": "CSG_A2_Otro_4",
-    "subScale": 1,
-    "sequence": 4
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A3 Se ha sentido agotado y sin motivaciones.",
-    "questionShort": "A3",
-    "fieldName": "CSG_A3_5",
-    "subScale": 1,
-    "sequence": 5
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A4 Se ha sentido enfermo.",
-    "questionShort": "A4",
-    "fieldName": "CSG_A4_6",
-    "subScale": 1,
-    "sequence": 6
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A5 Ha tenido dolores de cabeza.",
-    "questionShort": "A5 Ha tenido dolores de cabeza.",
-    "fieldName": "CSG_A5 Ha tenido dolores de cabeza._7",
-    "subScale": 1,
-    "sequence": 7
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A6 Ha sentido tensión o presión en la cabeza.",
-    "questionShort": "A6 Ha sentido tensión o presión en la cabeza.",
-    "fieldName": "CSG_A6 Ha sentido tensión o presión en la cabeza._8",
-    "subScale": 1,
-    "sequence": 8
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "A7 Ha tenido ráfagas de calor o frío.",
-    "questionShort": "A7 Ha tenido ráfagas de calor o frío.",
-    "fieldName": "CSG_A7 Ha tenido ráfagas de calor o frío._9",
-    "subScale": 1,
-    "sequence": 9
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
-    "questionShort": "B1 Ha tenido dificultades para dormir por estar preocupado.",
-    "fieldName": "CSG_B1 Ha tenido dificultades para dormir por estar preocupado._10",
-    "subScale": 1,
-    "sequence": 10
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
-    "questionShort": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
-    "fieldName": "CSG_B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado._11",
-    "subScale": 1,
-    "sequence": 11
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B3 Se ha sentido constantemente bajo presión.",
-    "questionShort": "B3 Se ha sentido constantemente bajo presión.",
-    "fieldName": "CSG_B3 Se ha sentido constantemente bajo presión._12",
-    "subScale": 1,
-    "sequence": 12
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B4 Se ha sentido irritable y de mal humor.",
-    "questionShort": "B4 Se ha sentido irritable y de mal humor.",
-    "fieldName": "CSG_B4 Se ha sentido irritable y de mal humor._13",
-    "subScale": 1,
-    "sequence": 13
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
-    "questionShort": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
-    "fieldName": "CSG_B5 Se ha sentido asustado o con pánico sin ninguna razón._14",
-    "subScale": 1,
-    "sequence": 14
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
-    "questionShort": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
-    "fieldName": "CSG_B6 Ha tenido la sensación de que no puede manejar las situaciones._15",
-    "subScale": 1,
-    "sequence": 15
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
-    "questionShort": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
-    "fieldName": "CSG_B7 Se ha sentido nervioso y tenso todo el tiempo._16",
-    "subScale": 1,
-    "sequence": 16
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
-    "questionShort": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
-    "fieldName": "CSG_C1 Se las ha ingeniado para mantenerse 'muy ocupado'._17",
-    "subScale": 1,
-    "sequence": 17
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C2 Se tarda más tiempo en hacer las cosas. ",
-    "questionShort": "C2 Se tarda más tiempo en hacer las cosas. ",
-    "fieldName": "CSG_C2 Se tarda más tiempo en hacer las cosas. _18",
-    "subScale": 1,
-    "sequence": 18
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C3 En general siente que ha hecho las cosas bien.",
-    "questionShort": "C3 En general siente que ha hecho las cosas bien.",
-    "fieldName": "CSG_C3 En general siente que ha hecho las cosas bien._19",
-    "subScale": 1,
-    "sequence": 19
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
-    "questionShort": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
-    "fieldName": "CSG_C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas._20",
-    "subScale": 1,
-    "sequence": 20
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
-    "questionShort": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
-    "fieldName": "CSG_C5 Se ha sentido útil y parte importante de lo que lo rodea._21",
-    "subScale": 1,
-    "sequence": 21
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C6 Se ha sentido capaz de tomar decisiones.",
-    "questionShort": "C6 Se ha sentido capaz de tomar decisiones.",
-    "fieldName": "CSG_C6 Se ha sentido capaz de tomar decisiones._22",
-    "subScale": 1,
-    "sequence": 22
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
-    "questionShort": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
-    "fieldName": "CSG_C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas._23",
-    "subScale": 1,
-    "sequence": 23
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D1  Se ha sentido como una persona de poca valía.",
-    "questionShort": "D1  Se ha sentido como una persona de poca valía.",
-    "fieldName": "CSG_D1  Se ha sentido como una persona de poca valía._24",
-    "subScale": 1,
-    "sequence": 24
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D2 Ha sentido que la vida no vale nada.",
-    "questionShort": "D2 Ha sentido que la vida no vale nada.",
-    "fieldName": "CSG_D2 Ha sentido que la vida no vale nada._25",
-    "subScale": 1,
-    "sequence": 25
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D3 Ha sentido que no vale la pena vivir.",
-    "questionShort": "D3 Ha sentido que no vale la pena vivir.",
-    "fieldName": "CSG_D3 Ha sentido que no vale la pena vivir._26",
-    "subScale": 1,
-    "sequence": 26
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
-    "questionShort": "D4 Ha pensado en la posibilidad de quitarse la vida.",
-    "fieldName": "CSG_D4 Ha pensado en la posibilidad de quitarse la vida._27",
-    "subScale": 1,
-    "sequence": 27
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
-    "questionShort": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
-    "fieldName": "CSG_D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios._28",
-    "subScale": 1,
-    "sequence": 28
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
-    "questionShort": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
-    "fieldName": "CSG_D6 Ha sentido ganas de estar muerto y acabar con todo._29",
-    "subScale": 1,
-    "sequence": 29
-  },
-  {
-    "surveyId": "6534d74c71031b72ff9feae4",
-    "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
-    "questionShort": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
-    "fieldName": "CSG_D7 Le ha venido a la mente la idea repetitiva de quitarse la vida._30",
-    "subScale": 1,
-    "sequence": 30
-  }
-]
+[0] Missing x-apigateway-event or x-apigateway-context header(s)
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: START
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: surveyIdsList=6535db8f4215aa2d5c95c7b8,6535db8f4215aa2d5c95c7c6,6535db8f4215aa2d5c95c7d8
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: resultset questions=[{"_id":"6535db8f4215aa2d5c95c7bc","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7bd","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7be","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7bf","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7c0","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7c1","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7c2","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7c3","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7c4","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7ca","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":1},{"_id":"6535db8f4215aa2d5c95c7cb","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":2},{"_id":"6535db8f4215aa2d5c95c7cc","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":3},{"_id":"6535db8f4215aa2d5c95c7cd","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":4},{"_id":"6535db8f4215aa2d5c95c7ce","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":5},{"_id":"6535db8f4215aa2d5c95c7cf","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":6},{"_id":"6535db8f4215aa2d5c95c7d0","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":7},{"_id":"6535db8f4215aa2d5c95c7d1","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":8},{"_id":"6535db8f4215aa2d5c95c7d2","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":9},{"_id":"6535db8f4215aa2d5c95c7d3","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":10},{"_id":"6535db8f4215aa2d5c95c7d4","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":11},{"_id":"6535db8f4215aa2d5c95c7d5","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":12},{"_id":"6535db8f4215aa2d5c95c7d6","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":13},{"_id":"6535db8f4215aa2d5c95c7dc","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7dd","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7de","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7df","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7e0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7e1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7e2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7e3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7e4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7e5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":10},{"_id":"6535db8f4215aa2d5c95c7e6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":11},{"_id":"6535db8f4215aa2d5c95c7e7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":12},{"_id":"6535db8f4215aa2d5c95c7e8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":13},{"_id":"6535db8f4215aa2d5c95c7e9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":14},{"_id":"6535db8f4215aa2d5c95c7ea","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":15},{"_id":"6535db8f4215aa2d5c95c7eb","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":16},{"_id":"6535db8f4215aa2d5c95c7ec","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":17},{"_id":"6535db8f4215aa2d5c95c7ed","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":18},{"_id":"6535db8f4215aa2d5c95c7ee","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":19},{"_id":"6535db8f4215aa2d5c95c7ef","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":20},{"_id":"6535db8f4215aa2d5c95c7f0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":21},{"_id":"6535db8f4215aa2d5c95c7f1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":22},{"_id":"6535db8f4215aa2d5c95c7f2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":23},{"_id":"6535db8f4215aa2d5c95c7f3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":24},{"_id":"6535db8f4215aa2d5c95c7f4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":25},{"_id":"6535db8f4215aa2d5c95c7f5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":26},{"_id":"6535db8f4215aa2d5c95c7f6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":27},{"_id":"6535db8f4215aa2d5c95c7f7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":28},{"_id":"6535db8f4215aa2d5c95c7f8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":29},{"_id":"6535db8f4215aa2d5c95c7f9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":30}]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: surveyQuestions=; surveyId=6535db8f4215aa2d5c95c7b8; questions=[{"_id":"6535db8f4215aa2d5c95c7bc","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7bd","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7be","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7bf","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7c0","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7c1","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7c2","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7c3","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7c4","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7ca","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":1},{"_id":"6535db8f4215aa2d5c95c7cb","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":2},{"_id":"6535db8f4215aa2d5c95c7cc","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":3},{"_id":"6535db8f4215aa2d5c95c7cd","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":4},{"_id":"6535db8f4215aa2d5c95c7ce","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":5},{"_id":"6535db8f4215aa2d5c95c7cf","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":6},{"_id":"6535db8f4215aa2d5c95c7d0","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":7},{"_id":"6535db8f4215aa2d5c95c7d1","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":8},{"_id":"6535db8f4215aa2d5c95c7d2","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":9},{"_id":"6535db8f4215aa2d5c95c7d3","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":10},{"_id":"6535db8f4215aa2d5c95c7d4","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":11},{"_id":"6535db8f4215aa2d5c95c7d5","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":12},{"_id":"6535db8f4215aa2d5c95c7d6","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":13},{"_id":"6535db8f4215aa2d5c95c7dc","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7dd","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7de","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7df","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7e0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7e1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7e2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7e3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7e4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7e5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":10},{"_id":"6535db8f4215aa2d5c95c7e6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":11},{"_id":"6535db8f4215aa2d5c95c7e7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":12},{"_id":"6535db8f4215aa2d5c95c7e8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":13},{"_id":"6535db8f4215aa2d5c95c7e9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":14},{"_id":"6535db8f4215aa2d5c95c7ea","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":15},{"_id":"6535db8f4215aa2d5c95c7eb","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":16},{"_id":"6535db8f4215aa2d5c95c7ec","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":17},{"_id":"6535db8f4215aa2d5c95c7ed","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":18},{"_id":"6535db8f4215aa2d5c95c7ee","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":19},{"_id":"6535db8f4215aa2d5c95c7ef","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":20},{"_id":"6535db8f4215aa2d5c95c7f0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":21},{"_id":"6535db8f4215aa2d5c95c7f1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":22},{"_id":"6535db8f4215aa2d5c95c7f2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":23},{"_id":"6535db8f4215aa2d5c95c7f3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":24},{"_id":"6535db8f4215aa2d5c95c7f4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":25},{"_id":"6535db8f4215aa2d5c95c7f5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":26},{"_id":"6535db8f4215aa2d5c95c7f6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":27},{"_id":"6535db8f4215aa2d5c95c7f7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":28},{"_id":"6535db8f4215aa2d5c95c7f8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":29},{"_id":"6535db8f4215aa2d5c95c7f9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":30}]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19108099553,259432991,10/12/2023 17:54,10/12/2023 20:10,189.224.60.216,,,,,Nayeli Yamileth Moreno de LeÃ³n,33,11/4/1990,1,1,19,,San NicolÃ¡s ,Transporte PÃºblico ,3,Licenciatura,Desempleada,TrÃ¡mites y AtenciÃ³n al Pacientw,2,,1,,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,2,2,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19108041851,259432991,10/12/2023 14:33,10/12/2023 16:53,187.189.181.165,,,,,Yulissa Aracely Garibay Reyna ,23,8/11/1999,1,5,28,,San Nicolas de los Garza,Transporte pÃºblico ,4,Licenciatura,En casa ,Farmacia hospitalaria,2,,1,,1,1,2,1,1,1,2,1,1,1,1,1,2,1,2,2,2,2,2,1,1,1,1,1,1,1
+[0]
+[0] opening quotes identified at column i=164
+[0] replacing comma at column i=177
+[0] replaced comma at column i=177
+[0] closing quotes  identified at column i=185
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106006508,259432991,10/5/2023 17:01,10/6/2023 11:05,201.172.223.48,,,,,Patricia Alejandra Valerio Alvarado,23,18/10/1999,1,1,7,,San NicolÃ¡s de los Garza,Carro,2,"Licenciatura; actual",Practicante,Farmacia ClÃ­nica Ambulatoria,2,,1,,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,1,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106059398,259432991,10/5/2023 21:11,10/5/2023 22:07,187.189.181.127,,,,,Patricia Alejandra Valerio Alvarado,23,18/10/1999,1,1,7,,San NicolÃ¡s de los Garza,Coche,2,Licenciaturas,Practicante,Farmacia ClÃ­nica Ambulatoria,2,,1,,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106021598,259432991,10/5/2023 18:06,10/5/2023 19:45,201.172.175.168,,,,,Alejandra Gonzalez Garcia,31,27/01/1992,1,1,19,,Monterrey,Auto familiar / uber,1,Licenciatura,Desempleada,Administrativa,2,,1,,1,1,2,1,2,2,1,1,1,1,1,2,2,1,1,1,1,2,1,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: surveyQuestions=; surveyId=6535db8f4215aa2d5c95c7c6; questions=[{"_id":"6535db8f4215aa2d5c95c7bc","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7bd","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7be","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7bf","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7c0","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7c1","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7c2","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7c3","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7c4","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7ca","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":1},{"_id":"6535db8f4215aa2d5c95c7cb","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":2},{"_id":"6535db8f4215aa2d5c95c7cc","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":3},{"_id":"6535db8f4215aa2d5c95c7cd","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":4},{"_id":"6535db8f4215aa2d5c95c7ce","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":5},{"_id":"6535db8f4215aa2d5c95c7cf","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":6},{"_id":"6535db8f4215aa2d5c95c7d0","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":7},{"_id":"6535db8f4215aa2d5c95c7d1","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":8},{"_id":"6535db8f4215aa2d5c95c7d2","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":9},{"_id":"6535db8f4215aa2d5c95c7d3","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":10},{"_id":"6535db8f4215aa2d5c95c7d4","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":11},{"_id":"6535db8f4215aa2d5c95c7d5","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":12},{"_id":"6535db8f4215aa2d5c95c7d6","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":13},{"_id":"6535db8f4215aa2d5c95c7dc","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7dd","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7de","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7df","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7e0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7e1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7e2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7e3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7e4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7e5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":10},{"_id":"6535db8f4215aa2d5c95c7e6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":11},{"_id":"6535db8f4215aa2d5c95c7e7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":12},{"_id":"6535db8f4215aa2d5c95c7e8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":13},{"_id":"6535db8f4215aa2d5c95c7e9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":14},{"_id":"6535db8f4215aa2d5c95c7ea","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":15},{"_id":"6535db8f4215aa2d5c95c7eb","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":16},{"_id":"6535db8f4215aa2d5c95c7ec","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":17},{"_id":"6535db8f4215aa2d5c95c7ed","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":18},{"_id":"6535db8f4215aa2d5c95c7ee","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":19},{"_id":"6535db8f4215aa2d5c95c7ef","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":20},{"_id":"6535db8f4215aa2d5c95c7f0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":21},{"_id":"6535db8f4215aa2d5c95c7f1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":22},{"_id":"6535db8f4215aa2d5c95c7f2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":23},{"_id":"6535db8f4215aa2d5c95c7f3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":24},{"_id":"6535db8f4215aa2d5c95c7f4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":25},{"_id":"6535db8f4215aa2d5c95c7f5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":26},{"_id":"6535db8f4215aa2d5c95c7f6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":27},{"_id":"6535db8f4215aa2d5c95c7f7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":28},{"_id":"6535db8f4215aa2d5c95c7f8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":29},{"_id":"6535db8f4215aa2d5c95c7f9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":30}]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19108099553,259432991,10/12/2023 17:54,10/12/2023 20:10,189.224.60.216,,,,,Nayeli Yamileth Moreno de LeÃ³n,33,11/4/1990,1,1,19,,San NicolÃ¡s ,Transporte PÃºblico ,3,Licenciatura,Desempleada,TrÃ¡mites y AtenciÃ³n al Pacientw,2,,1,,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,2,2,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19108041851,259432991,10/12/2023 14:33,10/12/2023 16:53,187.189.181.165,,,,,Yulissa Aracely Garibay Reyna ,23,8/11/1999,1,5,28,,San Nicolas de los Garza,Transporte pÃºblico ,4,Licenciatura,En casa ,Farmacia hospitalaria,2,,1,,1,1,2,1,1,1,2,1,1,1,1,1,2,1,2,2,2,2,2,1,1,1,1,1,1,1
+[0]
+[0] opening quotes identified at column i=164
+[0] replacing comma at column i=177
+[0] replaced comma at column i=177
+[0] closing quotes  identified at column i=185
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106006508,259432991,10/5/2023 17:01,10/6/2023 11:05,201.172.223.48,,,,,Patricia Alejandra Valerio Alvarado,23,18/10/1999,1,1,7,,San NicolÃ¡s de los Garza,Carro,2,"Licenciatura; actual",Practicante,Farmacia ClÃ­nica Ambulatoria,2,,1,,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,1,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106059398,259432991,10/5/2023 21:11,10/5/2023 22:07,187.189.181.127,,,,,Patricia Alejandra Valerio Alvarado,23,18/10/1999,1,1,7,,San NicolÃ¡s de los Garza,Coche,2,Licenciaturas,Practicante,Farmacia ClÃ­nica Ambulatoria,2,,1,,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106021598,259432991,10/5/2023 18:06,10/5/2023 19:45,201.172.175.168,,,,,Alejandra Gonzalez Garcia,31,27/01/1992,1,1,19,,Monterrey,Auto familiar / uber,1,Licenciatura,Desempleada,Administrativa,2,,1,,1,1,2,1,2,2,1,1,1,1,1,2,2,1,1,1,1,2,1,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: surveyQuestions=; surveyId=6535db8f4215aa2d5c95c7d8; questions=[{"_id":"6535db8f4215aa2d5c95c7bc","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7bd","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7be","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7bf","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7c0","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7c1","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7c2","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7c3","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7c4","surveyId":"6535db8f4215aa2d5c95c7b8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7ca","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":1},{"_id":"6535db8f4215aa2d5c95c7cb","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":2},{"_id":"6535db8f4215aa2d5c95c7cc","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":3},{"_id":"6535db8f4215aa2d5c95c7cd","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":4},{"_id":"6535db8f4215aa2d5c95c7ce","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":5},{"_id":"6535db8f4215aa2d5c95c7cf","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":6},{"_id":"6535db8f4215aa2d5c95c7d0","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":7},{"_id":"6535db8f4215aa2d5c95c7d1","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":8},{"_id":"6535db8f4215aa2d5c95c7d2","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":9},{"_id":"6535db8f4215aa2d5c95c7d3","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":10},{"_id":"6535db8f4215aa2d5c95c7d4","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":11},{"_id":"6535db8f4215aa2d5c95c7d5","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":12},{"_id":"6535db8f4215aa2d5c95c7d6","surveyId":"6535db8f4215aa2d5c95c7c6","sequence":13},{"_id":"6535db8f4215aa2d5c95c7dc","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":1},{"_id":"6535db8f4215aa2d5c95c7dd","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":2},{"_id":"6535db8f4215aa2d5c95c7de","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":3},{"_id":"6535db8f4215aa2d5c95c7df","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":4},{"_id":"6535db8f4215aa2d5c95c7e0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":5},{"_id":"6535db8f4215aa2d5c95c7e1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":6},{"_id":"6535db8f4215aa2d5c95c7e2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":7},{"_id":"6535db8f4215aa2d5c95c7e3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":8},{"_id":"6535db8f4215aa2d5c95c7e4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":9},{"_id":"6535db8f4215aa2d5c95c7e5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":10},{"_id":"6535db8f4215aa2d5c95c7e6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":11},{"_id":"6535db8f4215aa2d5c95c7e7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":12},{"_id":"6535db8f4215aa2d5c95c7e8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":13},{"_id":"6535db8f4215aa2d5c95c7e9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":14},{"_id":"6535db8f4215aa2d5c95c7ea","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":15},{"_id":"6535db8f4215aa2d5c95c7eb","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":16},{"_id":"6535db8f4215aa2d5c95c7ec","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":17},{"_id":"6535db8f4215aa2d5c95c7ed","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":18},{"_id":"6535db8f4215aa2d5c95c7ee","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":19},{"_id":"6535db8f4215aa2d5c95c7ef","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":20},{"_id":"6535db8f4215aa2d5c95c7f0","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":21},{"_id":"6535db8f4215aa2d5c95c7f1","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":22},{"_id":"6535db8f4215aa2d5c95c7f2","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":23},{"_id":"6535db8f4215aa2d5c95c7f3","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":24},{"_id":"6535db8f4215aa2d5c95c7f4","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":25},{"_id":"6535db8f4215aa2d5c95c7f5","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":26},{"_id":"6535db8f4215aa2d5c95c7f6","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":27},{"_id":"6535db8f4215aa2d5c95c7f7","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":28},{"_id":"6535db8f4215aa2d5c95c7f8","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":29},{"_id":"6535db8f4215aa2d5c95c7f9","surveyId":"6535db8f4215aa2d5c95c7d8","sequence":30}]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19108099553,259432991,10/12/2023 17:54,10/12/2023 20:10,189.224.60.216,,,,,Nayeli Yamileth Moreno de LeÃ³n,33,11/4/1990,1,1,19,,San NicolÃ¡s ,Transporte PÃºblico ,3,Licenciatura,Desempleada,TrÃ¡mites y AtenciÃ³n al Pacientw,2,,1,,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,2,2,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19108041851,259432991,10/12/2023 14:33,10/12/2023 16:53,187.189.181.165,,,,,Yulissa Aracely Garibay Reyna ,23,8/11/1999,1,5,28,,San Nicolas de los Garza,Transporte pÃºblico ,4,Licenciatura,En casa ,Farmacia hospitalaria,2,,1,,1,1,2,1,1,1,2,1,1,1,1,1,2,1,2,2,2,2,2,1,1,1,1,1,1,1
+[0]
+[0] opening quotes identified at column i=164
+[0] replacing comma at column i=177
+[0] replaced comma at column i=177
+[0] closing quotes  identified at column i=185
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106006508,259432991,10/5/2023 17:01,10/6/2023 11:05,201.172.223.48,,,,,Patricia Alejandra Valerio Alvarado,23,18/10/1999,1,1,7,,San NicolÃ¡s de los Garza,Carro,2,"Licenciatura; actual",Practicante,Farmacia ClÃ­nica Ambulatoria,2,,1,,1,1,1,1,1,1,1,2,1,1,1,1,2,2,1,1,1,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106059398,259432991,10/5/2023 21:11,10/5/2023 22:07,187.189.181.127,,,,,Patricia Alejandra Valerio Alvarado,23,18/10/1999,1,1,7,,San NicolÃ¡s de los Garza,Coche,2,Licenciaturas,Practicante,Farmacia ClÃ­nica Ambulatoria,2,,1,,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=19106021598,259432991,10/5/2023 18:06,10/5/2023 19:45,201.172.175.168,,,,,Alejandra Gonzalez Garcia,31,27/01/1992,1,1,19,,Monterrey,Auto familiar / uber,1,Licenciatura,Desempleada,Administrativa,2,,1,,1,1,2,1,2,2,1,1,1,1,1,2,2,1,1,1,1,2,1,1,1,1,1,1,1,1
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: answers=
+[0]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: surveyResponses=[]
+[0] 10:44:47 PM: surveyController.js, superSurveyUploadAnswers: END
+[0] PUT /surveys/6535db8e4215aa2d5c95c7b6 200 141.556 ms - 6442
