@@ -4,7 +4,7 @@
 
 let mongoose = require("mongoose");
 
-const superSurveyModel = mongoose.Schema(
+const surveySuperiorModel = mongoose.Schema(
   {
     owner: {
       type: mongoose.Schema.Types.ObjectId,
@@ -19,7 +19,7 @@ const superSurveyModel = mongoose.Schema(
     timestamps: true,
   }
 );
-const SuperSurvey = mongoose.model("SuperSurvey", superSurveyModel);
+const SurveySuperior = mongoose.model("SurveySuperior", surveySuperiorModel);
 
 const surveyModel = mongoose.Schema(
   {
@@ -39,7 +39,7 @@ const surveyModel = mongoose.Schema(
 );
 const Survey = mongoose.model("Survey", surveyModel);
 
-const questionModel = mongoose.Schema(
+const surveyQuestionModel = mongoose.Schema(
   {
     surveyId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -49,17 +49,18 @@ const questionModel = mongoose.Schema(
     question: { type: String, required: true },
     questionShort: { type: String, required: true },
     fieldName: { type: String, required: true },
-    subScale: { type: Number, required: true },
-    sequence: { type: Number, required: true },
+    weights: { type: mongoose.Schema.Types.Mixed },
+    surveyCol: { type: Number, required: true },
+    superSurveyCol: { type: Number, required: true },
   },
   {
     timestamps: true,
   }
 );
 
-const Question = mongoose.model("Question", questionModel);
+const SurveyQuestion = mongoose.model("SurveyQuestion", surveyQuestionModel);
 
-const multiSurveyModel = mongoose.Schema(
+const surveyMultiModel = mongoose.Schema(
   {
     owner: {
       type: mongoose.Schema.Types.ObjectId,
@@ -83,9 +84,9 @@ const multiSurveyModel = mongoose.Schema(
   }
 );
 
-const MultiSurvey = mongoose.model("MultiSurvey", multiSurveyModel);
+const SurveyMulti = mongoose.model("SurveyMulti", surveyMultiModel);
 
-const superSurveyCollectedModel = mongoose.Schema(
+const surveyCollectedModel = mongoose.Schema(
   {
     superSurveyId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -107,10 +108,7 @@ const superSurveyCollectedModel = mongoose.Schema(
   }
 );
 
-const SuperSurveyCollected = mongoose.model(
-  "SuperSurveyCollected",
-  superSurveyCollectedModel
-);
+const SurveyCollected = mongoose.model("SurveyCollected", surveyCollectedModel);
 
 const surveyResponseModel = mongoose.Schema(
   {
@@ -122,11 +120,13 @@ const surveyResponseModel = mongoose.Schema(
     questionId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "Question",
+      ref: "SurveyQuestion",
     },
     row: { type: Number, required: true },
     col: { type: Number, required: true },
     response: { type: String, required: false, default: "" },
+    weightedResponse: { type: String, required: false, default: "" },
+    isWeighted: { type: Boolean, required: false, default: "" },
   },
   {
     timestamps: true,
@@ -135,234 +135,64 @@ const surveyResponseModel = mongoose.Schema(
 
 const SurveyResponse = mongoose.model("SurveyResponse", surveyResponseModel);
 
+const surveyCalculatedFieldModel = mongoose.Schema(
+  {
+    surveyId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Survey",
+    },
+    description: { type: String, required: true },
+    shortDescription: { type: String, required: true },
+    fieldName: { type: String, required: true },
+    isCriteria: { type: Boolean, required: true },
+    criteria: { type: mongoose.Schema.Types.Mixed, required: false },
+    group: { type: mongoose.Schema.Types.Mixed, required: false },
+    sequence: { type: Number, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const SurveyCalculatedField = mongoose.model(
+  "SurveyCalculatedField",
+  surveyCalculatedFieldModel
+);
+
+const surveyCalculatedValueModel = mongoose.Schema(
+  {
+    // surveyCollectedId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: "SuperSurveyCollected",
+    // },
+    calculatedFieldId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "SurveyCalculatedField",
+    },
+    row: { type: Number, required: true },
+    col: { type: Number, required: true },
+    value: { type: Number, required: false, default: "" },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const SurveyCalculatedValue = mongoose.model(
+  "SurveyCalculatedValue",
+  surveyCalculatedValueModel
+);
+
 module.exports = {
-  SuperSurvey,
+  SurveySuperior,
   Survey,
-  MultiSurvey,
-  Question,
-  SuperSurveyCollected,
+  SurveyMulti,
+  SurveyQuestion,
+  SurveyCollected,
   SurveyResponse,
+  SurveyCalculatedField,
+  SurveyCalculatedValue,
 };
-// const onCareTreatmentCenter2020 = mongoose.Schema(
-//   {
-//     questionId,
-//     questionDescription,
-//     fieldName: { type: String, required: true, },
-//       type: { type: String, required: true, },
-//       surveyId: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         required: true,
-//         ref: 'Survey',
-//       },
-//       subSurveyId: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         required: true,
-//         ref: 'subSurveyId',
-//       },
-//       //subSurveyFieldSequence
-//       //surveyId: { type: String, required: true, },
-//       //RESULTS CGS
-//       CGS_RESULT_NUM_1: { type: ref, required: false, },
-//       CGS_RESULT_NUM_2: { type: Number, required: false, },
-//       CGS_RESULT_NUM_3: { type: Number, required: false, },
-//       CGS_RESULT_NUM_4: { type: Number, required: false, },
-//       CGS_RESULT_NUM_5: { type: Number, required: false, },
-//       CGS_RESULT_NUM_6: { type: Number, required: false, },
-
-//     },
-
-//         { timestamps: true,
-//         }
-// )
-
-// const onCareTreatmentCenter2020 = mongoose.Schema(
-//   {
-//     Datos_TXT_1: { type: String, required: false },
-//     Datos_TXT_2: { type: String, required: false },
-//     Datos_TXT_3: { type: String, required: false },
-//     Datos_TXT_4: { type: String, required: false },
-//     Datos_TXT_5: { type: String, required: false },
-//     Datos_TXT_6: { type: String, required: false },
-//     Datos_TXT_7: { type: String, required: false },
-//     Datos_TXT_8: { type: String, required: false },
-//     Datos_TXT_9: { type: String, required: false },
-//     Datos_TXT_10: { type: String, required: false },
-//     Datos_TXT_11: { type: String, required: false },
-//     Datos_TXT_12: { type: String, required: false },
-//     Datos_TXT_13: { type: String, required: false },
-//     Datos_TXT_14: { type: String, required: false },
-//     Datos_TXT_15: { type: String, required: false },
-//     Datos_TXT_16: { type: String, required: false },
-//     Datos_TXT_17: { type: String, required: false },
-//     Datos_TXT_18: { type: String, required: false },
-//     Datos_TXT_19: { type: String, required: false },
-//     Datos_TXT_20: { type: String, required: false },
-//     Datos_TXT_21: { type: String, required: false },
-//     Datos_TXT_22: { type: String, required: false },
-//     CGS_TXT_1: { type: String, required: false },
-//     CGS_TXT_2: { type: String, required: false },
-//     CGS_TXT_3: { type: String, required: false },
-//     CGS_TXT_4: { type: String, required: false },
-//     CGS_TXT_5: { type: String, required: false },
-//     CGS_TXT_6: { type: String, required: false },
-//     CGS_TXT_7: { type: String, required: false },
-//     CGS_TXT_8: { type: String, required: false },
-//     CGS_TXT_9: { type: String, required: false },
-//     CGS_TXT_10: { type: String, required: false },
-//     CGS_TXT_11: { type: String, required: false },
-//     CGS_TXT_12: { type: String, required: false },
-//     CGS_TXT_13: { type: String, required: false },
-//     CGS_TXT_14: { type: String, required: false },
-//     CGS_TXT_15: { type: String, required: false },
-//     CGS_TXT_16: { type: String, required: false },
-//     CGS_TXT_17: { type: String, required: false },
-//     CGS_TXT_18: { type: String, required: false },
-//     CGS_TXT_19: { type: String, required: false },
-//     CGS_TXT_20: { type: String, required: false },
-//     CGS_TXT_21: { type: String, required: false },
-//     CGS_TXT_22: { type: String, required: false },
-//     CGS_TXT_23: { type: String, required: false },
-//     CGS_TXT_24: { type: String, required: false },
-//     CGS_TXT_25: { type: String, required: false },
-//     CGS_TXT_26: { type: String, required: false },
-//     CGS_TXT_27: { type: String, required: false },
-//     CGS_TXT_28: { type: String, required: false },
-//     CGS_TXT_29: { type: String, required: false },
-//     CGS_TXT_30: { type: String, required: false },
-//     FIAD15_TXT_1: { type: String, required: false },
-//     FIAD15_TXT_2: { type: String, required: false },
-//     FIAD15_TXT_3: { type: String, required: false },
-//     FIAD15_TXT_4: { type: String, required: false },
-//     FIAD15_TXT_5: { type: String, required: false },
-//     FIAD15_TXT_6: { type: String, required: false },
-//     FIAD15_TXT_7: { type: String, required: false },
-//     FIAD15_TXT_8: { type: String, required: false },
-//     FIAD15_TXT_9: { type: String, required: false },
-//     FIAD15_TXT_10: { type: String, required: false },
-//     FIAD15_TXT_11: { type: String, required: false },
-//     FIAD15_TXT_12: { type: String, required: false },
-//     FIAD15_TXT_13: { type: String, required: false },
-//     FIAD15_TXT_14: { type: String, required: false },
-//     FIAD15_TXT_15: { type: String, required: false },
-//     BURNOUT_TXT_1: { type: String, required: false },
-//     BURNOUT_TXT_2: { type: String, required: false },
-//     BURNOUT_TXT_3: { type: String, required: false },
-//     BURNOUT_TXT_4: { type: String, required: false },
-//     BURNOUT_TXT_5: { type: String, required: false },
-//     BURNOUT_TXT_6: { type: String, required: false },
-//     BURNOUT_TXT_7: { type: String, required: false },
-//     BURNOUT_TXT_8: { type: String, required: false },
-//     BURNOUT_TXT_9: { type: String, required: false },
-//     BURNOUT_TXT_10: { type: String, required: false },
-//     BURNOUT_TXT_11: { type: String, required: false },
-//     BURNOUT_TXT_12: { type: String, required: false },
-//     BURNOUT_TXT_13: { type: String, required: false },
-//     BURNOUT_TXT_14: { type: String, required: false },
-//     BURNOUT_TXT_15: { type: String, required: false },
-//     BURNOUT_TXT_16: { type: String, required: false },
-//     BURNOUT_TXT_17: { type: String, required: false },
-//     BURNOUT_TXT_18: { type: String, required: false },
-//     BURNOUT_TXT_19: { type: String, required: false },
-//     BURNOUT_TXT_20: { type: String, required: false },
-//     BURNOUT_TXT_21: { type: String, required: false },
-//     BURNOUT_TXT_22: { type: String, required: false },
-//     Datos_NUM_1: { type: String, required: false },
-//     Datos_NUM_2: { type: Number, required: false },
-//     Datos_NUM_3: { type: Date, required: false },
-//     Datos_NUM_4: { type: Date, required: false },
-//     Datos_NUM_5: { type: String, required: false },
-//     Datos_NUM_6: { type: String, required: false },
-//     Datos_NUM_7: { type: String, required: false },
-//     Datos_NUM_8: { type: String, required: false },
-//     Datos_NUM_9: { type: String, required: false },
-//     Datos_NUM_10: { type: String, required: false },
-//     Datos_NUM_11: { type: Number, required: false },
-//     Datos_NUM_12: { type: Date, required: false },
-//     Datos_NUM_13: { type: Number, required: false },
-//     Datos_NUM_14: { type: Number, required: false },
-//     Datos_NUM_15: { type: Number, required: false },
-//     Datos_NUM_16: { type: String, required: false },
-//     Datos_NUM_17: { type: String, required: false },
-//     Datos_NUM_18: { type: String, required: false },
-//     Datos_NUM_19: { type: Number, required: false },
-//     Datos_NUM_20: { type: String, required: false },
-//     Datos_NUM_21: { type: String, required: false },
-//     Datos_NUM_22: { type: String, required: false },
-//     CGS_NUM_1: { type: Number, required: false },
-//     CGS_NUM_2: { type: String, required: false },
-//     CGS_NUM_3: { type: Number, required: false },
-//     CGS_NUM_4: { type: String, required: false },
-//     CGS_NUM_5: { type: Number, required: false },
-//     CGS_NUM_6: { type: Number, required: false },
-//     CGS_NUM_7: { type: Number, required: false },
-//     CGS_NUM_8: { type: Number, required: false },
-//     CGS_NUM_9: { type: Number, required: false },
-//     CGS_NUM_10: { type: Number, required: false },
-//     CGS_NUM_11: { type: Number, required: false },
-//     CGS_NUM_12: { type: Number, required: false },
-//     CGS_NUM_13: { type: Number, required: false },
-//     CGS_NUM_14: { type: Number, required: false },
-//     CGS_NUM_15: { type: Number, required: false },
-//     CGS_NUM_16: { type: Number, required: false },
-//     CGS_NUM_17: { type: Number, required: false },
-//     CGS_NUM_18: { type: Number, required: false },
-//     CGS_NUM_19: { type: Number, required: false },
-//     CGS_NUM_20: { type: Number, required: false },
-//     CGS_NUM_21: { type: Number, required: false },
-//     CGS_NUM_22: { type: Number, required: false },
-//     CGS_NUM_23: { type: Number, required: false },
-//     CGS_NUM_24: { type: Number, required: false },
-//     CGS_NUM_25: { type: Number, required: false },
-//     CGS_NUM_26: { type: Number, required: false },
-//     CGS_NUM_27: { type: Number, required: false },
-//     CGS_NUM_28: { type: Number, required: false },
-//     CGS_NUM_29: { type: Number, required: false },
-//     CGS_NUM_30: { type: Number, required: false },
-//     FIAD15_NUM_1: { type: Number, required: false },
-//     FIAD15_NUM_2: { type: Number, required: false },
-//     FIAD15_NUM_3: { type: Number, required: false },
-//     FIAD15_NUM_4: { type: Number, required: false },
-//     FIAD15_NUM_5: { type: Number, required: false },
-//     FIAD15_NUM_6: { type: Number, required: false },
-//     FIAD15_NUM_7: { type: Number, required: false },
-//     FIAD15_NUM_8: { type: Number, required: false },
-//     FIAD15_NUM_9: { type: Number, required: false },
-//     FIAD15_NUM_10: { type: Number, required: false },
-//     FIAD15_NUM_11: { type: Number, required: false },
-//     FIAD15_NUM_12: { type: Number, required: false },
-//     FIAD15_NUM_13: { type: Number, required: false },
-//     FIAD15_NUM_14: { type: Number, required: false },
-//     FIAD15_NUM_15: { type: Number, required: false },
-//     BURNOUT_NUM_1: { type: Number, required: false },
-//     BURNOUT_NUM_2: { type: Number, required: false },
-//     BURNOUT_NUM_3: { type: Number, required: false },
-//     BURNOUT_NUM_4: { type: Number, required: false },
-//     BURNOUT_NUM_5: { type: Number, required: false },
-//     BURNOUT_NUM_6: { type: Number, required: false },
-//     BURNOUT_NUM_7: { type: Number, required: false },
-//     BURNOUT_NUM_8: { type: Number, required: false },
-//     BURNOUT_NUM_9: { type: Number, required: false },
-//     BURNOUT_NUM_10: { type: Number, required: false },
-//     BURNOUT_NUM_11: { type: Number, required: false },
-//     BURNOUT_NUM_12: { type: Number, required: false },
-//     BURNOUT_NUM_13: { type: Number, required: false },
-//     BURNOUT_NUM_14: { type: Number, required: false },
-//     BURNOUT_NUM_15: { type: Number, required: false },
-//     BURNOUT_NUM_16: { type: Number, required: false },
-//     BURNOUT_NUM_17: { type: Number, required: false },
-//     BURNOUT_NUM_18: { type: Number, required: false },
-//     BURNOUT_NUM_19: { type: Number, required: false },
-//     BURNOUT_NUM_20: { type: Number, required: false },
-//     BURNOUT_NUM_21: { type: Number, required: false },
-//     BURNOUT_NUM_22: { type: Number, required: false },
-//     //RESULTS CGS
-//     CGS_RESULT_NUM_1: { type: Number, required: false },
-//     CGS_RESULT_NUM_2: { type: Number, required: false },
-//     CGS_RESULT_NUM_3: { type: Number, required: false },
-//     CGS_RESULT_NUM_4: { type: Number, required: false },
-//     CGS_RESULT_NUM_5: { type: Number, required: false },
-//     CGS_RESULT_NUM_6: { type: Number, required: false },
-//   },
-
-//   { timestamps: true }
-// );

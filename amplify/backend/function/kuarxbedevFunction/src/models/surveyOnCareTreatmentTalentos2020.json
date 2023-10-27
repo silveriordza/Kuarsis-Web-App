@@ -17,72 +17,81 @@
             "question": "respondent_id",
             "questionShort": "respondent_id",
             "fieldName": "SCOLINFO_1",
-            "subScale": 1,
-            "sequence": 1
+            "weights": {},
+            "surveyCol": 1,
+            "superSurveyCol": 1
           },
           {
             "surveyId": "",
             "question": "collector_id",
             "questionShort": "collector_id",
             "fieldName": "SCOLINFO_2",
-            "subScale": 1,
-            "sequence": 2
+            "weights": {},
+            "surveyCol": 2,
+            "superSurveyCol": 2
           },
           {
             "surveyId": "",
             "question": "date_created",
             "questionShort": "date_created",
             "fieldName": "SCOLINFO_3",
-            "subScale": 1,
-            "sequence": 3
+            "weights": {},
+            "surveyCol": 3,
+            "superSurveyCol": 3
           },
           {
             "surveyId": "",
             "question": "date_modified",
             "questionShort": "date_modified",
             "fieldName": "SCOLINFO_4",
-            "subScale": 1,
-            "sequence": 4
+            "weights": {},
+            "surveyCol": 4,
+            "superSurveyCol": 4
           },
           {
             "surveyId": "",
             "question": "ip_address",
             "questionShort": "ip_address",
             "fieldName": "SCOLINFO_5",
-            "subScale": 1,
-            "sequence": 5
+            "weights": {},
+            "surveyCol": 5,
+            "superSurveyCol": 5
           },
           {
             "surveyId": "",
             "question": "email_address",
             "questionShort": "email_address",
             "fieldName": "SCOLINFO_6",
-            "subScale": 1,
-            "sequence": 6
+            "weights": {},
+            "surveyCol": 6,
+            "superSurveyCol": 6
           },
           {
             "surveyId": "",
             "question": "first_name",
             "questionShort": "first_name",
             "fieldName": "SCOLINFO_7",
-            "subScale": 1,
-            "sequence": 7
+            "weights": {},
+            "surveyCol": 7,
+            "superSurveyCol": 7
           },
           {
             "surveyId": "",
             "question": "last_name",
             "questionShort": "last_name",
             "fieldName": "SCOLINFO_8",
-            "subScale": 1,
-            "sequence": 8
+            "weights": {},
+            "surveyCol": 8,
+            "superSurveyCol": 8
           },
           {
             "surveyId": "",
             "question": "custom_1",
             "questionShort": "custom_1",
             "fieldName": "SCOLINFO_9",
-            "subScale": 1,
-            "sequence": 9
+            "weights": {},
+            "surveyCol": 9,
+            "superSurveyCol": 9
           }
         ]
       },
@@ -98,104 +107,117 @@
             "question": "Nombre completo:",
             "questionShort": "Nombre",
             "fieldName": "GENINFO_1",
-            "subScale": 1,
-            "sequence": 1
+            "weights": {},
+            "surveyCol": 1,
+            "superSurveyCol": 10
           },
           {
             "surveyId": "",
             "question": "Edad",
             "questionShort": "Edad",
             "fieldName": "GENINFO_2",
-            "subScale": 1,
-            "sequence": 2
+            "weights": {},
+            "surveyCol": 2,
+            "superSurveyCol": 11
           },
           {
             "surveyId": "",
             "question": "Fecha de nacimiento (dd/mm/aaaa)",
             "questionShort": "Nacimiento",
             "fieldName": "GENINFO_3",
-            "subScale": 1,
-            "sequence": 3
+            "weights": {},
+            "surveyCol": 3,
+            "superSurveyCol": 12
           },
           {
             "surveyId": "",
             "question": "Sexo",
             "questionShort": "Sexo",
             "fieldName": "GENINFO_4",
-            "subScale": 1,
-            "sequence": 4
+            "weights": {},
+            "surveyCol": 4,
+            "superSurveyCol": 13
           },
           {
             "surveyId": "",
             "question": "Estado civil",
             "questionShort": "Civil",
             "fieldName": "GENINFO_5",
-            "subScale": 1,
-            "sequence": 5
+            "weights": {},
+            "surveyCol": 5,
+            "superSurveyCol": 14
           },
           {
             "surveyId": "",
             "question": "Estado de procedencia",
             "questionShort": "Estado",
             "fieldName": "GENINFO_6",
-            "subScale": 1,
-            "sequence": 6
+            "weights": {},
+            "surveyCol": 6,
+            "superSurveyCol": 15
           },
           {
             "surveyId": "",
             "question": "Otro país (especifique)",
             "questionShort": "OtroPais",
             "fieldName": "GENINFO_7",
-            "subScale": 1,
-            "sequence": 7
+            "weights": {},
+            "surveyCol": 7,
+            "superSurveyCol": 16
           },
           {
             "surveyId": "",
             "question": "Municipio de residencia actual:",
             "questionShort": "Municipio",
             "fieldName": "GENINFO_8",
-            "subScale": 1,
-            "sequence": 8
+            "weights": {},
+            "surveyCol": 8,
+            "superSurveyCol": 17
           },
           {
             "surveyId": "",
             "question": "Medio de transporte:",
             "questionShort": "Transporte",
             "fieldName": "GENINFO_9",
-            "subScale": 1,
-            "sequence": 9
+            "weights": {},
+            "surveyCol": 9,
+            "superSurveyCol": 18
           },
           {
             "surveyId": "",
             "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
             "questionShort": "DistanciaTrabajo",
             "fieldName": "GENINFO_10",
-            "subScale": 1,
-            "sequence": 10
+            "weights": {},
+            "surveyCol": 10,
+            "superSurveyCol": 19
           },
           {
             "surveyId": "",
             "question": "Último grado de estudios:",
             "questionShort": "GradoEstudios",
             "fieldName": "GENINFO_11",
-            "subScale": 1,
-            "sequence": 11
+            "weights": {},
+            "surveyCol": 11,
+            "superSurveyCol": 20
           },
           {
             "surveyId": "",
             "question": "Ocupación actual",
             "questionShort": "Ocupacion",
             "fieldName": "GENINFO_12",
-            "subScale": 1,
-            "sequence": 12
+            "weights": {},
+            "surveyCol": 12,
+            "superSurveyCol": 21
           },
           {
             "surveyId": "",
             "question": "Área a la que aplica:",
             "questionShort": "AreaOcupacion",
             "fieldName": "GENINFO_13",
-            "subScale": 1,
-            "sequence": 13
+            "weights": {},
+            "surveyCol": 13,
+            "superSurveyCol": 22
           }
         ]
       },
@@ -211,240 +233,335 @@
             "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
             "questionShort": "A1",
             "fieldName": "CSG_A1_1",
-            "subScale": 1,
-            "sequence": 1
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 1,
+            "superSurveyCol": 23
           },
           {
             "surveyId": "",
             "question": "Otro (especifique)",
             "questionShort": "A1_Otro",
             "fieldName": "CSG_A1_Otro_2",
-            "subScale": 1,
-            "sequence": 2
+            "weights": {},
+            "surveyCol": 2,
+            "superSurveyCol": 24
           },
           {
             "surveyId": "",
             "question": "A2 Ha sentido la necesidad de un buen tónico",
             "questionShort": "A2",
             "fieldName": "CSG_A2_3",
-            "subScale": 1,
-            "sequence": 3
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 3,
+            "superSurveyCol": 25
           },
           {
             "surveyId": "",
             "question": "Otro (especifique)",
             "questionShort": "A2_Otro",
             "fieldName": "CSG_A2_Otro_4",
-            "subScale": 1,
-            "sequence": 4
+            "weights": {},
+            "surveyCol": 4,
+            "superSurveyCol": 26
           },
           {
             "surveyId": "",
             "question": "A3 Se ha sentido agotado y sin motivaciones.",
             "questionShort": "A3",
             "fieldName": "CSG_A3_5",
-            "subScale": 1,
-            "sequence": 5
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 5,
+            "superSurveyCol": 27
           },
           {
             "surveyId": "",
             "question": "A4 Se ha sentido enfermo.",
             "questionShort": "A4",
             "fieldName": "CSG_A4_6",
-            "subScale": 1,
-            "sequence": 6
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 6,
+            "superSurveyCol": 28
           },
           {
             "surveyId": "",
             "question": "A5 Ha tenido dolores de cabeza.",
             "questionShort": "A5 Ha tenido dolores de cabeza.",
             "fieldName": "CSG_A5_7",
-            "subScale": 1,
-            "sequence": 7
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 7,
+            "superSurveyCol": 29
           },
           {
             "surveyId": "",
             "question": "A6 Ha sentido tensión o presión en la cabeza.",
             "questionShort": "A6 Ha sentido tensión o presión en la cabeza.",
             "fieldName": "CSG_A6_8",
-            "subScale": 1,
-            "sequence": 8
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 8,
+            "superSurveyCol": 30
           },
           {
             "surveyId": "",
             "question": "A7 Ha tenido ráfagas de calor o frío.",
             "questionShort": "A7 Ha tenido ráfagas de calor o frío.",
             "fieldName": "CSG_A7_9",
-            "subScale": 1,
-            "sequence": 9
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 9,
+            "superSurveyCol": 31
           },
           {
             "surveyId": "",
             "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
             "questionShort": "B1 Ha tenido dificultades para dormir por estar preocupado.",
             "fieldName": "CSG_B1_10",
-            "subScale": 1,
-            "sequence": 10
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 10,
+            "superSurveyCol": 32
           },
           {
             "surveyId": "",
             "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
             "questionShort": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
             "fieldName": "CSG_B2_11",
-            "subScale": 1,
-            "sequence": 11
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 11,
+            "superSurveyCol": 33
           },
           {
             "surveyId": "",
             "question": "B3 Se ha sentido constantemente bajo presión.",
             "questionShort": "B3 Se ha sentido constantemente bajo presión.",
             "fieldName": "CSG_B3_12",
-            "subScale": 1,
-            "sequence": 12
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 12,
+            "superSurveyCol": 34
           },
           {
             "surveyId": "",
             "question": "B4 Se ha sentido irritable y de mal humor.",
             "questionShort": "B4 Se ha sentido irritable y de mal humor.",
             "fieldName": "CSG_B4_13",
-            "subScale": 1,
-            "sequence": 13
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 13,
+            "superSurveyCol": 35
           },
           {
             "surveyId": "",
             "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
             "questionShort": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
             "fieldName": "CSG_B5_14",
-            "subScale": 1,
-            "sequence": 14
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 14,
+            "superSurveyCol": 36
           },
           {
             "surveyId": "",
             "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
             "questionShort": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
             "fieldName": "CSG_B6_15",
-            "subScale": 1,
-            "sequence": 15
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 15,
+            "superSurveyCol": 37
           },
           {
             "surveyId": "",
             "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
             "questionShort": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
             "fieldName": "CSG_B7_16",
-            "subScale": 1,
-            "sequence": 16
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 16,
+            "superSurveyCol": 38
           },
           {
             "surveyId": "",
             "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
             "questionShort": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
             "fieldName": "CSG_C1_17",
-            "subScale": 1,
-            "sequence": 17
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 17,
+            "superSurveyCol": 39
           },
           {
             "surveyId": "",
             "question": "C2 Se tarda más tiempo en hacer las cosas. ",
             "questionShort": "C2 Se tarda más tiempo en hacer las cosas. ",
             "fieldName": "CSG_C2_18",
-            "subScale": 1,
-            "sequence": 18
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 18,
+            "superSurveyCol": 40
           },
           {
             "surveyId": "",
             "question": "C3 En general siente que ha hecho las cosas bien.",
             "questionShort": "C3 En general siente que ha hecho las cosas bien.",
             "fieldName": "CSG_C3_19",
-            "subScale": 1,
-            "sequence": 19
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 19,
+            "superSurveyCol": 41
           },
           {
             "surveyId": "",
             "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
             "questionShort": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
             "fieldName": "CSG_C4_20",
-            "subScale": 1,
-            "sequence": 20
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 20,
+            "superSurveyCol": 42
           },
           {
             "surveyId": "",
             "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
             "questionShort": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
             "fieldName": "CSG_C5_21",
-            "subScale": 1,
-            "sequence": 21
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 21,
+            "superSurveyCol": 43
           },
           {
             "surveyId": "",
             "question": "C6 Se ha sentido capaz de tomar decisiones.",
             "questionShort": "C6 Se ha sentido capaz de tomar decisiones.",
             "fieldName": "CSG_C6_22",
-            "subScale": 1,
-            "sequence": 22
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 22,
+            "superSurveyCol": 44
           },
           {
             "surveyId": "",
             "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
             "questionShort": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
             "fieldName": "CSG_C7_23",
-            "subScale": 1,
-            "sequence": 23
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 23,
+            "superSurveyCol": 45
           },
           {
             "surveyId": "",
             "question": "D1  Se ha sentido como una persona de poca valía.",
             "questionShort": "D1  Se ha sentido como una persona de poca valía.",
             "fieldName": "CSG_D1_24",
-            "subScale": 1,
-            "sequence": 24
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 24,
+            "superSurveyCol": 46
           },
           {
             "surveyId": "",
             "question": "D2 Ha sentido que la vida no vale nada.",
             "questionShort": "D2 Ha sentido que la vida no vale nada.",
             "fieldName": "CSG_D2_25",
-            "subScale": 1,
-            "sequence": 25
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 25,
+            "superSurveyCol": 47
           },
           {
             "surveyId": "",
             "question": "D3 Ha sentido que no vale la pena vivir.",
             "questionShort": "D3 Ha sentido que no vale la pena vivir.",
             "fieldName": "CSG_D3_26",
-            "subScale": 1,
-            "sequence": 26
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 26,
+            "superSurveyCol": 48
           },
           {
             "surveyId": "",
             "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
             "questionShort": "D4 Ha pensado en la posibilidad de quitarse la vida.",
             "fieldName": "CSG_D4_27",
-            "subScale": 1,
-            "sequence": 27
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 27,
+            "superSurveyCol": 49
           },
           {
             "surveyId": "",
             "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
             "questionShort": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
             "fieldName": "CSG_D5_28",
-            "subScale": 1,
-            "sequence": 28
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 28,
+            "superSurveyCol": 50
           },
           {
             "surveyId": "",
             "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
             "questionShort": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
             "fieldName": "CSG_D6_29",
-            "subScale": 1,
-            "sequence": 29
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 29,
+            "superSurveyCol": 51
           },
           {
             "surveyId": "",
             "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
             "questionShort": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
             "fieldName": "CSG_D7_30",
-            "subScale": 1,
-            "sequence": 30
+            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "surveyCol": 30,
+            "superSurveyCol": 52
+          }
+        ],
+        "calculatedFieldList": [
+          {
+            "surveyId": "",
+            "description": "Síntomas Somáticos",
+            "shortDescription": "Somáticos",
+            "fieldName": "CSG_CAL_SOMATICOS",
+            "isCriteria": false,
+            "group": [22, 24, 26, 27, 28, 29, 30],
+            "sequence": 1
+          },
+          {
+            "surveyId": "",
+            "description": "Ansiedad/insomnio",
+            "shortDescription": "Ansiedad/insomnio",
+            "fieldName": "CSG_CAL_ANSIEDAD",
+            "isCriteria": false,
+            "group": [31, 32, 33, 34, 35, 36, 37],
+            "sequence": 2
+          },
+          {
+            "surveyId": "",
+            "description": "Disfunción social",
+            "shortDescription": "Disfunción social",
+            "fieldName": "CSG_CAL_DISF_SOCIAL",
+            "isCriteria": false,
+            "group": [38, 39, 40, 41, 42, 43, 44],
+            "sequence": 3
+          },
+          {
+            "surveyId": "",
+            "description": "Depresión severa",
+            "shortDescription": "Depresión severa",
+            "fieldName": "CSG_CAL_DEPRESION",
+            "isCriteria": false,
+            "group": [45, 46, 47, 48, 49, 50, 51],
+            "sequence": 4
+          },
+          {
+            "surveyId": "",
+            "description": "TOTAL CSG",
+            "shortDescription": "TOTAL CSG",
+            "fieldName": "CSG_CAL_TOTAL_CSG",
+            "isCriteria": false,
+            "group": [
+              22, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+              40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
+            ],
+            "sequence": 5
+          },
+          {
+            "surveyId": "",
+            "description": "Es Caso",
+            "shortDescription": "Es Caso",
+            "fieldName": "CSG_CAL_ES_CASO",
+            "isCriteria": true,
+            "criteria": {
+              "fieldNameValue": ["CSG_CAL_TOTAL_CSG"],
+              "operator": ">",
+              "value": 4,
+              "resultIfTrue": 1,
+              "resultIfFalse": 0
+            },
+            "sequence": 6
           }
         ]
       }

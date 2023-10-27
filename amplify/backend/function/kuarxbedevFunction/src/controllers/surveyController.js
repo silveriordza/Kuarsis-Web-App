@@ -5,11 +5,13 @@ let {
   superSurveyConf,
 } = require("../models/surveyOnCareTreatmentTalentos2020.js");
 let {
-  SuperSurvey,
+  SurveySuperior,
   Survey,
-  Question,
-  MultiSurvey,
-  SuperSurveyCollected,
+  SurveyQuestion,
+  SurveyCalculatedField,
+  SurveyCalculatedValue,
+  SurveyMulti,
+  SurveyCollected,
   SurveyResponse,
 } = require("../models/surveysModel.js");
 let { LogThis, LoggerSettings } = require("../utils/Logger.js");
@@ -28,29 +30,33 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   const { superSurveyConfig } = req.body;
   let ownerId = req.user._id;
 
-  await SuperSurvey.deleteMany({});
+  await SurveySuperior.deleteMany({});
   await Survey.deleteMany({});
-  await Question.deleteMany({});
-  await MultiSurvey.deleteMany({});
+  await SurveyQuestion.deleteMany({});
+  await SurveyMulti.deleteMany({});
+  await SurveyCalculatedField.deleteMany({});
+  await SurveyCalculatedValue.deleteMany({});
 
   console.log("superSurveyConfig INPUT values are:");
   console.log(superSurveyConfig);
   console.log("Survey Configuration Values STRINGIFIED:");
 
   let superSurveyConfigTest = superSurveyConfig;
-  const superSurvey = new SuperSurvey({
+  const superSurvey = new SurveySuperior({
     owner: ownerId,
     surveyName: superSurveyConfigTest.surveyName,
     surveyShortName: superSurveyConfigTest.surveyShortName,
     description: superSurveyConfigTest.description,
   });
 
-  const createdSuperSurvey = await superSurvey.save();
+  const createdSurveySuperior = await superSurvey.save();
 
   let surveysCreated = [];
   let questionsCreated = [];
+  let calculatedFieldsCreated = [];
   let surveyCreated = null;
   let questions = [];
+  let calculatedFields = [];
   //let question = null;
   let questionItem = null;
   for (let i = 0; i < superSurveyConfigTest.surveyList.length; i++) {
@@ -63,9 +69,9 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
       instructions: surveyItem.instructions,
     });
     surveyCreated = await survey.save();
-    let multiSurvey = new MultiSurvey({
+    let multiSurvey = new SurveyMulti({
       owner: ownerId,
-      superSurveyId: createdSuperSurvey._id,
+      superSurveyId: createdSurveySuperior._id,
       surveyId: surveyCreated._id,
       sequence: i + 1,
     });
@@ -80,15 +86,42 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
         question: questionItem.question,
         questionShort: questionItem.questionShort,
         fieldName: questionItem.fieldName,
-        subScale: questionItem.subScale,
-        sequence: questionItem.sequence,
+        weights: questionItem.weights,
+        surveyCol: questionItem.surveyCol,
+        superSurveyCol: questionItem.superSurveyCol,
+      });
+    }
+
+    for (
+      let x = 0;
+      surveyItem.calculatedFieldList &&
+      x < surveyItem.calculatedFieldList.length;
+      x++
+    ) {
+      calculatedFieldItem = surveyItem.calculatedFieldList[x];
+      calculatedFields;
+      calculatedFields.push({
+        surveyId: surveyCreated._id,
+        description: calculatedFieldItem.description,
+        shortDescription: calculatedFieldItem.shortDescription,
+        fieldName: calculatedFieldItem.fieldName,
+        isCriteria: calculatedFieldItem.isCriteria,
+        criteria: calculatedFieldItem.criteria,
+        group: calculatedFieldItem.group,
+        sequence: calculatedFieldItem.sequence,
       });
     }
     console.log("About to insert many");
     console.log(JSON.stringify(questions));
-    questionsCreated = await Question.insertMany(questions);
+    questionsCreated = await SurveyQuestion.insertMany(questions);
     questions = [];
-    console.log("Inserted many");
+    console.log(JSON.stringify(calculatedFields));
+    if (calculatedFields.length > 0) {
+      calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
+        calculatedFields
+      );
+      calculatedFields = [];
+    }
   }
 
   console.log("about to respond");
@@ -107,6 +140,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   LogThis(log, `START`);
 
   await SurveyResponse.deleteMany({});
+  await SurveyCalculatedValue.deleteMany({});
   const superSurveyId = req.params.id;
   const user = req.user;
   const owner = req.user._id;
@@ -125,7 +159,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
    * Get the Super Survey and the list of its Surveys
    */
 
-  let multiSurveys = await MultiSurvey.find({
+  let multiSurveys = await SurveyMulti.find({
     superSurveyId: superSurveyId,
     owner: owner,
   })
@@ -137,58 +171,218 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Multi Surveys not found");
   }
+
   const surveyIdsList = [];
+
   multiSurveys.map((multiSurveyItem) => {
     surveyIdsList.push(multiSurveyItem.surveyId);
   });
+
   LogThis(log, `surveyIdsList=${surveyIdsList}`);
-  const questions = await Question.find({
+
+  const questions = await SurveyQuestion.find({
     surveyId: { $in: surveyIdsList },
-  })
-    .select("_id surveyId sequence")
-    .lean();
+  }).lean();
+
   LogThis(log, `resultset questions=${JSON.stringify(questions)}`);
+
+  const calculatedFields = await SurveyCalculatedField.find({
+    surveyId: { $in: surveyIdsList },
+  }).lean();
+
+  LogThis(
+    log,
+    `Calculated Fields Found: calculatedFields=${JSON.stringify(
+      calculatedFields
+    )};`
+  );
+
   const surveyResponses = [];
+  const calculatedValues = [];
+
+  let allSurveyQuestions = [];
+  let allCalculatedFields = [];
   surveyIdsList.map((surveyId) => {
     let surveyQuestions = questions
       .filter(
         (question) => question.surveyId.toString() === surveyId.toString()
       )
-      .sort((a, b) => b.sequence - a.sequence);
-    LogThis(
-      log,
-      `surveyQuestions=${surveyQuestions}; surveyId=${surveyId}; questions=${JSON.stringify(
-        questions
-      )}`
-    );
+      .sort((a, b) => b.surveyCol - a.surveyCol);
 
-    let rowClean = "";
-    let answers = [];
+    allSurveyQuestions = [...allSurveyQuestions, ...surveyQuestions];
 
-    for (let r = 0; r < answersRows.length; r++) {
-      rowClean = rowCleaner(answersRows[r]);
-      answers = rowClean.split(",");
-      LogThis(log, `answers=${answers}`);
-      let row = r + 1;
-      for (let a = 0; a < surveyQuestions.length; a++) {
+    let surveyCalculatedFields = calculatedFields
+      .filter(
+        (calculatedField) =>
+          calculatedField.surveyId.toString() === surveyId.toString()
+      )
+      .sort((a, b) => a.sequence - b.sequence);
+
+    allCalculatedFields = [...allCalculatedFields, ...surveyCalculatedFields];
+  });
+
+  LogThis(log, `allSurveyQuestions=${JSON.stringify(allSurveyQuestions)};`);
+
+  LogThis(
+    log,
+    `Filtered calculated fields allCalculatedFields=${JSON.stringify(
+      allCalculatedFields
+    )};`
+  );
+
+  let rowClean = "";
+  let answers = [];
+
+  for (let r = 0; r < answersRows.length; r++) {
+    rowClean = rowCleaner(answersRows[r]);
+    answers = rowClean.split(",");
+
+    LogThis(log, `answers=${answers}`);
+    if (answers[0] == "" || answers[0].trim() == "") {
+      break;
+    }
+    let row = r + 1;
+    for (let a = 0; a < allSurveyQuestions.length; a++) {
+      LogThis(
+        log,
+        `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
+      );
+      let surveyQuestion = allSurveyQuestions[a];
+      //transform the question answer value into the weighted answer for that Survey.
+      let weightedResponse = null;
+      let response = null;
+      let isWeighted = null;
+      LogThis(
+        log,
+        `surveyQuestion=${JSON.stringify(
+          surveyQuestion
+        )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
+      );
+
+      if (surveyQuestion.weights /*&& surveyQuestion.weights.length > 0*/) {
         LogThis(
           log,
-          `row=${row}; surveyQuestions[a]._id=${surveyQuestions[a]._id}; answers[a]=${answers[a]}`
+          `weighting: answers[a]=${
+            answers[a]
+          };surveyQuestion.weights=${JSON.stringify(
+            surveyQuestion.weights
+          )}; weightedValue=${
+            surveyQuestion.weights[
+              answers[a].toString().trim().replace(/'\n'/g, "")
+            ]
+          }`
         );
-        surveyResponses.push({
-          questionId: surveyQuestions[a]._id,
-          row: row,
-          col: a + 1,
-          response: answers[a],
+        weightedResponse =
+          surveyQuestion.weights[
+            answers[a].toString().trim().replace(/'\n'/g, "")
+          ];
+        response = answers[a];
+        answers[a] = weightedResponse;
+        isWeighted = true;
+        LogThis(log, `final weight: answer=${weightedResponse}`);
+      } else {
+        response = answers[a];
+        weightedResponse = answers[a];
+        isWeighted = false;
+        LogThis(log, `no weighted: answer=${weightedResponse}`);
+      }
+
+      surveyResponses.push({
+        questionId: surveyQuestion._id,
+        row: row,
+        col: a + 1,
+        response: response,
+        weightedResponse: weightedResponse,
+        isWeighted: isWeighted,
+      });
+    }
+
+    for (let a = 0; a < allCalculatedFields.length; a++) {
+      LogThis(
+        log,
+        `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}; answers[a]=${answers[a]}`
+      );
+      //let col = a + 1
+      allCalculatedField = allCalculatedFields[a];
+      let value = null;
+      if (allCalculatedField.isCriteria) {
+        let criteria = allCalculatedField.criteria;
+        LogThis(
+          log,
+          `Criteria in Question: criteria=${JSON.stringify(criteria)}`
+        );
+        let fieldNameValue = allCalculatedFields.find((calField) => {
+          LogThis(log, `calField=${JSON.stringify(calField)}`);
+          return calField.fieldName == criteria.fieldNameValue[0];
+        });
+        LogThis(log, `fieldNameValue1=${JSON.stringify(fieldNameValue)}`);
+        let sequence = fieldNameValue.sequence;
+        calValue = calculatedValues.find((value) => value.col == sequence);
+        LogThis(
+          log,
+          `About to get into case > calValue=${JSON.stringify(
+            calValue
+          )}; criteria.operator=${JSON.stringify(criteria.operator)}`
+        );
+        switch (criteria.operator) {
+          case ">":
+            LogThis(
+              log,
+              `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`
+            );
+            if (calValue.value > criteria.value) {
+              value = criteria.resultIfTrue;
+              LogThis(log, `Creteria is true: value=${value}`);
+            } else {
+              value = criteria.resultIfFalse;
+              LogThis(log, `Creteria is false: value=${value}`);
+            }
+            break;
+          default:
+            value = null;
+            LogThis(log, `Case entered default: value${value}`);
+        }
+      } else {
+        LogThis(
+          log,
+          `Field is not criteria: allCalculatedField=${JSON.stringify(
+            allCalculatedField
+          )}`
+        );
+        let groups = allCalculatedField.group;
+        groups.map((group) => {
+          LogThis(
+            log,
+            ` row=${row}; col=${a + 1}; group=${group} answers[group]=${
+              answers[group]
+            }; parseInt(answers[group])=${parseInt(answers[group])}`
+          );
+          value = value + parseInt(answers[group]);
         });
       }
+      LogThis(
+        log,
+        `Pushing value: calculatedFieldId=${
+          allCalculatedFields[a]._id
+        }; row=${row};col=${a + 1}; value=${value}; `
+      );
+      calculatedValues.push({
+        calculatedFieldId: allCalculatedFields[a]._id,
+        row: row,
+        col: a + 1,
+        value: value,
+      });
     }
-  });
-  surveyResponses;
+  } //This bracket
+
   LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
 
   const surveyResponseCreated = await SurveyResponse.insertMany(
     surveyResponses
+  );
+  LogThis(log, `calculatedValues=${JSON.stringify(calculatedValues)}`);
+  const surveyCalculatedValuesCreated = await SurveyCalculatedValue.insertMany(
+    calculatedValues
   );
 
   if (!questions) {
@@ -201,12 +395,14 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     LogThis(log, `END`);
     res.status(200).json({
       owner: user._id,
-      surveyIdsList: surveyIdsList,
-      surveyResponseCreated: surveyResponseCreated,
       superSurveyId: superSurveyId,
       multiSurveys: multiSurveys,
+      surveyIdsList: surveyIdsList,
+      allSurveyQuestions: allSurveyQuestions,
+      surveyResponseCreated: surveyResponseCreated,
+      surveyCalculatedValuesCreated: surveyCalculatedValuesCreated,
       answerRowsLength: answersRows.length,
-      questions: questions,
+      //questions: questions,
       answersRows: answersRows,
     });
   } else {
