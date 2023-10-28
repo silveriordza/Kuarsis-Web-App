@@ -174,17 +174,43 @@ const surveyCalculatedValueModel = mongoose.Schema(
     },
     row: { type: Number, required: true },
     col: { type: Number, required: true },
-    value: { type: Number, required: false, default: "" },
+    value: { type: Number, required: false, default: -1000 },
   },
   {
     timestamps: true,
   }
 );
-
 const SurveyCalculatedValue = mongoose.model(
   "SurveyCalculatedValue",
   surveyCalculatedValueModel
 );
+
+// const surveyOutputReportHeadersModel = mongoose.Schema(
+//   {
+//     // surveyCollectedId: {
+//     //   type: mongoose.Schema.Types.ObjectId,
+//     //   required: true,
+//     //   ref: "SuperSurveyCollected",
+//     // },
+//     surveySuperiorId: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       required: true,
+//       ref: "SurveySuperior",
+//     },
+//     surveyName: { type: String, required: true },
+//     surveyField: { type: String, required: true },
+//     surveyIsCalculatedField: { type: Boolean, required: true },
+//     col: { type: Number, required: true },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
+
+// const SurveyOutputReport = mongoose.model(
+//   "SurveyOutputReport",
+//   surveyOutputReportModel
+// );
 
 module.exports = {
   SurveySuperior,

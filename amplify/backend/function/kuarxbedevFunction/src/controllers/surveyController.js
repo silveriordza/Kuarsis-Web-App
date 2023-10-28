@@ -182,7 +182,9 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
 
   const questions = await SurveyQuestion.find({
     surveyId: { $in: surveyIdsList },
-  }).lean();
+  })
+    .sort({ superSurveyCol: 1 })
+    .lean();
 
   LogThis(log, `resultset questions=${JSON.stringify(questions)}`);
 
@@ -207,7 +209,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       .filter(
         (question) => question.surveyId.toString() === surveyId.toString()
       )
-      .sort((a, b) => b.surveyCol - a.surveyCol);
+      .sort((a, b) => a.superSurveyCol - b.superSurveyCol);
 
     allSurveyQuestions = [...allSurveyQuestions, ...surveyQuestions];
 
@@ -229,6 +231,25 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       allCalculatedFields
     )};`
   );
+
+  let questionDesc = "";
+  let questionShortDesc = "";
+  let csv = "";
+  questions.map((q) => {
+    questionDesc = questionDesc + q.question + ",";
+    questionShortDesc = questionShortDesc + q.questionShort + ",";
+  });
+
+  allCalculatedFields.map((c) => {
+    questionDesc = questionDesc + c.description + ",";
+    questionShortDesc = questionShortDesc + c.shortDescription + ",";
+  });
+  questionDesc = questionDesc.slice(0, -1);
+  questionShortDesc = questionShortDesc.slice(0, -1);
+  questionDesc = questionDesc + "\n";
+  questionShortDesc = questionShortDesc + "\n";
+
+  csv = csv + questionDesc + questionShortDesc;
 
   let rowClean = "";
   let answers = [];
@@ -259,10 +280,14 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
         )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
       );
 
-      if (surveyQuestion.weights /*&& surveyQuestion.weights.length > 0*/) {
+      if (
+        surveyQuestion.weights &&
+        Object.keys(surveyQuestion.weights).length >
+          0 /*&& surveyQuestion.weights.length > 0*/
+      ) {
         LogThis(
           log,
-          `weighting: answers[a]=${
+          `weighting: answers[${a}]=${
             answers[a]
           };surveyQuestion.weights=${JSON.stringify(
             surveyQuestion.weights
@@ -272,17 +297,25 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
             ]
           }`
         );
-        weightedResponse =
-          surveyQuestion.weights[
-            answers[a].toString().trim().replace(/'\n'/g, "")
-          ];
-        response = answers[a];
+        let answerA = answers[a].toString().trim().replace(/'\n'/g, "");
+        if (answerA == "") {
+          answerA = "0";
+        }
+        weightedResponse = surveyQuestion.weights[answerA];
+        if (!weightedResponse) {
+          weightedResponse = "0";
+        }
+        response = answerA;
         answers[a] = weightedResponse;
         isWeighted = true;
         LogThis(log, `final weight: answer=${weightedResponse}`);
       } else {
-        response = answers[a];
-        weightedResponse = answers[a];
+        let answerA = answers[a];
+        if (answerA == "") {
+          answerA = "0";
+        }
+        response = answerA;
+        weightedResponse = answerA;
         isWeighted = false;
         LogThis(log, `no weighted: answer=${weightedResponse}`);
       }
@@ -295,6 +328,16 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
         weightedResponse: weightedResponse,
         isWeighted: isWeighted,
       });
+      if (isWeighted) {
+        LogThis(
+          log,
+          `Adding csv weighted answer: weightedResponse=${weightedResponse}`
+        );
+        weightedResponse = weightedResponse ?? "";
+        csv = csv + weightedResponse.toString() + ",";
+      } else {
+        csv = csv + response.toString() + ",";
+      }
     }
 
     for (let a = 0; a < allCalculatedFields.length; a++) {
@@ -317,7 +360,9 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
         });
         LogThis(log, `fieldNameValue1=${JSON.stringify(fieldNameValue)}`);
         let sequence = fieldNameValue.sequence;
-        calValue = calculatedValues.find((value) => value.col == sequence);
+        calValue = calculatedValues.find(
+          (value) => value.col == sequence && value.row == row
+        );
         LogThis(
           log,
           `About to get into case > calValue=${JSON.stringify(
@@ -366,13 +411,19 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
           allCalculatedFields[a]._id
         }; row=${row};col=${a + 1}; value=${value}; `
       );
+      if (typeof value != "number" || value == null || isNaN(value)) {
+        value = -1000;
+      }
       calculatedValues.push({
         calculatedFieldId: allCalculatedFields[a]._id,
         row: row,
         col: a + 1,
         value: value,
       });
+      csv = csv + value.toString() + ",";
     }
+    csv = csv.slice(0, -1);
+    csv = csv + "\n";
   } //This bracket
 
   LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
@@ -389,22 +440,32 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Questions not found");
   }
+  //Form the CSV output file
+
   //ENDING LOGIC TO SAVE ANSWERS TO DATABASE
 
   if (answersRows.length > 0) {
     LogThis(log, `END`);
-    res.status(200).json({
-      owner: user._id,
-      superSurveyId: superSurveyId,
-      multiSurveys: multiSurveys,
-      surveyIdsList: surveyIdsList,
-      allSurveyQuestions: allSurveyQuestions,
-      surveyResponseCreated: surveyResponseCreated,
-      surveyCalculatedValuesCreated: surveyCalculatedValuesCreated,
-      answerRowsLength: answersRows.length,
-      //questions: questions,
-      answersRows: answersRows,
+    // res.status(200).json({
+    //   // owner: user._id,
+    //   // superSurveyId: superSurveyId,
+    //   // multiSurveys: multiSurveys,
+    //   // surveyIdsList: surveyIdsList,
+    //   // allSurveyQuestions: allSurveyQuestions,
+    //   // surveyResponseCreated: surveyResponseCreated,
+    //   // surveyCalculatedValuesCreated: surveyCalculatedValuesCreated,
+    //   // answerRowsLength: answersRows.length,
+    //   // //questions: questions,
+    //   // answersRows: answersRows,
+    //   csv: csv,
+    // });
+    console.log(csv);
+    res.writeHead(200, {
+      "Content-Type": "text/plain",
+      "Content-Length": Buffer.byteLength(csv),
     });
+    res.write(csv);
+    res.end();
   } else {
     res.status(404);
     throw new Error("Uncought Exception loading answers");

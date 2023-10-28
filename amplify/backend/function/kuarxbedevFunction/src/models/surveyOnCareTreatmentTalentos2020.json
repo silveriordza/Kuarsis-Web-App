@@ -233,7 +233,7 @@
             "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
             "questionShort": "A1",
             "fieldName": "CSG_A1_1",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 1,
             "superSurveyCol": 23
           },
@@ -251,7 +251,7 @@
             "question": "A2 Ha sentido la necesidad de un buen tónico",
             "questionShort": "A2",
             "fieldName": "CSG_A2_3",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 3,
             "superSurveyCol": 25
           },
@@ -269,7 +269,7 @@
             "question": "A3 Se ha sentido agotado y sin motivaciones.",
             "questionShort": "A3",
             "fieldName": "CSG_A3_5",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 5,
             "superSurveyCol": 27
           },
@@ -278,7 +278,7 @@
             "question": "A4 Se ha sentido enfermo.",
             "questionShort": "A4",
             "fieldName": "CSG_A4_6",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 6,
             "superSurveyCol": 28
           },
@@ -287,7 +287,7 @@
             "question": "A5 Ha tenido dolores de cabeza.",
             "questionShort": "A5 Ha tenido dolores de cabeza.",
             "fieldName": "CSG_A5_7",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 7,
             "superSurveyCol": 29
           },
@@ -296,7 +296,7 @@
             "question": "A6 Ha sentido tensión o presión en la cabeza.",
             "questionShort": "A6 Ha sentido tensión o presión en la cabeza.",
             "fieldName": "CSG_A6_8",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 8,
             "superSurveyCol": 30
           },
@@ -305,7 +305,7 @@
             "question": "A7 Ha tenido ráfagas de calor o frío.",
             "questionShort": "A7 Ha tenido ráfagas de calor o frío.",
             "fieldName": "CSG_A7_9",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 9,
             "superSurveyCol": 31
           },
@@ -314,7 +314,7 @@
             "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
             "questionShort": "B1 Ha tenido dificultades para dormir por estar preocupado.",
             "fieldName": "CSG_B1_10",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 10,
             "superSurveyCol": 32
           },
@@ -323,7 +323,7 @@
             "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
             "questionShort": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
             "fieldName": "CSG_B2_11",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 11,
             "superSurveyCol": 33
           },
@@ -332,7 +332,7 @@
             "question": "B3 Se ha sentido constantemente bajo presión.",
             "questionShort": "B3 Se ha sentido constantemente bajo presión.",
             "fieldName": "CSG_B3_12",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 12,
             "superSurveyCol": 34
           },
@@ -341,7 +341,7 @@
             "question": "B4 Se ha sentido irritable y de mal humor.",
             "questionShort": "B4 Se ha sentido irritable y de mal humor.",
             "fieldName": "CSG_B4_13",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 13,
             "superSurveyCol": 35
           },
@@ -350,7 +350,7 @@
             "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
             "questionShort": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
             "fieldName": "CSG_B5_14",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 14,
             "superSurveyCol": 36
           },
@@ -359,7 +359,7 @@
             "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
             "questionShort": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
             "fieldName": "CSG_B6_15",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 15,
             "superSurveyCol": 37
           },
@@ -368,7 +368,7 @@
             "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
             "questionShort": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
             "fieldName": "CSG_B7_16",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 16,
             "superSurveyCol": 38
           },
@@ -377,7 +377,7 @@
             "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
             "questionShort": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
             "fieldName": "CSG_C1_17",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 17,
             "superSurveyCol": 39
           },
@@ -386,7 +386,7 @@
             "question": "C2 Se tarda más tiempo en hacer las cosas. ",
             "questionShort": "C2 Se tarda más tiempo en hacer las cosas. ",
             "fieldName": "CSG_C2_18",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 18,
             "superSurveyCol": 40
           },
@@ -395,7 +395,7 @@
             "question": "C3 En general siente que ha hecho las cosas bien.",
             "questionShort": "C3 En general siente que ha hecho las cosas bien.",
             "fieldName": "CSG_C3_19",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 19,
             "superSurveyCol": 41
           },
@@ -404,7 +404,7 @@
             "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
             "questionShort": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
             "fieldName": "CSG_C4_20",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 20,
             "superSurveyCol": 42
           },
@@ -413,7 +413,7 @@
             "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
             "questionShort": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
             "fieldName": "CSG_C5_21",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 21,
             "superSurveyCol": 43
           },
@@ -422,7 +422,7 @@
             "question": "C6 Se ha sentido capaz de tomar decisiones.",
             "questionShort": "C6 Se ha sentido capaz de tomar decisiones.",
             "fieldName": "CSG_C6_22",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 22,
             "superSurveyCol": 44
           },
@@ -431,7 +431,7 @@
             "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
             "questionShort": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
             "fieldName": "CSG_C7_23",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 23,
             "superSurveyCol": 45
           },
@@ -440,7 +440,7 @@
             "question": "D1  Se ha sentido como una persona de poca valía.",
             "questionShort": "D1  Se ha sentido como una persona de poca valía.",
             "fieldName": "CSG_D1_24",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 24,
             "superSurveyCol": 46
           },
@@ -449,7 +449,7 @@
             "question": "D2 Ha sentido que la vida no vale nada.",
             "questionShort": "D2 Ha sentido que la vida no vale nada.",
             "fieldName": "CSG_D2_25",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 25,
             "superSurveyCol": 47
           },
@@ -458,7 +458,7 @@
             "question": "D3 Ha sentido que no vale la pena vivir.",
             "questionShort": "D3 Ha sentido que no vale la pena vivir.",
             "fieldName": "CSG_D3_26",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 26,
             "superSurveyCol": 48
           },
@@ -467,7 +467,7 @@
             "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
             "questionShort": "D4 Ha pensado en la posibilidad de quitarse la vida.",
             "fieldName": "CSG_D4_27",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 27,
             "superSurveyCol": 49
           },
@@ -476,7 +476,7 @@
             "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
             "questionShort": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
             "fieldName": "CSG_D5_28",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 28,
             "superSurveyCol": 50
           },
@@ -485,7 +485,7 @@
             "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
             "questionShort": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
             "fieldName": "CSG_D6_29",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 29,
             "superSurveyCol": 51
           },
@@ -494,7 +494,7 @@
             "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
             "questionShort": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
             "fieldName": "CSG_D7_30",
-            "weights": { "0": 0, "1": 0, "2": 1, "3": 1 },
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 30,
             "superSurveyCol": 52
           }
