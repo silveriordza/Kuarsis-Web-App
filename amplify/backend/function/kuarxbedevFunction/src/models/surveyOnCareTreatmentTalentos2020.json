@@ -16,7 +16,7 @@
             "surveyId": "",
             "question": "respondent_id",
             "questionShort": "respondent_id",
-            "fieldName": "SCOLINFO_1",
+            "fieldName": "SCOLINFO_respondent_id",
             "weights": {},
             "surveyCol": 1,
             "superSurveyCol": 1
@@ -25,7 +25,7 @@
             "surveyId": "",
             "question": "collector_id",
             "questionShort": "collector_id",
-            "fieldName": "SCOLINFO_2",
+            "fieldName": "SCOLINFO_collector_id",
             "weights": {},
             "surveyCol": 2,
             "superSurveyCol": 2
@@ -34,7 +34,7 @@
             "surveyId": "",
             "question": "date_created",
             "questionShort": "date_created",
-            "fieldName": "SCOLINFO_3",
+            "fieldName": "SCOLINFO_date_created",
             "weights": {},
             "surveyCol": 3,
             "superSurveyCol": 3
@@ -43,7 +43,7 @@
             "surveyId": "",
             "question": "date_modified",
             "questionShort": "date_modified",
-            "fieldName": "SCOLINFO_4",
+            "fieldName": "SCOLINFO_date_modified",
             "weights": {},
             "surveyCol": 4,
             "superSurveyCol": 4
@@ -52,7 +52,7 @@
             "surveyId": "",
             "question": "ip_address",
             "questionShort": "ip_address",
-            "fieldName": "SCOLINFO_5",
+            "fieldName": "SCOLINFO_ip_address",
             "weights": {},
             "surveyCol": 5,
             "superSurveyCol": 5
@@ -61,7 +61,7 @@
             "surveyId": "",
             "question": "email_address",
             "questionShort": "email_address",
-            "fieldName": "SCOLINFO_6",
+            "fieldName": "SCOLINFO_email_address",
             "weights": {},
             "surveyCol": 6,
             "superSurveyCol": 6
@@ -70,7 +70,7 @@
             "surveyId": "",
             "question": "first_name",
             "questionShort": "first_name",
-            "fieldName": "SCOLINFO_7",
+            "fieldName": "SCOLINFO_first_name",
             "weights": {},
             "surveyCol": 7,
             "superSurveyCol": 7
@@ -79,7 +79,7 @@
             "surveyId": "",
             "question": "last_name",
             "questionShort": "last_name",
-            "fieldName": "SCOLINFO_8",
+            "fieldName": "SCOLINFO_last_name",
             "weights": {},
             "surveyCol": 8,
             "superSurveyCol": 8
@@ -88,7 +88,7 @@
             "surveyId": "",
             "question": "custom_1",
             "questionShort": "custom_1",
-            "fieldName": "SCOLINFO_9",
+            "fieldName": "SCOLINFO_custom_1",
             "weights": {},
             "surveyCol": 9,
             "superSurveyCol": 9
@@ -106,7 +106,7 @@
             "surveyId": "",
             "question": "Nombre completo:",
             "questionShort": "Nombre",
-            "fieldName": "GENINFO_1",
+            "fieldName": "GENINFO_Nombre",
             "weights": {},
             "surveyCol": 1,
             "superSurveyCol": 10
@@ -115,7 +115,7 @@
             "surveyId": "",
             "question": "Edad",
             "questionShort": "Edad",
-            "fieldName": "GENINFO_2",
+            "fieldName": "GENINFO_Edad",
             "weights": {},
             "surveyCol": 2,
             "superSurveyCol": 11
@@ -124,7 +124,7 @@
             "surveyId": "",
             "question": "Fecha de nacimiento (dd/mm/aaaa)",
             "questionShort": "Nacimiento",
-            "fieldName": "GENINFO_3",
+            "fieldName": "GENINFO_Nacimiento",
             "weights": {},
             "surveyCol": 3,
             "superSurveyCol": 12
@@ -133,7 +133,7 @@
             "surveyId": "",
             "question": "Sexo",
             "questionShort": "Sexo",
-            "fieldName": "GENINFO_4",
+            "fieldName": "GENINFO_Sexo",
             "weights": {},
             "surveyCol": 4,
             "superSurveyCol": 13
@@ -142,7 +142,7 @@
             "surveyId": "",
             "question": "Estado civil",
             "questionShort": "Civil",
-            "fieldName": "GENINFO_5",
+            "fieldName": "GENINFO_Civil",
             "weights": {},
             "surveyCol": 5,
             "superSurveyCol": 14
@@ -151,7 +151,7 @@
             "surveyId": "",
             "question": "Estado de procedencia",
             "questionShort": "Estado",
-            "fieldName": "GENINFO_6",
+            "fieldName": "GENINFO_Estado",
             "weights": {},
             "surveyCol": 6,
             "superSurveyCol": 15
@@ -160,7 +160,7 @@
             "surveyId": "",
             "question": "Otro país (especifique)",
             "questionShort": "OtroPais",
-            "fieldName": "GENINFO_7",
+            "fieldName": "GENINFO_OtroPais",
             "weights": {},
             "surveyCol": 7,
             "superSurveyCol": 16
@@ -169,7 +169,7 @@
             "surveyId": "",
             "question": "Municipio de residencia actual:",
             "questionShort": "Municipio",
-            "fieldName": "GENINFO_8",
+            "fieldName": "GENINFO_Municipio",
             "weights": {},
             "surveyCol": 8,
             "superSurveyCol": 17
@@ -178,7 +178,7 @@
             "surveyId": "",
             "question": "Medio de transporte:",
             "questionShort": "Transporte",
-            "fieldName": "GENINFO_9",
+            "fieldName": "GENINFO_Transporte",
             "weights": {},
             "surveyCol": 9,
             "superSurveyCol": 18
@@ -187,7 +187,7 @@
             "surveyId": "",
             "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
             "questionShort": "DistanciaTrabajo",
-            "fieldName": "GENINFO_10",
+            "fieldName": "GENINFO_DistanciaTrabajo",
             "weights": {},
             "surveyCol": 10,
             "superSurveyCol": 19
@@ -196,7 +196,7 @@
             "surveyId": "",
             "question": "Último grado de estudios:",
             "questionShort": "GradoEstudios",
-            "fieldName": "GENINFO_11",
+            "fieldName": "GENINFO_GradoEstudios",
             "weights": {},
             "surveyCol": 11,
             "superSurveyCol": 20
@@ -205,7 +205,7 @@
             "surveyId": "",
             "question": "Ocupación actual",
             "questionShort": "Ocupacion",
-            "fieldName": "GENINFO_12",
+            "fieldName": "GENINFO_Ocupacion",
             "weights": {},
             "surveyCol": 12,
             "superSurveyCol": 21
@@ -214,7 +214,7 @@
             "surveyId": "",
             "question": "Área a la que aplica:",
             "questionShort": "AreaOcupacion",
-            "fieldName": "GENINFO_13",
+            "fieldName": "GENINFO_AreaOcupacion",
             "weights": {},
             "surveyCol": 13,
             "superSurveyCol": 22
@@ -231,8 +231,8 @@
           {
             "surveyId": "",
             "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
-            "questionShort": "A1",
-            "fieldName": "CSG_A1_1",
+            "questionShort": "A1 Se ha sentido perfectamente…",
+            "fieldName": "CSG_A1",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 1,
             "superSurveyCol": 23
@@ -240,8 +240,8 @@
           {
             "surveyId": "",
             "question": "Otro (especifique)",
-            "questionShort": "A1_Otro",
-            "fieldName": "CSG_A1_Otro_2",
+            "questionShort": "Otro (especifique)…",
+            "fieldName": "CSG_A1_Otro",
             "weights": {},
             "surveyCol": 2,
             "superSurveyCol": 24
@@ -249,8 +249,8 @@
           {
             "surveyId": "",
             "question": "A2 Ha sentido la necesidad de un buen tónico",
-            "questionShort": "A2",
-            "fieldName": "CSG_A2_3",
+            "questionShort": "A2 Ha sentido la necesidad de …",
+            "fieldName": "CSG_A2",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 3,
             "superSurveyCol": 25
@@ -258,8 +258,8 @@
           {
             "surveyId": "",
             "question": "Otro (especifique)",
-            "questionShort": "A2_Otro",
-            "fieldName": "CSG_A2_Otro_4",
+            "questionShort": "Otro (especifique)…",
+            "fieldName": "CSG_A2_Otro",
             "weights": {},
             "surveyCol": 4,
             "superSurveyCol": 26
@@ -267,8 +267,8 @@
           {
             "surveyId": "",
             "question": "A3 Se ha sentido agotado y sin motivaciones.",
-            "questionShort": "A3",
-            "fieldName": "CSG_A3_5",
+            "questionShort": "A3 Se ha sentido agotado y sin…",
+            "fieldName": "CSG_A3",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 5,
             "superSurveyCol": 27
@@ -276,8 +276,8 @@
           {
             "surveyId": "",
             "question": "A4 Se ha sentido enfermo.",
-            "questionShort": "A4",
-            "fieldName": "CSG_A4_6",
+            "questionShort": "A4 Se ha sentido enfermo.…",
+            "fieldName": "CSG_A4",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 6,
             "superSurveyCol": 28
@@ -285,8 +285,8 @@
           {
             "surveyId": "",
             "question": "A5 Ha tenido dolores de cabeza.",
-            "questionShort": "A5 Ha tenido dolores de cabeza.",
-            "fieldName": "CSG_A5_7",
+            "questionShort": "A5 Ha tenido dolores de cabeza…",
+            "fieldName": "CSG_A5",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 7,
             "superSurveyCol": 29
@@ -294,8 +294,8 @@
           {
             "surveyId": "",
             "question": "A6 Ha sentido tensión o presión en la cabeza.",
-            "questionShort": "A6 Ha sentido tensión o presión en la cabeza.",
-            "fieldName": "CSG_A6_8",
+            "questionShort": "A6 Ha sentido tensión o presió…",
+            "fieldName": "CSG_A6",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 8,
             "superSurveyCol": 30
@@ -303,8 +303,8 @@
           {
             "surveyId": "",
             "question": "A7 Ha tenido ráfagas de calor o frío.",
-            "questionShort": "A7 Ha tenido ráfagas de calor o frío.",
-            "fieldName": "CSG_A7_9",
+            "questionShort": "A7 Ha tenido ráfagas de calor …",
+            "fieldName": "CSG_A7",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 9,
             "superSurveyCol": 31
@@ -312,8 +312,8 @@
           {
             "surveyId": "",
             "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
-            "questionShort": "B1 Ha tenido dificultades para dormir por estar preocupado.",
-            "fieldName": "CSG_B1_10",
+            "questionShort": "B1 Ha tenido dificultades para…",
+            "fieldName": "CSG_B1",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 10,
             "superSurveyCol": 32
@@ -321,8 +321,8 @@
           {
             "surveyId": "",
             "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
-            "questionShort": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
-            "fieldName": "CSG_B2_11",
+            "questionShort": "B2 Ha tenido dificultades para…",
+            "fieldName": "CSG_B2",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 11,
             "superSurveyCol": 33
@@ -330,8 +330,8 @@
           {
             "surveyId": "",
             "question": "B3 Se ha sentido constantemente bajo presión.",
-            "questionShort": "B3 Se ha sentido constantemente bajo presión.",
-            "fieldName": "CSG_B3_12",
+            "questionShort": "B3 Se ha sentido constantement…",
+            "fieldName": "CSG_B3",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 12,
             "superSurveyCol": 34
@@ -339,8 +339,8 @@
           {
             "surveyId": "",
             "question": "B4 Se ha sentido irritable y de mal humor.",
-            "questionShort": "B4 Se ha sentido irritable y de mal humor.",
-            "fieldName": "CSG_B4_13",
+            "questionShort": "B4 Se ha sentido irritable y d…",
+            "fieldName": "CSG_B4",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 13,
             "superSurveyCol": 35
@@ -348,8 +348,8 @@
           {
             "surveyId": "",
             "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
-            "questionShort": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
-            "fieldName": "CSG_B5_14",
+            "questionShort": "B5 Se ha sentido asustado o co…",
+            "fieldName": "CSG_B5",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 14,
             "superSurveyCol": 36
@@ -357,8 +357,8 @@
           {
             "surveyId": "",
             "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
-            "questionShort": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
-            "fieldName": "CSG_B6_15",
+            "questionShort": "B6 Ha tenido la sensación de q…",
+            "fieldName": "CSG_B6",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 15,
             "superSurveyCol": 37
@@ -366,8 +366,8 @@
           {
             "surveyId": "",
             "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
-            "questionShort": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
-            "fieldName": "CSG_B7_16",
+            "questionShort": "B7 Se ha sentido nervioso y te…",
+            "fieldName": "CSG_B7",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 16,
             "superSurveyCol": 38
@@ -375,8 +375,8 @@
           {
             "surveyId": "",
             "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
-            "questionShort": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
-            "fieldName": "CSG_C1_17",
+            "questionShort": "C1 Se las ha ingeniado para ma…",
+            "fieldName": "CSG_C1",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 17,
             "superSurveyCol": 39
@@ -384,8 +384,8 @@
           {
             "surveyId": "",
             "question": "C2 Se tarda más tiempo en hacer las cosas. ",
-            "questionShort": "C2 Se tarda más tiempo en hacer las cosas. ",
-            "fieldName": "CSG_C2_18",
+            "questionShort": "C2 Se tarda más tiempo en hace…",
+            "fieldName": "CSG_C2",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 18,
             "superSurveyCol": 40
@@ -393,8 +393,8 @@
           {
             "surveyId": "",
             "question": "C3 En general siente que ha hecho las cosas bien.",
-            "questionShort": "C3 En general siente que ha hecho las cosas bien.",
-            "fieldName": "CSG_C3_19",
+            "questionShort": "C3 En general siente que ha he…",
+            "fieldName": "CSG_C3",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 19,
             "superSurveyCol": 41
@@ -402,8 +402,8 @@
           {
             "surveyId": "",
             "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
-            "questionShort": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
-            "fieldName": "CSG_C4_20",
+            "questionShort": "C4 Se ha sentido satisfecho po…",
+            "fieldName": "CSG_C4",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 20,
             "superSurveyCol": 42
@@ -411,8 +411,8 @@
           {
             "surveyId": "",
             "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
-            "questionShort": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
-            "fieldName": "CSG_C5_21",
+            "questionShort": "C5 Se ha sentido útil y parte …",
+            "fieldName": "CSG_C5",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 21,
             "superSurveyCol": 43
@@ -420,8 +420,8 @@
           {
             "surveyId": "",
             "question": "C6 Se ha sentido capaz de tomar decisiones.",
-            "questionShort": "C6 Se ha sentido capaz de tomar decisiones.",
-            "fieldName": "CSG_C6_22",
+            "questionShort": "C6 Se ha sentido capaz de toma…",
+            "fieldName": "CSG_C6",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 22,
             "superSurveyCol": 44
@@ -429,8 +429,8 @@
           {
             "surveyId": "",
             "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
-            "questionShort": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
-            "fieldName": "CSG_C7_23",
+            "questionShort": "C7 Se ha sentido capaz de disf…",
+            "fieldName": "CSG_C7",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 23,
             "superSurveyCol": 45
@@ -438,8 +438,8 @@
           {
             "surveyId": "",
             "question": "D1  Se ha sentido como una persona de poca valía.",
-            "questionShort": "D1  Se ha sentido como una persona de poca valía.",
-            "fieldName": "CSG_D1_24",
+            "questionShort": "D1  Se ha sentido como una per…",
+            "fieldName": "CSG_D1",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 24,
             "superSurveyCol": 46
@@ -447,8 +447,8 @@
           {
             "surveyId": "",
             "question": "D2 Ha sentido que la vida no vale nada.",
-            "questionShort": "D2 Ha sentido que la vida no vale nada.",
-            "fieldName": "CSG_D2_25",
+            "questionShort": "D2 Ha sentido que la vida no v…",
+            "fieldName": "CSG_D2",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 25,
             "superSurveyCol": 47
@@ -456,8 +456,8 @@
           {
             "surveyId": "",
             "question": "D3 Ha sentido que no vale la pena vivir.",
-            "questionShort": "D3 Ha sentido que no vale la pena vivir.",
-            "fieldName": "CSG_D3_26",
+            "questionShort": "D3 Ha sentido que no vale la p…",
+            "fieldName": "CSG_D3",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 26,
             "superSurveyCol": 48
@@ -465,8 +465,8 @@
           {
             "surveyId": "",
             "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
-            "questionShort": "D4 Ha pensado en la posibilidad de quitarse la vida.",
-            "fieldName": "CSG_D4_27",
+            "questionShort": "D4 Ha pensado en la posibilida…",
+            "fieldName": "CSG_D4",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 27,
             "superSurveyCol": 49
@@ -474,8 +474,8 @@
           {
             "surveyId": "",
             "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
-            "questionShort": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
-            "fieldName": "CSG_D5_28",
+            "questionShort": "D5 Se ha sentido incapaz de ha…",
+            "fieldName": "CSG_D5",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 28,
             "superSurveyCol": 50
@@ -483,8 +483,8 @@
           {
             "surveyId": "",
             "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
-            "questionShort": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
-            "fieldName": "CSG_D6_29",
+            "questionShort": "D6 Ha sentido ganas de estar m…",
+            "fieldName": "CSG_D6",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 29,
             "superSurveyCol": 51
@@ -492,8 +492,8 @@
           {
             "surveyId": "",
             "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
-            "questionShort": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
-            "fieldName": "CSG_D7_30",
+            "questionShort": "D7 Le ha venido a la mente la …",
+            "fieldName": "CSG_D7",
             "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
             "surveyCol": 30,
             "superSurveyCol": 52
@@ -565,6 +565,77 @@
           }
         ]
       }
+    ],
+    "surveySuperiorOutputLayout": [
+      {
+        "surveyShortName": "SCOLINFO",
+        "fieldName": "SCOLINFO_respondent_id",
+        "sequence": 1
+      },
+      {
+        "surveyShortName": "SCOLINFO",
+        "fieldName": "SCOLINFO_collector_id",
+        "sequence": 2
+      },
+      {
+        "surveyShortName": "SCOLINFO",
+        "fieldName": "SCOLINFO_date_created",
+        "sequence": 3
+      },
+      {
+        "surveyShortName": "SCOLINFO",
+        "fieldName": "SCOLINFO_date_modified",
+        "sequence": 4
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Nombre",
+        "sequence": 5
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Edad",
+        "sequence": 6
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Nacimiento",
+        "sequence": 7
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Sexo",
+        "sequence": 8
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Civil",
+        "sequence": 9
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Estado",
+        "sequence": 10
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Municipio",
+        "sequence": 11
+      },
+      { "surveyShortName": "CSG", "fieldName": "CSG_A1", "sequence": 12 },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_TOTAL_CSG",
+        "sequence": 13
+      },
+      { "surveyShortName": "CSG", "fieldName": "CSG_A2", "sequence": 14 },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_ES_CASO",
+        "sequence": 15
+      },
+      { "surveyShortName": "CSG", "fieldName": "CSG_A3", "sequence": 16 },
+      { "surveyShortName": "CSG", "fieldName": "CSG_A4", "sequence": 17 }
     ]
   }
 }

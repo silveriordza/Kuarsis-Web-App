@@ -110,6 +110,26 @@ const surveyCollectedModel = mongoose.Schema(
 
 const SurveyCollected = mongoose.model("SurveyCollected", surveyCollectedModel);
 
+const surveySuperiorOutputLayoutModel = mongoose.Schema(
+  {
+    surveySuperiorId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "SurveySuperior",
+    },
+    surveyShortName: { type: String, required: true },
+    fieldName: { type: String, required: true },
+    sequence: { type: Number, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
+const SurveySuperiorOutputLayout = mongoose.model(
+  "SurveySuperiorOutputLayout",
+  surveySuperiorOutputLayoutModel
+);
+
 const surveyResponseModel = mongoose.Schema(
   {
     // surveyCollectedId: {
@@ -122,6 +142,7 @@ const surveyResponseModel = mongoose.Schema(
       required: true,
       ref: "SurveyQuestion",
     },
+    respondentId: { type: String, required: true },
     row: { type: Number, required: true },
     col: { type: Number, required: true },
     response: { type: String, required: false, default: "" },
@@ -172,6 +193,7 @@ const surveyCalculatedValueModel = mongoose.Schema(
       required: true,
       ref: "SurveyCalculatedField",
     },
+    respondentId: { type: String, required: true },
     row: { type: Number, required: true },
     col: { type: Number, required: true },
     value: { type: Number, required: false, default: -1000 },
@@ -218,6 +240,7 @@ module.exports = {
   SurveyMulti,
   SurveyQuestion,
   SurveyCollected,
+  SurveySuperiorOutputLayout,
   SurveyResponse,
   SurveyCalculatedField,
   SurveyCalculatedValue,

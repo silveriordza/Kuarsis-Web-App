@@ -4,6 +4,7 @@ let asyncHandler = require("express-async-handler");
 let {
   superSurveyConf,
 } = require("../models/surveyOnCareTreatmentTalentos2020.js");
+
 let {
   SurveySuperior,
   Survey,
@@ -11,7 +12,7 @@ let {
   SurveyCalculatedField,
   SurveyCalculatedValue,
   SurveyMulti,
-  SurveyCollected,
+  SurveySuperiorOutputLayout,
   SurveyResponse,
 } = require("../models/surveysModel.js");
 let { LogThis, LoggerSettings } = require("../utils/Logger.js");
@@ -20,6 +21,8 @@ let { rowCleaner } = require("../utils/csvProcessingLib.js");
 const srcFileName = "surveyController.js";
 
 const fs = require("fs");
+
+const { buildOutputHeaders } = require("../utils/surveysLib.js");
 
 //let onCareSuperSurvey = require("../models/surveyOnCareTreatmentTalentos2020.json");
 
@@ -35,7 +38,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   await SurveyQuestion.deleteMany({});
   await SurveyMulti.deleteMany({});
   await SurveyCalculatedField.deleteMany({});
-  await SurveyCalculatedValue.deleteMany({});
+  await SurveySuperiorOutputLayout.deleteMany({});
 
   console.log("superSurveyConfig INPUT values are:");
   console.log(superSurveyConfig);
@@ -57,7 +60,6 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   let surveyCreated = null;
   let questions = [];
   let calculatedFields = [];
-  //let question = null;
   let questionItem = null;
   for (let i = 0; i < superSurveyConfigTest.surveyList.length; i++) {
     let surveyItem = superSurveyConfigTest.surveyList[i];
@@ -124,10 +126,30 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
     }
   }
 
+  let outputLayouts = superSurveyConfigTest.surveySuperiorOutputLayout.sort(
+    (a, b) => a.sequence - b.sequence
+  );
+  let outputLayoutFields = [];
+  for (let i = 0; i < outputLayouts.length; i++) {
+    outputLayout = outputLayouts[i];
+    outputLayoutFields.push({
+      surveySuperiorId: createdSurveySuperior._id,
+      surveyShortName: outputLayout.surveyShortName,
+      fieldName: outputLayout.fieldName,
+      sequence: outputLayout.sequence,
+    });
+  }
+
+  const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
+    outputLayoutFields
+  );
+
   console.log("about to respond");
   res.status(201).json({
     surveysCreated: surveysCreated,
     questionsCreated: questionsCreated,
+    createdOutputLayout: createdOutputLayout,
+    createdSurveySuperior: createdSurveySuperior,
   });
 });
 
@@ -137,10 +159,12 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   const functionName = "superSurveyUploadAnswers";
   const log = new LoggerSettings(srcFileName, functionName);
+
   LogThis(log, `START`);
 
   await SurveyResponse.deleteMany({});
   await SurveyCalculatedValue.deleteMany({});
+
   const superSurveyId = req.params.id;
   const user = req.user;
   const owner = req.user._id;
@@ -158,6 +182,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   /**
    * Get the Super Survey and the list of its Surveys
    */
+  LogThis(log, `answerRows=${answersRows}`);
 
   let multiSurveys = await SurveyMulti.find({
     superSurveyId: superSurveyId,
@@ -183,6 +208,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   const questions = await SurveyQuestion.find({
     surveyId: { $in: surveyIdsList },
   })
+    .populate("surveyId")
     .sort({ superSurveyCol: 1 })
     .lean();
 
@@ -190,7 +216,9 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
 
   const calculatedFields = await SurveyCalculatedField.find({
     surveyId: { $in: surveyIdsList },
-  }).lean();
+  })
+    .populate("surveyId")
+    .lean();
 
   LogThis(
     log,
@@ -200,6 +228,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   );
 
   const surveyResponses = [];
+
   const calculatedValues = [];
 
   let allSurveyQuestions = [];
@@ -207,7 +236,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   surveyIdsList.map((surveyId) => {
     let surveyQuestions = questions
       .filter(
-        (question) => question.surveyId.toString() === surveyId.toString()
+        (question) => question.surveyId._id.toString() === surveyId.toString()
       )
       .sort((a, b) => a.superSurveyCol - b.superSurveyCol);
 
@@ -216,7 +245,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     let surveyCalculatedFields = calculatedFields
       .filter(
         (calculatedField) =>
-          calculatedField.surveyId.toString() === surveyId.toString()
+          calculatedField.surveyId._id.toString() === surveyId.toString()
       )
       .sort((a, b) => a.sequence - b.sequence);
 
@@ -253,8 +282,13 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
 
   let rowClean = "";
   let answers = [];
+  let respondentId = "";
 
   for (let r = 0; r < answersRows.length; r++) {
+    LogThis(
+      log,
+      `Processing Row r=${r}; allSurveyQuestions length=${allSurveyQuestions.length}`
+    );
     rowClean = rowCleaner(answersRows[r]);
     answers = rowClean.split(",");
 
@@ -262,41 +296,43 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     if (answers[0] == "" || answers[0].trim() == "") {
       break;
     }
+    respondentId = answers[0].trim();
     let row = r + 1;
     for (let a = 0; a < allSurveyQuestions.length; a++) {
-      LogThis(
-        log,
-        `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
-      );
+      LogThis(log, `processing question a=${a}`);
+      // LogThis(
+      //   log,
+      //   `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
+      // );
       let surveyQuestion = allSurveyQuestions[a];
       //transform the question answer value into the weighted answer for that Survey.
       let weightedResponse = null;
       let response = null;
       let isWeighted = null;
-      LogThis(
-        log,
-        `surveyQuestion=${JSON.stringify(
-          surveyQuestion
-        )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
-      );
+      // LogThis(
+      //   log,
+      //   `surveyQuestion=${JSON.stringify(
+      //     surveyQuestion
+      //   )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
+      // );
 
       if (
         surveyQuestion.weights &&
         Object.keys(surveyQuestion.weights).length >
           0 /*&& surveyQuestion.weights.length > 0*/
       ) {
-        LogThis(
-          log,
-          `weighting: answers[${a}]=${
-            answers[a]
-          };surveyQuestion.weights=${JSON.stringify(
-            surveyQuestion.weights
-          )}; weightedValue=${
-            surveyQuestion.weights[
-              answers[a].toString().trim().replace(/'\n'/g, "")
-            ]
-          }`
-        );
+        // LogThis(
+        //   log,
+        //   `weighting: answers[${a}]=${
+        //     answers[a]
+        //   };surveyQuestion.weights=${JSON.stringify(
+        //     surveyQuestion.weights
+        //   )}; weightedValue=${
+        //     surveyQuestion.weights[
+        //       answers[a].toString().trim().replace(/'\n'/g, "")
+        //     ]
+        //   }`
+        // );
         let answerA = answers[a].toString().trim().replace(/'\n'/g, "");
         if (answerA == "") {
           answerA = "0";
@@ -322,12 +358,15 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
 
       surveyResponses.push({
         questionId: surveyQuestion._id,
+        respondentId: respondentId,
         row: row,
         col: a + 1,
         response: response,
         weightedResponse: weightedResponse,
         isWeighted: isWeighted,
       });
+
+      //LogThis(log, `surveyResponse cycle=${JSON.stringify(surveyResponses)}`);
       if (isWeighted) {
         LogThis(
           log,
@@ -341,9 +380,13 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     }
 
     for (let a = 0; a < allCalculatedFields.length; a++) {
+      // LogThis(
+      //   log,
+      //   `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}; answers[a]=${answers[a]}`
+      // );
       LogThis(
         log,
-        `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}; answers[a]=${answers[a]}`
+        `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}}`
       );
       //let col = a + 1
       allCalculatedField = allCalculatedFields[a];
@@ -388,20 +431,22 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
             LogThis(log, `Case entered default: value${value}`);
         }
       } else {
-        LogThis(
-          log,
-          `Field is not criteria: allCalculatedField=${JSON.stringify(
-            allCalculatedField
-          )}`
-        );
+        // LogThis(
+        //   log,
+        //   `Field is not criteria: allCalculatedField=${JSON.stringify(
+        //     allCalculatedField
+        //   )}`
+        // );
+
         let groups = allCalculatedField.group;
         groups.map((group) => {
-          LogThis(
-            log,
-            ` row=${row}; col=${a + 1}; group=${group} answers[group]=${
-              answers[group]
-            }; parseInt(answers[group])=${parseInt(answers[group])}`
-          );
+          // LogThis(
+          //   log,
+          //   ` row=${row}; col=${a + 1}; group=${group} answers[group]=${
+          //     answers[group]
+          //   }; parseInt(answers[group])=${parseInt(answers[group])}`
+          // );
+
           value = value + parseInt(answers[group]);
         });
       }
@@ -416,6 +461,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       }
       calculatedValues.push({
         calculatedFieldId: allCalculatedFields[a]._id,
+        respondentId: respondentId,
         row: row,
         col: a + 1,
         value: value,
@@ -426,15 +472,129 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     csv = csv + "\n";
   } //This bracket
 
-  LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
-
+  //LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
+  LogThis(log, `Inserting responses`);
   const surveyResponseCreated = await SurveyResponse.insertMany(
     surveyResponses
   );
-  LogThis(log, `calculatedValues=${JSON.stringify(calculatedValues)}`);
+
+  //LogThis(log, `calculatedValues=${JSON.stringify(calculatedValues)}`);
+  LogThis(log, `Inserting calculatedValues`);
   const surveyCalculatedValuesCreated = await SurveyCalculatedValue.insertMany(
     calculatedValues
   );
+
+  const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
+    surveySuperiorId: superSurveyId,
+  }).sort({ sequence: 1 });
+
+  // // questions;
+  // // calculatedFields;
+  // // surveyResponses;
+  // // calculatedValues;
+  //LogThis(log, `outputLayoutsResult=${JSON.stringify(outputLayoutsResult)}`);
+  LogThis(log, `buildOutputHeaders`);
+  const outputLayout = buildOutputHeaders(
+    questions,
+    calculatedFields,
+    outputLayoutsResult
+  );
+
+  LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`);
+
+  let csvLayout = "";
+  let layout = null;
+  for (let o = 0; o < outputLayout.length - 1; o++) {
+    layout = outputLayout[o];
+    csvLayout = csvLayout + layout.description + ",";
+  }
+  layout = outputLayout[outputLayout.length - 1];
+  csvLayout = csvLayout + layout.description + "\n";
+
+  for (let o = 0; o < outputLayout.length - 1; o++) {
+    layout = outputLayout[o];
+    csvLayout = csvLayout + layout.shortDescription + ",";
+  }
+  layout = outputLayout[outputLayout.length - 1];
+  csvLayout = csvLayout + layout.shortDescription + "\n";
+
+  const cols = [];
+  for (let o = 0; o < outputLayout.length; o++) {
+    layout = outputLayout[o];
+    LogThis(
+      log,
+      `layout.fieldId=${layout.fieldId}; layout.fieldId=${layout.isCalculated}`
+    );
+    if (layout.isCalculated) {
+      LogThis(log, `layout.isCalculated=${layout.isCalculated}`);
+      cols.push(
+        calculatedValues
+          .filter((val) => val.calculatedFieldId == layout.fieldId)
+          .sort((a, b) => a.row - b.row)
+      );
+    } else {
+      let responses = surveyResponses.filter(
+        (val) => val.questionId == layout.fieldId
+      );
+      //LogThis(log, `responsesFound = ${JSON.stringify(responses)}`);
+      responses = responses.sort((a, b) => a.row - b.row);
+      //LogThis(log, `responsesSorted = ${JSON.stringify(responses)}`);
+      cols.push(responses);
+    }
+  }
+  LogThis(
+    log,
+    `cols=${JSON.stringify(cols)}; outputLayout=${JSON.stringify(outputLayout)}`
+  );
+
+  //console.log(`cols=${JSON.stringify(cols)}`);
+  let value = null;
+  LogThis(
+    log,
+    `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`
+  );
+  for (let r = 0; r < cols[0].length; r++) {
+    //LogThis(log, `Current Row length=${cols[r].length}`);
+    for (let c = 0; c < cols.length - 1; c++) {
+      LogThis(log, `Processing Col=${c}; row=${r}`);
+      console.log(`Processing Col=${c}; row=${r}`);
+      value = cols[c][r];
+      LogThis(log, `value cycle=${JSON.stringify(value)}`);
+      if ("isWeighted" in value) {
+        if (value.isWeighted) {
+          value = value.weightedResponse;
+        } else {
+          value = value.response;
+        }
+      } else {
+        value = value.value;
+      }
+
+      if (value == null || value == undefined) {
+        value = "";
+      }
+      LogThis(log, `value=${value}`);
+      csvLayout = csvLayout + value + ",";
+    }
+    LogThis(log, `Processing Last Col=${outputLayout.length - 1}; row=${r}`);
+    value = cols[outputLayout.length - 1][r];
+
+    if ("isWeighted" in value) {
+      if (value.isWeighted) {
+        value = value.weightedResponse;
+      } else {
+        value = value.response;
+      }
+    } else {
+      value = value.value;
+    }
+
+    if (value == null || value == undefined) {
+      value = "";
+    }
+    LogThis(log, `value=${value}`);
+    csvLayout = csvLayout + value + "\n";
+  }
 
   if (!questions) {
     res.status(404);
@@ -459,12 +619,27 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     //   // answersRows: answersRows,
     //   csv: csv,
     // });
-    console.log(csv);
+    //console.log(csv);
+    console.log(csvLayout);
+    // LogThis(
+    //   log,
+    //   `superSurveyId=${superSurveyId}; surveyFields=${JSON.stringify(
+    //     surveyFields
+    //   )}`
+    // );
+
+    // res.writeHead(200, {
+    //   "Content-Type": "text/plain",
+    //   "Content-Length": Buffer.byteLength(csv),
+    // });
+    // res.write(csv);
+    // res.end();
+
     res.writeHead(200, {
       "Content-Type": "text/plain",
-      "Content-Length": Buffer.byteLength(csv),
+      "Content-Length": Buffer.byteLength(csvLayout),
     });
-    res.write(csv);
+    res.write(csvLayout);
     res.end();
   } else {
     res.status(404);

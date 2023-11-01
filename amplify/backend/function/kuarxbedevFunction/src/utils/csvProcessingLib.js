@@ -11,17 +11,17 @@ const rowCleaner = (rowToClean) => {
   for (let i = 0; i < rowArray.length; i++) {
     if (rowArray[i] == '"') {
       if (quotesCount == 0) {
-        console.log(`opening quotes identified at column i=${i}`);
+        //console.log(`opening quotes identified at column i=${i}`);
         quotesCount++;
       } else {
-        console.log(`closing quotes  identified at column i=${i}`);
+        //console.log(`closing quotes  identified at column i=${i}`);
         quotesCount--;
       }
     } else {
       if (quotesCount > 0 && rowArray[i] == ",") {
-        console.log(`replacing comma at column i=${i}`);
+        //console.log(`replacing comma at column i=${i}`);
         rowArray[i] = semiColonChar;
-        console.log(`replaced comma at column i=${i}`);
+        //console.log(`replaced comma at column i=${i}`);
       }
     }
   }
