@@ -570,72 +570,93 @@
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_respondent_id",
+        "outputAsReal": true,
         "sequence": 1
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_collector_id",
+        "outputAsReal": true,
         "sequence": 2
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_date_created",
+        "outputAsReal": true,
         "sequence": 3
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_date_modified",
+        "outputAsReal": true,
         "sequence": 4
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Nombre",
+        "outputAsReal": true,
         "sequence": 5
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Edad",
+        "outputAsReal": true,
         "sequence": 6
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Nacimiento",
+        "outputAsReal": true,
         "sequence": 7
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Sexo",
+        "outputAsReal": true,
         "sequence": 8
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Civil",
+        "outputAsReal": true,
         "sequence": 9
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Estado",
+        "outputAsReal": true,
         "sequence": 10
       },
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Municipio",
+        "outputAsReal": true,
         "sequence": 11
       },
-      { "surveyShortName": "CSG", "fieldName": "CSG_A1", "sequence": 12 },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A1",
+        "outputAsReal": false,
+        "sequence": 12
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A2",
+        "outputAsReal": true,
+        "sequence": 13
+      },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_TOTAL_CSG",
-        "sequence": 13
+        "outputAsReal": false,
+        "sequence": 14
       },
-      { "surveyShortName": "CSG", "fieldName": "CSG_A2", "sequence": 14 },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_ES_CASO",
+        "outputAsReal": false,
         "sequence": 15
-      },
-      { "surveyShortName": "CSG", "fieldName": "CSG_A3", "sequence": 16 },
-      { "surveyShortName": "CSG", "fieldName": "CSG_A4", "sequence": 17 }
+      }
     ]
   }
 }

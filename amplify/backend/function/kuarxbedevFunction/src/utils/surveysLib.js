@@ -41,6 +41,7 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
         outputSequence: layout.sequence,
         valuePosition: isCalculated ? field.sequence : field.superSurveyCol,
         isCalculated: isCalculated,
+        outputAsReal: layout.outputAsReal,
         field: field,
       },
     ];

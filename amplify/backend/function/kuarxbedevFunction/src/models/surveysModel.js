@@ -119,6 +119,7 @@ const surveySuperiorOutputLayoutModel = mongoose.Schema(
     },
     surveyShortName: { type: String, required: true },
     fieldName: { type: String, required: true },
+    outputAsReal: { type: Boolean, required: true },
     sequence: { type: Number, required: true },
   },
   {
@@ -146,6 +147,7 @@ const surveyResponseModel = mongoose.Schema(
     row: { type: Number, required: true },
     col: { type: Number, required: true },
     response: { type: String, required: false, default: "" },
+    responseReal: { type: String, required: false, default: "" },
     weightedResponse: { type: String, required: false, default: "" },
     isWeighted: { type: Boolean, required: false, default: "" },
   },

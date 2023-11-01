@@ -136,6 +136,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
       surveySuperiorId: createdSurveySuperior._id,
       surveyShortName: outputLayout.surveyShortName,
       fieldName: outputLayout.fieldName,
+      outputAsReal: outputLayout.outputAsReal,
       sequence: outputLayout.sequence,
     });
   }
@@ -146,10 +147,10 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 
   console.log("about to respond");
   res.status(201).json({
+    surveySuperiorId: createdSurveySuperior._id,
     surveysCreated: surveysCreated,
     questionsCreated: questionsCreated,
     createdOutputLayout: createdOutputLayout,
-    createdSurveySuperior: createdSurveySuperior,
   });
 });
 
@@ -170,19 +171,29 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   const owner = req.user._id;
 
   // Access the uploaded file
-  const fileData = req.file;
+  const fileData = req.files["fileNumeric"][0];
+  const fileDataReal = req.files["fileReal"][0];
 
   const answersData = fileData.buffer.toString("utf8");
-  //console.log(answersData);
+
+  //LogThis(log, `fileData=${fileData}`);
+
+  const answersDataReal = fileDataReal.buffer.toString("utf8");
+  //LogThis(log, `fileDataReal=${fileDataReal}`);
+
   let answersRows = answersData.replace(/\r/g, "").split("\n");
   answersRows.shift();
   answersRows.shift();
+
+  let answersRealRows = answersDataReal.replace(/\r/g, "").split("\n");
+  answersRealRows.shift();
+  answersRealRows.shift();
 
   //STARTING LOGIC TO SAVE ANSWERS TO DATABASE
   /**
    * Get the Super Survey and the list of its Surveys
    */
-  LogThis(log, `answerRows=${answersRows}`);
+  //LogThis(log, `answerRows=${answersRows}`);
 
   let multiSurveys = await SurveyMulti.find({
     superSurveyId: superSurveyId,
@@ -284,6 +295,9 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   let answers = [];
   let respondentId = "";
 
+  let rowRealClean = "";
+  let answersReal = [];
+
   for (let r = 0; r < answersRows.length; r++) {
     LogThis(
       log,
@@ -292,10 +306,14 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     rowClean = rowCleaner(answersRows[r]);
     answers = rowClean.split(",");
 
+    rowRealClean = rowCleaner(answersRealRows[r]);
+    answersReal = rowRealClean.split(",");
+
     LogThis(log, `answers=${answers}`);
     if (answers[0] == "" || answers[0].trim() == "") {
       break;
     }
+
     respondentId = answers[0].trim();
     let row = r + 1;
     for (let a = 0; a < allSurveyQuestions.length; a++) {
@@ -362,6 +380,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
         row: row,
         col: a + 1,
         response: response,
+        responseReal: answersReal[a],
         weightedResponse: weightedResponse,
         isWeighted: isWeighted,
       });
@@ -556,18 +575,23 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   for (let r = 0; r < cols[0].length; r++) {
     //LogThis(log, `Current Row length=${cols[r].length}`);
     for (let c = 0; c < cols.length - 1; c++) {
+      layout = outputLayout[c];
       LogThis(log, `Processing Col=${c}; row=${r}`);
       console.log(`Processing Col=${c}; row=${r}`);
       value = cols[c][r];
       LogThis(log, `value cycle=${JSON.stringify(value)}`);
-      if ("isWeighted" in value) {
-        if (value.isWeighted) {
-          value = value.weightedResponse;
-        } else {
-          value = value.response;
-        }
+      if (layout.outputAsReal) {
+        value = value.responseReal;
       } else {
-        value = value.value;
+        if ("isWeighted" in value) {
+          if (value.isWeighted) {
+            value = value.weightedResponse;
+          } else {
+            value = value.response;
+          }
+        } else {
+          value = value.value;
+        }
       }
 
       if (value == null || value == undefined) {
@@ -579,14 +603,18 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     LogThis(log, `Processing Last Col=${outputLayout.length - 1}; row=${r}`);
     value = cols[outputLayout.length - 1][r];
 
-    if ("isWeighted" in value) {
-      if (value.isWeighted) {
-        value = value.weightedResponse;
-      } else {
-        value = value.response;
-      }
+    if (layout.outputAsReal) {
+      value = value.responseReal;
     } else {
-      value = value.value;
+      if ("isWeighted" in value) {
+        if (value.isWeighted) {
+          value = value.weightedResponse;
+        } else {
+          value = value.response;
+        }
+      } else {
+        value = value.value;
+      }
     }
 
     if (value == null || value == undefined) {
@@ -639,8 +667,16 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       "Content-Type": "text/plain",
       "Content-Length": Buffer.byteLength(csvLayout),
     });
+    //res.write("Data Numeric next: \n");
     res.write(csvLayout);
+    // res.write("\nData Real next:\n");
+    // res.write(fileDataReal);
     res.end();
+
+    // res.status(201).json({
+    //   answersData: answersData,
+    //   answersDataReal: answersDataReal,
+    // });
   } else {
     res.status(404);
     throw new Error("Uncought Exception loading answers");

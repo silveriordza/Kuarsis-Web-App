@@ -16,7 +16,12 @@ let { protect, admin } = require("../middleware/authMiddleware.js");
 
 router
   .route("/:id")
-  .put(protect, admin, upload.single("file"), superSurveyUploadAnswers);
+  .put(
+    protect,
+    admin,
+    upload.fields([{ name: "fileNumeric" }, { name: "fileReal" }]),
+    superSurveyUploadAnswers
+  );
 router.route("/").post(protect, admin, superSurveyCreateConfig);
 
 module.exports = router;
