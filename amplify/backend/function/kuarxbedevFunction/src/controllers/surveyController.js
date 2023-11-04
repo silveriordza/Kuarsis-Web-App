@@ -17,6 +17,9 @@ let {
 } = require("../models/surveysModel.js");
 let { LogThis, LoggerSettings } = require("../utils/Logger.js");
 
+const archiver = require("archiver");
+const AdmZip = require("adm-zip");
+
 let { rowCleaner } = require("../utils/csvProcessingLib.js");
 const srcFileName = "surveyController.js";
 
@@ -61,6 +64,8 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   let questions = [];
   let calculatedFields = [];
   let questionItem = null;
+
+  console.log("About to insert many");
   for (let i = 0; i < superSurveyConfigTest.surveyList.length; i++) {
     let surveyItem = superSurveyConfigTest.surveyList[i];
     let survey = new Survey({
@@ -158,428 +163,493 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 // @route   PUT /api/surveys/:id
 // @access  Private/Admin
 const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
-  const functionName = "superSurveyUploadAnswers";
-  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    const functionName = "superSurveyUploadAnswers";
+    const log = new LoggerSettings(srcFileName, functionName);
 
-  LogThis(log, `START`);
+    LogThis(log, `START`);
 
-  await SurveyResponse.deleteMany({});
-  await SurveyCalculatedValue.deleteMany({});
+    await SurveyResponse.deleteMany({});
+    await SurveyCalculatedValue.deleteMany({});
 
-  const superSurveyId = req.params.id;
-  const user = req.user;
-  const owner = req.user._id;
+    const superSurveyId = req.params.id;
+    LogThis(log, `superSurveyId=${superSurveyId}`);
+    const user = req.user;
+    //const owner = req.user._id;
+    const owner = "62e551baf5c6b51f61e0ef93";
 
-  // Access the uploaded file
-  const fileData = req.files["fileNumeric"][0];
-  const fileDataReal = req.files["fileReal"][0];
+    // Access the uploaded file
+    const fileDataZip = req.files["fileNumeric"][0];
+    const fileDataRealZip = req.files["fileReal"][0];
+    if (!fileDataZip) {
+      throw Error("No fileNumeric received");
+    }
 
-  const answersData = fileData.buffer.toString("utf8");
+    if (!fileDataRealZip) {
+      throw Error("No fileReal received");
+    }
+    if (!fileDataZip.buffer) {
+      throw Error("fileNumeric does not have buffer");
+    }
 
-  //LogThis(log, `fileData=${fileData}`);
+    if (!fileDataRealZip.buffer) {
+      throw Error("fileReal does not have buffer");
+    }
 
-  const answersDataReal = fileDataReal.buffer.toString("utf8");
-  //LogThis(log, `fileDataReal=${fileDataReal}`);
+    const zipNumeric = new AdmZip(fileDataZip.buffer);
+    const zipReal = new AdmZip(fileDataRealZip.buffer);
 
-  let answersRows = answersData.replace(/\r/g, "").split("\n");
-  answersRows.shift();
-  answersRows.shift();
+    const fileData = zipNumeric.readFile("fileNumeric.csv").toString("utf8");
+    const fileDataReal = zipReal.readFile("fileReal.csv").toString("utf8");
 
-  let answersRealRows = answersDataReal.replace(/\r/g, "").split("\n");
-  answersRealRows.shift();
-  answersRealRows.shift();
+    if (!fileData) {
+      throw Error("fileNumeric was not unzipped properly");
+    }
 
-  //STARTING LOGIC TO SAVE ANSWERS TO DATABASE
-  /**
-   * Get the Super Survey and the list of its Surveys
-   */
-  //LogThis(log, `answerRows=${answersRows}`);
+    if (!fileDataReal) {
+      throw Error("fileReal was not unzipped properly");
+    }
 
-  let multiSurveys = await SurveyMulti.find({
-    superSurveyId: superSurveyId,
-    owner: owner,
-  })
-    .select("surveyId sequence")
-    .sort({ sequence: 1 })
-    .lean();
+    const answersData = fileData;
 
-  if (!multiSurveys) {
-    res.status(404);
-    throw new Error("Multi Surveys not found");
-  }
+    LogThis(log, `answersData=${answersData}`);
 
-  const surveyIdsList = [];
+    const answersDataReal = fileDataReal;
+    LogThis(log, `answersDataReal=${answersDataReal}`);
 
-  multiSurveys.map((multiSurveyItem) => {
-    surveyIdsList.push(multiSurveyItem.surveyId);
-  });
+    let answersRows = answersData.replace(/\r/g, "").split("\n");
+    answersRows.shift();
+    answersRows.shift();
 
-  LogThis(log, `surveyIdsList=${surveyIdsList}`);
+    let answersRealRows = answersDataReal.replace(/\r/g, "").split("\n");
+    answersRealRows.shift();
+    answersRealRows.shift();
 
-  const questions = await SurveyQuestion.find({
-    surveyId: { $in: surveyIdsList },
-  })
-    .populate("surveyId")
-    .sort({ superSurveyCol: 1 })
-    .lean();
+    //STARTING LOGIC TO SAVE ANSWERS TO DATABASE
+    /**
+     * Get the Super Survey and the list of its Surveys
+     */
+    //LogThis(log, `answerRows=${answersRows}`);
+    console.log(`Getting multi surveys`);
+    let multiSurveys = await SurveyMulti.find({
+      superSurveyId: superSurveyId,
+      owner: owner,
+    })
+      .select("surveyId sequence")
+      .sort({ sequence: 1 })
+      .lean();
 
-  LogThis(log, `resultset questions=${JSON.stringify(questions)}`);
+    if (!multiSurveys) {
+      res.status(404);
+      throw new Error("Multi Surveys not found");
+    }
 
-  const calculatedFields = await SurveyCalculatedField.find({
-    surveyId: { $in: surveyIdsList },
-  })
-    .populate("surveyId")
-    .lean();
+    const surveyIdsList = [];
 
-  LogThis(
-    log,
-    `Calculated Fields Found: calculatedFields=${JSON.stringify(
-      calculatedFields
-    )};`
-  );
+    multiSurveys.map((multiSurveyItem) => {
+      surveyIdsList.push(multiSurveyItem.surveyId);
+    });
+    console.log(
+      `Mapping multi surveys surveysIdsList=${JSON.stringify(surveyIdsList)}`
+    );
 
-  const surveyResponses = [];
+    LogThis(log, `surveyIdsList=${surveyIdsList}`);
 
-  const calculatedValues = [];
+    const questions = await SurveyQuestion.find({
+      surveyId: { $in: surveyIdsList },
+    })
+      .populate("surveyId")
+      .sort({ superSurveyCol: 1 })
+      .lean();
 
-  let allSurveyQuestions = [];
-  let allCalculatedFields = [];
-  surveyIdsList.map((surveyId) => {
-    let surveyQuestions = questions
-      .filter(
-        (question) => question.surveyId._id.toString() === surveyId.toString()
-      )
-      .sort((a, b) => a.superSurveyCol - b.superSurveyCol);
+    LogThis(log, `resultset questions=${JSON.stringify(questions)}`);
 
-    allSurveyQuestions = [...allSurveyQuestions, ...surveyQuestions];
+    const calculatedFields = await SurveyCalculatedField.find({
+      surveyId: { $in: surveyIdsList },
+    })
+      .populate("surveyId")
+      .lean();
 
-    let surveyCalculatedFields = calculatedFields
-      .filter(
-        (calculatedField) =>
-          calculatedField.surveyId._id.toString() === surveyId.toString()
-      )
-      .sort((a, b) => a.sequence - b.sequence);
-
-    allCalculatedFields = [...allCalculatedFields, ...surveyCalculatedFields];
-  });
-
-  LogThis(log, `allSurveyQuestions=${JSON.stringify(allSurveyQuestions)};`);
-
-  LogThis(
-    log,
-    `Filtered calculated fields allCalculatedFields=${JSON.stringify(
-      allCalculatedFields
-    )};`
-  );
-
-  let questionDesc = "";
-  let questionShortDesc = "";
-  let csv = "";
-  questions.map((q) => {
-    questionDesc = questionDesc + q.question + ",";
-    questionShortDesc = questionShortDesc + q.questionShort + ",";
-  });
-
-  allCalculatedFields.map((c) => {
-    questionDesc = questionDesc + c.description + ",";
-    questionShortDesc = questionShortDesc + c.shortDescription + ",";
-  });
-  questionDesc = questionDesc.slice(0, -1);
-  questionShortDesc = questionShortDesc.slice(0, -1);
-  questionDesc = questionDesc + "\n";
-  questionShortDesc = questionShortDesc + "\n";
-
-  csv = csv + questionDesc + questionShortDesc;
-
-  let rowClean = "";
-  let answers = [];
-  let respondentId = "";
-
-  let rowRealClean = "";
-  let answersReal = [];
-
-  for (let r = 0; r < answersRows.length; r++) {
     LogThis(
       log,
-      `Processing Row r=${r}; allSurveyQuestions length=${allSurveyQuestions.length}`
+      `Calculated Fields Found: calculatedFields=${JSON.stringify(
+        calculatedFields
+      )};`
     );
-    rowClean = rowCleaner(answersRows[r]);
-    answers = rowClean.split(",");
 
-    rowRealClean = rowCleaner(answersRealRows[r]);
-    answersReal = rowRealClean.split(",");
+    const surveyResponses = [];
 
-    LogThis(log, `answers=${answers}`);
-    if (answers[0] == "" || answers[0].trim() == "") {
-      break;
-    }
+    const calculatedValues = [];
 
-    respondentId = answers[0].trim();
-    let row = r + 1;
-    for (let a = 0; a < allSurveyQuestions.length; a++) {
-      LogThis(log, `processing question a=${a}`);
-      // LogThis(
-      //   log,
-      //   `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
-      // );
-      let surveyQuestion = allSurveyQuestions[a];
-      //transform the question answer value into the weighted answer for that Survey.
-      let weightedResponse = null;
-      let response = null;
-      let isWeighted = null;
-      // LogThis(
-      //   log,
-      //   `surveyQuestion=${JSON.stringify(
-      //     surveyQuestion
-      //   )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
-      // );
+    let allSurveyQuestions = [];
+    let allCalculatedFields = [];
+    console.log(`Getting questions per survey`);
+    surveyIdsList.map((surveyId) => {
+      let surveyQuestions = questions
+        .filter(
+          (question) => question.surveyId._id.toString() === surveyId.toString()
+        )
+        .sort((a, b) => a.superSurveyCol - b.superSurveyCol);
 
-      if (
-        surveyQuestion.weights &&
-        Object.keys(surveyQuestion.weights).length >
-          0 /*&& surveyQuestion.weights.length > 0*/
-      ) {
-        // LogThis(
-        //   log,
-        //   `weighting: answers[${a}]=${
-        //     answers[a]
-        //   };surveyQuestion.weights=${JSON.stringify(
-        //     surveyQuestion.weights
-        //   )}; weightedValue=${
-        //     surveyQuestion.weights[
-        //       answers[a].toString().trim().replace(/'\n'/g, "")
-        //     ]
-        //   }`
-        // );
-        let answerA = answers[a].toString().trim().replace(/'\n'/g, "");
-        if (answerA == "") {
-          answerA = "0";
-        }
-        weightedResponse = surveyQuestion.weights[answerA];
-        if (!weightedResponse) {
-          weightedResponse = "0";
-        }
-        response = answerA;
-        answers[a] = weightedResponse;
-        isWeighted = true;
-        LogThis(log, `final weight: answer=${weightedResponse}`);
-      } else {
-        let answerA = answers[a];
-        if (answerA == "") {
-          answerA = "0";
-        }
-        response = answerA;
-        weightedResponse = answerA;
-        isWeighted = false;
-        LogThis(log, `no weighted: answer=${weightedResponse}`);
-      }
+      allSurveyQuestions = [...allSurveyQuestions, ...surveyQuestions];
 
-      surveyResponses.push({
-        questionId: surveyQuestion._id,
-        respondentId: respondentId,
-        row: row,
-        col: a + 1,
-        response: response,
-        responseReal: answersReal[a],
-        weightedResponse: weightedResponse,
-        isWeighted: isWeighted,
-      });
+      let surveyCalculatedFields = calculatedFields
+        .filter(
+          (calculatedField) =>
+            calculatedField.surveyId._id.toString() === surveyId.toString()
+        )
+        .sort((a, b) => a.sequence - b.sequence);
 
-      //LogThis(log, `surveyResponse cycle=${JSON.stringify(surveyResponses)}`);
-      if (isWeighted) {
-        LogThis(
-          log,
-          `Adding csv weighted answer: weightedResponse=${weightedResponse}`
-        );
-        weightedResponse = weightedResponse ?? "";
-        csv = csv + weightedResponse.toString() + ",";
-      } else {
-        csv = csv + response.toString() + ",";
-      }
-    }
+      allCalculatedFields = [...allCalculatedFields, ...surveyCalculatedFields];
+    });
 
-    for (let a = 0; a < allCalculatedFields.length; a++) {
-      // LogThis(
-      //   log,
-      //   `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}; answers[a]=${answers[a]}`
-      // );
+    LogThis(log, `calculatedFields=${JSON.stringify(allSurveyQuestions)};`);
+
+    LogThis(
+      log,
+      `Filtered calculated fields allCalculatedFields=${JSON.stringify(
+        allCalculatedFields
+      )};`
+    );
+
+    let questionDesc = "";
+    let questionShortDesc = "";
+    let csv = "";
+    console.log(`Mapping Questions`);
+    questions.map((q) => {
+      questionDesc = questionDesc + q.question + ",";
+      questionShortDesc = questionShortDesc + q.questionShort + ",";
+    });
+
+    allCalculatedFields.map((c) => {
+      questionDesc = questionDesc + c.description + ",";
+      questionShortDesc = questionShortDesc + c.shortDescription + ",";
+    });
+    questionDesc = questionDesc.slice(0, -1);
+    questionShortDesc = questionShortDesc.slice(0, -1);
+    questionDesc = questionDesc + "\n";
+    questionShortDesc = questionShortDesc + "\n";
+
+    csv = csv + questionDesc + questionShortDesc;
+
+    let rowClean = "";
+    let answers = [];
+    let respondentId = "";
+
+    let rowRealClean = "";
+    let answersReal = [];
+    console.log(`Processing rows`);
+    for (let r = 0; r < answersRows.length; r++) {
       LogThis(
         log,
-        `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}}`
+        `Processing Row r=${r}; allSurveyQuestions length=${allSurveyQuestions.length}`
       );
-      //let col = a + 1
-      allCalculatedField = allCalculatedFields[a];
-      let value = null;
-      if (allCalculatedField.isCriteria) {
-        let criteria = allCalculatedField.criteria;
-        LogThis(
-          log,
-          `Criteria in Question: criteria=${JSON.stringify(criteria)}`
-        );
-        let fieldNameValue = allCalculatedFields.find((calField) => {
-          LogThis(log, `calField=${JSON.stringify(calField)}`);
-          return calField.fieldName == criteria.fieldNameValue[0];
-        });
-        LogThis(log, `fieldNameValue1=${JSON.stringify(fieldNameValue)}`);
-        let sequence = fieldNameValue.sequence;
-        calValue = calculatedValues.find(
-          (value) => value.col == sequence && value.row == row
-        );
-        LogThis(
-          log,
-          `About to get into case > calValue=${JSON.stringify(
-            calValue
-          )}; criteria.operator=${JSON.stringify(criteria.operator)}`
-        );
-        switch (criteria.operator) {
-          case ">":
-            LogThis(
-              log,
-              `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`
-            );
-            if (calValue.value > criteria.value) {
-              value = criteria.resultIfTrue;
-              LogThis(log, `Creteria is true: value=${value}`);
-            } else {
-              value = criteria.resultIfFalse;
-              LogThis(log, `Creteria is false: value=${value}`);
-            }
-            break;
-          default:
-            value = null;
-            LogThis(log, `Case entered default: value${value}`);
-        }
-      } else {
+      rowClean = rowCleaner(answersRows[r]);
+      answers = rowClean.split(",");
+
+      rowRealClean = rowCleaner(answersRealRows[r]);
+      answersReal = rowRealClean.split(",");
+
+      LogThis(log, `answers=${answers}`);
+      if (answers[0] == "" || answers[0].trim() == "") {
+        break;
+      }
+
+      respondentId = answers[0].trim();
+      let row = r + 1;
+      for (let a = 0; a < allSurveyQuestions.length; a++) {
+        LogThis(log, `processing question a=${a}`);
         // LogThis(
         //   log,
-        //   `Field is not criteria: allCalculatedField=${JSON.stringify(
-        //     allCalculatedField
-        //   )}`
+        //   `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
+        // );
+        let surveyQuestion = allSurveyQuestions[a];
+        //transform the question answer value into the weighted answer for that Survey.
+        let weightedResponse = null;
+        let response = null;
+        let isWeighted = null;
+        // LogThis(
+        //   log,
+        //   `surveyQuestion=${JSON.stringify(
+        //     surveyQuestion
+        //   )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
         // );
 
-        let groups = allCalculatedField.group;
-        groups.map((group) => {
+        if (
+          surveyQuestion.weights &&
+          Object.keys(surveyQuestion.weights).length >
+            0 /*&& surveyQuestion.weights.length > 0*/
+        ) {
           // LogThis(
           //   log,
-          //   ` row=${row}; col=${a + 1}; group=${group} answers[group]=${
-          //     answers[group]
-          //   }; parseInt(answers[group])=${parseInt(answers[group])}`
+          //   `weighting: answers[${a}]=${
+          //     answers[a]
+          //   };surveyQuestion.weights=${JSON.stringify(
+          //     surveyQuestion.weights
+          //   )}; weightedValue=${
+          //     surveyQuestion.weights[
+          //       answers[a].toString().trim().replace(/'\n'/g, "")
+          //     ]
+          //   }`
+          // );
+          let answerA = answers[a].toString().trim().replace(/'\n'/g, "");
+          if (answerA == "") {
+            answerA = "0";
+          }
+          weightedResponse = surveyQuestion.weights[answerA];
+          if (!weightedResponse) {
+            weightedResponse = "0";
+          }
+          response = answerA;
+          answers[a] = weightedResponse;
+          isWeighted = true;
+          LogThis(log, `final weight: answer=${weightedResponse}`);
+        } else {
+          let answerA = answers[a];
+          if (answerA == "") {
+            answerA = "0";
+          }
+          response = answerA;
+          weightedResponse = answerA;
+          isWeighted = false;
+          LogThis(log, `no weighted: answer=${weightedResponse}`);
+        }
+
+        surveyResponses.push({
+          questionId: surveyQuestion._id,
+          respondentId: respondentId,
+          row: row,
+          col: a + 1,
+          response: response,
+          responseReal: answersReal[a],
+          weightedResponse: weightedResponse,
+          isWeighted: isWeighted,
+        });
+
+        if (isWeighted) {
+          LogThis(
+            log,
+            `Adding csv weighted answer: weightedResponse=${weightedResponse}`
+          );
+          weightedResponse = weightedResponse ?? "";
+          csv = csv + weightedResponse.toString() + ",";
+        } else {
+          csv = csv + response.toString() + ",";
+        }
+      }
+
+      LogThis(log, `surveyResponse cycle=${JSON.stringify(surveyResponses)}`);
+      //console.log(`surveyResponses=${surveyResponses}`);
+
+      for (let a = 0; a < allCalculatedFields.length; a++) {
+        // LogThis(
+        //   log,
+        //   `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}; answers[a]=${answers[a]}`
+        // );
+        LogThis(
+          log,
+          `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}}`
+        );
+        //let col = a + 1
+        allCalculatedField = allCalculatedFields[a];
+        let value = null;
+        if (allCalculatedField.isCriteria) {
+          let criteria = allCalculatedField.criteria;
+          LogThis(
+            log,
+            `Criteria in Question: criteria=${JSON.stringify(criteria)}`
+          );
+          let fieldNameValue = allCalculatedFields.find((calField) => {
+            LogThis(log, `calField=${JSON.stringify(calField)}`);
+            return calField.fieldName == criteria.fieldNameValue[0];
+          });
+          LogThis(log, `fieldNameValue1=${JSON.stringify(fieldNameValue)}`);
+          let sequence = fieldNameValue.sequence;
+          calValue = calculatedValues.find(
+            (value) => value.col == sequence && value.row == row
+          );
+          LogThis(
+            log,
+            `About to get into case > calValue=${JSON.stringify(
+              calValue
+            )}; criteria.operator=${JSON.stringify(criteria.operator)}`
+          );
+          switch (criteria.operator) {
+            case ">":
+              LogThis(
+                log,
+                `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`
+              );
+              if (calValue.value > criteria.value) {
+                value = criteria.resultIfTrue;
+                LogThis(log, `Creteria is true: value=${value}`);
+              } else {
+                value = criteria.resultIfFalse;
+                LogThis(log, `Creteria is false: value=${value}`);
+              }
+              break;
+            default:
+              value = null;
+              LogThis(log, `Case entered default: value${value}`);
+          }
+        } else {
+          // LogThis(
+          //   log,
+          //   `Field is not criteria: allCalculatedField=${JSON.stringify(
+          //     allCalculatedField
+          //   )}`
           // );
 
-          value = value + parseInt(answers[group]);
+          let groups = allCalculatedField.group;
+          groups.map((group) => {
+            // LogThis(
+            //   log,
+            //   ` row=${row}; col=${a + 1}; group=${group} answers[group]=${
+            //     answers[group]
+            //   }; parseInt(answers[group])=${parseInt(answers[group])}`
+            // );
+
+            value = value + parseInt(answers[group]);
+          });
+        }
+        LogThis(
+          log,
+          `Pushing value: calculatedFieldId=${
+            allCalculatedFields[a]._id
+          }; row=${row};col=${a + 1}; value=${value}; `
+        );
+        if (typeof value != "number" || value == null || isNaN(value)) {
+          value = -1000;
+        }
+        calculatedValues.push({
+          calculatedFieldId: allCalculatedFields[a]._id,
+          respondentId: respondentId,
+          row: row,
+          col: a + 1,
+          value: value,
         });
+        csv = csv + value.toString() + ",";
       }
+      csv = csv.slice(0, -1);
+      csv = csv + "\n";
+    } //This bracket
+
+    //LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
+    LogThis(log, `Inserting responses`);
+    const surveyResponseCreated = await SurveyResponse.insertMany(
+      surveyResponses
+    );
+
+    LogThis(log, `calculatedValues=${JSON.stringify(calculatedValues)}`);
+    LogThis(log, `Inserting calculatedValues`);
+    const surveyCalculatedValuesCreated =
+      await SurveyCalculatedValue.insertMany(calculatedValues);
+
+    const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
+      surveySuperiorId: superSurveyId,
+    }).sort({ sequence: 1 });
+
+    // // questions;
+    // // calculatedFields;
+    // // surveyResponses;
+    // // calculatedValues;
+    //LogThis(log, `outputLayoutsResult=${JSON.stringify(outputLayoutsResult)}`);
+    LogThis(log, `buildOutputHeaders`);
+    console.log(`Building output headers`);
+    const outputLayout = buildOutputHeaders(
+      questions,
+      calculatedFields,
+      outputLayoutsResult
+    );
+
+    LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`);
+
+    let csvLayout = "";
+    let layout = null;
+    for (let o = 0; o < outputLayout.length - 1; o++) {
+      layout = outputLayout[o];
+      csvLayout = csvLayout + layout.description + ",";
+    }
+    layout = outputLayout[outputLayout.length - 1];
+    csvLayout = csvLayout + layout.description + "\n";
+
+    for (let o = 0; o < outputLayout.length - 1; o++) {
+      layout = outputLayout[o];
+      csvLayout = csvLayout + layout.shortDescription + ",";
+    }
+    layout = outputLayout[outputLayout.length - 1];
+    csvLayout = csvLayout + layout.shortDescription + "\n";
+
+    const cols = [];
+    console.log(`Mapping colummns to Layout`);
+    for (let o = 0; o < outputLayout.length; o++) {
+      layout = outputLayout[o];
       LogThis(
         log,
-        `Pushing value: calculatedFieldId=${
-          allCalculatedFields[a]._id
-        }; row=${row};col=${a + 1}; value=${value}; `
+        `layout.fieldId=${layout.fieldId}; layout.isCalculated=${layout.isCalculated}`
       );
-      if (typeof value != "number" || value == null || isNaN(value)) {
-        value = -1000;
+      if (layout.isCalculated) {
+        LogThis(log, `layout.isCalculated=${layout.isCalculated}`);
+        cols.push(
+          calculatedValues
+            .filter((val) => val.calculatedFieldId == layout.fieldId)
+            .sort((a, b) => a.row - b.row)
+        );
+      } else {
+        let responses = surveyResponses.filter(
+          (val) => val.questionId == layout.fieldId
+        );
+        //LogThis(log, `responsesFound = ${JSON.stringify(responses)}`);
+        responses = responses.sort((a, b) => a.row - b.row);
+        //LogThis(log, `responsesSorted = ${JSON.stringify(responses)}`);
+        cols.push(responses);
       }
-      calculatedValues.push({
-        calculatedFieldId: allCalculatedFields[a]._id,
-        respondentId: respondentId,
-        row: row,
-        col: a + 1,
-        value: value,
-      });
-      csv = csv + value.toString() + ",";
     }
-    csv = csv.slice(0, -1);
-    csv = csv + "\n";
-  } //This bracket
-
-  //LogThis(log, `surveyResponses=${JSON.stringify(surveyResponses)}`);
-  LogThis(log, `Inserting responses`);
-  const surveyResponseCreated = await SurveyResponse.insertMany(
-    surveyResponses
-  );
-
-  //LogThis(log, `calculatedValues=${JSON.stringify(calculatedValues)}`);
-  LogThis(log, `Inserting calculatedValues`);
-  const surveyCalculatedValuesCreated = await SurveyCalculatedValue.insertMany(
-    calculatedValues
-  );
-
-  const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
-    surveySuperiorId: superSurveyId,
-  }).sort({ sequence: 1 });
-
-  // // questions;
-  // // calculatedFields;
-  // // surveyResponses;
-  // // calculatedValues;
-  //LogThis(log, `outputLayoutsResult=${JSON.stringify(outputLayoutsResult)}`);
-  LogThis(log, `buildOutputHeaders`);
-  const outputLayout = buildOutputHeaders(
-    questions,
-    calculatedFields,
-    outputLayoutsResult
-  );
-
-  LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`);
-
-  let csvLayout = "";
-  let layout = null;
-  for (let o = 0; o < outputLayout.length - 1; o++) {
-    layout = outputLayout[o];
-    csvLayout = csvLayout + layout.description + ",";
-  }
-  layout = outputLayout[outputLayout.length - 1];
-  csvLayout = csvLayout + layout.description + "\n";
-
-  for (let o = 0; o < outputLayout.length - 1; o++) {
-    layout = outputLayout[o];
-    csvLayout = csvLayout + layout.shortDescription + ",";
-  }
-  layout = outputLayout[outputLayout.length - 1];
-  csvLayout = csvLayout + layout.shortDescription + "\n";
-
-  const cols = [];
-  for (let o = 0; o < outputLayout.length; o++) {
-    layout = outputLayout[o];
     LogThis(
       log,
-      `layout.fieldId=${layout.fieldId}; layout.fieldId=${layout.isCalculated}`
+      `cols=${JSON.stringify(cols)}; outputLayout=${JSON.stringify(
+        outputLayout
+      )}`
     );
-    if (layout.isCalculated) {
-      LogThis(log, `layout.isCalculated=${layout.isCalculated}`);
-      cols.push(
-        calculatedValues
-          .filter((val) => val.calculatedFieldId == layout.fieldId)
-          .sort((a, b) => a.row - b.row)
-      );
-    } else {
-      let responses = surveyResponses.filter(
-        (val) => val.questionId == layout.fieldId
-      );
-      //LogThis(log, `responsesFound = ${JSON.stringify(responses)}`);
-      responses = responses.sort((a, b) => a.row - b.row);
-      //LogThis(log, `responsesSorted = ${JSON.stringify(responses)}`);
-      cols.push(responses);
-    }
-  }
-  LogThis(
-    log,
-    `cols=${JSON.stringify(cols)}; outputLayout=${JSON.stringify(outputLayout)}`
-  );
 
-  //console.log(`cols=${JSON.stringify(cols)}`);
-  let value = null;
-  LogThis(
-    log,
-    `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`
-  );
-  for (let r = 0; r < cols[0].length; r++) {
-    //LogThis(log, `Current Row length=${cols[r].length}`);
-    for (let c = 0; c < cols.length - 1; c++) {
-      layout = outputLayout[c];
-      LogThis(log, `Processing Col=${c}; row=${r}`);
-      console.log(`Processing Col=${c}; row=${r}`);
-      value = cols[c][r];
-      LogThis(log, `value cycle=${JSON.stringify(value)}`);
+    //console.log(`cols=${JSON.stringify(cols)}`);
+    let value = null;
+    LogThis(
+      log,
+      `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`
+    );
+    console.log(`Getting values for the columns in the layout`);
+    for (let r = 0; r < cols[0].length; r++) {
+      //LogThis(log, `Current Row length=${cols[r].length}`);
+      for (let c = 0; c < cols.length - 1; c++) {
+        layout = outputLayout[c];
+        LogThis(log, `Processing Col=${c}; row=${r}`);
+        //console.log(`Processing Col=${c}; row=${r}`);
+        value = cols[c][r];
+        LogThis(log, `value cycle=${JSON.stringify(value)}`);
+        if (layout.outputAsReal) {
+          value = value.responseReal;
+        } else {
+          if ("isWeighted" in value) {
+            if (value.isWeighted) {
+              value = value.weightedResponse;
+            } else {
+              value = value.response;
+            }
+          } else {
+            value = value.value;
+          }
+        }
+
+        if (value == null || value == undefined) {
+          value = "";
+        }
+        LogThis(log, `value=${value}`);
+        csvLayout = csvLayout + value + ",";
+      }
+      LogThis(log, `Processing Last Col=${outputLayout.length - 1}; row=${r}`);
+      value = cols[outputLayout.length - 1][r];
+
       if (layout.outputAsReal) {
         value = value.responseReal;
       } else {
@@ -598,88 +668,80 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
         value = "";
       }
       LogThis(log, `value=${value}`);
-      csvLayout = csvLayout + value + ",";
+      csvLayout = csvLayout + value + "\n";
     }
-    LogThis(log, `Processing Last Col=${outputLayout.length - 1}; row=${r}`);
-    value = cols[outputLayout.length - 1][r];
+    console.log(`Output layout is ready`);
 
-    if (layout.outputAsReal) {
-      value = value.responseReal;
+    if (!questions) {
+      res.status(404);
+      throw new Error("Questions not found");
+    }
+    //Form the CSV output file
+
+    //ENDING LOGIC TO SAVE ANSWERS TO DATABASE
+
+    if (answersRows.length > 0) {
+      //if (true) {
+      // LogThis(log, `END`);
+      // // res.status(200).json({
+      // //   // owner: user._id,
+      // //   // superSurveyId: superSurveyId,
+      // //   // multiSurveys: multiSurveys,
+      // //   // surveyIdsList: surveyIdsList,
+      // //   // allSurveyQuestions: allSurveyQuestions,
+      // //   // surveyResponseCreated: surveyResponseCreated,
+      // //   // surveyCalculatedValuesCreated: surveyCalculatedValuesCreated,
+      // //   // answerRowsLength: answersRows.length,
+      // //   // //questions: questions,
+      // //   // answersRows: answersRows,
+      // //   csv: csv,
+      // // });
+      // //console.log(csv);
+      // LogThis(log, `csvLayoutEnd=${csvLayout}`);
+      // // LogThis(
+      // //   log,
+      // //   `superSurveyId=${superSurveyId}; surveyFields=${JSON.stringify(
+      // //     surveyFields
+      // //   )}`
+      // // );
+      // // res.writeHead(200, {
+      // //   "Content-Type": "text/plain",
+      // //   "Content-Length": Buffer.byteLength(csv),
+      // // });
+      // // res.write(csv);
+      // // res.end();
+      // // res.writeHead(200, {
+      // //   "Content-Type": "text/plain",
+      // //   "Content-Length": Buffer.byteLength(csvLayout),
+      // // });
+      // // //res.write("Data Numeric next: \n");
+      // // res.write(csvLayout);
+      // // // res.write("\nData Real next:\n");
+      // // // res.write(fileDataReal);
+      // // res.end();
+      res.setHeader("Content-Type", "application/zip");
+      res.setHeader(
+        "Content-Disposition",
+        'attachment; filename="OutputReport.zip"'
+      );
+      const archive = archiver("zip", {
+        zlib: { level: 9 },
+      });
+      archive.append(csvLayout, { name: "OutputReport.csv" });
+      archive.pipe(res);
+      console.log(`About to send the zip file back to the client`);
+      archive.finalize();
+      // res.status(201).json({
+      //   answersData: answersData,
+      //   answersDataReal: answersDataReal,
+      // });
     } else {
-      if ("isWeighted" in value) {
-        if (value.isWeighted) {
-          value = value.weightedResponse;
-        } else {
-          value = value.response;
-        }
-      } else {
-        value = value.value;
-      }
+      res.status(404);
+      throw new Error("Uncought Exception loading answers");
     }
-
-    if (value == null || value == undefined) {
-      value = "";
-    }
-    LogThis(log, `value=${value}`);
-    csvLayout = csvLayout + value + "\n";
-  }
-
-  if (!questions) {
+  } catch (error) {
     res.status(404);
-    throw new Error("Questions not found");
-  }
-  //Form the CSV output file
-
-  //ENDING LOGIC TO SAVE ANSWERS TO DATABASE
-
-  if (answersRows.length > 0) {
-    LogThis(log, `END`);
-    // res.status(200).json({
-    //   // owner: user._id,
-    //   // superSurveyId: superSurveyId,
-    //   // multiSurveys: multiSurveys,
-    //   // surveyIdsList: surveyIdsList,
-    //   // allSurveyQuestions: allSurveyQuestions,
-    //   // surveyResponseCreated: surveyResponseCreated,
-    //   // surveyCalculatedValuesCreated: surveyCalculatedValuesCreated,
-    //   // answerRowsLength: answersRows.length,
-    //   // //questions: questions,
-    //   // answersRows: answersRows,
-    //   csv: csv,
-    // });
-    //console.log(csv);
-    console.log(csvLayout);
-    // LogThis(
-    //   log,
-    //   `superSurveyId=${superSurveyId}; surveyFields=${JSON.stringify(
-    //     surveyFields
-    //   )}`
-    // );
-
-    // res.writeHead(200, {
-    //   "Content-Type": "text/plain",
-    //   "Content-Length": Buffer.byteLength(csv),
-    // });
-    // res.write(csv);
-    // res.end();
-
-    res.writeHead(200, {
-      "Content-Type": "text/plain",
-      "Content-Length": Buffer.byteLength(csvLayout),
-    });
-    //res.write("Data Numeric next: \n");
-    res.write(csvLayout);
-    // res.write("\nData Real next:\n");
-    // res.write(fileDataReal);
-    res.end();
-
-    // res.status(201).json({
-    //   answersData: answersData,
-    //   answersDataReal: answersDataReal,
-    // });
-  } else {
-    res.status(404);
-    throw new Error("Uncought Exception loading answers");
+    throw new Error(error);
   }
 });
 
