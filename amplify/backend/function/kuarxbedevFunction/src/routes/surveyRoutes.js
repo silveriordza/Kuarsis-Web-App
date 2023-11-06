@@ -11,8 +11,11 @@ const router = express.Router();
 let {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
+  superSurveyTests,
 } = require("../controllers/surveyController.js");
 let { protect, admin } = require("../middleware/authMiddleware.js");
+
+router.route("/tests").put(protect, admin, superSurveyTests);
 
 router
   .route("/:id")

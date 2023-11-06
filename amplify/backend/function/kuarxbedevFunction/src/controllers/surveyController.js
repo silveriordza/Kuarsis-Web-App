@@ -19,6 +19,7 @@ let { LogThis, LoggerSettings } = require("../utils/Logger.js");
 
 const archiver = require("archiver");
 const AdmZip = require("adm-zip");
+const JSZip = require("jszip");
 
 let { rowCleaner } = require("../utils/csvProcessingLib.js");
 const srcFileName = "surveyController.js";
@@ -338,8 +339,9 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
 
     let rowRealClean = "";
     let answersReal = [];
-    console.log(`Processing rows`);
+    //console.log(`Processing rows`);
     for (let r = 0; r < answersRows.length; r++) {
+      //console.log(`Processing row ${r + 1}`);
       LogThis(
         log,
         `Processing Row r=${r}; allSurveyQuestions length=${allSurveyQuestions.length}`
@@ -679,8 +681,10 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     //Form the CSV output file
 
     //ENDING LOGIC TO SAVE ANSWERS TO DATABASE
-
-    if (answersRows.length > 0) {
+    // console.log(
+    //   `csvLayout.length=${csvLayout.length}; csvLayout=${csvLayout} `
+    // );
+    if (csvLayout && csvLayout.length > 0) {
       //if (true) {
       // LogThis(log, `END`);
       // // res.status(200).json({
@@ -719,25 +723,94 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       // // // res.write("\nData Real next:\n");
       // // // res.write(fileDataReal);
       // // res.end();
+
+      // //Returning zip file using archiver
+      // res.setHeader("Content-Type", "application/zip");
+      // res.setHeader(
+      //   "Content-Disposition",
+      //   'attachment; filename="OutputReport.zip"'
+      // );
+      // const archive = archiver("zip", {
+      //   zlib: { level: 9 },
+      // });
+      // archive.append(csvLayout, { name: "OutputReport.csv" });
+      // archive.pipe(res);
+      // console.log(`About to send the zip file back to the client`);
+      // archive.finalize();
+
+      // //Returning zip file using AdmZip
+      // const zip = new AdmZip();
+
+      // zip.addFile("OutputReport.csv", Buffer.from(csvLayout, "utf8"));
+
+      // const outputReport = zip.toBuffer();
+      // res.setHeader("Content-Type", "application/zip");
+      // res.setHeader(
+      //   "Content-Disposition",
+      //   'attachment; filename="OutputReport.zip"'
+      // );
+      // console.log(
+      //   `About to return outputReport as Buffer outputReport=${outputReport}`
+      // );
+      // //const text = new TextDecoder().decode(outputReport);
+      // //console.log(`outputReport=${text}`);
+      // res.send(outputReport);
+
+      // //Returning zip file using AdmZip octet-stream and encoding with base64
+      // const zip = new AdmZip();
+      // zip.addFile("OutputReport.csv", Buffer.from(csvLayout, "utf8"));
+
+      // const outputReport = zip.toBuffer();
+
+      // const binaryOutputReport = Buffer.from(outputReport, "utf8");
+      // const outputReport64 = binaryOutputReport.toString("base64");
+      // res.setHeader("Content-Type", "application/octet-stream");
+      // res.setHeader(
+      //   "Content-Disposition",
+      //   'attachment; filename="OutputReport.bin"'
+      // );
+      // //res.setHeader("Content-Transfer-Encoding", "base64");
+
+      // console.log(`About to log the outputReport base64`);
+      // //const text = new TextDecoder().decode(outputReport64);
+      // //console.log(`outputReport=${text}`);
+      // res.status(200).send(Buffer.from(outputReport64, "base64"));
+
+      //Return zip file as application/zip but encoding it as Base64 string
+      const zip = new AdmZip();
+
+      zip.addFile("OutputReport.csv", Buffer.from(csvLayout, "utf8"));
+
+      const zipBuffer = zip.toBuffer();
+
+      console.log(
+        `zipBuffer=${zipBuffer}; toStringBase64=${zipBuffer.toString(
+          "base64"
+        )}; toStringUtf8=${zipBuffer.toString("utf8")} `
+      );
+
+      const zipStr64 = Buffer.from(zipBuffer).toString("base64");
+      const zipBuffer64 = Buffer.from(zipStr64, "base64");
+
       res.setHeader("Content-Type", "application/zip");
+
       res.setHeader(
         "Content-Disposition",
         'attachment; filename="OutputReport.zip"'
       );
-      const archive = archiver("zip", {
-        zlib: { level: 9 },
-      });
-      archive.append(csvLayout, { name: "OutputReport.csv" });
-      archive.pipe(res);
-      console.log(`About to send the zip file back to the client`);
-      archive.finalize();
+
+      res.status(200).send(zipBuffer64.toString("base64"));
+
       // res.status(201).json({
       //   answersData: answersData,
       //   answersDataReal: answersDataReal,
       // });
+      // } else {
+      //   res.status(404);
+      //   throw new Error("Uncought Exception loading answers");
+      // }
     } else {
-      res.status(404);
-      throw new Error("Uncought Exception loading answers");
+      throw new Error("csv file does not have any values");
     }
   } catch (error) {
     res.status(404);
@@ -745,7 +818,67 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
   }
 });
 
+const superSurveyTests = asyncHandler(async (req, res) => {
+  try {
+    //Basics investigation
+
+    res.setHeader("Content-Type", "application/zip");
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="OutputReport.zip"'
+    );
+    //res.setHeader("Content-Transfer-Encoding", "base64");
+    const str = "A";
+    console.log(`str=${str}`);
+
+    const strBufferUtf8 = Buffer.from(str, "utf8");
+
+    console.log(
+      `strBufferUtf8=${strBufferUtf8}; toStringBase64=${strBufferUtf8.toString(
+        "base64"
+      )}; toStringUtf8=${strBufferUtf8.toString("utf8")}`
+    );
+
+    const strBase64 = Buffer.from(str).toString("base64");
+    const strBufferBase64 = Buffer.from(strBase64, "base64");
+
+    console.log(
+      `strBufferBase64=${strBufferBase64}; toStringBase64=${strBufferBase64.toString(
+        "base64"
+      )}; toStringUtf8=${strBufferBase64.toString("utf8")} `
+    );
+
+    const strBinary = Buffer.from(str, "binary");
+    console.log(
+      `strBinary=${strBinary}; toStringBase64=${strBinary.toString(
+        "base64"
+      )}; toStringUtf8=${strBinary.toString("utf8")} `
+    );
+
+    const zip = new AdmZip();
+
+    zip.addFile("OutputReport.csv", Buffer.from(str, "utf8"));
+
+    const zipBuffer = zip.toBuffer();
+
+    console.log(
+      `zipBuffer=${zipBuffer}; toStringBase64=${zipBuffer.toString(
+        "base64"
+      )}; toStringUtf8=${zipBuffer.toString("utf8")} `
+    );
+
+    const zipStr64 = Buffer.from(zipBuffer).toString("base64");
+    const zipBuffer64 = Buffer.from(zipStr64, "base64");
+    //str = Buffer.from(strBufferBase64, "base64").toString("utf-8");
+    //console.log(`base64 decoded str=${str}`);
+    res.status(200).send(zipBuffer64.toString("base64"));
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 module.exports = {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
+  superSurveyTests,
 };
