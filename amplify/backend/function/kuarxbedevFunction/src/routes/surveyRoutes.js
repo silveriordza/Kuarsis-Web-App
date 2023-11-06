@@ -12,10 +12,11 @@ let {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
   superSurveyTests,
+  getSuperSurveyConfigs,
 } = require("../controllers/surveyController.js");
 let { protect, admin } = require("../middleware/authMiddleware.js");
 
-router.route("/tests").put(protect, admin, superSurveyTests);
+router.route("/:id/configs").get(protect, admin, getSuperSurveyConfigs);
 
 router
   .route("/:id")
