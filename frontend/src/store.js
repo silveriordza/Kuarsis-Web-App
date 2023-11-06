@@ -1,7 +1,9 @@
+/** @format */
+
 // We wil combine reducers that will handle functionality by component.
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 import {
   userLoginReducer,
   userRegisterReducer,
@@ -10,7 +12,7 @@ import {
   userListReducer,
   userDeleteReducer,
   userUpdateReducer,
-} from './reducers/userReducers.js'
+} from "./reducers/userReducers.js";
 
 import {
   productListReducer,
@@ -20,11 +22,13 @@ import {
   productUpdateReducer,
   productReviewCreateReducer,
   productTopRatedReducer,
-} from './reducers/productReducer.js'
+} from "./reducers/productReducer.js";
 
-import { cartReducer } from './reducers/cartReducers'
+import { surveyProcessAnswersReducer } from "./reducers/surveyReducer.js";
 
-import { configsAddressStatesReducer } from './reducers/configsReducer'
+import { cartReducer } from "./reducers/cartReducers";
+
+import { configsAddressStatesReducer } from "./reducers/configsReducer";
 
 import {
   orderCreateReducer,
@@ -34,14 +38,12 @@ import {
   orderListMyReducer,
   orderListReducer,
   orderDeliverDownloadURLReducer,
-} from './reducers/orderReducers'
+} from "./reducers/orderReducers";
 
 import {
   schedulerDetailsReducer,
-  schedulerUpdateReducer
-} from './reducers/schedulerReducer.js'
-
-
+  schedulerUpdateReducer,
+} from "./reducers/schedulerReducer.js";
 
 // Any new reducers will be combined here, right now we will add an empty object since we don't have any reducers yet
 const reducer = combineReducers({
@@ -74,25 +76,27 @@ const reducer = combineReducers({
   configsAddressStates: configsAddressStatesReducer,
   schedulerDetails: schedulerDetailsReducer,
   schedulerUpdate: schedulerUpdateReducer,
-})
+  //Survey Reducers
+  surveyProcessAnswers: surveyProcessAnswersReducer,
+});
 
-const userInfoFromStorage = localStorage.getItem('userInfo')
-  ? JSON.parse(localStorage.getItem('userInfo'))
-  : null
+const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
 
 // If we want something loaded into the state when the store loads, we can put it in here:
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
-}
+};
 
 // This is the middleware piece, for now we will initialize with thunk
-const middleware = [thunk]
+const middleware = [thunk];
 
 //This will create the store with the combined reducers and an initial state.
 const store = createStore(
   reducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware)) //This parameter allows Redux to connect to the Redux Devtools to see the state in a Chrome browser
-)
+);
 
-export default store
+export default store;

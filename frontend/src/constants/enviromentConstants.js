@@ -1,5 +1,7 @@
 /** @format */
-
+const LOCAL = "LOCAL";
+const ARTPIXAN = "ARTPIXAN";
+const ENVIRONMENT = LOCAL;
 // LOCALHOST DEV VARIABLES
 
 export const LOG_LEVEL = 1;
@@ -26,11 +28,12 @@ export const KUARSIS_PUBLIC_BUCKET_URL =
 */
 //CONSTANTS FOR ARTPIXAN.KUARXIS.COM (PROD) ENVIRONMENT
 /*
-export const LOG_LEVEL = 0
+export const LOG_LEVEL = 0;
 export const BACKEND_ENDPOINT =
-  'https://we568vitke.execute-api.us-east-1.amazonaws.com/kuarxbeprd'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://artpixan.kuarxis.com/images'
-export const KUARSIS_BANNER_MAIN_LOGO = 'ArtPixanLogo256px.png'
+  "https://we568vitke.execute-api.us-east-1.amazonaws.com/kuarxbeprd";
+export const KUARSIS_PUBLIC_STATIC_FOLDER =
+  "https://artpixan.kuarxis.com/images";
+export const KUARSIS_BANNER_MAIN_LOGO = "ArtPixanLogo256px.png";
 export const KUARSIS_PUBLIC_BUCKET_URL =
-  'https://kuarsis-products-s3-public.s3.amazonaws.com/'
+  "https://kuarsis-products-s3-public.s3.amazonaws.com/";
 */

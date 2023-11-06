@@ -1,0 +1,175 @@
+cols
+[
+  [
+    {
+      "questionId": "653f350dba60ba51fff59284",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 1,
+      "response": "19108099553",
+      "weightedResponse": "19108099553",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59285",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 2,
+      "response": "259432991",
+      "weightedResponse": "259432991",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59286",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 3,
+      "response": "10/12/2023 17:54",
+      "weightedResponse": "10/12/2023 17:54",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59287",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 4,
+      "response": "10/12/2023 20:10",
+      "weightedResponse": "10/12/2023 20:10",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59292",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 10,
+      "response": "Nayeli Yamileth Moreno de LeÃ³n",
+      "weightedResponse": "Nayeli Yamileth Moreno de LeÃ³n",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59293",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 11,
+      "response": "33",
+      "weightedResponse": "33",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59294",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 12,
+      "response": "11/4/1990",
+      "weightedResponse": "11/4/1990",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59295",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 13,
+      "response": "1",
+      "weightedResponse": "1",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59296",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 14,
+      "response": "1",
+      "weightedResponse": "1",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59297",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 15,
+      "response": "19",
+      "weightedResponse": "19",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff59299",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 17,
+      "response": "San NicolÃ¡s ",
+      "weightedResponse": "San NicolÃ¡s ",
+      "isWeighted": false
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff592a4",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 23,
+      "response": "2",
+      "weightedResponse": "0",
+      "isWeighted": true
+    }
+  ],
+  [
+    {
+      "calculatedFieldId": "653f350dba60ba51fff592c7",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 5,
+      "value": 0
+    } 
+  ], 
+  [  
+    {
+      "questionId": "653f350dba60ba51fff592a6",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 25,
+      "response": "1",
+      "weightedResponse": "0",
+      "isWeighted": true
+    }
+  ],
+  [
+    {
+      "calculatedFieldId": "653f350dba60ba51fff592c8",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 6,
+      "value": 0
+    }
+  ],
+  [
+    {
+      "questionId": "653f350dba60ba51fff592a8",
+      "respondentId": "19108099553",
+      "row": 1,
+      "col": 27,
+      "response": "1",
+      "weightedResponse": "0",
+      "isWeighted": true
+    }
+  ]
+]

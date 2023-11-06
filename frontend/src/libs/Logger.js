@@ -19,8 +19,8 @@ export const objLogSettings = { sourceFilename: "", sourceFunction: "" };
 
 export const initLogSettings = (fileName = "", functionName = "") => {
   return {
-    sourceFilename: fileName,
-    sourceFunction: functionName,
+    fileName: fileName,
+    functionName: functionName,
   };
 };
 
