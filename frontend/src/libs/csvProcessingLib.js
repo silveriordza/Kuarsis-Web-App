@@ -1,86 +1,112 @@
-import {LogThis, objLogSettings} from './Logger' 
+/** @format */
 
-export const rowCleaner = (rowToClean) => {
-    let Row1Clean = rowToClean
-  
-    let quotesCount = 0
-    let semiColonChar = ";"
-    const rowArray = Row1Clean.split('') 
-    for (let i = 0; i < rowArray.length; i++)
-    {
-      if(rowArray[i]=='"'){
-        if(quotesCount==0)
-        {
-          console.log(`opening quotes identified at column i=${i}`)
-          quotesCount++
-        } else {
-          console.log(`closing quotes  identified at column i=${i}`)
-          quotesCount--
-        }
-      } else{
-        if(quotesCount>0 && rowArray[i]==','){
-          console.log(`replacing comma at column i=${i}`)
-          rowArray[i] = semiColonChar
-          console.log(`replaced comma at column i=${i}`)
-        }
+import { LogThis, objLogSettings } from "./Logger";
+
+export const rowCleaner2 = (rowToClean) => {
+  let Row1Clean = rowToClean;
+
+  let quotesCount = 0;
+  let semiColonChar = ";";
+  const rowArray = Row1Clean.split("");
+  for (let i = 0; i < rowArray.length; i++) {
+    if (rowArray[i] == '"') {
+      if (quotesCount == 0) {
+        //console.log(`opening quotes identified at column i=${i}`);
+        quotesCount++;
+      } else {
+        //console.log(`closing quotes  identified at column i=${i}`);
+        quotesCount--;
+      }
+    } else {
+      if (quotesCount > 0 && rowArray[i] == ",") {
+        //console.log(`replacing comma at column i=${i}`);
+        rowArray[i] = semiColonChar;
+        //console.log(`replaced comma at column i=${i}`);
       }
     }
-    return rowArray.join('')
   }
+  rowArray[rowArray.length] = "\n";
+  return rowArray.join("");
+};
+
+export const rowCleaner = (rowToClean) => {
+  let Row1Clean = rowToClean;
+
+  let quotesCount = 0;
+  let semiColonChar = ";";
+  const rowArray = Row1Clean.split("");
+  for (let i = 0; i < rowArray.length; i++) {
+    if (rowArray[i] == '"') {
+      if (quotesCount == 0) {
+        console.log(`opening quotes identified at column i=${i}`);
+        quotesCount++;
+      } else {
+        console.log(`closing quotes  identified at column i=${i}`);
+        quotesCount--;
+      }
+    } else {
+      if (quotesCount > 0 && rowArray[i] == ",") {
+        console.log(`replacing comma at column i=${i}`);
+        rowArray[i] = semiColonChar;
+        console.log(`replaced comma at column i=${i}`);
+      }
+    }
+  }
+  return rowArray.join("");
+};
 export const saveStringAsCSV = (stringData, fileName) => {
-    const blob = new Blob([stringData], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
+  const blob = new Blob([stringData], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
 
 export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
-  objLogSettings.sourceFilename = 'csvProcessingLib.js'
-  objLogSettings.sourceFunction = 'convertSurveyJsonToCSV'
-  LogThis(objLogSettings, `START`)
-    
-  let csvText = ''
+  objLogSettings.sourceFilename = "csvProcessingLib.js";
+  objLogSettings.sourceFunction = "convertSurveyJsonToCSV";
+  LogThis(objLogSettings, `START`);
 
-    for (let i = 0; i < headersJson.length-1; i++) {
-      csvText = csvText + headersJson[i] + '_Real' + ',';
-    }
-    csvText = csvText + headersJson[headersJson.length-1] + '_Real' + ',';
-    LogThis(objLogSettings, `REAL headers csvText = ${csvText}`)
-    for (let i = 0; i < headersJson.length-1; i++) {
-      csvText = csvText + headersJson[i] + '_Numerico'  + ',';
-    }
+  let csvText = "";
 
-    csvText = csvText + 'Numerico_' + headersJson[headersJson.length-1]//  + '\r\n'
-    csvText =  csvText.replace(/\n/g, '')
-    csvText =  csvText.replace(/\r/g, '')
-    csvText = csvText + '\r\n'
-    LogThis(objLogSettings, `Numerico headers csvText = ${csvText}`)
-    let i = 0
-    let csvRow = ''
+  for (let i = 0; i < headersJson.length - 1; i++) {
+    csvText = csvText + headersJson[i] + "_Real" + ",";
+  }
+  csvText = csvText + headersJson[headersJson.length - 1] + "_Real" + ",";
+  LogThis(objLogSettings, `REAL headers csvText = ${csvText}`);
+  for (let i = 0; i < headersJson.length - 1; i++) {
+    csvText = csvText + headersJson[i] + "_Numerico" + ",";
+  }
 
+  csvText = csvText + "Numerico_" + headersJson[headersJson.length - 1]; //  + '\r\n'
+  csvText = csvText.replace(/\n/g, "");
+  csvText = csvText.replace(/\r/g, "");
+  csvText = csvText + "\r\n";
+  LogThis(objLogSettings, `Numerico headers csvText = ${csvText}`);
+  let i = 0;
+  let csvRow = "";
 
-    // dataRealJson.forEach(dataRealRow => {
-    //   csvRow = dataRealRow + ',' + dataJson[i]
-    //   csvRow =  csvRow.replace(/\n/g, '')
-    //   csvRow =  csvRow.replace(/\r/g, '')
-      
-    //   csvText = csvText + csvRow + '\r\n'
+  // dataRealJson.forEach(dataRealRow => {
+  //   csvRow = dataRealRow + ',' + dataJson[i]
+  //   csvRow =  csvRow.replace(/\n/g, '')
+  //   csvRow =  csvRow.replace(/\r/g, '')
 
-    //   i++
-    // }) 
-    for (let i = 0; i < dataRealJson.length; i++) {
-      csvRow = dataRealJson[i] + ',' + dataJson[i]
-      csvRow =  csvRow.replace(/\n/g, '')
-      csvRow =  csvRow.replace(/\r/g, '')
-      csvRow =  csvRow.replace(/\r\n/g, '')
-      csvText = csvText + csvRow + '\r\n'
-    }
-    LogThis(objLogSettings, `Final csvText = ${csvText}`)
+  //   csvText = csvText + csvRow + '\r\n'
 
-    return csvText
-}
+  //   i++
+  // })
+  for (let i = 0; i < dataRealJson.length; i++) {
+    csvRow = dataRealJson[i] + "," + dataJson[i];
+    csvRow = csvRow.replace(/\n/g, "");
+    csvRow = csvRow.replace(/\r/g, "");
+    csvRow = csvRow.replace(/\r\n/g, "");
+    csvText = csvText + csvRow + "\r\n";
+  }
+  LogThis(objLogSettings, `Final csvText = ${csvText}`);
+
+  return csvText;
+};

@@ -1,15 +1,28 @@
-[
-  {
-    "fieldId": "6542afe8f8dbeb38182e2353",
-    "surveyShortName": "SCOLINFO",
-    "description": "respondent_id",
-    "shortDescription": "respondent_id",
-    "fieldName": "SCOLINFO_respondent_id",
-    "outputSequence": 1,
-    "valuePosition": 1,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+{
+  "multiSurveys": [
+    {
+      "_id": "6542afe8f8dbeb38182e2351",
+      "surveyId": "6542afe8f8dbeb38182e234f",
+      "sequence": 1
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e235f",
+      "surveyId": "6542afe8f8dbeb38182e235d",
+      "sequence": 2
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2371",
+      "surveyId": "6542afe9f8dbeb38182e236f",
+      "sequence": 3
+    }
+  ],
+  "surveyIdsList": [
+    "6542afe8f8dbeb38182e234f",
+    "6542afe8f8dbeb38182e235d",
+    "6542afe9f8dbeb38182e236f"
+  ],
+  "questions": [
+    {
       "_id": "6542afe8f8dbeb38182e2353",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e234f",
@@ -30,19 +43,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:04.776Z",
       "updatedAt": "2023-11-01T20:07:04.776Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2354",
-    "surveyShortName": "SCOLINFO",
-    "description": "collector_id",
-    "shortDescription": "collector_id",
-    "fieldName": "SCOLINFO_collector_id",
-    "outputSequence": 2,
-    "valuePosition": 2,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2354",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e234f",
@@ -63,19 +65,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:04.776Z",
       "updatedAt": "2023-11-01T20:07:04.776Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2355",
-    "surveyShortName": "SCOLINFO",
-    "description": "date_created",
-    "shortDescription": "date_created",
-    "fieldName": "SCOLINFO_date_created",
-    "outputSequence": 3,
-    "valuePosition": 3,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2355",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e234f",
@@ -96,19 +87,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:04.776Z",
       "updatedAt": "2023-11-01T20:07:04.776Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2356",
-    "surveyShortName": "SCOLINFO",
-    "description": "date_modified",
-    "shortDescription": "date_modified",
-    "fieldName": "SCOLINFO_date_modified",
-    "outputSequence": 4,
-    "valuePosition": 4,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2356",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e234f",
@@ -129,19 +109,118 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:04.777Z",
       "updatedAt": "2023-11-01T20:07:04.777Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2361",
-    "surveyShortName": "GENINFO",
-    "description": "Nombre completo:",
-    "shortDescription": "Nombre",
-    "fieldName": "GENINFO_Nombre",
-    "outputSequence": 5,
-    "valuePosition": 10,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e2357",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e234f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.596Z",
+        "updatedAt": "2023-11-01T20:07:04.596Z",
+        "__v": 0
+      },
+      "question": "ip_address",
+      "questionShort": "ip_address",
+      "fieldName": "SCOLINFO_ip_address",
+      "surveyCol": 5,
+      "superSurveyCol": 5,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:04.777Z",
+      "updatedAt": "2023-11-01T20:07:04.777Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e2358",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e234f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.596Z",
+        "updatedAt": "2023-11-01T20:07:04.596Z",
+        "__v": 0
+      },
+      "question": "email_address",
+      "questionShort": "email_address",
+      "fieldName": "SCOLINFO_email_address",
+      "surveyCol": 6,
+      "superSurveyCol": 6,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:04.777Z",
+      "updatedAt": "2023-11-01T20:07:04.777Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e2359",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e234f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.596Z",
+        "updatedAt": "2023-11-01T20:07:04.596Z",
+        "__v": 0
+      },
+      "question": "first_name",
+      "questionShort": "first_name",
+      "fieldName": "SCOLINFO_first_name",
+      "surveyCol": 7,
+      "superSurveyCol": 7,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:04.777Z",
+      "updatedAt": "2023-11-01T20:07:04.777Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e235a",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e234f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.596Z",
+        "updatedAt": "2023-11-01T20:07:04.596Z",
+        "__v": 0
+      },
+      "question": "last_name",
+      "questionShort": "last_name",
+      "fieldName": "SCOLINFO_last_name",
+      "surveyCol": 8,
+      "superSurveyCol": 8,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:04.777Z",
+      "updatedAt": "2023-11-01T20:07:04.777Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e235b",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e234f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.596Z",
+        "updatedAt": "2023-11-01T20:07:04.596Z",
+        "__v": 0
+      },
+      "question": "custom_1",
+      "questionShort": "custom_1",
+      "fieldName": "SCOLINFO_custom_1",
+      "surveyCol": 9,
+      "superSurveyCol": 9,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:04.777Z",
+      "updatedAt": "2023-11-01T20:07:04.777Z"
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2361",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -162,19 +241,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2362",
-    "surveyShortName": "GENINFO",
-    "description": "Edad",
-    "shortDescription": "Edad",
-    "fieldName": "GENINFO_Edad",
-    "outputSequence": 6,
-    "valuePosition": 11,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2362",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -195,19 +263,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2363",
-    "surveyShortName": "GENINFO",
-    "description": "Fecha de nacimiento (dd/mm/aaaa)",
-    "shortDescription": "Nacimiento",
-    "fieldName": "GENINFO_Nacimiento",
-    "outputSequence": 7,
-    "valuePosition": 12,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2363",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -228,19 +285,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2364",
-    "surveyShortName": "GENINFO",
-    "description": "Sexo",
-    "shortDescription": "Sexo",
-    "fieldName": "GENINFO_Sexo",
-    "outputSequence": 8,
-    "valuePosition": 13,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2364",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -261,19 +307,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2365",
-    "surveyShortName": "GENINFO",
-    "description": "Estado civil",
-    "shortDescription": "Civil",
-    "fieldName": "GENINFO_Civil",
-    "outputSequence": 9,
-    "valuePosition": 14,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2365",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -294,19 +329,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2366",
-    "surveyShortName": "GENINFO",
-    "description": "Estado de procedencia",
-    "shortDescription": "Estado",
-    "fieldName": "GENINFO_Estado",
-    "outputSequence": 10,
-    "valuePosition": 15,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2366",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -327,19 +351,30 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe8f8dbeb38182e2368",
-    "surveyShortName": "GENINFO",
-    "description": "Municipio de residencia actual:",
-    "shortDescription": "Municipio",
-    "fieldName": "GENINFO_Municipio",
-    "outputSequence": 11,
-    "valuePosition": 17,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e2367",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e235d",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.896Z",
+        "updatedAt": "2023-11-01T20:07:04.896Z",
+        "__v": 0
+      },
+      "question": "Otro país (especifique)",
+      "questionShort": "OtroPais",
+      "fieldName": "GENINFO_OtroPais",
+      "surveyCol": 7,
+      "superSurveyCol": 16,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.036Z",
+      "updatedAt": "2023-11-01T20:07:05.036Z"
+    },
+    {
       "_id": "6542afe8f8dbeb38182e2368",
       "surveyId": {
         "_id": "6542afe8f8dbeb38182e235d",
@@ -360,19 +395,118 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.036Z",
       "updatedAt": "2023-11-01T20:07:05.036Z"
-    }
-  },
-  {
-    "fieldId": "6542afe9f8dbeb38182e2373",
-    "surveyShortName": "CSG",
-    "description": "A1 Se ha sentido perfectamente bien y con buena salud.",
-    "shortDescription": "A1 Se ha sentido perfectamente...",
-    "fieldName": "CSG_A1",
-    "outputSequence": 12,
-    "valuePosition": 23,
-    "isCalculated": false,
-    "outputAsReal": false,
-    "field": {
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e2369",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e235d",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.896Z",
+        "updatedAt": "2023-11-01T20:07:04.896Z",
+        "__v": 0
+      },
+      "question": "Medio de transporte:",
+      "questionShort": "Transporte",
+      "fieldName": "GENINFO_Transporte",
+      "surveyCol": 9,
+      "superSurveyCol": 18,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.037Z",
+      "updatedAt": "2023-11-01T20:07:05.037Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e236a",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e235d",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.896Z",
+        "updatedAt": "2023-11-01T20:07:04.896Z",
+        "__v": 0
+      },
+      "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
+      "questionShort": "DistanciaTrabajo",
+      "fieldName": "GENINFO_DistanciaTrabajo",
+      "surveyCol": 10,
+      "superSurveyCol": 19,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.037Z",
+      "updatedAt": "2023-11-01T20:07:05.037Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e236b",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e235d",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.896Z",
+        "updatedAt": "2023-11-01T20:07:04.896Z",
+        "__v": 0
+      },
+      "question": "Último grado de estudios:",
+      "questionShort": "GradoEstudios",
+      "fieldName": "GENINFO_GradoEstudios",
+      "surveyCol": 11,
+      "superSurveyCol": 20,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.037Z",
+      "updatedAt": "2023-11-01T20:07:05.037Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e236c",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e235d",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.896Z",
+        "updatedAt": "2023-11-01T20:07:04.896Z",
+        "__v": 0
+      },
+      "question": "Ocupación actual",
+      "questionShort": "Ocupacion",
+      "fieldName": "GENINFO_Ocupacion",
+      "surveyCol": 12,
+      "superSurveyCol": 21,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.037Z",
+      "updatedAt": "2023-11-01T20:07:05.037Z"
+    },
+    {
+      "_id": "6542afe8f8dbeb38182e236d",
+      "surveyId": {
+        "_id": "6542afe8f8dbeb38182e235d",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Informacion general de la persona encuestada.",
+        "surveyShortName": "GENINFO",
+        "description": "Informacion de la persona encuestada.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:04.896Z",
+        "updatedAt": "2023-11-01T20:07:04.896Z",
+        "__v": 0
+      },
+      "question": "Área a la que aplica:",
+      "questionShort": "AreaOcupacion",
+      "fieldName": "GENINFO_AreaOcupacion",
+      "surveyCol": 13,
+      "superSurveyCol": 22,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.037Z",
+      "updatedAt": "2023-11-01T20:07:05.037Z"
+    },
+    {
       "_id": "6542afe9f8dbeb38182e2373",
       "surveyId": {
         "_id": "6542afe9f8dbeb38182e236f",
@@ -386,27 +520,43 @@
         "__v": 0
       },
       "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
-      "questionShort": "A1 Se ha sentido perfectamente...",
+      "questionShort": "A1 Se ha sentido perfectamente…",
       "fieldName": "CSG_A1",
-      "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
       "surveyCol": 1,
       "superSurveyCol": 23,
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.376Z",
       "updatedAt": "2023-11-01T20:07:05.376Z"
-    }
-  },
-  {
-    "fieldId": "6542afe9f8dbeb38182e2375",
-    "surveyShortName": "CSG",
-    "description": "A2 Ha sentido la necesidad de un buen tónico",
-    "shortDescription": "A2 Ha sentido la necesidad de ...",
-    "fieldName": "CSG_A2",
-    "outputSequence": 13,
-    "valuePosition": 25,
-    "isCalculated": false,
-    "outputAsReal": true,
-    "field": {
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2374",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "Otro (especifique)",
+      "questionShort": "Otro (especifique)…",
+      "fieldName": "CSG_A1_Otro",
+      "surveyCol": 2,
+      "superSurveyCol": 24,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.376Z",
+      "updatedAt": "2023-11-01T20:07:05.376Z"
+    },
+    {
       "_id": "6542afe9f8dbeb38182e2375",
       "surveyId": {
         "_id": "6542afe9f8dbeb38182e236f",
@@ -420,27 +570,865 @@
         "__v": 0
       },
       "question": "A2 Ha sentido la necesidad de un buen tónico",
-      "questionShort": "A2 Ha sentido la necesidad de ...",
+      "questionShort": "A2 Ha sentido la necesidad de …",
       "fieldName": "CSG_A2",
-      "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
       "surveyCol": 3,
       "superSurveyCol": 25,
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.376Z",
       "updatedAt": "2023-11-01T20:07:05.376Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2376",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "Otro (especifique)",
+      "questionShort": "Otro (especifique)…",
+      "fieldName": "CSG_A2_Otro",
+      "surveyCol": 4,
+      "superSurveyCol": 26,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.376Z",
+      "updatedAt": "2023-11-01T20:07:05.376Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2377",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "A3 Se ha sentido agotado y sin motivaciones.",
+      "questionShort": "A3 Se ha sentido agotado y sin…",
+      "fieldName": "CSG_A3",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 5,
+      "superSurveyCol": 27,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.376Z",
+      "updatedAt": "2023-11-01T20:07:05.376Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2378",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "A4 Se ha sentido enfermo.",
+      "questionShort": "A4 Se ha sentido enfermo.…",
+      "fieldName": "CSG_A4",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 6,
+      "superSurveyCol": 28,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.377Z",
+      "updatedAt": "2023-11-01T20:07:05.377Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2379",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "A5 Ha tenido dolores de cabeza.",
+      "questionShort": "A5 Ha tenido dolores de cabeza…",
+      "fieldName": "CSG_A5",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 7,
+      "superSurveyCol": 29,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.377Z",
+      "updatedAt": "2023-11-01T20:07:05.377Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e237a",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "A6 Ha sentido tensión o presión en la cabeza.",
+      "questionShort": "A6 Ha sentido tensión o presió…",
+      "fieldName": "CSG_A6",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 8,
+      "superSurveyCol": 30,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.377Z",
+      "updatedAt": "2023-11-01T20:07:05.377Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e237b",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "A7 Ha tenido ráfagas de calor o frío.",
+      "questionShort": "A7 Ha tenido ráfagas de calor …",
+      "fieldName": "CSG_A7",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 9,
+      "superSurveyCol": 31,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.377Z",
+      "updatedAt": "2023-11-01T20:07:05.377Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e237c",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
+      "questionShort": "B1 Ha tenido dificultades para…",
+      "fieldName": "CSG_B1",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 10,
+      "superSurveyCol": 32,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.377Z",
+      "updatedAt": "2023-11-01T20:07:05.377Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e237d",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
+      "questionShort": "B2 Ha tenido dificultades para…",
+      "fieldName": "CSG_B2",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 11,
+      "superSurveyCol": 33,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.377Z",
+      "updatedAt": "2023-11-01T20:07:05.377Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e237e",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B3 Se ha sentido constantemente bajo presión.",
+      "questionShort": "B3 Se ha sentido constantement…",
+      "fieldName": "CSG_B3",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 12,
+      "superSurveyCol": 34,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.395Z",
+      "updatedAt": "2023-11-01T20:07:05.395Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e237f",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B4 Se ha sentido irritable y de mal humor.",
+      "questionShort": "B4 Se ha sentido irritable y d…",
+      "fieldName": "CSG_B4",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 13,
+      "superSurveyCol": 35,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.395Z",
+      "updatedAt": "2023-11-01T20:07:05.395Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2380",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
+      "questionShort": "B5 Se ha sentido asustado o co…",
+      "fieldName": "CSG_B5",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 14,
+      "superSurveyCol": 36,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.395Z",
+      "updatedAt": "2023-11-01T20:07:05.395Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2381",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
+      "questionShort": "B6 Ha tenido la sensación de q…",
+      "fieldName": "CSG_B6",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 15,
+      "superSurveyCol": 37,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2382",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
+      "questionShort": "B7 Se ha sentido nervioso y te…",
+      "fieldName": "CSG_B7",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 16,
+      "superSurveyCol": 38,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2383",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
+      "questionShort": "C1 Se las ha ingeniado para ma…",
+      "fieldName": "CSG_C1",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 17,
+      "superSurveyCol": 39,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2384",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C2 Se tarda más tiempo en hacer las cosas. ",
+      "questionShort": "C2 Se tarda más tiempo en hace…",
+      "fieldName": "CSG_C2",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 18,
+      "superSurveyCol": 40,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2385",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C3 En general siente que ha hecho las cosas bien.",
+      "questionShort": "C3 En general siente que ha he…",
+      "fieldName": "CSG_C3",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 19,
+      "superSurveyCol": 41,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2386",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
+      "questionShort": "C4 Se ha sentido satisfecho po…",
+      "fieldName": "CSG_C4",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 20,
+      "superSurveyCol": 42,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2387",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
+      "questionShort": "C5 Se ha sentido útil y parte …",
+      "fieldName": "CSG_C5",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 21,
+      "superSurveyCol": 43,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2388",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C6 Se ha sentido capaz de tomar decisiones.",
+      "questionShort": "C6 Se ha sentido capaz de toma…",
+      "fieldName": "CSG_C6",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 22,
+      "superSurveyCol": 44,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2389",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
+      "questionShort": "C7 Se ha sentido capaz de disf…",
+      "fieldName": "CSG_C7",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 23,
+      "superSurveyCol": 45,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e238a",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D1  Se ha sentido como una persona de poca valía.",
+      "questionShort": "D1  Se ha sentido como una per…",
+      "fieldName": "CSG_D1",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 24,
+      "superSurveyCol": 46,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e238b",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D2 Ha sentido que la vida no vale nada.",
+      "questionShort": "D2 Ha sentido que la vida no v…",
+      "fieldName": "CSG_D2",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 25,
+      "superSurveyCol": 47,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e238c",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D3 Ha sentido que no vale la pena vivir.",
+      "questionShort": "D3 Ha sentido que no vale la p…",
+      "fieldName": "CSG_D3",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 26,
+      "superSurveyCol": 48,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e238d",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
+      "questionShort": "D4 Ha pensado en la posibilida…",
+      "fieldName": "CSG_D4",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 27,
+      "superSurveyCol": 49,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e238e",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
+      "questionShort": "D5 Se ha sentido incapaz de ha…",
+      "fieldName": "CSG_D5",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 28,
+      "superSurveyCol": 50,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.396Z",
+      "updatedAt": "2023-11-01T20:07:05.396Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e238f",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
+      "questionShort": "D6 Ha sentido ganas de estar m…",
+      "fieldName": "CSG_D6",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 29,
+      "superSurveyCol": 51,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.397Z",
+      "updatedAt": "2023-11-01T20:07:05.397Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2390",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
+      "questionShort": "D7 Le ha venido a la mente la …",
+      "fieldName": "CSG_D7",
+      "weights": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1
+      },
+      "surveyCol": 30,
+      "superSurveyCol": 52,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.397Z",
+      "updatedAt": "2023-11-01T20:07:05.397Z"
     }
-  },
-  {
-    "fieldId": "6542afe9f8dbeb38182e2396",
-    "surveyShortName": "CSG",
-    "description": "TOTAL CSG",
-    "shortDescription": "TOTAL CSG",
-    "fieldName": "CSG_CAL_TOTAL_CSG",
-    "outputSequence": 14,
-    "valuePosition": 5,
-    "isCalculated": true,
-    "outputAsReal": false,
-    "field": {
+  ],
+  "calculatedFields": [
+    {
+      "_id": "6542afe9f8dbeb38182e2392",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "description": "Síntomas Somáticos",
+      "shortDescription": "Somáticos",
+      "fieldName": "CSG_CAL_SOMATICOS",
+      "isCriteria": false,
+      "group": [22, 24, 26, 27, 28, 29, 30],
+      "sequence": 1,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.555Z",
+      "updatedAt": "2023-11-01T20:07:05.555Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2393",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "description": "Ansiedad/insomnio",
+      "shortDescription": "Ansiedad/insomnio",
+      "fieldName": "CSG_CAL_ANSIEDAD",
+      "isCriteria": false,
+      "group": [31, 32, 33, 34, 35, 36, 37],
+      "sequence": 2,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.556Z",
+      "updatedAt": "2023-11-01T20:07:05.556Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2394",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "description": "Disfunción social",
+      "shortDescription": "Disfunción social",
+      "fieldName": "CSG_CAL_DISF_SOCIAL",
+      "isCriteria": false,
+      "group": [38, 39, 40, 41, 42, 43, 44],
+      "sequence": 3,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.556Z",
+      "updatedAt": "2023-11-01T20:07:05.556Z"
+    },
+    {
+      "_id": "6542afe9f8dbeb38182e2395",
+      "surveyId": {
+        "_id": "6542afe9f8dbeb38182e236f",
+        "owner": "62e551baf5c6b51f61e0ef93",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "createdAt": "2023-11-01T20:07:05.175Z",
+        "updatedAt": "2023-11-01T20:07:05.175Z",
+        "__v": 0
+      },
+      "description": "Depresión severa",
+      "shortDescription": "Depresión severa",
+      "fieldName": "CSG_CAL_DEPRESION",
+      "isCriteria": false,
+      "group": [45, 46, 47, 48, 49, 50, 51],
+      "sequence": 4,
+      "__v": 0,
+      "createdAt": "2023-11-01T20:07:05.556Z",
+      "updatedAt": "2023-11-01T20:07:05.556Z"
+    },
+    {
       "_id": "6542afe9f8dbeb38182e2396",
       "surveyId": {
         "_id": "6542afe9f8dbeb38182e236f",
@@ -465,19 +1453,8 @@
       "__v": 0,
       "createdAt": "2023-11-01T20:07:05.556Z",
       "updatedAt": "2023-11-01T20:07:05.556Z"
-    }
-  },
-  {
-    "fieldId": "6542afe9f8dbeb38182e2397",
-    "surveyShortName": "CSG",
-    "description": "Es Caso",
-    "shortDescription": "Es Caso",
-    "fieldName": "CSG_CAL_ES_CASO",
-    "outputSequence": 15,
-    "valuePosition": 6,
-    "isCalculated": true,
-    "outputAsReal": false,
-    "field": {
+    },
+    {
       "_id": "6542afe9f8dbeb38182e2397",
       "surveyId": {
         "_id": "6542afe9f8dbeb38182e236f",
@@ -506,5 +1483,525 @@
       "createdAt": "2023-11-01T20:07:05.556Z",
       "updatedAt": "2023-11-01T20:07:05.556Z"
     }
-  }
-]
+  ],
+  "outputLayout": [
+    {
+      "fieldId": "6542afe8f8dbeb38182e2353",
+      "surveyShortName": "SCOLINFO",
+      "description": "respondent_id",
+      "shortDescription": "respondent_id",
+      "fieldName": "SCOLINFO_respondent_id",
+      "outputSequence": 1,
+      "valuePosition": 1,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2353",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e234f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "surveyCollectionInformation",
+          "surveyShortName": "SCOLINFO",
+          "description": "Informacion de la ecuesta recolectada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.596Z",
+          "updatedAt": "2023-11-01T20:07:04.596Z",
+          "__v": 0
+        },
+        "question": "respondent_id",
+        "questionShort": "respondent_id",
+        "fieldName": "SCOLINFO_respondent_id",
+        "surveyCol": 1,
+        "superSurveyCol": 1,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:04.776Z",
+        "updatedAt": "2023-11-01T20:07:04.776Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2354",
+      "surveyShortName": "SCOLINFO",
+      "description": "collector_id",
+      "shortDescription": "collector_id",
+      "fieldName": "SCOLINFO_collector_id",
+      "outputSequence": 2,
+      "valuePosition": 2,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2354",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e234f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "surveyCollectionInformation",
+          "surveyShortName": "SCOLINFO",
+          "description": "Informacion de la ecuesta recolectada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.596Z",
+          "updatedAt": "2023-11-01T20:07:04.596Z",
+          "__v": 0
+        },
+        "question": "collector_id",
+        "questionShort": "collector_id",
+        "fieldName": "SCOLINFO_collector_id",
+        "surveyCol": 2,
+        "superSurveyCol": 2,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:04.776Z",
+        "updatedAt": "2023-11-01T20:07:04.776Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2355",
+      "surveyShortName": "SCOLINFO",
+      "description": "date_created",
+      "shortDescription": "date_created",
+      "fieldName": "SCOLINFO_date_created",
+      "outputSequence": 3,
+      "valuePosition": 3,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2355",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e234f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "surveyCollectionInformation",
+          "surveyShortName": "SCOLINFO",
+          "description": "Informacion de la ecuesta recolectada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.596Z",
+          "updatedAt": "2023-11-01T20:07:04.596Z",
+          "__v": 0
+        },
+        "question": "date_created",
+        "questionShort": "date_created",
+        "fieldName": "SCOLINFO_date_created",
+        "surveyCol": 3,
+        "superSurveyCol": 3,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:04.776Z",
+        "updatedAt": "2023-11-01T20:07:04.776Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2356",
+      "surveyShortName": "SCOLINFO",
+      "description": "date_modified",
+      "shortDescription": "date_modified",
+      "fieldName": "SCOLINFO_date_modified",
+      "outputSequence": 4,
+      "valuePosition": 4,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2356",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e234f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "surveyCollectionInformation",
+          "surveyShortName": "SCOLINFO",
+          "description": "Informacion de la ecuesta recolectada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.596Z",
+          "updatedAt": "2023-11-01T20:07:04.596Z",
+          "__v": 0
+        },
+        "question": "date_modified",
+        "questionShort": "date_modified",
+        "fieldName": "SCOLINFO_date_modified",
+        "surveyCol": 4,
+        "superSurveyCol": 4,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:04.777Z",
+        "updatedAt": "2023-11-01T20:07:04.777Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2361",
+      "surveyShortName": "GENINFO",
+      "description": "Nombre completo:",
+      "shortDescription": "Nombre",
+      "fieldName": "GENINFO_Nombre",
+      "outputSequence": 5,
+      "valuePosition": 10,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2361",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Nombre completo:",
+        "questionShort": "Nombre",
+        "fieldName": "GENINFO_Nombre",
+        "surveyCol": 1,
+        "superSurveyCol": 10,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2362",
+      "surveyShortName": "GENINFO",
+      "description": "Edad",
+      "shortDescription": "Edad",
+      "fieldName": "GENINFO_Edad",
+      "outputSequence": 6,
+      "valuePosition": 11,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2362",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Edad",
+        "questionShort": "Edad",
+        "fieldName": "GENINFO_Edad",
+        "surveyCol": 2,
+        "superSurveyCol": 11,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2363",
+      "surveyShortName": "GENINFO",
+      "description": "Fecha de nacimiento (dd/mm/aaaa)",
+      "shortDescription": "Nacimiento",
+      "fieldName": "GENINFO_Nacimiento",
+      "outputSequence": 7,
+      "valuePosition": 12,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2363",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Fecha de nacimiento (dd/mm/aaaa)",
+        "questionShort": "Nacimiento",
+        "fieldName": "GENINFO_Nacimiento",
+        "surveyCol": 3,
+        "superSurveyCol": 12,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2364",
+      "surveyShortName": "GENINFO",
+      "description": "Sexo",
+      "shortDescription": "Sexo",
+      "fieldName": "GENINFO_Sexo",
+      "outputSequence": 8,
+      "valuePosition": 13,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2364",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Sexo",
+        "questionShort": "Sexo",
+        "fieldName": "GENINFO_Sexo",
+        "surveyCol": 4,
+        "superSurveyCol": 13,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2365",
+      "surveyShortName": "GENINFO",
+      "description": "Estado civil",
+      "shortDescription": "Civil",
+      "fieldName": "GENINFO_Civil",
+      "outputSequence": 9,
+      "valuePosition": 14,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2365",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Estado civil",
+        "questionShort": "Civil",
+        "fieldName": "GENINFO_Civil",
+        "surveyCol": 5,
+        "superSurveyCol": 14,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2366",
+      "surveyShortName": "GENINFO",
+      "description": "Estado de procedencia",
+      "shortDescription": "Estado",
+      "fieldName": "GENINFO_Estado",
+      "outputSequence": 10,
+      "valuePosition": 15,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2366",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Estado de procedencia",
+        "questionShort": "Estado",
+        "fieldName": "GENINFO_Estado",
+        "surveyCol": 6,
+        "superSurveyCol": 15,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe8f8dbeb38182e2368",
+      "surveyShortName": "GENINFO",
+      "description": "Municipio de residencia actual:",
+      "shortDescription": "Municipio",
+      "fieldName": "GENINFO_Municipio",
+      "outputSequence": 11,
+      "valuePosition": 17,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe8f8dbeb38182e2368",
+        "surveyId": {
+          "_id": "6542afe8f8dbeb38182e235d",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Informacion general de la persona encuestada.",
+          "surveyShortName": "GENINFO",
+          "description": "Informacion de la persona encuestada.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:04.896Z",
+          "updatedAt": "2023-11-01T20:07:04.896Z",
+          "__v": 0
+        },
+        "question": "Municipio de residencia actual:",
+        "questionShort": "Municipio",
+        "fieldName": "GENINFO_Municipio",
+        "surveyCol": 8,
+        "superSurveyCol": 17,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.036Z",
+        "updatedAt": "2023-11-01T20:07:05.036Z"
+      }
+    },
+    {
+      "fieldId": "6542afe9f8dbeb38182e2373",
+      "surveyShortName": "CSG",
+      "description": "A1 Se ha sentido perfectamente bien y con buena salud.",
+      "shortDescription": "A1 Se ha sentido perfectamente…",
+      "fieldName": "CSG_A1",
+      "outputSequence": 12,
+      "valuePosition": 23,
+      "isCalculated": false,
+      "outputAsReal": false,
+      "field": {
+        "_id": "6542afe9f8dbeb38182e2373",
+        "surveyId": {
+          "_id": "6542afe9f8dbeb38182e236f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Cuestionario General de Salud.",
+          "surveyShortName": "CSG",
+          "description": "Cuestionario General de Salud.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:05.175Z",
+          "updatedAt": "2023-11-01T20:07:05.175Z",
+          "__v": 0
+        },
+        "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
+        "questionShort": "A1 Se ha sentido perfectamente…",
+        "fieldName": "CSG_A1",
+        "weights": {
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 1
+        },
+        "surveyCol": 1,
+        "superSurveyCol": 23,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.376Z",
+        "updatedAt": "2023-11-01T20:07:05.376Z"
+      }
+    },
+    {
+      "fieldId": "6542afe9f8dbeb38182e2375",
+      "surveyShortName": "CSG",
+      "description": "A2 Ha sentido la necesidad de un buen tónico",
+      "shortDescription": "A2 Ha sentido la necesidad de …",
+      "fieldName": "CSG_A2",
+      "outputSequence": 13,
+      "valuePosition": 25,
+      "isCalculated": false,
+      "outputAsReal": true,
+      "field": {
+        "_id": "6542afe9f8dbeb38182e2375",
+        "surveyId": {
+          "_id": "6542afe9f8dbeb38182e236f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Cuestionario General de Salud.",
+          "surveyShortName": "CSG",
+          "description": "Cuestionario General de Salud.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:05.175Z",
+          "updatedAt": "2023-11-01T20:07:05.175Z",
+          "__v": 0
+        },
+        "question": "A2 Ha sentido la necesidad de un buen tónico",
+        "questionShort": "A2 Ha sentido la necesidad de …",
+        "fieldName": "CSG_A2",
+        "weights": {
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 1
+        },
+        "surveyCol": 3,
+        "superSurveyCol": 25,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.376Z",
+        "updatedAt": "2023-11-01T20:07:05.376Z"
+      }
+    },
+    {
+      "fieldId": "6542afe9f8dbeb38182e2396",
+      "surveyShortName": "CSG",
+      "description": "TOTAL CSG",
+      "shortDescription": "TOTAL CSG",
+      "fieldName": "CSG_CAL_TOTAL_CSG",
+      "outputSequence": 14,
+      "valuePosition": 5,
+      "isCalculated": true,
+      "outputAsReal": false,
+      "field": {
+        "_id": "6542afe9f8dbeb38182e2396",
+        "surveyId": {
+          "_id": "6542afe9f8dbeb38182e236f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Cuestionario General de Salud.",
+          "surveyShortName": "CSG",
+          "description": "Cuestionario General de Salud.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:05.175Z",
+          "updatedAt": "2023-11-01T20:07:05.175Z",
+          "__v": 0
+        },
+        "description": "TOTAL CSG",
+        "shortDescription": "TOTAL CSG",
+        "fieldName": "CSG_CAL_TOTAL_CSG",
+        "isCriteria": false,
+        "group": [
+          22, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+          41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
+        ],
+        "sequence": 5,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.556Z",
+        "updatedAt": "2023-11-01T20:07:05.556Z"
+      }
+    },
+    {
+      "fieldId": "6542afe9f8dbeb38182e2397",
+      "surveyShortName": "CSG",
+      "description": "Es Caso",
+      "shortDescription": "Es Caso",
+      "fieldName": "CSG_CAL_ES_CASO",
+      "outputSequence": 15,
+      "valuePosition": 6,
+      "isCalculated": true,
+      "outputAsReal": false,
+      "field": {
+        "_id": "6542afe9f8dbeb38182e2397",
+        "surveyId": {
+          "_id": "6542afe9f8dbeb38182e236f",
+          "owner": "62e551baf5c6b51f61e0ef93",
+          "surveyName": "Cuestionario General de Salud.",
+          "surveyShortName": "CSG",
+          "description": "Cuestionario General de Salud.",
+          "instructions": "",
+          "createdAt": "2023-11-01T20:07:05.175Z",
+          "updatedAt": "2023-11-01T20:07:05.175Z",
+          "__v": 0
+        },
+        "description": "Es Caso",
+        "shortDescription": "Es Caso",
+        "fieldName": "CSG_CAL_ES_CASO",
+        "isCriteria": true,
+        "criteria": {
+          "fieldNameValue": ["CSG_CAL_TOTAL_CSG"],
+          "operator": ">",
+          "value": 4,
+          "resultIfTrue": 1,
+          "resultIfFalse": 0
+        },
+        "sequence": 6,
+        "__v": 0,
+        "createdAt": "2023-11-01T20:07:05.556Z",
+        "updatedAt": "2023-11-01T20:07:05.556Z"
+      }
+    }
+  ]
+}

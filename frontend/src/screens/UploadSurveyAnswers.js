@@ -16,7 +16,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
-import { surveyProcessAnswersAction } from "../actions/surveyActions";
+import {
+  surveyProcessAnswersAction,
+  surveyProcessAnswersAtClientAction,
+} from "../actions/surveyActions";
 //import { surveysConfigurations } from "../surveysConfigurations";
 import { LogThis, LoggerSettings } from "../libs/Logger";
 
@@ -41,6 +44,9 @@ const UploadSurveyAnswers = ({ match, history }) => {
   const [uploadingReal, setuploadingReal] = useState(false);
 
   const [uploadingServer, setuploadingServer] = useState(false);
+  const [startToProcessAnswers, setstartToProcessAnswers] = useState(false);
+  const [surveyStatusMessage, setsurveyStatusMessage] = useState("");
+  const [surveyStatusRow, setsurveyStatusRow] = useState(0);
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -53,6 +59,8 @@ const UploadSurveyAnswers = ({ match, history }) => {
     error: surveyError,
     success: surveySuccess,
     survey: surveyData,
+    surveyStatusMessage: surveyMessage,
+    surveyStatusRow: surveyRow,
   } = surveyProcessAnswers;
 
   // const [nombreDeArchivoDatosReales, setnombreDeArchivoDatosReales] =
@@ -73,7 +81,25 @@ const UploadSurveyAnswers = ({ match, history }) => {
     LogThis(objLogSettings, `START`);
 
     const file = e.target.files[0];
-    setfileReal(file);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target.result;
+      //setFileContent(content);
+      setfileReal(content);
+      // const zippedFile = await zipFile("fileNumeric.csv", file);
+      // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
+
+      // const unzippedText = await unzipFile(file, "OutputReport.csv");
+      // autoDownloadTextAsFileOnClientBrowser(
+      //   unzippedText,
+      //   "OutputReportUnzipped.csv"
+      // );
+      LogThis(log, "numeric data read as text");
+      setuploadingNumeric(false);
+    };
+    reader.readAsText(file);
+
     // const zippedFile = await zipFile("fileReal.csv", file);
     // autoDownloadFileOnClientBrowser(zippedFile, "Real File 1021 Row.zip");
 
@@ -86,33 +112,46 @@ const UploadSurveyAnswers = ({ match, history }) => {
     LogThis(log, "START");
     setuploadingNumeric(true);
     const file = e.target.files[0];
-    setfileNumeric(file);
-    // const zippedFile = await zipFile("fileNumeric.csv", file);
-    // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target.result;
+      //setFileContent(content);
+      setfileNumeric(content);
+      // const zippedFile = await zipFile("fileNumeric.csv", file);
+      // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
 
-    // const unzippedText = await unzipFile(file, "OutputReport.csv");
-    // autoDownloadTextAsFileOnClientBrowser(
-    //   unzippedText,
-    //   "OutputReportUnzipped.csv"
-    // );
-
-    setuploadingNumeric(false);
-    LogThis(log, "END");
+      // const unzippedText = await unzipFile(file, "OutputReport.csv");
+      // autoDownloadTextAsFileOnClientBrowser(
+      //   unzippedText,
+      //   "OutputReportUnzipped.csv"
+      // );
+      LogThis(log, "numeric data read as text");
+      setuploadingNumeric(false);
+    };
+    reader.readAsText(file);
   };
 
   const uploadToServer = async (e) => {
     e.preventDefault();
     const log = new LoggerSettings(srcFileName, "uploadToServer");
     LogThis(log, "START");
-    setuploadingServer(true);
 
-    dispatch(
-      surveyProcessAnswersAction({
-        surveySuperiorId: "6542afe8f8dbeb38182e234d",
-        fileNumeric: fileNumeric,
-        fileReal: fileReal,
-      })
-    );
+    setstartToProcessAnswers(true);
+
+    // dispatch(
+    //   surveyProcessAnswersAction({
+    //     surveySuperiorId: "6542afe8f8dbeb38182e234d",
+    //     fileNumeric: fileNumeric,
+    //     fileReal: fileReal,
+    //   })
+
+    // dispatch(
+    //   surveyProcessAnswersAtClientAction({
+    //     surveySuperiorId: "6542afe8f8dbeb38182e234d",
+    //     fileNumeric: fileNumeric,
+    //     fileReal: fileReal,
+    //   })
+    // );
 
     //dispatch goes here and have to pass the id of the survey and fileNumeric and fileReal as an object to the dispatch.
     /**
@@ -186,6 +225,22 @@ const UploadSurveyAnswers = ({ match, history }) => {
   };
 
   useEffect(() => {
+    LogThis(
+      log,
+      `useEffect startToProcess=${startToProcessAnswers}; uploadingServer=${uploadingServer}`
+    );
+    if (startToProcessAnswers && !uploadingServer) {
+      setuploadingServer(true);
+      dispatch(
+        surveyProcessAnswersAtClientAction({
+          surveySuperiorId: "6542afe8f8dbeb38182e234d",
+          fileNumeric: fileNumeric,
+          fileReal: fileReal,
+        })
+      );
+      setstartToProcessAnswers(false);
+    }
+
     if (!surveyLoading && surveySuccess && surveyData && uploadingServer) {
       saveStringAsCSV(surveyData, "OutputReport.csv");
       dispatch({ type: SURVEY_PROCESS_ANSWERS_RESET });
@@ -205,52 +260,15 @@ const UploadSurveyAnswers = ({ match, history }) => {
     surveyError,
     surveySuccess,
     uploadingServer,
+    surveyRow,
     userInfo,
+    startToProcessAnswers,
   ]);
-
-  // useEffect(() => {
-
-  //   const objLogSettings = new LoggerSettings(srcFileName, "useEffect");
-  //   LogThis(
-  //     objLogSettings,
-  //     `in useEffect cycle uploading=${uploading}; fileContentsReady=${fileContentsReady}`
-  //   );
-
-  //   if (
-  //     !uploading &&
-  //     fileContentsReady &&
-  //     !uploadingReales &&
-  //     fileContentsRealesReady
-  //   ) {
-  //     LogThis(
-  //       objLogSettings,
-  //       `processing CSV uploading=${uploading}; fileContentsReady=${fileContentsReady}; uploadingReales=${uploadingReales}; fileContentsRealesReady=${fileContentsRealesReady}`
-  //     );
-  //     // console.log(`setting myCSV to true myCSV=${myCSV}`);
-  //     // setmyCSV(true);
-  //     // console.log(`setted myCSV to true myCSV=${myCSV}`)(async () => {
-  //     //   await processCSVData();
-  //     //   setmyCSV(false);
-  //     //   console.log(`setted myCSV to false myCSV=${myCSV}`);
-  //     // })();
-  //     // // processCSVData().then(()=>{
-  //     // // console.log(`setting myCSV to false myCSV=${myCSV}`)
-  //     // // setmyCSV(false)
-  //     // // console.log(`setted myCSV to false myCSV=${myCSV}`)
-  //     // // })
-  //   }
-  // }, [
-  //   dispatch,
-  //   fileContents,
-  //   fileContentsReady,
-  //   uploading,
-  //   uploadingReales,
-  //   fileContentsRealesReady,
-  // ]);
 
   return (
     <>
       {(uploadingNumeric || uploadingReal || uploadingServer) && <Loader />}
+      {/* <h1>{`row=${surveyRow}`}</h1> */}
       <FormContainer>
         {surveyError && <Message variant="danger">{surveyError}</Message>}
         <h1>Procesar respuestas de encuesta</h1>
@@ -285,15 +303,32 @@ const UploadSurveyAnswers = ({ match, history }) => {
               className=""
               onChange={uploadFileRealHandler}
             ></Form.Control>
-            <br />
+            {/* <br />
             <Button variant="primary" onClick={testsHandler}>
               Tests
-            </Button>
+            </Button> */}
             <br />
             <br />
             <Button type="submit" variant="primary">
               PROCESAR ARCHIVOS
             </Button>
+            <br />
+            <br />
+            {surveyMessage && surveyMessage != "" && (
+              <Form.Label>Estatus de procesamiento de la encuesta:</Form.Label>
+            )}
+            <br />
+            <br />
+            {/* {surveyMessage != "" &&
+              console.log(`surveyMessage=${surveyMessage}; row=${surveyRow}`)} */}
+            {surveyMessage && surveyMessage != "" && (
+              <Form.Label>Estado: {surveyMessage}</Form.Label>
+            )}
+            <br />
+            <br />
+            {surveyRow && surveyRow > 0 && (
+              <Form.Label>Procesando encuesta numero: {surveyRow}</Form.Label>
+            )}
           </Form.Group>
         </Form>
       </FormContainer>

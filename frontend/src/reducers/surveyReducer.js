@@ -7,20 +7,27 @@ import {
   SURVEY_PROCESS_ANSWERS_SUCCESS,
   SURVEY_PROCESS_ANSWERS_FAIL,
   SURVEY_PROCESS_ANSWERS_RESET,
+  SURVEY_PROCESS_ANSWERS_STATUS,
 } from "../constants/surveyConstants";
 
 export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
   switch (action.type) {
     case SURVEY_PROCESS_ANSWERS_REQUEST:
       return { loading: true };
-    case SURVEY_PROCESS_ANSWERS_SUCCESS: {
-      LogThis(
-        `surveyReducer.js, surveyProcessAnswersReducer, PRODUCT_UDPATE_SUCCESS, action.payload=${JSON.stringify(
-          action.payload
-        )}`
-      );
+    case SURVEY_PROCESS_ANSWERS_STATUS:
+      return {
+        loading: true,
+        surveyStatusMessage: action.payload.message,
+        surveyStatusRow: action.payload.row,
+      };
+    case SURVEY_PROCESS_ANSWERS_SUCCESS:
+      // LogThis(
+      //   `surveyReducer.js, surveyProcessAnswersReducer, PRODUCT_UDPATE_SUCCESS, action.payload=${JSON.stringify(
+      //     action.payload
+      //   )}`
+      // );
       return { loading: false, success: true, survey: action.payload };
-    }
+
     case SURVEY_PROCESS_ANSWERS_FAIL:
       return { loading: false, error: action.payload };
     case SURVEY_PROCESS_ANSWERS_RESET:
