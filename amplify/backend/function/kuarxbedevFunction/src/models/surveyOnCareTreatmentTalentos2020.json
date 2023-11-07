@@ -564,6 +564,318 @@
             "sequence": 6
           }
         ]
+      },
+      {
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
+        "surveyShortName": "BURN",
+        "description": "Cuestionario de Maslach (Burnout Inventory)",
+        "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
+        "questionList": [
+          {
+            "surveyId": "",
+            "question": "1. Me siento emocionalmente agotado por mi trabajo",
+            "questionShort": "1. Me siento emocionalmente ag…",
+            "fieldName": "BURN_1",
+            "weights": {},
+            "surveyCol": 1,
+            "superSurveyCol": 68
+          },
+          {
+            "surveyId": "",
+            "question": "2. Cuando termino mi jornada de trabajo me siento vacío",
+            "questionShort": "2. Cuando termino mi jornada d…",
+            "fieldName": "BURN_2",
+            "weights": {},
+            "surveyCol": 2,
+            "superSurveyCol": 69
+          },
+          {
+            "surveyId": "",
+            "question": "3. Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
+            "questionShort": "3. Cuando me levanto por la ma…",
+            "fieldName": "BURN_3",
+            "weights": {},
+            "surveyCol": 3,
+            "superSurveyCol": 70
+          },
+          {
+            "surveyId": "",
+            "question": "4. Siento que puedo entender fácilmente a los pacientes.",
+            "questionShort": "4. Siento que puedo entender f…",
+            "fieldName": "BURN_4",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 4,
+            "superSurveyCol": 71
+          },
+          {
+            "surveyId": "",
+            "question": "5. Siento que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
+            "questionShort": "5. Siento que estoy tratando a…",
+            "fieldName": "BURN_5",
+            "weights": {},
+            "surveyCol": 5,
+            "superSurveyCol": 72
+          },
+          {
+            "surveyId": "",
+            "question": "6. Siento que trabajar todo el día con la gente me cansa.",
+            "questionShort": "6. Siento que trabajar todo el…",
+            "fieldName": "BURN_6",
+            "weights": {},
+            "surveyCol": 6,
+            "superSurveyCol": 73
+          },
+          {
+            "surveyId": "",
+            "question": "7. Siento que trato con mucha eficacia los problemas de mis pacientes.",
+            "questionShort": "7. Siento que trato con mucha …",
+            "fieldName": "BURN_7",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 7,
+            "superSurveyCol": 74
+          },
+          {
+            "surveyId": "",
+            "question": "8. Siento que mi trabajo me está desgastando.",
+            "questionShort": "8. Siento que mi trabajo me es…",
+            "fieldName": "BURN_8",
+            "weights": {},
+            "surveyCol": 8,
+            "superSurveyCol": 75
+          },
+          {
+            "surveyId": "",
+            "question": "9. Siento que estoy influyendo positivamente en la vida de otras personas a través de mi trabajo",
+            "questionShort": "9. Siento que estoy influyendo…",
+            "fieldName": "BURN_9",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 9,
+            "superSurveyCol": 76
+          },
+          {
+            "surveyId": "",
+            "question": "10. Siento que me he hecho mas duro con la gente",
+            "questionShort": "10. Siento que me he hecho mas…",
+            "fieldName": "BURN_10",
+            "weights": {},
+            "surveyCol": 10,
+            "superSurveyCol": 77
+          },
+          {
+            "surveyId": "",
+            "question": "11. Me preocupa que este trabajo me esté endureciendo emocionalmente",
+            "questionShort": "11. Me preocupa que este traba…",
+            "fieldName": "BURN_11",
+            "weights": {},
+            "surveyCol": 11,
+            "superSurveyCol": 78
+          },
+          {
+            "surveyId": "",
+            "question": "12. Me siento con mucha energía en mi trabajo",
+            "questionShort": "12. Me siento con mucha energí…",
+            "fieldName": "BURN_12",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 12,
+            "superSurveyCol": 79
+          },
+          {
+            "surveyId": "",
+            "question": "13. Me siento frustrado en mi trabajo",
+            "questionShort": "13. Me siento frustrado en mi …",
+            "fieldName": "BURN_13",
+            "weights": {},
+            "surveyCol": 13,
+            "superSurveyCol": 80
+          },
+          {
+            "surveyId": "",
+            "question": "14. Siento que estoy demasiado tiempo en mi trabajo",
+            "questionShort": "14. Siento que estoy demasiado…",
+            "fieldName": "BURN_14",
+            "weights": {},
+            "surveyCol": 14,
+            "superSurveyCol": 81
+          },
+          {
+            "surveyId": "",
+            "question": "15. Siento que realmente no me importa lo que les ocurre a mis pacientes",
+            "questionShort": "15. Siento que realmente no me…",
+            "fieldName": "BURN_15",
+            "weights": {},
+            "surveyCol": 15,
+            "superSurveyCol": 82
+          },
+          {
+            "surveyId": "",
+            "question": "16. Siento que trabajar en contacto directo con la gente me cansa",
+            "questionShort": "16. Siento que trabajar en con…",
+            "fieldName": "BURN_16",
+            "weights": {},
+            "surveyCol": 16,
+            "superSurveyCol": 83
+          },
+          {
+            "surveyId": "",
+            "question": "17. Siento que puedo crear con facilidad un clima agradable con mis pacientes",
+            "questionShort": "17. Siento que puedo crear con…",
+            "fieldName": "BURN_17",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 17,
+            "superSurveyCol": 84
+          },
+          {
+            "surveyId": "",
+            "question": "18. Me siento estimado después de haber trabajado íntimamente con los pacientes",
+            "questionShort": "18. Me siento estimado después…",
+            "fieldName": "BURN_18",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 18,
+            "superSurveyCol": 85
+          },
+          {
+            "surveyId": "",
+            "question": "19. Creo que consigo muchas cosas valiosas en este trabajo",
+            "questionShort": "19. Creo que consigo muchas co…",
+            "fieldName": "BURN_19",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 19,
+            "superSurveyCol": 86
+          },
+          {
+            "surveyId": "",
+            "question": "20. Me siento como si estuviera al límite de mis posibilidades",
+            "questionShort": "20. Me siento como si estuvier…",
+            "fieldName": "BURN_20",
+            "weights": {},
+            "surveyCol": 20,
+            "superSurveyCol": 87
+          },
+          {
+            "surveyId": "",
+            "question": "21. Siento que en mi trabajo los problemas emocionales son tratados de forma adecuada",
+            "questionShort": "21. Siento que en mi trabajo l…",
+            "fieldName": "BURN_21",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 21,
+            "superSurveyCol": 88
+          },
+          {
+            "surveyId": "",
+            "question": "22. Me parece que los pacientes me culpan de algunos de sus problemas",
+            "questionShort": "22. Me parece que los paciente…",
+            "fieldName": "BURN_22",
+            "weights": {},
+            "surveyCol": 22,
+            "superSurveyCol": 89
+          }
+        ],
+        "calculatedFieldList": [
+          {
+            "surveyId": "",
+            "description": "Agotamiento emocional",
+            "shortDescription": "Emocional",
+            "fieldName": "BURN_CAL_EMOCIONAL",
+            "isCriteria": false,
+            "group": [70, 73, 75, 83, 84, 85, 87],
+            "sequence": 1
+          },
+          {
+            "surveyId": "",
+            "description": "Despersonalizacion",
+            "shortDescription": "Despersonalizacion",
+            "fieldName": "BURN_CAL_DESPERS",
+            "isCriteria": false,
+            "group": [67, 68, 69, 72, 74, 79, 80, 86],
+            "sequence": 2
+          },
+          {
+            "surveyId": "",
+            "description": "Logros personales",
+            "shortDescription": "Logros personales",
+            "fieldName": "BURN_CAL_LOGROS",
+            "isCriteria": false,
+            "group": [71, 76, 77, 81, 88],
+            "sequence": 3
+          },
+          {
+            "surveyId": "",
+            "description": "TOTAL BURNOUT",
+            "shortDescription": "TOTAL BURNOUT",
+            "fieldName": "BURN_CAL_TOTAL",
+            "isCriteria": false,
+            "group": [
+              67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 79, 80, 81, 83, 84,
+              85, 86, 87, 88
+            ],
+            "sequence": 4
+          }
+        ]
       }
     ],
     "surveySuperiorOutputLayout": [
@@ -592,70 +904,364 @@
         "sequence": 4
       },
       {
-        "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Nombre",
-        "outputAsReal": true,
+        "surveyShortName": "SCOLINFO",
+        "fieldName": "SCOLINFO_ip_address",
+        "outputAsReal": false,
         "sequence": 5
       },
       {
         "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Edad",
+        "fieldName": "GENINFO_Nombre",
         "outputAsReal": true,
         "sequence": 6
-      },
-      {
-        "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Nacimiento",
-        "outputAsReal": true,
-        "sequence": 7
-      },
-      {
-        "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Sexo",
-        "outputAsReal": true,
-        "sequence": 8
-      },
-      {
-        "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Civil",
-        "outputAsReal": true,
-        "sequence": 9
-      },
-      {
-        "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Estado",
-        "outputAsReal": true,
-        "sequence": 10
-      },
-      {
-        "surveyShortName": "GENINFO",
-        "fieldName": "GENINFO_Municipio",
-        "outputAsReal": true,
-        "sequence": 11
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A1",
         "outputAsReal": false,
-        "sequence": 12
+        "sequence": 7
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A1_Otro",
+        "outputAsReal": false,
+        "sequence": 8
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A2",
-        "outputAsReal": true,
+        "outputAsReal": false,
+        "sequence": 9
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A2_Otro",
+        "outputAsReal": false,
+        "sequence": 10
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A3",
+        "outputAsReal": false,
+        "sequence": 11
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A4",
+        "outputAsReal": false,
+        "sequence": 12
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_A5",
+        "outputAsReal": false,
         "sequence": 13
       },
       {
         "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_TOTAL_CSG",
+        "fieldName": "CSG_A6",
         "outputAsReal": false,
         "sequence": 14
       },
       {
         "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_ES_CASO",
+        "fieldName": "CSG_A7",
         "outputAsReal": false,
         "sequence": 15
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B1",
+        "outputAsReal": false,
+        "sequence": 16
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B2",
+        "outputAsReal": false,
+        "sequence": 17
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B3",
+        "outputAsReal": false,
+        "sequence": 18
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B4",
+        "outputAsReal": false,
+        "sequence": 19
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B5",
+        "outputAsReal": false,
+        "sequence": 20
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B6",
+        "outputAsReal": false,
+        "sequence": 21
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_B7",
+        "outputAsReal": false,
+        "sequence": 22
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C1",
+        "outputAsReal": false,
+        "sequence": 23
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C2",
+        "outputAsReal": false,
+        "sequence": 24
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C3",
+        "outputAsReal": false,
+        "sequence": 25
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C4",
+        "outputAsReal": false,
+        "sequence": 26
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C5",
+        "outputAsReal": false,
+        "sequence": 27
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C6",
+        "outputAsReal": false,
+        "sequence": 28
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_C7",
+        "outputAsReal": false,
+        "sequence": 29
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D1",
+        "outputAsReal": false,
+        "sequence": 30
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D2",
+        "outputAsReal": false,
+        "sequence": 31
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D3",
+        "outputAsReal": false,
+        "sequence": 32
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D4",
+        "outputAsReal": false,
+        "sequence": 33
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D5",
+        "outputAsReal": false,
+        "sequence": 34
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D6",
+        "outputAsReal": false,
+        "sequence": 35
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_D7",
+        "outputAsReal": false,
+        "sequence": 36
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_1",
+        "outputAsReal": false,
+        "sequence": 37
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_2",
+        "outputAsReal": false,
+        "sequence": 38
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_3",
+        "outputAsReal": false,
+        "sequence": 39
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_4",
+        "outputAsReal": false,
+        "sequence": 40
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_5",
+        "outputAsReal": false,
+        "sequence": 41
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_6",
+        "outputAsReal": false,
+        "sequence": 42
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_7",
+        "outputAsReal": false,
+        "sequence": 43
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_8",
+        "outputAsReal": false,
+        "sequence": 44
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_9",
+        "outputAsReal": false,
+        "sequence": 45
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_10",
+        "outputAsReal": false,
+        "sequence": 46
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_11",
+        "outputAsReal": false,
+        "sequence": 47
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_12",
+        "outputAsReal": false,
+        "sequence": 48
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_13",
+        "outputAsReal": false,
+        "sequence": 49
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_14",
+        "outputAsReal": false,
+        "sequence": 50
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_15",
+        "outputAsReal": false,
+        "sequence": 51
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_16",
+        "outputAsReal": false,
+        "sequence": 52
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_17",
+        "outputAsReal": false,
+        "sequence": 53
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_18",
+        "outputAsReal": false,
+        "sequence": 54
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_19",
+        "outputAsReal": false,
+        "sequence": 55
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_20",
+        "outputAsReal": false,
+        "sequence": 56
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_21",
+        "outputAsReal": false,
+        "sequence": 57
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_22",
+        "outputAsReal": false,
+        "sequence": 58
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_TOTAL_CSG",
+        "outputAsReal": false,
+        "sequence": 59
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_ES_CASO",
+        "outputAsReal": false,
+        "sequence": 60
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_CAL_EMOCIONAL",
+        "outputAsReal": false,
+        "sequence": 61
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_CAL_DESPERS",
+        "outputAsReal": false,
+        "sequence": 62
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_CAL_LOGROS",
+        "outputAsReal": false,
+        "sequence": 63
+      },
+      {
+        "surveyShortName": "BURN",
+        "fieldName": "BURN_CAL_TOTAL",
+        "outputAsReal": false,
+        "sequence": 64
       }
     ]
   }

@@ -13,6 +13,7 @@ let {
   superSurveyCreateConfig,
   superSurveyTests,
   getSuperSurveyConfigs,
+  superSurveyGetList,
 } = require("../controllers/surveyController.js");
 let { protect, admin } = require("../middleware/authMiddleware.js");
 
@@ -26,6 +27,9 @@ router
     upload.fields([{ name: "fileNumeric" }, { name: "fileReal" }]),
     superSurveyUploadAnswers
   );
-router.route("/").post(protect, admin, superSurveyCreateConfig);
+router
+  .route("/")
+  .get(protect, admin, superSurveyGetList)
+  .post(protect, admin, superSurveyCreateConfig);
 
 module.exports = router;

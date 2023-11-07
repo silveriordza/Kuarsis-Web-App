@@ -1,16 +1,24 @@
 /** @format */
 
-const LogThis = (logSettings, logMessage) => {
-  if (process.env.LOG_LEVEL >= 1) {
-    !logSettings
-      ? console.log("%s: %s", new Date().toLocaleTimeString(), logMessage)
-      : console.log(
-          "%s: %s, %s: %s",
-          new Date().toLocaleTimeString(),
-          logSettings.fileName ?? "NA",
-          logSettings.functionName ?? "NA",
-          logMessage
-        );
+const OFF = -1;
+const L0 = 0;
+const L1 = 1;
+const L2 = 2;
+const L3 = 3;
+
+const LogThis = (logSettings, logMessage, level = OFF) => {
+  if (level != OFF && process.env.LOG_LEVEL != OFF) {
+    if (process.env.LOG_LEVEL >= level) {
+      !logSettings
+        ? console.log("%s: %s", new Date().toLocaleTimeString(), logMessage)
+        : console.log(
+            "%s: %s, %s: %s",
+            new Date().toLocaleTimeString(),
+            logSettings.fileName ?? "NA",
+            logSettings.functionName ?? "NA",
+            logMessage
+          );
+    }
   }
 };
 
@@ -26,4 +34,13 @@ function LoggerSettings(fileName = "", functionName = "") {
   this.functionName = functionName || "";
 }
 
-module.exports = { LogThis, initLogSettings, LoggerSettings };
+module.exports = {
+  LogThis,
+  initLogSettings,
+  LoggerSettings,
+  OFF,
+  L0,
+  L1,
+  L2,
+  L3,
+};
