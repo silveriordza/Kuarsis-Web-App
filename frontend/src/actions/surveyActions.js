@@ -5,10 +5,14 @@ import {
   SURVEY_PROCESS_ANSWERS_SUCCESS,
   SURVEY_PROCESS_ANSWERS_FAIL,
   SURVEY_PROCESS_ANSWERS_STATUS,
+  SURVEY_DETAILS_REQUEST,
+  SURVEY_DETAILS_SUCCESS,
+  SURVEY_DETAILS_FAIL,
+  SURVEY_DETAILS_RESET,
 } from "../constants/surveyConstants";
 import { zipFile, unzipFile, unzipStringBase64 } from "../libs/Functions";
 
-import { LogThis, LoggerSettings } from "../libs/Logger";
+import { LogThis, LoggerSettings, L0, L1, L2, L3 } from "../libs/Logger";
 
 import { rowCleaner2 } from "../libs/csvProcessingLib";
 
@@ -147,22 +151,11 @@ export const surveyProcessAnswersAtClientAction =
       });
       await new Promise((resolve) => setTimeout(resolve, 1));
 
-      //console.log(`waiting 3`);
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-      // console.log(`done waiting`);
-      // dispatch({
-      //   type: SURVEY_PROCESS_ANSWERS_SUCCESS,
-      //   payload: "hola mundo!",
-      // });
-      // dispatch({
-      //   type: SURVEY_PROCESS_ANSWERS_STATUS,
-      //   payload: { message: "Survey Process started", row: 0 },
-      // });
       const fileNumeric = survey.fileNumeric;
       const fileReal = survey.fileReal;
 
       const surveySuperiorId = survey.surveySuperiorId;
-
+      LogThis(log, `surveySuperiorId selected =${surveySuperiorId}`, L0);
       if (fileNumeric && fileReal) {
         const {
           userLogin: { userInfo },
@@ -196,7 +189,7 @@ export const surveyProcessAnswersAtClientAction =
           BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/configs`,
           config
         );
-        LogThis(log, `data=${JSON.stringify(data, null, 2)}`);
+        LogThis(log, `data=${JSON.stringify(data, null, 2)}`, L1);
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: { message: "Configuracion de encuestas obtenido.", row: 0 },
@@ -357,6 +350,7 @@ export const surveyProcessAnswersAtClientAction =
             //   `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
             // );
             let surveyQuestion = allSurveyQuestions[a];
+            let superSurveyQuestionCol = surveyQuestion.superSurveyCol - 1;
             //transform the question answer value into the weighted answer for that Survey.
             let weightedResponse = null;
             let response = null;
@@ -385,23 +379,43 @@ export const surveyProcessAnswersAtClientAction =
               //     ]
               //   }`
               // );
-              let answerA = answers[a].toString().trim().replace(/'\n'/g, "");
-              if (answerA == "") {
-                answerA = "0";
-              }
+              let answerA = answers[superSurveyQuestionCol]
+                .toString()
+                .trim()
+                .replace(/'\n'/g, "");
+              // if (answerA == "") {
+              //   answerA = "";
+              // }
+
               weightedResponse = surveyQuestion.weights[answerA];
-              if (!weightedResponse) {
-                weightedResponse = "0";
+              LogThis(
+                log,
+                `question weights=${JSON.stringify(surveyQuestion.weights)}`
+              );
+              LogThis(
+                log,
+                `BEFORE col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+                L3
+              );
+              if (weightedResponse === undefined) {
+                weightedResponse = answerA;
+                isWeighted = false;
+              } else {
+                isWeighted = true;
               }
               response = answerA;
-              answers[a] = weightedResponse;
-              isWeighted = true;
-              LogThis(log, `final weight: answer=${weightedResponse}`);
+              answers[superSurveyQuestionCol] = weightedResponse;
+              LogThis(
+                log,
+                `AFTER col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+                L3
+              );
+              //LogThis(log, `final weight: answer=${weightedResponse}`);
             } else {
-              let answerA = answers[a];
-              if (answerA == "") {
-                answerA = "0";
-              }
+              let answerA = answers[superSurveyQuestionCol];
+              // if (answerA == "") {
+              //   answerA = "0";
+              // }
               response = answerA;
               weightedResponse = answerA;
               isWeighted = false;
@@ -414,7 +428,7 @@ export const surveyProcessAnswersAtClientAction =
               row: row,
               col: a + 1,
               response: response,
-              responseReal: answersReal[a],
+              responseReal: answersReal[superSurveyQuestionCol],
               weightedResponse: weightedResponse,
               isWeighted: isWeighted,
             });
@@ -528,7 +542,7 @@ export const surveyProcessAnswersAtClientAction =
               }; row=${row};col=${a + 1}; value=${value}; `
             );
             if (typeof value != "number" || value == null || isNaN(value)) {
-              value = -1000;
+              value = 0;
             }
             calculatedValues.push({
               calculatedFieldId: allCalculatedFields[a]._id,
@@ -708,3 +722,38 @@ export const surveyProcessAnswersAtClientAction =
       });
     }
   };
+
+export const surveyDetailsAction = () => async (dispatch, getState) => {
+  try {
+    const log = new LoggerSettings(srcFileName, "surveyDetailsAction");
+    dispatch({
+      type: SURVEY_DETAILS_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    LogThis(log, "ABOUT TO CALL AXIOS");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(BACKEND_ENDPOINT + `/surveys`, config);
+    LogThis(log, `data=${JSON.stringify(data)}`, L0);
+    dispatch({
+      type: SURVEY_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: SURVEY_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

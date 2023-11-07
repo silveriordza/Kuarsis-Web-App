@@ -19,6 +19,7 @@ import FormContainer from "../components/FormContainer";
 import {
   surveyProcessAnswersAction,
   surveyProcessAnswersAtClientAction,
+  surveyDetailsAction,
 } from "../actions/surveyActions";
 //import { surveysConfigurations } from "../surveysConfigurations";
 import { LogThis, LoggerSettings } from "../libs/Logger";
@@ -45,8 +46,8 @@ const UploadSurveyAnswers = ({ match, history }) => {
 
   const [uploadingServer, setuploadingServer] = useState(false);
   const [startToProcessAnswers, setstartToProcessAnswers] = useState(false);
-  const [surveyStatusMessage, setsurveyStatusMessage] = useState("");
-  const [surveyStatusRow, setsurveyStatusRow] = useState(0);
+  const [selectedSurveySuperior, setselectedSurveySuperior] = useState(null);
+  const [surveyDetailsDispatched, setsurveyDetailsDispatched] = useState(false);
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -62,6 +63,15 @@ const UploadSurveyAnswers = ({ match, history }) => {
     surveyStatusMessage: surveyMessage,
     surveyStatusRow: surveyRow,
   } = surveyProcessAnswers;
+
+  const surveyDetails = useSelector((state) => state.surveyDetails);
+
+  const {
+    loading: surveyDetailLoading,
+    error: surveyDetailError,
+    success: surveyDetailSuccess,
+    surveyDetailsInfo: surveyDetailsInfo,
+  } = surveyDetails;
 
   // const [nombreDeArchivoDatosReales, setnombreDeArchivoDatosReales] =
   //   useState(false);
@@ -224,6 +234,20 @@ const UploadSurveyAnswers = ({ match, history }) => {
     setuploadingServer(false);
   };
 
+  const handleSelectSurveySuperior = async (e) => {
+    log.functionName = "handleSelectSurveySuperior";
+    const selectedSurvey =
+      surveyDetailsInfo.surveySuperiors[e.target.selectedIndex - 1];
+
+    LogThis(
+      log,
+      `selectedSurvey=${JSON.stringify(selectedSurvey)}; index=${
+        e.target.selectedIndex - 1
+      }; surveyDetailsInfo=${JSON.stringify(surveyDetailsInfo)}`
+    );
+    setselectedSurveySuperior(selectedSurvey);
+  };
+
   useEffect(() => {
     LogThis(
       log,
@@ -231,9 +255,13 @@ const UploadSurveyAnswers = ({ match, history }) => {
     );
     if (startToProcessAnswers && !uploadingServer) {
       setuploadingServer(true);
+      LogThis(
+        log,
+        `selectedSurveySuperior=${JSON.stringify(selectedSurveySuperior)}`
+      );
       dispatch(
         surveyProcessAnswersAtClientAction({
-          surveySuperiorId: "6542afe8f8dbeb38182e234d",
+          surveySuperiorId: selectedSurveySuperior._id,
           fileNumeric: fileNumeric,
           fileReal: fileReal,
         })
@@ -265,13 +293,57 @@ const UploadSurveyAnswers = ({ match, history }) => {
     startToProcessAnswers,
   ]);
 
+  useEffect(() => {
+    if (!surveyDetailsDispatched) {
+      dispatch(surveyDetailsAction({}));
+      setsurveyDetailsDispatched(true);
+    }
+  }, [
+    dispatch,
+    surveyDetailLoading,
+    surveyDetailSuccess,
+    surveyDetailsInfo,
+    surveyDetailError,
+  ]);
+
   return (
     <>
-      {(uploadingNumeric || uploadingReal || uploadingServer) && <Loader />}
-      {/* <h1>{`row=${surveyRow}`}</h1> */}
+      {LogThis(log, `Rendering`)}
+      {(uploadingNumeric ||
+        uploadingReal ||
+        uploadingServer ||
+        surveyDetailLoading) && <Loader />}
       <FormContainer>
         {surveyError && <Message variant="danger">{surveyError}</Message>}
-        <h1>Procesar respuestas de encuesta</h1>
+
+        <h1>Seleccione la encuesta a procesar</h1>
+        {LogThis(log, `Rendering`)}
+        {!surveyDetailLoading &&
+          surveyDetailSuccess &&
+          surveyDetailsInfo &&
+          surveyDetailsInfo.surveySuperiors && (
+            <>
+              <Form.Control
+                as="select"
+                value={selectedSurveySuperior ?? ""}
+                onChange={handleSelectSurveySuperior}
+              >
+                <option value=""> Seleccionar...</option>
+                {/* <option value="">
+                  {" "}
+                  {surveyDetailsInfo.surveySuperiors[0].surveyName}
+                </option> */}
+                {surveyDetailsInfo.surveySuperiors.map((element, index) => {
+                  return (
+                    <option key={index} value={element}>
+                      {element.surveyName}
+                    </option>
+                  );
+                })}
+              </Form.Control>
+            </>
+          )}
+
         <Form onSubmit={uploadToServer}>
           <Form.Group controlId="nombreDeArchivoNumerico">
             <br />
@@ -326,9 +398,12 @@ const UploadSurveyAnswers = ({ match, history }) => {
             )}
             <br />
             <br />
-            {surveyRow && surveyRow > 0 && (
-              <Form.Label>Procesando encuesta numero: {surveyRow}</Form.Label>
-            )}
+            {surveyMessage &&
+              surveyMessage != "" &&
+              surveyRow &&
+              surveyRow > 0 && (
+                <Form.Label>Procesando encuesta numero: {surveyRow}</Form.Label>
+              )}
           </Form.Group>
         </Form>
       </FormContainer>

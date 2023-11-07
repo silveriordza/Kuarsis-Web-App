@@ -24,7 +24,10 @@ import {
   productTopRatedReducer,
 } from "./reducers/productReducer.js";
 
-import { surveyProcessAnswersReducer } from "./reducers/surveyReducer.js";
+import {
+  surveyProcessAnswersReducer,
+  surveyDetailsReducer,
+} from "./reducers/surveyReducer.js";
 
 import { cartReducer } from "./reducers/cartReducers";
 
@@ -78,6 +81,7 @@ const reducer = combineReducers({
   schedulerUpdate: schedulerUpdateReducer,
   //Survey Reducers
   surveyProcessAnswers: surveyProcessAnswersReducer,
+  surveyDetails: surveyDetailsReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
