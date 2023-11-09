@@ -185,7 +185,7 @@ export const surveyProcessAnswersAtClientAction =
           },
         });
         await new Promise((resolve) => setTimeout(resolve, 1));
-        const { data } = await axios.get(
+        let { data } = await axios.get(
           BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/configs`,
           config
         );
@@ -630,6 +630,10 @@ export const surveyProcessAnswersAtClientAction =
           `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`
         );
         console.log(`Getting values for the columns in the layout`);
+
+        let outputValues = [];
+        let row = [];
+
         for (let r = 0; r < cols[0].length; r++) {
           if (r % 10 === 0) {
             dispatch({
@@ -667,6 +671,7 @@ export const surveyProcessAnswersAtClientAction =
             }
             LogThis(log, `value=${value}`);
             csvLayout = csvLayout + value + ",";
+            row = [...row, value];
           }
           LogThis(
             log,
@@ -693,6 +698,8 @@ export const surveyProcessAnswersAtClientAction =
           }
           LogThis(log, `value=${value}`);
           csvLayout = csvLayout + value + "\n";
+          row = [...row, value];
+          outputValues = [...outputValues, row];
         }
         console.log(`Output layout is ready`);
         //const csvLayout = "hola mundo!";
@@ -700,8 +707,26 @@ export const surveyProcessAnswersAtClientAction =
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: { message: "Archivo CSV Terminado.", row: 0 },
         });
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        dispatch({
+          type: SURVEY_PROCESS_ANSWERS_STATUS,
+          payload: {
+            message: "Guardando resultados en la base de datos",
+            row: 0,
+          },
+        });
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        const outputData = {
+          outputLayout: outputLayout,
+          outputValues: outputValues,
+        };
         if (csvLayout && csvLayout.length > 0) {
+          await axios.post(
+            BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
+            outputData,
+            config
+          );
           dispatch({
             type: SURVEY_PROCESS_ANSWERS_SUCCESS,
             payload: csvLayout,
