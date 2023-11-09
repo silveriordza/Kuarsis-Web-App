@@ -1,4 +1,6 @@
 /** @format */
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 let asyncHandler = require("express-async-handler");
 let {
@@ -920,9 +922,8 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
     console.log(
       `Mapping multi surveys surveysIdsList=${JSON.stringify(surveyIdsList)}`
     );
-    //return surveyIdsList
+
     LogThis(log, `surveyIdsList=${surveyIdsList}`, L1);
-    //return multiSurveys
 
     const questions = await SurveyQuestion.find({
       surveyId: { $in: surveyIdsList },
@@ -949,22 +950,14 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
     const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
       surveySuperiorId: superSurveyId,
     }).sort({ sequence: 1 });
-    //return outputLayoutResults
-    // // questions;
-    // // calculatedFields;
-    // // surveyResponses;
-    // // calculatedValues;
-    //LogThis(log, `outputLayoutsResult=${JSON.stringify(outputLayoutsResult)}`);
     LogThis(log, `buildOutputHeaders`);
     console.log(`Building output headers`);
-    //return outputLayout
+
     const outputLayout = buildOutputHeaders(
       questions,
       calculatedFields,
       outputLayoutsResult
     );
-
-    //return outputLayout
 
     LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`, L1);
 
@@ -975,253 +968,6 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
       calculatedFields: calculatedFields,
       outputLayout: outputLayout,
     });
-
-    // let csvLayout = "";
-    // let layout = null;
-    // for (let o = 0; o < outputLayout.length - 1; o++) {
-    //   layout = outputLayout[o];
-    //   csvLayout = csvLayout + layout.description + ",";
-    // }
-    // layout = outputLayout[outputLayout.length - 1];
-    // csvLayout = csvLayout + layout.description + "\n";
-
-    // for (let o = 0; o < outputLayout.length - 1; o++) {
-    //   layout = outputLayout[o];
-    //   csvLayout = csvLayout + layout.shortDescription + ",";
-    // }
-    // layout = outputLayout[outputLayout.length - 1];
-    // csvLayout = csvLayout + layout.shortDescription + "\n";
-
-    // const cols = [];
-    // console.log(`Mapping colummns to Layout`);
-    // for (let o = 0; o < outputLayout.length; o++) {
-    //   layout = outputLayout[o];
-    //   LogThis(
-    //     log,
-    //     `layout.fieldId=${layout.fieldId}; layout.isCalculated=${layout.isCalculated}`
-    //   );
-    //   if (layout.isCalculated) {
-    //     LogThis(log, `layout.isCalculated=${layout.isCalculated}`);
-    //     cols.push(
-    //       calculatedValues
-    //         .filter((val) => val.calculatedFieldId == layout.fieldId)
-    //         .sort((a, b) => a.row - b.row)
-    //     );
-    //   } else {
-    //     let responses = surveyResponses.filter(
-    //       (val) => val.questionId == layout.fieldId
-    //     );
-    //     //LogThis(log, `responsesFound = ${JSON.stringify(responses)}`);
-    //     responses = responses.sort((a, b) => a.row - b.row);
-    //     //LogThis(log, `responsesSorted = ${JSON.stringify(responses)}`);
-    //     cols.push(responses);
-    //   }
-    // }
-    // LogThis(
-    //   log,
-    //   `cols=${JSON.stringify(cols)}; outputLayout=${JSON.stringify(
-    //     outputLayout
-    //   )}`
-    // );
-
-    // //console.log(`cols=${JSON.stringify(cols)}`);
-    // let value = null;
-    // LogThis(
-    //   log,
-    //   `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`
-    // );
-    // console.log(`Getting values for the columns in the layout`);
-    // for (let r = 0; r < cols[0].length; r++) {
-    //   //LogThis(log, `Current Row length=${cols[r].length}`);
-    //   for (let c = 0; c < cols.length - 1; c++) {
-    //     layout = outputLayout[c];
-    //     LogThis(log, `Processing Col=${c}; row=${r}`);
-    //     //console.log(`Processing Col=${c}; row=${r}`);
-    //     value = cols[c][r];
-    //     LogThis(log, `value cycle=${JSON.stringify(value)}`);
-    //     if (layout.outputAsReal) {
-    //       value = value.responseReal;
-    //     } else {
-    //       if ("isWeighted" in value) {
-    //         if (value.isWeighted) {
-    //           value = value.weightedResponse;
-    //         } else {
-    //           value = value.response;
-    //         }
-    //       } else {
-    //         value = value.value;
-    //       }
-    //     }
-
-    //     if (value == null || value == undefined) {
-    //       value = "";
-    //     }
-    //     LogThis(log, `value=${value}`);
-    //     csvLayout = csvLayout + value + ",";
-    //   }
-    //   LogThis(log, `Processing Last Col=${outputLayout.length - 1}; row=${r}`);
-    //   value = cols[outputLayout.length - 1][r];
-
-    //   if (layout.outputAsReal) {
-    //     value = value.responseReal;
-    //   } else {
-    //     if ("isWeighted" in value) {
-    //       if (value.isWeighted) {
-    //         value = value.weightedResponse;
-    //       } else {
-    //         value = value.response;
-    //       }
-    //     } else {
-    //       value = value.value;
-    //     }
-    //   }
-
-    //   if (value == null || value == undefined) {
-    //     value = "";
-    //   }
-    //   LogThis(log, `value=${value}`);
-    //   csvLayout = csvLayout + value + "\n";
-    // }
-    // console.log(`Output layout is ready`);
-
-    // if (!questions) {
-    //   res.status(404);
-    //   throw new Error("Questions not found");
-    //}
-    //Form the CSV output file
-
-    //ENDING LOGIC TO SAVE ANSWERS TO DATABASE
-    // console.log(
-    //   `csvLayout.length=${csvLayout.length}; csvLayout=${csvLayout} `
-    // );
-    //if (csvLayout && csvLayout.length > 0) {
-    //if (true) {
-    // LogThis(log, `END`);
-    // // res.status(200).json({
-    // //   // owner: user._id,
-    // //   // superSurveyId: superSurveyId,
-    // //   // multiSurveys: multiSurveys,
-    // //   // surveyIdsList: surveyIdsList,
-    // //   // allSurveyQuestions: allSurveyQuestions,
-    // //   // surveyResponseCreated: surveyResponseCreated,
-    // //   // surveyCalculatedValuesCreated: surveyCalculatedValuesCreated,
-    // //   // answerRowsLength: answersRows.length,
-    // //   // //questions: questions,
-    // //   // answersRows: answersRows,
-    // //   csv: csv,
-    // // });
-    // //console.log(csv);
-    // LogThis(log, `csvLayoutEnd=${csvLayout}`);
-    // // LogThis(
-    // //   log,
-    // //   `superSurveyId=${superSurveyId}; surveyFields=${JSON.stringify(
-    // //     surveyFields
-    // //   )}`
-    // // );
-    // // res.writeHead(200, {
-    // //   "Content-Type": "text/plain",
-    // //   "Content-Length": Buffer.byteLength(csv),
-    // // });
-    // // res.write(csv);
-    // // res.end();
-    // // res.writeHead(200, {
-    // //   "Content-Type": "text/plain",
-    // //   "Content-Length": Buffer.byteLength(csvLayout),
-    // // });
-    // // //res.write("Data Numeric next: \n");
-    // // res.write(csvLayout);
-    // // // res.write("\nData Real next:\n");
-    // // // res.write(fileDataReal);
-    // // res.end();
-
-    // //Returning zip file using archiver
-    // res.setHeader("Content-Type", "application/zip");
-    // res.setHeader(
-    //   "Content-Disposition",
-    //   'attachment; filename="OutputReport.zip"'
-    // );
-    // const archive = archiver("zip", {
-    //   zlib: { level: 9 },
-    // });
-    // archive.append(csvLayout, { name: "OutputReport.csv" });
-    // archive.pipe(res);
-    // console.log(`About to send the zip file back to the client`);
-    // archive.finalize();
-
-    // //Returning zip file using AdmZip
-    // const zip = new AdmZip();
-
-    // zip.addFile("OutputReport.csv", Buffer.from(csvLayout, "utf8"));
-
-    // const outputReport = zip.toBuffer();
-    // res.setHeader("Content-Type", "application/zip");
-    // res.setHeader(
-    //   "Content-Disposition",
-    //   'attachment; filename="OutputReport.zip"'
-    // );
-    // console.log(
-    //   `About to return outputReport as Buffer outputReport=${outputReport}`
-    // );
-    // //const text = new TextDecoder().decode(outputReport);
-    // //console.log(`outputReport=${text}`);
-    // res.send(outputReport);
-
-    // //Returning zip file using AdmZip octet-stream and encoding with base64
-    // const zip = new AdmZip();
-    // zip.addFile("OutputReport.csv", Buffer.from(csvLayout, "utf8"));
-
-    // const outputReport = zip.toBuffer();
-
-    // const binaryOutputReport = Buffer.from(outputReport, "utf8");
-    // const outputReport64 = binaryOutputReport.toString("base64");
-    // res.setHeader("Content-Type", "application/octet-stream");
-    // res.setHeader(
-    //   "Content-Disposition",
-    //   'attachment; filename="OutputReport.bin"'
-    // );
-    // //res.setHeader("Content-Transfer-Encoding", "base64");
-
-    // console.log(`About to log the outputReport base64`);
-    // //const text = new TextDecoder().decode(outputReport64);
-    // //console.log(`outputReport=${text}`);
-    // res.status(200).send(Buffer.from(outputReport64, "base64"));
-
-    //Return zip file as application/zip but encoding it as Base64 string
-    //   const zip = new AdmZip();
-
-    //   zip.addFile("OutputReport.csv", Buffer.from(csvLayout, "utf8"));
-
-    //   const zipBuffer = zip.toBuffer();
-
-    //   console.log(
-    //     `zipBuffer=${zipBuffer}; toStringBase64=${zipBuffer.toString(
-    //       "base64"
-    //     )}; toStringUtf8=${zipBuffer.toString("utf8")} `
-    //   );
-
-    //   const zipStr64 = Buffer.from(zipBuffer).toString("base64");
-    //   const zipBuffer64 = Buffer.from(zipStr64, "base64");
-
-    //   res.setHeader("Content-Type", "application/zip");
-
-    //   res.setHeader(
-    //     "Content-Disposition",
-    //     'attachment; filename="OutputReport.zip"'
-    //   );
-
-    //   res.status(200).send(zipBuffer64.toString("base64"));
-
-    //   // res.status(201).json({
-    //   //   answersData: answersData,
-    //   //   answersDataReal: answersDataReal,
-    //   // });
-    //   // } else {
-    //   //   res.status(404);
-    //   //   throw new Error("Uncought Exception loading answers");
-    //   // }
-    // } else {
-    //   throw new Error("csv file does not have any values");
-    // }
   } catch (error) {
     res.status(404);
     throw new Error(error);
@@ -1242,10 +988,123 @@ const superSurveyGetList = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Creates a new Super Survey configuration
+// @route   POST /api/surveys/
+// @access  Private/Admin
+const superSurveySaveOutput = asyncHandler(async (req, res) => {
+  const functionName = "superSurveySaveOutput";
+  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    LogThis(log, `START`, L1);
+    const { outputLayout, outputValues } = req.body;
+    // const outputLayout = outputData.outputLayout
+    // const outputValues = outputData.outputValues
+
+    const superSurveyId = req.params.id;
+
+    LogThis(
+      log,
+      `superSurveyId=${superSurveyId}; outputLayout=${JSON.stringify(
+        outputLayout,
+        null,
+        2
+      )}; outputValues=${JSON.stringify(outputValues)}`,
+      L1
+    );
+    const surveySuperiors = await SurveySuperior.find({
+      _id: superSurveyId,
+    }).lean();
+    let x = 0;
+    x = x + 1;
+    LogThis(
+      log,
+      `x=${x}; surveySuperiors=${JSON.stringify(surveySuperiors)}`,
+      L3
+    );
+
+    const surveyOutputCollectionName = `Output_${surveySuperiors[0].surveyShortName}`;
+    LogThis(
+      log,
+      `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+      L3
+    );
+
+    // let surveyOutputCollection = mongoose.connection.collection(
+    //   surveyOutputCollectionName
+    // );
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const collections = await mongoose.connection.db
+      .listCollections({ name: surveyOutputCollectionName })
+      .toArray();
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const collInfo = collections.find(
+      (collection) => collection.name === surveyOutputCollectionName
+    );
+    if (collInfo) {
+      let surveyOutputCollection = mongoose.connection.collection(
+        surveyOutputCollectionName
+      );
+      await surveyOutputCollection.drop();
+    }
+    //const err = await surveyOutputCollection.drop();
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+
+    // if (err) {
+    //   throw new Error(
+    //     `Failed to drop surveyOutput ${surveyOutputCollectionName}: ${err}`
+    //   );
+    //}
+
+    let surveyOutputColumns = {};
+    outputLayout.forEach((column) => {
+      surveyOutputColumns[column.fieldName] = String;
+    });
+    x = x + 1;
+    LogThis(
+      log,
+      `x=${x}; surveyOutputColumns=${JSON.stringify(surveyOutputColumns)}`,
+      L3
+    );
+    const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const surveyOutputCollection = mongoose.model(
+      surveyOutputCollectionName,
+      surveyOutputCollectionSchema
+    );
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const outputValueDocuments = [];
+    outputValues.forEach((row) => {
+      let doc = {};
+      outputLayout.forEach((column, index) => {
+        doc[column.fieldName] = row[index];
+      });
+      outputValueDocuments.push(doc);
+      doc = {};
+    });
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    LogThis(log, `outputValueDocuments=${outputValueDocuments}`);
+    await surveyOutputCollection.insertMany(outputValueDocuments);
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    res.status(200).json({ surveyOutputStatus: "success" });
+  } catch (error) {
+    res.status(404);
+    LogThis(log, `error=${error.message}`, L1);
+    throw new Error(`Survey Output Error: ${error.message}`);
+  }
+});
+
 module.exports = {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
   superSurveyTests,
   getSuperSurveyConfigs,
   superSurveyGetList,
+  superSurveySaveOutput,
 };
