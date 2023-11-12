@@ -22,14 +22,35 @@ export const LogThis = (logSettings, logMessage, level = OFF) => {
     }
   }
 };
-export const objLogSettings = { sourceFilename: "", sourceFunction: "" };
+
+export const LogThisLegacy = (logSettings = null, logMessage) => {
+  if (process.env.LOG_LEVEL >= 1) {
+    !logSettings
+      ? console.log("%s: %s", new Date().toLocaleTimeString(), logMessage)
+      : console.log(
+          "%s: %s, %s: %s",
+          new Date().toLocaleTimeString(),
+          logSettings.sourceFilename,
+          logSettings.sourceFunction,
+          logMessage
+        );
+  }
+};
 
 export const initLogSettings = (fileName = "", functionName = "") => {
   return {
-    fileName: fileName,
-    functionName: functionName,
+    sourceFilename: fileName,
+    sourceFunction: functionName,
   };
 };
+export const objLogSettings = { sourceFilename: "", sourceFunction: "" };
+
+// export const initLogSettings = (fileName = "", functionName = "") => {
+//   return {
+//     fileName: fileName,
+//     functionName: functionName,
+//   };
+// };
 
 export function LoggerSettings(fileName = "", functionName = "") {
   this.fileName = fileName || "";

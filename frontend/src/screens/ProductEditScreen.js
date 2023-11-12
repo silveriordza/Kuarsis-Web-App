@@ -15,7 +15,7 @@ import {
 } from "../constants/productConstants";
 import { BACKEND_ENDPOINT } from "../constants/enviromentConstants";
 import { convert } from "../libs/imagesLib";
-import { LogThis } from "../libs/Logger";
+import { LogThisLegacy } from "../libs/Logger";
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id;
@@ -38,7 +38,7 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  LogThis(`ProductEditScreen, product=${JSON.stringify(product)}`);
+  LogThisLegacy(`ProductEditScreen, product=${JSON.stringify(product)}`);
 
   const productUpdate = useSelector((state) => state.productUpdate);
 
@@ -48,7 +48,7 @@ const ProductEditScreen = ({ match, history }) => {
     success: successUpdate,
     product: updatedProduct,
   } = productUpdate;
-  LogThis(
+  LogThisLegacy(
     `ProductEditScreen, updatedProduct=${JSON.stringify(updatedProduct)}`
   );
   useEffect(() => {
@@ -68,7 +68,7 @@ const ProductEditScreen = ({ match, history }) => {
           setPrice(product.price);
           setImage(product.image);
           setBrand(product.brand);
-          LogThis("ProductEditScreen, useEffect, product =", product);
+          LogThisLegacy("ProductEditScreen, useEffect, product =", product);
           setisShippable(product.isShippable);
           setisDownloadable(product.isDownloadable);
           setisImageProtected(product.isImageProtected);
@@ -252,7 +252,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
             <br />
             <Form.Group controlId="isShippable">
-              {LogThis(
+              {LogThisLegacy(
                 `ProductEditScreen, CheckboxControl, isShippable=${isShippable}`
               )}
               <Form.Check
@@ -260,7 +260,7 @@ const ProductEditScreen = ({ match, history }) => {
                 label="Product is shippable"
                 checked={isShippable}
                 onChange={(e) => {
-                  LogThis(
+                  LogThisLegacy(
                     `ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`
                   );
                   setisShippable(e.target.checked);
@@ -268,7 +268,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Check>
             </Form.Group>
             <Form.Group controlId="isDownloadable">
-              {LogThis(
+              {LogThisLegacy(
                 `ProductEditScreen, CheckboxControl, isDownloadable=${isDownloadable}`
               )}
               <Form.Check
@@ -276,7 +276,7 @@ const ProductEditScreen = ({ match, history }) => {
                 label="Product is downloadable"
                 checked={isDownloadable}
                 onChange={(e) => {
-                  LogThis(
+                  LogThisLegacy(
                     `ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`
                   );
                   setisDownloadable(e.target.checked);
@@ -284,7 +284,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Check>
             </Form.Group>
             <Form.Group controlId="isImageProtected">
-              {LogThis(
+              {LogThisLegacy(
                 `ProductEditScreen, CheckboxControl, isImageProtected=${isImageProtected}`
               )}
               <Form.Check
@@ -292,7 +292,7 @@ const ProductEditScreen = ({ match, history }) => {
                 label="Product is image protected"
                 checked={isImageProtected}
                 onChange={(e) => {
-                  LogThis(
+                  LogThisLegacy(
                     `ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`
                   );
                   setisImageProtected(e.target.checked);
@@ -300,7 +300,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Check>
             </Form.Group>
             <Form.Group controlId="isBookable">
-              {LogThis(
+              {LogThisLegacy(
                 `ProductEditScreen, CheckboxControl, isBookable=${isBookable}`
               )}
               <Form.Check
@@ -308,7 +308,7 @@ const ProductEditScreen = ({ match, history }) => {
                 label="Product is bookable"
                 checked={isBookable}
                 onChange={(e) => {
-                  LogThis(
+                  LogThisLegacy(
                     `ProductEditScreen, CheckboxControl, e.target.checked=${e.target.checked}`
                   );
                   setisBookable(e.target.checked);

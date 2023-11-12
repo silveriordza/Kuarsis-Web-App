@@ -1,6 +1,6 @@
 /** @format */
 
-import { LogThis, objLogSettings } from "./Logger";
+import { LogThisLegacy, objLogSettings } from "./Logger";
 
 export const rowCleaner2 = (rowToClean) => {
   let Row1Clean = rowToClean;
@@ -69,7 +69,7 @@ export const saveStringAsCSV = (stringData, fileName) => {
 export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
   objLogSettings.sourceFilename = "csvProcessingLib.js";
   objLogSettings.sourceFunction = "convertSurveyJsonToCSV";
-  LogThis(objLogSettings, `START`);
+  LogThisLegacy(objLogSettings, `START`);
 
   let csvText = "";
 
@@ -77,7 +77,7 @@ export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
     csvText = csvText + headersJson[i] + "_Real" + ",";
   }
   csvText = csvText + headersJson[headersJson.length - 1] + "_Real" + ",";
-  LogThis(objLogSettings, `REAL headers csvText = ${csvText}`);
+  LogThisLegacy(objLogSettings, `REAL headers csvText = ${csvText}`);
   for (let i = 0; i < headersJson.length - 1; i++) {
     csvText = csvText + headersJson[i] + "_Numerico" + ",";
   }
@@ -86,7 +86,7 @@ export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
   csvText = csvText.replace(/\n/g, "");
   csvText = csvText.replace(/\r/g, "");
   csvText = csvText + "\r\n";
-  LogThis(objLogSettings, `Numerico headers csvText = ${csvText}`);
+  LogThisLegacy(objLogSettings, `Numerico headers csvText = ${csvText}`);
   let i = 0;
   let csvRow = "";
 
@@ -106,7 +106,7 @@ export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
     csvRow = csvRow.replace(/\r\n/g, "");
     csvText = csvText + csvRow + "\r\n";
   }
-  LogThis(objLogSettings, `Final csvText = ${csvText}`);
+  LogThisLegacy(objLogSettings, `Final csvText = ${csvText}`);
 
   return csvText;
 };

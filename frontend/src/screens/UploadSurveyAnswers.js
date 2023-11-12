@@ -31,6 +31,7 @@ import {
   unzipStringBase64,
   autoDownloadFileOnClientBrowser,
   autoDownloadTextAsFileOnClientBrowser,
+  unzipFileFromSubfolder,
 } from "../libs/Functions";
 import { SURVEY_PROCESS_ANSWERS_RESET } from "../constants/surveyConstants";
 
@@ -82,38 +83,55 @@ const UploadSurveyAnswers = ({ match, history }) => {
   const dispatch = useDispatch();
 
   const uploadFileRealHandler = async (e) => {
-    setuploadingReal(true);
     const objLogSettings = new LoggerSettings(
       srcFileName,
       "uploadFileRealHandler"
     );
-
+    setuploadingReal(true);
     LogThis(objLogSettings, `START`);
 
     const file = e.target.files[0];
+    const extension = file.name.split(".").pop();
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const content = e.target.result;
-      //setFileContent(content);
-      setfileReal(content);
-      // const zippedFile = await zipFile("fileNumeric.csv", file);
-      // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
+    if (extension === "zip") {
+      const unzippedText = await unzipFileFromSubfolder(
+        file,
+        "CSV",
+        selectedSurveySuperior.surveyName + ".csv"
+      );
+      setfileReal(unzippedText);
+      setuploadingReal(false);
+    } else if (extension === "csv") {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const content = e.target.result;
+        //setFileContent(content);
+        setfileReal(content);
+        setuploadingReal(false);
+        // const zippedFile = await zipFile("fileNumeric.csv", file);
+        // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
 
-      // const unzippedText = await unzipFile(file, "OutputReport.csv");
-      // autoDownloadTextAsFileOnClientBrowser(
-      //   unzippedText,
-      //   "OutputReportUnzipped.csv"
-      // );
+        // const unzippedText = await unzipFile(file, "OutputReport.csv");
+        // autoDownloadTextAsFileOnClientBrowser(
+        //   unzippedText,
+        //   "OutputReportUnzipped.csv"
+        // );
+      };
       LogThis(log, "numeric data read as text");
-      setuploadingNumeric(false);
-    };
-    reader.readAsText(file);
+      reader.readAsText(file);
 
-    // const zippedFile = await zipFile("fileReal.csv", file);
-    // autoDownloadFileOnClientBrowser(zippedFile, "Real File 1021 Row.zip");
+      // const zippedFile = await zipFile("fileReal.csv", file);
+      // autoDownloadFileOnClientBrowser(zippedFile, "Real File 1021 Row.zip");
+    } else {
+      throw new Error(`La extension del archivo no CSV ni tampoco ZIP.`);
+    }
+    // };
+    // reader.readAsText(file);
 
-    setuploadingReal(false);
+    // // const zippedFile = await zipFile("fileReal.csv", file);
+    // // autoDownloadFileOnClientBrowser(zippedFile, "Real File 1021 Row.zip");
+
+    // setuploadingReal(false);
     LogThis(log, "END");
   };
 
@@ -122,23 +140,41 @@ const UploadSurveyAnswers = ({ match, history }) => {
     LogThis(log, "START");
     setuploadingNumeric(true);
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const content = e.target.result;
-      //setFileContent(content);
-      setfileNumeric(content);
-      // const zippedFile = await zipFile("fileNumeric.csv", file);
-      // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
+    const extension = file.name.split(".").pop();
 
-      // const unzippedText = await unzipFile(file, "OutputReport.csv");
+    if (extension === "zip") {
+      const unzippedText = await unzipFileFromSubfolder(
+        file,
+        "CSV",
+        selectedSurveySuperior.surveyName + ".csv"
+      );
+      setfileNumeric(unzippedText);
       // autoDownloadTextAsFileOnClientBrowser(
       //   unzippedText,
       //   "OutputReportUnzipped.csv"
       // );
       LogThis(log, "numeric data read as text");
       setuploadingNumeric(false);
-    };
-    reader.readAsText(file);
+    } else if (extension === "csv") {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const content = e.target.result;
+        //setFileContent(content);
+        setfileNumeric(content);
+        // const zippedFile = await zipFile("fileNumeric.csv", file);
+        // autoDownloadFileOnClientBrowser(zippedFile, "Numeric File 1021 Row.zip");
+
+        // const unzippedText = await unzipFile(file, "OutputReport.csv");
+        // autoDownloadTextAsFileOnClientBrowser(
+        //   unzippedText,
+        //   "OutputReportUnzipped.csv"
+        // );
+        LogThis(log, "numeric data read as text");
+        setuploadingNumeric(false);
+      };
+
+      reader.readAsText(file);
+    }
   };
 
   const uploadToServer = async (e) => {
@@ -382,7 +418,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
             <br />
             <br />
             <Button type="submit" variant="primary">
-              PROCESAR ARCHIVOS
+              PROCESAR ENCUESTAS
             </Button>
             <br />
             <br />
@@ -399,11 +435,13 @@ const UploadSurveyAnswers = ({ match, history }) => {
             <br />
             <br />
             {surveyMessage &&
-              surveyMessage != "" &&
-              surveyRow &&
-              surveyRow > 0 && (
-                <Form.Label>Procesando encuesta numero: {surveyRow}</Form.Label>
-              )}
+            surveyMessage != "" &&
+            surveyRow &&
+            surveyRow > 0 ? (
+              <Form.Label>Procesando encuesta numero: {surveyRow}</Form.Label>
+            ) : (
+              <></>
+            )}
           </Form.Group>
         </Form>
       </FormContainer>

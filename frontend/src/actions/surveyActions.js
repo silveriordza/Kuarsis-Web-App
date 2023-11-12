@@ -12,7 +12,7 @@ import {
 } from "../constants/surveyConstants";
 import { zipFile, unzipFile, unzipStringBase64 } from "../libs/Functions";
 
-import { LogThis, LoggerSettings, L0, L1, L2, L3 } from "../libs/Logger";
+import { LogThis, LoggerSettings, L0, L1, L2, L3, OFF } from "../libs/Logger";
 
 import { rowCleaner2 } from "../libs/csvProcessingLib";
 
@@ -236,13 +236,7 @@ export const surveyProcessAnswersAtClientAction =
         let allSurveyQuestions = [];
         let allCalculatedFields = [];
         console.log(`Getting questions per survey`);
-        // dispatch({
-        //   type: SURVEY_PROCESS_ANSWERS_STATUS,
-        //   payload: {
-        //     message: "Mapeando las preguntas para cada sub encuesta",
-        //     row: 0,
-        //   },
-        // });
+
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: {
@@ -395,7 +389,7 @@ export const surveyProcessAnswersAtClientAction =
               LogThis(
                 log,
                 `BEFORE col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
-                L3
+                OFF
               );
               if (weightedResponse === undefined) {
                 weightedResponse = answerA;
@@ -408,7 +402,7 @@ export const surveyProcessAnswersAtClientAction =
               LogThis(
                 log,
                 `AFTER col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
-                L3
+                OFF
               );
               //LogThis(log, `final weight: answer=${weightedResponse}`);
             } else {
@@ -631,9 +625,8 @@ export const surveyProcessAnswersAtClientAction =
         );
         console.log(`Getting values for the columns in the layout`);
 
-        let outputValues = [];
         let row = [];
-
+        let outputValues = [];
         for (let r = 0; r < cols[0].length; r++) {
           if (r % 10 === 0) {
             dispatch({
@@ -671,7 +664,8 @@ export const surveyProcessAnswersAtClientAction =
             }
             LogThis(log, `value=${value}`);
             csvLayout = csvLayout + value + ",";
-            row = [...row, value];
+            //row = [...row, value];
+            row.push(value);
           }
           LogThis(
             log,
@@ -698,8 +692,19 @@ export const surveyProcessAnswersAtClientAction =
           }
           LogThis(log, `value=${value}`);
           csvLayout = csvLayout + value + "\n";
-          row = [...row, value];
-          outputValues = [...outputValues, row];
+          // row = [...row, value];
+          row.push(value);
+          //outputValues = [...outputValues, row];
+
+          outputValues.push([...row]);
+          LogThis(
+            log,
+            `Building outputValues: row=${JSON.stringify(
+              row
+            )}; outputValues=${JSON.stringify(outputValues)}`,
+            L3
+          );
+          row.length = 0;
         }
         console.log(`Output layout is ready`);
         //const csvLayout = "hola mundo!";
@@ -717,16 +722,93 @@ export const surveyProcessAnswersAtClientAction =
           },
         });
         await new Promise((resolve) => setTimeout(resolve, 1));
+        console.log(`CATCH PRE`);
+        const columnsNames = [];
+        outputLayout.forEach((column) => {
+          columnsNames.push(column.fieldName);
+        });
+
         const outputData = {
-          outputLayout: outputLayout,
-          outputValues: outputValues,
+          columnsNames: columnsNames,
+          outputValues: null,
         };
+
+        //outputValues.push(row)
+
         if (csvLayout && csvLayout.length > 0) {
-          await axios.post(
+          console.log(`CATCH IN OUTPUT`);
+
+          dispatch({
+            type: SURVEY_PROCESS_ANSWERS_STATUS,
+            payload: {
+              message: "Sending Output to server in slices.",
+              row: 0,
+            },
+          });
+          await new Promise((resolve) => setTimeout(resolve, 1));
+          LogThis(log, `status sent`, L3);
+
+          LogThis(log, `after promise`, L3);
+          let row = 0;
+          let r = 0;
+          const outputValuesSlice = [];
+          const sliceSize = 5;
+          LogThis(log, `CATCH ERROR 1`, L3);
+
+          /*const { data } = */ await axios.delete(
             BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
-            outputData,
             config
           );
+          /*if (data.status == "success") {
+            LogThis(log, `delete succeeded`, L3);
+          } else {
+            LogThis(log, `delete failed`, L3);
+          }*/
+
+          for (
+            let slice = 1;
+            slice <= Math.ceil(outputValues.length / sliceSize);
+            slice++
+          ) {
+            LogThis(log, `CATCH ERROR 2`, L3);
+            for (r = row; r < row + sliceSize && r < outputValues.length; r++) {
+              outputValuesSlice.push([...outputValues[r]]);
+              LogThis(
+                log,
+                `Pushing row to slice ${slice} row ${r}; outputValues=${JSON.stringify(
+                  outputValues[r]
+                )}; outputValuesSlice=${JSON.stringify(outputValuesSlice)}`,
+                L3
+              );
+            }
+            LogThis(log, `CATCH ERROR 3`, L3);
+            outputData.outputValues = outputValuesSlice;
+            row = r;
+            LogThis(
+              log,
+              `current slice ${slice} outputValuesSlice=${JSON.stringify(
+                outputValuesSlice
+              )}`,
+              L3
+            );
+
+            dispatch({
+              type: SURVEY_PROCESS_ANSWERS_STATUS,
+              payload: {
+                message: `Sending slice ${slice} Rows ${r - sliceSize} to ${r}`,
+                row: r,
+              },
+            });
+            await new Promise((resolve) => setTimeout(resolve, 1));
+            LogThis(log, `about to call axios send output data`, L3);
+            await axios.post(
+              BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
+              outputData,
+              config
+            );
+            outputValuesSlice.length = 0;
+          }
+
           dispatch({
             type: SURVEY_PROCESS_ANSWERS_SUCCESS,
             payload: csvLayout,

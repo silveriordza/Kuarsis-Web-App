@@ -1,6 +1,6 @@
 /** @format */
 
-import { LogThis } from "../libs/Logger";
+//import { LogThis } from "../libs/Logger";
 
 import {
   SURVEY_PROCESS_ANSWERS_REQUEST,
@@ -25,7 +25,7 @@ export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
         surveyStatusRow: action.payload.row,
       };
     case SURVEY_PROCESS_ANSWERS_SUCCESS:
-      // LogThis(
+      // LogThisLegacy(
       //   `surveyReducer.js, surveyProcessAnswersReducer, PRODUCT_UDPATE_SUCCESS, action.payload=${JSON.stringify(
       //     action.payload
       //   )}`

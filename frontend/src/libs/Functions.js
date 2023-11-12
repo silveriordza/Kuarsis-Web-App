@@ -21,6 +21,56 @@ export const stringToBlob = (text) => {
   return new Blob([text], { type: contentType });
 };
 
+export const unzipFileFromSubfolder = async (
+  compressedFileContents,
+  filePath,
+  fileName
+) => {
+  const functionName = "unzipFile";
+  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    let x = 0;
+    x = x + 1;
+    const subFolders = filePath.split("/");
+
+    LogThis(log, `x=${x}`);
+
+    const zip = new JSZip();
+    x = x + 1;
+    LogThis(log, `x=${x}`);
+    //const text = new TextDecoder().decode(compressedFileContents);
+    //LogThis(log, `compressedFileContents=${text}`);
+
+    const zipArchive = await zip.loadAsync(compressedFileContents);
+    let subFolder = null;
+    subFolders.forEach((folder) => {
+      if (!subFolder) {
+        subFolder = zipArchive.folder(folder);
+      } else {
+        subFolder = subFolder.folder(folder);
+        if (!subFolder) {
+          throw new Error(
+            `Error unzipping file from subfolders, folder ${folder} not found`
+          );
+        }
+      }
+    });
+
+    x++;
+    LogThis(log, `x=${x}`);
+    // Extract the content of the zip file, e.g., a text file
+    const unzippedText = await subFolder.file(fileName).async("text");
+    x++;
+    LogThis(log, `x=${x}`);
+    LogThis(log, `unzippedText=${unzippedText}`);
+
+    return unzippedText;
+  } catch (error) {
+    LogThis(log, `error=${error.message}`);
+    throw error;
+  }
+};
+
 export const unzipFile = async (compressedFileContents, fileName) => {
   const functionName = "unzipFile";
   const log = new LoggerSettings(srcFileName, functionName);
