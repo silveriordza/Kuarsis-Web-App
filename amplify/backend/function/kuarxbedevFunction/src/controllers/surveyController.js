@@ -44,6 +44,8 @@ const { buildOutputHeaders } = require("../utils/surveysLib.js");
 // @route   POST /api/surveys/
 // @access  Private/Admin
 const superSurveyCreateConfig = asyncHandler(async (req, res) => {
+  const functionName = "getSuperSurveyConfigs";
+  const log = new LoggerSettings(srcFileName, functionName);
   const { superSurveyConfig } = req.body;
   let ownerId = req.user._id;
 
@@ -161,12 +163,65 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
     outputLayoutFields
   );
 
+  //Start Output Collection
+  let x = 0;
+  x++;
+  const surveyOutputCollectionName =
+    `surveyOutputs_${superSurveyConfigTest.surveyShortName}`.toLocaleLowerCase();
+  LogThis(
+    log,
+    `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+    L3
+  );
+
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+  const collections = await mongoose.connection.db
+    .listCollections({ name: surveyOutputCollectionName })
+    .toArray();
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+  const collInfo = collections.find(
+    (collection) => collection.name === surveyOutputCollectionName
+  );
+  if (collInfo) {
+    let surveyOutputCollection = mongoose.connection.collection(
+      surveyOutputCollectionName
+    );
+    await surveyOutputCollection.drop();
+  }
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+
+  let surveyOutputColumns = {};
+
+  outputLayoutFields.forEach((column) => {
+    surveyOutputColumns[column.fieldName] = String;
+  });
+  x = x + 1;
+  LogThis(
+    log,
+    `x=${x}; surveyOutputColumns=${JSON.stringify(surveyOutputColumns)}`,
+    L3
+  );
+
+  const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+  const surveyOutputCollection = mongoose.model(
+    surveyOutputCollectionName,
+    surveyOutputCollectionSchema
+  );
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+
   console.log("about to respond");
   res.status(201).json({
     surveySuperiorId: createdSurveySuperior._id,
     surveysCreated: surveysCreated,
     questionsCreated: questionsCreated,
     createdOutputLayout: createdOutputLayout,
+    surveyOutputCollectionSchema: surveyOutputCollectionSchema,
   });
 });
 
@@ -810,15 +865,6 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       );
 
       res.status(200).send(zipBuffer64.toString("base64"));
-
-      // res.status(201).json({
-      //   answersData: answersData,
-      //   answersDataReal: answersDataReal,
-      // });
-      // } else {
-      //   res.status(404);
-      //   throw new Error("Uncought Exception loading answers");
-      // }
     } else {
       throw new Error("csv file does not have any values");
     }
@@ -951,7 +997,7 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
       surveySuperiorId: superSurveyId,
     }).sort({ sequence: 1 });
     LogThis(log, `buildOutputHeaders`);
-    console.log(`Building output headers`);
+    //console.log(`Building output headers`);
 
     const outputLayout = buildOutputHeaders(
       questions,
@@ -996,16 +1042,14 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
   const log = new LoggerSettings(srcFileName, functionName);
   try {
     LogThis(log, `START`, L1);
-    const { outputLayout, outputValues } = req.body;
-    // const outputLayout = outputData.outputLayout
-    // const outputValues = outputData.outputValues
+    const { columnsNames, outputValues } = req.body;
 
     const superSurveyId = req.params.id;
 
     LogThis(
       log,
-      `superSurveyId=${superSurveyId}; outputLayout=${JSON.stringify(
-        outputLayout,
+      `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
+        columnsNames,
         null,
         2
       )}; outputValues=${JSON.stringify(outputValues)}`,
@@ -1022,73 +1066,43 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
       L3
     );
 
-    const surveyOutputCollectionName = `Output_${surveySuperiors[0].surveyShortName}`;
-    LogThis(
-      log,
-      `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
-      L3
-    );
+    const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`;
 
-    // let surveyOutputCollection = mongoose.connection.collection(
-    //   surveyOutputCollectionName
+    //   const collections = await mongoose.connection.db
+    //   .listCollections({ name: surveyOutputCollectionName })
+    //   .toArray();
+    // x = x + 1;
+    // LogThis(log, `x=${x}`, L3);
+    // const collInfo = collections.find(
+    //   (collection) => collection.name === surveyOutputCollectionName
     // );
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
-    const collections = await mongoose.connection.db
-      .listCollections({ name: surveyOutputCollectionName })
-      .toArray();
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
-    const collInfo = collections.find(
-      (collection) => collection.name === surveyOutputCollectionName
-    );
-    if (collInfo) {
-      let surveyOutputCollection = mongoose.connection.collection(
-        surveyOutputCollectionName
-      );
-      await surveyOutputCollection.drop();
-    }
-    //const err = await surveyOutputCollection.drop();
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
 
-    // if (err) {
-    //   throw new Error(
-    //     `Failed to drop surveyOutput ${surveyOutputCollectionName}: ${err}`
-    //   );
-    //}
-
-    let surveyOutputColumns = {};
-    outputLayout.forEach((column) => {
-      surveyOutputColumns[column.fieldName] = String;
-    });
-    x = x + 1;
-    LogThis(
-      log,
-      `x=${x}; surveyOutputColumns=${JSON.stringify(surveyOutputColumns)}`,
-      L3
+    //const surveyOutputs = mongoose.model(surveyOutputCollectionName);
+    let surveyOutputCollection = mongoose.connection.collection(
+      surveyOutputCollectionName.toLocaleLowerCase()
     );
-    const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
-    const surveyOutputCollection = mongoose.model(
-      surveyOutputCollectionName,
-      surveyOutputCollectionSchema
-    );
+    // x = x + 1;
+    // LogThis(log, `x=${x}`, L3);
+    // await surveyOutputCollection.deleteMany({});
     x = x + 1;
     LogThis(log, `x=${x}`, L3);
     const outputValueDocuments = [];
     outputValues.forEach((row) => {
       let doc = {};
-      outputLayout.forEach((column, index) => {
-        doc[column.fieldName] = row[index];
+      columnsNames.forEach((column, index) => {
+        doc[column] = row[index];
       });
       outputValueDocuments.push(doc);
       doc = {};
     });
     x = x + 1;
     LogThis(log, `x=${x}`, L3);
-    LogThis(log, `outputValueDocuments=${outputValueDocuments}`);
+    // LogThis(
+    //   log,
+    //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
+    // );
+    // x = x + 1;
+    // LogThis(log, `x=${x}`, L3);
     await surveyOutputCollection.insertMany(outputValueDocuments);
     x = x + 1;
     LogThis(log, `x=${x}`, L3);
@@ -1100,6 +1114,39 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
   }
 });
 
+const superSurveyDeleteOutputValues = asyncHandler(async (req, res) => {
+  const functionName = "superSurveyDeleteOutputValues";
+  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    const superSurveyId = req.params.id;
+
+    LogThis(log, `superSurveyId=${superSurveyId}`, L1);
+    LogThis(log, `Deleting 0`, L1);
+    const surveySuperiors = await SurveySuperior.find({
+      _id: superSurveyId,
+    }).lean();
+
+    const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`;
+    LogThis(log, `Deleting 1`, L1);
+    let surveyOutputCollection = mongoose.connection.collection(
+      surveyOutputCollectionName.toLocaleLowerCase()
+    );
+    LogThis(log, `Deleting 2`, L1);
+    await surveyOutputCollection.deleteMany();
+    LogThis(log, `Deleting 3`, L1);
+    res.status(204).end();
+  } catch (error) {
+    LogThis(
+      log,
+      `Error deleting output values survey=${surveySuperiors[0].surveyShortName}; error=${error.message}`
+    );
+    res.status(404);
+    throw new Error(
+      `Error deleting output values survey=${surveySuperiors[0].surveyShortName}; error=${error.message}`
+    );
+  }
+});
+
 module.exports = {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
@@ -1107,4 +1154,5 @@ module.exports = {
   getSuperSurveyConfigs,
   superSurveyGetList,
   superSurveySaveOutput,
+  superSurveyDeleteOutputValues,
 };

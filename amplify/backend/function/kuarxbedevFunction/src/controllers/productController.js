@@ -41,7 +41,7 @@ const getProductById = asyncHandler(async (req, res) => {
   console.log("Getting product by id", req.params.id, "START");
   const product = await Product.findById(req.params.id);
   if (product) {
-    LogThis(`productController, getProductById, product=${product}`);
+    LogThis(null, `productController, getProductById, product=${product}`);
     res.json(product);
   } else {
     res.status(404);
@@ -109,7 +109,7 @@ const updateProduct = asyncHandler(async (req, res) => {
   } = req.body;
   const product = await Product.findById(req.params.id);
 
-  LogThis(`productController, updateProduct, isShippable=${isShippable}`);
+  LogThis(null, `productController, updateProduct, isShippable=${isShippable}`);
 
   if (product) {
     product.name = name;
@@ -124,9 +124,10 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.category = category;
     product.countInStock = countInStock;
     product.isCreated = isCreated;
-    LogThis(`productController, updateProduct, product=${product}`);
+    LogThis(null, `productController, updateProduct, product=${product}`);
     const updatedProduct = await product.save();
     LogThis(
+      null,
       `productController, updateProduct, updatedProduct=${updatedProduct}`
     );
     res.json(updatedProduct);
