@@ -1,7 +1,7 @@
 /** @format */
 
 import JSZip from "jszip";
-import { LogThis, LoggerSettings } from "../libs/Logger";
+import { LogThis, LoggerSettings, L0, L1, L3 } from "../libs/Logger";
 
 const srcFileName = "Functions.js";
 
@@ -165,4 +165,48 @@ export const autoDownloadTextAsFileOnClientBrowser = (
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+};
+
+export const applyStringCriteriaToValue = (criteria, value) => {
+  const functionName = "applyStringCriteriaToValue";
+  const log = new LoggerSettings(srcFileName, functionName);
+  const parseCriteria = criteria.split(" ");
+  let newValue = parseInt(value);
+  if (typeof newValue != "number" || newValue == null || isNaN(newValue)) {
+    newValue = 0;
+  }
+  LogThis(log, `parseCriteria=${JSON.stringify(parseCriteria)}`, L3);
+  switch (parseCriteria[0]) {
+    case ">":
+      if (newValue > parseCriteria[1]) {
+        return parseCriteria[3];
+      } else {
+        return parseCriteria[5];
+      }
+    case "==":
+      if (newValue == parseCriteria[1]) {
+        LogThis(
+          log,
+          `TRUE Criteria newValue=${newValue}==${parseCriteria[1]}=>${parseCriteria[3]}`,
+          L3
+        );
+        return parseCriteria[3];
+      } else {
+        LogThis(
+          log,
+          `FALSE Criteria newValue=${newValue}==${parseCriteria[1]}=>=>${parseCriteria[5]}`,
+          L3
+        );
+        return parseCriteria[5];
+      }
+    default:
+      LogThis(
+        log,
+        `Criteria must start with > : criteria=${criteria}; value=${value}`,
+        L0
+      );
+      throw new Error(
+        `Criteria must start with > : criteria=${criteria}; value=${value}`
+      );
+  }
 };

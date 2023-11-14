@@ -10,7 +10,12 @@ import {
   SURVEY_DETAILS_FAIL,
   SURVEY_DETAILS_RESET,
 } from "../constants/surveyConstants";
-import { zipFile, unzipFile, unzipStringBase64 } from "../libs/Functions";
+import {
+  zipFile,
+  unzipFile,
+  unzipStringBase64,
+  applyStringCriteriaToValue,
+} from "../libs/Functions";
 
 import { LogThis, LoggerSettings, L0, L1, L2, L3, OFF } from "../libs/Logger";
 
@@ -20,6 +25,14 @@ import { BACKEND_ENDPOINT } from "../constants/enviromentConstants";
 
 import axios from "axios";
 const srcFileName = "surveyActions.js";
+
+const WEIGHTED_PAIRS = "WEIGHTED_PAIRS";
+const WEIGHTED_CRITERIA = "WEIGHTED_CRITERIA";
+
+const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = "CAL_CONCAT_GROUP_BASED_ON_CRITERIA";
+const CAL_SUM_THE_GROUP = "CAL_SUM_THE_GROUP";
+const CAL_CRITERIA_ON_OTHER_FIELD = "CAL_CRITERIA_ON_OTHER_FIELD";
+
 export const surveyProcessAnswersAction =
   (survey) => async (dispatch, getState) => {
     try {
@@ -253,7 +266,10 @@ export const surveyProcessAnswersAtClientAction =
             )
             .sort((a, b) => a.superSurveyCol - b.superSurveyCol);
 
-          allSurveyQuestions = [...allSurveyQuestions, ...surveyQuestions];
+          surveyQuestions.forEach((q) => {
+            allSurveyQuestions.push(q);
+          });
+          //allSurveyQuestions.push([...surveyQuestions]);
 
           let surveyCalculatedFields = calculatedFields
             .filter(
@@ -262,10 +278,10 @@ export const surveyProcessAnswersAtClientAction =
             )
             .sort((a, b) => a.sequence - b.sequence);
 
-          allCalculatedFields = [
-            ...allCalculatedFields,
-            ...surveyCalculatedFields,
-          ];
+          surveyCalculatedFields.forEach((cal) => {
+            allCalculatedFields.push(cal);
+          });
+          //allCalculatedFields.push([...surveyCalculatedFields]);
         });
 
         LogThis(
@@ -322,7 +338,12 @@ export const surveyProcessAnswersAtClientAction =
           //console.log(`Processing row ${r + 1}`);
           LogThis(
             log,
-            `Processing Row r=${r}; allSurveyQuestions length=${allSurveyQuestions.length}`
+            `Processing Row r=${r}; allSurveyQuestions=${JSON.stringify(
+              allSurveyQuestions,
+              null,
+              1
+            )} length=${allSurveyQuestions.length}`,
+            L3
           );
           rowClean = rowCleaner2(answersRows[r]);
           answers = rowClean.split(",");
@@ -330,7 +351,7 @@ export const surveyProcessAnswersAtClientAction =
           rowRealClean = rowCleaner2(answersRealRows[r]);
           answersReal = rowRealClean.split(",");
 
-          LogThis(log, `answers=${answers}`);
+          LogThis(log, `answers=${answers}`, L3);
           if (answers[0] == "" || answers[0].trim() == "") {
             break;
           }
@@ -338,7 +359,7 @@ export const surveyProcessAnswersAtClientAction =
           respondentId = answers[0].trim();
           let row = r + 1;
           for (let a = 0; a < allSurveyQuestions.length; a++) {
-            LogThis(log, `processing question a=${a}`);
+            LogThis(log, `processing question a=${a}`, L3);
             // LogThis(
             //   log,
             //   `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
@@ -356,40 +377,38 @@ export const surveyProcessAnswersAtClientAction =
             //   )};surveyQuestion.weights=${JSON.stringify(surveyQuestion.weights)}`
             // );
 
+            // switch (
+            //   surveyQuestion.weightType
+            // ) {
+            //   case "WEIGHTED_PAIRS":
             if (
               surveyQuestion.weights &&
-              Object.keys(surveyQuestion.weights).length >
-                0 /*&& surveyQuestion.weights.length > 0*/
+              (Object.keys(surveyQuestion.weights).length > 0 ||
+                surveyQuestion.weigths.length > 0)
             ) {
-              // LogThis(
-              //   log,
-              //   `weighting: answers[${a}]=${
-              //     answers[a]
-              //   };surveyQuestion.weights=${JSON.stringify(
-              //     surveyQuestion.weights
-              //   )}; weightedValue=${
-              //     surveyQuestion.weights[
-              //       answers[a].toString().trim().replace(/'\n'/g, "")
-              //     ]
-              //   }`
-              // );
               let answerA = answers[superSurveyQuestionCol]
                 .toString()
                 .trim()
                 .replace(/'\n'/g, "");
-              // if (answerA == "") {
-              //   answerA = "";
-              // }
-
-              weightedResponse = surveyQuestion.weights[answerA];
+              switch (surveyQuestion.weightType) {
+                case WEIGHTED_PAIRS:
+                  weightedResponse = surveyQuestion.weights[answerA];
+                  break;
+                case WEIGHTED_CRITERIA:
+                  weightedResponse = applyStringCriteriaToValue(
+                    surveyQuestion.weights,
+                    answerA
+                  );
+              }
               LogThis(
                 log,
-                `question weights=${JSON.stringify(surveyQuestion.weights)}`
+                `question weights=${JSON.stringify(surveyQuestion.weights)}`,
+                L3
               );
               LogThis(
                 log,
                 `BEFORE col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
-                OFF
+                L3
               );
               if (weightedResponse === undefined) {
                 weightedResponse = answerA;
@@ -402,10 +421,10 @@ export const surveyProcessAnswersAtClientAction =
               LogThis(
                 log,
                 `AFTER col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
-                OFF
+                L3
               );
-              //LogThis(log, `final weight: answer=${weightedResponse}`);
             } else {
+              //CASE NO_WEIGHTED
               let answerA = answers[superSurveyQuestionCol];
               // if (answerA == "") {
               //   answerA = "0";
@@ -413,7 +432,11 @@ export const surveyProcessAnswersAtClientAction =
               response = answerA;
               weightedResponse = answerA;
               isWeighted = false;
-              LogThis(log, `no weighted: answer=${weightedResponse}`);
+              LogThis(
+                log,
+                `no weighted: superSurveyQuestionCol=${superSurveyQuestionCol}; answer=${weightedResponse}`,
+                L3
+              );
             }
 
             surveyResponses.push({
@@ -430,7 +453,8 @@ export const surveyProcessAnswersAtClientAction =
             if (isWeighted) {
               LogThis(
                 log,
-                `Adding csv weighted answer: weightedResponse=${weightedResponse}`
+                `Adding csv weighted answer: weightedResponse=${weightedResponse}`,
+                L3
               );
               weightedResponse = weightedResponse ?? "";
               csv = csv + weightedResponse.toString() + ",";
@@ -441,23 +465,31 @@ export const surveyProcessAnswersAtClientAction =
 
           LogThis(
             log,
-            `surveyResponses=${JSON.stringify(surveyResponses, null, 2)}`
+            `surveyResponses=${JSON.stringify(surveyResponses, null, 2)}`,
+            L3
           );
           //console.log(`surveyResponses=${surveyResponses}`);
 
+          LogThis(
+            log,
+            `allCalculatedFields=${JSON.stringify(
+              allCalculatedFields,
+              null,
+              1
+            )}`,
+            L3
+          );
           for (let a = 0; a < allCalculatedFields.length; a++) {
-            // LogThis(
-            //   log,
-            //   `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}; answers[a]=${answers[a]}`
-            // );
             LogThis(
               log,
-              `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}}`
+              `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a]._id}`,
+              L3
             );
-            //let col = a + 1
             let allCalculatedField = allCalculatedFields[a];
             let value = null;
-            if (allCalculatedField.isCriteria) {
+            if (
+              allCalculatedField.calculationType === CAL_CRITERIA_ON_OTHER_FIELD
+            ) {
               let criteria = allCalculatedField.criteria;
               LogThis(
                 log,
@@ -465,15 +497,21 @@ export const surveyProcessAnswersAtClientAction =
                   criteria,
                   null,
                   2
-                )}`
+                )}`,
+                L3
               );
               let fieldNameValue = allCalculatedFields.find((calField) => {
-                LogThis(log, `calField=${JSON.stringify(calField, null, 2)}`);
+                LogThis(
+                  log,
+                  `calField=${JSON.stringify(calField, null, 2)}`,
+                  L3
+                );
                 return calField.fieldName == criteria.fieldNameValue[0];
               });
               LogThis(
                 log,
-                `fieldNameValue1=${JSON.stringify(fieldNameValue, null, 2)}`
+                `fieldNameValue1=${JSON.stringify(fieldNameValue, null, 2)}`,
+                L3
               );
               let sequence = fieldNameValue.sequence;
               let calValue = calculatedValues.find(
@@ -489,55 +527,102 @@ export const surveyProcessAnswersAtClientAction =
                   criteria.operator,
                   null,
                   2
-                )}`
+                )}`,
+                L3
               );
               switch (criteria.operator) {
                 case ">":
                   LogThis(
                     log,
-                    `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`
+                    `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`,
+                    L3
                   );
                   if (calValue.value > criteria.value) {
                     value = criteria.resultIfTrue;
-                    LogThis(log, `Creteria is true: value=${value}`);
+                    LogThis(log, `Creteria is true: value=${value}`, L3);
                   } else {
                     value = criteria.resultIfFalse;
-                    LogThis(log, `Creteria is false: value=${value}`);
+                    LogThis(log, `Creteria is false: value=${value}`, L3);
                   }
                   break;
                 default:
                   value = null;
-                  LogThis(log, `Case entered default: value${value}`);
+                  LogThis(log, `Case entered default: value${value}`, L3);
               }
-            } else {
-              // LogThis(
-              //   log,
-              //   `Field is not criteria: allCalculatedField=${JSON.stringify(
-              //     allCalculatedField
-              //   )}`
-              // );
-
+            } else if (
+              allCalculatedField.calculationType === CAL_SUM_THE_GROUP
+            ) {
               let groups = allCalculatedField.group;
               groups.map((group) => {
-                // LogThis(
-                //   log,
-                //   ` row=${row}; col=${a + 1}; group=${group} answers[group]=${
-                //     answers[group]
-                //   }; parseInt(answers[group])=${parseInt(answers[group])}`
-                // );
+                let newVal = parseInt(answers[group]);
 
-                value = value + parseInt(answers[group]);
+                if (
+                  typeof newVal != "number" ||
+                  newVal == null ||
+                  isNaN(newVal)
+                ) {
+                  newVal = 0;
+                }
+                value = value + newVal;
               });
+            } else if (
+              allCalculatedField.calculationType ===
+              CAL_CONCAT_GROUP_BASED_ON_CRITERIA
+            ) {
+              let groups = allCalculatedField.group;
+              value = "";
+              for (let i = 0; i < groups.length; i++) {
+                let group = groups[i];
+                if (
+                  applyStringCriteriaToValue(
+                    allCalculatedField.criteria,
+                    parseInt(answers[group])
+                  ) == 1
+                ) {
+                  LogThis(
+                    log,
+                    `groups=${groups}; group=${group}; calField=${allCalculatedField.fieldName};`,
+                    L3
+                  );
+                  let questionSelected = allSurveyQuestions.find(
+                    (q) => q.superSurveyCol == group + 1
+                  );
+                  LogThis(
+                    log,
+                    `groups=${groups}; group=${group + 1}; calField=${
+                      allCalculatedField.fieldName
+                    }; questionSelected.questionShort=${
+                      questionSelected.questionShort
+                    }`,
+                    L3
+                  );
+
+                  value = value + questionSelected.questionShort + "; ";
+                }
+              }
+            } else {
+              LogThis(
+                log,
+                `Invalid calculated field calculation type = ${
+                  allCalculatedField.calculationType
+                } ${JSON.stringify(allCalculatedField)}`,
+                L3
+              );
+
+              throw new Error(
+                `Invalid calculated field calculation type = ${JSON.stringify(
+                  allCalculatedField
+                )}`
+              );
             }
             LogThis(
               log,
               `Pushing value: calculatedFieldId=${
                 allCalculatedFields[a]._id
-              }; row=${row};col=${a + 1}; value=${value}; `
+              }; row=${row};col=${a + 1}; value=${value};`,
+              L3
             );
-            if (typeof value != "number" || value == null || isNaN(value)) {
-              value = 0;
-            }
+
             calculatedValues.push({
               calculatedFieldId: allCalculatedFields[a]._id,
               respondentId: respondentId,
@@ -552,13 +637,18 @@ export const surveyProcessAnswersAtClientAction =
         } //This bracket
         LogThis(
           log,
-          `calculatedValues=${JSON.stringify(calculatedValues, null, 2)}`
+          `calculatedValues=${JSON.stringify(calculatedValues, null, 2)}`,
+          L3
         );
         //get outputLayout from response
 
         const outputLayout = data.outputLayout;
 
-        LogThis(log, `outputLayouts=${JSON.stringify(outputLayout, null, 2)}`);
+        LogThis(
+          log,
+          `outputLayouts=${JSON.stringify(outputLayout, null, 2)}`,
+          L3
+        );
 
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
@@ -589,10 +679,11 @@ export const surveyProcessAnswersAtClientAction =
           layout = outputLayout[o];
           LogThis(
             log,
-            `layout.fieldId=${layout.fieldId}; layout.isCalculated=${layout.isCalculated}`
+            `layout.fieldId=${layout.fieldId}; layout.isCalculated=${layout.isCalculated}`,
+            L3
           );
           if (layout.isCalculated) {
-            LogThis(log, `layout.isCalculated=${layout.isCalculated}`);
+            LogThis(log, `layout.isCalculated=${layout.isCalculated}`, L3);
             cols.push(
               calculatedValues
                 .filter((val) => val.calculatedFieldId == layout.fieldId)
@@ -614,14 +705,16 @@ export const surveyProcessAnswersAtClientAction =
             outputLayout,
             null,
             2
-          )}`
+          )}`,
+          L3
         );
 
         //console.log(`cols=${JSON.stringify(cols)}`);
         let value = null;
         LogThis(
           log,
-          `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`
+          `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`,
+          L3
         );
         console.log(`Getting values for the columns in the layout`);
 
@@ -641,10 +734,10 @@ export const surveyProcessAnswersAtClientAction =
           //LogThis(log, `Current Row length=${cols[r].length}`);
           for (let c = 0; c < cols.length - 1; c++) {
             layout = outputLayout[c];
-            LogThis(log, `Processing Col=${c}; row=${r}`);
+            LogThis(log, `Processing Col=${c}; row=${r}`, L3);
             //console.log(`Processing Col=${c}; row=${r}`);
             value = cols[c][r];
-            LogThis(log, `value cycle=${JSON.stringify(value, null, 2)}`);
+            LogThis(log, `value cycle=${JSON.stringify(value, null, 2)}`, L3);
             if (layout.outputAsReal) {
               value = value.responseReal;
             } else {
@@ -662,14 +755,15 @@ export const surveyProcessAnswersAtClientAction =
             if (value == null || value == undefined) {
               value = "";
             }
-            LogThis(log, `value=${value}`);
+            LogThis(log, `value=${value}`, L3);
             csvLayout = csvLayout + value + ",";
             //row = [...row, value];
             row.push(value);
           }
           LogThis(
             log,
-            `Processing Last Col=${outputLayout.length - 1}; row=${r}`
+            `Processing Last Col=${outputLayout.length - 1}; row=${r}`,
+            L3
           );
           value = cols[outputLayout.length - 1][r];
 
@@ -690,7 +784,7 @@ export const surveyProcessAnswersAtClientAction =
           if (value == null || value == undefined) {
             value = "";
           }
-          LogThis(log, `value=${value}`);
+          LogThis(log, `value=${value}`, L3);
           csvLayout = csvLayout + value + "\n";
           // row = [...row, value];
           row.push(value);
@@ -706,7 +800,7 @@ export const surveyProcessAnswersAtClientAction =
           );
           row.length = 0;
         }
-        console.log(`Output layout is ready`);
+        LogThis(log, `Output layout is ready`, L0);
         //const csvLayout = "hola mundo!";
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
