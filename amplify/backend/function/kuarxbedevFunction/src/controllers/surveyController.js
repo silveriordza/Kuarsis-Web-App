@@ -106,6 +106,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
         question: questionItem.question,
         questionShort: questionItem.questionShort,
         fieldName: questionItem.fieldName,
+        weightType: questionItem.weightType,
         weights: questionItem.weights,
         surveyCol: questionItem.surveyCol,
         superSurveyCol: questionItem.superSurveyCol,
@@ -125,8 +126,9 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
         description: calculatedFieldItem.description,
         shortDescription: calculatedFieldItem.shortDescription,
         fieldName: calculatedFieldItem.fieldName,
-        isCriteria: calculatedFieldItem.isCriteria,
-        criteria: calculatedFieldItem.criteria,
+        calculationType: calculatedFieldItem.calculationType,
+        //isCriteria: calculatedFieldItem.isCriteria,
+        criteria: calculatedFieldItem.criteria ?? null,
         group: calculatedFieldItem.group,
         sequence: calculatedFieldItem.sequence,
       });
@@ -185,10 +187,15 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
     (collection) => collection.name === surveyOutputCollectionName
   );
   if (collInfo) {
-    let surveyOutputCollection = mongoose.connection.collection(
+    LogThis(log, `dropping surveyOutputCollectionName`, L3);
+    let surveyOutputCollection = await mongoose.connection.collection(
       surveyOutputCollectionName
     );
     await surveyOutputCollection.drop();
+    LogThis(log, `dropped surveyOutputCollectionName`, L3);
+
+    delete mongoose.models[surveyOutputCollectionName];
+    LogThis(log, `deleted models`, L3);
   }
   x = x + 1;
   LogThis(log, `x=${x}`, L3);
