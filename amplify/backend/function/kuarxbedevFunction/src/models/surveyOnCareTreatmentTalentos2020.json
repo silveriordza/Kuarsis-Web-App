@@ -609,7 +609,7 @@
             "criteria": {
               "fieldNameValue": ["CSG_CAL_TOTAL_CSG"],
               "operator": ">",
-              "value": 4,
+              "value": 3,
               "resultIfTrue": 1,
               "resultIfFalse": 0
             },
