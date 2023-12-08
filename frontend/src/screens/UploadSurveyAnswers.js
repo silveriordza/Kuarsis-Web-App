@@ -22,7 +22,7 @@ import {
   surveyDetailsAction,
 } from "../actions/surveyActions";
 //import { surveysConfigurations } from "../surveysConfigurations";
-import { LogThis, LoggerSettings } from "../libs/Logger";
+import { LogThis, LoggerSettings, L1 } from "../libs/Logger";
 
 import { saveStringAsCSV } from "../libs/csvProcessingLib";
 import {
@@ -285,37 +285,42 @@ const UploadSurveyAnswers = ({ match, history }) => {
   };
 
   useEffect(() => {
-    LogThis(
-      log,
-      `useEffect startToProcess=${startToProcessAnswers}; uploadingServer=${uploadingServer}`
-    );
-    if (startToProcessAnswers && !uploadingServer) {
-      setuploadingServer(true);
+    if (!userInfo) {
+      LogThis(log, `No userInfo available`, L1);
+      history.push("/sign-in");
+    } else {
       LogThis(
         log,
-        `selectedSurveySuperior=${JSON.stringify(selectedSurveySuperior)}`
+        `useEffect startToProcess=${startToProcessAnswers}; uploadingServer=${uploadingServer}`
       );
-      dispatch(
-        surveyProcessAnswersAtClientAction({
-          surveySuperiorId: selectedSurveySuperior._id,
-          fileNumeric: fileNumeric,
-          fileReal: fileReal,
-        })
-      );
-      setstartToProcessAnswers(false);
-    }
+      if (startToProcessAnswers && !uploadingServer) {
+        setuploadingServer(true);
+        LogThis(
+          log,
+          `selectedSurveySuperior=${JSON.stringify(selectedSurveySuperior)}`
+        );
+        dispatch(
+          surveyProcessAnswersAtClientAction({
+            surveySuperiorId: selectedSurveySuperior._id,
+            fileNumeric: fileNumeric,
+            fileReal: fileReal,
+          })
+        );
+        setstartToProcessAnswers(false);
+      }
 
-    if (!surveyLoading && surveySuccess && surveyData && uploadingServer) {
-      saveStringAsCSV(surveyData, "OutputReport.csv");
-      dispatch({ type: SURVEY_PROCESS_ANSWERS_RESET });
-      setuploadingServer(false);
-    } else if (
-      uploadingServer &&
-      !surveyLoading &&
-      !surveySuccess &&
-      surveyError
-    ) {
-      setuploadingServer(false);
+      if (!surveyLoading && surveySuccess && surveyData && uploadingServer) {
+        saveStringAsCSV(surveyData, "OutputReport.csv");
+        dispatch({ type: SURVEY_PROCESS_ANSWERS_RESET });
+        setuploadingServer(false);
+      } else if (
+        uploadingServer &&
+        !surveyLoading &&
+        !surveySuccess &&
+        surveyError
+      ) {
+        setuploadingServer(false);
+      }
     }
   }, [
     dispatch,

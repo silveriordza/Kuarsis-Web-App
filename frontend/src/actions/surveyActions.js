@@ -9,6 +9,10 @@ import {
   SURVEY_DETAILS_SUCCESS,
   SURVEY_DETAILS_FAIL,
   SURVEY_DETAILS_RESET,
+  SURVEY_OUTPUTS_REQUEST,
+  SURVEY_OUTPUTS_SUCCESS,
+  SURVEY_OUTPUTS_FAIL,
+  SURVEY_OUTPUTS_RESET,
 } from "../constants/surveyConstants";
 import {
   zipFile,
@@ -160,7 +164,7 @@ export const surveyProcessAnswersAtClientAction =
       await new Promise((resolve) => setTimeout(resolve, 1));
       dispatch({
         type: SURVEY_PROCESS_ANSWERS_STATUS,
-        payload: { message: "Survey Process started", row: 0 },
+        payload: { message: "Procesamiento de encuestas iniciado.", row: 0 },
       });
       await new Promise((resolve) => setTimeout(resolve, 1));
 
@@ -193,7 +197,7 @@ export const surveyProcessAnswersAtClientAction =
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: {
-            message: "Obteniendo configuracion de encuestas.",
+            message: "Obteniendo configuracion de las encuestas.",
             row: 0,
           },
         });
@@ -253,7 +257,7 @@ export const surveyProcessAnswersAtClientAction =
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: {
-            message: "Mapeando las preguntas a las encuenstas.",
+            message: "Mapeando las preguntas a cada tipo de encuesta.",
             row: 0,
           },
         });
@@ -331,7 +335,10 @@ export const surveyProcessAnswersAtClientAction =
           if (r % 10 === 0) {
             dispatch({
               type: SURVEY_PROCESS_ANSWERS_STATUS,
-              payload: { message: "Processing rows", row: r + 1 },
+              payload: {
+                message: "Procesando respuestas para la encuesta numero: ",
+                row: r + 1,
+              },
             });
             await new Promise((resolve) => setTimeout(resolve, 1));
           }
@@ -592,12 +599,12 @@ export const surveyProcessAnswersAtClientAction =
                     `groups=${groups}; group=${group + 1}; calField=${
                       allCalculatedField.fieldName
                     }; questionSelected.questionShort=${
-                      questionSelected.questionShort
+                      questionSelected.question
                     }`,
                     L3
                   );
 
-                  value = value + questionSelected.questionShort + "; ";
+                  value = value + questionSelected.question + "; ";
                 }
               }
             } else {
@@ -652,7 +659,7 @@ export const surveyProcessAnswersAtClientAction =
 
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
-          payload: { message: "Generando el archivo CSV", row: 0 },
+          payload: { message: "Generando el archivo CSV.", row: 0 },
         });
         await new Promise((resolve) => setTimeout(resolve, 1));
 
@@ -725,7 +732,7 @@ export const surveyProcessAnswersAtClientAction =
             dispatch({
               type: SURVEY_PROCESS_ANSWERS_STATUS,
               payload: {
-                message: "Agregando encuesta al archivo CSV.",
+                message: "Agregando encuesta al archivo CSV, numero:",
                 row: r + 1,
               },
             });
@@ -804,14 +811,14 @@ export const surveyProcessAnswersAtClientAction =
         //const csvLayout = "hola mundo!";
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
-          payload: { message: "Archivo CSV Terminado.", row: 0 },
+          payload: { message: "Archivo CSV generado.", row: 0 },
         });
 
         await new Promise((resolve) => setTimeout(resolve, 1));
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: {
-            message: "Guardando resultados en la base de datos",
+            message: "Guardando encuestas y respuestas en la base de datos",
             row: 0,
           },
         });
@@ -835,7 +842,7 @@ export const surveyProcessAnswersAtClientAction =
           dispatch({
             type: SURVEY_PROCESS_ANSWERS_STATUS,
             payload: {
-              message: "Sending Output to server in slices.",
+              message: "Enviando respuestas a la base de datos en partes.",
               row: 0,
             },
           });
@@ -889,7 +896,9 @@ export const surveyProcessAnswersAtClientAction =
             dispatch({
               type: SURVEY_PROCESS_ANSWERS_STATUS,
               payload: {
-                message: `Sending slice ${slice} Rows ${r - sliceSize} to ${r}`,
+                message: `Enviando parte ${slice} encuesta numero ${
+                  r - sliceSize
+                } a la ${r}`,
                 row: r,
               },
             });
@@ -907,6 +916,15 @@ export const surveyProcessAnswersAtClientAction =
             type: SURVEY_PROCESS_ANSWERS_SUCCESS,
             payload: csvLayout,
           });
+          await new Promise((resolve) => setTimeout(resolve, 1));
+          dispatch({
+            type: SURVEY_PROCESS_ANSWERS_STATUS,
+            payload: {
+              message: `Procesamiento de encuestas terminado, encuentre archivo CSV in el folder de downloads`,
+              row: r,
+            },
+          });
+          await new Promise((resolve) => setTimeout(resolve, 1000));
         } else {
           throw Error("No CSV data generated.");
         }
@@ -958,3 +976,61 @@ export const surveyDetailsAction = () => async (dispatch, getState) => {
     });
   }
 };
+
+export const surveyGetOutputValuesAction =
+  (superSurveyId) => async (dispatch, getState) => {
+    try {
+      const log = new LoggerSettings(
+        srcFileName,
+        "surveyGetOutputValuesAction"
+      );
+      dispatch({
+        type: SURVEY_OUTPUTS_REQUEST,
+      });
+
+      const {
+        userLogin: { userInfo },
+      } = getState();
+
+      LogThis(log, "ABOUT TO CALL AXIOS");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+      LogThis(
+        log,
+        `superSurveyId=${JSON.stringify(
+          superSurveyId
+        )}; superSurveyId.superSurveyShortName=${
+          superSurveyId.superSurveyShortName
+        }; userInfo.token=${userInfo.token}`,
+        L3
+      );
+      const { data } = await axios.get(
+        BACKEND_ENDPOINT +
+          `/surveys/${superSurveyId.surveySuperiorId}/outputs?&superSurveyShortName=${superSurveyId.surveyShortName}`,
+        config
+      );
+
+      LogThis(log, `dataOutputValues=${JSON.stringify(data, null, 2)}`, L0);
+
+      if (data && data.outputsInfo) {
+        LogThis(log, `data=${JSON.stringify(data)}`, L0);
+        dispatch({
+          type: SURVEY_OUTPUTS_SUCCESS,
+          payload: data.outputsInfo,
+        });
+      } else {
+        throw new Error(`No output info or output data found`);
+      }
+    } catch (error) {
+      dispatch({
+        type: SURVEY_OUTPUTS_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };

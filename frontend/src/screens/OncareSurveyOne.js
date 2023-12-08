@@ -1,40 +1,50 @@
-import React, { useState, useEffect } from 'react'
-import { Link/*, useNavigate*/ } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import Meta from '../components/Meta'
-import { listProductDetails } from '../actions/productActions'
-import { KUARSIS_PUBLIC_BUCKET_URL } from '../constants/enviromentConstants'
+/** @format */
+
+import React, { useState, useEffect } from "react";
+import { Link /*, useNavigate*/ } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Card,
+  Button,
+  Form,
+} from "react-bootstrap";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
+import Meta from "../components/Meta";
+import { listProductDetails } from "../actions/productActions";
+import { KUARSIS_PUBLIC_BUCKET_URL } from "../constants/enviromentConstants";
 
 const ProductDetailScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(1);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   //const leapToPage = useNavigate();
 
-  const productDetails = useSelector((state) => state.productDetails)
-  const { loading, error, product } = productDetails
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    dispatch(listProductDetails(match.params.id))
-  }, [dispatch, match])
+    dispatch(listProductDetails(match.params.id));
+  }, [dispatch, match]);
 
   //Adding handler for the Add Cart button here:
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`)
-  }
+    history.push(`/cart/${match.params.id}?qty=${qty}`);
+  };
 
   return (
     <>
-      <Link className='btn btn-light my-3' onClick={()=>history.go(-1)}>
+      <Link className="btn btn-light my-3" onClick={() => history.go(-1)}>
         Go Back
       </Link>
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
         <>
           <Meta title={product.name} />
@@ -48,7 +58,7 @@ const ProductDetailScreen = ({ history, match }) => {
               {/* use fluid to prevent the image going out of its container*/}
             </Col>
             <Col md={3}>
-              <ListGroup variant='flush'>
+              <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
@@ -62,7 +72,7 @@ const ProductDetailScreen = ({ history, match }) => {
             </Col>
             <Col md={3}>
               <Card>
-                <ListGroup variant='flush'>
+                <ListGroup variant="flush">
                   <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
@@ -75,7 +85,7 @@ const ProductDetailScreen = ({ history, match }) => {
                     <Row>
                       <Col>Status:</Col>
                       <Col>
-                        {product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
+                        {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -85,13 +95,12 @@ const ProductDetailScreen = ({ history, match }) => {
                         <Col>Qty: </Col>
                         <Col>
                           <Form.Control
-                            type='number'
+                            type="number"
                             value={qty}
-                            placeholder='1'
+                            placeholder="1"
                             onChange={(e) => setQty(e.target.value)}
                             disabled={product.isShippable}
-                          >
-                          </Form.Control>
+                          ></Form.Control>
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -99,8 +108,8 @@ const ProductDetailScreen = ({ history, match }) => {
                   <ListGroup.Item>
                     <Button
                       onClick={addToCartHandler}
-                      className='btn-block'
-                      type='button'
+                      className="btn-block"
+                      type="button"
                       disabled={product.countInStock === 0}
                     >
                       Add to Cart
@@ -113,7 +122,7 @@ const ProductDetailScreen = ({ history, match }) => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default ProductDetailScreen
+export default ProductDetailScreen;

@@ -12,6 +12,10 @@ import {
   SURVEY_DETAILS_SUCCESS,
   SURVEY_DETAILS_FAIL,
   SURVEY_DETAILS_RESET,
+  SURVEY_OUTPUTS_REQUEST,
+  SURVEY_OUTPUTS_SUCCESS,
+  SURVEY_OUTPUTS_FAIL,
+  SURVEY_OUTPUTS_RESET,
 } from "../constants/surveyConstants";
 
 export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
@@ -59,6 +63,29 @@ export const surveyDetailsReducer = (
       return { loading: false, error: action.payload };
     case SURVEY_DETAILS_RESET:
       return { surveyDetailsInfo: {} };
+    default:
+      return state;
+  }
+};
+
+export const surveyOutputsReducer = (
+  state = { surveyOutputsInfo: {} },
+  action
+) => {
+  switch (action.type) {
+    case SURVEY_OUTPUTS_REQUEST:
+      return { loading: true };
+    case SURVEY_OUTPUTS_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        surveyOutputsInfo: action.payload,
+      };
+
+    case SURVEY_OUTPUTS_FAIL:
+      return { loading: false, error: action.payload };
+    case SURVEY_OUTPUTS_RESET:
+      return { surveyOutputsInfo: {} };
     default:
       return state;
   }

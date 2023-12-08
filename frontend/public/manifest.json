@@ -16,6 +16,11 @@
       "src": "/images/ArtPixanLogo256px.png",
       "type": "image/png",
       "sizes": "50x50"
+    },
+    {
+      "src": "/images/OnCareLogo256px.png",
+      "type": "image/png",
+      "sizes": "50x50"
     }
   ],
   "start_url": ".",

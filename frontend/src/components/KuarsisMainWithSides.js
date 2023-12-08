@@ -1,17 +1,19 @@
-import React from 'react'
-import { BusinessConfigurations } from '../businessconfigurations'
-import { Col, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+/** @format */
+
+import React from "react";
+import { BusinessConfigurations } from "../businessconfigurations";
+import { Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const KuarsisMainWithSides = ({ pageToDisplay }) => {
   const businessConfiguration = BusinessConfigurations.find(
     (page) => page.pageName === pageToDisplay
-  )
+  );
 
   return (
     <div>
       <Row>
-        <Col xs={8} className=''>
+        <Col xs={8} className="">
           <h1>{businessConfiguration.title1}</h1>
           <p>{businessConfiguration.description1}</p>
           <h1>{businessConfiguration.title2}</h1>
@@ -24,7 +26,7 @@ const KuarsisMainWithSides = ({ pageToDisplay }) => {
           </ul>
         </Col>
         <Col>
-          <div className='sidebar'>
+          <div className="sidebar">
             {businessConfiguration.sidebar.map((sidebar) => (
               <div key={sidebar.sidebarId}>
                 {sidebar.sidebarText.toString()}
@@ -35,23 +37,23 @@ const KuarsisMainWithSides = ({ pageToDisplay }) => {
             {/* <div> */}
             {businessConfiguration.linkToCompanyWebsite ? (
               <p>
-                To visit {businessConfiguration.pageName} webpage click{' '}
+                Para ir al {businessConfiguration.pageName} webpage click{" "}
                 <Link
                   to={businessConfiguration.linkToCompanyWebsite}
-                  className='sidebarLink'
+                  className="sidebarLink"
                 >
-                  here
-                </Link>{' '}
+                  aqui
+                </Link>{" "}
               </p>
             ) : (
-              ''
+              ""
             )}
             {/* </div> */}
           </div>
         </Col>
       </Row>
     </div>
-  )
-}
+  );
+};
 
-export default KuarsisMainWithSides
+export default KuarsisMainWithSides;

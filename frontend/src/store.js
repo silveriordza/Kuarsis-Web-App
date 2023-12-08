@@ -27,6 +27,7 @@ import {
 import {
   surveyProcessAnswersReducer,
   surveyDetailsReducer,
+  surveyOutputsReducer,
 } from "./reducers/surveyReducer.js";
 
 import { cartReducer } from "./reducers/cartReducers";
@@ -82,6 +83,7 @@ const reducer = combineReducers({
   //Survey Reducers
   surveyProcessAnswers: surveyProcessAnswersReducer,
   surveyDetails: surveyDetailsReducer,
+  surveyOutputs: surveyOutputsReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

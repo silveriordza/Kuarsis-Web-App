@@ -1,9 +1,11 @@
 /** @format */
 
 const LOCAL = "LOCAL";
+const ONCARE_LOCAL = "ONCARE_LOCAL";
+const ONCARE_DEV = "ONCARE_DEV";
 const ARTPIXANDEV = "ARTPIXANDEV";
 const ARTPIXANPROD = "ARTPIXANPROD";
-const ENVIRONMENT = LOCAL;
+const ENVIRONMENT = ONCARE_LOCAL;
 
 // LOCALHOST DEV VARIABLES
 
@@ -13,7 +15,7 @@ const L1 = 1;
 const L2 = 2;
 const L3 = 3;
 
-const local_debug_level = OFF;
+const local_debug_level = L3;
 const artpixandev_debug_level = OFF;
 const artpixanprod_debug_level = OFF;
 
@@ -39,6 +41,18 @@ switch (ENVIRONMENT) {
     V_KUARSIS_PUBLIC_BUCKET_URL =
       "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
     break;
+  case ONCARE_LOCAL:
+    //CONSTANTS FOR LOCAL DEVELOPMENT ENVIRONMENT
+    V_LOG_LEVEL = local_debug_level;
+    V_CURRENT_VERSION = `v1.0.0.11-2023-11-15-23:50`;
+    V_BACKEND_ENDPOINT = "http://localhost:5000";
+    V_KUARSIS_PUBLIC_STATIC_FOLDER = "http://localhost:3000/images";
+    // let V_KUARSIS_PUBLIC_STATIC_IMG_FOLDER = 'http://localhost:3000/img'
+    // let V_KUARSIS_PUBLIC_STATIC_MODELS_FOLDER = 'http://localhost:3000/models'
+    V_KUARSIS_BANNER_MAIN_LOGO = "/OnCareLogo256px.png";
+    V_KUARSIS_PUBLIC_BUCKET_URL =
+      "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
+    break;
   case ARTPIXANDEV:
     //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
@@ -48,6 +62,18 @@ switch (ENVIRONMENT) {
       "https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://artpixandev.kuarxis.com/images";
     V_KUARSIS_BANNER_MAIN_LOGO = "ArtPixanLogo256px.png";
+    V_KUARSIS_PUBLIC_BUCKET_URL =
+      "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
+    break;
+  case ONCARE_DEV:
+    //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
+
+    V_LOG_LEVEL = artpixandev_debug_level;
+    V_CURRENT_VERSION = `v1.0.0.11-2023-11-15-23:50`;
+    V_BACKEND_ENDPOINT =
+      "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev";
+    V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncaredev.kuarxis.com/images";
+    V_KUARSIS_BANNER_MAIN_LOGO = "OnCareLogo256px.png";
     V_KUARSIS_PUBLIC_BUCKET_URL =
       "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
     break;

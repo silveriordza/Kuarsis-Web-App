@@ -1,2904 +1,322 @@
 [
-  {
-    "_id": "6552be24c98d284e57f73394",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "respondent_id",
-    "questionShort": "respondent_id…",
-    "fieldName": "SCOLINFO_respondent_id",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 1,
-    "superSurveyCol": 1,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.749Z",
-    "updatedAt": "2023-11-14T00:24:04.749Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f73395",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "collector_id",
-    "questionShort": "collector_id…",
-    "fieldName": "SCOLINFO_collector_id",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 2,
-    "superSurveyCol": 2,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.749Z",
-    "updatedAt": "2023-11-14T00:24:04.749Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f73396",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "date_created",
-    "questionShort": "date_created…",
-    "fieldName": "SCOLINFO_date_created",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 3,
-    "superSurveyCol": 3,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.749Z",
-    "updatedAt": "2023-11-14T00:24:04.749Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f73397",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "date_modified",
-    "questionShort": "date_modified…",
-    "fieldName": "SCOLINFO_date_modified",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 4,
-    "superSurveyCol": 4,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.749Z",
-    "updatedAt": "2023-11-14T00:24:04.749Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f73398",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "ip_address",
-    "questionShort": "ip_address…",
-    "fieldName": "SCOLINFO_ip_address",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 5,
-    "superSurveyCol": 5,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.749Z",
-    "updatedAt": "2023-11-14T00:24:04.749Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f73399",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "email_address",
-    "questionShort": "email_address…",
-    "fieldName": "SCOLINFO_email_address",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 6,
-    "superSurveyCol": 6,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.749Z",
-    "updatedAt": "2023-11-14T00:24:04.749Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f7339a",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "first_name",
-    "questionShort": "first_name…",
-    "fieldName": "SCOLINFO_first_name",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 7,
-    "superSurveyCol": 7,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.750Z",
-    "updatedAt": "2023-11-14T00:24:04.750Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f7339b",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "last_name",
-    "questionShort": "last_name…",
-    "fieldName": "SCOLINFO_last_name",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 8,
-    "superSurveyCol": 8,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.750Z",
-    "updatedAt": "2023-11-14T00:24:04.750Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f7339c",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f73390",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "surveyCollectionInformation",
-      "surveyShortName": "SCOLINFO",
-      "description": "Informacion de la ecuesta recolectada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.676Z",
-      "updatedAt": "2023-11-14T00:24:04.676Z",
-      "__v": 0
-    },
-    "question": "custom_1",
-    "questionShort": "custom_1…",
-    "fieldName": "SCOLINFO_custom_1",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 9,
-    "superSurveyCol": 9,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.750Z",
-    "updatedAt": "2023-11-14T00:24:04.750Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a2",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Nombre completo:",
-    "questionShort": "Nombre completo:…",
-    "fieldName": "GENINFO_Nombre",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 1,
-    "superSurveyCol": 10,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.868Z",
-    "updatedAt": "2023-11-14T00:24:04.868Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a3",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Edad",
-    "questionShort": "Edad…",
-    "fieldName": "GENINFO_Edad",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 2,
-    "superSurveyCol": 11,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.868Z",
-    "updatedAt": "2023-11-14T00:24:04.868Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a4",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Fecha de nacimiento (dd/mm/aaaa)",
-    "questionShort": "Fecha de nacimiento (dd/mm/aaa…",
-    "fieldName": "GENINFO_Nacimiento",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 3,
-    "superSurveyCol": 12,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.868Z",
-    "updatedAt": "2023-11-14T00:24:04.868Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a5",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Sexo",
-    "questionShort": "Sexo…",
-    "fieldName": "GENINFO_Sexo",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 4,
-    "superSurveyCol": 13,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.868Z",
-    "updatedAt": "2023-11-14T00:24:04.868Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a6",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Estado civil",
-    "questionShort": "Estado civil…",
-    "fieldName": "GENINFO_Civil",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 5,
-    "superSurveyCol": 14,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.868Z",
-    "updatedAt": "2023-11-14T00:24:04.868Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a7",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Estado de procedencia",
-    "questionShort": "Estado de procedencia…",
-    "fieldName": "GENINFO_Estado",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 6,
-    "superSurveyCol": 15,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a8",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Otro país (especifique)",
-    "questionShort": "Otro país (especifique)…",
-    "fieldName": "GENINFO_OtroPais",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 7,
-    "superSurveyCol": 16,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733a9",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Municipio de residencia actual:",
-    "questionShort": "Municipio de residencia actual…",
-    "fieldName": "GENINFO_Municipio",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 8,
-    "superSurveyCol": 17,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733aa",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Medio de transporte:",
-    "questionShort": "Medio de transporte:…",
-    "fieldName": "GENINFO_Transporte",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 9,
-    "superSurveyCol": 18,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ab",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
-    "questionShort": "Distancia aproximada de trasla…",
-    "fieldName": "GENINFO_DistanciaTrabajo",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 10,
-    "superSurveyCol": 19,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ac",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Último grado de estudios:",
-    "questionShort": "Último grado de estudios:…",
-    "fieldName": "GENINFO_GradoEstudios",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 11,
-    "superSurveyCol": 20,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ad",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Ocupación actual",
-    "questionShort": "Ocupación actual…",
-    "fieldName": "GENINFO_Ocupacion",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 12,
-    "superSurveyCol": 21,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ae",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f7339e",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Informacion general de la persona encuestada.",
-      "surveyShortName": "GENINFO",
-      "description": "Informacion de la persona encuestada.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.797Z",
-      "updatedAt": "2023-11-14T00:24:04.797Z",
-      "__v": 0
-    },
-    "question": "Área a la que aplica:",
-    "questionShort": "Área a la que aplica:…",
-    "fieldName": "GENINFO_AreaOcupacion",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 13,
-    "superSurveyCol": 22,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.869Z",
-    "updatedAt": "2023-11-14T00:24:04.869Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733b4",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
-    "questionShort": "A1 Se ha sentido perfectamente…",
-    "fieldName": "CSG_A1",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 1,
-    "superSurveyCol": 23,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733b5",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "Otro (especifique)",
-    "questionShort": "Otro (especifique)…",
-    "fieldName": "CSG_A1_Otro",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 2,
-    "superSurveyCol": 24,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733b6",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A2 Ha sentido la necesidad de un buen tónico",
-    "questionShort": "A2 Ha sentido la necesidad de …",
-    "fieldName": "CSG_A2",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 3,
-    "superSurveyCol": 25,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733b7",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "Otro (especifique)",
-    "questionShort": "Otro (especifique)…",
-    "fieldName": "CSG_A2_Otro",
-    "weightType": "NO_WEIGHT",
-    "surveyCol": 4,
-    "superSurveyCol": 26,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733b8",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A3 Se ha sentido agotado y sin motivaciones.",
-    "questionShort": "A3 Se ha sentido agotado y sin…",
-    "fieldName": "CSG_A3",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 5,
-    "superSurveyCol": 27,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733b9",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A4 Se ha sentido enfermo.",
-    "questionShort": "A4 Se ha sentido enfermo.…",
-    "fieldName": "CSG_A4",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 6,
-    "superSurveyCol": 28,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ba",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A5 Ha tenido dolores de cabeza.",
-    "questionShort": "A5 Ha tenido dolores de cabeza…",
-    "fieldName": "CSG_A5",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 7,
-    "superSurveyCol": 29,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733bb",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A6 Ha sentido tensión o presión en la cabeza.",
-    "questionShort": "A6 Ha sentido tensión o presió…",
-    "fieldName": "CSG_A6",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 8,
-    "superSurveyCol": 30,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733bc",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "A7 Ha tenido ráfagas de calor o frío.",
-    "questionShort": "A7 Ha tenido ráfagas de calor …",
-    "fieldName": "CSG_A7",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 9,
-    "superSurveyCol": 31,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733bd",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
-    "questionShort": "B1 Ha tenido dificultades para…",
-    "fieldName": "CSG_B1",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 10,
-    "superSurveyCol": 32,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733be",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
-    "questionShort": "B2 Ha tenido dificultades para…",
-    "fieldName": "CSG_B2",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 11,
-    "superSurveyCol": 33,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733bf",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B3 Se ha sentido constantemente bajo presión.",
-    "questionShort": "B3 Se ha sentido constantement…",
-    "fieldName": "CSG_B3",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 12,
-    "superSurveyCol": 34,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c0",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B4 Se ha sentido irritable y de mal humor.",
-    "questionShort": "B4 Se ha sentido irritable y d…",
-    "fieldName": "CSG_B4",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 13,
-    "superSurveyCol": 35,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c1",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
-    "questionShort": "B5 Se ha sentido asustado o co…",
-    "fieldName": "CSG_B5",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 14,
-    "superSurveyCol": 36,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c2",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
-    "questionShort": "B6 Ha tenido la sensación de q…",
-    "fieldName": "CSG_B6",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 15,
-    "superSurveyCol": 37,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.990Z",
-    "updatedAt": "2023-11-14T00:24:04.990Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c3",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
-    "questionShort": "B7 Se ha sentido nervioso y te…",
-    "fieldName": "CSG_B7",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 16,
-    "superSurveyCol": 38,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c4",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
-    "questionShort": "C1 Se las ha ingeniado para ma…",
-    "fieldName": "CSG_C1",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 17,
-    "superSurveyCol": 39,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c5",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C2 Se tarda más tiempo en hacer las cosas. ",
-    "questionShort": "C2 Se tarda más tiempo en hace…",
-    "fieldName": "CSG_C2",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 18,
-    "superSurveyCol": 40,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c6",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C3 En general siente que ha hecho las cosas bien.",
-    "questionShort": "C3 En general siente que ha he…",
-    "fieldName": "CSG_C3",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 19,
-    "superSurveyCol": 41,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c7",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
-    "questionShort": "C4 Se ha sentido satisfecho po…",
-    "fieldName": "CSG_C4",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 20,
-    "superSurveyCol": 42,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c8",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
-    "questionShort": "C5 Se ha sentido útil y parte …",
-    "fieldName": "CSG_C5",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 21,
-    "superSurveyCol": 43,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733c9",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C6 Se ha sentido capaz de tomar decisiones.",
-    "questionShort": "C6 Se ha sentido capaz de toma…",
-    "fieldName": "CSG_C6",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 22,
-    "superSurveyCol": 44,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ca",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
-    "questionShort": "C7 Se ha sentido capaz de disf…",
-    "fieldName": "CSG_C7",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 23,
-    "superSurveyCol": 45,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733cb",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D1  Se ha sentido como una persona de poca valía.",
-    "questionShort": "D1  Se ha sentido como una per…",
-    "fieldName": "CSG_D1",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 24,
-    "superSurveyCol": 46,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733cc",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D2 Ha sentido que la vida no vale nada.",
-    "questionShort": "D2 Ha sentido que la vida no v…",
-    "fieldName": "CSG_D2",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 25,
-    "superSurveyCol": 47,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733cd",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D3 Ha sentido que no vale la pena vivir.",
-    "questionShort": "D3 Ha sentido que no vale la p…",
-    "fieldName": "CSG_D3",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 26,
-    "superSurveyCol": 48,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733ce",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
-    "questionShort": "D4 Ha pensado en la posibilida…",
-    "fieldName": "CSG_D4",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 27,
-    "superSurveyCol": 49,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733cf",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
-    "questionShort": "D5 Se ha sentido incapaz de ha…",
-    "fieldName": "CSG_D5",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 28,
-    "superSurveyCol": 50,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733d0",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
-    "questionShort": "D6 Ha sentido ganas de estar m…",
-    "fieldName": "CSG_D6",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 29,
-    "superSurveyCol": 51,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be24c98d284e57f733d1",
-    "surveyId": {
-      "_id": "6552be24c98d284e57f733b0",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario General de Salud.",
-      "surveyShortName": "CSG",
-      "description": "Cuestionario General de Salud.",
-      "instructions": "",
-      "createdAt": "2023-11-14T00:24:04.907Z",
-      "updatedAt": "2023-11-14T00:24:04.907Z",
-      "__v": 0
-    },
-    "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
-    "questionShort": "D7 Le ha venido a la mente la …",
-    "fieldName": "CSG_D7",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "1": 0,
-      "2": 0,
-      "3": 1,
-      "4": 1
-    },
-    "surveyCol": 30,
-    "superSurveyCol": 52,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:04.991Z",
-    "updatedAt": "2023-11-14T00:24:04.991Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733de",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "1. Me siento emocionalmente agotado por mi trabajo",
-    "questionShort": "1. Me siento emocionalmente ag…",
-    "fieldName": "BURN_1",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 1,
-    "superSurveyCol": 68,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733df",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "2. Cuando termino mi jornada de trabajo me siento vacío",
-    "questionShort": "2. Cuando termino mi jornada d…",
-    "fieldName": "BURN_2",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 2,
-    "superSurveyCol": 69,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e0",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "3. Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
-    "questionShort": "3. Cuando me levanto por la ma…",
-    "fieldName": "BURN_3",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 3,
-    "superSurveyCol": 70,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e1",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "4. Siento que puedo entender fácilmente a los pacientes.",
-    "questionShort": "4. Siento que puedo entender f…",
-    "fieldName": "BURN_4",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 4,
-    "superSurveyCol": 71,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e2",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "5. Siento que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
-    "questionShort": "5. Siento que estoy tratando a…",
-    "fieldName": "BURN_5",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 5,
-    "superSurveyCol": 72,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e3",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "6. Siento que trabajar todo el día con la gente me cansa.",
-    "questionShort": "6. Siento que trabajar todo el…",
-    "fieldName": "BURN_6",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 6,
-    "superSurveyCol": 73,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e4",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "7. Siento que trato con mucha eficacia los problemas de mis pacientes.",
-    "questionShort": "7. Siento que trato con mucha …",
-    "fieldName": "BURN_7",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 7,
-    "superSurveyCol": 74,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e5",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "8. Siento que mi trabajo me está desgastando.",
-    "questionShort": "8. Siento que mi trabajo me es…",
-    "fieldName": "BURN_8",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 8,
-    "superSurveyCol": 75,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e6",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "9. Siento que estoy influyendo positivamente en la vida de otras personas a través de mi trabajo",
-    "questionShort": "9. Siento que estoy influyendo…",
-    "fieldName": "BURN_9",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 9,
-    "superSurveyCol": 76,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e7",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "10. Siento que me he hecho mas duro con la gente",
-    "questionShort": "10. Siento que me he hecho mas…",
-    "fieldName": "BURN_10",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 10,
-    "superSurveyCol": 77,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e8",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "11. Me preocupa que este trabajo me esté endureciendo emocionalmente",
-    "questionShort": "11. Me preocupa que este traba…",
-    "fieldName": "BURN_11",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 11,
-    "superSurveyCol": 78,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733e9",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "12. Me siento con mucha energía en mi trabajo",
-    "questionShort": "12. Me siento con mucha energí…",
-    "fieldName": "BURN_12",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 12,
-    "superSurveyCol": 79,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733ea",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "13. Me siento frustrado en mi trabajo",
-    "questionShort": "13. Me siento frustrado en mi …",
-    "fieldName": "BURN_13",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 13,
-    "superSurveyCol": 80,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.178Z",
-    "updatedAt": "2023-11-14T00:24:05.178Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733eb",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "14. Siento que estoy demasiado tiempo en mi trabajo",
-    "questionShort": "14. Siento que estoy demasiado…",
-    "fieldName": "BURN_14",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 14,
-    "superSurveyCol": 81,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733ec",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "15. Siento que realmente no me importa lo que les ocurre a mis pacientes",
-    "questionShort": "15. Siento que realmente no me…",
-    "fieldName": "BURN_15",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 15,
-    "superSurveyCol": 82,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733ed",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "16. Siento que trabajar en contacto directo con la gente me cansa",
-    "questionShort": "16. Siento que trabajar en con…",
-    "fieldName": "BURN_16",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 16,
-    "superSurveyCol": 83,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733ee",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "17. Siento que puedo crear con facilidad un clima agradable con mis pacientes",
-    "questionShort": "17. Siento que puedo crear con…",
-    "fieldName": "BURN_17",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 17,
-    "superSurveyCol": 84,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733ef",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "18. Me siento estimado después de haber trabajado íntimamente con los pacientes",
-    "questionShort": "18. Me siento estimado después…",
-    "fieldName": "BURN_18",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 18,
-    "superSurveyCol": 85,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733f0",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "19. Creo que consigo muchas cosas valiosas en este trabajo",
-    "questionShort": "19. Creo que consigo muchas co…",
-    "fieldName": "BURN_19",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 19,
-    "superSurveyCol": 86,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733f1",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "20. Me siento como si estuviera al límite de mis posibilidades",
-    "questionShort": "20. Me siento como si estuvier…",
-    "fieldName": "BURN_20",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 20,
-    "superSurveyCol": 87,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733f2",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "21. Siento que en mi trabajo los problemas emocionales son tratados de forma adecuada",
-    "questionShort": "21. Siento que en mi trabajo l…",
-    "fieldName": "BURN_21",
-    "weightType": "WEIGHTED_PAIRS",
-    "weights": {
-      "0": 6,
-      "1": 5,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 1,
-      "6": 0
-    },
-    "surveyCol": 21,
-    "superSurveyCol": 88,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733f3",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733da",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
-      "surveyShortName": "BURN",
-      "description": "Cuestionario de Maslach (Burnout Inventory)",
-      "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
-      "createdAt": "2023-11-14T00:24:05.089Z",
-      "updatedAt": "2023-11-14T00:24:05.089Z",
-      "__v": 0
-    },
-    "question": "22. Me parece que los pacientes me culpan de algunos de sus problemas",
-    "questionShort": "22. Me parece que los paciente…",
-    "fieldName": "BURN_22",
-    "weightType": "WEIGHTED_PAIRS",
-    "surveyCol": 22,
-    "superSurveyCol": 89,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.179Z",
-    "updatedAt": "2023-11-14T00:24:05.179Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733fe",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "1. Muerte del cónyuge",
-    "questionShort": "1. Muerte del cónyuge…",
-    "fieldName": "ESTRES_1",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 1,
-    "superSurveyCol": 90,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.357Z",
-    "updatedAt": "2023-11-14T00:24:05.357Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f733ff",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "2. Descenso en el rol o estatus laboral",
-    "questionShort": "2. Descenso en el rol o estatu…",
-    "fieldName": "ESTRES_2",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1 : 0",
-    "surveyCol": 2,
-    "superSurveyCol": 91,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.357Z",
-    "updatedAt": "2023-11-14T00:24:05.357Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73400",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "3. Separación matrimonial",
-    "questionShort": "3. Separación matrimonial…",
-    "fieldName": "ESTRES_3",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 3,
-    "superSurveyCol": 92,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73401",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "4. Muerte de un ser querido/familiar",
-    "questionShort": "4. Muerte de un ser querido/fa…",
-    "fieldName": "ESTRES_4",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 4,
-    "superSurveyCol": 93,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73402",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "5. Pérdida del trabajo",
-    "questionShort": "5. Pérdida del trabajo…",
-    "fieldName": "ESTRES_5",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 5,
-    "superSurveyCol": 94,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73403",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "6. Padecer una enfermedad seria",
-    "questionShort": "6. Padecer una enfermedad seri…",
-    "fieldName": "ESTRES_6",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 6,
-    "superSurveyCol": 95,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73404",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "7. Quiebra en el estado financiero",
-    "questionShort": "7. Quiebra en el estado financ…",
-    "fieldName": "ESTRES_7",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 7,
-    "superSurveyCol": 96,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73405",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "8. Haber padecido un asalto",
-    "questionShort": "8. Haber padecido un asalto…",
-    "fieldName": "ESTRES_8",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 8,
-    "superSurveyCol": 97,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73406",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "9. Problemas sexuales (impotencia, trastornos eyaculatorios, anorgasmia, fobias, crisis de identidad sexual)",
-    "questionShort": "9. Problemas sexuales (impoten…",
-    "fieldName": "ESTRES_9",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 9,
-    "superSurveyCol": 98,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73407",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "10.  Ser abandonado por la pareja",
-    "questionShort": "10.  Ser abandonado por la par…",
-    "fieldName": "ESTRES_10",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 10,
-    "superSurveyCol": 99,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.358Z",
-    "updatedAt": "2023-11-14T00:24:05.358Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73408",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "11. Jubilación",
-    "questionShort": "11. Jubilación…",
-    "fieldName": "ESTRES_11",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 11,
-    "superSurveyCol": 100,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73409",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "12. Problemas judiciales",
-    "questionShort": "12. Problemas judiciales…",
-    "fieldName": "ESTRES_12",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 12,
-    "superSurveyCol": 101,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7340a",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "13. Menopausia",
-    "questionShort": "13. Menopausia…",
-    "fieldName": "ESTRES_13",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 13,
-    "superSurveyCol": 102,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7340b",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "14. Deudas",
-    "questionShort": "14. Deudas…",
-    "fieldName": "ESTRES_14",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 14,
-    "superSurveyCol": 103,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7340c",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "15. Enfermedad de un familiar",
-    "questionShort": "15. Enfermedad de un familiar…",
-    "fieldName": "ESTRES_15",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 15,
-    "superSurveyCol": 104,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7340d",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "16. Trabajar en horarios nocturno o rotatorios",
-    "questionShort": "16. Trabajar en horarios noctu…",
-    "fieldName": "ESTRES_16",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 16,
-    "superSurveyCol": 105,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7340e",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "17. Reconciliación marital",
-    "questionShort": "17. Reconciliación marital…",
-    "fieldName": "ESTRES_17",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 17,
-    "superSurveyCol": 106,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7340f",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "18. Embarazo",
-    "questionShort": "18. Embarazo…",
-    "fieldName": "ESTRES_18",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 18,
-    "superSurveyCol": 107,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73410",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "19. Nacimiento",
-    "questionShort": "19. Nacimiento…",
-    "fieldName": "ESTRES_19",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 19,
-    "superSurveyCol": 108,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73411",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "20. Inseguridad en el barrio donde vive o trabaja",
-    "questionShort": "20. Inseguridad en el barrio d…",
-    "fieldName": "ESTRES_20",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 20,
-    "superSurveyCol": 109,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73412",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "21. Cambio de estado financiero",
-    "questionShort": "21. Cambio de estado financier…",
-    "fieldName": "ESTRES_21",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 21,
-    "superSurveyCol": 110,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73413",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "22. Fuertes discusiones familiares (con hijos o familiares políticos)",
-    "questionShort": "22. Fuertes discusiones famili…",
-    "fieldName": "ESTRES_22",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 22,
-    "superSurveyCol": 111,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.359Z",
-    "updatedAt": "2023-11-14T00:24:05.359Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73414",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "23. Conflictos conyugales crónicos",
-    "questionShort": "23. Conflictos conyugales crón…",
-    "fieldName": "ESTRES_23",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 23,
-    "superSurveyCol": 112,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73415",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "24. Trastornos del sueño",
-    "questionShort": "24. Trastornos del sueño…",
-    "fieldName": "ESTRES_24",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 24,
-    "superSurveyCol": 113,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73416",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "25. Cambios en las tareas laborales habituales",
-    "questionShort": "25. Cambios en las tareas labo…",
-    "fieldName": "ESTRES_25",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 25,
-    "superSurveyCol": 114,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73417",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "26. Muerte de un amigo o amante",
-    "questionShort": "26. Muerte de un amigo o amant…",
-    "fieldName": "ESTRES_26",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 26,
-    "superSurveyCol": 115,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73418",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "27. Abandono del hogar por un hijo",
-    "questionShort": "27. Abandono del hogar por un …",
-    "fieldName": "ESTRES_27",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 27,
-    "superSurveyCol": 116,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73419",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "28. Gran logro personal",
-    "questionShort": "28. Gran logro personal…",
-    "fieldName": "ESTRES_28",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 28,
-    "superSurveyCol": 117,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7341a",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "29. Vivir en medio urbano",
-    "questionShort": "29. Vivir en medio urbano…",
-    "fieldName": "ESTRES_29",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 29,
-    "superSurveyCol": 118,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7341b",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "30. Trabajar más de 12 horas diarias",
-    "questionShort": "30. Trabajar más de 12 horas d…",
-    "fieldName": "ESTRES_30",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 30,
-    "superSurveyCol": 119,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7341c",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "31 Cónyuge termina o comienza un trabajo",
-    "questionShort": "31 Cónyuge termina o comienza …",
-    "fieldName": "ESTRES_31",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 31,
-    "superSurveyCol": 120,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7341d",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "32. Problemas con el jefe",
-    "questionShort": "32. Problemas con el jefe…",
-    "fieldName": "ESTRES_32",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 32,
-    "superSurveyCol": 121,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7341e",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "33. Haber abandonado prácticas deportivas",
-    "questionShort": "33. Haber abandonado prácticas…",
-    "fieldName": "ESTRES_33",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 33,
-    "superSurveyCol": 122,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f7341f",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "34. Viajes prolongados (más aún si son lugares muy alejados)",
-    "questionShort": "34. Viajes prolongados (más aú…",
-    "fieldName": "ESTRES_34",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 34,
-    "superSurveyCol": 123,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73420",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "35. Mudanzas",
-    "questionShort": "35. Mudanzas…",
-    "fieldName": "ESTRES_35",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 35,
-    "superSurveyCol": 124,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73421",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "36. Conducir un auto en la ciudad por más de 3 horas",
-    "questionShort": "36. Conducir un auto en la ciu…",
-    "fieldName": "ESTRES_36",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 36,
-    "superSurveyCol": 125,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73422",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "37. Cambios en los hábitos (dieta, dejar de fumar)",
-    "questionShort": "37. Cambios en los hábitos (di…",
-    "fieldName": "ESTRES_37",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 37,
-    "superSurveyCol": 126,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73423",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "38. Cambio de carrera o colegio",
-    "questionShort": "38. Cambio de carrera o colegi…",
-    "fieldName": "ESTRES_38",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 38,
-    "superSurveyCol": 127,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73424",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "39. Vacaciones",
-    "questionShort": "39. Vacaciones…",
-    "fieldName": "ESTRES_39",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 39,
-    "superSurveyCol": 128,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  },
-  {
-    "_id": "6552be25c98d284e57f73425",
-    "surveyId": {
-      "_id": "6552be25c98d284e57f733fa",
-      "owner": "62e551baf5c6b51f61e0ef93",
-      "surveyName": "ESTRES",
-      "surveyShortName": "ESTRES",
-      "description": "NIVEL DE ESTRES",
-      "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
-      "createdAt": "2023-11-14T00:24:05.270Z",
-      "updatedAt": "2023-11-14T00:24:05.270Z",
-      "__v": 0
-    },
-    "question": "40. Fiestas de fin de año",
-    "questionShort": "40. Fiestas de fin de año…",
-    "fieldName": "ESTRES_40",
-    "weightType": "WEIGHTED_CRITERIA",
-    "weights": "> 0 : 1",
-    "surveyCol": 40,
-    "superSurveyCol": 129,
-    "__v": 0,
-    "createdAt": "2023-11-14T00:24:05.360Z",
-    "updatedAt": "2023-11-14T00:24:05.360Z"
-  }
-]
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  }
+  [0] ]
