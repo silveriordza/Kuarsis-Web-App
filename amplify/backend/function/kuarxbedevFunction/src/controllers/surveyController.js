@@ -1,6 +1,7 @@
 /** @format */
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const util = require("util");
 
 let asyncHandler = require("express-async-handler");
 let {
@@ -157,6 +158,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
       surveyShortName: outputLayout.surveyShortName,
       fieldName: outputLayout.fieldName,
       outputAsReal: outputLayout.outputAsReal,
+      showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
       sequence: outputLayout.sequence,
     });
   }
@@ -1121,6 +1123,102 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Creates a new Super Survey configuration
+// @route   POST /api/surveys/
+// @access  Private/Admin
+const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
+  const functionName = "superSurveyGetOutputValues";
+  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    LogThis(log, `START`, L1);
+    /**
+     * On 12/7/23 I was working on the pagination and lookup by keyword
+     * This function won't work without page beein provided by the client, the keyword is optional.
+     */
+    const pageSize = 10;
+    const superSurveyId = req.params.id;
+    const superSurveyShortName = req.query.superSurveyShortName;
+    const page = Number(req.query.pageNumber) || 1;
+
+    // const keyword = req.query.keyword
+    //   ? {
+    //       GENINFO_Nombre: {
+    //         $regex: req.query.keyword,
+    //         $options: "i",
+    //       },
+    //     }
+    //   : {};
+
+    LogThis(
+      log,
+      `superSurveyId=${superSurveyId}; superSurveyShortName=${JSON.stringify(
+        superSurveyShortName
+      )}`,
+      L1
+    );
+    const outputLayouts = await SurveySuperiorOutputLayout.find({
+      surveySuperiorId: superSurveyId,
+    }).lean();
+
+    let x = 0;
+    x = x + 1;
+    LogThis(log, `x=${x}; outputLayouts=${JSON.stringify(outputLayouts)}`, L3);
+
+    const keyword = "Moreno";
+    const regex = new RegExp(keyword, "i");
+    const conditions = [];
+
+    if (outputLayouts && outputLayouts.length > 0) {
+      const fields = Object.keys(outputLayouts[0]);
+      LogThis(log, `fields=${JSON.stringify(fields)}`, L1);
+      const condition = {};
+      fields.forEach((field) => {
+        condition[field] = { $regex: regex };
+      });
+      conditions.push(condition);
+    }
+    LogThis(log, `conditions=${JSON.stringify(conditions, null, 1)}`, L1);
+
+    const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
+
+    let surveyOutputCollection = mongoose.connection.collection(
+      surveyOutputCollectionName.toLocaleLowerCase()
+    );
+
+    const findAsync = util.promisify(
+      surveyOutputCollection.find.bind(surveyOutputCollection)
+    );
+
+    const countDocumentsAsync = util.promisify(
+      surveyOutputCollection.countDocuments.bind(surveyOutputCollection)
+    );
+
+    // const count = await countDocumentsAsync({})
+    // LogThis(log, `countDocuments count=${JSON.stringify(count)}`)
+
+    const queryoutputValues = await findAsync({ $or: conditions });
+    const outputValues = await queryoutputValues.toArray();
+    const count = outputValues.length;
+
+    findAsync;
+
+    x = x + 1;
+    LogThis(log, `outputValues=${JSON.stringify(outputValues)}`, L3);
+    res.status(200).json({
+      outputsInfo: {
+        outputLayouts: outputLayouts,
+        outputValues: outputValues,
+        page,
+        pages: Math.ceil(count / pageSize),
+      },
+    });
+  } catch (error) {
+    res.status(404);
+    LogThis(log, `error=${error.message}`, L1);
+    throw new Error(`Survey Output Error: ${error.message}`);
+  }
+});
+
 const superSurveyDeleteOutputValues = asyncHandler(async (req, res) => {
   const functionName = "superSurveyDeleteOutputValues";
   const log = new LoggerSettings(srcFileName, functionName);
@@ -1162,4 +1260,5 @@ module.exports = {
   superSurveyGetList,
   superSurveySaveOutput,
   superSurveyDeleteOutputValues,
+  superSurveyGetOutputValues,
 };

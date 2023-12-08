@@ -1395,641 +1395,855 @@
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_respondent_id",
         "outputAsReal": true,
+        "showInSurveyOutputScreen": false,
         "sequence": 1
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_collector_id",
         "outputAsReal": true,
+        "showInSurveyOutputScreen": false,
         "sequence": 2
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_date_created",
         "outputAsReal": true,
+        "showInSurveyOutputScreen": false,
         "sequence": 3
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_date_modified",
         "outputAsReal": true,
+        "showInSurveyOutputScreen": false,
         "sequence": 4
       },
       {
         "surveyShortName": "SCOLINFO",
         "fieldName": "SCOLINFO_ip_address",
         "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
         "sequence": 5
       },
-
       {
         "surveyShortName": "GENINFO",
         "fieldName": "GENINFO_Nombre",
         "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
         "sequence": 6
       },
-
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Edad",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 7
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Nacimiento",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 8
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Sexo",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 9
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Civil",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 10
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Estado",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 11
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_OtroPais",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 12
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Municipio",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 13
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Transporte",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 14
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_DistanciaTrabajo",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 15
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_GradoEstudios",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 16
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_Ocupacion",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 17
+      },
+      {
+        "surveyShortName": "GENINFO",
+        "fieldName": "GENINFO_AreaOcupacion",
+        "outputAsReal": true,
+        "showInSurveyOutputScreen": true,
+        "sequence": 18
+      },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A1",
         "outputAsReal": false,
-        "sequence": 7
+        "showInSurveyOutputScreen": false,
+        "sequence": 19
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A1_Otro",
         "outputAsReal": false,
-        "sequence": 8
+        "showInSurveyOutputScreen": false,
+        "sequence": 20
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A2",
         "outputAsReal": false,
-        "sequence": 9
+        "showInSurveyOutputScreen": false,
+        "sequence": 21
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A2_Otro",
         "outputAsReal": false,
-        "sequence": 10
+        "showInSurveyOutputScreen": false,
+        "sequence": 22
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A3",
         "outputAsReal": false,
-        "sequence": 11
+        "showInSurveyOutputScreen": false,
+        "sequence": 23
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A4",
         "outputAsReal": false,
-        "sequence": 12
+        "showInSurveyOutputScreen": false,
+        "sequence": 24
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A5",
         "outputAsReal": false,
-        "sequence": 13
+        "showInSurveyOutputScreen": false,
+        "sequence": 25
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A6",
         "outputAsReal": false,
-        "sequence": 14
+        "showInSurveyOutputScreen": false,
+        "sequence": 26
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A7",
         "outputAsReal": false,
-        "sequence": 15
+        "showInSurveyOutputScreen": false,
+        "sequence": 27
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B1",
         "outputAsReal": false,
-        "sequence": 16
+        "showInSurveyOutputScreen": false,
+        "sequence": 28
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B2",
         "outputAsReal": false,
-        "sequence": 17
+        "showInSurveyOutputScreen": false,
+        "sequence": 29
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B3",
         "outputAsReal": false,
-        "sequence": 18
+        "showInSurveyOutputScreen": false,
+        "sequence": 30
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B4",
         "outputAsReal": false,
-        "sequence": 19
+        "showInSurveyOutputScreen": false,
+        "sequence": 31
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B5",
         "outputAsReal": false,
-        "sequence": 20
+        "showInSurveyOutputScreen": false,
+        "sequence": 32
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B6",
         "outputAsReal": false,
-        "sequence": 21
+        "showInSurveyOutputScreen": false,
+        "sequence": 33
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_B7",
         "outputAsReal": false,
-        "sequence": 22
+        "showInSurveyOutputScreen": false,
+        "sequence": 34
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C1",
         "outputAsReal": false,
-        "sequence": 23
+        "showInSurveyOutputScreen": false,
+        "sequence": 35
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C2",
         "outputAsReal": false,
-        "sequence": 24
+        "showInSurveyOutputScreen": false,
+        "sequence": 36
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C3",
         "outputAsReal": false,
-        "sequence": 25
+        "showInSurveyOutputScreen": false,
+        "sequence": 37
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C4",
         "outputAsReal": false,
-        "sequence": 26
+        "showInSurveyOutputScreen": false,
+        "sequence": 38
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C5",
         "outputAsReal": false,
-        "sequence": 27
+        "showInSurveyOutputScreen": false,
+        "sequence": 39
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C6",
         "outputAsReal": false,
-        "sequence": 28
+        "showInSurveyOutputScreen": false,
+        "sequence": 40
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_C7",
         "outputAsReal": false,
-        "sequence": 29
+        "showInSurveyOutputScreen": false,
+        "sequence": 41
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D1",
         "outputAsReal": false,
-        "sequence": 30
+        "showInSurveyOutputScreen": false,
+        "sequence": 42
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D2",
         "outputAsReal": false,
-        "sequence": 31
+        "showInSurveyOutputScreen": false,
+        "sequence": 43
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D3",
         "outputAsReal": false,
-        "sequence": 32
+        "showInSurveyOutputScreen": false,
+        "sequence": 44
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D4",
         "outputAsReal": false,
-        "sequence": 33
+        "showInSurveyOutputScreen": false,
+        "sequence": 45
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D5",
         "outputAsReal": false,
-        "sequence": 34
+        "showInSurveyOutputScreen": false,
+        "sequence": 46
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D6",
         "outputAsReal": false,
-        "sequence": 35
+        "showInSurveyOutputScreen": false,
+        "sequence": 47
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_D7",
         "outputAsReal": false,
-        "sequence": 36
+        "showInSurveyOutputScreen": false,
+        "sequence": 48
       },
-
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_1",
         "outputAsReal": false,
-        "sequence": 37
+        "showInSurveyOutputScreen": false,
+        "sequence": 49
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_2",
         "outputAsReal": false,
-        "sequence": 38
+        "showInSurveyOutputScreen": false,
+        "sequence": 50
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_3",
         "outputAsReal": false,
-        "sequence": 39
+        "showInSurveyOutputScreen": false,
+        "sequence": 51
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_4",
         "outputAsReal": false,
-        "sequence": 40
+        "showInSurveyOutputScreen": false,
+        "sequence": 52
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_5",
         "outputAsReal": false,
-        "sequence": 41
+        "showInSurveyOutputScreen": false,
+        "sequence": 53
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_6",
         "outputAsReal": false,
-        "sequence": 42
+        "showInSurveyOutputScreen": false,
+        "sequence": 54
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_7",
         "outputAsReal": false,
-        "sequence": 43
+        "showInSurveyOutputScreen": false,
+        "sequence": 55
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_8",
         "outputAsReal": false,
-        "sequence": 44
+        "showInSurveyOutputScreen": false,
+        "sequence": 56
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_9",
         "outputAsReal": false,
-        "sequence": 45
+        "showInSurveyOutputScreen": false,
+        "sequence": 57
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_10",
         "outputAsReal": false,
-        "sequence": 46
+        "showInSurveyOutputScreen": false,
+        "sequence": 58
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_11",
         "outputAsReal": false,
-        "sequence": 47
+        "showInSurveyOutputScreen": false,
+        "sequence": 59
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_12",
         "outputAsReal": false,
-        "sequence": 48
+        "showInSurveyOutputScreen": false,
+        "sequence": 60
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_13",
         "outputAsReal": false,
-        "sequence": 49
+        "showInSurveyOutputScreen": false,
+        "sequence": 61
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_14",
         "outputAsReal": false,
-        "sequence": 50
+        "showInSurveyOutputScreen": false,
+        "sequence": 62
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_15",
         "outputAsReal": false,
-        "sequence": 51
+        "showInSurveyOutputScreen": false,
+        "sequence": 63
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_16",
         "outputAsReal": false,
-        "sequence": 52
+        "showInSurveyOutputScreen": false,
+        "sequence": 64
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_17",
         "outputAsReal": false,
-        "sequence": 53
+        "showInSurveyOutputScreen": false,
+        "sequence": 65
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_18",
         "outputAsReal": false,
-        "sequence": 54
+        "showInSurveyOutputScreen": false,
+        "sequence": 66
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_19",
         "outputAsReal": false,
-        "sequence": 55
+        "showInSurveyOutputScreen": false,
+        "sequence": 67
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_20",
         "outputAsReal": false,
-        "sequence": 56
+        "showInSurveyOutputScreen": false,
+        "sequence": 68
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_21",
         "outputAsReal": false,
-        "sequence": 57
+        "showInSurveyOutputScreen": false,
+        "sequence": 69
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_22",
         "outputAsReal": false,
-        "sequence": 58
+        "showInSurveyOutputScreen": false,
+        "sequence": 70
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_1",
         "outputAsReal": false,
-        "sequence": 59
+        "showInSurveyOutputScreen": false,
+        "sequence": 71
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_2",
         "outputAsReal": false,
-        "sequence": 60
+        "showInSurveyOutputScreen": false,
+        "sequence": 72
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_3",
         "outputAsReal": false,
-        "sequence": 61
+        "showInSurveyOutputScreen": false,
+        "sequence": 73
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_4",
         "outputAsReal": false,
-        "sequence": 62
+        "showInSurveyOutputScreen": false,
+        "sequence": 74
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_5",
         "outputAsReal": false,
-        "sequence": 63
+        "showInSurveyOutputScreen": false,
+        "sequence": 75
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_6",
         "outputAsReal": false,
-        "sequence": 64
+        "showInSurveyOutputScreen": false,
+        "sequence": 76
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_7",
         "outputAsReal": false,
-        "sequence": 65
+        "showInSurveyOutputScreen": false,
+        "sequence": 77
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_8",
         "outputAsReal": false,
-        "sequence": 66
+        "showInSurveyOutputScreen": false,
+        "sequence": 78
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_9",
         "outputAsReal": false,
-        "sequence": 67
+        "showInSurveyOutputScreen": false,
+        "sequence": 79
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_10",
         "outputAsReal": false,
-        "sequence": 68
+        "showInSurveyOutputScreen": false,
+        "sequence": 80
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_11",
         "outputAsReal": false,
-        "sequence": 69
+        "showInSurveyOutputScreen": false,
+        "sequence": 81
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_12",
         "outputAsReal": false,
-        "sequence": 70
+        "showInSurveyOutputScreen": false,
+        "sequence": 82
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_13",
         "outputAsReal": false,
-        "sequence": 71
+        "showInSurveyOutputScreen": false,
+        "sequence": 83
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_14",
         "outputAsReal": false,
-        "sequence": 72
+        "showInSurveyOutputScreen": false,
+        "sequence": 84
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_15",
         "outputAsReal": false,
-        "sequence": 73
+        "showInSurveyOutputScreen": false,
+        "sequence": 85
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_16",
         "outputAsReal": false,
-        "sequence": 74
+        "showInSurveyOutputScreen": false,
+        "sequence": 86
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_17",
         "outputAsReal": false,
-        "sequence": 75
+        "showInSurveyOutputScreen": false,
+        "sequence": 87
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_18",
         "outputAsReal": false,
-        "sequence": 76
+        "showInSurveyOutputScreen": false,
+        "sequence": 88
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_19",
         "outputAsReal": false,
-        "sequence": 77
+        "showInSurveyOutputScreen": false,
+        "sequence": 89
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_20",
         "outputAsReal": false,
-        "sequence": 78
+        "showInSurveyOutputScreen": false,
+        "sequence": 90
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_21",
         "outputAsReal": false,
-        "sequence": 79
+        "showInSurveyOutputScreen": false,
+        "sequence": 91
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_22",
         "outputAsReal": false,
-        "sequence": 80
+        "showInSurveyOutputScreen": false,
+        "sequence": 92
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_23",
         "outputAsReal": false,
-        "sequence": 81
+        "showInSurveyOutputScreen": false,
+        "sequence": 93
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_24",
         "outputAsReal": false,
-        "sequence": 82
+        "showInSurveyOutputScreen": false,
+        "sequence": 94
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_25",
         "outputAsReal": false,
-        "sequence": 83
+        "showInSurveyOutputScreen": false,
+        "sequence": 95
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_26",
         "outputAsReal": false,
-        "sequence": 84
+        "showInSurveyOutputScreen": false,
+        "sequence": 96
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_27",
         "outputAsReal": false,
-        "sequence": 85
+        "showInSurveyOutputScreen": false,
+        "sequence": 97
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_28",
         "outputAsReal": false,
-        "sequence": 86
+        "showInSurveyOutputScreen": false,
+        "sequence": 98
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_29",
         "outputAsReal": false,
-        "sequence": 87
+        "showInSurveyOutputScreen": false,
+        "sequence": 99
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_30",
         "outputAsReal": false,
-        "sequence": 88
+        "showInSurveyOutputScreen": false,
+        "sequence": 100
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_31",
         "outputAsReal": false,
-        "sequence": 89
+        "showInSurveyOutputScreen": false,
+        "sequence": 101
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_32",
         "outputAsReal": false,
-        "sequence": 90
+        "showInSurveyOutputScreen": false,
+        "sequence": 102
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_33",
         "outputAsReal": false,
-        "sequence": 91
+        "showInSurveyOutputScreen": false,
+        "sequence": 103
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_34",
         "outputAsReal": false,
-        "sequence": 92
+        "showInSurveyOutputScreen": false,
+        "sequence": 104
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_35",
         "outputAsReal": false,
-        "sequence": 93
+        "showInSurveyOutputScreen": false,
+        "sequence": 105
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_36",
         "outputAsReal": false,
-        "sequence": 94
+        "showInSurveyOutputScreen": false,
+        "sequence": 106
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_37",
         "outputAsReal": false,
-        "sequence": 95
+        "showInSurveyOutputScreen": false,
+        "sequence": 107
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_38",
         "outputAsReal": false,
-        "sequence": 96
+        "showInSurveyOutputScreen": false,
+        "sequence": 108
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_39",
         "outputAsReal": false,
-        "sequence": 97
+        "showInSurveyOutputScreen": false,
+        "sequence": 109
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_40",
         "outputAsReal": false,
-        "sequence": 98
+        "showInSurveyOutputScreen": false,
+        "sequence": 110
       },
-
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_SOMATICOS",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 111
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_ANSIEDAD",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 112
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_DISF_SOCIAL",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 113
+      },
+      {
+        "surveyShortName": "CSG",
+        "fieldName": "CSG_CAL_DEPRESION",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 114
+      },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_TOTAL_CSG",
         "outputAsReal": false,
-        "sequence": 99
+        "showInSurveyOutputScreen": true,
+        "sequence": 115
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_ES_CASO",
         "outputAsReal": false,
-        "sequence": 100
+        "showInSurveyOutputScreen": true,
+        "sequence": 116
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_EMOCIONAL",
         "outputAsReal": false,
-        "sequence": 101
+        "showInSurveyOutputScreen": true,
+        "sequence": 117
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_DESPERS",
         "outputAsReal": false,
-        "sequence": 102
+        "showInSurveyOutputScreen": true,
+        "sequence": 118
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_LOGROS",
         "outputAsReal": false,
-        "sequence": 103
+        "showInSurveyOutputScreen": true,
+        "sequence": 119
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_TOTAL",
         "outputAsReal": false,
-        "sequence": 104
+        "showInSurveyOutputScreen": true,
+        "sequence": 120
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_CAL_TOTAL_ESTRES",
         "outputAsReal": false,
-        "sequence": 105
+        "showInSurveyOutputScreen": true,
+        "sequence": 121
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_CAL_LISTA_ESTRES",
         "outputAsReal": false,
-        "sequence": 106
+        "showInSurveyOutputScreen": true,
+        "sequence": 122
       }
     ]
   }

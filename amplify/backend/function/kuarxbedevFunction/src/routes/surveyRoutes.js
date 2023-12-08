@@ -16,15 +16,18 @@ let {
   superSurveyGetList,
   superSurveySaveOutput,
   superSurveyDeleteOutputValues,
+  superSurveyGetOutputValues,
 } = require("../controllers/surveyController.js");
 let { protect, admin } = require("../middleware/authMiddleware.js");
 
 router.route("/:id/configs").get(protect, admin, getSuperSurveyConfigs);
 
+//router.route("/:id/outputs").get(protect, admin, superSurveyGetOutputValues);
 router
   .route("/:id/outputs")
   .post(protect, admin, superSurveySaveOutput)
-  .delete(protect, admin, superSurveyDeleteOutputValues);
+  .delete(protect, admin, superSurveyDeleteOutputValues)
+  .get(protect, admin, superSurveyGetOutputValues);
 
 router
   .route("/:id")

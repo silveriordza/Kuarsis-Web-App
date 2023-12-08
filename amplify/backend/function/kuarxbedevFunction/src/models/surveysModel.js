@@ -121,6 +121,7 @@ const surveySuperiorOutputLayoutModel = mongoose.Schema(
     surveyShortName: { type: String, required: true },
     fieldName: { type: String, required: true },
     outputAsReal: { type: Boolean, required: true },
+    showInSurveyOutputScreen: { type: Boolean, require: true },
     sequence: { type: Number, required: true },
   },
   {

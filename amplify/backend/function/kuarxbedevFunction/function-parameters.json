@@ -7,10 +7,6 @@
       "environmentVariableName": "KUARSIS_AMPLIFY_APPID"
     },
     {
-      "cloudFormationParameterName": "kuarsisAmplifyEnvironmentName",
-      "environmentVariableName": "KUARSIS_AMPLIFY_ENVIRONMENT_NAME"
-    },
-    {
       "cloudFormationParameterName": "port",
       "environmentVariableName": "PORT"
     },
@@ -53,6 +49,10 @@
     {
       "cloudFormationParameterName": "logLevel",
       "environmentVariableName": "LOG_LEVEL"
+    },
+    {
+      "cloudFormationParameterName": "kuarsisAmplifyEnvironmentName",
+      "environmentVariableName": "KUARSIS_AMPLIFY_ENVIRONMENT_NAME"
     }
   ],
   "secretNames": [

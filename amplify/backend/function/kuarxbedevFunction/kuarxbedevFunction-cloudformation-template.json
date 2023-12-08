@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.0.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.3.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -20,9 +20,6 @@
       "Type": "String"
     },
     "kuarsisAmplifyAppid": {
-      "Type": "String"
-    },
-    "kuarsisAmplifyEnvironmentName": {
       "Type": "String"
     },
     "port": {
@@ -56,6 +53,9 @@
       "Type": "String"
     },
     "logLevel": {
+      "Type": "String"
+    },
+    "kuarsisAmplifyEnvironmentName": {
       "Type": "String"
     }
   },
@@ -225,9 +225,6 @@
             "KUARSIS_AMPLIFY_APPID": {
               "Ref": "kuarsisAmplifyAppid"
             },
-            "KUARSIS_AMPLIFY_ENVIRONMENT_NAME": {
-              "Ref": "kuarsisAmplifyEnvironmentName"
-            },
             "PORT": {
               "Ref": "port"
             },
@@ -260,6 +257,9 @@
             },
             "LOG_LEVEL": {
               "Ref": "logLevel"
+            },
+            "KUARSIS_AMPLIFY_ENVIRONMENT_NAME": {
+              "Ref": "kuarsisAmplifyEnvironmentName"
             }
           }
         },
