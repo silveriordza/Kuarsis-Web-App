@@ -82,6 +82,16 @@ const App = () => {
             />
             <Route path="/admin/surveyoutput" component={SurveysOutputData} />
 
+            <Route
+              path="/admin/surveyoutput/survey/:surveySelected/keyword/:keyword/page/:pageNumber"
+              component={SurveysOutputData}
+              exact
+            />
+            <Route
+              path="/admin/surveyoutput/survey/:surveySelected/page/:pageNumber"
+              component={SurveysOutputData}
+              exact
+            />
             <Route path="/cart/:id?" component={CartScreen} />
             {/* <Route path='/bookappointment/:id' component={BookAppointmentScreen} /> */}
             <Route path="/order" component={OrderScreen} />

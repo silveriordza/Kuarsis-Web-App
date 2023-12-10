@@ -1009,7 +1009,7 @@ export const surveyGetOutputValuesAction =
       );
       const { data } = await axios.get(
         BACKEND_ENDPOINT +
-          `/surveys/${superSurveyId.surveySuperiorId}/outputs?&superSurveyShortName=${superSurveyId.surveyShortName}`,
+          `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.surveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
         config
       );
 

@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
+import PaginateGeneric from "../components/PaginateGeneric";
 import {
   surveyProcessAnswersAction,
   surveyProcessAnswersAtClientAction,
@@ -40,10 +41,18 @@ const SurveysOutputData = ({ match, history }) => {
   const srcFileName = "SurveysOutputData";
   const log = new LoggerSettings(srcFileName, "SurveysOutputData");
 
+  const keyword = match.params.keyword || "";
+  const pageNumber = match.params.pageNumber || 1;
+  const surveySelectedParam = match.params.surveySelected || -1;
+  const [selectedPageNumber, setselectedPageNumber] = useState(pageNumber);
+
   const [selectedSurveySuperior, setselectedSurveySuperior] = useState(null);
   const [newSelectedSurveySuperior, setnewSelectedSurveySuperior] =
     useState(false);
   const [surveyDetailsDispatched, setsurveyDetailsDispatched] = useState(false);
+
+  const [searchKeyword, setsearchKeyword] = useState(keyword);
+  const [surveySelected, setsurveySelected] = useState(surveySelectedParam);
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -84,6 +93,7 @@ const SurveysOutputData = ({ match, history }) => {
     log.functionName = "handleSelectSurveySuperior";
     const selectedSurvey =
       surveyDetailsInfo.surveySuperiors[e.target.selectedIndex - 1];
+    setsurveySelected(e.target.selectedIndex - 1);
 
     LogThis(
       log,
@@ -93,6 +103,30 @@ const SurveysOutputData = ({ match, history }) => {
     );
     setselectedSurveySuperior(selectedSurvey);
     setnewSelectedSurveySuperior(true);
+  };
+
+  const reselectSurveyAfterPagination = async (selectedSurveyIndex) => {
+    log.functionName = "reselectSurveyAfterPagination";
+    const selectedSurvey =
+      surveyDetailsInfo.surveySuperiors[selectedSurveyIndex];
+    setsurveySelected(selectedSurveyIndex);
+
+    LogThis(
+      log,
+      `selectedSurvey=${JSON.stringify(
+        selectedSurvey
+      )}; index=${selectedSurveyIndex}; surveyDetailsInfo=${JSON.stringify(
+        surveyDetailsInfo
+      )}`
+    );
+    setselectedSurveySuperior(selectedSurvey);
+    setnewSelectedSurveySuperior(true);
+  };
+
+  const handleSearchText = async (e) => {
+    log.functionName = "handleSearchText";
+
+    LogThis(log, `START`, L3);
   };
 
   useEffect(() => {
@@ -118,6 +152,8 @@ const SurveysOutputData = ({ match, history }) => {
           surveyGetOutputValuesAction({
             surveySuperiorId: selectedSurveySuperior._id,
             surveyShortName: selectedSurveySuperior.surveyShortName,
+            pageNumber: pageNumber,
+            keyword: keyword,
           })
         );
         setnewSelectedSurveySuperior(false);
@@ -141,6 +177,7 @@ const SurveysOutputData = ({ match, history }) => {
     newSelectedSurveySuperior,
     loading,
     surveyOutputsInfo,
+    selectedPageNumber,
   ]);
 
   useEffect(() => {
@@ -157,6 +194,16 @@ const SurveysOutputData = ({ match, history }) => {
       if (!surveyDetailsDispatched) {
         dispatch(surveyDetailsAction({}));
         setsurveyDetailsDispatched(true);
+      }
+      if (
+        !surveyDetailLoading &&
+        surveyDetailSuccess &&
+        surveyDetailsInfo &&
+        surveyDetailsInfo.surveySuperiors.length > 0
+      ) {
+        if (surveySelectedParam >= 0) {
+          reselectSurveyAfterPagination(surveySelectedParam);
+        }
       }
     }
   }, [
@@ -211,13 +258,16 @@ const SurveysOutputData = ({ match, history }) => {
         surveyOutputsInfo.outputLayouts &&
         surveyOutputsInfo.outputValues && (
           <>
-            {console.log(
-              `surveyOutputsInfo=${JSON.stringify(
-                surveyOutputsInfo,
-                null,
-                1
-              )}; loading=${loading}`
-            )}
+            <Form.Group controlId="textControl">
+              <Form.Label>Search by text:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Search..."
+                value={searchKeyword}
+                onChange={handleSearchText}
+              ></Form.Control>
+            </Form.Group>
+
             <Table striped bordered hover responsive className="table-sm">
               <thead>
                 <tr>
@@ -275,7 +325,12 @@ const SurveysOutputData = ({ match, history }) => {
                 })}
               </tbody>
             </Table>
-            {/* <Paginate pages={pages} page={page} isAdmin={true} /> */}
+            <PaginateGeneric
+              selectedSurveyIndex={surveySelected}
+              pages={surveyOutputsInfo.pages}
+              page={selectedPageNumber}
+              keyword={searchKeyword ? searchKeyword : ""}
+            />
           </>
         )}
     </>
