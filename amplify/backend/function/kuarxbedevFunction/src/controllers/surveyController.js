@@ -18,6 +18,9 @@ let {
   SurveySuperiorOutputLayout,
   SurveyResponse,
 } = require("../models/surveysModel.js");
+
+let { DynamicCollection } = require("../models/dynamicCollectionModel.js");
+
 let {
   LogThis,
   LoggerSettings,
@@ -33,6 +36,11 @@ const AdmZip = require("adm-zip");
 const JSZip = require("jszip");
 
 let { rowCleaner } = require("../utils/csvProcessingLib.js");
+let {
+  saveDynamicModelToDB,
+  loadOneDynamicModelFromDB,
+  dynamicModelsMap,
+} = require("../utils/mongoDbHelper.js");
 const srcFileName = "surveyController.js";
 
 const fs = require("fs");
@@ -150,6 +158,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   let outputLayouts = superSurveyConfigTest.surveySuperiorOutputLayout.sort(
     (a, b) => a.sequence - b.sequence
   );
+  LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3);
   let outputLayoutFields = [];
   for (let i = 0; i < outputLayouts.length; i++) {
     outputLayout = outputLayouts[i];
@@ -162,7 +171,11 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
       sequence: outputLayout.sequence,
     });
   }
-
+  LogThis(
+    log,
+    `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
+    L3
+  );
   const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
     outputLayoutFields
   );
@@ -193,7 +206,9 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
     let surveyOutputCollection = await mongoose.connection.collection(
       surveyOutputCollectionName
     );
+
     await surveyOutputCollection.drop();
+
     LogThis(log, `dropped surveyOutputCollectionName`, L3);
 
     delete mongoose.models[surveyOutputCollectionName];
@@ -205,12 +220,15 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   let surveyOutputColumns = {};
 
   outputLayoutFields.forEach((column) => {
-    surveyOutputColumns[column.fieldName] = String;
+    LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3);
+    surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
   });
   x = x + 1;
   LogThis(
     log,
-    `x=${x}; surveyOutputColumns=${JSON.stringify(surveyOutputColumns)}`,
+    `x=${x}; surveyOutputColumns=${JSON.stringify(
+      Object.entries(surveyOutputColumns)
+    )}`,
     L3
   );
 
@@ -221,6 +239,27 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
     surveyOutputCollectionName,
     surveyOutputCollectionSchema
   );
+
+  saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns);
+
+  // await DynamicCollection.deleteOne({
+  //   collectionName: surveyOutputCollectionName,
+  // });
+
+  // const schemaDefinition = {
+  //   field1: String,
+  //   field2: Number,
+  //   // Add more fields as needed
+  // };
+  // const dynamicCollection = new DynamicCollection();
+  // dynamicCollection.collectionName = surveyOutputCollectionName;
+  // dynamicCollection.schemaDefinition = schemaDefinition;
+
+  // const createdDynamicCollection = await dynamicCollection.save();
+  // if (!createdDynamicCollection) {
+  //   throw new Error(`DynamicCollection couldn't be created`);
+  // }
+
   x = x + 1;
   LogThis(log, `x=${x}`, L3);
 
@@ -1139,6 +1178,11 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
     const superSurveyId = req.params.id;
     const superSurveyShortName = req.query.superSurveyShortName;
     const page = Number(req.query.pageNumber) || 1;
+    const keyword = req.query.keyword;
+    //const regex = new RegExp(keyword, "i");
+    const conditions = [];
+    let condition = {};
+    //let fields = null;
 
     // const keyword = req.query.keyword
     //   ? {
@@ -1154,7 +1198,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       `superSurveyId=${superSurveyId}; superSurveyShortName=${JSON.stringify(
         superSurveyShortName
       )}`,
-      L1
+      L2
     );
     const outputLayouts = await SurveySuperiorOutputLayout.find({
       surveySuperiorId: superSurveyId,
@@ -1163,51 +1207,112 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
     let x = 0;
     x = x + 1;
     LogThis(log, `x=${x}; outputLayouts=${JSON.stringify(outputLayouts)}`, L3);
-
-    const keyword = "Moreno";
-    const regex = new RegExp(keyword, "i");
-    const conditions = [];
+    let y = 0;
+    y = y + 1;
+    LogThis(log, `y=${y}`, L3);
 
     if (outputLayouts && outputLayouts.length > 0) {
-      const fields = Object.keys(outputLayouts[0]);
-      LogThis(log, `fields=${JSON.stringify(fields)}`, L1);
-      const condition = {};
-      fields.forEach((field) => {
-        condition[field] = { $regex: regex };
+      //fields = Object.keys(outputLayouts[0]);
+      //LogThis(log, `fields=${JSON.stringify(fields)}`, L1);
+      //const condition = {};
+      outputLayouts.forEach((field) => {
+        if (field.showInSurveyOutputScreen) {
+          condition[field.fieldName] = { $regex: new RegExp(keyword, "i") };
+          conditions.push(condition);
+          condition = {};
+        }
       });
-      conditions.push(condition);
+
+      //conditions.push(condition);
     }
-    LogThis(log, `conditions=${JSON.stringify(conditions, null, 1)}`, L1);
 
+    LogThis(log, `conditions=${JSON.stringify(conditions, null, 1)}`, L3);
+    y = y + 1;
+    LogThis(log, `Before surveyOutputCollectionName y=${y}`, L3);
     const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
-
-    let surveyOutputCollection = mongoose.connection.collection(
-      surveyOutputCollectionName.toLocaleLowerCase()
+    y = y + 1;
+    LogThis(log, `about to call loadOneDynamicModel... y=${y}`);
+    let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
+      surveyOutputCollectionName
     );
+    y = y + 1;
+    LogThis(log, `After calling loadOneDynamic y=${y}`, L3);
+    y = y + 1;
+    LogThis(log, `About to call surveyOutputCollectionFound y=${y}`, L3);
+    // const outputValuesFound = await surveyOutputCollectionFound
+    //   .find({
+    //     $or: [
+    //       { GENINFO_Nombre: new RegExp(keyword, "i") },
+    //       { GENINFO_Sexo: new RegExp(keyword, "i") },
+    //     ],
+    //   })
+    //   .exec();
+    const count = await surveyOutputCollectionFound.countDocuments({
+      $or: conditions,
+    });
 
-    const findAsync = util.promisify(
-      surveyOutputCollection.find.bind(surveyOutputCollection)
-    );
+    const outputValuesFound = await surveyOutputCollectionFound
+      .find({
+        $or: conditions,
+      })
+      .limit(pageSize)
+      .skip(pageSize * (page - 1))
+      .lean();
 
-    const countDocumentsAsync = util.promisify(
-      surveyOutputCollection.countDocuments.bind(surveyOutputCollection)
-    );
+    // y = y + 1;
+    // LogThis(log, `Called surveyOutputCollectionFound y=${y}`, L3);
 
-    // const count = await countDocumentsAsync({})
-    // LogThis(log, `countDocuments count=${JSON.stringify(count)}`)
+    // LogThis(
+    //   log,
+    //   `typeof surveyOutputCollectionFound=${typeof surveyOutputCollectionFound}; surveyOutputCollectionFound=${JSON.stringify(
+    //     Object.entries(surveyOutputCollectionFound)
+    //   )} `,
+    //   L3
+    // );
+    // LogThis(
+    //   log,
+    //   `XdynamicModelMap=${JSON.stringify(Object.entries(dynamicModelsMap))}`,
+    //   L3
+    // );
+    // const outputValuesFound = await dynamicModelsMap[
+    //   "surveyoutputs_talentos_2020"
+    // ].find({
+    //   /*$or: conditions */
+    // });
 
-    const queryoutputValues = await findAsync({ $or: conditions });
-    const outputValues = await queryoutputValues.toArray();
-    const count = outputValues.length;
+    LogThis(log, `outputValuesFound=${JSON.stringify(outputValuesFound)}`, L3);
+    // let surveyOutputCollection = mongoose.connection.collection(
+    //   surveyOutputCollectionName.toLocaleLowerCase()
+    // );
 
-    findAsync;
+    // const findAsync = util.promisify(
+    //   surveyOutputCollection.find.bind(surveyOutputCollection)
+    // );
+
+    // const countDocumentsAsync = util.promisify(
+    //   surveyOutputCollection.countDocuments.bind(surveyOutputCollection)
+    // );
+
+    // // const count = await countDocumentsAsync({})
+    // // LogThis(log, `countDocuments count=${JSON.stringify(count)}`)
+
+    // const queryoutputValues = await findAsync({ $or: conditions });
+    // const outputValues = await queryoutputValues.toArray();
+    // const count = outputValues.length;
+
+    // findAsync;
 
     x = x + 1;
-    LogThis(log, `outputValues=${JSON.stringify(outputValues)}`, L3);
+    LogThis(log, `outputValues=${JSON.stringify(outputValuesFound)}`, L3);
+    LogThis(
+      log,
+      `page=${page}; count=${count}; pages=${Math.ceil(count / pageSize)}`,
+      L3
+    );
     res.status(200).json({
       outputsInfo: {
         outputLayouts: outputLayouts,
-        outputValues: outputValues,
+        outputValues: outputValuesFound,
         page,
         pages: Math.ceil(count / pageSize),
       },

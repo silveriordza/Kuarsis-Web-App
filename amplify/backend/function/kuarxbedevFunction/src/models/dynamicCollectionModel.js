@@ -19,4 +19,4 @@ const DynamicCollection = mongoose.model(
   dynamicCollectionSchema
 );
 
-module.exports = DynamicCollection;
+module.exports = { DynamicCollection };

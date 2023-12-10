@@ -1,17 +1,20 @@
-/*
-Use the following code to retrieve configured secrets from SSM:
+/**
+ * Use the following code to retrieve configured secrets from SSM:
+ *
+ * const aws = require('aws-sdk');
+ *
+ * const { Parameters } = await (new aws.SSM())
+ *   .getParameters({
+ *     Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY"].map(secretName => process.env[secretName]),
+ *     WithDecryption: true,
+ *   })
+ *   .promise();
+ *
+ * Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+ *
+ * @format
+ */
 
-const aws = require('aws-sdk');
-
-const { Parameters } = await (new aws.SSM())
-  .getParameters({
-    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY"].map(secretName => process.env[secretName]),
-    WithDecryption: true,
-  })
-  .promise();
-
-Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
-*/
 /**
  * Use the following code to retrieve configured secrets from SSM:
  *
@@ -76,7 +79,7 @@ See the License for the specific language governing permissions and limitations 
 Amplify Params - DO NOT EDIT */
 
 //Environment Variables from .env file or AWS lambda environment
-
+const { loadDynamicModelsFromDB } = require("./utils/mongoDbHelper.js");
 let dotenv = require("dotenv");
 let myEnv = dotenv.config();
 
@@ -148,6 +151,7 @@ const loadParameters = (data) => {
   //Connecting to MongoDB via mongoose
   //Moved the connectDB call inside the callback function loadParameters which is invoked by the ssm.getParameters (below). The getParameters function is in nature asyncrhonous, the execution will not wait for the getParameters to return, if the connectDB() is invoked outside the loadParameters (which is callback of getParameters), it will be invoked before the MONGO_URI is updated with its secret value from getParameters, hence the connectDB will fail because it has an undefined URI. Therefore, connectDB is not invoked within the callback function loadParameters.
   connectDB();
+  loadDynamicModelsFromDB();
 };
 
 const params = {

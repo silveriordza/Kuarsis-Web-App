@@ -45,10 +45,6 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
         field: field,
       },
     ];
-    //LogThis(log, `Field found=${JSON.stringify(field)}`);
-    // layout.fieldFound = field;
-    // outputLayout[i] = layout;
-    // LogThis(log, `outputLayoutWithField=${JSON.stringify(outputLayout[i])}`);
   }
   LogThis(log, `outputFields=${JSON.stringify(outputFields)}`);
   return outputFields;
