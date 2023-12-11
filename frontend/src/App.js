@@ -37,7 +37,7 @@ const App = () => {
       <Router>
         <Route component={Header} />
         <main>
-          <Container>
+          <Container fluid>
             <Route path="/profile" component={ProfileScreen} />
             <Route path="/show3d" component={Show3DScreen} />
             <Route path="/sign-up" component={RegisterScreen} exact />
@@ -80,10 +80,14 @@ const App = () => {
               path="/admin/uploadsurveyanswers"
               component={UploadSurveyAnswers}
             />
-            <Route path="/admin/surveyoutput" component={SurveysOutputData} />
 
-            <Route
+            {/* <Route
               path="/admin/surveyoutput/survey/:surveySelected/keyword/:keyword/page/:pageNumber"
+              component={SurveysOutputData}
+              exact
+            /> */}
+            <Route
+              path="/admin/surveyoutput"
               component={SurveysOutputData}
               exact
             />
@@ -92,6 +96,7 @@ const App = () => {
               component={SurveysOutputData}
               exact
             />
+
             <Route path="/cart/:id?" component={CartScreen} />
             {/* <Route path='/bookappointment/:id' component={BookAppointmentScreen} /> */}
             <Route path="/order" component={OrderScreen} />

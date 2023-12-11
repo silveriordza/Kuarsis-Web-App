@@ -79,7 +79,7 @@ export const surveyProcessAnswersAction =
           formData,
           config
         );
-        LogThis(log, `data=${data}`);
+        //LogThis(log, `data=${data}`);
         //const data2 = Buffer.from(data, "base64").toString("binary");
         //const arrayBuffer = new Uint8Array(data2).buffer;
         // const blob = new Blob([data2], {
@@ -206,7 +206,7 @@ export const surveyProcessAnswersAtClientAction =
           BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/configs`,
           config
         );
-        LogThis(log, `data=${JSON.stringify(data, null, 2)}`, L1);
+        LogThis(log, `data=${JSON.stringify(data, null, 2)}`, L3);
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: { message: "Configuracion de encuestas obtenido.", row: 0 },
@@ -215,7 +215,7 @@ export const surveyProcessAnswersAtClientAction =
 
         const answersData = fileNumeric;
 
-        LogThis(log, `answersData=${JSON.stringify(answersData, null, 2)}`);
+        LogThis(log, `answersData=${JSON.stringify(answersData, null, 2)}`, L3);
 
         const answersDataReal = fileReal;
         LogThis(
@@ -961,7 +961,7 @@ export const surveyDetailsAction = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(BACKEND_ENDPOINT + `/surveys`, config);
-    LogThis(log, `data=${JSON.stringify(data)}`, L0);
+    LogThis(log, `data=${JSON.stringify(data)}`, L3);
     dispatch({
       type: SURVEY_DETAILS_SUCCESS,
       payload: data,
@@ -1013,10 +1013,10 @@ export const surveyGetOutputValuesAction =
         config
       );
 
-      LogThis(log, `dataOutputValues=${JSON.stringify(data, null, 2)}`, L0);
+      LogThis(log, `dataOutputValues=${JSON.stringify(data, null, 2)}`, L3);
 
       if (data && data.outputsInfo) {
-        LogThis(log, `data=${JSON.stringify(data)}`, L0);
+        //LogThis(log, `data=${JSON.stringify(data)}`, L0);
         dispatch({
           type: SURVEY_OUTPUTS_SUCCESS,
           payload: data.outputsInfo,

@@ -3,9 +3,10 @@
 import React from "react";
 import { Pagination } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { LogThis, LoggerSettings, L3 } from "../libs/Logger";
+import { LogThis, LoggerSettings, L3, L1 } from "../libs/Logger";
 
 const PaginateGeneric = ({
+  onClick,
   selectedSurveyIndex,
   pages,
   page,
@@ -15,30 +16,31 @@ const PaginateGeneric = ({
   LogThis(
     log,
     `selectedSurveyIndex=${selectedSurveyIndex}; pages=${pages}; page=${page}; keyword=${keyword}`,
-    L3
+    L1
   );
   return (
     pages > 1 && (
-      <Pagination>
-        {[...Array(pages).keys()].map((x) => (
-          <LinkContainer
-            key={x + 1}
-            to={
-              keyword
-                ? `/admin/surveyoutput/survey/${selectedSurveyIndex}/keyword/${keyword}/page/${
-                    x + 1
-                  }`
-                : `/admin/surveyoutput/survey/${selectedSurveyIndex}/page/${
-                    x + 1
-                  }`
-            }
-          >
-            <Pagination.Item activeLabel="" active={x + 1 === page}>
-              {x + 1}
-            </Pagination.Item>
-          </LinkContainer>
-        ))}
-      </Pagination>
+      <div className="pagination-container">
+        <div>Pages: </div>
+        <Pagination>
+          {[...Array(pages).keys()].map((x) => (
+            <LinkContainer
+              key={x + 1}
+              to={`/admin/surveyoutput/survey/${selectedSurveyIndex}/page/${
+                x + 1
+              }`}
+            >
+              <Pagination.Item
+                onClick={onClick}
+                activeLabel=""
+                active={x + 1 === page}
+              >
+                {x + 1}
+              </Pagination.Item>
+            </LinkContainer>
+          ))}
+        </Pagination>
+      </div>
     )
   );
 };

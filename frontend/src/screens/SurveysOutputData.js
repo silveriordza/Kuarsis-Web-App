@@ -17,6 +17,9 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import PaginateGeneric from "../components/PaginateGeneric";
+
+import _ from "lodash";
+
 import {
   surveyProcessAnswersAction,
   surveyProcessAnswersAtClientAction,
@@ -35,7 +38,7 @@ import {
   autoDownloadTextAsFileOnClientBrowser,
   unzipFileFromSubfolder,
 } from "../libs/Functions";
-import { SURVEY_PROCESS_ANSWERS_RESET } from "../constants/surveyConstants";
+import { SURVEY_OUTPUTS_RESET } from "../constants/surveyConstants";
 
 const SurveysOutputData = ({ match, history }) => {
   const srcFileName = "SurveysOutputData";
@@ -44,6 +47,7 @@ const SurveysOutputData = ({ match, history }) => {
   const keyword = match.params.keyword || "";
   const pageNumber = match.params.pageNumber || 1;
   const surveySelectedParam = match.params.surveySelected || -1;
+
   const [selectedPageNumber, setselectedPageNumber] = useState(pageNumber);
 
   const [selectedSurveySuperior, setselectedSurveySuperior] = useState(null);
@@ -56,7 +60,7 @@ const SurveysOutputData = ({ match, history }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
+  const typingTimer = useRef(null);
   // const surveyProcessAnswers = useSelector(
   //   (state) => state.surveyProcessAnswers
   // );
@@ -83,26 +87,42 @@ const SurveysOutputData = ({ match, history }) => {
 
   const dispatch = useDispatch();
 
-  const testsHandler = async (e) => {
-    e.preventDefault();
-    const log = new LoggerSettings(srcFileName, "testsHandler");
-    LogThis(log, "START");
-  };
+  // const testsHandler = async (e) => {
+  //   e.preventDefault();
+  //   const log = new LoggerSettings(srcFileName, "testsHandler");
+  //   LogThis(log, "START");
+  // };
 
   const handleSelectSurveySuperior = async (e) => {
     log.functionName = "handleSelectSurveySuperior";
-    const selectedSurvey =
-      surveyDetailsInfo.surveySuperiors[e.target.selectedIndex - 1];
-    setsurveySelected(e.target.selectedIndex - 1);
-
-    LogThis(
-      log,
-      `selectedSurvey=${JSON.stringify(selectedSurvey)}; index=${
-        e.target.selectedIndex - 1
-      }; surveyDetailsInfo=${JSON.stringify(surveyDetailsInfo)}`
-    );
-    setselectedSurveySuperior(selectedSurvey);
-    setnewSelectedSurveySuperior(true);
+    LogThis(log, `START`, L1);
+    const index = e.target.selectedIndex - 1;
+    if (index < 0) {
+      dispatch({
+        type: SURVEY_OUTPUTS_RESET,
+      });
+      setsurveySelected(-1);
+      setselectedSurveySuperior(null);
+      history.push("/admin/surveyoutput");
+    } else {
+      const selectedSurvey =
+        surveyDetailsInfo.surveySuperiors[e.target.selectedIndex - 1];
+      setsurveySelected(e.target.selectedIndex - 1);
+      history.push(
+        `/admin/surveyoutput/survey/${
+          e.target.selectedIndex - 1
+        }/page/${selectedPageNumber}`
+      );
+      // LogThis(
+      //   log,
+      //   `selectedSurvey=${JSON.stringify(selectedSurvey)}; index=${
+      //     e.target.selectedIndex - 1
+      //   }; surveyDetailsInfo=${JSON.stringify(surveyDetailsInfo)}`,
+      //   L1
+      // );
+      // setselectedSurveySuperior(selectedSurvey);
+      // setnewSelectedSurveySuperior(true);
+    }
   };
 
   const reselectSurveyAfterPagination = async (selectedSurveyIndex) => {
@@ -117,67 +137,102 @@ const SurveysOutputData = ({ match, history }) => {
         selectedSurvey
       )}; index=${selectedSurveyIndex}; surveyDetailsInfo=${JSON.stringify(
         surveyDetailsInfo
-      )}`
+      )}`,
+      L1
     );
     setselectedSurveySuperior(selectedSurvey);
     setnewSelectedSurveySuperior(true);
   };
 
+  const debouncedKeywordSearch = _.debounce((newKeyword) => {
+    log.functionName = "debouncedKeywordSearch";
+    LogThis(log, `START newKeyword=${newKeyword}`, L1);
+    setsearchKeyword(newKeyword);
+    setnewSelectedSurveySuperior(true);
+  }, 2000);
   const handleSearchText = async (e) => {
     log.functionName = "handleSearchText";
+    //debouncedKeywordSearch(e.target.value);
 
-    LogThis(log, `START`, L3);
+    if (!typingTimer.current)
+      typingTimer.current = setTimeout(() => {
+        LogThis(log, `timer executed`, L1);
+        setnewSelectedSurveySuperior(true);
+        setselectedPageNumber(1);
+      }, 2000);
+    else {
+      clearTimeout(typingTimer.current);
+      typingTimer.current = setTimeout(() => {
+        LogThis(log, `timer executed`, L1);
+        setnewSelectedSurveySuperior(true);
+        setselectedPageNumber(1);
+      }, 2000);
+    }
+    setsearchKeyword(e.target.value);
+    LogThis(log, `START text=${e.target.value}`, L1);
+  };
+
+  const handlePageChange = (e) => {
+    log.functionName = "handlePageChange";
+
+    LogThis(log, `START surveySelectedParam=${surveySelected}`, L1);
+    if (surveySelected >= 0) {
+      reselectSurveyAfterPagination(surveySelected);
+      setnewSelectedSurveySuperior(true);
+      setselectedPageNumber(e.target.text);
+    }
   };
 
   useEffect(() => {
-    LogThis(log, `UseEffect getoutput`, L1);
+    LogThis(
+      log,
+      `UseEffect getoutput, newSelectedSurveySuperior=${newSelectedSurveySuperior}; loading=${loading}`,
+      L1
+    );
     if (!userInfo) {
       LogThis(log, `No userInfo available`, L1);
       history.push("/sign-in");
     } else {
-      LogThis(
-        log,
-        `useEffect newSelectedSurveySuperior=${newSelectedSurveySuperior}, loading=${loading}`,
-        L3
-      );
-      if (newSelectedSurveySuperior && !loading) {
+      // LogThis(
+      //   log,
+      //   `useEffect newSelectedSurveySuperior=${newSelectedSurveySuperior}, loading=${loading}`,
+      //   L3
+      // );
+      // if (newSelectedSurveySuperior && !loading) {
+      //   LogThis(
+      //     log,
+      //     `about to call surveyOutput selectedSurveySuperior=${JSON.stringify(
+      //       selectedSurveySuperior
+      //     )}`,
+      //     L3
+      //   );
+      if (newSelectedSurveySuperior && !loading && selectedSurveySuperior) {
+        LogThis(log, `About to dispatch surveyGetOutputValuesAction`, L3);
         LogThis(
           log,
-          `about to call surveyOutput selectedSurveySuperior=${JSON.stringify(
-            selectedSurveySuperior
-          )}`,
-          L3
+          `dispatching selectedSurvey._id=${selectedSurveySuperior._id}; selectedSurveySuperior.surveyShortName=${selectedSurveySuperior.surveyShortName}; selectedPageNumber=${selectedPageNumber}; searchKeyword=${searchKeyword};`,
+          L1
         );
         dispatch(
           surveyGetOutputValuesAction({
             surveySuperiorId: selectedSurveySuperior._id,
             surveyShortName: selectedSurveySuperior.surveyShortName,
-            pageNumber: pageNumber,
-            keyword: keyword,
+            pageNumber: selectedPageNumber,
+            keyword: searchKeyword,
           })
         );
         setnewSelectedSurveySuperior(false);
       }
     }
-    if (surveyOutputsInfo) {
-      LogThis(
-        log,
-        `surveyOutputsInfo useEffect=${JSON.stringify(
-          surveyOutputsInfo,
-          null,
-          2
-        )}`,
-        L3
-      );
-      //setShowOutputDetails(true);
-    }
   }, [
     dispatch,
-    userInfo,
+    //userInfo,
     newSelectedSurveySuperior,
-    loading,
-    surveyOutputsInfo,
+    //loading,
+    selectedSurveySuperior,
     selectedPageNumber,
+    newSelectedSurveySuperior,
+    //selectedPageNumber,
   ]);
 
   useEffect(() => {
@@ -192,27 +247,40 @@ const SurveysOutputData = ({ match, history }) => {
         L1
       );
       if (!surveyDetailsDispatched) {
+        LogThis(log, `About to dispatch surveyDetailsAction`, L1);
         dispatch(surveyDetailsAction({}));
         setsurveyDetailsDispatched(true);
       }
-      if (
-        !surveyDetailLoading &&
-        surveyDetailSuccess &&
-        surveyDetailsInfo &&
-        surveyDetailsInfo.surveySuperiors.length > 0
-      ) {
-        if (surveySelectedParam >= 0) {
-          reselectSurveyAfterPagination(surveySelectedParam);
-        }
+    }
+  }, [dispatch, surveyDetailsDispatched]);
+
+  useEffect(() => {
+    LogThis(log, `UseEffect details`, L1);
+    if (!userInfo) {
+      LogThis(log, `No userInfo available`, L1);
+      history.push("/sign-in");
+    } else {
+      LogThis(
+        log,
+        `Details dispatched surveyDetailsDispatched=${surveyDetailsDispatched}`,
+        L1
+      );
+      if (surveySelected > -1) {
+        reselectSurveyAfterPagination(surveySelected);
       }
     }
-  }, [
-    dispatch,
-    surveyDetailLoading,
-    surveyDetailSuccess,
-    surveyDetailsInfo,
-    surveyDetailError,
-  ]);
+  }, [dispatch, surveySelected]);
+
+  useEffect(() => {
+    // Perform cleanup operations when the component is unmounted
+    return () => {
+      setsurveySelected(-1);
+      setselectedSurveySuperior(null);
+      dispatch({
+        type: SURVEY_OUTPUTS_RESET,
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -222,7 +290,6 @@ const SurveysOutputData = ({ match, history }) => {
         {error && <Message variant="danger">{error.message}</Message>}
 
         <h1>Seleccione la encuesta a procesar</h1>
-        {LogThis(log, `Rendering`)}
         {!surveyDetailLoading &&
           surveyDetailSuccess &&
           surveyDetailsInfo &&
@@ -233,7 +300,10 @@ const SurveysOutputData = ({ match, history }) => {
                 value={selectedSurveySuperior ?? ""}
                 onChange={handleSelectSurveySuperior}
               >
-                <option value=""> Seleccionar...</option>
+                <option key={50000} value={"NoSurveySelected"}>
+                  {" "}
+                  Seleccionar...
+                </option>
                 {/* <option value="">
                   {" "}
                   {surveyDetailsInfo.surveySuperiors[0].surveyName}
@@ -258,79 +328,104 @@ const SurveysOutputData = ({ match, history }) => {
         surveyOutputsInfo.outputLayouts &&
         surveyOutputsInfo.outputValues && (
           <>
-            <Form.Group controlId="textControl">
-              <Form.Label>Search by text:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Search..."
-                value={searchKeyword}
-                onChange={handleSearchText}
-              ></Form.Control>
-            </Form.Group>
-
-            <Table striped bordered hover responsive className="table-sm">
-              <thead>
-                <tr>
-                  {console.log(
+            <div className={"survey-outputs"}>
+              <Form.Group controlId="textControl">
+                <Form.Label>Search by text:</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Search..."
+                  value={searchKeyword}
+                  onChange={handleSearchText}
+                ></Form.Control>
+              </Form.Group>
+              <br />
+              <br />
+              <Table striped bordered hover responsive className="table-sm">
+                <thead>
+                  <tr>
+                    {/* {console.log(
                     `Rendering outputLayouts=${JSON.stringify(
                       surveyOutputsInfo
                     )}`
-                  )}
-                  {surveyOutputsInfo.outputLayouts.map((layout) => {
-                    if (layout.showInSurveyOutputScreen) {
-                      return <td>{layout.fieldName}</td>;
-                    } else {
-                      return;
-                    }
+                  )} */}
+                    {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
+                      // console.log(
+                      //   `dipslaying headers: layout=${JSON.stringify(
+                      //     layout
+                      //   )}; layout.showInSurveyOutputScreen = ${
+                      //     layout.showInSurveyOutputScreen
+                      //   }`
+                      // );
+                      if (layout.showInSurveyOutputScreen) {
+                        // console.log(
+                        //   `returning field layout.fieldName=${layout.fieldName}`
+                        // );
+                        return (
+                          <td key={keyVal} style={{ whiteSpace: "nowrap" }}>
+                            {layout.fieldName}
+                          </td>
+                        );
+                      } else {
+                        return;
+                      }
+                    })}
+                  </tr>
+                </thead>
+                <tbody>
+                  {surveyOutputsInfo.outputValues.map((outputValue) => {
+                    const keys = Object.keys(outputValue);
+                    keys.shift();
+                    //console.log(`MAP outputValue=${JSON.stringify(outputValue)}`);
+                    let outputField = null;
+                    let outputValueData = null;
+                    return (
+                      <tr key={outputValue._id}>
+                        {keys.map((key) => {
+                          // console.log(
+                          //   `outputValueKey=${key}; outputValue=${outputValue[key]}`
+                          // );
+                          outputField = surveyOutputsInfo.outputLayouts.find(
+                            (x) => x.fieldName == key
+                          );
+                          // console.log(
+                          //   `outputField=${JSON.stringify(
+                          //     outputField
+                          //   )}; outputField.showInSurveyOutputScreen=${
+                          //     outputField.showInSurveyOutputScreen
+                          //   };`
+                          // );
+
+                          if (outputField.showInSurveyOutputScreen) {
+                            outputValueData = outputValue[key];
+                            let encoder = new TextEncoder();
+                            let utf8Array = encoder.encode(outputValueData);
+                            let utf8String = new TextDecoder().decode(
+                              utf8Array
+                            );
+
+                            return (
+                              <td key={key} style={{ whiteSpace: "nowrap" }}>
+                                {utf8String}
+                              </td>
+                            );
+                          } else {
+                            return;
+                          }
+                        })}
+                      </tr>
+                    );
                   })}
-                </tr>
-              </thead>
-              <tbody>
-                {surveyOutputsInfo.outputValues.map((outputValue) => {
-                  const keys = Object.keys(outputValue);
-                  keys.shift();
-                  console.log(`MAP outputValue=${JSON.stringify(outputValue)}`);
-                  let outputField = null;
-                  let outputValueData = null;
-                  return (
-                    <tr key={outputValue._id}>
-                      {keys.map((key) => {
-                        console.log(
-                          `outputValueKey=${key}; outputValue=${outputValue[key]}`
-                        );
-                        outputField = surveyOutputsInfo.outputLayouts.find(
-                          (x) => x.fieldName == key
-                        );
-                        console.log(
-                          `outputField=${JSON.stringify(
-                            outputField
-                          )}; outputField.showInSurveyOutputScreen=${
-                            outputField.showInSurveyOutputScreen
-                          };`
-                        );
+                </tbody>
+              </Table>
 
-                        if (outputField.showInSurveyOutputScreen) {
-                          outputValueData = outputValue[key];
-                          let encoder = new TextEncoder();
-                          let utf8Array = encoder.encode(outputValueData);
-                          let utf8String = new TextDecoder().decode(utf8Array);
-
-                          return <td>{utf8String}</td>;
-                        } else {
-                          return;
-                        }
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </Table>
-            <PaginateGeneric
-              selectedSurveyIndex={surveySelected}
-              pages={surveyOutputsInfo.pages}
-              page={selectedPageNumber}
-              keyword={searchKeyword ? searchKeyword : ""}
-            />
+              <PaginateGeneric
+                onClick={handlePageChange}
+                selectedSurveyIndex={surveySelected}
+                pages={surveyOutputsInfo.pages}
+                page={pageNumber}
+                keyword={searchKeyword ? searchKeyword : ""}
+              />
+            </div>
           </>
         )}
     </>

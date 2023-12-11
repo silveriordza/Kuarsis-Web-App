@@ -15,7 +15,7 @@ const L1 = 1;
 const L2 = 2;
 const L3 = 3;
 
-const local_debug_level = L3;
+const local_debug_level = L1;
 const artpixandev_debug_level = OFF;
 const artpixanprod_debug_level = OFF;
 
