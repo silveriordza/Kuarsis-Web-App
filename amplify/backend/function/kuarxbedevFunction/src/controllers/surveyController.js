@@ -1101,7 +1101,7 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
         null,
         2
       )}; outputValues=${JSON.stringify(outputValues)}`,
-      L1
+      L3
     );
     const surveySuperiors = await SurveySuperior.find({
       _id: superSurveyId,
