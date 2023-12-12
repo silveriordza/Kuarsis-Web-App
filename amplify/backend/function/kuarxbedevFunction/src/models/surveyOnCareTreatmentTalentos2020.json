@@ -1388,6 +1388,176 @@
             "sequence": 2
           }
         ]
+      },
+      {
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "HAMILTON",
+        "surveyShortName": "HAMILTON",
+        "description": "ESCALA DE ANSIEDAD DE HAMILTON",
+        "instructions": "Instrucciones: La respuesta corresponde a los 7 días previos. Deberá calificarse el grado de intensidad de acuerdo a la siguiente escala. Anotando el número correspondiente dentro del paréntesis.",
+        "questionList": [
+          {
+            "surveyId": "",
+            "question": "Preocupaciones, anticipación de lo peor, anticipación miedosa, irritabilidad.",
+            "questionShort": "Preocupaciones, anticipación d…",
+            "fieldName": "HAMILTON_PREOCUP",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 1,
+            "superSurveyCol": 130
+          },
+          {
+            "surveyId": "",
+            "question": "Sensación de tensión, fatigabilidad.",
+            "questionShort": "Sensación de tensión, fatigabi…",
+            "fieldName": "HAMILTON_TENSION",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 2,
+            "superSurveyCol": 131
+          },
+          {
+            "surveyId": "",
+            "question": "Temores de la obscuridad, de extraños, de estar solo, de animales, de tráfico, de multitudes.",
+            "questionShort": "Temores de la obscuridad, de e…",
+            "fieldName": "HAMILTON_TEMORES",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 3,
+            "superSurveyCol": 132
+          },
+          {
+            "surveyId": "",
+            "question": "Dificultad para conciliar el sueño, sueño interrumpido (roto), sueño insatisfactorio, fatiga de levantarse, sueños, pesadillas, terrores nocturnos.",
+            "questionShort": "Dificultad para conciliar el s…",
+            "fieldName": "HAMILTON_INSOMNIO",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 4,
+            "superSurveyCol": 133
+          },
+          {
+            "surveyId": "",
+            "question": "Dificultad en concentrarse, memoria pobre.",
+            "questionShort": "Dificultad en concentrarse, me…",
+            "fieldName": "HAMILTON_INTELECT",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 5,
+            "superSurveyCol": 134
+          },
+          {
+            "surveyId": "",
+            "question": "Pérdida de interés, ausencia de placer en diversiones (hobbies), depresión, despertar temprano, variación diurna del afecto.",
+            "questionShort": "Pérdida de interés, ausencia d…",
+            "fieldName": "HAMILTON_DEPRE",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 6,
+            "superSurveyCol": 135
+          },
+          {
+            "surveyId": "",
+            "question": "Dolores, punzadas, torceduras, rigidez, sacudidas micológicas, bruxismo, voz inestable, aumento del tono muscular, tinnitus, visión borrosa, oleadas de calor y de frío, sensación de debilidad, sensación de punzadas.",
+            "questionShort": "Dolores, punzadas, torceduras,…",
+            "fieldName": "HAMILTON_MUSCU",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 7,
+            "superSurveyCol": 136
+          },
+          {
+            "surveyId": "",
+            "question": "Taquicardia, palpitaciones, dolor pectoral, palpitación de vasos, sensación de desmayo.",
+            "questionShort": "Taquicardia, palpitaciones, do…",
+            "fieldName": "HAMILTON_CARDIO",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 8,
+            "superSurveyCol": 137
+          },
+          {
+            "surveyId": "",
+            "question": "Presión constrictora en el pecho, sensación de ahogo, suspiros, disnea.",
+            "questionShort": "Presión constrictora en el pec…",
+            "fieldName": "HAMILTON_RESPIRATORIOS",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 9,
+            "superSurveyCol": 138
+          },
+          {
+            "surveyId": "",
+            "question": "Dificultad para tragar, flatulencia, dolor abdominal, sensación de quemadura, saciedad abdominal, náuseas, vómito, borborigmos, diarrea, pérdida de peso, estreñimiento.",
+            "questionShort": "Dificultad para tragar, flatul…",
+            "fieldName": "HAMILTON_GASTRO",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 10,
+            "superSurveyCol": 139
+          },
+          {
+            "surveyId": "",
+            "question": "Frecuencia de orinar, urgencia de orinar, amenorrea, menorragia, desarrollo de frigidez, eyaculación precoz, pérdida de apetito sexual (libido), impotencia.",
+            "questionShort": "Frecuencia de orinar, urgencia…",
+            "fieldName": "HAMILTON_GENITO",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 11,
+            "superSurveyCol": 140
+          },
+          {
+            "surveyId": "",
+            "question": "Boca seca, rubor, tendencia a la sudoración, vértigo, cefalea tensional, jalarse los pelos.",
+            "questionShort": "Boca seca, rubor, tendencia a …",
+            "fieldName": "HAMILTON_AUTONOMOS",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 12,
+            "superSurveyCol": 141
+          },
+          {
+            "surveyId": "",
+            "question": "Conducta ante entrevistas:Impaciencia, inquietud o caminando de un lado a otro, temblor de manos, entrecejo arrugado, expresiones de tensión, suspiros o respiración rápida, palidez facial.",
+            "questionShort": "Conducta ante entrevistas:Impa…",
+            "fieldName": "HAMILTON_CONDUCTA",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+            "surveyCol": 13,
+            "superSurveyCol": 142
+          }
+        ],
+        "calculatedFieldList": [
+          {
+            "surveyId": "",
+            "description": "HAMILTON TOTAL DE ANSIEDAD PSIQUICA",
+            "shortDescription": "HAMILTON TOTAL PSIQUICA",
+            "fieldName": "HAMILTON_TOTAL_PSIQUICA",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [129, 130, 131, 132, 133, 134, 141],
+            "sequence": 1
+          },
+          {
+            "surveyId": "",
+            "description": "HAMILTON TOTAL DE ANSIEDAD SOMATICA",
+            "shortDescription": "HAMILTON TOTAL SOMATICA",
+            "fieldName": "HAMILTON_TOTAL_SOMATICA",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [135, 136, 137, 138, 139, 140],
+            "sequence": 2
+          },
+          {
+            "surveyId": "",
+            "description": "HAMILTON TOTAL DE ANSIEDAD",
+            "shortDescription": "HAMILTON TOTAL ANSIEDAD",
+            "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [
+              129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141
+            ],
+            "sequence": 3
+          }
+        ]
       }
     ],
     "surveySuperiorOutputLayout": [
@@ -2162,88 +2332,200 @@
         "sequence": 110
       },
       {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_PREOCUP",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 111
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_TENSION",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 112
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_TEMORES",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 113
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_INSOMNIO",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 114
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_INTELECT",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 115
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_DEPRE",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 116
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_MUSCU",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 117
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_CARDIO",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 118
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_RESPIRATORIOS",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 119
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_GASTRO",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 120
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_GENITO",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 121
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_AUTONOMOS",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 122
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_CONDUCTA",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": false,
+        "sequence": 123
+      },
+      {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_SOMATICOS",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 111
+        "sequence": 124
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_ANSIEDAD",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 112
+        "sequence": 125
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_DISF_SOCIAL",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 113
+        "sequence": 126
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_DEPRESION",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 114
+        "sequence": 127
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_TOTAL_CSG",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 115
+        "sequence": 128
       },
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_CAL_ES_CASO",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 116
+        "sequence": 129
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_EMOCIONAL",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 117
+        "sequence": 130
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_DESPERS",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 118
+        "sequence": 131
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_LOGROS",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 119
+        "sequence": 132
       },
       {
         "surveyShortName": "BURN",
         "fieldName": "BURN_CAL_TOTAL",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 120
+        "sequence": 133
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_CAL_TOTAL_ESTRES",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 121
+        "sequence": 134
       },
       {
         "surveyShortName": "ESTRES",
         "fieldName": "ESTRES_CAL_LISTA_ESTRES",
         "outputAsReal": false,
         "showInSurveyOutputScreen": true,
-        "sequence": 122
+        "sequence": 135
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_TOTAL_PSIQUICA",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 136
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_TOTAL_SOMATICA",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 137
+      },
+      {
+        "surveyShortName": "HAMILTON",
+        "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
+        "outputAsReal": false,
+        "showInSurveyOutputScreen": true,
+        "sequence": 138
       }
     ]
   }
