@@ -94,12 +94,12 @@ const Header = ({ history }) => {
                   <NavDropdown.Item>Contact us</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
-              <LinkContainer to="/">
+              {/* <LinkContainer to="/">
                 <Nav.Link>Photos</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/show3d">
                 <Nav.Link>3D Show</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
             </Nav>
             <Nav className="me-auto">
               {userInfo ? (

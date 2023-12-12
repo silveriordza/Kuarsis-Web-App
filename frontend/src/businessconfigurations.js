@@ -8,7 +8,7 @@ export const BusinessConfigurations = [
     description1:
       "Especialistas en diagnósticos,tratamientos y atención multidisciplinaria de pacientes con Cáncer y otras enfermedades graves.",
     title2: "Sistema de encuestas",
-    description2: "Sistema de procesamiento automático.",
+    description2: "Sistema de procesamiento automático de encuestas.",
     title3: "Objetivo",
 
     description3: [

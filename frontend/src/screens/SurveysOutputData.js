@@ -18,7 +18,7 @@ import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import PaginateGeneric from "../components/PaginateGeneric";
 
-import _ from "lodash";
+//import _ from "lodash";
 
 import {
   surveyProcessAnswersAction,
@@ -144,12 +144,12 @@ const SurveysOutputData = ({ match, history }) => {
     setnewSelectedSurveySuperior(true);
   };
 
-  const debouncedKeywordSearch = _.debounce((newKeyword) => {
-    log.functionName = "debouncedKeywordSearch";
-    LogThis(log, `START newKeyword=${newKeyword}`, L1);
-    setsearchKeyword(newKeyword);
-    setnewSelectedSurveySuperior(true);
-  }, 2000);
+  // const debouncedKeywordSearch = _.debounce((newKeyword) => {
+  //   log.functionName = "debouncedKeywordSearch";
+  //   LogThis(log, `START newKeyword=${newKeyword}`, L1);
+  //   setsearchKeyword(newKeyword);
+  //   setnewSelectedSurveySuperior(true);
+  // }, 2000);
   const handleSearchText = async (e) => {
     log.functionName = "handleSearchText";
     //debouncedKeywordSearch(e.target.value);
@@ -159,14 +159,14 @@ const SurveysOutputData = ({ match, history }) => {
         LogThis(log, `timer executed`, L1);
         setnewSelectedSurveySuperior(true);
         setselectedPageNumber(1);
-      }, 2000);
+      }, 1000);
     else {
       clearTimeout(typingTimer.current);
       typingTimer.current = setTimeout(() => {
         LogThis(log, `timer executed`, L1);
         setnewSelectedSurveySuperior(true);
         setselectedPageNumber(1);
-      }, 2000);
+      }, 1000);
     }
     setsearchKeyword(e.target.value);
     LogThis(log, `START text=${e.target.value}`, L1);

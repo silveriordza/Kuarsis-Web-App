@@ -69,7 +69,7 @@ switch (ENVIRONMENT) {
     //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
     V_LOG_LEVEL = artpixandev_debug_level;
-    V_CURRENT_VERSION = `v1.0.0.11-2023-11-15-23:50`;
+    V_CURRENT_VERSION = `v1.0.0.15-2023-12-11-00:06`;
     V_BACKEND_ENDPOINT =
       "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncaredev.kuarxis.com/images";
