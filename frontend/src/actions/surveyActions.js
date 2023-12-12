@@ -308,13 +308,15 @@ export const surveyProcessAnswersAtClientAction =
         console.log(`Mapping Questions`);
 
         questions.map((q) => {
-          questionDesc = questionDesc + q.question + ",";
-          questionShortDesc = questionShortDesc + q.questionShort + ",";
+          questionDesc = questionDesc + q.question.replace(/,/g, ";") + ",";
+          questionShortDesc =
+            questionShortDesc + q.questionShort.replace(/,/g, ";") + ",";
         });
 
         allCalculatedFields.map((c) => {
-          questionDesc = questionDesc + c.description + ",";
-          questionShortDesc = questionShortDesc + c.shortDescription + ",";
+          questionDesc = questionDesc + c.description.replace(/,/g, ";") + ",";
+          questionShortDesc =
+            questionShortDesc + c.shortDescription.replace(/,/g, ";") + ",";
         });
         questionDesc = questionDesc.slice(0, -1);
         questionShortDesc = questionShortDesc.slice(0, -1);
@@ -322,6 +324,13 @@ export const surveyProcessAnswersAtClientAction =
         questionShortDesc = questionShortDesc + "\n";
 
         csv = csv + questionDesc + questionShortDesc;
+
+        LogThis(log, `Commas problem: questionDesc=${questionDesc}`, L1);
+        LogThis(
+          log,
+          `Commas problem: questionShortDesc=${questionShortDesc}`,
+          L1
+        );
 
         let rowClean = "";
         let answers = [];
@@ -598,13 +607,15 @@ export const surveyProcessAnswersAtClientAction =
                     log,
                     `groups=${groups}; group=${group + 1}; calField=${
                       allCalculatedField.fieldName
-                    }; questionSelected.questionShort=${
-                      questionSelected.question
-                    }`,
-                    L3
+                    }; questionSelected.questionShort=${questionSelected.question.replace(
+                      /,/g,
+                      ";"
+                    )}`,
+                    L1
                   );
 
-                  value = value + questionSelected.question + "; ";
+                  value =
+                    value + questionSelected.question.replace(/,/g, " ") + "; ";
                 }
               }
             } else {
@@ -667,17 +678,21 @@ export const surveyProcessAnswersAtClientAction =
         let layout = null;
         for (let o = 0; o < outputLayout.length - 1; o++) {
           layout = outputLayout[o];
-          csvLayout = csvLayout + layout.description + ",";
+          csvLayout = csvLayout + layout.description.replace(/,/g, ";") + ",";
         }
+        LogThis(log, `outputLayout data csvLayout=${csvLayout}`, L1);
+
         layout = outputLayout[outputLayout.length - 1];
-        csvLayout = csvLayout + layout.description + "\n";
+        csvLayout = csvLayout + layout.description.replace(/,/g, ";") + "\n";
 
         for (let o = 0; o < outputLayout.length - 1; o++) {
           layout = outputLayout[o];
-          csvLayout = csvLayout + layout.shortDescription + ",";
+          csvLayout =
+            csvLayout + layout.shortDescription.replace(/,/g, ";") + ",";
         }
         layout = outputLayout[outputLayout.length - 1];
-        csvLayout = csvLayout + layout.shortDescription + "\n";
+        csvLayout =
+          csvLayout + layout.shortDescription.replace(/,/g, ";") + "\n";
 
         const cols = [];
         console.log(`Mapping columns to Layout`);
@@ -716,7 +731,6 @@ export const surveyProcessAnswersAtClientAction =
           L3
         );
 
-        //console.log(`cols=${JSON.stringify(cols)}`);
         let value = null;
         LogThis(
           log,
@@ -808,7 +822,7 @@ export const surveyProcessAnswersAtClientAction =
           row.length = 0;
         }
         LogThis(log, `Output layout is ready`, L0);
-        //const csvLayout = "hola mundo!";
+
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
           payload: { message: "Archivo CSV generado.", row: 0 },
