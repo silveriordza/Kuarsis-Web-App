@@ -6,20 +6,16 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: arpixwfdev-v1.0.0.6
-Version date: 7/09/23
+Git Tag: kuarxisFeSurveySystem-v1.0.0.1
+Version date: 12/14/23
 Modificator name: Silverio Rodriguez Alcorta
 
 ENHANCEMENTS:
-1.- Added ScheduleComponent from syncfusion, and coded logic to:
-1.1 Store appointments on the database.
-1.2 User can modify calendar appointments, resize, drag and drop, delete appoinments.
-1.3 User is blocked from overlapping appointments.
-1.4 User is blocked from adding appointments which start time is not greater than current time by two hours.
-1.5 user can delete multiple appointments by selecting them all at once.
-2.- Appointments can be booked against a particular product which in turn is provided by a service provider. The scheulde also handles Busy times from provider when he is booked by other users and other products.
-3.- Users can only see their own appoitments, but if the provider is busy with other users, thoes timeframes will show up as Busy and Blocked, the user can't book appointments on busy/blocked timeframes.
-4.- Added a Message component into the Scheduler component to show error messages when user overlaps appointments, or creates/modify appointments that are no greater than 2 horus of the current time.
+1.- First version delivered to client including
+a.- Display of surveys calculated resouts and general respondent information in the Survey Output screen.
+b.- Upload of Survey Monkey Numeric and Real export files, calculation of results and generation of OutputReport.csv file after uploading.
+c.- Users management (sign-up, sign-in, user profile modification)
+d.- Home page with highlights about the company, and objectives of the survey system.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: arpixwfdev-v1.0.0.5

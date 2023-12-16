@@ -43,14 +43,14 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
 
-    console.log("userActions:login", "before axios post", email, password);
+    //console.log("userActions:login", "before axios post", email, password);
     const { data } = await axios.post(
       BACKEND_ENDPOINT + "/users/sign-in",
       { email, password },
       config
     );
 
-    console.log("userActions:login", "after axios post", email, password);
+    //console.log("userActions:login", "after axios post", email, password);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
