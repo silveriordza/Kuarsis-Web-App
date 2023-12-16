@@ -47,12 +47,12 @@
       "environmentVariableName": "KUARSIS_AMPLIFY_FUNCTION_NAME"
     },
     {
-      "cloudFormationParameterName": "logLevel",
-      "environmentVariableName": "LOG_LEVEL"
-    },
-    {
       "cloudFormationParameterName": "kuarsisAmplifyEnvironmentName",
       "environmentVariableName": "KUARSIS_AMPLIFY_ENVIRONMENT_NAME"
+    },
+    {
+      "cloudFormationParameterName": "logLevel",
+      "environmentVariableName": "LOG_LEVEL"
     }
   ],
   "secretNames": [

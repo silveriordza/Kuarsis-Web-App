@@ -198,6 +198,8 @@ var fs = require("fs");
 // declare a new express app
 var app = express();
 
+app.use(express.json({ limit: "300kb" }));
+
 // THIS IS MORGAN FUNCTIONALITY to log in the HTTP requests in the console only when we are in development environment
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

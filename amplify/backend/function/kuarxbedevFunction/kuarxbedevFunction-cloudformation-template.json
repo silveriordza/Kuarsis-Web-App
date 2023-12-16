@@ -52,10 +52,10 @@
     "kuarsisAmplifyFunctionName": {
       "Type": "String"
     },
-    "logLevel": {
+    "kuarsisAmplifyEnvironmentName": {
       "Type": "String"
     },
-    "kuarsisAmplifyEnvironmentName": {
+    "logLevel": {
       "Type": "String"
     }
   },
@@ -255,11 +255,11 @@
             "KUARSIS_AMPLIFY_FUNCTION_NAME": {
               "Ref": "kuarsisAmplifyFunctionName"
             },
-            "LOG_LEVEL": {
-              "Ref": "logLevel"
-            },
             "KUARSIS_AMPLIFY_ENVIRONMENT_NAME": {
               "Ref": "kuarsisAmplifyEnvironmentName"
+            },
+            "LOG_LEVEL": {
+              "Ref": "logLevel"
             }
           }
         },

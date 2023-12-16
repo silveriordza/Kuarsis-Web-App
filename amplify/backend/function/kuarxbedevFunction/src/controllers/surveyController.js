@@ -287,7 +287,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     await SurveyCalculatedValue.deleteMany({});
 
     const superSurveyId = req.params.id;
-    LogThis(log, `superSurveyId=${superSurveyId}`);
+    LogThis(log, `superSurveyId=${superSurveyId}`, L1);
     const user = req.user;
     //const owner = req.user._id;
     const owner = "62e551baf5c6b51f61e0ef93";
@@ -367,7 +367,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       `Mapping multi surveys surveysIdsList=${JSON.stringify(surveyIdsList)}`
     );
 
-    LogThis(log, `surveyIdsList=${surveyIdsList}`);
+    LogThis(log, `surveyIdsList=${surveyIdsList}`, L2);
 
     const questions = await SurveyQuestion.find({
       surveyId: { $in: surveyIdsList },
@@ -376,7 +376,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       .sort({ superSurveyCol: 1 })
       .lean();
 
-    LogThis(log, `resultset questions=${JSON.stringify(questions)}`);
+    LogThis(log, `resultset questions=${JSON.stringify(questions)}`, L3);
 
     const calculatedFields = await SurveyCalculatedField.find({
       surveyId: { $in: surveyIdsList },
@@ -677,7 +677,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
       outputLayoutsResult
     );
 
-    LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`);
+    LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`, L3);
 
     let csvLayout = "";
     let layout = null;
@@ -986,10 +986,10 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
     const functionName = "getSuperSurveyConfigs";
     const log = new LoggerSettings(srcFileName, functionName);
 
-    LogThis(log, `START`);
+    LogThis(log, `START BY user=${req.user.email}`, L1);
 
     const superSurveyId = req.params.id;
-    LogThis(log, `superSurveyId=${superSurveyId}`);
+    LogThis(log, `superSurveyId=${superSurveyId}`, L3);
     const user = req.user;
     //const owner = req.user._id;
     //const owner = "62e551baf5c6b51f61e0ef93";
@@ -1013,11 +1013,13 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
     multiSurveys.map((multiSurveyItem) => {
       surveyIdsList.push(multiSurveyItem.surveyId);
     });
-    console.log(
-      `Mapping multi surveys surveysIdsList=${JSON.stringify(surveyIdsList)}`
+    LogThis(
+      log,
+      `Mapping multi surveys surveysIdsList=${JSON.stringify(surveyIdsList)}`,
+      L3
     );
 
-    LogThis(log, `surveyIdsList=${surveyIdsList}`, L1);
+    LogThis(log, `surveyIdsList=${surveyIdsList}`, L2);
 
     const questions = await SurveyQuestion.find({
       surveyId: { $in: surveyIdsList },
@@ -1026,7 +1028,7 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
       .sort({ superSurveyCol: 1 })
       .lean();
     //return questions.
-    LogThis(log, `resultset questions=${JSON.stringify(questions)}`, L1);
+    LogThis(log, `resultset questions=${JSON.stringify(questions)}`, L3);
 
     const calculatedFields = await SurveyCalculatedField.find({
       surveyId: { $in: surveyIdsList },
@@ -1053,7 +1055,7 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
       outputLayoutsResult
     );
 
-    LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`, L1);
+    LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`, L3);
 
     res.status(200).json({
       multiSurveys: multiSurveys,
@@ -1089,7 +1091,7 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
   const functionName = "superSurveySaveOutput";
   const log = new LoggerSettings(srcFileName, functionName);
   try {
-    LogThis(log, `START`, L1);
+    LogThis(log, `START BY user=${req.user.email}`, L1);
     const { columnsNames, outputValues } = req.body;
 
     const superSurveyId = req.params.id;
@@ -1169,7 +1171,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
   const functionName = "superSurveyGetOutputValues";
   const log = new LoggerSettings(srcFileName, functionName);
   try {
-    LogThis(log, `START`, L1);
+    LogThis(log, `START BY user=${req.user.email}`, L1);
     /**
      * On 12/7/23 I was working on the pagination and lookup by keyword
      * This function won't work without page beein provided by the client, the keyword is optional.

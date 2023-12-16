@@ -6,6 +6,18 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxisBeSurveySystem-v1.0.0.1
+Version date: 12/14/23
+Modificator name: Silverio Rodriguez Alcorta
+
+ENHANCEMENTS:
+1.- First version delivered to client including
+a.- Display of surveys calculated resouts and general respondent information in the Survey Output screen.
+b.- Upload of Survey Monkey Numeric and Real export files, calculation of results and generation of OutputReport.csv file after uploading.
+c.- Users management (sign-up, sign-in, user profile modification)
+d.- Home page with highlights about the company, and objectives of the survey system.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxbedev-v1.0.0.6
 Version date: 7/09/23
 Modificator name: Silverio Rodriguez Alcorta
