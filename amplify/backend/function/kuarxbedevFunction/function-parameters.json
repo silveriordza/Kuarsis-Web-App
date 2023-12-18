@@ -27,10 +27,6 @@
       "environmentVariableName": "MONGO_URI_VAR"
     },
     {
-      "cloudFormationParameterName": "jwtSecretVar",
-      "environmentVariableName": "JWT_SECRET_VAR"
-    },
-    {
       "cloudFormationParameterName": "paypalClientIdVar",
       "environmentVariableName": "PAYPAL_CLIENT_ID_VAR"
     },
@@ -49,6 +45,10 @@
     {
       "cloudFormationParameterName": "kuarsisAmplifyEnvironmentName",
       "environmentVariableName": "KUARSIS_AMPLIFY_ENVIRONMENT_NAME"
+    },
+    {
+      "cloudFormationParameterName": "jwtSecretVar",
+      "environmentVariableName": "JWT_SECRET_VAR"
     },
     {
       "cloudFormationParameterName": "logLevel",

@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.3.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.10.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -37,9 +37,6 @@
     "mongoUriVar": {
       "Type": "String"
     },
-    "jwtSecretVar": {
-      "Type": "String"
-    },
     "paypalClientIdVar": {
       "Type": "String"
     },
@@ -53,6 +50,9 @@
       "Type": "String"
     },
     "kuarsisAmplifyEnvironmentName": {
+      "Type": "String"
+    },
+    "jwtSecretVar": {
       "Type": "String"
     },
     "logLevel": {
@@ -240,9 +240,6 @@
             "MONGO_URI_VAR": {
               "Ref": "mongoUriVar"
             },
-            "JWT_SECRET_VAR": {
-              "Ref": "jwtSecretVar"
-            },
             "PAYPAL_CLIENT_ID_VAR": {
               "Ref": "paypalClientIdVar"
             },
@@ -257,6 +254,9 @@
             },
             "KUARSIS_AMPLIFY_ENVIRONMENT_NAME": {
               "Ref": "kuarsisAmplifyEnvironmentName"
+            },
+            "JWT_SECRET_VAR": {
+              "Ref": "jwtSecretVar"
             },
             "LOG_LEVEL": {
               "Ref": "logLevel"

@@ -165,7 +165,7 @@ const params = {
   WithDecryption: true,
 };
 
-console.log("app.js: parameters passed to getParameters are: ", params);
+console.log("app.js: parameters passed to getParameters are:  ", params);
 
 //The user that amplify is using to authenticate into the AWS account, has to have the permissions to execute the getParameters using SSM.
 //After studying the ssm.getParameters function it turns out it returns an AWS.Request object, and in case getParameters does not provide a callback function (which is the case in code below), it will return an AWS.request that has not been sent yet (not requested). There are 2 ways of executing the request in this case, one is registering to a request even with Parameters.On(event, callback), or by invoking the .promise() function which in turn will return a Promise object, that can be handled with the usual .then and .catch.  In this case .then of the AWS.request promise recevies 2 parameters, one is the callback in case the request is successful (in case below it will callback loadParameters), and the 2nd. parameter is the error in case the request failed.
