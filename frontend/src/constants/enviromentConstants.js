@@ -3,9 +3,10 @@
 const LOCAL = "LOCAL";
 const ONCARE_LOCAL = "ONCARE_LOCAL";
 const ONCARE_DEV = "ONCARE_DEV";
+const ONCARE_QA = "ONCARE_QA";
 const ARTPIXANDEV = "ARTPIXANDEV";
 const ARTPIXANPROD = "ARTPIXANPROD";
-const ENVIRONMENT = ONCARE_DEV;
+const ENVIRONMENT = ONCARE_QA;
 
 // LOCALHOST DEV VARIABLES
 
@@ -16,7 +17,8 @@ const L2 = 2;
 const L3 = 3;
 
 const local_debug_level = L1;
-const artpixandev_debug_level = L1;
+const dev_debug_level = L1;
+const qa_debug_level = OFF;
 const artpixanprod_debug_level = OFF;
 
 let V_LOG_LEVEL = null;
@@ -35,8 +37,6 @@ switch (ENVIRONMENT) {
     V_CURRENT_VERSION = `v1.0.0.7-2023-08-27-01:59`;
     V_BACKEND_ENDPOINT = "http://localhost:5000";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "http://localhost:3000/images";
-    // let V_KUARSIS_PUBLIC_STATIC_IMG_FOLDER = 'http://localhost:3000/img'
-    // let V_KUARSIS_PUBLIC_STATIC_MODELS_FOLDER = 'http://localhost:3000/models'
     V_KUARSIS_BANNER_MAIN_LOGO = "/ArtPixanLogo256px.png";
     V_KUARSIS_PUBLIC_BUCKET_URL =
       "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
@@ -44,36 +44,45 @@ switch (ENVIRONMENT) {
   case ONCARE_LOCAL:
     //CONSTANTS FOR LOCAL DEVELOPMENT ENVIRONMENT
     V_LOG_LEVEL = local_debug_level;
-    V_CURRENT_VERSION = `v1.0.0.11-2023-11-15-23:50`;
+    V_CURRENT_VERSION = `v1.0.0.1-2023-12-15-01:57`;
     V_BACKEND_ENDPOINT = "http://localhost:5000";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "http://localhost:3000/images";
-    // let V_KUARSIS_PUBLIC_STATIC_IMG_FOLDER = 'http://localhost:3000/img'
-    // let V_KUARSIS_PUBLIC_STATIC_MODELS_FOLDER = 'http://localhost:3000/models'
     V_KUARSIS_BANNER_MAIN_LOGO = "/OnCareLogo256px.png";
+    V_KUARSIS_PUBLIC_BUCKET_URL =
+      "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
+    break;
+  case ONCARE_DEV:
+    //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
+
+    V_LOG_LEVEL = dev_debug_level;
+    V_CURRENT_VERSION = `v1.0.0.1-2023-12-15-01:57`;
+    V_BACKEND_ENDPOINT =
+      "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev";
+    V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncaredev.kuarxis.com/images";
+    V_KUARSIS_BANNER_MAIN_LOGO = "OnCareLogo256px.png";
+    V_KUARSIS_PUBLIC_BUCKET_URL =
+      "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
+    break;
+  case ONCARE_QA:
+    //CONSTANTS FOR ONCAREQA.KUARXIS.COM (DEV) ENVIRONMENT
+    V_LOG_LEVEL = qa_debug_level;
+    V_CURRENT_VERSION = `v1.0.0.1-2023-12-15-01:57`;
+    V_BACKEND_ENDPOINT =
+      "https://gnhlcq59x6.execute-api.us-east-1.amazonaws.com/oncrebeqa";
+    V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncareqa.kuarxis.com/images";
+    V_KUARSIS_BANNER_MAIN_LOGO = "OnCareLogo256px.png";
     V_KUARSIS_PUBLIC_BUCKET_URL =
       "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
     break;
   case ARTPIXANDEV:
     //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
-    V_LOG_LEVEL = artpixandev_debug_level;
+    V_LOG_LEVEL = dev_debug_level;
     V_CURRENT_VERSION = `v1.0.0.7-2023-08-29-20:22`;
     V_BACKEND_ENDPOINT =
       "https://o3dzma966j.execute-api.us-east-1.amazonaws.com/kuarxbedev";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://artpixandev.kuarxis.com/images";
     V_KUARSIS_BANNER_MAIN_LOGO = "ArtPixanLogo256px.png";
-    V_KUARSIS_PUBLIC_BUCKET_URL =
-      "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
-    break;
-  case ONCARE_DEV:
-    //CONSTANTS FOR ARTPIXANDEV.KUARXIS.COM (DEV) ENVIRONMENT
-
-    V_LOG_LEVEL = artpixandev_debug_level;
-    V_CURRENT_VERSION = `v1.0.0.17-2023-12-15-01:57`;
-    V_BACKEND_ENDPOINT =
-      "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev";
-    V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncaredev.kuarxis.com/images";
-    V_KUARSIS_BANNER_MAIN_LOGO = "OnCareLogo256px.png";
     V_KUARSIS_PUBLIC_BUCKET_URL =
       "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
     break;

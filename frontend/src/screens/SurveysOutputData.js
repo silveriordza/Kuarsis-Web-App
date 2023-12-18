@@ -289,7 +289,7 @@ const SurveysOutputData = ({ match, history }) => {
         {(loading || surveyDetailLoading) && <Loader />}
         {error && <Message variant="danger">{error.message}</Message>}
 
-        <h1>Seleccione la encuesta a procesar</h1>
+        <h1>Seleccione la encuesta para ver los resultados</h1>
         {!surveyDetailLoading &&
           surveyDetailSuccess &&
           surveyDetailsInfo &&
@@ -330,10 +330,10 @@ const SurveysOutputData = ({ match, history }) => {
           <>
             <div className={"survey-outputs"}>
               <Form.Group controlId="textControl">
-                <Form.Label>Search by text:</Form.Label>
+                <Form.Label>Búsqueda por texto:</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Buscar..."
                   value={searchKeyword}
                   onChange={handleSearchText}
                 ></Form.Control>

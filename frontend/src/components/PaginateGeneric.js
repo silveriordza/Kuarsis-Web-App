@@ -21,7 +21,7 @@ const PaginateGeneric = ({
   return (
     pages > 1 && (
       <div className="pagination-container">
-        <div>Pages: </div>
+        <div>Páginas: </div>
         <Pagination>
           {[...Array(pages).keys()].map((x) => (
             <LinkContainer

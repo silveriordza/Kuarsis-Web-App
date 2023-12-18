@@ -611,7 +611,7 @@ export const surveyProcessAnswersAtClientAction =
                       /,/g,
                       ";"
                     )}`,
-                    L1
+                    L3
                   );
 
                   value =
@@ -680,7 +680,7 @@ export const surveyProcessAnswersAtClientAction =
           layout = outputLayout[o];
           csvLayout = csvLayout + layout.description.replace(/,/g, ";") + ",";
         }
-        LogThis(log, `outputLayout data csvLayout=${csvLayout}`, L1);
+        LogThis(log, `outputLayout data csvLayout=${csvLayout}`, L3);
 
         layout = outputLayout[outputLayout.length - 1];
         csvLayout = csvLayout + layout.description.replace(/,/g, ";") + "\n";
@@ -695,7 +695,7 @@ export const surveyProcessAnswersAtClientAction =
           csvLayout + layout.shortDescription.replace(/,/g, ";") + "\n";
 
         const cols = [];
-        console.log(`Mapping columns to Layout`);
+        LogThis(log, `Mapping columns to Layout`, L3);
 
         for (let o = 0; o < outputLayout.length; o++) {
           layout = outputLayout[o];
@@ -821,7 +821,7 @@ export const surveyProcessAnswersAtClientAction =
           );
           row.length = 0;
         }
-        LogThis(log, `Output layout is ready`, L0);
+        LogThis(log, `Output layout is ready`, L3);
 
         dispatch({
           type: SURVEY_PROCESS_ANSWERS_STATUS,
@@ -868,12 +868,20 @@ export const surveyProcessAnswersAtClientAction =
           let r = 0;
           const outputValuesSlice = [];
           const sliceSize = 5;
-          LogThis(log, `CATCH ERROR 1`, L3);
+          //LogThis(log, `CATCH ERROR 1`, L3);
+          LogThis(
+            log,
+            `About to call axios.delete for /outputs config=${JSON.stringify(
+              config
+            )}`,
+            L0
+          );
 
           /*const { data } = */ await axios.delete(
             BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
             config
           );
+          LogThis(log, `After calling axios.delete for /outputs`, L0);
           /*if (data.status == "success") {
             LogThis(log, `delete succeeded`, L3);
           } else {
@@ -918,11 +926,19 @@ export const surveyProcessAnswersAtClientAction =
             });
             await new Promise((resolve) => setTimeout(resolve, 1));
             LogThis(log, `about to call axios send output data`, L3);
+            LogThis(
+              log,
+              `about to call post axios for /outputs with: config=${JSON.stringify(
+                config
+              )}; slice=${slice}`,
+              L0
+            );
             await axios.post(
               BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
               outputData,
               config
             );
+            LogThis(log, `AFTER call axios get /outputs slice=${slice}`, L0);
             outputValuesSlice.length = 0;
           }
 

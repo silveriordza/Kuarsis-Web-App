@@ -105,7 +105,7 @@ const Header = ({ history }) => {
               {userInfo ? (
                 <NavDropdown title={userInfo.name.split(" ")[0]} id="username">
                   <LinkContainer to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item>Perfil de usuario</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
