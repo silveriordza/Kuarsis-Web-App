@@ -6,6 +6,13 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: kuarxisFeSurveySystem-v1.0.0.2
+Version date: 12/18/23
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Fixed intermitemn disconnection issue. Root cause: the JWT_SECRET to validate token, sometimes was not populated in the process.env.JWT_SECRET variable, there seems to be a problem with it. I changed the logic to get the secret value directly from aws usig the SSM AWS module. Created new library awsMiscellaneous.js to include a function to return the secret value from AWS given the variable name.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxisFeSurveySystem-v1.0.0.1
 Version date: 12/14/23
 Modificator name: Silverio Rodriguez Alcorta
