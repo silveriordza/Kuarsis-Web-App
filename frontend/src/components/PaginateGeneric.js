@@ -16,7 +16,7 @@ const PaginateGeneric = ({
   LogThis(
     log,
     `selectedSurveyIndex=${selectedSurveyIndex}; pages=${pages}; page=${page}; keyword=${keyword}`,
-    L1
+    L3
   );
   return (
     pages > 1 && (

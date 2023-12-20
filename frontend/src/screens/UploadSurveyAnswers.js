@@ -22,7 +22,7 @@ import {
   surveyDetailsAction,
 } from "../actions/surveyActions";
 //import { surveysConfigurations } from "../surveysConfigurations";
-import { LogThis, LoggerSettings, L1 } from "../libs/Logger";
+import { LogThis, LoggerSettings, L1, L3 } from "../libs/Logger";
 
 import { saveStringAsCSV } from "../libs/csvProcessingLib";
 import {
@@ -300,7 +300,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      LogThis(log, `No userInfo available`, L1);
+      LogThis(log, `No userInfo available`, L3);
       history.push("/sign-in");
     } else {
       LogThis(

@@ -325,13 +325,6 @@ export const surveyProcessAnswersAtClientAction =
 
         csv = csv + questionDesc + questionShortDesc;
 
-        LogThis(log, `Commas problem: questionDesc=${questionDesc}`, L1);
-        LogThis(
-          log,
-          `Commas problem: questionShortDesc=${questionShortDesc}`,
-          L1
-        );
-
         let rowClean = "";
         let answers = [];
         let respondentId = "";

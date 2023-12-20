@@ -95,7 +95,7 @@ const SurveysOutputData = ({ match, history }) => {
 
   const handleSelectSurveySuperior = async (e) => {
     log.functionName = "handleSelectSurveySuperior";
-    LogThis(log, `START`, L1);
+    LogThis(log, `START`, L3);
     const index = e.target.selectedIndex - 1;
     if (index < 0) {
       dispatch({
@@ -138,7 +138,7 @@ const SurveysOutputData = ({ match, history }) => {
       )}; index=${selectedSurveyIndex}; surveyDetailsInfo=${JSON.stringify(
         surveyDetailsInfo
       )}`,
-      L1
+      L3
     );
     setselectedSurveySuperior(selectedSurvey);
     setnewSelectedSurveySuperior(true);
@@ -156,26 +156,26 @@ const SurveysOutputData = ({ match, history }) => {
 
     if (!typingTimer.current)
       typingTimer.current = setTimeout(() => {
-        LogThis(log, `timer executed`, L1);
+        LogThis(log, `timer executed`, L3);
         setnewSelectedSurveySuperior(true);
         setselectedPageNumber(1);
       }, 1000);
     else {
       clearTimeout(typingTimer.current);
       typingTimer.current = setTimeout(() => {
-        LogThis(log, `timer executed`, L1);
+        LogThis(log, `timer executed`, L3);
         setnewSelectedSurveySuperior(true);
         setselectedPageNumber(1);
       }, 1000);
     }
     setsearchKeyword(e.target.value);
-    LogThis(log, `START text=${e.target.value}`, L1);
+    LogThis(log, `START text=${e.target.value}`, L3);
   };
 
   const handlePageChange = (e) => {
     log.functionName = "handlePageChange";
 
-    LogThis(log, `START surveySelectedParam=${surveySelected}`, L1);
+    LogThis(log, `START surveySelectedParam=${surveySelected}`, L3);
     if (surveySelected >= 0) {
       reselectSurveyAfterPagination(surveySelected);
       setnewSelectedSurveySuperior(true);
@@ -187,10 +187,10 @@ const SurveysOutputData = ({ match, history }) => {
     LogThis(
       log,
       `UseEffect getoutput, newSelectedSurveySuperior=${newSelectedSurveySuperior}; loading=${loading}`,
-      L1
+      L3
     );
     if (!userInfo) {
-      LogThis(log, `No userInfo available`, L1);
+      LogThis(log, `No userInfo available`, L3);
       history.push("/sign-in");
     } else {
       // LogThis(
@@ -211,7 +211,7 @@ const SurveysOutputData = ({ match, history }) => {
         LogThis(
           log,
           `dispatching selectedSurvey._id=${selectedSurveySuperior._id}; selectedSurveySuperior.surveyShortName=${selectedSurveySuperior.surveyShortName}; selectedPageNumber=${selectedPageNumber}; searchKeyword=${searchKeyword};`,
-          L1
+          L3
         );
         dispatch(
           surveyGetOutputValuesAction({
@@ -236,18 +236,18 @@ const SurveysOutputData = ({ match, history }) => {
   ]);
 
   useEffect(() => {
-    LogThis(log, `UseEffect details`, L1);
+    LogThis(log, `UseEffect details`, L3);
     if (!userInfo) {
-      LogThis(log, `No userInfo available`, L1);
+      LogThis(log, `No userInfo available`, L3);
       history.push("/sign-in");
     } else {
       LogThis(
         log,
         `Details dispatched surveyDetailsDispatched=${surveyDetailsDispatched}`,
-        L1
+        L3
       );
       if (!surveyDetailsDispatched) {
-        LogThis(log, `About to dispatch surveyDetailsAction`, L1);
+        LogThis(log, `About to dispatch surveyDetailsAction`, L3);
         dispatch(surveyDetailsAction({}));
         setsurveyDetailsDispatched(true);
       }
@@ -255,15 +255,15 @@ const SurveysOutputData = ({ match, history }) => {
   }, [dispatch, surveyDetailsDispatched]);
 
   useEffect(() => {
-    LogThis(log, `UseEffect details`, L1);
+    LogThis(log, `UseEffect details`, L3);
     if (!userInfo) {
-      LogThis(log, `No userInfo available`, L1);
+      LogThis(log, `No userInfo available`, L3);
       history.push("/sign-in");
     } else {
       LogThis(
         log,
         `Details dispatched surveyDetailsDispatched=${surveyDetailsDispatched}`,
-        L1
+        L3
       );
       if (surveySelected > -1) {
         reselectSurveyAfterPagination(surveySelected);

@@ -36,8 +36,8 @@ const ProfileScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
-  const orderListMy = useSelector((state) => state.orderListMy);
-  const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
+  // const orderListMy = useSelector((state) => state.orderListMy);
+  // const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
 
   useEffect(() => {
     if (!userInfo) {
@@ -56,7 +56,7 @@ const ProfileScreen = ({ location, history }) => {
         );
         //if there is no user name, then passing 'profile' as parameter of the getUserDetails if you look into its code, it will do a request to /api/user/profile which is the function that will get the user profile information, even thou the code says /api/users/:id  the :id will be replaced with 'profile' instead of an actual user 'id'
         dispatch(getUserDetails("profile"));
-        dispatch(listMyOrders());
+        //dispatch(listMyOrders());
       } else {
         setName(user.name);
         setEmail(user.email);
@@ -73,9 +73,16 @@ const ProfileScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
+    if (
+      password === "" ||
+      confirmPassword === "" ||
+      password !== confirmPassword
+    ) {
+      setMessage(
+        `Password y confirmar password son requeridos y deben coincidir. password=${password} confirm=${confirmPassword}`
+      );
     } else {
+      setMessage(null);
       dispatch(
         updateUserProfile({
           id: user._id,
@@ -95,7 +102,7 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <Row>
-      <Col md={3}>
+      <Col lg={6}>
         <h2>User Profile</h2>
         {message && <Message variant="danger"> {message}</Message>}
         {error && <Message variant="danger">{error}</Message>}
@@ -197,7 +204,7 @@ const ProfileScreen = ({ location, history }) => {
           </Button>
         </Form>
       </Col>
-      <Col md={9}>
+      {/* <Col md={9}>
         <h2>MY ORDERS</h2>
         {loadingOrders ? (
           <Loader />
@@ -247,7 +254,7 @@ const ProfileScreen = ({ location, history }) => {
             </tbody>
           </Table>
         )}
-      </Col>
+      </Col> */}
     </Row>
   );
 };

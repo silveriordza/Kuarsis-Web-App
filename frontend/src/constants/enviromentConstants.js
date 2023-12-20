@@ -18,7 +18,7 @@ const L3 = 3;
 
 const local_debug_level = L1;
 const dev_debug_level = L1;
-const qa_debug_level = OFF;
+const qa_debug_level = L1;
 const artpixanprod_debug_level = OFF;
 
 let V_LOG_LEVEL = null;
@@ -66,7 +66,7 @@ switch (ENVIRONMENT) {
   case ONCARE_QA:
     //CONSTANTS FOR ONCAREQA.KUARXIS.COM (DEV) ENVIRONMENT
     V_LOG_LEVEL = qa_debug_level;
-    V_CURRENT_VERSION = `v1.0.0.1-2023-12-15-01:57`;
+    V_CURRENT_VERSION = `v1.0.0.3-2023-12-19-20:04`;
     V_BACKEND_ENDPOINT =
       "https://gnhlcq59x6.execute-api.us-east-1.amazonaws.com/oncrebeqa";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncareqa.kuarxis.com/images";

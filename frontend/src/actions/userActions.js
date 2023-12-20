@@ -59,7 +59,12 @@ export const login = (email, password) => async (dispatch) => {
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
-    console.log("userActions:login", "inside catch error:", error);
+    console.log(
+      `userActions:login,
+      inside catch error:
+      error: ${JSON.stringify(error.response.data.message)}; 
+      `
+    );
     dispatch({
       type: USER_LOGIN_FAILED,
       payload:
