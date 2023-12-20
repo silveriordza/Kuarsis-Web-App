@@ -6,6 +6,15 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisBeSurveySystemQA-v1.0.0.3
+Version date: 12/19/23
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Fixed issue when username is created with all UPPERCASE, but then users logs in with user in lowercase, the system was not finding that user and declined access. Fixed issue by making the user name search case-insensitive using RegEx with the i option when looking for username in mongoose User.FindOne.
+2.- Fixed issue with the User Edit screen sometimes it tries to load the data when the User info is still undefined, added a additiona condition to the IF statement in the useEffect to check if User object is undefined, in which case it will dispatch the getUserDetails action, all this in the UserEditScreen.
+3.- Returning a more friendly message when user and password does not match, saying "Email o password inválidos."
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: kuarxisBeSurveySystem-v1.0.0.2
 Version date: 12/18/23
 Modificator name: Silverio Rodriguez Alcorta

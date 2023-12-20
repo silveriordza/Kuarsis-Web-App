@@ -16,7 +16,7 @@
         "kuarxbedevFunction": {
           "secretsPathAmplifyAppId": "d26emoszy6nzyt",
           "deploymentBucketName": "amplify-kuarxiswebapp-oncrebeqa-193903-deployment",
-          "s3Key": "amplify-builds/kuarxbedevFunction-585856596a2f58787879-build.zip",
+          "s3Key": "amplify-builds/kuarxbedevFunction-76526f5a4b3871414168-build.zip",
           "kuarsisAmplifyAppid": "d26emoszy6nzyt",
           "port": "5000",
           "kuarsisAwsKuarsisMainRegion": "us-east-1",
@@ -29,7 +29,7 @@
           "kuarsisAmplifyFunctionName": "kuarxbedevFunction",
           "kuarsisAmplifyEnvironmentName": "oncrebeqa",
           "jwtSecretVar": "JWT_SECRET",
-          "logLevel": "0"
+          "logLevel": "1"
         }
       },
       "api": {

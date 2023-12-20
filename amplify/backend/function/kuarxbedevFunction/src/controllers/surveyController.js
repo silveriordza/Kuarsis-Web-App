@@ -287,7 +287,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
     await SurveyCalculatedValue.deleteMany({});
 
     const superSurveyId = req.params.id;
-    LogThis(log, `superSurveyId=${superSurveyId}`, L1);
+    LogThis(log, `superSurveyId=${superSurveyId}`, L3);
     const user = req.user;
     //const owner = req.user._id;
     const owner = "62e551baf5c6b51f61e0ef93";
@@ -1197,7 +1197,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
 
     LogThis(
       log,
-      `superSurveyId=${superSurveyId}; superSurveyShortName=${JSON.stringify(
+      `superSurveyId=${superSurveyId};  superSurveyShortName=${JSON.stringify(
         superSurveyShortName
       )}`,
       L2
@@ -1332,20 +1332,20 @@ const superSurveyDeleteOutputValues = asyncHandler(async (req, res) => {
   try {
     const superSurveyId = req.params.id;
 
-    LogThis(log, `superSurveyId=${superSurveyId}`, L1);
-    LogThis(log, `Deleting 0`, L1);
+    LogThis(log, `superSurveyId=${superSurveyId}`, L3);
+    LogThis(log, `Deleting 0`, L3);
     const surveySuperiors = await SurveySuperior.find({
       _id: superSurveyId,
     }).lean();
 
     const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`;
-    LogThis(log, `Deleting 1`, L1);
+    LogThis(log, `Deleting 1`, L3);
     let surveyOutputCollection = mongoose.connection.collection(
       surveyOutputCollectionName.toLocaleLowerCase()
     );
-    LogThis(log, `Deleting 2`, L1);
+    LogThis(log, `Deleting 2`, L3);
     await surveyOutputCollection.deleteMany();
-    LogThis(log, `Deleting 3`, L1);
+    LogThis(log, `Deleting 3`, L3);
     res.status(204).end();
   } catch (error) {
     LogThis(

@@ -26,7 +26,9 @@ const authUser = asyncHandler(async (req, res) => {
 
   LogThis(log, `User logging in: ${email}`, L0);
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({
+    email: { $regex: new RegExp(email, "i") },
+  });
   if (user && (await user.matchPassword(password))) {
     console.log("userController:authUser", "password matched");
     res.json({
@@ -38,7 +40,7 @@ const authUser = asyncHandler(async (req, res) => {
     });
   } else {
     console.log("userController:authUser", "password not matched");
-    res.status(401);
+    res.status(401).json({ message: "Email o password inválido." });
     throw new Error("Invalid email or password");
   }
 });
@@ -59,7 +61,9 @@ const registerUser = asyncHandler(async (req, res) => {
     country,
   } = req.body;
 
-  const userExists = await User.findOne({ email });
+  const userExists = await User.findOne({
+    email: { $regex: new RegExp(email, "i") },
+  });
 
   if (userExists) {
     res.status(400);
