@@ -29,7 +29,7 @@ import {
 //import { surveysConfigurations } from "../surveysConfigurations";
 import { LogThis, LoggerSettings, L1, L2, L3, L0 } from "../libs/Logger";
 
-import { saveStringAsCSV } from "../libs/csvProcessingLib";
+import { formatDate } from "../libs/Functions";
 import {
   zipFile,
   unzipFile,
@@ -231,7 +231,6 @@ const SurveysOutputData = ({ match, history }) => {
     //loading,
     selectedSurveySuperior,
     selectedPageNumber,
-    newSelectedSurveySuperior,
     //selectedPageNumber,
   ]);
 
@@ -396,7 +395,17 @@ const SurveysOutputData = ({ match, history }) => {
                           // );
 
                           if (outputField.showInSurveyOutputScreen) {
-                            outputValueData = outputValue[key];
+                            switch (outputField.fieldName) {
+                              case "SCOLINFO_date_created":
+                                outputValueData = formatDate(outputValue[key]);
+                                break;
+                              case "SCOLINFO_date_modified":
+                                outputValueData = formatDate(outputValue[key]);
+                                break;
+                              default:
+                                outputValueData = outputValue[key];
+                            }
+
                             let encoder = new TextEncoder();
                             let utf8Array = encoder.encode(outputValueData);
                             let utf8String = new TextDecoder().decode(

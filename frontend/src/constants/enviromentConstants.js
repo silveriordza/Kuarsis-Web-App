@@ -6,7 +6,7 @@ const ONCARE_DEV = "ONCARE_DEV";
 const ONCARE_QA = "ONCARE_QA";
 const ARTPIXANDEV = "ARTPIXANDEV";
 const ARTPIXANPROD = "ARTPIXANPROD";
-const ENVIRONMENT = ONCARE_DEV;
+const ENVIRONMENT = ONCARE_LOCAL;
 
 // LOCALHOST DEV VARIABLES
 
@@ -16,8 +16,8 @@ const L1 = 1;
 const L2 = 2;
 const L3 = 3;
 
-const local_debug_level = L1;
-const dev_debug_level = L1;
+const local_debug_level = OFF;
+const dev_debug_level = OFF;
 const qa_debug_level = L1;
 const artpixanprod_debug_level = OFF;
 
@@ -29,6 +29,7 @@ let V_KUARSIS_PUBLIC_STATIC_FOLDER = null;
 // let V_KUARSIS_PUBLIC_STATIC_MODELS_FOLDER = null
 let V_KUARSIS_BANNER_MAIN_LOGO = null;
 let V_KUARSIS_PUBLIC_BUCKET_URL = null;
+let V_KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE = 100;
 
 switch (ENVIRONMENT) {
   case LOCAL:
@@ -40,11 +41,12 @@ switch (ENVIRONMENT) {
     V_KUARSIS_BANNER_MAIN_LOGO = "/ArtPixanLogo256px.png";
     V_KUARSIS_PUBLIC_BUCKET_URL =
       "https://kuarsis-products-s3-public-dev.s3.amazonaws.com/";
+
     break;
   case ONCARE_LOCAL:
     //CONSTANTS FOR LOCAL DEVELOPMENT ENVIRONMENT
     V_LOG_LEVEL = local_debug_level;
-    V_CURRENT_VERSION = `v1.0.0.1-2023-12-15-01:57`;
+    V_CURRENT_VERSION = `v1.0.0.4-2023-12-24-13:11`;
     V_BACKEND_ENDPOINT = "http://localhost:5000";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "http://localhost:3000/images";
     V_KUARSIS_BANNER_MAIN_LOGO = "/OnCareLogo256px.png";
@@ -55,7 +57,7 @@ switch (ENVIRONMENT) {
     //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
     V_LOG_LEVEL = dev_debug_level;
-    V_CURRENT_VERSION = `v1.0.0.1-2023-12-15-01:57`;
+    V_CURRENT_VERSION = `v1.0.0.4-2023-12-24-13:11`;
     V_BACKEND_ENDPOINT =
       "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev";
     V_KUARSIS_PUBLIC_STATIC_FOLDER = "https://oncaredev.kuarxis.com/images";
@@ -109,3 +111,5 @@ export const KUARSIS_PUBLIC_STATIC_FOLDER = V_KUARSIS_PUBLIC_STATIC_FOLDER;
 // const KUARSIS_PUBLIC_STATIC_MODELS_FOLDER = V_KUARSIS_PUBLIC_STATIC_MODELS_FOLDER
 export const KUARSIS_BANNER_MAIN_LOGO = V_KUARSIS_BANNER_MAIN_LOGO;
 export const KUARSIS_PUBLIC_BUCKET_URL = V_KUARSIS_PUBLIC_BUCKET_URL;
+export const KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE =
+  V_KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE;

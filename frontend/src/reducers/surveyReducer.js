@@ -34,7 +34,12 @@ export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
       //     action.payload
       //   )}`
       // );
-      return { loading: false, success: true, survey: action.payload };
+      return {
+        loading: false,
+        success: true,
+        survey: action.payload.csvLayout,
+        surveySuccessMessage: action.payload.surveySuccessMessage,
+      };
 
     case SURVEY_PROCESS_ANSWERS_FAIL:
       return { loading: false, error: action.payload };

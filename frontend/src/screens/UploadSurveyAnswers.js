@@ -17,9 +17,11 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import {
-  surveyProcessAnswersAction,
+  //surveyProcessAnswersAction,
   surveyProcessAnswersAtClientAction,
   surveyDetailsAction,
+  processAnswersFromSurveyMonkey,
+  //surveyUpdateAnswersAtClientAction,
 } from "../actions/surveyActions";
 //import { surveysConfigurations } from "../surveysConfigurations";
 import { LogThis, LoggerSettings, L1, L3 } from "../libs/Logger";
@@ -47,6 +49,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
 
   const [uploadingNumeric, setuploadingNumeric] = useState(false);
   const [uploadingReal, setuploadingReal] = useState(false);
+  const [selectedUpdateType, setselectedUpdateType] = useState("new");
 
   const [uploadingServer, setuploadingServer] = useState(false);
   const [startToProcessAnswers, setstartToProcessAnswers] = useState(false);
@@ -64,7 +67,8 @@ const UploadSurveyAnswers = ({ match, history }) => {
     error: surveyError,
     success: surveySuccess,
     survey: surveyData,
-    surveyStatusMessage: surveyMessage,
+    surveyStatusMessage: surveyStatusMessage,
+    surveySuccessMessage: surveySuccessMessage,
     surveyStatusRow: surveyRow,
   } = surveyProcessAnswers;
 
@@ -196,6 +200,8 @@ const UploadSurveyAnswers = ({ match, history }) => {
     const log = new LoggerSettings(srcFileName, "uploadToServer");
     LogThis(log, "START");
 
+    dispatch({ type: SURVEY_PROCESS_ANSWERS_RESET });
+
     setstartToProcessAnswers(true);
 
     // dispatch(
@@ -255,34 +261,34 @@ const UploadSurveyAnswers = ({ match, history }) => {
  */
   };
 
-  const testsHandler = async (e) => {
-    e.preventDefault();
-    const log = new LoggerSettings(srcFileName, "testsHandler");
-    LogThis(log, "START");
-    setuploadingServer(true);
-    LogThis(log, `token=${userInfo.token}`);
-    const config = {
-      //responseType: "arraybuffer",
-      headers: {
-        //"Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${userInfo.token}`,
-        Accept: "application/zip",
-      },
-    };
+  // const testsHandler = async (e) => {
+  //   e.preventDefault();
+  //   const log = new LoggerSettings(srcFileName, "testsHandler");
+  //   LogThis(log, "START");
+  //   setuploadingServer(true);
+  //   LogThis(log, `token=${userInfo.token}`);
+  //   const config = {
+  //     //responseType: "arraybuffer",
+  //     headers: {
+  //       //"Content-Type": "multipart/form-data",
+  //       Authorization: `Bearer ${userInfo.token}`,
+  //       Accept: "application/zip",
+  //     },
+  //   };
 
-    const { data } = await axios.put(
-      BACKEND_ENDPOINT + `/surveys/tests`,
-      {},
-      config
-    );
-    LogThis(log, `data=${data}`);
-    const unzippedText = unzipStringBase64(data, "OutputReport.csv");
-    //const text = new TextDecoder().decode(new Uint8Array(data));
+  //   const { data } = await axios.put(
+  //     BACKEND_ENDPOINT + `/surveys/tests`,
+  //     {},
+  //     config
+  //   );
+  //   LogThis(log, `data=${data}`);
+  //   const unzippedText = unzipStringBase64(data, "OutputReport.csv");
+  //   //const text = new TextDecoder().decode(new Uint8Array(data));
 
-    console.log(unzippedText); // Output: "Hello, world!"
-    LogThis(log, `text=${unzippedText}`);
-    setuploadingServer(false);
-  };
+  //   console.log(unzippedText); // Output: "Hello, world!"
+  //   LogThis(log, `text=${unzippedText}`);
+  //   setuploadingServer(false);
+  // };
 
   const handleSelectSurveySuperior = async (e) => {
     log.functionName = "handleSelectSurveySuperior";
@@ -296,6 +302,21 @@ const UploadSurveyAnswers = ({ match, history }) => {
       }; surveyDetailsInfo=${JSON.stringify(surveyDetailsInfo)}`
     );
     setselectedSurveySuperior(selectedSurvey);
+  };
+
+  const handleUpdateTypeChange = (event) => {
+    setselectedUpdateType(event.target.id);
+  };
+
+  const updateSurveyMonkeyDataHandler = () => {
+    log.functionName = "updateSurveyMonkeyDataHandler";
+
+    dispatch(
+      processAnswersFromSurveyMonkey({
+        surveyInfo: selectedSurveySuperior,
+        updateType: selectedUpdateType,
+      })
+    );
   };
 
   useEffect(() => {
@@ -313,19 +334,39 @@ const UploadSurveyAnswers = ({ match, history }) => {
           log,
           `selectedSurveySuperior=${JSON.stringify(selectedSurveySuperior)}`
         );
+        //if (selectedUpdateType == "all") {
+        LogThis(log, `update type selected ALL`, L3);
         dispatch(
           surveyProcessAnswersAtClientAction({
             surveySuperiorId: selectedSurveySuperior._id,
+            surveyShortName: selectedSurveySuperior.surveyShortName,
+            updateType: selectedUpdateType,
             fileNumeric: fileNumeric,
             fileReal: fileReal,
           })
         );
+        // } else {
+        //   LogThis(log, `update type selected NEW`, L3);
+        //   dispatch(
+        //     surveyUpdateAnswersAtClientAction({
+        //       surveySuperiorId: selectedSurveySuperior._id,
+        //       surveyShortName: selectedSurveySuperior.surveyShortName,
+        //       fileNumeric: fileNumeric,
+        //       fileReal: fileReal,
+        //     })
+        //   );
+        // }
         setstartToProcessAnswers(false);
       }
-
-      if (!surveyLoading && surveySuccess && surveyData && uploadingServer) {
+      LogThis(log, `checking surveyData: `);
+      if (
+        !surveyLoading &&
+        surveySuccess &&
+        (surveyData || surveyData == "") &&
+        uploadingServer
+      ) {
         saveStringAsCSV(surveyData, "OutputReport.csv");
-        dispatch({ type: SURVEY_PROCESS_ANSWERS_RESET });
+        //dispatch({ type: SURVEY_PROCESS_ANSWERS_RESET });
         setuploadingServer(false);
       } else if (
         uploadingServer &&
@@ -400,6 +441,26 @@ const UploadSurveyAnswers = ({ match, history }) => {
           )}
 
         <Form onSubmit={uploadToServer}>
+          <Form.Group>
+            <br />
+            <Form.Check
+              type="radio"
+              label="Sólo procesar respuestas nuevas."
+              name="updateType"
+              id="new"
+              checked={selectedUpdateType == "new"}
+              onChange={handleUpdateTypeChange}
+            />
+            <Form.Check
+              type="radio"
+              label="Reprocesar respuestas anteriores y nuevas."
+              name="updateType"
+              id="all"
+              checked={selectedUpdateType == "all"}
+              onChange={handleUpdateTypeChange}
+            />
+          </Form.Group>
+
           <Form.Group controlId="nombreDeArchivoNumerico">
             <br />
             <Form.Label>Seleccione archivo de respuestas numéricas:</Form.Label>
@@ -475,23 +536,34 @@ const UploadSurveyAnswers = ({ match, history }) => {
             </Button>
             <br />
             <br />
-            {surveyMessage && surveyMessage != "" && (
+            <Button
+              type="button"
+              variant="primary"
+              disabled={selectedSurveySuperior != null ? false : true}
+              onClick={updateSurveyMonkeyDataHandler}
+            >
+              Update from Survey Monkey
+            </Button>
+            <br />
+            <br />
+            {surveyStatusMessage && surveyStatusMessage != "" && (
               <Form.Label>Estatus de procesamiento de la encuesta:</Form.Label>
             )}
             <br />
             <br />
-            {/* {surveyMessage != "" &&
-              console.log(`surveyMessage=${surveyMessage}; row=${surveyRow}`)} */}
-            {surveyMessage && surveyMessage != "" && (
-              <Form.Label>Estado: {surveyMessage}</Form.Label>
+            {surveyStatusMessage && surveyStatusMessage != "" && (
+              <Form.Label>Estado: {surveyStatusMessage}</Form.Label>
+            )}
+            {surveySuccessMessage && surveySuccessMessage != "" && (
+              <Form.Label>{surveySuccessMessage}</Form.Label>
             )}
             <br />
             <br />
-            {surveyMessage &&
-            surveyMessage != "" &&
+            {surveyStatusMessage &&
+            surveyStatusMessage != "" &&
             surveyRow &&
             surveyRow > 0 ? (
-              <Form.Label>Procesando encuesta numero: {surveyRow}</Form.Label>
+              <Form.Label>Procesando encuesta número: {surveyRow}</Form.Label>
             ) : (
               <></>
             )}
