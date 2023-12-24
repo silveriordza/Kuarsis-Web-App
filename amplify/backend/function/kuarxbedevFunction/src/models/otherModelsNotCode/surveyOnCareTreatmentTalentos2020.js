@@ -9,7 +9,7 @@ let {
   questionConfig,
   superSurveyCollectedConfig,
   surveyResponseConfig,
-} = require("./surveyConfigs.js");
+} = require("../surveyConfigs.js");
 
 const superSurveyConf = new superSurveyConfig(
   "652b0b3e1d61edfd4b8d4e8e",

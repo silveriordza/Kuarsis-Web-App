@@ -1,0 +1,563 @@
+Nombre Completo
+{
+    "id": "308206447",
+    "position": 1,
+    "visible": true,
+    "family": "open_ended",
+    "subtype": "single",
+    "layout": null,
+    "sorting": null,
+    "required": {
+        "text": "Esta pregunta requiere una respuesta.",
+        "type": "all",
+        "amount": "0"
+    },
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Nombre completo:"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/308206447"
+}
+Edad
+{
+    "id": "308206448",
+    "position": 2,
+    "visible": true,
+    "family": "open_ended",
+    "subtype": "single",
+    "layout": {
+        "bottom_spacing": 0,
+        "col_width": null,
+        "col_width_format": null,
+        "left_spacing": 0,
+        "num_chars": 5,
+        "num_lines": 3,
+        "position": "new_row",
+        "right_spacing": 0,
+        "top_spacing": 0,
+        "width": 100,
+        "width_format": "percent"
+    },
+    "sorting": null,
+    "required": {
+        "text": "Esta pregunta requiere una respuesta.",
+        "type": "all",
+        "amount": "0"
+    },
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Edad"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/308206448"
+}
+
+Fecha nacimiento:
+{
+    "id": "308206449",
+    "position": 3,
+    "visible": true,
+    "family": "open_ended",
+    "subtype": "single",
+    "layout": null,
+    "sorting": null,
+    "required": {
+        "text": "Esta pregunta requiere una respuesta.",
+        "type": "all",
+        "amount": "0"
+    },
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Fecha de nacimiento (dd/mm/aaaa)"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/308206449"
+}
+
+Sexo:
+Type single choice subtype menu: has an object with answer choices: position, text and quiz_options with score.
+{
+    "id": "308206450",
+    "position": 4,
+    "visible": true,
+    "family": "single_choice",
+    "subtype": "menu",
+    "layout": null,
+    "sorting": null,
+    "required": {
+        "text": "Esta pregunta requiere una respuesta.",
+        "type": null,
+        "amount": null
+    },
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Sexo"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/308206450",
+    "answers": {
+        "choices": [
+            {
+                "position": 1,
+                "visible": true,
+                "text": "Femenino",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420258"
+            },
+            {
+                "position": 2,
+                "visible": true,
+                "text": "Masculino",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420259"
+            }
+        ]
+    }
+}
+
+Estado civil: (mismo que sexo)
+{
+    "id": "308206451",
+    "position": 5,
+    "visible": true,
+    "family": "single_choice",
+    "subtype": "menu",
+    "layout": null,
+    "sorting": null,
+    "required": {
+        "text": "Esta pregunta requiere una respuesta.",
+        "type": "all",
+        "amount": "0"
+    },
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Estado civil"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/308206451",
+    "answers": {
+        "choices": [
+            {
+                "position": 1,
+                "visible": true,
+                "text": "Soltero",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420260"
+            },
+            {
+                "position": 2,
+                "visible": true,
+                "text": "Casado",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420261"
+            },
+            {
+                "position": 3,
+                "visible": true,
+                "text": "Divorciado",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420262"
+            },
+            {
+                "position": 4,
+                "visible": true,
+                "text": "Viudo",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420263"
+            },
+            {
+                "position": 5,
+                "visible": true,
+                "text": "Unión Libre",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420264"
+            },
+            {
+                "position": 6,
+                "visible": true,
+                "text": "Otro(s)",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420265"
+            }
+        ]
+    }
+}
+
+Estado de procedencia
+{
+    "id": "308206452",
+    "position": 6,
+    "visible": true,
+    "family": "single_choice",
+    "subtype": "menu",
+    "layout": null,
+    "sorting": null,
+    "required": {
+        "text": "Esta pregunta requiere una respuesta.",
+        "type": "all",
+        "amount": "0"
+    },
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Estado de procedencia"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/308206452",
+    "answers": {
+        "other": {
+            "position": 0,
+            "visible": true,
+            "text": "Otro país (especifique)",
+            "id": "2048420300",
+            "num_lines": 1,
+            "num_chars": 50,
+            "is_answer_choice": true,
+            "apply_all_rows": false,
+            "error_text": "Ingrese un comentario."
+        },
+        "choices": [
+            {
+                "position": 1,
+                "visible": true,
+                "text": "Aguascalientes",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420266"
+            },
+            {
+                "position": 2,
+                "visible": true,
+                "text": "Baja California",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420267"
+            },
+            {
+                "position": 3,
+                "visible": true,
+                "text": "Baja California Sur",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420268"
+            },
+            {
+                "position": 4,
+                "visible": true,
+                "text": "Campeche",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420269"
+            },
+            {
+                "position": 5,
+                "visible": true,
+                "text": "Chiapas",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420270"
+            },
+            {
+                "position": 6,
+                "visible": true,
+                "text": "Chihuahua",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420271"
+            },
+            {
+                "position": 7,
+                "visible": true,
+                "text": "Coahuila",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420272"
+            },
+            {
+                "position": 8,
+                "visible": true,
+                "text": "Colima",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420273"
+            },
+            {
+                "position": 9,
+                "visible": true,
+                "text": "Distrito Federal",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420274"
+            },
+            {
+                "position": 10,
+                "visible": true,
+                "text": "Durango",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420275"
+            },
+            {
+                "position": 11,
+                "visible": true,
+                "text": "Estado de México",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420276"
+            },
+            {
+                "position": 12,
+                "visible": true,
+                "text": "Guanajuato",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420277"
+            },
+            {
+                "position": 13,
+                "visible": true,
+                "text": "Guerrero",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420278"
+            },
+            {
+                "position": 14,
+                "visible": true,
+                "text": "Hidalgo",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420279"
+            },
+            {
+                "position": 15,
+                "visible": true,
+                "text": "Jalisco",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420280"
+            },
+            {
+                "position": 16,
+                "visible": true,
+                "text": "Michoacán",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420281"
+            },
+            {
+                "position": 17,
+                "visible": true,
+                "text": "Morelos",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420282"
+            },
+            {
+                "position": 18,
+                "visible": true,
+                "text": "Nayarit",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420283"
+            },
+            {
+                "position": 19,
+                "visible": true,
+                "text": "Nuevo León",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420284"
+            },
+            {
+                "position": 20,
+                "visible": true,
+                "text": "Oaxaca",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420285"
+            },
+            {
+                "position": 21,
+                "visible": true,
+                "text": "Puebla",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420286"
+            },
+            {
+                "position": 22,
+                "visible": true,
+                "text": "Querétaro",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420287"
+            },
+            {
+                "position": 23,
+                "visible": true,
+                "text": "Quintana Roo",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420288"
+            },
+            {
+                "position": 24,
+                "visible": true,
+                "text": "San Luis Potosí",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420289"
+            },
+            {
+                "position": 25,
+                "visible": true,
+                "text": "Sinaloa",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420290"
+            },
+            {
+                "position": 26,
+                "visible": true,
+                "text": "Sonora",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420291"
+            },
+            {
+                "position": 27,
+                "visible": true,
+                "text": "Tabasco",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420292"
+            },
+            {
+                "position": 28,
+                "visible": true,
+                "text": "Tamaulipas",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420293"
+            },
+            {
+                "position": 29,
+                "visible": true,
+                "text": "Tlaxcala",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420294"
+            },
+            {
+                "position": 30,
+                "visible": true,
+                "text": "Veracruz",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420295"
+            },
+            {
+                "position": 31,
+                "visible": true,
+                "text": "Yucatán",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420296"
+            },
+            {
+                "position": 32,
+                "visible": true,
+                "text": "Zacatecas",
+                "quiz_options": {
+                    "score": 0
+                },
+                "id": "2048420744"
+            }
+        ]
+    }
+}
+ 
+Municipio de procedencia es open ended, no choices.
+{
+    "id": "775092991",
+    "position": 7,
+    "visible": true,
+    "family": "open_ended",
+    "subtype": "single",
+    "layout": null,
+    "sorting": null,
+    "required": null,
+    "validation": null,
+    "forced_ranking": false,
+    "headings": [
+        {
+            "heading": "Municipio de residencia actual:"
+        }
+    ],
+    "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064/questions/775092991"
+}
+
+
+
+
+

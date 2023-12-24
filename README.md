@@ -6,6 +6,15 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.4
+Version date: 12/24/23
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Optimized the survey action to process Upload Answers by adding an option to only upload new answers, or reprocess the whole file again. This improved the upload time from 1.5 min to only 5 seconds for an average of 6 new answers on the files, instead of reprocessing all surveys which took the 1.5 min waiting time.
+2.- Started integration with Survey Monkey to check which are the new answers added comparing versus the existent answers in the database.
+3.- Started integratiion of the Create Survey Configs with Survey Monkey API to map the Survey System config to the survey monkey configs and later use it to get answers from Survey Monkey API automatically without uploading a file manually.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisBeSurveySystemQA-v1.0.0.3
 Version date: 12/19/23
 Modificator name: Silverio Rodriguez Alcorta

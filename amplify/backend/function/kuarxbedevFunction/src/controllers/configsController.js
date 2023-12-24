@@ -23,6 +23,31 @@ const getAddressStates = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get Address States
+// @route   POST /api/AddressStates
+// @access  Public
+const getSurveyMonkeyToken = asyncHandler(async (req, res) => {
+  const logSettings = initLogSettings(
+    "configsController",
+    "getSurveyMonkeyToken"
+  );
+  const token = process.env.KUARSIS_SURVEY_MONKEY_TOKEN;
+  // LogThisLegacy(
+  //   logSettings,
+  //   `token=${JSON.stringify(addressStates ?? "undefined")}`
+  // );
+
+  if (token) {
+    res.json(token);
+  } else {
+    res
+      .status(404)
+      .json({ message: "No fue posible conectar con Survey Monkey: token" });
+    throw new Error("Survey monkey token not found.");
+  }
+});
+
 module.exports = {
   getAddressStates,
+  getSurveyMonkeyToken,
 };

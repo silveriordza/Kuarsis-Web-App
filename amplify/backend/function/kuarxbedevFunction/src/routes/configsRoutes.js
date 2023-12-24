@@ -1,9 +1,15 @@
-let express = require('express')
-const router = express.Router()
+/** @format */
+
+let express = require("express");
+const router = express.Router();
 let {
-  getAddressStates
-} = require('../controllers/configsController.js')
+  getAddressStates,
+  getSurveyMonkeyToken,
+} = require("../controllers/configsController.js");
+
+let { protect, admin } = require("../middleware/authMiddleware.js");
 
 // This is comming from /api/getAddressStates
-router.route('/addressstates').get(getAddressStates)
-module.exports = router
+router.route("/addressstates").get(getAddressStates);
+router.route("/surveymonkey").get(protect, admin, getSurveyMonkeyToken);
+module.exports = router;

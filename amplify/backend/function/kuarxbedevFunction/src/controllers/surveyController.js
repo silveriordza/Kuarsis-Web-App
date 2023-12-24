@@ -2,11 +2,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const util = require("util");
+const axios = require("axios");
 
 let asyncHandler = require("express-async-handler");
-let {
-  superSurveyConf,
-} = require("../models/surveyOnCareTreatmentTalentos2020.js");
+// let {
+//   superSurveyConf,
+// } = require("../models/otherModelsNotCode/surveyOnCareTreatmentTalentos2020.js");
 
 let {
   SurveySuperior,
@@ -14,9 +15,10 @@ let {
   SurveyQuestion,
   SurveyCalculatedField,
   SurveyCalculatedValue,
-  SurveyMulti,
+  //SurveyMulti,
   SurveySuperiorOutputLayout,
   SurveyResponse,
+  SurveyMonkeyConfig,
 } = require("../models/surveysModel.js");
 
 let { DynamicCollection } = require("../models/dynamicCollectionModel.js");
@@ -61,7 +63,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   await SurveySuperior.deleteMany({});
   await Survey.deleteMany({});
   await SurveyQuestion.deleteMany({});
-  await SurveyMulti.deleteMany({});
+  //await SurveyMulti.deleteMany({});
   await SurveyCalculatedField.deleteMany({});
   await SurveySuperiorOutputLayout.deleteMany({});
 
@@ -81,7 +83,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 
   let surveysCreated = [];
   let questionsCreated = [];
-  let calculatedFieldsCreated = [];
+  //let calculatedFieldsCreated = [];
   let surveyCreated = null;
   let questions = [];
   let calculatedFields = [];
@@ -91,20 +93,20 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
   for (let i = 0; i < superSurveyConfigTest.surveyList.length; i++) {
     let surveyItem = superSurveyConfigTest.surveyList[i];
     let survey = new Survey({
-      owner: ownerId,
+      superSurveyId: createdSurveySuperior._id,
       surveyName: surveyItem.surveyName,
       surveyShortName: surveyItem.surveyShortName,
       description: surveyItem.description,
       instructions: surveyItem.instructions,
     });
     surveyCreated = await survey.save();
-    let multiSurvey = new SurveyMulti({
-      owner: ownerId,
-      superSurveyId: createdSurveySuperior._id,
-      surveyId: surveyCreated._id,
-      sequence: i + 1,
-    });
-    let multiSurveyCreated = await multiSurvey.save();
+    // let multiSurvey = new SurveyMulti({
+    //   owner: ownerId,
+    //   superSurveyId: createdSurveySuperior._id,
+    //   surveyId: surveyCreated._id,
+    //   sequence: i + 1,
+    // });
+    // let multiSurveyCreated = await multiSurvey.save();
 
     surveysCreated.push(surveyCreated);
 
@@ -120,6 +122,680 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
         surveyCol: questionItem.surveyCol,
         superSurveyCol: questionItem.superSurveyCol,
       });
+    }
+
+    for (
+      let x = 0;
+      surveyItem.calculatedFieldList &&
+      x < surveyItem.calculatedFieldList.length;
+      x++
+    ) {
+      calculatedFieldItem = surveyItem.calculatedFieldList[x];
+      calculatedFields;
+      calculatedFields.push({
+        surveyId: surveyCreated._id,
+        description: calculatedFieldItem.description,
+        shortDescription: calculatedFieldItem.shortDescription,
+        fieldName: calculatedFieldItem.fieldName,
+        calculationType: calculatedFieldItem.calculationType,
+        criteria: calculatedFieldItem.criteria ?? null,
+        group: calculatedFieldItem.group,
+        sequence: calculatedFieldItem.sequence,
+      });
+    }
+    LogThis(log, "About to insert many", L3);
+    LogThis(log, `questions=${JSON.stringify(questions)}`, L3);
+    questionsCreated = await SurveyQuestion.insertMany(questions);
+    questions = [];
+    LogThis(log, `calculatedFields=${JSON.stringify(calculatedFields)}`, L3);
+    if (calculatedFields.length > 0) {
+      calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
+        calculatedFields
+      );
+      calculatedFields = [];
+    }
+  }
+
+  let outputLayouts = superSurveyConfigTest.surveySuperiorOutputLayout.sort(
+    (a, b) => a.sequence - b.sequence
+  );
+  LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3);
+  let outputLayoutFields = [];
+  for (let i = 0; i < outputLayouts.length; i++) {
+    outputLayout = outputLayouts[i];
+    outputLayoutFields.push({
+      surveySuperiorId: createdSurveySuperior._id,
+      surveyShortName: outputLayout.surveyShortName,
+      fieldName: outputLayout.fieldName,
+      outputAsReal: outputLayout.outputAsReal,
+      showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
+      sequence: outputLayout.sequence,
+    });
+  }
+  LogThis(
+    log,
+    `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
+    L3
+  );
+  const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
+    outputLayoutFields
+  );
+
+  //Start Output Collection
+  let x = 0;
+  x++;
+  const surveyOutputCollectionName =
+    `surveyOutputs_${superSurveyConfigTest.surveyShortName}`.toLocaleLowerCase();
+  LogThis(
+    log,
+    `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+    L3
+  );
+
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+  const collections = await mongoose.connection.db
+    .listCollections({ name: surveyOutputCollectionName })
+    .toArray();
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+  const collInfo = collections.find(
+    (collection) => collection.name === surveyOutputCollectionName
+  );
+  if (collInfo) {
+    LogThis(log, `dropping surveyOutputCollectionName`, L3);
+    let surveyOutputCollection = await mongoose.connection.collection(
+      surveyOutputCollectionName
+    );
+
+    await surveyOutputCollection.drop();
+
+    LogThis(log, `dropped surveyOutputCollectionName`, L3);
+
+    delete mongoose.models[surveyOutputCollectionName];
+    LogThis(log, `deleted models`, L3);
+  }
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+
+  let surveyOutputColumns = {};
+
+  outputLayoutFields.forEach((column) => {
+    LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3);
+    surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
+  });
+  x = x + 1;
+  LogThis(
+    log,
+    `x=${x}; surveyOutputColumns=${JSON.stringify(
+      Object.entries(surveyOutputColumns)
+    )}`,
+    L3
+  );
+
+  const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+  const surveyOutputCollection = mongoose.model(
+    surveyOutputCollectionName,
+    surveyOutputCollectionSchema
+  );
+
+  saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns);
+
+  // await DynamicCollection.deleteOne({
+  //   collectionName: surveyOutputCollectionName,
+  // });
+
+  // const schemaDefinition = {
+  //   field1: String,
+  //   field2: Number,
+  //   // Add more fields as needed
+  // };
+  // const dynamicCollection = new DynamicCollection();
+  // dynamicCollection.collectionName = surveyOutputCollectionName;
+  // dynamicCollection.schemaDefinition = schemaDefinition;
+
+  // const createdDynamicCollection = await dynamicCollection.save();
+  // if (!createdDynamicCollection) {
+  //   throw new Error(`DynamicCollection couldn't be created`);
+  // }
+
+  x = x + 1;
+  LogThis(log, `x=${x}`, L3);
+
+  console.log("about to respond");
+  res.status(201).json({
+    surveySuperiorId: createdSurveySuperior._id,
+    surveysCreated: surveysCreated,
+    questionsCreated: questionsCreated,
+    createdOutputLayout: createdOutputLayout,
+    surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+  });
+});
+
+// @desc    Creates a new Super Survey configuration
+// @route   POST /api/surveys/
+// @access  Private/Admin
+const superSurveyCreateIntegratedSurveyMonkeyConfig = asyncHandler(
+  async (req, res) => {
+    const functionName = "superSurveyCreateConfig";
+    const log = new LoggerSettings(srcFileName, functionName);
+    const { superSurveyConfig } = req.body;
+    let ownerId = req.user._id;
+    const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN;
+
+    if (!surveyMonkeyToken || surveyMonkeyToken == "") {
+      throw new Error(`Survey Monkey token not found.`);
+    }
+
+    const configSurveyMonkey = {
+      //responseType: "arraybuffer",
+      headers: {
+        //"Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${surveyMonkeyToken}`,
+        Accept: "application/json",
+      },
+    };
+    await SurveySuperior.deleteMany({});
+    await Survey.deleteMany({});
+    await SurveyQuestion.deleteMany({});
+    //await SurveyMulti.deleteMany({});
+    await SurveyCalculatedField.deleteMany({});
+    await SurveySuperiorOutputLayout.deleteMany({});
+
+    console.log("superSurveyConfig INPUT values are:");
+    console.log(superSurveyConfig);
+    console.log("Survey Configuration Values STRINGIFIED:");
+
+    let superSurveyConfigTest = superSurveyConfig;
+    const superSurvey = new SurveySuperior({
+      owner: ownerId,
+      surveyName: superSurveyConfigTest.surveyName,
+      surveyShortName: superSurveyConfigTest.surveyShortName,
+      description: superSurveyConfigTest.description,
+      surveyMonkeyId: superSurveyConfigTest.surveyMonkeyId,
+    });
+
+    const createdSurveySuperior = await superSurvey.save();
+
+    let surveysCreated = [];
+    let questionsCreated = [];
+    //let calculatedFieldsCreated = [];
+    let surveyCreated = null;
+    let questions = [];
+    let calculatedFields = [];
+    let questionItem = null;
+
+    console.log("About to insert many");
+    for (let i = 1; i < superSurveyConfigTest.surveyList.length; i++) {
+      let surveyItem = superSurveyConfigTest.surveyList[i];
+      let survey = new Survey({
+        superSurveyId: createdSurveySuperior._id,
+        surveyName: surveyItem.surveyName,
+        surveyShortName: surveyItem.surveyShortName,
+        description: surveyItem.description,
+        instructions: surveyItem.instructions,
+        surveyMonkeyId: surveyItem.surveyMonkeyId,
+        surveyMonkeyPosition: surveyItem.surveyMonkeyPosition,
+      });
+      surveyCreated = await survey.save();
+      // let multiSurvey = new SurveyMulti({
+      //   owner: ownerId,
+      //   superSurveyId: createdSurveySuperior._id,
+      //   surveyId: surveyCreated._id,
+      //   sequence: i + 1,
+      // });
+      // let multiSurveyCreated = await multiSurvey.save();
+
+      surveysCreated.push(surveyCreated);
+
+      let surveyMonkeyQuestionsResult = await axios.get(
+        `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions`,
+        configSurveyMonkey
+      );
+      let surveyMonkeyQuestions = surveyMonkeyQuestionsResult.data.data;
+      LogThis(
+        log,
+        `surveyMonkeyQuestions=${JSON.stringify(surveyMonkeyQuestions)}`,
+        L0
+      );
+
+      for (let x = 0; x < surveyItem.questionList.length; x++) {
+        questionItem = surveyItem.questionList[x];
+        let newQuestion = {
+          surveyId: surveyCreated._id,
+          question: questionItem.question,
+          questionShort: questionItem.questionShort,
+          fieldName: questionItem.fieldName,
+          weightType: questionItem.weightType,
+          weights: questionItem.weights,
+          surveyCol: questionItem.surveyCol,
+          superSurveyCol: questionItem.superSurveyCol,
+        };
+
+        let surveyMonkeyQuestion = surveyMonkeyQuestions[x];
+        LogThis(
+          log,
+          `questionItem.question=${JSON.stringify(
+            questionItem.question
+          )}; surveyMonkeyQuestion.heading=${
+            surveyMonkeyQuestion.heading
+          };surveyMonkeyQuestion=${JSON.stringify(surveyMonkeyQuestion)}`,
+          L0
+        );
+        newQuestion.surveyMonkeyId = surveyMonkeyQuestion.id;
+        newQuestion.surveyMonkeyPosition = surveyMonkeyQuestion.position;
+
+        let surveyMonkeyQuestionsDetailsResult = await axios.get(
+          `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions/${surveyMonkeyQuestion.id}`,
+          configSurveyMonkey
+        );
+        let surveyMonkeyQuestionsDetails =
+          surveyMonkeyQuestionsDetailsResult.data;
+
+        LogThis(
+          log,
+          `surveyMonkeyQuestionsDetails=${JSON.stringify(
+            surveyMonkeyQuestionsDetails
+          )}`,
+          L0
+        );
+        newQuestion.surveyMonkeyFamily = surveyMonkeyQuestionsDetails.family;
+        newQuestion.surveyMonkeySubType = surveyMonkeyQuestionsDetails.subtype;
+
+        switch (surveyMonkeyQuestionsDetails.family) {
+          case "open_ended":
+            break;
+          case "single_choice":
+            switch (surveyMonkeyQuestionsDetails.subtype) {
+              case "menu":
+                if (surveyMonkeyQuestionsDetails.answers.choices ?? false) {
+                  let choices = surveyMonkeyQuestionsDetails.answers.choices;
+                  LogThis(log, `choices=${JSON.stringify(choices)}`, L0);
+
+                  let choicesFields = choices.map((choice) => {
+                    return {
+                      id: choice.id,
+                      value: choice.position,
+                      realValue: choice.text,
+                      weightedValue: choice.quiz_options.score,
+                    };
+                  });
+                  LogThis(
+                    log,
+                    `choicesFields=${JSON.stringify(choicesFields)}`,
+                    L0
+                  );
+                  newQuestion.surveyMonkeyAnswers = { choices: choicesFields };
+                }
+
+                if (surveyMonkeyQuestionsDetails.answers.other ?? false) {
+                  newQuestion.surveyMonkeyAnswers.other = {
+                    id: surveyMonkeyQuestionsDetails.answers.other.id,
+                    value: surveyMonkeyQuestionsDetails.answers.other.position,
+                    questionText:
+                      surveyMonkeyQuestionsDetails.answers.other.text,
+                  };
+                }
+
+                LogThis(
+                  log,
+                  `newQuestion.surveyMonkeyAnswers=${JSON.stringify(
+                    newQuestion.surveyMonkeyAnswers
+                  )}`,
+                  L0
+                );
+                break;
+              default:
+                break;
+            }
+          default:
+            break;
+        }
+
+        questions.push(newQuestion);
+        LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0);
+      }
+
+      for (
+        let x = 0;
+        surveyItem.calculatedFieldList &&
+        x < surveyItem.calculatedFieldList.length;
+        x++
+      ) {
+        calculatedFieldItem = surveyItem.calculatedFieldList[x];
+        calculatedFields;
+        calculatedFields.push({
+          surveyId: surveyCreated._id,
+          description: calculatedFieldItem.description,
+          shortDescription: calculatedFieldItem.shortDescription,
+          fieldName: calculatedFieldItem.fieldName,
+          calculationType: calculatedFieldItem.calculationType,
+          //isCriteria: calculatedFieldItem.isCriteria,
+          criteria: calculatedFieldItem.criteria ?? null,
+          group: calculatedFieldItem.group,
+          sequence: calculatedFieldItem.sequence,
+        });
+      }
+      console.log("About to insert many");
+      console.log(JSON.stringify(questions));
+      questionsCreated = await SurveyQuestion.insertMany(questions);
+      questions = [];
+      console.log(JSON.stringify(calculatedFields));
+      if (calculatedFields.length > 0) {
+        calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
+          calculatedFields
+        );
+        calculatedFields = [];
+      }
+    }
+
+    let outputLayouts = superSurveyConfigTest.surveySuperiorOutputLayout.sort(
+      (a, b) => a.sequence - b.sequence
+    );
+    LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3);
+    let outputLayoutFields = [];
+    for (let i = 0; i < outputLayouts.length; i++) {
+      outputLayout = outputLayouts[i];
+      outputLayoutFields.push({
+        surveySuperiorId: createdSurveySuperior._id,
+        surveyShortName: outputLayout.surveyShortName,
+        fieldName: outputLayout.fieldName,
+        outputAsReal: outputLayout.outputAsReal,
+        showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
+        sequence: outputLayout.sequence,
+      });
+    }
+    LogThis(
+      log,
+      `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
+      L3
+    );
+    const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
+      outputLayoutFields
+    );
+
+    //Start Output Collection
+    let x = 0;
+    x++;
+    const surveyOutputCollectionName =
+      `surveyOutputs_${superSurveyConfigTest.surveyShortName}`.toLocaleLowerCase();
+    LogThis(
+      log,
+      `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+      L3
+    );
+
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const collections = await mongoose.connection.db
+      .listCollections({ name: surveyOutputCollectionName })
+      .toArray();
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const collInfo = collections.find(
+      (collection) => collection.name === surveyOutputCollectionName
+    );
+    if (collInfo) {
+      LogThis(log, `dropping surveyOutputCollectionName`, L3);
+      let surveyOutputCollection = await mongoose.connection.collection(
+        surveyOutputCollectionName
+      );
+
+      await surveyOutputCollection.drop();
+
+      LogThis(log, `dropped surveyOutputCollectionName`, L3);
+
+      delete mongoose.models[surveyOutputCollectionName];
+      LogThis(log, `deleted models`, L3);
+    }
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+
+    let surveyOutputColumns = {};
+
+    outputLayoutFields.forEach((column) => {
+      LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3);
+      switch (column.fieldName) {
+        case "SCOLINFO_date_created":
+          surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
+          break;
+        case "SCOLINFO_date_modified":
+          surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
+          break;
+        default:
+          surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
+      }
+    });
+    x = x + 1;
+    LogThis(
+      log,
+      `x=${x}; surveyOutputColumns=${JSON.stringify(
+        Object.entries(surveyOutputColumns)
+      )}`,
+      L3
+    );
+
+    const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+    const surveyOutputCollection = mongoose.model(
+      surveyOutputCollectionName,
+      surveyOutputCollectionSchema
+    );
+
+    saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns);
+
+    // await DynamicCollection.deleteOne({
+    //   collectionName: surveyOutputCollectionName,
+    // });
+
+    // const schemaDefinition = {
+    //   field1: String,
+    //   field2: Number,
+    //   // Add more fields as needed
+    // };
+    // const dynamicCollection = new DynamicCollection();
+    // dynamicCollection.collectionName = surveyOutputCollectionName;
+    // dynamicCollection.schemaDefinition = schemaDefinition;
+
+    // const createdDynamicCollection = await dynamicCollection.save();
+    // if (!createdDynamicCollection) {
+    //   throw new Error(`DynamicCollection couldn't be created`);
+    // }
+
+    x = x + 1;
+    LogThis(log, `x=${x}`, L3);
+
+    console.log("about to respond");
+    res.status(201).json({
+      surveySuperiorId: createdSurveySuperior._id,
+      surveysCreated: surveysCreated,
+      questionsCreated: questionsCreated,
+      createdOutputLayout: createdOutputLayout,
+      surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+    });
+  }
+);
+
+const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
+  const functionName = "updateSurveyMonkeyConfigs";
+  const log = new LoggerSettings(srcFileName, functionName);
+  const { superSurveyConfig } = req.body;
+  let ownerId = req.user._id;
+  const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN;
+
+  if (!surveyMonkeyToken || surveyMonkeyToken == "") {
+    throw new Error(`Survey Monkey token not found.`);
+  }
+
+  const configSurveyMonkey = {
+    //responseType: "arraybuffer",
+    headers: {
+      //"Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${surveyMonkeyToken}`,
+      Accept: "application/json",
+    },
+  };
+  await SurveySuperior.deleteMany({});
+  await Survey.deleteMany({});
+  await SurveyQuestion.deleteMany({});
+  //await SurveyMulti.deleteMany({});
+  await SurveyCalculatedField.deleteMany({});
+  await SurveySuperiorOutputLayout.deleteMany({});
+
+  console.log("superSurveyConfig INPUT values are:");
+  console.log(superSurveyConfig);
+  console.log("Survey Configuration Values STRINGIFIED:");
+
+  let superSurveyConfigTest = superSurveyConfig;
+  const superSurvey = new SurveySuperior({
+    owner: ownerId,
+    surveyName: superSurveyConfigTest.surveyName,
+    surveyShortName: superSurveyConfigTest.surveyShortName,
+    description: superSurveyConfigTest.description,
+    surveyMonkeyId: superSurveyConfigTest.surveyMonkeyId,
+  });
+
+  const createdSurveySuperior = await superSurvey.save();
+
+  let surveysCreated = [];
+  let questionsCreated = [];
+  //let calculatedFieldsCreated = [];
+  let surveyCreated = null;
+  let questions = [];
+  let calculatedFields = [];
+  let questionItem = null;
+
+  console.log("About to insert many");
+  for (let i = 1; i < superSurveyConfigTest.surveyList.length; i++) {
+    let surveyItem = superSurveyConfigTest.surveyList[i];
+    let survey = new Survey({
+      superSurveyId: createdSurveySuperior._id,
+      surveyName: surveyItem.surveyName,
+      surveyShortName: surveyItem.surveyShortName,
+      description: surveyItem.description,
+      instructions: surveyItem.instructions,
+      surveyMonkeyId: surveyItem.surveyMonkeyId,
+      surveyMonkeyPosition: surveyItem.surveyMonkeyPosition,
+    });
+    surveyCreated = await survey.save();
+    // let multiSurvey = new SurveyMulti({
+    //   owner: ownerId,
+    //   superSurveyId: createdSurveySuperior._id,
+    //   surveyId: surveyCreated._id,
+    //   sequence: i + 1,
+    // });
+    // let multiSurveyCreated = await multiSurvey.save();
+
+    surveysCreated.push(surveyCreated);
+
+    let surveyMonkeyQuestionsResult = await axios.get(
+      `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions`,
+      configSurveyMonkey
+    );
+    let surveyMonkeyQuestions = surveyMonkeyQuestionsResult.data.data;
+    LogThis(
+      log,
+      `surveyMonkeyQuestions=${JSON.stringify(surveyMonkeyQuestions)}`,
+      L0
+    );
+
+    for (let x = 0; x < surveyItem.questionList.length; x++) {
+      questionItem = surveyItem.questionList[x];
+      let newQuestion = {
+        surveyId: surveyCreated._id,
+        question: questionItem.question,
+        questionShort: questionItem.questionShort,
+        fieldName: questionItem.fieldName,
+        weightType: questionItem.weightType,
+        weights: questionItem.weights,
+        surveyCol: questionItem.surveyCol,
+        superSurveyCol: questionItem.superSurveyCol,
+      };
+
+      let surveyMonkeyQuestion = surveyMonkeyQuestions[x];
+      LogThis(
+        log,
+        `questionItem.question=${JSON.stringify(
+          questionItem.question
+        )}; surveyMonkeyQuestion.heading=${
+          surveyMonkeyQuestion.heading
+        };surveyMonkeyQuestion=${JSON.stringify(surveyMonkeyQuestion)}`,
+        L0
+      );
+      newQuestion.surveyMonkeyId = surveyMonkeyQuestion.id;
+      newQuestion.surveyMonkeyPosition = surveyMonkeyQuestion.position;
+
+      let surveyMonkeyQuestionsDetailsResult = await axios.get(
+        `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions/${surveyMonkeyQuestion.id}`,
+        configSurveyMonkey
+      );
+      let surveyMonkeyQuestionsDetails =
+        surveyMonkeyQuestionsDetailsResult.data;
+
+      LogThis(
+        log,
+        `surveyMonkeyQuestionsDetails=${JSON.stringify(
+          surveyMonkeyQuestionsDetails
+        )}`,
+        L0
+      );
+      newQuestion.surveyMonkeyFamily = surveyMonkeyQuestionsDetails.family;
+      newQuestion.surveyMonkeySubType = surveyMonkeyQuestionsDetails.subtype;
+
+      switch (surveyMonkeyQuestionsDetails.family) {
+        case "open_ended":
+          break;
+        case "single_choice":
+          switch (surveyMonkeyQuestionsDetails.subtype) {
+            case "menu":
+              if (surveyMonkeyQuestionsDetails.answers.choices ?? false) {
+                let choices = surveyMonkeyQuestionsDetails.answers.choices;
+                LogThis(log, `choices=${JSON.stringify(choices)}`, L0);
+
+                let choicesFields = choices.map((choice) => {
+                  return {
+                    id: choice.id,
+                    value: choice.position,
+                    realValue: choice.text,
+                    weightedValue: choice.quiz_options.score,
+                  };
+                });
+                LogThis(
+                  log,
+                  `choicesFields=${JSON.stringify(choicesFields)}`,
+                  L0
+                );
+                newQuestion.surveyMonkeyAnswers = { choices: choicesFields };
+              }
+
+              if (surveyMonkeyQuestionsDetails.answers.other ?? false) {
+                newQuestion.surveyMonkeyAnswers.other = {
+                  id: surveyMonkeyQuestionsDetails.answers.other.id,
+                  value: surveyMonkeyQuestionsDetails.answers.other.position,
+                  questionText: surveyMonkeyQuestionsDetails.answers.other.text,
+                };
+              }
+
+              LogThis(
+                log,
+                `newQuestion.surveyMonkeyAnswers=${JSON.stringify(
+                  newQuestion.surveyMonkeyAnswers
+                )}`,
+                L0
+              );
+              break;
+            default:
+              break;
+          }
+        default:
+          break;
+      }
+
+      questions.push(newQuestion);
+      LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0);
     }
 
     for (
@@ -221,7 +897,16 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 
   outputLayoutFields.forEach((column) => {
     LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3);
-    surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
+    switch (column.fieldName) {
+      case "SCOLINFO_date_created":
+        surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
+        break;
+      case "SCOLINFO_date_modified":
+        surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
+        break;
+      default:
+        surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
+    }
   });
   x = x + 1;
   LogThis(
@@ -995,12 +1680,10 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
     //const owner = "62e551baf5c6b51f61e0ef93";
 
     console.log(`Getting multi surveys`);
-    let multiSurveys = await SurveyMulti.find({
+    let multiSurveys = await Survey.find({
       superSurveyId: superSurveyId,
-      //owner: owner,
     })
-      .select("surveyId sequence")
-      .sort({ sequence: 1 })
+      .sort({ surveyMonkeyPosition: 1 })
       .lean();
 
     if (!multiSurveys) {
@@ -1011,7 +1694,7 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
     const surveyIdsList = [];
 
     multiSurveys.map((multiSurveyItem) => {
-      surveyIdsList.push(multiSurveyItem.surveyId);
+      surveyIdsList.push(multiSurveyItem._id);
     });
     LogThis(
       log,
@@ -1047,7 +1730,7 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
       surveySuperiorId: superSurveyId,
     }).sort({ sequence: 1 });
     LogThis(log, `buildOutputHeaders`);
-    //console.log(`Building output headers`);
+    //co});nsole.log(`Building output headers`);
 
     const outputLayout = buildOutputHeaders(
       questions,
@@ -1137,10 +1820,37 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
     x = x + 1;
     LogThis(log, `x=${x}`, L3);
     const outputValueDocuments = [];
+    let dateTimeParts = [];
+    let dateValue = null;
     outputValues.forEach((row) => {
       let doc = {};
       columnsNames.forEach((column, index) => {
-        doc[column] = row[index];
+        switch (column) {
+          case "SCOLINFO_date_created":
+            dateTimeParts = row[index].split(/[\s/:\-]/);
+            dateValue = new Date(
+              dateTimeParts[2], // Year
+              dateTimeParts[0] - 1, // Month
+              dateTimeParts[1], // Day
+              dateTimeParts[3], // Hours
+              dateTimeParts[4] // Minutes)
+            );
+            doc[column] = dateValue;
+            break;
+          case "SCOLINFO_date_modified":
+            dateTimeParts = row[index].split(/[\s/:\-]/);
+            dateValue = new Date(
+              dateTimeParts[2], // Year
+              dateTimeParts[0] - 1, // Month
+              dateTimeParts[1], // Day
+              dateTimeParts[3], // Hours
+              dateTimeParts[4] // Minutes)
+            );
+            doc[column] = dateValue;
+            break;
+          default:
+            doc[column] = row[index];
+        }
       });
       outputValueDocuments.push(doc);
       doc = {};
@@ -1257,6 +1967,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       .find({
         $or: conditions,
       })
+      .sort({ SCOLINFO_respondent_id: -1 })
       .limit(pageSize)
       .skip(pageSize * (page - 1))
       .lean();
@@ -1359,6 +2070,51 @@ const superSurveyDeleteOutputValues = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Creates a new Super Survey configuration
+// @route   POST /api/surveys/
+// @access  Private/Admin
+const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
+  const functionName = "superSurveyGetRespondentIds";
+  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    LogThis(log, `START BY user=${req.user.email}`, L1);
+    /**
+     * On 12/7/23 I was working on the pagination and lookup by keyword
+     * This function won't work without page beein provided by the client, the keyword is optional.
+     */
+    const superSurveyShortName = req.params.id;
+    //const superSurveyShortName = req.query.superSurveyShortName;
+
+    LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L0);
+    const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
+
+    let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
+      surveyOutputCollectionName
+    );
+    // LogThis(
+    //   log,
+    //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
+    //   L0
+    // );
+    //await surveyOutputCollectionFound.deleteMany({});
+    const respondentIdsInfo = await surveyOutputCollectionFound
+      .find({})
+      .select(
+        "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
+      )
+      .sort({ SCOLINFO_respondent_id: -1 })
+      .lean();
+    //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L0);
+    res.status(200).json({
+      respondentIdsInfo: respondentIdsInfo,
+    });
+  } catch (error) {
+    LogThis(log, `Error getting respondent ids error=${JSON.stringify(error)}`);
+    res.status(404).json({ message: "Error getting respondent ids error" });
+    throw new Error(`Error getting respondent ids error=${error.message}`);
+  }
+});
+
 module.exports = {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
@@ -1368,4 +2124,5 @@ module.exports = {
   superSurveySaveOutput,
   superSurveyDeleteOutputValues,
   superSurveyGetOutputValues,
+  superSurveyGetRespondentIds,
 };

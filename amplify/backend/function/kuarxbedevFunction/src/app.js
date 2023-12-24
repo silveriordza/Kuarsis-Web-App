@@ -5,6 +5,23 @@
  *
  * const { Parameters } = await (new aws.SSM())
  *   .getParameters({
+ *     Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN"].map(secretName => process.env[secretName]),
+ *     WithDecryption: true,
+ *   })
+ *   .promise();
+ *
+ * Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+ *
+ * @format
+ */
+
+/**
+ * Use the following code to retrieve configured secrets from SSM:
+ *
+ * const aws = require('aws-sdk');
+ *
+ * const { Parameters } = await (new aws.SSM())
+ *   .getParameters({
  *     Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY"].map(secretName => process.env[secretName]),
  *     WithDecryption: true,
  *   })
@@ -107,6 +124,10 @@ const secretKeyParam = getSecretParamNameFromEnv(
   process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR
 );
 
+const surveyMonkeyTokenParam = getSecretParamNameFromEnv(
+  process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR
+);
+
 //Added the dotenv expand feature, to expand the variables in the .env file that have references to other variables using the ${variablename} format. Look into the .env file for more information.
 //let newExpandedEnv = dotenvExpand.expand(myEnv)
 
@@ -143,6 +164,18 @@ const loadParameters = (data) => {
         process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR] =
           param.Value;
         break;
+      case surveyMonkeyTokenParam:
+        process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR] = param.Value;
+        // LogThis(
+        //   log,
+        //   `Processing param.Value=${
+        //     param.Value
+        //   }; process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR]=${
+        //     process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR]
+        //   }`,
+        //   L3
+        // );
+        break;
       default:
         break;
     }
@@ -161,6 +194,7 @@ const params = {
     paypalClientIdParam,
     accessKeyParam,
     secretKeyParam,
+    surveyMonkeyTokenParam,
   ],
   WithDecryption: true,
 };

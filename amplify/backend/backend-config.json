@@ -104,6 +104,14 @@
         }
       ]
     },
+    "AMPLIFY_function_kuarxbedevFunction_kuarsisSurveyMonkeyTokenVar": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_kuarxbedevFunction_logLevel": {
       "usedBy": [
         {

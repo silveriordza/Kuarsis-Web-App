@@ -14,6 +14,7 @@ const surveySuperiorModel = mongoose.Schema(
     surveyName: { type: String, required: true },
     surveyShortName: { type: String, required: true },
     description: { type: String, required: false },
+    surveyMonkeyId: { type: String, required: false, default: "" },
   },
   {
     timestamps: true,
@@ -23,15 +24,17 @@ const SurveySuperior = mongoose.model("SurveySuperior", surveySuperiorModel);
 
 const surveyModel = mongoose.Schema(
   {
-    owner: {
+    superSurveyId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "User",
+      ref: "SurveySuperior",
     },
     surveyName: { type: String, required: true },
     surveyShortName: { type: String, required: true },
     description: { type: String, required: false },
     instructions: { type: String, required: false },
+    surveyMonkeyId: { type: String, required: false, default: "" },
+    surveyMonkeyPosition: { type: Number, required: false, default: 0 },
   },
   {
     timestamps: true,
@@ -53,6 +56,15 @@ const surveyQuestionModel = mongoose.Schema(
     weights: { type: mongoose.Schema.Types.Mixed },
     surveyCol: { type: Number, required: true },
     superSurveyCol: { type: Number, required: true },
+    surveyMonkeyId: { type: String, required: false, default: "" },
+    surveyMonkeyPosition: { type: Number, required: false, default: 0 },
+    surveyMonkeyFamily: { type: String, required: false, default: "" },
+    surveyMonkeySubType: { type: String, required: false, default: "" },
+    surveyMonkeyAnswers: {
+      type: mongoose.Schema.Types.Mixed,
+      required: false,
+      default: null,
+    },
   },
   {
     timestamps: true,
@@ -61,55 +73,55 @@ const surveyQuestionModel = mongoose.Schema(
 
 const SurveyQuestion = mongoose.model("SurveyQuestion", surveyQuestionModel);
 
-const surveyMultiModel = mongoose.Schema(
-  {
-    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
-    superSurveyId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "SuperSurvey",
-    },
-    surveyId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "Survey",
-    },
-    sequence: { type: Number, required: true },
-  },
-  {
-    timestamps: true,
-  }
-);
+// const surveyMultiModel = mongoose.Schema(
+//   {
+//     owner: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       required: true,
+//       ref: "User",
+//     },
+//     superSurveyId: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       required: true,
+//       ref: "SuperSurvey",
+//     },
+//     surveyId: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       required: true,
+//       ref: "Survey",
+//     },
+//     sequence: { type: Number, required: true },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
 
-const SurveyMulti = mongoose.model("SurveyMulti", surveyMultiModel);
+// const SurveyMulti = mongoose.model("SurveyMulti", surveyMultiModel);
 
-const surveyCollectedModel = mongoose.Schema(
-  {
-    superSurveyId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "SuperSurvey",
-    },
-    respondentId: { type: Number, required: true },
-    collectorId: { type: Number, required: true },
-    dateCreated: { type: Date, required: true },
-    dateModified: { type: Date, required: true },
-    ipAddress: { type: String, required: true },
-    emailAddress: { type: String, required: false },
-    firstName: { type: String, required: false },
-    lastName: { type: String, required: false },
-    custom1: { type: String, required: false },
-  },
-  {
-    timestamps: true,
-  }
-);
+// const surveyCollectedModel = mongoose.Schema(
+//   {
+//     superSurveyId: {
+//       type: mongoose.Schema.Types.ObjectId,
+//       required: true,
+//       ref: "SuperSurvey",
+//     },
+//     respondentId: { type: Number, required: true },
+//     collectorId: { type: Number, required: true },
+//     dateCreated: { type: Date, required: true },
+//     dateModified: { type: Date, required: true },
+//     ipAddress: { type: String, required: true },
+//     emailAddress: { type: String, required: false },
+//     firstName: { type: String, required: false },
+//     lastName: { type: String, required: false },
+//     custom1: { type: String, required: false },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
 
-const SurveyCollected = mongoose.model("SurveyCollected", surveyCollectedModel);
+// const SurveyCollected = mongoose.model("SurveyCollected", surveyCollectedModel);
 
 const surveySuperiorOutputLayoutModel = mongoose.Schema(
   {
@@ -135,11 +147,6 @@ const SurveySuperiorOutputLayout = mongoose.model(
 
 const surveyResponseModel = mongoose.Schema(
   {
-    // surveyCollectedId: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    //   ref: "SuperSurveyCollected",
-    // },
     questionId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -211,6 +218,25 @@ const SurveyCalculatedValue = mongoose.model(
   surveyCalculatedValueModel
 );
 
+const surveyMonkeyConfigModel = mongoose.Schema(
+  {
+    superSurveyId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "SuperSurvey",
+    },
+    surveyMonkeyId: { type: String, required: true },
+    config: { type: mongoose.Schema.Types.Mixed, required: false },
+  },
+  {
+    timestamps: true,
+  }
+);
+const SurveyMonkeyConfig = mongoose.model(
+  "SurveyMonkeyConfig",
+  surveyMonkeyConfigModel
+);
+
 // const surveyOutputReportHeadersModel = mongoose.Schema(
 //   {
 //     // surveyCollectedId: {
@@ -241,11 +267,12 @@ const SurveyCalculatedValue = mongoose.model(
 module.exports = {
   SurveySuperior,
   Survey,
-  SurveyMulti,
+  //SurveyMulti,
   SurveyQuestion,
-  SurveyCollected,
+  //SurveyCollected,
   SurveySuperiorOutputLayout,
   SurveyResponse,
   SurveyCalculatedField,
   SurveyCalculatedValue,
+  SurveyMonkeyConfig,
 };

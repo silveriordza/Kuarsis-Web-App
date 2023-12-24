@@ -17,6 +17,8 @@ let {
   superSurveySaveOutput,
   superSurveyDeleteOutputValues,
   superSurveyGetOutputValues,
+  superSurveyGetRespondentIds,
+  superSurveyUpdateOutput,
 } = require("../controllers/surveyController.js");
 let { protect, admin } = require("../middleware/authMiddleware.js");
 
@@ -30,6 +32,10 @@ router
   .get(protect, admin, superSurveyGetOutputValues);
 
 router
+  .route("/:id/respondentidsinfo")
+  .get(protect, admin, superSurveyGetRespondentIds);
+
+router
   .route("/:id")
   .put(
     protect,
@@ -37,6 +43,7 @@ router
     upload.fields([{ name: "fileNumeric" }, { name: "fileReal" }]),
     superSurveyUploadAnswers
   );
+
 router
   .route("/")
   .get(protect, admin, superSurveyGetList)
