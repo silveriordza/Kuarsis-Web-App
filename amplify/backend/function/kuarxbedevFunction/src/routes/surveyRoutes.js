@@ -19,6 +19,8 @@ let {
   superSurveyGetOutputValues,
   superSurveyGetRespondentIds,
   superSurveyUpdateOutput,
+  updateSurveyMonkeyConfigs,
+  superSurveyCreateConfigIntegratedWithMonkey,
 } = require("../controllers/surveyController.js");
 let { protect, admin } = require("../middleware/authMiddleware.js");
 
@@ -43,6 +45,14 @@ router
     upload.fields([{ name: "fileNumeric" }, { name: "fileReal" }]),
     superSurveyUploadAnswers
   );
+
+router
+  .route("/:id/surveymonkey")
+  .put(protect, admin, updateSurveyMonkeyConfigs);
+
+router
+  .route("/surveymonkey")
+  .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey);
 
 router
   .route("/")

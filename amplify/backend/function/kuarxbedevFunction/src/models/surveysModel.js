@@ -226,7 +226,7 @@ const surveyMonkeyConfigModel = mongoose.Schema(
       ref: "SuperSurvey",
     },
     surveyMonkeyId: { type: String, required: true },
-    config: { type: mongoose.Schema.Types.Mixed, required: false },
+    survey: { type: mongoose.Schema.Types.Mixed, required: false },
   },
   {
     timestamps: true,

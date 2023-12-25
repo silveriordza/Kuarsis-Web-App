@@ -277,7 +277,7 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 // @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
 // @access  Private/Admin
-const superSurveyCreateIntegratedSurveyMonkeyConfig = asyncHandler(
+const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
   async (req, res) => {
     const functionName = "superSurveyCreateConfig";
     const log = new LoggerSettings(srcFileName, functionName);
@@ -619,11 +619,16 @@ const superSurveyCreateIntegratedSurveyMonkeyConfig = asyncHandler(
   }
 );
 
-const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
+const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
   const functionName = "updateSurveyMonkeyConfigs";
   const log = new LoggerSettings(srcFileName, functionName);
-  const { superSurveyConfig } = req.body;
-  let ownerId = req.user._id;
+  //const { superSurveyConfig } = req.body;
+  //let ownerId = req.user._id;
+
+  //const paramTest = req.params.id;
+  const superSurveyId = req.params.id;
+
+  LogThis(log, `START superSurveyId=${superSurveyId}`, L0);
   const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN;
 
   if (!surveyMonkeyToken || surveyMonkeyToken == "") {
@@ -638,324 +643,270 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
       Accept: "application/json",
     },
   };
-  await SurveySuperior.deleteMany({});
-  await Survey.deleteMany({});
-  await SurveyQuestion.deleteMany({});
-  //await SurveyMulti.deleteMany({});
-  await SurveyCalculatedField.deleteMany({});
-  await SurveySuperiorOutputLayout.deleteMany({});
 
-  console.log("superSurveyConfig INPUT values are:");
-  console.log(superSurveyConfig);
-  console.log("Survey Configuration Values STRINGIFIED:");
-
-  let superSurveyConfigTest = superSurveyConfig;
-  const superSurvey = new SurveySuperior({
-    owner: ownerId,
-    surveyName: superSurveyConfigTest.surveyName,
-    surveyShortName: superSurveyConfigTest.surveyShortName,
-    description: superSurveyConfigTest.description,
-    surveyMonkeyId: superSurveyConfigTest.surveyMonkeyId,
+  let superSurvey = await SurveySuperior.findOne({
+    surveySuperiorId: superSurveyId,
   });
 
-  const createdSurveySuperior = await superSurvey.save();
-
-  let surveysCreated = [];
-  let questionsCreated = [];
-  //let calculatedFieldsCreated = [];
-  let surveyCreated = null;
-  let questions = [];
-  let calculatedFields = [];
-  let questionItem = null;
-
-  console.log("About to insert many");
-  for (let i = 1; i < superSurveyConfigTest.surveyList.length; i++) {
-    let surveyItem = superSurveyConfigTest.surveyList[i];
-    let survey = new Survey({
-      superSurveyId: createdSurveySuperior._id,
-      surveyName: surveyItem.surveyName,
-      surveyShortName: surveyItem.surveyShortName,
-      description: surveyItem.description,
-      instructions: surveyItem.instructions,
-      surveyMonkeyId: surveyItem.surveyMonkeyId,
-      surveyMonkeyPosition: surveyItem.surveyMonkeyPosition,
-    });
-    surveyCreated = await survey.save();
-    // let multiSurvey = new SurveyMulti({
-    //   owner: ownerId,
-    //   superSurveyId: createdSurveySuperior._id,
-    //   surveyId: surveyCreated._id,
-    //   sequence: i + 1,
-    // });
-    // let multiSurveyCreated = await multiSurvey.save();
-
-    surveysCreated.push(surveyCreated);
-
-    let surveyMonkeyQuestionsResult = await axios.get(
-      `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions`,
+  if (superSurvey.surveyMonkeyId == "") {
+    //Start getting survey monkey configs
+    const surveysResult = await axios.get(
+      `https://api.surveymonkey.com/v3/surveys`,
       configSurveyMonkey
     );
-    let surveyMonkeyQuestions = surveyMonkeyQuestionsResult.data.data;
-    LogThis(
-      log,
-      `surveyMonkeyQuestions=${JSON.stringify(surveyMonkeyQuestions)}`,
-      L0
+    const surveys = surveysResult.data.data;
+    const surveyFound = surveys.find(
+      (survey) => survey.title == superSurvey.surveyName
     );
-
-    for (let x = 0; x < surveyItem.questionList.length; x++) {
-      questionItem = surveyItem.questionList[x];
-      let newQuestion = {
-        surveyId: surveyCreated._id,
-        question: questionItem.question,
-        questionShort: questionItem.questionShort,
-        fieldName: questionItem.fieldName,
-        weightType: questionItem.weightType,
-        weights: questionItem.weights,
-        surveyCol: questionItem.surveyCol,
-        superSurveyCol: questionItem.superSurveyCol,
-      };
-
-      let surveyMonkeyQuestion = surveyMonkeyQuestions[x];
-      LogThis(
-        log,
-        `questionItem.question=${JSON.stringify(
-          questionItem.question
-        )}; surveyMonkeyQuestion.heading=${
-          surveyMonkeyQuestion.heading
-        };surveyMonkeyQuestion=${JSON.stringify(surveyMonkeyQuestion)}`,
-        L0
-      );
-      newQuestion.surveyMonkeyId = surveyMonkeyQuestion.id;
-      newQuestion.surveyMonkeyPosition = surveyMonkeyQuestion.position;
-
-      let surveyMonkeyQuestionsDetailsResult = await axios.get(
-        `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions/${surveyMonkeyQuestion.id}`,
-        configSurveyMonkey
-      );
-      let surveyMonkeyQuestionsDetails =
-        surveyMonkeyQuestionsDetailsResult.data;
-
-      LogThis(
-        log,
-        `surveyMonkeyQuestionsDetails=${JSON.stringify(
-          surveyMonkeyQuestionsDetails
-        )}`,
-        L0
-      );
-      newQuestion.surveyMonkeyFamily = surveyMonkeyQuestionsDetails.family;
-      newQuestion.surveyMonkeySubType = surveyMonkeyQuestionsDetails.subtype;
-
-      switch (surveyMonkeyQuestionsDetails.family) {
-        case "open_ended":
-          break;
-        case "single_choice":
-          switch (surveyMonkeyQuestionsDetails.subtype) {
-            case "menu":
-              if (surveyMonkeyQuestionsDetails.answers.choices ?? false) {
-                let choices = surveyMonkeyQuestionsDetails.answers.choices;
-                LogThis(log, `choices=${JSON.stringify(choices)}`, L0);
-
-                let choicesFields = choices.map((choice) => {
-                  return {
-                    id: choice.id,
-                    value: choice.position,
-                    realValue: choice.text,
-                    weightedValue: choice.quiz_options.score,
-                  };
-                });
-                LogThis(
-                  log,
-                  `choicesFields=${JSON.stringify(choicesFields)}`,
-                  L0
-                );
-                newQuestion.surveyMonkeyAnswers = { choices: choicesFields };
-              }
-
-              if (surveyMonkeyQuestionsDetails.answers.other ?? false) {
-                newQuestion.surveyMonkeyAnswers.other = {
-                  id: surveyMonkeyQuestionsDetails.answers.other.id,
-                  value: surveyMonkeyQuestionsDetails.answers.other.position,
-                  questionText: surveyMonkeyQuestionsDetails.answers.other.text,
-                };
-              }
-
-              LogThis(
-                log,
-                `newQuestion.surveyMonkeyAnswers=${JSON.stringify(
-                  newQuestion.surveyMonkeyAnswers
-                )}`,
-                L0
-              );
-              break;
-            default:
-              break;
-          }
-        default:
-          break;
-      }
-
-      questions.push(newQuestion);
-      LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0);
+    if (!surveyFound) {
+      throw new Error("Survey not found.");
+    } else {
+      superSurvey.surveyMonkeyId = surveyFound.id;
+      superSurvey = await superSurvey.save();
     }
+  }
+  const surveyMonkeyId = superSurvey.surveyMonkeyId;
+
+  await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId });
+
+  //Start getting survey monkey configs
+  const surveyInfoResult = await axios.get(
+    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}`,
+    configSurveyMonkey
+  );
+
+  const surveyInfo = surveyInfoResult.data;
+
+  const surveyMonkeyInfo = { survey: {} };
+
+  surveyMonkeyInfo.survey.title = surveyInfo.title;
+  surveyMonkeyInfo.survey.category = surveyInfo.category;
+  surveyMonkeyInfo.survey.question_count = surveyInfo.question_count;
+  surveyMonkeyInfo.survey.page_count = surveyInfo.page_count;
+  surveyMonkeyInfo.survey.date_created = surveyInfo.date_created;
+  surveyMonkeyInfo.survey.date_modified = surveyInfo.date_modified;
+  surveyMonkeyInfo.survey.id = surveyInfo.id;
+
+  LogThis(
+    log,
+    `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+    L0
+  );
+
+  //Start getting survey monkey configs
+  const pagesResult = await axios.get(
+    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages`,
+    configSurveyMonkey
+  );
+
+  const pages = pagesResult.data.data;
+
+  LogThis(log, `pages=${JSON.stringify(pages, null, 2)}`, L0);
+
+  for (let pageIndex = 0; pageIndex < pages.length; pageIndex++) {
+    page = pages[pageIndex];
+    //Start getting survey monkey configs
+    let questionsResult = await axios.get(
+      `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions`,
+      configSurveyMonkey
+    );
+    let questions = questionsResult.data.data;
+
+    LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0);
+    page.questions = questions;
 
     for (
-      let x = 0;
-      surveyItem.calculatedFieldList &&
-      x < surveyItem.calculatedFieldList.length;
-      x++
+      let questionIndex = 0;
+      questionIndex < questions.length;
+      questionIndex++
     ) {
-      calculatedFieldItem = surveyItem.calculatedFieldList[x];
-      calculatedFields;
-      calculatedFields.push({
-        surveyId: surveyCreated._id,
-        description: calculatedFieldItem.description,
-        shortDescription: calculatedFieldItem.shortDescription,
-        fieldName: calculatedFieldItem.fieldName,
-        calculationType: calculatedFieldItem.calculationType,
-        //isCriteria: calculatedFieldItem.isCriteria,
-        criteria: calculatedFieldItem.criteria ?? null,
-        group: calculatedFieldItem.group,
-        sequence: calculatedFieldItem.sequence,
-      });
-    }
-    console.log("About to insert many");
-    console.log(JSON.stringify(questions));
-    questionsCreated = await SurveyQuestion.insertMany(questions);
-    questions = [];
-    console.log(JSON.stringify(calculatedFields));
-    if (calculatedFields.length > 0) {
-      calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
-        calculatedFields
+      let question = page.questions[questionIndex];
+
+      let questionDetailsResult = await axios.get(
+        `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions/${question.id}`,
+        configSurveyMonkey
       );
-      calculatedFields = [];
+
+      let questionDetails = questionDetailsResult.data;
+
+      LogThis(
+        log,
+        `questionDetails=${JSON.stringify(questionDetails, null, 2)}`,
+        L0
+      );
+      question.details = questionDetails;
     }
   }
 
-  let outputLayouts = superSurveyConfigTest.surveySuperiorOutputLayout.sort(
-    (a, b) => a.sequence - b.sequence
+  surveyMonkeyInfo.survey.pages = pages;
+  const surveyMonkeyConfig = new SurveyMonkeyConfig({
+    superSurveyId: superSurveyId,
+    surveyMonkeyId: surveyMonkeyId,
+    survey: surveyMonkeyInfo.survey,
+  });
+
+  LogThis(
+    log,
+    `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+    L0
   );
-  LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3);
-  let outputLayoutFields = [];
-  for (let i = 0; i < outputLayouts.length; i++) {
-    outputLayout = outputLayouts[i];
-    outputLayoutFields.push({
-      surveySuperiorId: createdSurveySuperior._id,
-      surveyShortName: outputLayout.surveyShortName,
-      fieldName: outputLayout.fieldName,
-      outputAsReal: outputLayout.outputAsReal,
-      showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
-      sequence: outputLayout.sequence,
+
+  const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save();
+  if (!surveyMonkeyConfigSaved) {
+    res.status(401).json({
+      surveyMonkeyInfo: surveyMonkeyInfo,
+    });
+    throw new Error("Error saving Survey Monkey Config into database.");
+  } else {
+    res.status(201).json({
+      surveyMonkeyInfo: surveyMonkeyInfo,
     });
   }
-  LogThis(
-    log,
-    `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
-    L3
-  );
-  const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
-    outputLayoutFields
-  );
+});
 
-  //Start Output Collection
-  let x = 0;
-  x++;
-  const surveyOutputCollectionName =
-    `surveyOutputs_${superSurveyConfigTest.surveyShortName}`.toLocaleLowerCase();
-  LogThis(
-    log,
-    `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
-    L3
-  );
+const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
+  const functionName = "updateSurveyMonkeyConfigs";
+  const log = new LoggerSettings(srcFileName, functionName);
+  //const { superSurveyConfig } = req.body;
+  //let ownerId = req.user._id;
 
-  x = x + 1;
-  LogThis(log, `x=${x}`, L3);
-  const collections = await mongoose.connection.db
-    .listCollections({ name: surveyOutputCollectionName })
-    .toArray();
-  x = x + 1;
-  LogThis(log, `x=${x}`, L3);
-  const collInfo = collections.find(
-    (collection) => collection.name === surveyOutputCollectionName
-  );
-  if (collInfo) {
-    LogThis(log, `dropping surveyOutputCollectionName`, L3);
-    let surveyOutputCollection = await mongoose.connection.collection(
-      surveyOutputCollectionName
-    );
+  //const paramTest = req.params.id;
+  const superSurveyId = req.params.id;
 
-    await surveyOutputCollection.drop();
+  LogThis(log, `START superSurveyId=${superSurveyId}`, L0);
+  const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN;
 
-    LogThis(log, `dropped surveyOutputCollectionName`, L3);
-
-    delete mongoose.models[surveyOutputCollectionName];
-    LogThis(log, `deleted models`, L3);
+  if (!surveyMonkeyToken || surveyMonkeyToken == "") {
+    throw new Error(`Survey Monkey token not found.`);
   }
-  x = x + 1;
-  LogThis(log, `x=${x}`, L3);
 
-  let surveyOutputColumns = {};
+  const configSurveyMonkey = {
+    //responseType: "arraybuffer",
+    headers: {
+      //"Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${surveyMonkeyToken}`,
+      Accept: "application/json",
+    },
+  };
 
-  outputLayoutFields.forEach((column) => {
-    LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3);
-    switch (column.fieldName) {
-      case "SCOLINFO_date_created":
-        surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
-        break;
-      case "SCOLINFO_date_modified":
-        surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
-        break;
-      default:
-        surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
-    }
+  let superSurvey = await SurveySuperior.findOne({
+    surveySuperiorId: superSurveyId,
   });
-  x = x + 1;
+
+  if (superSurvey.surveyMonkeyId == "") {
+    //Start getting survey monkey configs
+    const surveysResult = await axios.get(
+      `https://api.surveymonkey.com/v3/surveys`,
+      configSurveyMonkey
+    );
+    const surveys = surveysResult.data.data;
+    const surveyFound = surveys.find(
+      (survey) => survey.title == superSurvey.surveyName
+    );
+    if (!surveyFound) {
+      throw new Error("Survey not found.");
+    } else {
+      superSurvey.surveyMonkeyId = surveyFound.id;
+      superSurvey = await superSurvey.save();
+    }
+  }
+  const surveyMonkeyId = superSurvey.surveyMonkeyId;
+
+  await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId });
+
+  //Start getting survey monkey configs
+  const surveyInfoResult = await axios.get(
+    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}`,
+    configSurveyMonkey
+  );
+
+  const surveyInfo = surveyInfoResult.data;
+
+  const surveyMonkeyInfo = { survey: {} };
+
+  surveyMonkeyInfo.survey.title = surveyInfo.title;
+  surveyMonkeyInfo.survey.category = surveyInfo.category;
+  surveyMonkeyInfo.survey.question_count = surveyInfo.question_count;
+  surveyMonkeyInfo.survey.page_count = surveyInfo.page_count;
+  surveyMonkeyInfo.survey.date_created = surveyInfo.date_created;
+  surveyMonkeyInfo.survey.date_modified = surveyInfo.date_modified;
+  surveyMonkeyInfo.survey.id = surveyInfo.id;
+
   LogThis(
     log,
-    `x=${x}; surveyOutputColumns=${JSON.stringify(
-      Object.entries(surveyOutputColumns)
-    )}`,
-    L3
+    `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+    L0
   );
 
-  const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
-  x = x + 1;
-  LogThis(log, `x=${x}`, L3);
-  const surveyOutputCollection = mongoose.model(
-    surveyOutputCollectionName,
-    surveyOutputCollectionSchema
+  //Start getting survey monkey configs
+  const pagesResult = await axios.get(
+    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages`,
+    configSurveyMonkey
   );
 
-  saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns);
+  const pages = pagesResult.data.data;
 
-  // await DynamicCollection.deleteOne({
-  //   collectionName: surveyOutputCollectionName,
-  // });
+  LogThis(log, `pages=${JSON.stringify(pages, null, 2)}`, L0);
 
-  // const schemaDefinition = {
-  //   field1: String,
-  //   field2: Number,
-  //   // Add more fields as needed
-  // };
-  // const dynamicCollection = new DynamicCollection();
-  // dynamicCollection.collectionName = surveyOutputCollectionName;
-  // dynamicCollection.schemaDefinition = schemaDefinition;
+  for (let pageIndex = 0; pageIndex < pages.length; pageIndex++) {
+    page = pages[pageIndex];
+    //Start getting survey monkey configs
+    let questionsResult = await axios.get(
+      `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions`,
+      configSurveyMonkey
+    );
+    let questions = questionsResult.data.data;
 
-  // const createdDynamicCollection = await dynamicCollection.save();
-  // if (!createdDynamicCollection) {
-  //   throw new Error(`DynamicCollection couldn't be created`);
-  // }
+    LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0);
+    page.questions = questions;
 
-  x = x + 1;
-  LogThis(log, `x=${x}`, L3);
+    for (
+      let questionIndex = 0;
+      questionIndex < questions.length;
+      questionIndex++
+    ) {
+      let question = page.questions[questionIndex];
 
-  console.log("about to respond");
-  res.status(201).json({
-    surveySuperiorId: createdSurveySuperior._id,
-    surveysCreated: surveysCreated,
-    questionsCreated: questionsCreated,
-    createdOutputLayout: createdOutputLayout,
-    surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+      let questionDetailsResult = await axios.get(
+        `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions/${question.id}`,
+        configSurveyMonkey
+      );
+
+      let questionDetails = questionDetailsResult.data;
+
+      LogThis(
+        log,
+        `questionDetails=${JSON.stringify(questionDetails, null, 2)}`,
+        L0
+      );
+      question.details = questionDetails;
+    }
+  }
+
+  surveyMonkeyInfo.survey.pages = pages;
+  const surveyMonkeyConfig = new SurveyMonkeyConfig({
+    superSurveyId: superSurveyId,
+    surveyMonkeyId: surveyMonkeyId,
+    survey: surveyMonkeyInfo.survey,
   });
+
+  LogThis(
+    log,
+    `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+    L0
+  );
+
+  const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save();
+  if (!surveyMonkeyConfigSaved) {
+    res.status(401).json({
+      surveyMonkeyInfo: surveyMonkeyInfo,
+    });
+    throw new Error("Error saving Survey Monkey Config into database.");
+  } else {
+    res.status(201).json({
+      surveyMonkeyInfo: surveyMonkeyInfo,
+    });
+  }
 });
 
 // @desc    Upload Answers to a Super Survey
@@ -2125,4 +2076,6 @@ module.exports = {
   superSurveyDeleteOutputValues,
   superSurveyGetOutputValues,
   superSurveyGetRespondentIds,
+  updateSurveyMonkeyConfigs,
+  superSurveyCreateConfigIntegratedWithMonkey,
 };
