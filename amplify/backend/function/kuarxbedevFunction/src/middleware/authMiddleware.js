@@ -52,4 +52,37 @@ const admin = (req, res, next) => {
   }
 };
 
-module.exports = { protect, admin };
+const protectSurveyMonkeyWebhook = asyncHandler(async (req, res, next) => {
+  const log = new LoggerSettings(srcFile, "protectSurveyMonkeyWebhook");
+  LogThis(log, `START`, L3);
+
+  try {
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+
+      if (token == "tokenpass") {
+        req.monkeyAccess = true;
+      } else {
+        req.monkeyAccess = false;
+        throw new Error(``);
+      }
+
+      next();
+    }
+
+    if (!token || !req.monkeyAccess) {
+      res.status(401);
+      throw new Error("Not authorized, no token");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(401);
+    throw new Error("Not authorized, token failed");
+  }
+});
+
+module.exports = { protect, admin, protectSurveyMonkeyWebhook };

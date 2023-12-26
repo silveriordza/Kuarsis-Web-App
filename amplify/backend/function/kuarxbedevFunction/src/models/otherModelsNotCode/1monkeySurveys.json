@@ -1,5 +1,11 @@
 {
-  "data": [
+  "surveys": [
+    {
+      "id": "516096351",
+      "title": "Survey System Tests",
+      "nickname": "",
+      "href": "https://api.surveymonkey.com/v3/surveys/516096351"
+    },
     {
       "id": "182423261",
       "title": "Oncare Treatment Center 2020 Talentos",
@@ -293,20 +299,6 @@
       "title": "Cuestionario de Estudiantes (5to año) (ago-dic 2015)",
       "nickname": "",
       "href": "https://api.surveymonkey.com/v3/surveys/67664323"
-    },
-    {
-      "id": "69574175",
-      "title": "Encuesta Pacientes de Primera Vez",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/69574175"
     }
-  ],
-  "per_page": 50,
-  "page": 1,
-  "total": 63,
-  "links": {
-    "self": "https://api.surveymonkey.com/v3/surveys?per_page=50&page=1",
-    "next": "https://api.surveymonkey.com/v3/surveys?per_page=50&page=2",
-    "last": "https://api.surveymonkey.com/v3/surveys?per_page=50&page=2"
-  }
+  ]
 }

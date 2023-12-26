@@ -239,7 +239,18 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(bodyParser.json());
+// Middleware to conditionally parse the request body
+app.use((req, res, next) => {
+  if (req.is("application/vnd.surveymonkey.response.v1+json")) {
+    bodyParser.json({ type: "application/vnd.surveymonkey.response.v1+json" })(
+      req,
+      res,
+      next
+    );
+  } else {
+    bodyParser.json()(req, res, next);
+  }
+});
 app.use(awsServerlessExpressMiddleware.eventContext());
 
 // Enable CORS for all methods

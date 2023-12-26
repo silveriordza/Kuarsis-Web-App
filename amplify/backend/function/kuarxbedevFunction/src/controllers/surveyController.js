@@ -619,6 +619,78 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
   }
 );
 
+const testSurveyMonkey = asyncHandler(async (req, res) => {
+  const functionName = "superSurveyCreateConfig";
+  const log = new LoggerSettings(srcFileName, functionName);
+  const { superSurveyConfig } = req.body;
+  let ownerId = req.user._id;
+  const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN;
+
+  if (!surveyMonkeyToken || surveyMonkeyToken == "") {
+    throw new Error(`Survey Monkey token not found.`);
+  }
+
+  const configSurveyMonkey = {
+    //responseType: "arraybuffer",
+    headers: {
+      //"Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${surveyMonkeyToken}`,
+      Accept: "application/json",
+    },
+  };
+
+  const surveysResult = await axios.get(
+    `https://api.surveymonkey.com/v3/surveys`,
+    configSurveyMonkey
+  );
+  const surveys = surveysResult.data.data;
+  LogThis(log, `surveys=${JSON.stringify(surveys)}`, L0);
+
+  res.status(201).json({
+    surveys: surveys,
+  });
+});
+
+const surveyMonkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
+  const functionName = "surveyMonkeyWebhookCreatedEvent";
+  const log = new LoggerSettings(srcFileName, functionName);
+
+  LogThis(log, `START`, L0);
+  LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0);
+  const bd = req.body;
+  LogThis(
+    log,
+    `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
+    L0
+  );
+
+  LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0);
+
+  LogThis(log, `Event Happened`, L0);
+
+  res.status(200).end();
+});
+
+const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
+  const functionName = "surveyMonkeyWebhookCompletedEvent";
+  const log = new LoggerSettings(srcFileName, functionName);
+
+  LogThis(log, `START`, L0);
+  LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0);
+  const bd = req.body;
+  LogThis(
+    log,
+    `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
+    L0
+  );
+
+  LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0);
+
+  LogThis(log, `Event Happened`, L0);
+
+  res.status(200).end();
+});
+
 const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
   const functionName = "updateSurveyMonkeyConfigs";
   const log = new LoggerSettings(srcFileName, functionName);
@@ -1714,7 +1786,7 @@ const superSurveyGetList = asyncHandler(async (req, res) => {
     res.status(200).json({ surveySuperiors: surveySuperiors });
   } catch (error) {
     res.status(404);
-    throw new Error("Product not found");
+    throw new Error("Product not found ");
   }
 });
 
@@ -2078,4 +2150,7 @@ module.exports = {
   superSurveyGetRespondentIds,
   updateSurveyMonkeyConfigs,
   superSurveyCreateConfigIntegratedWithMonkey,
+  testSurveyMonkey,
+  surveyMonkeyWebhookCreatedEvent,
+  surveyMonkeyWebhookCompletedEvent,
 };
