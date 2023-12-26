@@ -3,7 +3,7 @@ Request.
 {
   "name": "SurveySystemTest",
   "subscription_url": "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev/surveys/surveymonkey/webhookevent",
-  "authorization": ,
+  "authorization": "tokenpass",
   "verify_ssl": true,
   "event_type": "response_created",
   "object_type": "survey",
@@ -15,7 +15,7 @@ Response
   "name": "SurveySystemTest",
   "event_type": "response_created",
   "subscription_url": "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev/surveys/surveymonkey/webhookevent",
-  "authorization": ,
+  "authorization": "tokenpass",
   "object_type": "survey",
   "object_ids": [
       "516096351"
