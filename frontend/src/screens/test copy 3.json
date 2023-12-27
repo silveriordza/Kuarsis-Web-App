@@ -1,146 +1,192 @@
-[
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Nombre completo:",
-    "questionShort": "Nombre completo:…",
-    "fieldName": "Datos_Nombre",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 1,
-    "superSurveyCol": 10,
-    "surveyMonkeyId": "308206447",
-    "surveyMonkeyPosition": 1
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Edad",
-    "questionShort": "Edad…",
-    "fieldName": "Datos_Edad",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 2,
-    "superSurveyCol": 11,
-    "surveyMonkeyId": "308206448",
-    "surveyMonkeyPosition": 2
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Fecha de nacimiento (dd/mm/aaaa)",
-    "questionShort": "Fecha de nacimiento (dd/mm/aaa…",
-    "fieldName": "Datos_Nacimiento",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 3,
-    "superSurveyCol": 12,
-    "surveyMonkeyId": "308206449",
-    "surveyMonkeyPosition": 3
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Sexo",
-    "questionShort": "Sexo…",
-    "fieldName": "Datos_Sexo",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 4,
-    "superSurveyCol": 13,
-    "surveyMonkeyId": "308206450",
-    "surveyMonkeyPosition": 4
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Estado civil",
-    "questionShort": "Estado civil…",
-    "fieldName": "Datos_Civil",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 5,
-    "superSurveyCol": 14,
-    "surveyMonkeyId": "308206451",
-    "surveyMonkeyPosition": 5
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Estado de procedencia",
-    "questionShort": "Estado de procedencia…",
-    "fieldName": "Datos_Estado",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 6,
-    "superSurveyCol": 15,
-    "surveyMonkeyId": "308206452",
-    "surveyMonkeyPosition": 6
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Municipio de residencia actual:",
-    "questionShort": "Municipio de residencia actual…",
-    "fieldName": "Datos_Municipio",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 7,
-    "superSurveyCol": 16,
-    "surveyMonkeyId": "775092991",
-    "surveyMonkeyPosition": 7
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Medio de transporte:",
-    "questionShort": "Medio de transporte:…",
-    "fieldName": "Datos_Transporte",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 8,
-    "superSurveyCol": 17,
-    "surveyMonkeyId": "775093000",
-    "surveyMonkeyPosition": 8
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
-    "questionShort": "Distancia aproximada de trasla…",
-    "fieldName": "Datos_DistanciaTrabajo",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 9,
-    "superSurveyCol": 18,
-    "surveyMonkeyId": "775093007",
-    "surveyMonkeyPosition": 9
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Último grado de estudios:",
-    "questionShort": "Último grado de estudios:…",
-    "fieldName": "Datos_GradoEstudios",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 10,
-    "superSurveyCol": 19,
-    "surveyMonkeyId": "308206453",
-    "surveyMonkeyPosition": 10
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Ocupación actual",
-    "questionShort": "Ocupación actual…",
-    "fieldName": "Datos_Ocupacion",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 11,
-    "superSurveyCol": 20,
-    "surveyMonkeyId": "308206488",
-    "surveyMonkeyPosition": 11
-  },
-  {
-    "surveyId": "6587d62808dc50b89e722825",
-    "question": "Área a la que aplica:",
-    "questionShort": "Área a la que aplica:…",
-    "fieldName": "Datos_AreaOcupacion",
-    "weightType": "NO_WEIGHT",
-    "weights": {},
-    "surveyCol": 12,
-    "superSurveyCol": 21,
-    "surveyMonkeyId": "309860975",
-    "surveyMonkeyPosition": 12
-  }
-]
+{
+  "owner": "652b0b3e1d61edfd4b8d4e8e",
+  "surveyName": "Datos",
+  "surveyShortName": "Datos",
+  "description": "Informacion de la persona encuestada.",
+  "instructions": "",
+  "surveyMonkeyPosition": 1,
+  "questionList": [
+    {
+      "surveyId": "",
+      "question": "Nombre completo:",
+      "questionShort": "Nombre completo:…",
+      "fieldName": "Datos_Nombre",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 1,
+        "answerType": "noother"
+      },
+      "surveyCol": 1,
+      "superSurveyCol": 10
+    },
+    {
+      "surveyId": "",
+      "question": "Edad",
+      "questionShort": "Edad…",
+      "fieldName": "Datos_Edad",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 2,
+        "answerType": "noother"
+      },
+      "surveyCol": 2,
+      "superSurveyCol": 11
+    },
+    {
+      "surveyId": "",
+      "question": "Fecha de nacimiento (dd/mm/aaaa)",
+      "questionShort": "Fecha de nacimiento (dd/mm/aaa…",
+      "fieldName": "Datos_Nacimiento",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 3,
+        "answerType": "noother"
+      },
+      "surveyCol": 3,
+      "superSurveyCol": 12
+    },
+    {
+      "surveyId": "",
+      "question": "Sexo",
+      "questionShort": "Sexo…",
+      "fieldName": "Datos_Sexo",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 4,
+        "answerType": "noother"
+      },
+      "surveyCol": 4,
+      "superSurveyCol": 13
+    },
+    {
+      "surveyId": "",
+      "question": "Estado civil",
+      "questionShort": "Estado civil…",
+      "fieldName": "Datos_Civil",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 5,
+        "answerType": "noother"
+      },
+      "surveyCol": 5,
+      "superSurveyCol": 14
+    },
+    {
+      "surveyId": "",
+      "question": "Estado de procedencia",
+      "questionShort": "Estado de procedencia…",
+      "fieldName": "Datos_Estado",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 6,
+        "answerType": "noother"
+      },
+      "surveyCol": 6,
+      "superSurveyCol": 15
+    },
+    {
+      "surveyId": "",
+      "question": "Otro país (especifique)",
+      "questionShort": "Otro país (especifique)…",
+      "fieldName": "Datos_OtroPais",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 6,
+        "answerType": "other"
+      },
+      "surveyCol": 7,
+      "superSurveyCol": 16
+    },
+    {
+      "surveyId": "",
+      "question": "Municipio de residencia actual:",
+      "questionShort": "Municipio de residencia actual…",
+      "fieldName": "Datos_Municipio",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 7,
+        "answerType": "noother"
+      },
+      "surveyCol": 8,
+      "superSurveyCol": 17
+    },
+    {
+      "surveyId": "",
+      "question": "Medio de transporte:",
+      "questionShort": "Medio de transporte:…",
+      "fieldName": "Datos_Transporte",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 8,
+        "answerType": "noother"
+      },
+      "surveyCol": 9,
+      "superSurveyCol": 18
+    },
+    {
+      "surveyId": "",
+      "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
+      "questionShort": "Distancia aproximada de trasla…",
+      "fieldName": "Datos_DistanciaTrabajo",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 9,
+        "answerType": "noother"
+      },
+      "surveyCol": 10,
+      "superSurveyCol": 19
+    },
+    {
+      "surveyId": "",
+      "question": "Último grado de estudios:",
+      "questionShort": "Último grado de estudios:…",
+      "fieldName": "Datos_GradoEstudios",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 10,
+        "answerType": "noother"
+      },
+      "surveyCol": 11,
+      "superSurveyCol": 20
+    },
+    {
+      "surveyId": "",
+      "question": "Ocupación actual",
+      "questionShort": "Ocupación actual…",
+      "fieldName": "Datos_Ocupacion",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 11,
+        "answerType": "noother"
+      },
+      "surveyCol": 12,
+      "superSurveyCol": 21
+    },
+    {
+      "surveyId": "",
+      "question": "Área a la que aplica:",
+      "questionShort": "Área a la que aplica:…",
+      "fieldName": "Datos_AreaOcupacion",
+      "weightType": "NO_WEIGHT",
+      "weights": {},
+      "surveyMonkeyPosition": {
+        "position": 12,
+        "answerType": "noother"
+      },
+      "surveyCol": 13,
+      "superSurveyCol": 22
+    }
+  ]
+}
