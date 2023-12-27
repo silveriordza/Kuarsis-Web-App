@@ -240,6 +240,29 @@ const SurveyMonkeyConfig = mongoose.model(
   surveyMonkeyConfigModel
 );
 
+const surveyMonkeyNewResponseModel = mongoose.Schema(
+  {
+    superSurveyId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "SuperSurvey",
+    },
+    surveyMonkeyId: { type: String, required: true },
+    respondent_id: { type: String, required: true },
+    event_type: { type: String, required: true },
+    event_datetime: { type: Date, required: true },
+    processed_date: { type: Date, required: false },
+    process_status: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
+const SurveyMonkeyNewResponse = mongoose.model(
+  "SurveyMonkeyNewResponse",
+  surveyMonkeyNewResponseModel
+);
+
 // const surveyOutputReportHeadersModel = mongoose.Schema(
 //   {
 //     // surveyCollectedId: {
@@ -278,4 +301,5 @@ module.exports = {
   SurveyCalculatedField,
   SurveyCalculatedValue,
   SurveyMonkeyConfig,
+  SurveyMonkeyNewResponse,
 };

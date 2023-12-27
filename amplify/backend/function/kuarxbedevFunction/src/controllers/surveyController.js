@@ -5,6 +5,9 @@ const util = require("util");
 const axios = require("axios");
 
 let asyncHandler = require("express-async-handler");
+
+const { SURVEY_PROCESS_STATUS } = require("../config/surveyConstants.js");
+
 // let {
 //   superSurveyConf,
 // } = require("../models/otherModelsNotCode/surveyOnCareTreatmentTalentos2020.js");
@@ -19,6 +22,7 @@ let {
   SurveySuperiorOutputLayout,
   SurveyResponse,
   SurveyMonkeyConfig,
+  SurveyMonkeyNewResponse,
 } = require("../models/surveysModel.js");
 
 let { DynamicCollection } = require("../models/dynamicCollectionModel.js");
@@ -819,20 +823,79 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
   const functionName = "surveyMonkeyWebhookCompletedEvent";
   const log = new LoggerSettings(srcFileName, functionName);
 
-  LogThis(log, `START`, L0);
-  LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0);
-  const bd = req.body;
-  LogThis(
-    log,
-    `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
-    L0
-  );
+  try {
+    LogThis(log, `START`, L0);
+    LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0);
+    const bd = req.body;
+    LogThis(
+      log,
+      `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
+      L0
+    );
 
-  LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0);
+    LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0);
+    const resources = bd.resources;
 
-  LogThis(log, `Event Happened`, L0);
+    const superSurveyFound = await SurveySuperior.findOne({
+      surveyMonkeyId: resources.survey_id,
+    }).lean();
 
-  res.status(200).end();
+    if (!superSurveyFound) {
+      throw new Error(
+        `Monkey webhook: survey_id ${resources.survey_id} of respondent ${resources.respondent_id} not found`
+      );
+    }
+    LogThis(
+      log,
+      `superSurveyFound=${JSON.stringify(superSurveyFound, null, 1)}`,
+      L0
+    );
+    const superSurvey = superSurveyFound;
+    let newResponseFound = await SurveyMonkeyNewResponse.findOne({
+      respondentId: resources.respondent_id,
+      surveyMonkeyId: resources.survey_id,
+    });
+    //let newResponse = null;
+    if (newResponseFound) {
+      //newResponse = newResponseFound[0];
+      LogThis(
+        log,
+        `updating respondent, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
+        L0
+      );
+      newResponseFound.event_type = bd.event_type;
+      newResponseFound.event_datetime = bd.event_datetime;
+      newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED;
+    } else {
+      LogThis(log, `creating respondent`, L0);
+      LogThis(
+        log,
+        `resources.event_datetime=${
+          bd.event_datetime
+        }; date converted=${new Date(bd.event_datetime)}; status=${
+          SURVEY_PROCESS_STATUS.NEW
+        }`,
+        L0
+      );
+      newResponseFound = new SurveyMonkeyNewResponse({
+        superSurveyId: superSurvey._id,
+        surveyMonkeyId: resources.survey_id,
+        respondent_id: resources.respondent_id,
+        event_type: bd.event_type,
+        event_datetime: bd.event_datetime,
+        process_status: SURVEY_PROCESS_STATUS.NEW,
+      });
+    }
+
+    await newResponseFound.save();
+
+    LogThis(log, `Event Happened`, L0);
+
+    res.status(200).end();
+  } catch (error) {
+    LogThis(log, `Error found: ${error.message}`, L0);
+    res.status(200).end();
+  }
 });
 
 const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
@@ -2282,6 +2345,48 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
   }
 });
 
+const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
+  const functionName = "surveyMonkeyUpdateResponses";
+  const log = new LoggerSettings(srcFileName, functionName);
+  try {
+    LogThis(log, `START BY user=${req.user.email}`, L1);
+    /**
+     * On 12/7/23 I was working on the pagination and lookup by keyword
+     * This function won't work without page beein provided by the client, the keyword is optional.
+     */
+    const superSurveyShortName = req.params.id;
+    //const superSurveyShortName = req.query.superSurveyShortName;
+
+    LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L0);
+    const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
+
+    let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
+      surveyOutputCollectionName
+    );
+    // LogThis(
+    //   log,
+    //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
+    //   L0
+    // );
+    //await surveyOutputCollectionFound.deleteMany({});
+    const respondentIdsInfo = await surveyOutputCollectionFound
+      .find({})
+      .select(
+        "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
+      )
+      .sort({ SCOLINFO_respondent_id: -1 })
+      .lean();
+    //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L0);
+    res.status(200).json({
+      respondentIdsInfo: respondentIdsInfo,
+    });
+  } catch (error) {
+    LogThis(log, `Error getting respondent ids error=${JSON.stringify(error)}`);
+    res.status(404).json({ message: "Error getting respondent ids error" });
+    throw new Error(`Error getting respondent ids error=${error.message}`);
+  }
+});
+
 module.exports = {
   superSurveyUploadAnswers,
   superSurveyCreateConfig,
@@ -2297,4 +2402,5 @@ module.exports = {
   testSurveyMonkey,
   surveyMonkeyWebhookCreatedEvent,
   surveyMonkeyWebhookCompletedEvent,
+  surveyMonkeyUpdateResponses,
 };
