@@ -4,15 +4,14 @@
     "surveyName": "Oncare Treatment Center 2020 Talentos",
     "surveyShortName": "TALENTOS_2020",
     "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
-    "surveyMonkeyId": "",
+    "surveyMonkeyId": "182423261",
     "surveyList": [
       {
         "owner": "652b0b3e1d61edfd4b8d4e8e",
         "surveyName": "surveyCollectionInformation",
-        "surveyShortName": "SCOLINFO",
+        "surveyShortName": "RESPONSE",
         "description": "Informacion de la ecuesta recolectada.",
         "instructions": "",
-        "surveyMonkeyId": "SCOLINFO",
         "surveyMonkeyPosition": 0,
         "questionList": [
           {
@@ -113,7 +112,6 @@
         "surveyShortName": "Datos",
         "description": "Informacion de la persona encuestada.",
         "instructions": "",
-        "surveyMonkeyId": "84651064",
         "surveyMonkeyPosition": 1,
         "questionList": [
           {
@@ -123,6 +121,7 @@
             "fieldName": "Datos_Nombre",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 1, "answerType": "noother" },
             "surveyCol": 1,
             "superSurveyCol": 10
           },
@@ -133,6 +132,7 @@
             "fieldName": "Datos_Edad",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 2, "answerType": "noother" },
             "surveyCol": 2,
             "superSurveyCol": 11
           },
@@ -143,6 +143,7 @@
             "fieldName": "Datos_Nacimiento",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 3, "answerType": "noother" },
             "surveyCol": 3,
             "superSurveyCol": 12
           },
@@ -153,6 +154,7 @@
             "fieldName": "Datos_Sexo",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 4, "answerType": "noother" },
             "surveyCol": 4,
             "superSurveyCol": 13
           },
@@ -163,6 +165,7 @@
             "fieldName": "Datos_Civil",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 5, "answerType": "noother" },
             "surveyCol": 5,
             "superSurveyCol": 14
           },
@@ -173,6 +176,7 @@
             "fieldName": "Datos_Estado",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 6, "answerType": "noother" },
             "surveyCol": 6,
             "superSurveyCol": 15
           },
@@ -183,6 +187,7 @@
             "fieldName": "Datos_OtroPais",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 6, "answerType": "other" },
             "surveyCol": 7,
             "superSurveyCol": 16
           },
@@ -193,6 +198,7 @@
             "fieldName": "Datos_Municipio",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 7, "answerType": "noother" },
             "surveyCol": 8,
             "superSurveyCol": 17
           },
@@ -203,6 +209,7 @@
             "fieldName": "Datos_Transporte",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 8, "answerType": "noother" },
             "surveyCol": 9,
             "superSurveyCol": 18
           },
@@ -213,6 +220,7 @@
             "fieldName": "Datos_DistanciaTrabajo",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 9, "answerType": "noother" },
             "surveyCol": 10,
             "superSurveyCol": 19
           },
@@ -223,6 +231,7 @@
             "fieldName": "Datos_GradoEstudios",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 10, "answerType": "noother" },
             "surveyCol": 11,
             "superSurveyCol": 20
           },
@@ -233,6 +242,7 @@
             "fieldName": "Datos_Ocupacion",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 11, "answerType": "noother" },
             "surveyCol": 12,
             "superSurveyCol": 21
           },
@@ -243,6 +253,7 @@
             "fieldName": "Datos_AreaOcupacion",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 12, "answerType": "noother" },
             "surveyCol": 13,
             "superSurveyCol": 22
           }

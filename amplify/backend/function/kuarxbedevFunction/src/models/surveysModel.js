@@ -57,7 +57,10 @@ const surveyQuestionModel = mongoose.Schema(
     surveyCol: { type: Number, required: true },
     superSurveyCol: { type: Number, required: true },
     surveyMonkeyId: { type: String, required: false, default: "" },
-    surveyMonkeyPosition: { type: Number, required: false, default: 0 },
+    surveyMonkeyPosition: {
+      type: mongoose.Schema.Types.Mixed,
+      required: false,
+    },
     surveyMonkeyFamily: { type: String, required: false, default: "" },
     surveyMonkeySubType: { type: String, required: false, default: "" },
     surveyMonkeyAnswers: {
