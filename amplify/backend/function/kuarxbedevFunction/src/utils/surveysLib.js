@@ -1,5 +1,23 @@
 /** @format */
-let { LogThis, LoggerSettings } = require("../utils/Logger.js");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+let {
+  SurveySuperior,
+  Survey,
+  SurveyQuestion,
+  SurveyCalculatedField,
+  SurveyCalculatedValue,
+  //SurveyMulti,
+  SurveySuperiorOutputLayout,
+  SurveyResponse,
+  SurveyMonkeyConfig,
+  SurveyMonkeyNewResponse,
+} = require("../models/surveysModel.js");
+
+let { LogThis, LoggerSettings, L0 } = require("../utils/Logger.js");
+const { j } = require("./Functions.js");
+
 const srcFileName = "surveysLib.js";
 
 const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
@@ -50,6 +68,63 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
   return outputFields;
 };
 
+/**
+ * Get all the configs for all the superSurveys on the superSurveysList including Questions, Calculated Fields, Outpout layouts.
+ *
+ * @param {SurveySuperior} superSurveysList - List of surveys of type SurveySuperior from DB model.
+ * @returns {SurveyConfigs} An array of SurveySuperiors including all Surveys, Questions, CalculatedFields and outpout layouts.
+ */
+const getSuperSurveysConfigs = async (superSurveysList) => {
+  const log = new LoggerSettings(srcFileName, "getSuperSurveysConfigs");
+
+  let surveys = await Survey.find({
+    superSurveyId: { $all: superSurveysList.map((survey) => survey._id) },
+  })
+    .sort({ surveyMonkeyPosition: 1 })
+    .lean();
+
+  LogThis(log, `surveys=${j(surveys)}`, L0);
+
+  let questions = await SurveyQuestion.find({
+    surveyId: { $in: surveys.map((survey) => survey._id) },
+  })
+    .sort({ superSurveyCol: 1 })
+    .lean();
+
+  LogThis(log, `questions=${j(questions)}`, L0);
+  surveys.forEach((survey) => {
+    survey.questions = questions.filter((question) => {
+      return question.surveyId.toString() == survey._id.toString();
+    });
+    //LogThis(log, `Questions mapped to survey ${j(survey.questions)} `, L0);
+  });
+
+  //LogThis(log, `surveys.questionsAll=${j(surveys)}`, L0);
+
+  superSurveysList.forEach((superSurvey) => {
+    superSurvey.surveys = surveys.filter(
+      (survey) => survey.superSurveyId.toString() == superSurvey._id.toString()
+    );
+  });
+
+  //LogThis(log, `All configs=${j(superSurveysList)}`, L0);
+  return superSurveysList;
+};
+
+const addResponseInfo = (row, response) => {
+  row.push(response.id);
+  row.push(response.first_name);
+  row.push(response.last_name);
+  row.push(response.email_address);
+  row.push(response.ip_address);
+  row.push(response.collector_id);
+  row.push(response.survey_id);
+  row.push(response.date_modified);
+  row.push(response.date_created);
+};
+
 module.exports = {
   buildOutputHeaders,
+  getSuperSurveysConfigs,
+  addResponseInfo,
 };

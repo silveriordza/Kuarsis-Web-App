@@ -12,4 +12,8 @@ const formatDate = (inputDate) => {
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 };
 
-module.exports = formatDate;
+const j = (value) => {
+  return JSON.stringify(value, null, 1);
+};
+
+module.exports = { formatDate, j };

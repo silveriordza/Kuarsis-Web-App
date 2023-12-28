@@ -7,6 +7,13 @@ const axios = require("axios");
 let asyncHandler = require("express-async-handler");
 
 const { SURVEY_PROCESS_STATUS } = require("../config/surveyConstants.js");
+const { j } = require("../utils/Functions.js");
+const { getMonkeyResponses } = require("../utils/surveyMonkeyAPI.js");
+const {
+  buildOutputHeaders,
+  getSuperSurveysConfigs,
+  addResponseInfo,
+} = require("../utils/surveysLib.js");
 
 // let {
 //   superSurveyConf,
@@ -50,8 +57,6 @@ let {
 const srcFileName = "surveyController.js";
 
 const fs = require("fs");
-
-const { buildOutputHeaders } = require("../utils/surveysLib.js");
 
 //let onCareSuperSurvey = require("../models/surveyOnCareTreatmentTalentos2020.json");
 
@@ -1997,6 +2002,105 @@ const superSurveyGetList = asyncHandler(async (req, res) => {
   }
 });
 
+const surveySaveOutputHelper = asyncHandler(
+  async (superSurveyId, columnsNames, outputValues) => {
+    const functionName = "surveySaveOutputHelper";
+    const log = new LoggerSettings(srcFileName, functionName);
+    try {
+      LogThis(
+        log,
+        `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
+          columnsNames,
+          null,
+          2
+        )}; outputValues=${JSON.stringify(outputValues)}`,
+        L3
+      );
+      const surveySuperiors = await SurveySuperior.find({
+        _id: superSurveyId,
+      }).lean();
+      let x = 0;
+      x = x + 1;
+      LogThis(
+        log,
+        `x=${x}; surveySuperiors=${JSON.stringify(surveySuperiors)}`,
+        L3
+      );
+
+      const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`;
+
+      //   const collections = await mongoose.connection.db
+      //   .listCollections({ name: surveyOutputCollectionName })
+      //   .toArray();
+      // x = x + 1;
+      // LogThis(log, `x=${x}`, L3);
+      // const collInfo = collections.find(
+      //   (collection) => collection.name === surveyOutputCollectionName
+      // );
+
+      //const surveyOutputs = mongoose.model(surveyOutputCollectionName);
+      let surveyOutputCollection = mongoose.connection.collection(
+        surveyOutputCollectionName.toLocaleLowerCase()
+      );
+      // x = x + 1;
+      // LogThis(log, `x=${x}`, L3);
+      // await surveyOutputCollection.deleteMany({});
+      x = x + 1;
+      LogThis(log, `x=${x}`, L3);
+      const outputValueDocuments = [];
+      let dateTimeParts = [];
+      let dateValue = null;
+      outputValues.forEach((row) => {
+        let doc = {};
+        columnsNames.forEach((column, index) => {
+          switch (column) {
+            case "SCOLINFO_date_created":
+              dateTimeParts = row[index].split(/[\s/:\-]/);
+              dateValue = new Date(
+                dateTimeParts[2], // Year
+                dateTimeParts[0] - 1, // Month
+                dateTimeParts[1], // Day
+                dateTimeParts[3], // Hours
+                dateTimeParts[4] // Minutes)
+              );
+              doc[column] = dateValue;
+              break;
+            case "SCOLINFO_date_modified":
+              dateTimeParts = row[index].split(/[\s/:\-]/);
+              dateValue = new Date(
+                dateTimeParts[2], // Year
+                dateTimeParts[0] - 1, // Month
+                dateTimeParts[1], // Day
+                dateTimeParts[3], // Hours
+                dateTimeParts[4] // Minutes)
+              );
+              doc[column] = dateValue;
+              break;
+            default:
+              doc[column] = row[index];
+          }
+        });
+        outputValueDocuments.push(doc);
+        doc = {};
+      });
+      x = x + 1;
+      LogThis(log, `x=${x}`, L3);
+      // LogThis(
+      //   log,
+      //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
+      // );
+      // x = x + 1;
+      // LogThis(log, `x=${x}`, L3);
+      await surveyOutputCollection.insertMany(outputValueDocuments);
+      x = x + 1;
+      LogThis(log, `x=${x}`, L3);
+    } catch (error) {
+      LogThis(log, `error ocurred: ${error.message}`, L0);
+      throw error;
+    }
+  }
+);
+
 // @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
 // @access  Private/Admin
@@ -2009,93 +2113,8 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
 
     const superSurveyId = req.params.id;
 
-    LogThis(
-      log,
-      `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
-        columnsNames,
-        null,
-        2
-      )}; outputValues=${JSON.stringify(outputValues)}`,
-      L3
-    );
-    const surveySuperiors = await SurveySuperior.find({
-      _id: superSurveyId,
-    }).lean();
-    let x = 0;
-    x = x + 1;
-    LogThis(
-      log,
-      `x=${x}; surveySuperiors=${JSON.stringify(surveySuperiors)}`,
-      L3
-    );
+    await surveySaveOutputHelper(superSurveyId, columnsNames, outputValues);
 
-    const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`;
-
-    //   const collections = await mongoose.connection.db
-    //   .listCollections({ name: surveyOutputCollectionName })
-    //   .toArray();
-    // x = x + 1;
-    // LogThis(log, `x=${x}`, L3);
-    // const collInfo = collections.find(
-    //   (collection) => collection.name === surveyOutputCollectionName
-    // );
-
-    //const surveyOutputs = mongoose.model(surveyOutputCollectionName);
-    let surveyOutputCollection = mongoose.connection.collection(
-      surveyOutputCollectionName.toLocaleLowerCase()
-    );
-    // x = x + 1;
-    // LogThis(log, `x=${x}`, L3);
-    // await surveyOutputCollection.deleteMany({});
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
-    const outputValueDocuments = [];
-    let dateTimeParts = [];
-    let dateValue = null;
-    outputValues.forEach((row) => {
-      let doc = {};
-      columnsNames.forEach((column, index) => {
-        switch (column) {
-          case "SCOLINFO_date_created":
-            dateTimeParts = row[index].split(/[\s/:\-]/);
-            dateValue = new Date(
-              dateTimeParts[2], // Year
-              dateTimeParts[0] - 1, // Month
-              dateTimeParts[1], // Day
-              dateTimeParts[3], // Hours
-              dateTimeParts[4] // Minutes)
-            );
-            doc[column] = dateValue;
-            break;
-          case "SCOLINFO_date_modified":
-            dateTimeParts = row[index].split(/[\s/:\-]/);
-            dateValue = new Date(
-              dateTimeParts[2], // Year
-              dateTimeParts[0] - 1, // Month
-              dateTimeParts[1], // Day
-              dateTimeParts[3], // Hours
-              dateTimeParts[4] // Minutes)
-            );
-            doc[column] = dateValue;
-            break;
-          default:
-            doc[column] = row[index];
-        }
-      });
-      outputValueDocuments.push(doc);
-      doc = {};
-    });
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
-    // LogThis(
-    //   log,
-    //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
-    // );
-    // x = x + 1;
-    // LogThis(log, `x=${x}`, L3);
-    await surveyOutputCollection.insertMany(outputValueDocuments);
-    x = x + 1;
-    LogThis(log, `x=${x}`, L3);
     res.status(200).json({ surveyOutputStatus: "success" });
   } catch (error) {
     res.status(404);
@@ -2349,37 +2368,206 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
   const functionName = "surveyMonkeyUpdateResponses";
   const log = new LoggerSettings(srcFileName, functionName);
   try {
-    LogThis(log, `START BY user=${req.user.email}`, L1);
+    //LogThis(log, `START BY user=${req.user.email}`, L1);
     /**
      * On 12/7/23 I was working on the pagination and lookup by keyword
      * This function won't work without page beein provided by the client, the keyword is optional.
      */
-    const superSurveyShortName = req.params.id;
-    //const superSurveyShortName = req.query.superSurveyShortName;
+    const surveyShortName = "TALENTOS_2020";
+    const superSurveysList = await SurveySuperior.findOne({
+      surveyShortName: surveyShortName,
+    }).lean();
 
-    LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L0);
-    const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
+    const newRespondents = await SurveyMonkeyNewResponse.find({
+      $and: [
+        { superSurveyId: superSurveysList._id },
+        {
+          $or: [
+            { process_status: SURVEY_PROCESS_STATUS.NEW },
+            { process_status: SURVEY_PROCESS_STATUS.UPDATED },
+          ],
+        },
+      ],
+    }).lean();
+    LogThis(log, `newRespondents=${j(newRespondents)}`, L0);
 
-    let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
-      surveyOutputCollectionName
-    );
-    // LogThis(
-    //   log,
-    //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
-    //   L0
-    // );
-    //await surveyOutputCollectionFound.deleteMany({});
-    const respondentIdsInfo = await surveyOutputCollectionFound
-      .find({})
-      .select(
-        "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
-      )
-      .sort({ SCOLINFO_respondent_id: -1 })
-      .lean();
-    //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L0);
-    res.status(200).json({
-      respondentIdsInfo: respondentIdsInfo,
+    if (!newRespondents) {
+      res.status(200).json({ message: "No responses to process" });
+    }
+
+    const superSurveysArray = [superSurveysList];
+
+    let superSurveysConfigs = await getSuperSurveysConfigs(superSurveysArray);
+
+    const monkeyResponses = await getMonkeyResponses(newRespondents);
+
+    //const surveyRows = [];
+    const rowsValue = [];
+    const rowsReal = [];
+    const rowsScore = [];
+
+    monkeyResponses.forEach((monkeyResponse) => {
+      let rowValue = [];
+      let rowReal = [];
+      let rowScore = [];
+      addResponseInfo(rowValue, monkeyResponse);
+      addResponseInfo(rowReal, monkeyResponse);
+
+      rowValue.forEach((r) => rowScore.push(0));
+
+      let monkeySurveys = monkeyResponse.pages;
+      superSurveysConfigs.surveys.forEach((surveyConfig) => {
+        let monkeySurvey = monkeySurveys.find((monkeySurvey) => {
+          LogThis(
+            log,
+            `THIS monkeySurvey.id=${
+              monkeySurvey.id
+            }; surveyConfig.surveyMonkeyId=${
+              surveyConfig.surveyMonkeyId
+            } condition: ${monkeySurvey.id == surveyConfig.surveyMonkeyId}`,
+            L0
+          );
+          return monkeySurvey.id == surveyConfig.surveyMonkeyId;
+        });
+        if (!monkeySurvey) {
+          throw new Error(`Survey Monkey response is missing a survey`);
+        }
+        let x = 0;
+
+        LogThis(log, `Here ${x++}`, L0);
+        surveyConfig.questions.forEach((surveyQuestion) => {
+          let monkeyQuestions = monkeySurvey.questions;
+          let monkeyQuestion = monkeyQuestions.find(
+            (monkeyQuestion) =>
+              monkeyQuestion.id == surveyQuestion.surveyMonkeyId
+          );
+          let monkeyAnswerObject = answers[0];
+          let monkeyAnswer =
+            monkeyAnswerObject[surveyQuestion.surveyMonkeyAnswers.answerField];
+          let value = null;
+          let realValue = null;
+          let score = null;
+
+          let questionType =
+            surveyQuestion.surveyMonkeyFamily +
+            "_" +
+            surveyQuestion.surveyMonkeySubType;
+          switch (questionType) {
+            case "open_ended_single":
+              value = monkeyAnswer;
+              realValue = monkeyAnswer;
+              score = null;
+              break;
+            case "single_choice_menu":
+              //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
+              if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
+                value = monkeyAnswer;
+                realValue = monkeyAnswer;
+                score = null;
+              } else if (
+                surveyQuestion.surveyMonkeyPosition.answerType == "noother"
+              ) {
+                let surveyChoice =
+                  surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+                    (choice) => choice.id == monkeyAnswer
+                  );
+                value = surveyChoice.value;
+                realValue = surveyChoice.realValue;
+                score = surveyChoice.score;
+              } else {
+                LogThis(
+                  log,
+                  `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
+                  L0
+                );
+                throw new Error(
+                  `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
+                );
+              }
+              break;
+            case "single_choice_vertical":
+              //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
+              if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
+                value = monkeyAnswer;
+                realValue = monkeyAnswer;
+                score = null;
+              } else if (
+                surveyQuestion.surveyMonkeyPosition.answerType == "noother"
+              ) {
+                let surveyChoice =
+                  surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+                    (choice) => choice.id == monkeyAnswer
+                  );
+                value = surveyChoice.value;
+                realValue = surveyChoice.realValue;
+                score = surveyChoice.score;
+              } else {
+                LogThis(
+                  log,
+                  `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
+                  L0
+                );
+                throw new Error(
+                  `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
+                );
+              }
+              break;
+            default:
+              LogThis(
+                log,
+                `Family:${surveyQuestion.surveyMonkeyFamily} and subType=${surveyQuestion.surveyMonkeySubType} combination is not valid.`,
+                L0
+              );
+              throw new Error(
+                `Family:${family} and subType=${subtype} combination is not valid.`
+              );
+          }
+          //case end
+          rowValue.push(value);
+          rowReal.push(realValue);
+          score.push(score);
+        });
+      });
+      rowsValue.push(rowValue);
+      rowsReal.push(rowReal);
+      rowsScore.push(rowScore);
     });
+
+    res.status(200).json({
+      rowsValue: rowsValue,
+      rowsValue: rowsReal,
+      rowsValue: rowsScore,
+      superSurveysConfigs: superSurveysConfigs,
+      monkeyResponses: monkeyResponses,
+    });
+
+    // await surveySaveOutputHelper(superSurveyId, columnsNames, outputValues);
+    // const superSurveyShortName = req.params.id;
+    // //const superSurveyShortName = req.query.superSurveyShortName;
+
+    // LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L0);
+    // const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
+
+    // let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
+    //   surveyOutputCollectionName
+    // );
+    // // LogThis(
+    // //   log,
+    // //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
+    // //   L0
+    // // );
+    // //await surveyOutputCollectionFound.deleteMany({});
+    // const respondentIdsInfo = await surveyOutputCollectionFound
+    //   .find({})
+    //   .select(
+    //     "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
+    //   )
+    //   .sort({ SCOLINFO_respondent_id: -1 })
+    //   .lean();
+    // //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L0);
+    // res.status(200).json({
+    //   newRespondents: newRespondents,
+    // });
   } catch (error) {
     LogThis(log, `Error getting respondent ids error=${JSON.stringify(error)}`);
     res.status(404).json({ message: "Error getting respondent ids error" });
