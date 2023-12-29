@@ -15,7 +15,7 @@ let {
   SurveyMonkeyNewResponse,
 } = require("../models/surveysModel.js");
 
-let { LogThis, LoggerSettings, L0 } = require("../utils/Logger.js");
+let { LogThis, LoggerSettings, L0, L1, L2, L3 } = require("../utils/Logger.js");
 const { j } = require("./Functions.js");
 
 const srcFileName = "surveysLib.js";
@@ -83,7 +83,7 @@ const getSuperSurveysConfigs = async (superSurveysList) => {
     .sort({ surveyMonkeyPosition: 1 })
     .lean();
 
-  LogThis(log, `surveys=${j(surveys)}`, L0);
+  LogThis(log, `surveys=${j(surveys)}`, L3);
 
   let questions = await SurveyQuestion.find({
     surveyId: { $in: surveys.map((survey) => survey._id) },
@@ -91,7 +91,7 @@ const getSuperSurveysConfigs = async (superSurveysList) => {
     .sort({ superSurveyCol: 1 })
     .lean();
 
-  LogThis(log, `questions=${j(questions)}`, L0);
+  LogThis(log, `questions=${j(questions)}`, L3);
   surveys.forEach((survey) => {
     survey.questions = questions.filter((question) => {
       return question.surveyId.toString() == survey._id.toString();
@@ -113,14 +113,14 @@ const getSuperSurveysConfigs = async (superSurveysList) => {
 
 const addResponseInfo = (row, response) => {
   row.push(response.id);
+  row.push(response.collector_id);
+  row.push(response.date_created);
+  row.push(response.date_modified);
+  row.push(response.ip_address);
+  row.push(response.email_address);
   row.push(response.first_name);
   row.push(response.last_name);
-  row.push(response.email_address);
-  row.push(response.ip_address);
-  row.push(response.collector_id);
-  row.push(response.survey_id);
-  row.push(response.date_modified);
-  row.push(response.date_created);
+  row.push(response.custom_value);
 };
 
 module.exports = {

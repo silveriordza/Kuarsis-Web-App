@@ -86,7 +86,9 @@ router
   })
   .post(surveyMonkeyWebhookCompletedEvent);
 
-router.route("/surveymonkey/updateresponses").put(surveyMonkeyUpdateResponses);
+router
+  .route("/surveymonkey/updateresponses/:id")
+  .put(surveyMonkeyUpdateResponses);
 
 router
   .route("/")

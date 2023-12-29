@@ -9,10 +9,9 @@
       {
         "owner": "652b0b3e1d61edfd4b8d4e8e",
         "surveyName": "surveyCollectionInformation",
-        "surveyShortName": "SCOLINFO",
+        "surveyShortName": "RESPONSE",
         "description": "Informacion de la ecuesta recolectada.",
         "instructions": "",
-        "surveyMonkeyId": "SCOLINFO",
         "surveyMonkeyPosition": 0,
         "questionList": [
           {
@@ -113,7 +112,6 @@
         "surveyShortName": "Datos",
         "description": "Informacion de la persona encuestada.",
         "instructions": "",
-        "surveyMonkeyId": "84651064",
         "surveyMonkeyPosition": 1,
         "questionList": [
           {
@@ -123,6 +121,7 @@
             "fieldName": "Datos_Nombre",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 1, "answerType": "noother" },
             "surveyCol": 1,
             "superSurveyCol": 10
           },
@@ -133,6 +132,7 @@
             "fieldName": "Datos_Edad",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 2, "answerType": "noother" },
             "surveyCol": 2,
             "superSurveyCol": 11
           },
@@ -143,6 +143,7 @@
             "fieldName": "Datos_Nacimiento",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 3, "answerType": "noother" },
             "surveyCol": 3,
             "superSurveyCol": 12
           },
@@ -153,6 +154,7 @@
             "fieldName": "Datos_Sexo",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 4, "answerType": "noother" },
             "surveyCol": 4,
             "superSurveyCol": 13
           },
@@ -163,6 +165,7 @@
             "fieldName": "Datos_Civil",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 5, "answerType": "noother" },
             "surveyCol": 5,
             "superSurveyCol": 14
           },
@@ -173,6 +176,7 @@
             "fieldName": "Datos_Estado",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 6, "answerType": "noother" },
             "surveyCol": 6,
             "superSurveyCol": 15
           },
@@ -183,6 +187,7 @@
             "fieldName": "Datos_OtroPais",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 6, "answerType": "other" },
             "surveyCol": 7,
             "superSurveyCol": 16
           },
@@ -193,6 +198,7 @@
             "fieldName": "Datos_Municipio",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 7, "answerType": "noother" },
             "surveyCol": 8,
             "superSurveyCol": 17
           },
@@ -203,6 +209,7 @@
             "fieldName": "Datos_Transporte",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 8, "answerType": "noother" },
             "surveyCol": 9,
             "superSurveyCol": 18
           },
@@ -213,6 +220,7 @@
             "fieldName": "Datos_DistanciaTrabajo",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 9, "answerType": "noother" },
             "surveyCol": 10,
             "superSurveyCol": 19
           },
@@ -223,6 +231,7 @@
             "fieldName": "Datos_GradoEstudios",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 10, "answerType": "noother" },
             "surveyCol": 11,
             "superSurveyCol": 20
           },
@@ -233,6 +242,7 @@
             "fieldName": "Datos_Ocupacion",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 11, "answerType": "noother" },
             "surveyCol": 12,
             "superSurveyCol": 21
           },
@@ -243,8 +253,924 @@
             "fieldName": "Datos_AreaOcupacion",
             "weightType": "NO_WEIGHT",
             "weights": {},
+            "surveyMonkeyPosition": { "position": 12, "answerType": "noother" },
             "surveyCol": 13,
             "superSurveyCol": 22
+          }
+        ]
+      },
+      {
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Cuestionario General de Salud.",
+        "surveyShortName": "CSG",
+        "description": "Cuestionario General de Salud.",
+        "instructions": "",
+        "surveyMonkeyPosition": 2,
+        "questionList": [
+          {
+            "surveyId": "",
+            "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
+            "questionShort": "A1 Se ha sentido perfectamente…",
+            "fieldName": "CSG_A1",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 2, "answerType": "noother" },
+            "surveyCol": 1,
+            "superSurveyCol": 23
+          },
+          {
+            "surveyId": "",
+            "question": "Otro (especifique)",
+            "questionShort": "Otro (especifique)…",
+            "fieldName": "CSG_A1_Otro",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 2, "answerType": "other" },
+            "surveyCol": 2,
+            "superSurveyCol": 24
+          },
+          {
+            "surveyId": "",
+            "question": "A2 Ha sentido la necesidad de un buen tónico",
+            "questionShort": "A2 Ha sentido la necesidad de …",
+            "fieldName": "CSG_A2",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 3, "answerType": "noother" },
+            "surveyCol": 3,
+            "superSurveyCol": 25
+          },
+          {
+            "surveyId": "",
+            "question": "Otro (especifique)",
+            "questionShort": "Otro (especifique)…",
+            "fieldName": "CSG_A2_Otro",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 3, "answerType": "other" },
+            "surveyCol": 4,
+            "superSurveyCol": 26
+          },
+          {
+            "surveyId": "",
+            "question": "A3 Se ha sentido agotado y sin motivaciones.",
+            "questionShort": "A3 Se ha sentido agotado y sin…",
+            "fieldName": "CSG_A3",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 4, "answerType": "noother" },
+            "surveyCol": 5,
+            "superSurveyCol": 27
+          },
+          {
+            "surveyId": "",
+            "question": "A4 Se ha sentido enfermo.",
+            "questionShort": "A4 Se ha sentido enfermo.…",
+            "fieldName": "CSG_A4",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 5, "answerType": "noother" },
+            "surveyCol": 6,
+            "superSurveyCol": 28
+          },
+          {
+            "surveyId": "",
+            "question": "A5 Ha tenido dolores de cabeza.",
+            "questionShort": "A5 Ha tenido dolores de cabeza…",
+            "fieldName": "CSG_A5",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 6, "answerType": "noother" },
+            "surveyCol": 7,
+            "superSurveyCol": 29
+          },
+          {
+            "surveyId": "",
+            "question": "A6 Ha sentido tensión o presión en la cabeza.",
+            "questionShort": "A6 Ha sentido tensión o presió…",
+            "fieldName": "CSG_A6",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 7, "answerType": "noother" },
+            "surveyCol": 8,
+            "superSurveyCol": 30
+          },
+          {
+            "surveyId": "",
+            "question": "A7 Ha tenido ráfagas de calor o frío.",
+            "questionShort": "A7 Ha tenido ráfagas de calor …",
+            "fieldName": "CSG_A7",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 8, "answerType": "noother" },
+            "surveyCol": 9,
+            "superSurveyCol": 31
+          },
+          {
+            "surveyId": "",
+            "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
+            "questionShort": "B1 Ha tenido dificultades para…",
+            "fieldName": "CSG_B1",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 9, "answerType": "noother" },
+            "surveyCol": 10,
+            "superSurveyCol": 32
+          },
+          {
+            "surveyId": "",
+            "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
+            "questionShort": "B2 Ha tenido dificultades para…",
+            "fieldName": "CSG_B2",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 10, "answerType": "noother" },
+            "surveyCol": 11,
+            "superSurveyCol": 33
+          },
+          {
+            "surveyId": "",
+            "question": "B3 Se ha sentido constantemente bajo presión.",
+            "questionShort": "B3 Se ha sentido constantement…",
+            "fieldName": "CSG_B3",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 11, "answerType": "noother" },
+            "surveyCol": 12,
+            "superSurveyCol": 34
+          },
+          {
+            "surveyId": "",
+            "question": "B4 Se ha sentido irritable y de mal humor.",
+            "questionShort": "B4 Se ha sentido irritable y d…",
+            "fieldName": "CSG_B4",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 12, "answerType": "noother" },
+            "surveyCol": 13,
+            "superSurveyCol": 35
+          },
+          {
+            "surveyId": "",
+            "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
+            "questionShort": "B5 Se ha sentido asustado o co…",
+            "fieldName": "CSG_B5",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 13, "answerType": "noother" },
+            "surveyCol": 14,
+            "superSurveyCol": 36
+          },
+          {
+            "surveyId": "",
+            "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
+            "questionShort": "B6 Ha tenido la sensación de q…",
+            "fieldName": "CSG_B6",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 14, "answerType": "noother" },
+            "surveyCol": 15,
+            "superSurveyCol": 37
+          },
+          {
+            "surveyId": "",
+            "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
+            "questionShort": "B7 Se ha sentido nervioso y te…",
+            "fieldName": "CSG_B7",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 15, "answerType": "noother" },
+            "surveyCol": 16,
+            "superSurveyCol": 38
+          },
+          {
+            "surveyId": "",
+            "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
+            "questionShort": "C1 Se las ha ingeniado para ma…",
+            "fieldName": "CSG_C1",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 16, "answerType": "noother" },
+            "surveyCol": 17,
+            "superSurveyCol": 39
+          },
+          {
+            "surveyId": "",
+            "question": "C2 Se tarda más tiempo en hacer las cosas. ",
+            "questionShort": "C2 Se tarda más tiempo en hace…",
+            "fieldName": "CSG_C2",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 17, "answerType": "noother" },
+            "surveyCol": 18,
+            "superSurveyCol": 40
+          },
+          {
+            "surveyId": "",
+            "question": "C3 En general siente que ha hecho las cosas bien.",
+            "questionShort": "C3 En general siente que ha he…",
+            "fieldName": "CSG_C3",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 18, "answerType": "noother" },
+            "surveyCol": 19,
+            "superSurveyCol": 41
+          },
+          {
+            "surveyId": "",
+            "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
+            "questionShort": "C4 Se ha sentido satisfecho po…",
+            "fieldName": "CSG_C4",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 19, "answerType": "noother" },
+            "surveyCol": 20,
+            "superSurveyCol": 42
+          },
+          {
+            "surveyId": "",
+            "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
+            "questionShort": "C5 Se ha sentido útil y parte …",
+            "fieldName": "CSG_C5",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 20, "answerType": "noother" },
+            "surveyCol": 21,
+            "superSurveyCol": 43
+          },
+          {
+            "surveyId": "",
+            "question": "C6 Se ha sentido capaz de tomar decisiones.",
+            "questionShort": "C6 Se ha sentido capaz de toma…",
+            "fieldName": "CSG_C6",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 21, "answerType": "noother" },
+            "surveyCol": 22,
+            "superSurveyCol": 44
+          },
+          {
+            "surveyId": "",
+            "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
+            "questionShort": "C7 Se ha sentido capaz de disf…",
+            "fieldName": "CSG_C7",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 22, "answerType": "noother" },
+            "surveyCol": 23,
+            "superSurveyCol": 45
+          },
+          {
+            "surveyId": "",
+            "question": "D1  Se ha sentido como una persona de poca valía.",
+            "questionShort": "D1  Se ha sentido como una per…",
+            "fieldName": "CSG_D1",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 23, "answerType": "noother" },
+            "surveyCol": 24,
+            "superSurveyCol": 46
+          },
+          {
+            "surveyId": "",
+            "question": "D2 Ha sentido que la vida no vale nada.",
+            "questionShort": "D2 Ha sentido que la vida no v…",
+            "fieldName": "CSG_D2",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 24, "answerType": "noother" },
+            "surveyCol": 25,
+            "superSurveyCol": 47
+          },
+          {
+            "surveyId": "",
+            "question": "D3 Ha sentido que no vale la pena vivir.",
+            "questionShort": "D3 Ha sentido que no vale la p…",
+            "fieldName": "CSG_D3",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 25, "answerType": "noother" },
+            "surveyCol": 26,
+            "superSurveyCol": 48
+          },
+          {
+            "surveyId": "",
+            "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
+            "questionShort": "D4 Ha pensado en la posibilida…",
+            "fieldName": "CSG_D4",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 26, "answerType": "noother" },
+            "surveyCol": 27,
+            "superSurveyCol": 49
+          },
+          {
+            "surveyId": "",
+            "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
+            "questionShort": "D5 Se ha sentido incapaz de ha…",
+            "fieldName": "CSG_D5",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 27, "answerType": "noother" },
+            "surveyCol": 28,
+            "superSurveyCol": 50
+          },
+          {
+            "surveyId": "",
+            "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
+            "questionShort": "D6 Ha sentido ganas de estar m…",
+            "fieldName": "CSG_D6",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 28, "answerType": "noother" },
+            "surveyCol": 29,
+            "superSurveyCol": 51
+          },
+          {
+            "surveyId": "",
+            "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
+            "questionShort": "D7 Le ha venido a la mente la …",
+            "fieldName": "CSG_D7",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
+            "surveyMonkeyPosition": { "position": 29, "answerType": "noother" },
+            "surveyCol": 30,
+            "superSurveyCol": 52
+          }
+        ],
+        "calculatedFieldList": [
+          {
+            "surveyId": "",
+            "description": "Síntomas Somáticos",
+            "shortDescription": "Somáticos",
+            "fieldName": "CSG_CAL_SOMATICOS",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [22, 24, 26, 27, 28, 29, 30],
+            "sequence": 1
+          },
+          {
+            "surveyId": "",
+            "description": "Ansiedad/insomnio",
+            "shortDescription": "Ansiedad/insomnio",
+            "fieldName": "CSG_CAL_ANSIEDAD",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [31, 32, 33, 34, 35, 36, 37],
+            "sequence": 2
+          },
+          {
+            "surveyId": "",
+            "description": "Disfunción social",
+            "shortDescription": "Disfunción social",
+            "fieldName": "CSG_CAL_DISF_SOCIAL",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [38, 39, 40, 41, 42, 43, 44],
+            "sequence": 3
+          },
+          {
+            "surveyId": "",
+            "description": "Depresión severa",
+            "shortDescription": "Depresión severa",
+            "fieldName": "CSG_CAL_DEPRESION",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [45, 46, 47, 48, 49, 50, 51],
+            "sequence": 4
+          },
+          {
+            "surveyId": "",
+            "description": "TOTAL CSG",
+            "shortDescription": "TOTAL CSG",
+            "fieldName": "CSG_CAL_TOTAL_CSG",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [
+              22, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+              40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51
+            ],
+            "sequence": 5
+          },
+          {
+            "surveyId": "",
+            "description": "Es Caso",
+            "shortDescription": "Es Caso",
+            "fieldName": "CSG_CAL_ES_CASO",
+            "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD",
+            "criteria": {
+              "fieldNameValue": ["CSG_CAL_TOTAL_CSG"],
+              "operator": ">",
+              "value": 3,
+              "resultIfTrue": 1,
+              "resultIfFalse": 0
+            },
+            "sequence": 6
+          }
+        ]
+      },
+      {
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Fiad-15",
+        "surveyShortName": "Fiad-15",
+        "description": "Cuestionario de Maslach (Burnout Inventory)",
+        "instructions": "FIAD-15 (NOFP)Instrucciones: El FIAD-15 le ayudará a describir sus ideas; sentimientos y actitudes hacia sí mismo y hacía los demás. Los resultados podrían ayudarle a conocerse a sí mismo o a identificar la naturaleza de sus problemas y la mejor manera de ayudarle a usted en particular. Lea cuidadosamente cada uno de los enunciados; todos describen formas y maneras de ser de las personas. Después de leer cada enunciado decida qué número (del 0 al 4) corresponde a lo más cercano a su manera de ser. Todos los enunciados son en algún grado posibles; no hay respuestas correctas o incorrectas; todas son válidas y solo tiene que contestar con lo que venga a su mente como el mejor número que lo describa. Tome el tiempo que requiera para contestar; pero se le recomienda responder tan rápido como le sea posible.",
+        "surveyMonkeyPosition": 3,
+        "questionList": [
+          {
+            "surveyId": "",
+            "question": "1.Cuando confronto problemas serios y conflictos con los demás, el miedo y la preocupación me confunden tanto que termino por actuar irracionalmente.",
+            "questionShort": "1.Cuando confronto problemas s…",
+            "fieldName": "FIAD-15_1",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 1, "answerType": "noother" },
+            "surveyCol": 1,
+            "superSurveyCol": 53
+          },
+          {
+            "surveyId": "",
+            "question": "2.Aunque me doy cuenta que algunos de mis actos son francamente agresivos e incorrectos, en el momento de actuarlos me es indiferente; pienso que esta vez no me van a descubrir, o no lo van a “notar”.",
+            "questionShort": "2.Aunque me doy cuenta que alg…",
+            "fieldName": "FIAD-15_2",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 2, "answerType": "noother" },
+            "surveyCol": 2,
+            "superSurveyCol": 54
+          },
+          {
+            "surveyId": "",
+            "question": "3.Soy una persona prudente que actúa y responde en forma apropiada.",
+            "questionShort": "3.Soy una persona prudente que…",
+            "fieldName": "FIAD-15_3",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 3, "answerType": "noother" },
+            "surveyCol": 3,
+            "superSurveyCol": 55
+          },
+          {
+            "surveyId": "",
+            "question": "4.Cuando los sentimientos y la ira me invaden, me ofusco tanto que no puedo contenerme ni serenarme; termino por reaccionar de manera atropellada o fuera de mí.",
+            "questionShort": "4.Cuando los sentimientos y la…",
+            "fieldName": "FIAD-15_4",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 4, "answerType": "noother" },
+            "surveyCol": 4,
+            "superSurveyCol": 56
+          },
+          {
+            "surveyId": "",
+            "question": "5.Cuando me encolerizo, aunque deseo actuar al calor del momento, logro contenerme y después serenarme.",
+            "questionShort": "5.Cuando me encolerizo, aunque…",
+            "fieldName": "FIAD-15_5",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 5, "answerType": "noother" },
+            "surveyCol": 5,
+            "superSurveyCol": 57
+          },
+          {
+            "surveyId": "",
+            "question": "6.Soy una persona muy estable.",
+            "questionShort": "6.Soy una persona muy estable.…",
+            "fieldName": "FIAD-15_6",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 6, "answerType": "noother" },
+            "surveyCol": 6,
+            "superSurveyCol": 58
+          },
+          {
+            "surveyId": "",
+            "question": "7.Por actuar precipitadamente termino por involucrarme en acciones inapropiadas y situaciones muy emproblemadas.",
+            "questionShort": "7.Por actuar precipitadamente …",
+            "fieldName": "FIAD-15_7",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 7, "answerType": "noother" },
+            "surveyCol": 7,
+            "superSurveyCol": 59
+          },
+          {
+            "surveyId": "",
+            "question": "8.Dado que actuó como pienso y siento, vivo emproblemado(a) con los demás; la gente me considera impulsivo(a) y agresivo(a)",
+            "questionShort": "8.Dado que actuó como pienso y…",
+            "fieldName": "FIAD-15_8",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 8, "answerType": "noother" },
+            "surveyCol": 8,
+            "superSurveyCol": 60
+          },
+          {
+            "surveyId": "",
+            "question": "9.Odio que la gente me diga que debería de sentirme culpable por ser tan agresivo(a), sin darse cuenta que constantemente me están atacando de modo injustificado.",
+            "questionShort": "9.Odio que la gente me diga qu…",
+            "fieldName": "FIAD-15_9",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 9, "answerType": "noother" },
+            "surveyCol": 9,
+            "superSurveyCol": 61
+          },
+          {
+            "surveyId": "",
+            "question": "10.Soy una persona inestable; cambio de manera de ser de un momento a otro.",
+            "questionShort": "10.Soy una persona inestable; …",
+            "fieldName": "FIAD-15_10",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 10, "answerType": "noother" },
+            "surveyCol": 10,
+            "superSurveyCol": 62
+          },
+          {
+            "surveyId": "",
+            "question": "11.Aunque tengo cierta idea del porqué de la intensidad de mis emociones, no siempre logro contenerme ni serenarme.",
+            "questionShort": "11.Aunque tengo cierta idea de…",
+            "fieldName": "FIAD-15_11",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 11, "answerType": "noother" },
+            "surveyCol": 11,
+            "superSurveyCol": 63
+          },
+          {
+            "surveyId": "",
+            "question": "12.Soy tan imprudente, que tiendo a actuar de manera inapropiada y hasta destructiva sin anticipar las consecuencias, y si las anticipo, me es indiferente.",
+            "questionShort": "12.Soy tan imprudente, que tie…",
+            "fieldName": "FIAD-15_12",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 12, "answerType": "noother" },
+            "surveyCol": 12,
+            "superSurveyCol": 64
+          },
+          {
+            "surveyId": "",
+            "question": "13.Si actuara todo el tiempo como pienso y siento, ya estaría en graves problemas con los demás.",
+            "questionShort": "13.Si actuara todo el tiempo c…",
+            "fieldName": "FIAD-15_13",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 13, "answerType": "noother" },
+            "surveyCol": 13,
+            "superSurveyCol": 65
+          },
+          {
+            "surveyId": "",
+            "question": "14.Aunque trato de controlarme, reincido en acciones y desplantes inapropiados.",
+            "questionShort": "14.Aunque trato de controlarme…",
+            "fieldName": "FIAD-15_14",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 14, "answerType": "noother" },
+            "surveyCol": 14,
+            "superSurveyCol": 66
+          },
+          {
+            "surveyId": "",
+            "question": "15.Cuando me enredo en líos con los demás, mis miedos y mis odios me llevan a mal interpretar y distorsionar todo.",
+            "questionShort": "15.Cuando me enredo en líos co…",
+            "fieldName": "FIAD-15_15",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": { "position": 15, "answerType": "noother" },
+            "surveyCol": 15,
+            "superSurveyCol": 67
+          }
+        ]
+      },
+      {
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
+        "surveyShortName": "BURN",
+        "description": "Cuestionario de Maslach (Burnout Inventory)",
+        "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
+        "surveyMonkeyPosition": 4,
+        "questionList": [
+          {
+            "surveyId": "",
+            "question": "1. Me siento emocionalmente agotado por mi trabajo",
+            "questionShort": "1. Me siento emocionalmente ag…",
+            "fieldName": "BURN_1",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 1,
+            "superSurveyCol": 68
+          },
+          {
+            "surveyId": "",
+            "question": "2. Cuando termino mi jornada de trabajo me siento vacío",
+            "questionShort": "2. Cuando termino mi jornada d…",
+            "fieldName": "BURN_2",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 2,
+            "superSurveyCol": 69
+          },
+          {
+            "surveyId": "",
+            "question": "3. Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
+            "questionShort": "3. Cuando me levanto por la ma…",
+            "fieldName": "BURN_3",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 3,
+            "superSurveyCol": 70
+          },
+          {
+            "surveyId": "",
+            "question": "4. Siento que puedo entender fácilmente a los pacientes.",
+            "questionShort": "4. Siento que puedo entender f…",
+            "fieldName": "BURN_4",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 4,
+            "superSurveyCol": 71
+          },
+          {
+            "surveyId": "",
+            "question": "5. Siento que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
+            "questionShort": "5. Siento que estoy tratando a…",
+            "fieldName": "BURN_5",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 5,
+            "superSurveyCol": 72
+          },
+          {
+            "surveyId": "",
+            "question": "6. Siento que trabajar todo el día con la gente me cansa.",
+            "questionShort": "6. Siento que trabajar todo el…",
+            "fieldName": "BURN_6",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 6,
+            "superSurveyCol": 73
+          },
+          {
+            "surveyId": "",
+            "question": "7. Siento que trato con mucha eficacia los problemas de mis pacientes.",
+            "questionShort": "7. Siento que trato con mucha …",
+            "fieldName": "BURN_7",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 7,
+            "superSurveyCol": 74
+          },
+          {
+            "surveyId": "",
+            "question": "8. Siento que mi trabajo me está desgastando.",
+            "questionShort": "8. Siento que mi trabajo me es…",
+            "fieldName": "BURN_8",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 8,
+            "superSurveyCol": 75
+          },
+          {
+            "surveyId": "",
+            "question": "9. Siento que estoy influyendo positivamente en la vida de otras personas a través de mi trabajo",
+            "questionShort": "9. Siento que estoy influyendo…",
+            "fieldName": "BURN_9",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 9,
+            "superSurveyCol": 76
+          },
+          {
+            "surveyId": "",
+            "question": "10. Siento que me he hecho mas duro con la gente",
+            "questionShort": "10. Siento que me he hecho mas…",
+            "fieldName": "BURN_10",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 10,
+            "superSurveyCol": 77
+          },
+          {
+            "surveyId": "",
+            "question": "11. Me preocupa que este trabajo me esté endureciendo emocionalmente",
+            "questionShort": "11. Me preocupa que este traba…",
+            "fieldName": "BURN_11",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 11,
+            "superSurveyCol": 78
+          },
+          {
+            "surveyId": "",
+            "question": "12. Me siento con mucha energía en mi trabajo",
+            "questionShort": "12. Me siento con mucha energí…",
+            "fieldName": "BURN_12",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 12,
+            "superSurveyCol": 79
+          },
+          {
+            "surveyId": "",
+            "question": "13. Me siento frustrado en mi trabajo",
+            "questionShort": "13. Me siento frustrado en mi …",
+            "fieldName": "BURN_13",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 13,
+            "superSurveyCol": 80
+          },
+          {
+            "surveyId": "",
+            "question": "14. Siento que estoy demasiado tiempo en mi trabajo",
+            "questionShort": "14. Siento que estoy demasiado…",
+            "fieldName": "BURN_14",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 14,
+            "superSurveyCol": 81
+          },
+          {
+            "surveyId": "",
+            "question": "15. Siento que realmente no me importa lo que les ocurre a mis pacientes",
+            "questionShort": "15. Siento que realmente no me…",
+            "fieldName": "BURN_15",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 15,
+            "superSurveyCol": 82
+          },
+          {
+            "surveyId": "",
+            "question": "16. Siento que trabajar en contacto directo con la gente me cansa",
+            "questionShort": "16. Siento que trabajar en con…",
+            "fieldName": "BURN_16",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 16,
+            "superSurveyCol": 83
+          },
+          {
+            "surveyId": "",
+            "question": "17. Siento que puedo crear con facilidad un clima agradable con mis pacientes",
+            "questionShort": "17. Siento que puedo crear con…",
+            "fieldName": "BURN_17",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 17,
+            "superSurveyCol": 84
+          },
+          {
+            "surveyId": "",
+            "question": "18. Me siento estimado después de haber trabajado íntimamente con los pacientes",
+            "questionShort": "18. Me siento estimado después…",
+            "fieldName": "BURN_18",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 18,
+            "superSurveyCol": 85
+          },
+          {
+            "surveyId": "",
+            "question": "19. Creo que consigo muchas cosas valiosas en este trabajo",
+            "questionShort": "19. Creo que consigo muchas co…",
+            "fieldName": "BURN_19",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 19,
+            "superSurveyCol": 86
+          },
+          {
+            "surveyId": "",
+            "question": "20. Me siento como si estuviera al límite de mis posibilidades",
+            "questionShort": "20. Me siento como si estuvier…",
+            "fieldName": "BURN_20",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 20,
+            "superSurveyCol": 87
+          },
+          {
+            "surveyId": "",
+            "question": "21. Siento que en mi trabajo los problemas emocionales son tratados de forma adecuada",
+            "questionShort": "21. Siento que en mi trabajo l…",
+            "fieldName": "BURN_21",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {
+              "6": 0,
+              "5": 1,
+              "4": 2,
+              "3": 3,
+              "2": 4,
+              "1": 5,
+              "0": 6
+            },
+            "surveyCol": 21,
+            "superSurveyCol": 88
+          },
+          {
+            "surveyId": "",
+            "question": "22. Me parece que los pacientes me culpan de algunos de sus problemas",
+            "questionShort": "22. Me parece que los paciente…",
+            "fieldName": "BURN_22",
+            "weightType": "WEIGHTED_PAIRS",
+            "weights": {},
+            "surveyCol": 22,
+            "superSurveyCol": 89
+          }
+        ],
+        "calculatedFieldList": [
+          {
+            "surveyId": "",
+            "description": "Agotamiento emocional",
+            "shortDescription": "Emocional",
+            "fieldName": "BURN_CAL_EMOCIONAL",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [70, 73, 75, 83, 84, 85, 87],
+            "sequence": 7
+          },
+          {
+            "surveyId": "",
+            "description": "Despersonalizacion",
+            "shortDescription": "Despersonalizacion",
+            "fieldName": "BURN_CAL_DESPERS",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [67, 68, 69, 72, 74, 79, 80, 86],
+            "sequence": 8
+          },
+          {
+            "surveyId": "",
+            "description": "Logros personales",
+            "shortDescription": "Logros personales",
+            "fieldName": "BURN_CAL_LOGROS",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [71, 76, 77, 81, 88],
+            "sequence": 9
+          },
+          {
+            "surveyId": "",
+            "description": "TOTAL BURNOUT",
+            "shortDescription": "TOTAL BURNOUT",
+            "fieldName": "BURN_CAL_TOTAL",
+            "calculationType": "CAL_SUM_THE_GROUP",
+            "group": [
+              67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 79, 80, 81, 83, 84,
+              85, 86, 87, 88
+            ],
+            "sequence": 10
           }
         ]
       }
@@ -376,7 +1302,6 @@
         "showInSurveyOutputScreen": true,
         "sequence": 17
       },
-
       {
         "surveyShortName": "CSG",
         "fieldName": "CSG_A1",
@@ -586,1896 +1511,6 @@
         "outputAsReal": false,
         "showInSurveyOutputScreen": false,
         "sequence": 48
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_1",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 49
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_2",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 50
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_3",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 51
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_4",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 52
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_5",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 53
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_6",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 54
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_7",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 55
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_8",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 56
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_9",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 57
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_10",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 58
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_11",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 59
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_12",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 60
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_13",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 61
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_14",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 62
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_15",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 63
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_16",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 64
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_17",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 65
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_18",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 66
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_19",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 67
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_20",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 68
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_21",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 69
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_22",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 70
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_1",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 71
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_2",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 72
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_3",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 73
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_4",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 74
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_5",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 75
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_6",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 76
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_7",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 77
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_8",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 78
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_9",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 79
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_10",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 80
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_11",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 81
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_12",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 82
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_13",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 83
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_14",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 84
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_15",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 85
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_16",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 86
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_17",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 87
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_18",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 88
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_19",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 89
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_20",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 90
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_21",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 91
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_22",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 92
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_23",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 93
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_24",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 94
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_25",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 95
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_26",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 96
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_27",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 97
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_28",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 98
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_29",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 99
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_30",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 100
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_31",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 101
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_32",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 102
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_33",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 103
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_34",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 104
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_35",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 105
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_36",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 106
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_37",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 107
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_38",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 108
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_39",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 109
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_40",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 110
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_PREOCUP",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 111
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_TENSION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 112
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_TEMORES",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 113
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_INSOMNIO",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 114
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_INTELECT",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 115
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_DEPRE",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 116
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_MUSCU",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 117
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_CARDIO",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 118
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_RESPIRATORIOS",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 119
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_GASTRO",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 120
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_GENITO",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 121
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_AUTONOMOS",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 122
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_CONDUCTA",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 123
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_1",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 124
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_2",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 125
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_3",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 126
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_4",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 127
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_5",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 128
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_6",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 129
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_7",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 130
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_8",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 131
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_9",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 132
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_10",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 133
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_11",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 134
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_12",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 135
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_13",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 136
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_14",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 137
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_15",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 138
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_16",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 139
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_17",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 140
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_18",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 141
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_19",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 142
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_20",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 143
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nomesientotriste",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 144
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientotriste",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 145
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientotristecontin",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 146
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientotantristeota",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 147
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nomesientoespecialme",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 148
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientodesanimadore",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 149
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Sientoquenotengoquee",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 150
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Sientoqueelfuturoesd",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 151
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nomesientofracasado",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 152
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Creoquehefracasadomá",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 153
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Cuandomirohaciaatrás",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 154
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientounapersonato",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 155
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Lascosasmesatisfacen",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 156
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nodisfrutodelascosas",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 157
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Yanoobtengounasatisf",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 158
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Estoyinsatisfechooab",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 159
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nomesientoespecialme",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 160
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientoculpableenba",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 161
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientoculpableenla",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 162
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientoculpablecons",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 163
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nocreoqueestésiendoc",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 164
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientocomosifuesea",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 165
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Esperosercastigado",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 166
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Sientoqueestoysiendo",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 167
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Noestoydecepcionadod",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 168
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Estoydecepcionadodem",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 169
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Medavergüenzademímis",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 170
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Medetesto",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 171
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nomeconsideropeorque",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 172
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Meautocriticopormisd",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 173
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Continuamentemeculpo",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 174
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Meculpoportodolomalo",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 175
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Notengoningúnpensami",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 176
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Avecespiensoensuicid",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 177
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Desearíasuicidarme",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 178
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesuicidaríasituvies",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 179
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nolloromásdeloquesol",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 180
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Ahoralloromásqueante",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 181
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Llorocontinuamente",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 182
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Anteseracapazdellora",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 183
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Noestoymásirritadode",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 184
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Memolestooirritomásf",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 185
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Mesientoirritadocont",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 186
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_Nomeirritoabsolutame",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 187
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_12.",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 188
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_13. ",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 189
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_14. ",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 190
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_15. ",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 191
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_16. ",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 192
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_17.",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 193
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_18.",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 194
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_19.",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 195
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_20.",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 196
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_21.",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 197
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_1Doloresdecabeza",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 198
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_2Nerviosismooagitaci",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 199
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_3Pensamientospalabra",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 200
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_4Sensacionesdedesmay",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 201
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_5Perdidadedeseoodepl",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 202
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_6Verlagentedemaneran",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 203
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_7Laideadequeotrapers",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 204
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_8Laimpresiondequelam",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 205
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_9Ladificultadpararec",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 206
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_10Preocupacionacerca",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 207
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_11Sentirsefacilmente",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 208
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_12Doloresenelcorazon",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 209
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_13Sentirmiedodeloses",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 210
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_14Sentirsebajodeener",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 211
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_15Pensamientossuicid",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 212
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_16Oirvocesqueotraspe",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 213
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_17Temblores",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 214
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_18Laideadequeunonose",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 215
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_19Faltadeapetito",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 216
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_20Llorarfacilmente",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 217
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_21Timidezoincomodida",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 218
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_22Lasensaciondeestar",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 219
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_23Asustarmederepente",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 220
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_24Arrebatosdecolerao",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 221
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_25Miedoasalirdecasas",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 222
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_26Culparseasimismode",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 223
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_27Doloresenlaparteba",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 224
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_28Sentirseincapazdeh",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 225
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_29Sentirsesolo",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 226
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_30Sentirsetriste",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 227
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_31Preocuparsedemasia",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 228
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_32Nosentirinterespor",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 229
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_33Sentirsetemeroso",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 230
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_34Serdemasiadosensib",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 231
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_35Laimpresiondequelo",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 232
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_36Lasensaciondequelo",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 233
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_37Laimpresiondequeot",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 234
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_38Tenerquehacerlasco",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 235
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_39Quesucorazonpalpit",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 236
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_40Nauseasomalestaren",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 237
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_41Sentirseinferioral",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 238
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_42Doloresmusculares",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 239
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_43Sensaciondequelaso",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 240
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_44Dificultadparaconc",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 241
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_45Tenerquecomprobaru",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 242
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_46Dificultadentomard",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 243
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_47Sentirtemordeviaja",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 244
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_48Ahogoodificultades",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 245
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_49Escalofriossentirc",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 246
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_50Tenerqueevitarcier",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 247
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_51Queselequedelament",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 248
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_52Entumecimientouhor",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 249
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_53Sentirunnudoenlaga",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 250
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_54Sentirsedesesperan",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 251
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_55Tenerdificultadesp",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 252
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_56Sentirsedebilenalg",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 253
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_57Sentirsetensooconl",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 254
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_58Pesadezenlosbrazos",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 255
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_59Ideassobrelamuerte",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 256
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_60Elcomerdemasiado",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 257
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_61Sentirseincomodocu",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 258
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_62Tenerpensamientosq",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 259
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_63Sentirelimpulsodep",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 260
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_64Despertarsedemadru",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 261
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_65Impulsosatenerqueh",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 262
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_66Suenoinquietoopert",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 263
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_67Tenerganasderomper",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 264
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_68Tenerideasocreenci",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 265
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_69Sentirsemuycohibid",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 266
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_70Sentirseincomodoen",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 267
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_71Sentirquetodorequi",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 268
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_72Ataquesdeterroropa",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 269
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_73Sentirseincomodoco",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 270
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_74Tenerdiscusionesfr",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 271
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_75Sentirsenerviosocu",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 272
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_76Elqueotrosnolereco",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 273
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_77Sentirsesoloaunque",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 274
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_78Sentirsetaninquiet",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 275
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_79Lasensaciondeserin",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 276
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_80Presentimientodequ",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 277
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_81Gritarotirarcosas",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 278
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_82Tenermiedodedesmay",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 279
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_83Laimpresiondequela",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 280
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_84Tenerpensamientoss",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 281
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_85Lasideadequedeberi",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 282
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_86Pensamientosoimage",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 283
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_87Laideadequealgoser",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 284
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_88Sentirsesiempredis",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 285
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_89Sentimientodeculpa",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 286
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_90Laideadealgoandama",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": false,
-        "sequence": 287
-      },
-      {
-        "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_SOMATICOS",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 288
-      },
-      {
-        "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_ANSIEDAD",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 289
-      },
-      {
-        "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_DISF_SOCIAL",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 290
-      },
-      {
-        "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_DEPRESION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 291
-      },
-      {
-        "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_TOTAL_CSG",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 292
-      },
-      {
-        "surveyShortName": "CSG",
-        "fieldName": "CSG_CAL_ES_CASO",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 293
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_CAL_EMOCIONAL",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 294
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_CAL_DESPERS",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 295
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_CAL_LOGROS",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 296
-      },
-      {
-        "surveyShortName": "BURN",
-        "fieldName": "BURN_CAL_TOTAL",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 297
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_CAL_TOTAL_ESTRES",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 298
-      },
-      {
-        "surveyShortName": "ESTRES",
-        "fieldName": "ESTRES_CAL_LISTA_ESTRES",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 299
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_TOTAL_PSIQUICA",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 300
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_TOTAL_SOMATICA",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 301
-      },
-      {
-        "surveyShortName": "HAMILTON",
-        "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 302
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_PACIENTE_PERSPECTIVA",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 303
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_COMPASION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 304
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_ZAPATOS_PACIENTE",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 305
-      },
-      {
-        "surveyShortName": "JEFF",
-        "fieldName": "JEFF_TOTAL",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 306
-      },
-      {
-        "surveyShortName": "BECK",
-        "fieldName": "BECK_TOTAL_DEPRESION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 307
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_SOMATIZACION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 308
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_OBSESION_COMPULSION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 309
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_SENS_INTERPERS",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 310
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_DEPRESION",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 311
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_ANSIEDAD",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 312
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_HOSTILIDAD",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 313
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_FOBIA",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 314
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_PARANOIA",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 315
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_PSYCOTISMO",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 316
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_ADICIONALES",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 317
-      },
-      {
-        "surveyShortName": "SCL90",
-        "fieldName": "SCL90_TOTAL",
-        "outputAsReal": false,
-        "showInSurveyOutputScreen": true,
-        "sequence": 318
       }
     ]
   }

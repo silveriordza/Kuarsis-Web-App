@@ -298,14 +298,14 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
       throw new Error(`Survey Monkey token not found.`);
     }
 
-    const configSurveyMonkey = {
-      //responseType: "arraybuffer",
-      headers: {
-        //"Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${surveyMonkeyToken}`,
-        Accept: "application/json",
-      },
-    };
+    // const configSurveyMonkey = {
+    //   //responseType: "arraybuffer",
+    //   headers: {
+    //     //"Content-Type": "multipart/form-data",
+    //     Authorization: `Bearer ${surveyMonkeyToken}`,
+    //     Accept: "application/json",
+    //   },
+    // };
     await SurveySuperior.deleteMany({});
     await Survey.deleteMany({});
     await SurveyQuestion.deleteMany({});
@@ -395,6 +395,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
           `questionItem.surveyMonkeyPosition.position=${questionItem.surveyMonkeyPosition.position}`,
           L0
         );
+
         let monkeyQuestionItem = surveyMonkeyQuestions.find((question) => {
           LogThis(
             log,
@@ -405,6 +406,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             }`,
             L0
           );
+
           return (
             question.position == questionItem.surveyMonkeyPosition.position
           );
@@ -456,11 +458,11 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             } else {
               LogThis(
                 log,
-                `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
+                `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
                 L0
               );
               throw new Error(
-                `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`
+                `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`
               );
             }
             break;
@@ -500,6 +502,21 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                 `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`
               );
             }
+            break;
+          case "matrix_rating":
+            monkeyQuestionAnswers = {
+              answerField: "choice_id",
+              answerChoices: monkeyQuestionDetails.answers.choices.map(
+                (choice) => {
+                  return {
+                    id: choice.id,
+                    value: choice.position,
+                    realValue: choice.text,
+                    score: choice.weight,
+                  };
+                }
+              ),
+            };
             break;
           default:
             LogThis(
@@ -2358,7 +2375,11 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
       respondentIdsInfo: respondentIdsInfo,
     });
   } catch (error) {
-    LogThis(log, `Error getting respondent ids error=${JSON.stringify(error)}`);
+    LogThis(
+      log,
+      `Error getting respondent ids error=${JSON.stringify(error)}`,
+      L0
+    );
     res.status(404).json({ message: "Error getting respondent ids error" });
     throw new Error(`Error getting respondent ids error=${error.message}`);
   }
@@ -2373,7 +2394,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
      * On 12/7/23 I was working on the pagination and lookup by keyword
      * This function won't work without page beein provided by the client, the keyword is optional.
      */
-    const surveyShortName = "TALENTOS_2020";
+    const surveyShortName = req.params.id;
     const superSurveysList = await SurveySuperior.findOne({
       surveyShortName: surveyShortName,
     }).lean();
@@ -2412,11 +2433,16 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
       let rowScore = [];
       addResponseInfo(rowValue, monkeyResponse);
       addResponseInfo(rowReal, monkeyResponse);
-
+      LogThis(log, `line 1`, L0);
       rowValue.forEach((r) => rowScore.push(0));
-
+      LogThis(log, `line 2`, L0);
       let monkeySurveys = monkeyResponse.pages;
-      superSurveysConfigs.surveys.forEach((surveyConfig) => {
+      const superSurvey = superSurveysConfigs[0];
+
+      LogThis(log, `line 3, superSurveysConfigs=${j(superSurvey)}`, L0);
+
+      superSurvey.surveys.forEach((surveyConfig) => {
+        LogThis(log, `line 4`, L0);
         let monkeySurvey = monkeySurveys.find((monkeySurvey) => {
           LogThis(
             log,
@@ -2425,7 +2451,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
             }; surveyConfig.surveyMonkeyId=${
               surveyConfig.surveyMonkeyId
             } condition: ${monkeySurvey.id == surveyConfig.surveyMonkeyId}`,
-            L0
+            L3
           );
           return monkeySurvey.id == surveyConfig.surveyMonkeyId;
         });
@@ -2441,7 +2467,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
             (monkeyQuestion) =>
               monkeyQuestion.id == surveyQuestion.surveyMonkeyId
           );
-          let monkeyAnswerObject = answers[0];
+          let monkeyAnswerObject = monkeyQuestion.answers[0];
           let monkeyAnswer =
             monkeyAnswerObject[surveyQuestion.surveyMonkeyAnswers.answerField];
           let value = null;
@@ -2456,14 +2482,20 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
             case "open_ended_single":
               value = monkeyAnswer;
               realValue = monkeyAnswer;
-              score = null;
+              score = "";
               break;
             case "single_choice_menu":
               //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
               if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
-                value = monkeyAnswer;
-                realValue = monkeyAnswer;
-                score = null;
+                if (monkeyAnswer) {
+                  value = monkeyAnswer;
+                  realValue = monkeyAnswer;
+                  score = "";
+                } else {
+                  value = "";
+                  realValue = "";
+                  score = "";
+                }
               } else if (
                 surveyQuestion.surveyMonkeyPosition.answerType == "noother"
               ) {
@@ -2488,9 +2520,15 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
             case "single_choice_vertical":
               //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
               if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
-                value = monkeyAnswer;
-                realValue = monkeyAnswer;
-                score = null;
+                if (monkeyAnswer) {
+                  value = monkeyAnswer;
+                  realValue = monkeyAnswer;
+                  score = "";
+                } else {
+                  value = "";
+                  realValue = "";
+                  score = "";
+                }
               } else if (
                 surveyQuestion.surveyMonkeyPosition.answerType == "noother"
               ) {
@@ -2525,7 +2563,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
           //case end
           rowValue.push(value);
           rowReal.push(realValue);
-          score.push(score);
+          rowScore.push(score);
         });
       });
       rowsValue.push(rowValue);
@@ -2535,8 +2573,8 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
 
     res.status(200).json({
       rowsValue: rowsValue,
-      rowsValue: rowsReal,
-      rowsValue: rowsScore,
+      rowsReal: rowsReal,
+      rowsScore: rowsScore,
       superSurveysConfigs: superSurveysConfigs,
       monkeyResponses: monkeyResponses,
     });
