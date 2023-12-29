@@ -416,7 +416,11 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
           `monkeyQuestionItem=${JSON.stringify(monkeyQuestionItem, null, 1)}`,
           L0
         );
-
+        if (!monkeyQuestionItem) {
+          throw new Error(
+            `Monkey Question Item not found for questionItem=${j(questionItem)}`
+          );
+        }
         let monkeyQuestionDetails = monkeyQuestionItem.details;
         let monkeyQuestionId = monkeyQuestionItem.id;
         let family = monkeyQuestionDetails.family;
@@ -892,7 +896,7 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
     );
     const superSurvey = superSurveyFound;
     let newResponseFound = await SurveyMonkeyNewResponse.findOne({
-      respondentId: resources.respondent_id,
+      respondent_id: resources.respondent_id,
       surveyMonkeyId: resources.survey_id,
     });
     //let newResponse = null;
