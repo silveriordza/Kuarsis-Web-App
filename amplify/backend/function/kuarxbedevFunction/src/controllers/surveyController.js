@@ -418,6 +418,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
         );
 
         let monkeyQuestionDetails = monkeyQuestionItem.details;
+        let monkeyQuestionId = monkeyQuestionItem.id;
         let family = monkeyQuestionDetails.family;
         let subtype = monkeyQuestionDetails.subtype;
         let monkeyQuestionAnswers = null;
@@ -503,7 +504,24 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
               );
             }
             break;
-          case "matrix_rating":
+          case "matrix_rating": // for creating survey from survey monkey
+            let surveyMonkeyQuestion = monkeyQuestionDetails.answers.rows.find(
+              (monkeyQuestion) =>
+                questionItem.surveyCol == monkeyQuestion.position
+            );
+
+            if (!surveyMonkeyQuestion) {
+              LogThis(
+                log,
+                `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`
+              );
+              throw new Error(
+                `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`
+              );
+            }
+
+            monkeyQuestionId = surveyMonkeyQuestion.id;
+
             monkeyQuestionAnswers = {
               answerField: "choice_id",
               answerChoices: monkeyQuestionDetails.answers.choices.map(
@@ -538,7 +556,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
           weights: questionItem.weights,
           surveyCol: questionItem.surveyCol,
           superSurveyCol: questionItem.superSurveyCol,
-          surveyMonkeyId: monkeyQuestionItem.id,
+          surveyMonkeyId: monkeyQuestionId,
           surveyMonkeyPosition: questionItem.surveyMonkeyPosition,
           surveyMonkeyFamily: monkeyQuestionItem.details.family,
           surveyMonkeySubType: monkeyQuestionItem.details.subtype,
@@ -2463,13 +2481,38 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
         LogThis(log, `Here ${x++}`, L0);
         surveyConfig.questions.forEach((surveyQuestion) => {
           let monkeyQuestions = monkeySurvey.questions;
-          let monkeyQuestion = monkeyQuestions.find(
-            (monkeyQuestion) =>
-              monkeyQuestion.id == surveyQuestion.surveyMonkeyId
-          );
-          let monkeyAnswerObject = monkeyQuestion.answers[0];
-          let monkeyAnswer =
-            monkeyAnswerObject[surveyQuestion.surveyMonkeyAnswers.answerField];
+
+          let monkeyQuestion = null;
+          let monkeyAnswerObject = null;
+          let monkeyAnswer = null;
+          //LogThis(log, `question family=${surveyQuestion.surveyMonkeyFamily}`)
+          if (
+            surveyQuestion.surveyMonkeyFamily == "matrix" &&
+            surveyQuestion.surveyMonkeySubType == "rating"
+          ) {
+            LogThis(log, `monkeyQuestions=${j(monkeyQuestions)}`, L0);
+            monkeyQuestion = monkeyQuestions[0].answers.find(
+              (monkeyQuestion) =>
+                monkeyQuestion.row_id == surveyQuestion.surveyMonkeyId
+            );
+            LogThis(log, `monkeyQuestionFound=${j(monkeyQuestion)}`, L0);
+            monkeyAnswer =
+              monkeyQuestion[surveyQuestion.surveyMonkeyAnswers.answerField];
+          } else {
+            LogThis(log, `monkeyQuestio is not matrix`, L0);
+            monkeyQuestion = monkeyQuestions.find(
+              (monkeyQuestion) =>
+                monkeyQuestion.id == surveyQuestion.surveyMonkeyId
+            );
+            LogThis(log, `not matrix before answer`, L0);
+            monkeyAnswerObject = monkeyQuestion.answers[0];
+            LogThis(log, `not matrix after answer`, L0);
+            monkeyAnswer =
+              monkeyAnswerObject[
+                surveyQuestion.surveyMonkeyAnswers.answerField
+              ];
+          }
+
           let value = null;
           let realValue = null;
           let score = null;
@@ -2549,6 +2592,19 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
                   `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
                 );
               }
+              break;
+            case "matrix_rating": //for updating responses from survey monkey
+              let surveyChoice =
+                surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+                  (choice) => choice.id == monkeyAnswer
+                );
+              if (!surveyChoice) {
+                LogThis(log, `Choice not found for ${monkeyAnswer}`, L0);
+                throw new Error(`Choice not found for ${monkeyAnswer}`);
+              }
+              value = surveyChoice.score; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.
+              realValue = surveyChoice.realValue;
+              score = surveyChoice.score;
               break;
             default:
               LogThis(
