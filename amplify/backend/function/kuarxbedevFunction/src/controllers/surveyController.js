@@ -454,7 +454,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                     return {
                       id: choice.id,
                       value: choice.position,
-                      realValue: choice.text,
+                      realValue: choice.text.trim(),
                       score: choice.quiz_options.score,
                     };
                   }
@@ -491,7 +491,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                     return {
                       id: choice.id,
                       value: choice.position,
-                      realValue: choice.text,
+                      realValue: choice.text.trim(),
                       score: choice.quiz_options.score,
                     };
                   }
@@ -533,7 +533,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                   return {
                     id: choice.id,
                     value: choice.position,
-                    realValue: choice.text,
+                    realValue: choice.text.trim(),
                     score: choice.weight,
                   };
                 }
@@ -922,7 +922,6 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
         L0
       );
       newResponseFound = new SurveyMonkeyNewResponse({
-        superSurveyId: superSurvey._id,
         surveyMonkeyId: resources.survey_id,
         respondent_id: resources.respondent_id,
         event_type: bd.event_type,
@@ -1135,8 +1134,6 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
   }
   const surveyMonkeyId = superSurvey.surveyMonkeyId;
 
-  await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId });
-
   //Start getting survey monkey configs
   const surveyInfoResult = await axios.get(
     `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}`,
@@ -1219,6 +1216,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
     L0
   );
 
+  await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId });
   const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save();
   if (!surveyMonkeyConfigSaved) {
     res.status(401).json({
@@ -2423,7 +2421,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
 
     const newRespondents = await SurveyMonkeyNewResponse.find({
       $and: [
-        { superSurveyId: superSurveysList._id },
+        { surveyMonkeyId: superSurveysList.surveyMonkeyId },
         {
           $or: [
             { process_status: SURVEY_PROCESS_STATUS.NEW },
@@ -2536,7 +2534,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
               if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
                 if (monkeyAnswer) {
                   value = monkeyAnswer;
-                  realValue = monkeyAnswer;
+                  realValue = monkeyAnswer.trim();
                   score = "";
                 } else {
                   value = "";
@@ -2551,7 +2549,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
                     (choice) => choice.id == monkeyAnswer
                   );
                 value = surveyChoice.value;
-                realValue = surveyChoice.realValue;
+                realValue = surveyChoice.realValue.trim();
                 score = surveyChoice.score;
               } else {
                 LogThis(
@@ -2569,7 +2567,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
               if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
                 if (monkeyAnswer) {
                   value = monkeyAnswer;
-                  realValue = monkeyAnswer;
+                  realValue = monkeyAnswer.trim();
                   score = "";
                 } else {
                   value = "";
@@ -2584,7 +2582,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
                     (choice) => choice.id == monkeyAnswer
                   );
                 value = surveyChoice.value;
-                realValue = surveyChoice.realValue;
+                realValue = surveyChoice.realValue.trim();
                 score = surveyChoice.score;
               } else {
                 LogThis(
@@ -2607,7 +2605,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
                 throw new Error(`Choice not found for ${monkeyAnswer}`);
               }
               value = surveyChoice.score; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.
-              realValue = surveyChoice.realValue;
+              realValue = surveyChoice.realValue.trim();
               score = surveyChoice.score;
               break;
             default:
@@ -2630,7 +2628,7 @@ const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
       rowsReal.push(rowReal);
       rowsScore.push(rowScore);
     });
-
+    res.header("Content-Type", "application/json; charset=utf-8");
     res.status(200).json({
       rowsValue: rowsValue,
       rowsReal: rowsReal,

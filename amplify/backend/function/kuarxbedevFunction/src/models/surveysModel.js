@@ -223,11 +223,6 @@ const SurveyCalculatedValue = mongoose.model(
 
 const surveyMonkeyConfigModel = mongoose.Schema(
   {
-    superSurveyId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "SuperSurvey",
-    },
     surveyMonkeyId: { type: String, required: true },
     survey: { type: mongoose.Schema.Types.Mixed, required: false },
   },
@@ -242,11 +237,6 @@ const SurveyMonkeyConfig = mongoose.model(
 
 const surveyMonkeyNewResponseModel = mongoose.Schema(
   {
-    superSurveyId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "SuperSurvey",
-    },
     surveyMonkeyId: { type: String, required: true },
     respondent_id: { type: String, required: true },
     event_type: { type: String, required: true },
