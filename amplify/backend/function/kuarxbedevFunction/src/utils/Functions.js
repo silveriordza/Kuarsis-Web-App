@@ -16,4 +16,16 @@ const j = (value) => {
   return JSON.stringify(value, null, 1);
 };
 
+const validateHasData = (log, dataToCheck, errorMessage) => {
+  if (
+    !(
+      dataToCheck &&
+      ((Array.isArray(dataToCheck) && dataToCheck.length > 0) ||
+        typeof dataToCheck == "object")
+    )
+  ) {
+    throw new Error(errorMessage);
+  }
+};
+
 module.exports = { formatDate, j };

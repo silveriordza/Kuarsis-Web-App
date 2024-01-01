@@ -1,0 +1,33 @@
+{
+  "_id": "658fa7ce0500ec2237043662",
+  "surveyId": "658fa7cc0500ec223704365d",
+  "question": "4. Muerte de un ser querido/familiar",
+  "questionShort": "4. Muerte de un ser querido/fa…",
+  "fieldName": "ESTRES_4",
+  "weightType": "WEIGHTED_CRITERIA",
+  "weights": "> 0 : 1",
+  "surveyCol": 4,
+  "superSurveyCol": 93,
+  "surveyMonkeyId": "2048529010",
+  "surveyMonkeyPosition": {
+   "position": 1,
+   "subPosition": 4,
+   "answerType": "noother"
+  },
+  "surveyMonkeyFamily": "multiple_choice",
+  "surveyMonkeySubType": "vertical",
+  "surveyMonkeyAnswers": {
+   "answerField": "choice_id",
+   "answerChoices": [
+    {
+     "id": "2048529010",
+     "value": 4,
+     "realValue": "4. Muerte de un ser querido/familiar",
+     "score": 1
+    }
+   ]
+  },
+  "__v": 0,
+  "createdAt": "2023-12-30T05:17:02.923Z",
+  "updatedAt": "2023-12-30T05:17:02.923Z"
+ }

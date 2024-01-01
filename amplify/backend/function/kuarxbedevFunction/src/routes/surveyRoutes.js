@@ -26,6 +26,7 @@ let {
   surveyMonkeyWebhookCreatedEvent,
   surveyMonkeyWebhookCompletedEvent,
   surveyMonkeyUpdateResponses,
+  surveyMonkeyUpdateResponses2,
 } = require("../controllers/surveyController.js");
 let {
   protect,
@@ -88,7 +89,7 @@ router
 
 router
   .route("/surveymonkey/updateresponses/:id")
-  .put(surveyMonkeyUpdateResponses);
+  .put(surveyMonkeyUpdateResponses2);
 
 router
   .route("/")

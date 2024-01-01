@@ -8,6 +8,151 @@
     "surveyList": [
       {
         "owner": "652b0b3e1d61edfd4b8d4e8e",
+        "surveyName": "surveyCollectionInformation",
+        "surveyShortName": "SCOLINFO",
+        "description": "Informacion de la ecuesta recolectada.",
+        "instructions": "",
+        "surveyMonkeyPosition": 0,
+        "questionList": [
+          {
+            "surveyId": "",
+            "question": "respondent_id",
+            "questionShort": "respondent_id…",
+            "fieldName": "SCOLINFO_respondent_id",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 1,
+              "subPosition": 1,
+              "answerType": "noother"
+            },
+            "surveyCol": 1,
+            "superSurveyCol": 1
+          },
+          {
+            "surveyId": "",
+            "question": "collector_id",
+            "questionShort": "collector_id…",
+            "fieldName": "SCOLINFO_collector_id",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 2,
+              "subPosition": 2,
+              "answerType": "noother"
+            },
+            "surveyCol": 2,
+            "superSurveyCol": 2
+          },
+          {
+            "surveyId": "",
+            "question": "date_created",
+            "questionShort": "date_created…",
+            "fieldName": "SCOLINFO_date_created",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 3,
+              "subPosition": 3,
+              "answerType": "noother"
+            },
+            "surveyCol": 3,
+            "superSurveyCol": 3
+          },
+          {
+            "surveyId": "",
+            "question": "date_modified",
+            "questionShort": "date_modified…",
+            "fieldName": "SCOLINFO_date_modified",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 4,
+              "subPosition": 4,
+              "answerType": "noother"
+            },
+            "surveyCol": 4,
+            "superSurveyCol": 4
+          },
+          {
+            "surveyId": "",
+            "question": "ip_address",
+            "questionShort": "ip_address…",
+            "fieldName": "SCOLINFO_ip_address",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 5,
+              "subPosition": 5,
+              "answerType": "noother"
+            },
+            "surveyCol": 5,
+            "superSurveyCol": 5
+          },
+          {
+            "surveyId": "",
+            "question": "email_address",
+            "questionShort": "email_address…",
+            "fieldName": "SCOLINFO_email_address",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 6,
+              "subPosition": 6,
+              "answerType": "noother"
+            },
+            "surveyCol": 6,
+            "superSurveyCol": 6
+          },
+          {
+            "surveyId": "",
+            "question": "first_name",
+            "questionShort": "first_name…",
+            "fieldName": "SCOLINFO_first_name",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 7,
+              "subPosition": 7,
+              "answerType": "noother"
+            },
+            "surveyCol": 7,
+            "superSurveyCol": 7
+          },
+          {
+            "surveyId": "",
+            "question": "last_name",
+            "questionShort": "last_name…",
+            "fieldName": "SCOLINFO_last_name",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 8,
+              "subPosition": 8,
+              "answerType": "noother"
+            },
+            "surveyCol": 8,
+            "superSurveyCol": 8
+          },
+          {
+            "surveyId": "",
+            "question": "custom_1",
+            "questionShort": "custom_1…",
+            "fieldName": "SCOLINFO_custom_1",
+            "weightType": "NO_WEIGHT",
+            "weights": {},
+            "surveyMonkeyPosition": {
+              "position": 9,
+              "subPosition": 9,
+              "answerType": "noother"
+            },
+            "surveyCol": 9,
+            "superSurveyCol": 9
+          }
+        ]
+      },
+      {
+        "owner": "652b0b3e1d61edfd4b8d4e8e",
         "surveyName": "Datos",
         "surveyShortName": "Datos",
         "description": "Informacion de la persona encuestada.",
