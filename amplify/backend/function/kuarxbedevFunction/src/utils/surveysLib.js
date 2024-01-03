@@ -15,8 +15,15 @@ let {
    SurveyMonkeyNewResponse,
 } = require('../models/surveysModel.js')
 
-let { LogThis, LoggerSettings, L0, L1, L2, L3 } = require('../utils/Logger.js')
-const { j } = require('./Functions.js')
+let {
+   LogThis,
+   LoggerSettings,
+   j,
+   L0,
+   L1,
+   L2,
+   L3,
+} = require('../utils/Logger.js')
 
 const srcFileName = 'surveysLib.js'
 
@@ -25,24 +32,34 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
    let isCalculated = false
    let outputFields = []
    for (let i = 0; i < outputLayout.length; i++) {
+      //LogThis(log, `output header = ${i} of ${outputLayout.length}: `, L0)
       isCalculated = false
       layout = outputLayout[i]
+      LogThis(
+         log,
+         `output header = ${i} of ${
+            outputLayout.length
+         }: layout=${JSON.stringify(layout)}`,
+         L0,
+      )
       let field = fields.find(
          field =>
-            field.surveyId.surveyShortName == layout.surveyShortName &&
-            field.fieldName == layout.fieldName
+            field.surveyId.surveyShortName.toLowerCase() ==
+               layout.surveyShortName.toLowerCase() &&
+            field.fieldName.toLowerCase() == layout.fieldName.toLowerCase(),
       )
       if (!field) {
          field = calculatedfields.find(
             field =>
-               field.surveyId.surveyShortName == layout.surveyShortName &&
-               field.fieldName == layout.fieldName
+               field.surveyId.surveyShortName.toLowerCase() ==
+                  layout.surveyShortName.toLowerCase() &&
+               field.fieldName.toLowerCase() == layout.fieldName.toLowerCase(),
          )
          isCalculated = true
       }
       if (!field) {
          throw new Error(
-            `Error output layout field not found: ${JSON.stringify(layout)}`
+            `Error output layout field not found: ${JSON.stringify(layout)}`,
          )
       }
 
@@ -103,7 +120,8 @@ const getSuperSurveysConfigs = async superSurveysList => {
 
    superSurveysList.forEach(superSurvey => {
       superSurvey.surveys = surveys.filter(
-         survey => survey.superSurveyId.toString() == superSurvey._id.toString()
+         survey =>
+            survey.superSurveyId.toString() == superSurvey._id.toString(),
       )
    })
 

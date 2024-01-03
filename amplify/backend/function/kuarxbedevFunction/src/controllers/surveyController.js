@@ -11,7 +11,7 @@ const axios = require('axios')
 let asyncHandler = require('express-async-handler')
 
 const { SURVEY_PROCESS_STATUS } = require('../config/surveyConstants.js')
-const { j } = require('../utils/Functions.js')
+const { applyStringCriteriaToValue } = require('../utils/Functions.js')
 const {
    getMonkeyResponses,
    ValidateMonkeyConfigs,
@@ -45,11 +45,13 @@ let {
 //let { DynamicCollection } = require('../models/dynamicCollectionModel.js')
 
 let {
+   LoggerSettings,
    LogThis,
    LogVars,
    HasDataException,
-   LoggerSettings,
    LogDebugSection,
+   LogVarsFilter,
+   j,
    OFF,
    L0,
    L1,
@@ -70,6 +72,22 @@ let {
 const srcFileName = 'surveyController.js'
 
 const fs = require('fs')
+
+const WEIGHTED_PAIRS = 'WEIGHTED_PAIRS'
+const WEIGHTED_CRITERIA = 'WEIGHTED_CRITERIA'
+
+const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
+const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
+const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
+
+//Constantas related to response auto processing and the SurveyMonkeyNewResponse collection process_status field.
+const RESPONSE_PROCESSING_COMPLETE_SUCCEEDED =
+   'RESPONSE_PROCESSING_COMPLETE_SUCCEEDED'
+const RESPONSE_PROCESSING_COMPLETE_FAILED =
+   'RESPONSE_PROCESSING_COMPLETE_SUCCEEDED'
+const RESPONSE_PROCESSING_COMPLETE_NEW = 'RESPONSE_PROCESSING_COMPLETE_NEW'
+const RESPONSE_PROCESSING_COMPLETE_UPDATED =
+   'RESPONSE_PROCESSING_COMPLETE_UPDATED'
 
 //let onCareSuperSurvey = require("../models/surveyOnCareTreatmentTalentos2020.json");
 
@@ -363,8 +381,29 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
       // LogThis(
       //   log,
       //   `surveyMonkeyConfigs=${JSON.stringify(surveyMonkeyConfigs)}`,
-      //   L0
+      //   L3
       // );
+      let surveyResponse = superSurveyConfig.surveyList[0]
+      let responseInfo = new Survey({
+         superSurveyId: createdSurveySuperior._id,
+         surveyName: surveyResponse.surveyName,
+         surveyShortName: surveyResponse.surveyShortName,
+         description: surveyResponse.description,
+         instructions: surveyResponse.instructions,
+         //surveyMonkeyId: surveyMonkeyItem.id,
+         surveyMonkeyPosition: surveyResponse.surveyMonkeyPosition,
+      })
+      const responseInfoCreated = await responseInfo.save()
+
+      const responseInfoQuestions = []
+      surveyResponse.questionList.forEach(
+         question => (question.surveyId = responseInfoCreated._id),
+      )
+
+      const responseInfoQuestionsSaved = await SurveyQuestion.insertMany(
+         surveyResponse.questionList,
+      )
+
       for (let i = 1; i < superSurveyConfig.surveyList.length; i++) {
          let surveyItem = superSurveyConfig.surveyList[i]
          LogThis(
@@ -372,7 +411,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             `position=${
                surveyItem.surveyMonkeyPosition - 1
             }; surveyItem=${JSON.stringify(surveyItem, null, 1)}`,
-            L0,
+            L3,
          )
          let surveyMonkeyItem =
             surveyMonkeyConfigs.survey.pages[
@@ -400,7 +439,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                null,
                1,
             )}`,
-            L0,
+            L3,
          )
 
          for (let x = 0; x < surveyItem.questionList.length; x++) {
@@ -408,7 +447,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             LogThis(
                log,
                `questionItem.surveyMonkeyPosition.position=${questionItem.surveyMonkeyPosition.position}`,
-               L0,
+               L3,
             )
 
             let monkeyQuestionItem = surveyMonkeyQuestions.find(question => {
@@ -420,7 +459,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                      question.position ==
                      questionItem.surveyMonkeyPosition.position
                   }`,
-                  L0,
+                  L3,
                )
 
                return (
@@ -435,7 +474,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                   null,
                   1,
                )}`,
-               L0,
+               L3,
             )
             if (!monkeyQuestionItem) {
                throw new Error(
@@ -486,7 +525,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                      LogThis(
                         log,
                         `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
-                        L0,
+                        L3,
                      )
                      throw new Error(
                         `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
@@ -522,7 +561,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                      LogThis(
                         log,
                         `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
-                        L0,
+                        L3,
                      )
                      throw new Error(
                         `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
@@ -603,7 +642,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
                   LogThis(
                      log,
                      `Family:${family} and subType=${subtype} combination is not valid.`,
-                     L0,
+                     L3,
                   )
                   throw new Error(
                      `Family:${family} and subType=${subtype} combination is not valid.`,
@@ -634,7 +673,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             //   )}; surveyMonkeyQuestion.heading=${
             //     surveyMonkeyQuestion.heading
             //   };surveyMonkeyQuestion=${JSON.stringify(surveyMonkeyQuestion)}`,
-            //   L0
+            //   L3
             // );
             // newQuestion.surveyMonkeyId = surveyMonkeyQuestion.id;
             // newQuestion.surveyMonkeyPosition = surveyMonkeyQuestion.position;
@@ -651,7 +690,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             //   `surveyMonkeyQuestionsDetails=${JSON.stringify(
             //     surveyMonkeyQuestionsDetails
             //   )}`,
-            //   L0
+            //   L3
             // );
             // newQuestion.surveyMonkeyFamily = surveyMonkeyQuestionsDetails.family;
             // newQuestion.surveyMonkeySubType = surveyMonkeyQuestionsDetails.subtype;
@@ -664,7 +703,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             //       case "menu":
             //         if (surveyMonkeyQuestionsDetails.answers.choices ?? false) {
             //           let choices = surveyMonkeyQuestionsDetails.answers.choices;
-            //           LogThis(log, `choices=${JSON.stringify(choices)}`, L0);
+            //           LogThis(log, `choices=${JSON.stringify(choices)}`, L3);
 
             //           let choicesFields = choices.map((choice) => {
             //             return {
@@ -677,7 +716,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             //           LogThis(
             //             log,
             //             `choicesFields=${JSON.stringify(choicesFields)}`,
-            //             L0
+            //             L3
             //           );
             //           newQuestion.surveyMonkeyAnswers = { choices: choicesFields };
             //         }
@@ -696,7 +735,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             //           `newQuestion.surveyMonkeyAnswers=${JSON.stringify(
             //             newQuestion.surveyMonkeyAnswers
             //           )}`,
-            //           L0
+            //           L3
             //         );
             //         break;
             //       default:
@@ -707,165 +746,172 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
             // }
 
             questions.push(newQuestion)
-            LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0)
+            LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L3)
          }
 
-         //   for (
-         //     let x = 0;
-         //     surveyItem.calculatedFieldList &&
-         //     x < surveyItem.calculatedFieldList.length;
-         //     x++
-         //   ) {
-         //     calculatedFieldItem = surveyItem.calculatedFieldList[x];
-         //     calculatedFields;
-         //     calculatedFields.push({
-         //       surveyId: surveyCreated._id,
-         //       description: calculatedFieldItem.description,
-         //       shortDescription: calculatedFieldItem.shortDescription,
-         //       fieldName: calculatedFieldItem.fieldName,
-         //       calculationType: calculatedFieldItem.calculationType,
-         //       //isCriteria: calculatedFieldItem.isCriteria,
-         //       criteria: calculatedFieldItem.criteria ?? null,
-         //       group: calculatedFieldItem.group,
-         //       sequence: calculatedFieldItem.sequence,
-         //     });
-         //   }
-         console.log('About to insert many')
-         console.log(JSON.stringify(questions))
+         for (
+            let x = 0;
+            surveyItem.calculatedFieldList &&
+            x < surveyItem.calculatedFieldList.length;
+            x++
+         ) {
+            calculatedFieldItem = surveyItem.calculatedFieldList[x]
+            calculatedFields
+            calculatedFields.push({
+               surveyId: surveyCreated._id,
+               description: calculatedFieldItem.description,
+               shortDescription: calculatedFieldItem.shortDescription,
+               fieldName: calculatedFieldItem.fieldName,
+               calculationType: calculatedFieldItem.calculationType,
+               //isCriteria: calculatedFieldItem.isCriteria,
+               criteria: calculatedFieldItem.criteria ?? null,
+               group: calculatedFieldItem.group,
+               sequence: calculatedFieldItem.sequence,
+            })
+         }
+         // console.log('About to insert many')
+         // console.log(JSON.stringify(questions))
          questionsCreated = await SurveyQuestion.insertMany(questions)
          questions = []
-         // console.log(JSON.stringify(calculatedFields));
-         // if (calculatedFields.length > 0) {
-         //   calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
-         //     calculatedFields
-         //   );
-         //   calculatedFields = [];
-         // }
+         //console.log(JSON.stringify(calculatedFields))
+         if (calculatedFields.length > 0) {
+            calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
+               calculatedFields,
+            )
+            calculatedFields = []
+         }
       } //CLOSE SURVEY LOOP HERE
 
-      // let outputLayouts = superSurveyConfig.surveySuperiorOutputLayout.sort(
-      //   (a, b) => a.sequence - b.sequence
-      // );
-      // LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3);
-      // let outputLayoutFields = [];
-      // for (let i = 0; i < outputLayouts.length; i++) {
-      //   outputLayout = outputLayouts[i];
-      //   outputLayoutFields.push({
-      //     surveySuperiorId: createdSurveySuperior._id,
-      //     surveyShortName: outputLayout.surveyShortName,
-      //     fieldName: outputLayout.fieldName,
-      //     outputAsReal: outputLayout.outputAsReal,
-      //     showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
-      //     sequence: outputLayout.sequence,
-      //   });
-      // }
-      // LogThis(
-      //   log,
-      //   `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
-      //   L3
-      // );
-      // const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
-      //   outputLayoutFields
-      // );
+      let outputLayouts = superSurveyConfig.surveySuperiorOutputLayout.sort(
+         (a, b) => a.sequence - b.sequence,
+      )
+      LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3)
+      let outputLayoutFields = []
+      for (let i = 0; i < outputLayouts.length; i++) {
+         outputLayout = outputLayouts[i]
+         outputLayoutFields.push({
+            surveySuperiorId: createdSurveySuperior._id,
+            surveyShortName: outputLayout.surveyShortName,
+            fieldName: outputLayout.fieldName,
+            outputAsReal: outputLayout.outputAsReal,
+            showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
+            sequence: outputLayout.sequence,
+         })
+      }
+      LogThis(
+         log,
+         `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
+         L3,
+      )
+      const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
+         outputLayoutFields,
+      )
 
-      // //Start Output Collection
-      // let x = 0;
-      // x++;
-      // const surveyOutputCollectionName =
-      //   `surveyOutputs_${superSurveyConfig.surveyShortName}`.toLocaleLowerCase();
-      // LogThis(
-      //   log,
-      //   `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
-      //   L3
-      // );
+      //Start Output Collection
+      let x = 0
+      x++
+      const surveyOutputCollectionName =
+         `surveyOutputs_${superSurveyConfig.surveyShortName}`.toLocaleLowerCase()
+      LogThis(
+         log,
+         `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+         L3,
+      )
 
-      // x = x + 1;
-      // LogThis(log, `x=${x}`, L3);
-      // const collections = await mongoose.connection.db
-      //   .listCollections({ name: surveyOutputCollectionName })
-      //   .toArray();
-      // x = x + 1;
-      // LogThis(log, `x=${x}`, L3);
-      // const collInfo = collections.find(
-      //   (collection) => collection.name === surveyOutputCollectionName
-      // );
-      // if (collInfo) {
-      //   LogThis(log, `dropping surveyOutputCollectionName`, L3);
-      //   let surveyOutputCollection = await mongoose.connection.collection(
-      //     surveyOutputCollectionName
-      //   );
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
+      const collections = await mongoose.connection.db
+         .listCollections({ name: surveyOutputCollectionName })
+         .toArray()
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
+      const collInfo = collections.find(
+         collection => collection.name === surveyOutputCollectionName,
+      )
+      if (collInfo) {
+         LogThis(log, `dropping surveyOutputCollectionName`, L3)
+         let surveyOutputCollection = await mongoose.connection.collection(
+            surveyOutputCollectionName,
+         )
 
-      //   await surveyOutputCollection.drop();
+         await surveyOutputCollection.drop()
 
-      //   LogThis(log, `dropped surveyOutputCollectionName`, L3);
+         LogThis(log, `dropped surveyOutputCollectionName`, L3)
 
-      //   delete mongoose.models[surveyOutputCollectionName];
-      //   LogThis(log, `deleted models`, L3);
-      // }
-      // x = x + 1;
-      // LogThis(log, `x=${x}`, L3);
+         delete mongoose.models[surveyOutputCollectionName]
+         LogThis(log, `deleted models`, L3)
+      }
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
 
-      // let surveyOutputColumns = {};
+      let surveyOutputColumns = {}
 
-      // outputLayoutFields.forEach((column) => {
-      //   LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3);
-      //   switch (column.fieldName) {
-      //     case "SCOLINFO_date_created":
-      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
-      //       break;
-      //     case "SCOLINFO_date_modified":
-      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date;
-      //       break;
-      //     default:
-      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String;
-      //   }
+      outputLayoutFields.forEach(column => {
+         LogThis(
+            log,
+            `output Layout Field column=${JSON.stringify(column)}`,
+            L3,
+         )
+         switch (column.fieldName) {
+            case 'SCOLINFO_date_created':
+               surveyOutputColumns[column.fieldName] =
+                  mongoose.Schema.Types.Date
+               break
+            case 'SCOLINFO_date_modified':
+               surveyOutputColumns[column.fieldName] =
+                  mongoose.Schema.Types.Date
+               break
+            default:
+               surveyOutputColumns[column.fieldName] =
+                  mongoose.Schema.Types.String
+         }
+      })
+      x = x + 1
+      LogThis(
+         log,
+         `x=${x}; surveyOutputColumns=${JSON.stringify(
+            Object.entries(surveyOutputColumns),
+         )}`,
+         L3,
+      )
+
+      const surveyOutputCollectionSchema = new Schema(surveyOutputColumns)
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
+      const surveyOutputCollection = mongoose.model(
+         surveyOutputCollectionName,
+         surveyOutputCollectionSchema,
+      )
+
+      saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns)
+
+      // await DynamicCollection.deleteOne({
+      //   collectionName: surveyOutputCollectionName,
       // });
-      // x = x + 1;
-      // LogThis(
-      //   log,
-      //   `x=${x}; surveyOutputColumns=${JSON.stringify(
-      //     Object.entries(surveyOutputColumns)
-      //   )}`,
-      //   L3
-      // );
 
-      // const surveyOutputCollectionSchema = new Schema(surveyOutputColumns);
-      // x = x + 1;
-      // LogThis(log, `x=${x}`, L3);
-      // const surveyOutputCollection = mongoose.model(
-      //   surveyOutputCollectionName,
-      //   surveyOutputCollectionSchema
-      // );
+      // const schemaDefinition = {
+      //   field1: String,
+      //   field2: Number,
+      //   // Add more fields as needed
+      // };
+      // const dynamicCollection = new DynamicCollection();
+      // dynamicCollection.collectionName = surveyOutputCollectionName;
+      // dynamicCollection.schemaDefinition = schemaDefinition;
 
-      // saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns);
+      // const createdDynamicCollection = await dynamicCollection.save();
+      // if (!createdDynamicCollection) {
+      //   throw new Error(`DynamicCollection couldn't be created`);
+      // }
 
-      // // await DynamicCollection.deleteOne({
-      // //   collectionName: surveyOutputCollectionName,
-      // // });
-
-      // // const schemaDefinition = {
-      // //   field1: String,
-      // //   field2: Number,
-      // //   // Add more fields as needed
-      // // };
-      // // const dynamicCollection = new DynamicCollection();
-      // // dynamicCollection.collectionName = surveyOutputCollectionName;
-      // // dynamicCollection.schemaDefinition = schemaDefinition;
-
-      // // const createdDynamicCollection = await dynamicCollection.save();
-      // // if (!createdDynamicCollection) {
-      // //   throw new Error(`DynamicCollection couldn't be created`);
-      // // }
-
-      // x = x + 1;
-      // LogThis(log, `x=${x}`, L3);
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
 
       res.status(201).json({
          surveySuperiorId: createdSurveySuperior._id,
          surveysCreated: surveysCreated,
          questionsCreated: questionsCreated,
-         // createdOutputLayout: createdOutputLayout,
-         // surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+         createdOutputLayout: createdOutputLayout,
+         surveyOutputCollectionSchema: surveyOutputCollectionSchema,
       })
    },
 )
@@ -895,7 +941,7 @@ const testSurveyMonkey = asyncHandler(async (req, res) => {
       configSurveyMonkey,
    )
    const surveys = surveysResult.data.data
-   LogThis(log, `surveys=${JSON.stringify(surveys)}`, L0)
+   LogThis(log, `surveys=${JSON.stringify(surveys)}`, L3)
 
    res.status(201).json({
       surveys: surveys,
@@ -906,18 +952,18 @@ const surveyMonkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
    const functionName = 'surveyMonkeyWebhookCreatedEvent'
    const log = new LoggerSettings(srcFileName, functionName)
 
-   LogThis(log, `START`, L0)
-   LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
+   LogThis(log, `START`, L3)
+   LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L3)
    const bd = req.body
    LogThis(
       log,
       `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
-      L0,
+      L3,
    )
 
-   LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
+   LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L3)
 
-   LogThis(log, `Event Happened`, L0)
+   LogThis(log, `Event Happened`, L3)
 
    res.status(200).end()
 })
@@ -927,16 +973,16 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
    const log = new LoggerSettings(srcFileName, functionName)
 
    try {
-      LogThis(log, `START`, L0)
-      LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
+      LogThis(log, `START`, L3)
+      LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L3)
       const bd = req.body
       LogThis(
          log,
          `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
-         L0,
+         L3,
       )
 
-      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
+      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L3)
       const resources = bd.resources
 
       const superSurveyFound = await SurveySuperior.findOne({
@@ -951,7 +997,7 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
       LogThis(
          log,
          `superSurveyFound=${JSON.stringify(superSurveyFound, null, 1)}`,
-         L0,
+         L3,
       )
       const superSurvey = superSurveyFound
       let newResponseFound = await SurveyMonkeyNewResponse.findOne({
@@ -964,13 +1010,13 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
          LogThis(
             log,
             `updating respondent, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
-            L0,
+            L3,
          )
          newResponseFound.event_type = bd.event_type
          newResponseFound.event_datetime = bd.event_datetime
          newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
       } else {
-         LogThis(log, `creating respondent`, L0)
+         LogThis(log, `creating respondent`, L3)
          LogThis(
             log,
             `resources.event_datetime=${
@@ -978,7 +1024,7 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
             }; date converted=${new Date(bd.event_datetime)}; status=${
                SURVEY_PROCESS_STATUS.NEW
             }`,
-            L0,
+            L3,
          )
          newResponseFound = new SurveyMonkeyNewResponse({
             surveyMonkeyId: resources.survey_id,
@@ -991,11 +1037,11 @@ const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
 
       await newResponseFound.save()
 
-      LogThis(log, `Event Happened`, L0)
+      LogThis(log, `Event Happened`, L3)
 
       res.status(200).end()
    } catch (error) {
-      LogThis(log, `Error found: ${error.message}`, L0)
+      LogThis(log, `Error found: ${error.message}`, L3)
       res.status(200).end()
    }
 })
@@ -1009,7 +1055,7 @@ const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
    //const paramTest = req.params.id;
    const superSurveyId = req.params.id
 
-   LogThis(log, `START superSurveyId=${superSurveyId}`, L0)
+   LogThis(log, `START superSurveyId=${superSurveyId}`, L3)
    const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
    if (!surveyMonkeyToken || surveyMonkeyToken == '') {
@@ -1071,7 +1117,7 @@ const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
    LogThis(
       log,
       `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
-      L0,
+      L3,
    )
 
    //Start getting survey monkey configs
@@ -1082,7 +1128,7 @@ const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
 
    const pages = pagesResult.data.data
 
-   LogThis(log, `pages=${JSON.stringify(pages, null, 2)}`, L0)
+   LogThis(log, `pages=${JSON.stringify(pages, null, 2)}`, L3)
 
    for (let pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       page = pages[pageIndex]
@@ -1093,7 +1139,7 @@ const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
       )
       let questions = questionsResult.data.data
 
-      LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0)
+      LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L3)
       page.questions = questions
 
       for (
@@ -1113,7 +1159,7 @@ const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
          LogThis(
             log,
             `questionDetails=${JSON.stringify(questionDetails, null, 2)}`,
-            L0,
+            L3,
          )
          question.details = questionDetails
       }
@@ -1129,7 +1175,7 @@ const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
    LogThis(
       log,
       `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
-      L0,
+      L3,
    )
 
    const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save()
@@ -1154,7 +1200,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    //const paramTest = req.params.id;
    const superSurveyId = req.params.id
 
-   LogThis(log, `START superSurveyId=${superSurveyId}`, L0)
+   LogThis(log, `START superSurveyId=${superSurveyId}`, L3)
    const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
    if (!surveyMonkeyToken || surveyMonkeyToken == '') {
@@ -1214,7 +1260,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    LogThis(
       log,
       `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
-      L0,
+      L3,
    )
 
    //Start getting survey monkey configs
@@ -1225,7 +1271,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
 
    const pages = pagesResult.data.data
 
-   LogThis(log, `pages=${JSON.stringify(pages, null, 2)}`, L0)
+   LogThis(log, `pages=${JSON.stringify(pages, null, 2)}`, L3)
 
    for (let pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       page = pages[pageIndex]
@@ -1236,7 +1282,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
       )
       let questions = questionsResult.data.data
 
-      LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L0)
+      LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L3)
       page.questions = questions
 
       for (
@@ -1256,7 +1302,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
          LogThis(
             log,
             `questionDetails=${JSON.stringify(questionDetails, null, 2)}`,
-            L0,
+            L3,
          )
          question.details = questionDetails
       }
@@ -1272,7 +1318,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    LogThis(
       log,
       `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
-      L0,
+      L3,
    )
 
    await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId })
@@ -1385,7 +1431,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
          )}`,
       )
 
-      LogThis(log, `surveyIdsList=${surveyIdsList}`, L2)
+      LogThis(log, `surveyIdsList=${surveyIdsList}`, L3)
 
       const questions = await SurveyQuestion.find({
          surveyId: { $in: surveyIdsList },
@@ -1496,12 +1542,21 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
          respondentId = answers[0].trim()
          let row = r + 1
          for (let a = 0; a < allSurveyQuestions.length; a++) {
-            LogThis(log, `processing question a=${a}`)
+            //LogThis(log, `processing question a=${a}`)
             // LogThis(
             //   log,
             //   `row=${row}; allSurveyQuestions[a]._id=${allSurveyQuestions[a]._id}; answers[a]=${answers[a]}`
             // );
             let surveyQuestion = allSurveyQuestions[a]
+            // LogVarsFilter(
+            //    log,
+            //    `processing question`,
+            //    a,
+            //    305,
+            //    L0,
+            //    'surveyQuestion=',
+            //    surveyQuestion,
+            // )
             //transform the question answer value into the weighted answer for that Survey.
             let weightedResponse = null
             let response = null
@@ -2007,88 +2062,108 @@ const superSurveyTests = asyncHandler(async (req, res) => {
    }
 })
 
+const getSuperSurveyConfigsHelper = async (
+   userIdentifierIn,
+   superSurveyIdIn,
+) => {
+   const functionName = 'getSuperSurveyConfigsHelper'
+   const log = new LoggerSettings(srcFileName, functionName)
+
+   LogThis(log, `START BY user=${userIdentifierIn}`, L3)
+
+   const superSurveyId = superSurveyIdIn
+   LogThis(log, `superSurveyId=${superSurveyId}`, L3)
+   //const user = req.user
+   //const owner = req.user._id;
+   //const owner = "62e551baf5c6b51f61e0ef93";
+
+   console.log(`Getting multi surveys`)
+   let multiSurveys = await Survey.find({
+      superSurveyId: superSurveyId,
+   })
+      .sort({ surveyMonkeyPosition: 1 })
+      .lean()
+
+   if (!multiSurveys) {
+      res.status(404)
+      throw new Error('Multi Surveys not found')
+   }
+
+   const surveyIdsList = []
+
+   multiSurveys.map(multiSurveyItem => {
+      surveyIdsList.push(multiSurveyItem._id)
+   })
+   LogThis(
+      log,
+      `Mapping multi surveys surveysIdsList=${JSON.stringify(surveyIdsList)}`,
+      L3,
+   )
+
+   LogThis(log, `surveyIdsList=${surveyIdsList}`, L3)
+
+   const questions = await SurveyQuestion.find({
+      surveyId: { $in: surveyIdsList },
+   })
+      .populate('surveyId')
+      .sort({ superSurveyCol: 1 })
+      .lean()
+   //return questions.
+   LogThis(log, `resultset questions=${JSON.stringify(questions)}`, L3)
+
+   const calculatedFields = await SurveyCalculatedField.find({
+      surveyId: { $in: surveyIdsList },
+   })
+      .populate('surveyId')
+      .lean()
+   //return calculatedFields
+   LogThis(
+      log,
+      `Calculated Fields Found: calculatedFields=${JSON.stringify(
+         calculatedFields,
+      )};`,
+      L3,
+   )
+
+   const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
+      surveySuperiorId: superSurveyId,
+   }).sort({ sequence: 1 })
+   LogThis(log, `buildOutputHeaders`)
+   //co});nsole.log(`Building output headers`);
+
+   const outputLayout = buildOutputHeaders(
+      questions,
+      calculatedFields,
+      outputLayoutsResult,
+   )
+
+   LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`, L3)
+
+   return {
+      multiSurveys: multiSurveys,
+      surveyIdsList: surveyIdsList,
+      questions: questions,
+      calculatedFields: calculatedFields,
+      outputLayout: outputLayout,
+   }
+}
+
 const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
    try {
       const functionName = 'getSuperSurveyConfigs'
       const log = new LoggerSettings(srcFileName, functionName)
 
-      LogThis(log, `START BY user=${req.user.email}`, L1)
-
-      const superSurveyId = req.params.id
-      LogThis(log, `superSurveyId=${superSurveyId}`, L3)
-      const user = req.user
-      //const owner = req.user._id;
-      //const owner = "62e551baf5c6b51f61e0ef93";
-
-      console.log(`Getting multi surveys`)
-      let multiSurveys = await Survey.find({
-         superSurveyId: superSurveyId,
-      })
-         .sort({ surveyMonkeyPosition: 1 })
-         .lean()
-
-      if (!multiSurveys) {
-         res.status(404)
-         throw new Error('Multi Surveys not found')
-      }
-
-      const surveyIdsList = []
-
-      multiSurveys.map(multiSurveyItem => {
-         surveyIdsList.push(multiSurveyItem._id)
-      })
-      LogThis(
-         log,
-         `Mapping multi surveys surveysIdsList=${JSON.stringify(
-            surveyIdsList,
-         )}`,
-         L3,
+      const superSurveyConfig = await getSuperSurveyConfigsHelper(
+         req.user.email,
+         req.params.id,
       )
-
-      LogThis(log, `surveyIdsList=${surveyIdsList}`, L2)
-
-      const questions = await SurveyQuestion.find({
-         surveyId: { $in: surveyIdsList },
-      })
-         .populate('surveyId')
-         .sort({ superSurveyCol: 1 })
-         .lean()
-      //return questions.
-      LogThis(log, `resultset questions=${JSON.stringify(questions)}`, L3)
-
-      const calculatedFields = await SurveyCalculatedField.find({
-         surveyId: { $in: surveyIdsList },
-      })
-         .populate('surveyId')
-         .lean()
-      //return calculatedFields
-      LogThis(
-         log,
-         `Calculated Fields Found: calculatedFields=${JSON.stringify(
-            calculatedFields,
-         )};`,
-      )
-
-      const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
-         surveySuperiorId: superSurveyId,
-      }).sort({ sequence: 1 })
-      LogThis(log, `buildOutputHeaders`)
-      //co});nsole.log(`Building output headers`);
-
-      const outputLayout = buildOutputHeaders(
-         questions,
-         calculatedFields,
-         outputLayoutsResult,
-      )
-
-      LogThis(log, `outputLayouts=${JSON.stringify(outputLayout)}`, L3)
 
       res.status(200).json({
-         multiSurveys: multiSurveys,
-         surveyIdsList: surveyIdsList,
-         questions: questions,
-         calculatedFields: calculatedFields,
-         outputLayout: outputLayout,
+         multiSurveys: superSurveyConfig.multiSurveys,
+         surveyIdsList: superSurveyConfig.surveyIdsList,
+         questions: superSurveyConfig.questions,
+         calculatedFields: superSurveyConfig.calculatedFields,
+         outputLayout: superSurveyConfig.outputLayout,
       })
    } catch (error) {
       res.status(404)
@@ -2110,104 +2185,109 @@ const superSurveyGetList = asyncHandler(async (req, res) => {
    }
 })
 
-const surveySaveOutputHelper = asyncHandler(
-   async (superSurveyId, columnsNames, outputValues) => {
-      const functionName = 'surveySaveOutputHelper'
-      const log = new LoggerSettings(srcFileName, functionName)
-      try {
-         LogThis(
-            log,
-            `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
-               columnsNames,
-               null,
-               2,
-            )}; outputValues=${JSON.stringify(outputValues)}`,
-            L3,
-         )
-         const surveySuperiors = await SurveySuperior.find({
-            _id: superSurveyId,
-         }).lean()
-         let x = 0
-         x = x + 1
-         LogThis(
-            log,
-            `x=${x}; surveySuperiors=${JSON.stringify(surveySuperiors)}`,
-            L3,
-         )
+/**
+ *
+ */
+const surveySaveOutputHelper = async (
+   superSurveyId,
+   columnsNames,
+   outputValues,
+) => {
+   const functionName = 'surveySaveOutputHelper'
+   const log = new LoggerSettings(srcFileName, functionName)
+   try {
+      LogThis(
+         log,
+         `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
+            columnsNames,
+            null,
+            2,
+         )}; outputValues=${JSON.stringify(outputValues)}`,
+         L3,
+      )
+      const surveySuperiors = await SurveySuperior.find({
+         _id: superSurveyId,
+      }).lean()
+      let x = 0
+      x = x + 1
+      LogThis(
+         log,
+         `x=${x}; surveySuperiors=${JSON.stringify(surveySuperiors)}`,
+         L3,
+      )
 
-         const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`
+      const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].surveyShortName}`
 
-         //   const collections = await mongoose.connection.db
-         //   .listCollections({ name: surveyOutputCollectionName })
-         //   .toArray();
-         // x = x + 1;
-         // LogThis(log, `x=${x}`, L3);
-         // const collInfo = collections.find(
-         //   (collection) => collection.name === surveyOutputCollectionName
-         // );
+      //   const collections = await mongoose.connection.db
+      //   .listCollections({ name: surveyOutputCollectionName })
+      //   .toArray();
+      // x = x + 1;
+      // LogThis(log, `x=${x}`, L3);
+      // const collInfo = collections.find(
+      //   (collection) => collection.name === surveyOutputCollectionName
+      // );
 
-         //const surveyOutputs = mongoose.model(surveyOutputCollectionName);
-         let surveyOutputCollection = mongoose.connection.collection(
-            surveyOutputCollectionName.toLocaleLowerCase(),
-         )
-         // x = x + 1;
-         // LogThis(log, `x=${x}`, L3);
-         // await surveyOutputCollection.deleteMany({});
-         x = x + 1
-         LogThis(log, `x=${x}`, L3)
-         const outputValueDocuments = []
-         let dateTimeParts = []
-         let dateValue = null
-         outputValues.forEach(row => {
-            let doc = {}
-            columnsNames.forEach((column, index) => {
-               switch (column) {
-                  case 'SCOLINFO_date_created':
-                     dateTimeParts = row[index].split(/[\s/:\-]/)
-                     dateValue = new Date(
-                        dateTimeParts[2], // Year
-                        dateTimeParts[0] - 1, // Month
-                        dateTimeParts[1], // Day
-                        dateTimeParts[3], // Hours
-                        dateTimeParts[4], // Minutes)
-                     )
-                     doc[column] = dateValue
-                     break
-                  case 'SCOLINFO_date_modified':
-                     dateTimeParts = row[index].split(/[\s/:\-]/)
-                     dateValue = new Date(
-                        dateTimeParts[2], // Year
-                        dateTimeParts[0] - 1, // Month
-                        dateTimeParts[1], // Day
-                        dateTimeParts[3], // Hours
-                        dateTimeParts[4], // Minutes)
-                     )
-                     doc[column] = dateValue
-                     break
-                  default:
-                     doc[column] = row[index]
-               }
-            })
-            outputValueDocuments.push(doc)
-            doc = {}
+      //const surveyOutputs = mongoose.model(surveyOutputCollectionName);
+      let surveyOutputCollection = mongoose.connection.collection(
+         surveyOutputCollectionName.toLocaleLowerCase(),
+      )
+      // x = x + 1;
+      // LogThis(log, `x=${x}`, L3);
+      // await surveyOutputCollection.deleteMany({});
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
+      const outputValueDocuments = []
+      let dateTimeParts = []
+      let dateValue = null
+      outputValues.forEach(row => {
+         let doc = {}
+         columnsNames.forEach((column, index) => {
+            switch (column) {
+               case 'SCOLINFO_date_created':
+                  dateTimeParts = row[index].split(/[\s/:\-]/)
+                  dateValue = new Date(
+                     dateTimeParts[2], // Year
+                     dateTimeParts[0] - 1, // Month
+                     dateTimeParts[1], // Day
+                     dateTimeParts[3], // Hours
+                     dateTimeParts[4], // Minutes)
+                  )
+                  doc[column] = dateValue
+                  break
+               case 'SCOLINFO_date_modified':
+                  dateTimeParts = row[index].split(/[\s/:\-]/)
+                  dateValue = new Date(
+                     dateTimeParts[2], // Year
+                     dateTimeParts[0] - 1, // Month
+                     dateTimeParts[1], // Day
+                     dateTimeParts[3], // Hours
+                     dateTimeParts[4], // Minutes)
+                  )
+                  doc[column] = dateValue
+                  break
+               default:
+                  doc[column] = row[index]
+            }
          })
-         x = x + 1
-         LogThis(log, `x=${x}`, L3)
-         // LogThis(
-         //   log,
-         //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
-         // );
-         // x = x + 1;
-         // LogThis(log, `x=${x}`, L3);
-         await surveyOutputCollection.insertMany(outputValueDocuments)
-         x = x + 1
-         LogThis(log, `x=${x}`, L3)
-      } catch (error) {
-         LogThis(log, `error ocurred: ${error.message}`, L0)
-         throw error
-      }
-   },
-)
+         outputValueDocuments.push(doc)
+         doc = {}
+      })
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
+      // LogThis(
+      //   log,
+      //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
+      // );
+      // x = x + 1;
+      // LogThis(log, `x=${x}`, L3);
+      await surveyOutputCollection.insertMany(outputValueDocuments)
+      x = x + 1
+      LogThis(log, `x=${x}`, L3)
+   } catch (error) {
+      LogThis(log, `error ocurred: ${error.message}`, L3)
+      throw error
+   }
+}
 
 // @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
@@ -2216,7 +2296,7 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
    const functionName = 'superSurveySaveOutput'
    const log = new LoggerSettings(srcFileName, functionName)
    try {
-      LogThis(log, `START BY user=${req.user.email}`, L1)
+      LogThis(log, `START BY user=${req.user.email}`, L3)
       const { columnsNames, outputValues } = req.body
 
       const superSurveyId = req.params.id
@@ -2226,10 +2306,27 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
       res.status(200).json({ surveyOutputStatus: 'success' })
    } catch (error) {
       res.status(404)
-      LogThis(log, `error=${error.message}`, L1)
+      LogThis(log, `error=${error.message}`, L3)
       throw new Error(`Survey Output Error: ${error.message}`)
    }
 })
+
+// const superSurveySaveOutputHelper = asyncHandler(async (req) => {
+//    try {
+//       LogThis(log, `START BY user=${req.user.email}`, L3)
+//       const { columnsNames, outputValues } = req.body
+
+//       const superSurveyId = req.params.id
+
+//       await surveySaveOutputHelper(superSurveyId, columnsNames, outputValues)
+
+//       res.status(200).json({ surveyOutputStatus: 'success' })
+//    } catch (error) {
+//       res.status(404)
+//       LogThis(log, `error=${error.message}`, L3)
+//       throw new Error(`Survey Output Error: ${error.message}`)
+//    }
+// })
 
 // @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
@@ -2238,7 +2335,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
    const functionName = 'superSurveyGetOutputValues'
    const log = new LoggerSettings(srcFileName, functionName)
    try {
-      LogThis(log, `START BY user=${req.user.email}`, L1)
+      LogThis(log, `START BY user=${req.user.email}`, L3)
       /**
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
@@ -2267,7 +2364,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          `superSurveyId=${superSurveyId};  superSurveyShortName=${JSON.stringify(
             superSurveyShortName,
          )}`,
-         L2,
+         L3,
       )
       const outputLayouts = await SurveySuperiorOutputLayout.find({
          surveySuperiorId: superSurveyId,
@@ -2282,7 +2379,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
 
       if (outputLayouts && outputLayouts.length > 0) {
          //fields = Object.keys(outputLayouts[0]);
-         //LogThis(log, `fields=${JSON.stringify(fields)}`, L1);
+         //LogThis(log, `fields=${JSON.stringify(fields)}`, L3);
          //const condition = {};
          outputLayouts.forEach(field => {
             if (field.showInSurveyOutputScreen) {
@@ -2389,7 +2486,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       })
    } catch (error) {
       res.status(404)
-      LogThis(log, `error=${error.message}`, L1)
+      LogThis(log, `error=${error.message}`, L3)
       throw new Error(`Survey Output Error: ${error.message}`)
    }
 })
@@ -2434,7 +2531,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
    const functionName = 'superSurveyGetRespondentIds'
    const log = new LoggerSettings(srcFileName, functionName)
    try {
-      LogThis(log, `START BY user=${req.user.email}`, L1)
+      LogThis(log, `START BY user=${req.user.email}`, L3)
       /**
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
@@ -2442,7 +2539,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
       const superSurveyShortName = req.params.id
       //const superSurveyShortName = req.query.superSurveyShortName;
 
-      LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L0)
+      LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L3)
       const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`
 
       let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
@@ -2451,7 +2548,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
       // LogThis(
       //   log,
       //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
-      //   L0
+      //   L3
       // );
       //await surveyOutputCollectionFound.deleteMany({});
       const respondentIdsInfo = await surveyOutputCollectionFound
@@ -2461,7 +2558,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
          )
          .sort({ SCOLINFO_respondent_id: -1 })
          .lean()
-      //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L0);
+      //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L3);
       res.status(200).json({
          respondentIdsInfo: respondentIdsInfo,
       })
@@ -2469,7 +2566,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
       LogThis(
          log,
          `Error getting respondent ids error=${JSON.stringify(error)}`,
-         L0,
+         L3,
       )
       res.status(404).json({ message: 'Error getting respondent ids error' })
       throw new Error(`Error getting respondent ids error=${error.message}`)
@@ -2480,7 +2577,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //   const functionName = "surveyMonkeyUpdateResponses";
 //   const log = new LoggerSettings(srcFileName, functionName);
 //   try {
-//     //LogThis(log, `START BY user=${req.user.email}`, L1);
+//     //LogThis(log, `START BY user=${req.user.email}`, L3);
 //     /**
 //      * On 12/7/23 I was working on the pagination and lookup by keyword
 //      * This function won't work without page beein provided by the client, the keyword is optional.
@@ -2615,7 +2712,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                   monkeyQuestion: monkeyQuestion,
 //                   //monkeyAnswer: monkeyAnswer,
 //                 })}`,
-//                 L0
+//                 L3
 //               );
 //             }
 //             if (
@@ -2640,7 +2737,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                   monkeyQuestion: monkeyQuestion,
 //                   monkeyAnswer: monkeyAnswer,
 //                 })}`,
-//                 L0
+//                 L3
 //               );
 //             }
 //           } else {
@@ -2713,7 +2810,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                   LogThis(
 //                     log,
 //                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
-//                     L1
+//                     L3
 //                   );
 //                   throw new Error(
 //                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
@@ -2746,7 +2843,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                   LogThis(
 //                     log,
 //                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
-//                     L1
+//                     L3
 //                   );
 //                   throw new Error(
 //                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
@@ -2760,7 +2857,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                       (choice) => choice.id == monkeyAnswer
 //                     );
 //                   if (!surveyChoice) {
-//                     LogThis(log, `Choice not found for ${monkeyAnswer}`, L1);
+//                     LogThis(log, `Choice not found for ${monkeyAnswer}`, L3);
 //                     throw new Error(`Choice not found for ${monkeyAnswer}`);
 //                   }
 //                   value = surveyChoice.score; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.
@@ -2794,7 +2891,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                         surveyQuestion: surveyQuestion,
 //                         monkeyAnswer: monkeyAnswer,
 //                       })}; `,
-//                       L0
+//                       L3
 //                     );
 //                   }
 //                   let surveyChoice =
@@ -2811,7 +2908,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                                 choice.id.toString().trim() ==
 //                                 monkeyAnswer.toString().trim(),
 //                             })}`,
-//                             L0
+//                             L3
 //                           );
 //                         }
 //                         return (
@@ -2827,7 +2924,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                         surveyChoice: surveyChoice,
 //                         negatedSurveyChoice: !surveyChoice,
 //                       })}`,
-//                       L0
+//                       L3
 //                     );
 //                   }
 //                   if (!surveyChoice) {
@@ -2836,7 +2933,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                       `Log Choice not found for ${monkeyAnswer} surveyChoice=${j(
 //                         surveyChoice
 //                       )}; question field: ${surveyQuestion.fieldName}`,
-//                       L0
+//                       L3
 //                     );
 //                     throw new Error(
 //                       `Error Choice not found for ${monkeyAnswer}`
@@ -2867,7 +2964,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                 LogThis(
 //                   log,
 //                   `Family:${surveyQuestion.surveyMonkeyFamily} and subType=${surveyQuestion.surveyMonkeySubType} combination is not valid.`,
-//                   L1
+//                   L3
 //                 );
 //                 throw new Error(
 //                   `Family:${family} and subType=${subtype} combination is not valid.`
@@ -2900,14 +2997,14 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                   score: score,
 //                 }
 //               )}`,
-//               L0
+//               L3
 //             );
 //           }
 //           rowValue.push(value);
 //           LogThis(
 //             log,
 //             `pushing one more value= "${value}" for surveyQuestion Field = "${surveyQuestion.fieldName}"`,
-//             L0
+//             L3
 //           );
 //           rowReal.push(realValue);
 //           rowScore.push(score);
@@ -2919,7 +3016,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                   rowValue: rowValue,
 //                 }
 //               )}`,
-//               L0
+//               L3
 //             );
 //           }
 //         });
@@ -2941,7 +3038,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //     // const superSurveyShortName = req.params.id;
 //     // //const superSurveyShortName = req.query.superSurveyShortName;
 
-//     // LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L1);
+//     // LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L3);
 //     // const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
 
 //     // let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
@@ -2950,7 +3047,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //     // // LogThis(
 //     // //   log,
 //     // //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
-//     // //   L1
+//     // //   L3
 //     // // );
 //     // //await surveyOutputCollectionFound.deleteMany({});
 //     // const respondentIdsInfo = await surveyOutputCollectionFound
@@ -2960,7 +3057,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //     //   )
 //     //   .sort({ SCOLINFO_respondent_id: -1 })
 //     //   .lean();
-//     // //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L1);
+//     // //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L3);
 //     // res.status(200).json({
 //     //   newRespondents: newRespondents,
 //     // });
@@ -2971,14 +3068,18 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //   }
 // });
 
+// const surveyMonkeyUpdateResponses2Helper = async (req, res) => {
+
+// }
+
 const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
-   const functionName = 'surveyMonkeyUpdateResponses'
+   const functionName = 'surveyMonkeyUpdateResponses2'
    const log = new LoggerSettings(srcFileName, functionName)
 
    try {
-      const DEBUG_SECTION = 'DEBUG_SINGLE_MENU'
-      LogDebugSection(DEBUG_SECTION)
-      //LogThis(log, `START BY user=${req.user.email}`, L1);
+      //const DEBUG_SECTION = 'RESPONSE_PROCESSING'
+      //LogDebugSection(DEBUG_SECTION)
+      //LogThis(log, `START BY user=${req.user.email}`, L3);
       /**
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
@@ -3059,7 +3160,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
          monkeyPageIndex++
       ) {
          let monkeyPageConf = monkeyPagesConf[monkeyPageIndex]
-         LogThis(log, `page=${monkeyPageConf.title}`, DEBUG_SECTION)
+         //LogThis(log, `page=${monkeyPageConf.title}`, DEBUG_SECTION)
          let monkeyQuestionsConf = monkeyPageConf.questions
 
          for (
@@ -3068,13 +3169,13 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
             monkeyQuestionIndex++
          ) {
             let monkeyQuestionConf = monkeyQuestionsConf[monkeyQuestionIndex]
-            LogThis(log, `questions=${monkeyQuestionConf.id}`, DEBUG_SECTION)
+            //LogThis(log, `questions=${monkeyQuestionConf.id}`, DEBUG_SECTION)
             for (
                let respIndex = 0;
                respIndex < monkeyResponses.length;
                respIndex++
             ) {
-               LogThis(log, `repIndex=${respIndex}`, L0)
+               LogThis(log, `repIndex=${respIndex}`, L3)
                colsValue = rowValue[respIndex]
                colsReal = rowReal[respIndex]
                colsScore = rowScore[respIndex]
@@ -3105,8 +3206,8 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                //   rowValue[respIndex].concat(blankPageFill.colsValue);
                //   rowReal[respIndex].concat(blankPageFill.colsReal);
                //   rowScore[respIndex].concat(blankPageFill.colsScore);
-               //   LogThis(log, `monkeyPage not found ${monkeyPageConf}`, L0);
-               //   //LogVars(log, L0, `PushBlankPage values`, "rowValue, rowReal, rowScore", blankPageFill.rowValue, blankPageFill.rowReal, blankPageFill.rowScore)
+               //   LogThis(log, `monkeyPage not found ${monkeyPageConf}`, L3);
+               //   //LogVars(log, L3, `PushBlankPage values`, "rowValue, rowReal, rowScore", blankPageFill.rowValue, blankPageFill.rowReal, blankPageFill.rowScore)
                //   continue;
                // }
                //monkeyResponsePage = null
@@ -3120,7 +3221,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                   `Testing ? parameter monkeyResponseQuestion = ${j(
                      monkeyResponseQuestion,
                   )}`,
-                  L0,
+                  L3,
                )
 
                if (
@@ -3145,461 +3246,1035 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
          }
       }
 
+      // START OF PROCESSING THE SURVEY MONKEY ANSWERS INCLUDING CALCULATED FIELDS
+      let csvLayout = ''
+      try {
+         const fileNumeric = rowValue
+         const fileReal = rowReal
+
+         const surveySuperiorId = superSurveysList._id
+         //const surveyShortName = survey.surveyShortName;
+         const updateType = 'all'
+
+         LogThis(
+            log,
+            `surveySuperiorId selected: surveySuperiorId=${surveySuperiorId}; surveyShortName=${surveyShortName}`,
+            L3,
+         )
+
+         if (fileNumeric && fileReal) {
+            //   LogThis(log, "ABOUT TO CALL AXIOS");
+
+            let answersRows = fileNumeric
+            //   answersRows.shift();
+            //   answersRows.shift();
+            //   LogThis(log, `answersRows=${JSON.stringify(answersRows, null, 2)}`, L3);
+
+            let answersRealRows = fileReal
+            //   answersRealRows.shift();
+            //   answersRealRows.shift();
+
+            //   const results = await axios.get(
+            //     BACKEND_ENDPOINT + `/surveys/${surveyShortName}/respondentidsinfo`,
+            //     config
+            //   );
+            //   if (updateType == "new") {
+            //     const respondentIdsInfo = results.data.respondentIdsInfo;
+            //     LogThis(
+            //       log,
+            //       `respondentIdsInfo=${JSON.stringify(respondentIdsInfo, null, 2)}`,
+            //       L3
+            //     );
+            //     dispatch({
+            //       type: SURVEY_PROCESS_ANSWERS_STATUS,
+            //       payload: {
+            //         message: "Información de respuestas existentes obtenida.",
+            //         row: 0,
+            //       },
+            //     });
+            //     await new Promise((resolve) => setTimeout(resolve, 1));
+
+            //     if (respondentIdsInfo && respondentIdsInfo.length > 0) {
+            //       LogThis(log, `Filtering required`, L3);
+            //       //START Filter rows by  new answers only
+
+            //       let filteredAnswersRows = [];
+            //       let filteredRealAnswersRows = [];
+            //       const lastestIdSaved = respondentIdsInfo[0].SCOLINFO_respondent_id;
+
+            //       const firstRow = rowCleaner2(answersRows[0]).split(",");
+            //       if (firstRow[0] >= lastestIdSaved) {
+            //         for (let i = 0; i < answersRows.length; i++) {
+            //           let row = rowCleaner2(answersRows[i]).split(",");
+            //           //if(row[0]>=lastestIdSaved){
+            //           // if(!uploadingOldFile)
+            //           // {
+            //           if (row[0] == lastestIdSaved) {
+            //             break;
+            //           } else {
+            //             filteredAnswersRows.push(answersRows[i]);
+            //             filteredRealAnswersRows.push(answersRealRows[i]);
+            //           }
+            //           // } else {
+            //           //   let resIdFound = answersRows.find(rowI => rowCleaner2(rowI).split(",")[0]==row[0])
+            //           //   if(!resIdFound){
+            //           //     filteredAnswersRows.push(answersRows[i]);
+            //           //     filteredRealAnswersRows.push(answersRealRows[i]);
+            //           //   }
+            //           // }
+            //         }
+            //       } else {
+            //         filteredAnswersRows = answersRows.filter(
+            //           (row) =>
+            //             !respondentIdsInfo.find(
+            //               (respondentId) =>
+            //                 respondentId.SCOLINFO_respondent_id ==
+            //                 rowCleaner2(row).split(",")[0]
+            //             )
+            //         );
+
+            //         filteredRealAnswersRows = answersRealRows.filter((rowReal) =>
+            //           filteredAnswersRows.find(
+            //             (rowNum) =>
+            //               rowCleaner2(rowReal).split(",")[0] ==
+            //               rowCleaner2(rowNum).split(",")[0]
+            //           )
+            //         );
+            //       }
+
+            //       answersRows = filteredAnswersRows;
+
+            //       LogThis(
+            //         log,
+            //         `Filtered answersData=${JSON.stringify(answersRows, null, 2)}`,
+            //         L3
+            //       );
+
+            //       answersRealRows = filteredRealAnswersRows;
+            //       LogThis(
+            //         log,
+            //         `Filtered answersDataReal=${JSON.stringify(
+            //           answersRealRows,
+            //           null,
+            //           2
+            //         )}`,
+            //         L3
+            //       );
+            //     } else {
+            //       LogThis(log, `Filtering not required`, L3);
+            //     }
+            //   } //end of if new
+
+            if (
+               answersRows &&
+               answersRows.length > 0 &&
+               //answersRows[0] != "" &&
+               answersRealRows &&
+               answersRealRows.length > 0 //&&
+               //answersRealRows[0] != ""
+            ) {
+               LogThis(log, `answersRows files contains data`, L3)
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: {
+               //      message: "Obteniendo configuracion de las encuestas.",
+               //      row: 0,
+               //    },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+               //  let { data } = await axios.get(
+               //    BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/configs`,
+               //    config
+               //  );
+               const userId = 'SurveyMonkeyUser'
+
+               const data = await getSuperSurveyConfigsHelper(
+                  userId,
+                  surveySuperiorId,
+               )
+               LogThis(log, `data=${JSON.stringify(data, null, 2)}`, L3)
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: {
+               //      message: "Configuracion de encuestas obtenido.",
+               //      row: 0,
+               //    },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+
+               const surveyConfigs = data
+
+               //END Filter rows by  new answers only
+               //console.log(`Getting multi surveys`);
+               //GET MULTI SURVEY DATA HERE AND ASSIGN TO let multiSurveys
+               //let multiSurvey = surveyConfigs.multiSurveys; // replace this with value from multiSurveys coming from response.
+               const surveyIdsList = surveyConfigs.surveyIdsList
+
+               //GET QUESTIONS FROM RESPONSE
+
+               const questions = surveyConfigs.questions // replace with value from questions coming from response.
+
+               //GET calculatedFields response
+               const calculatedFields = surveyConfigs.calculatedFields
+
+               LogThis(log, `surveyIdsList=${surveyIdsList}`)
+
+               const surveyResponses = []
+
+               const calculatedValues = []
+
+               let allSurveyQuestions = []
+               let allCalculatedFields = []
+               //  console.log(`Getting questions per survey`);
+
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: {
+               //      message: "Mapeando las preguntas a cada tipo de encuesta.",
+               //      row: 0,
+               //    },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+               surveyIdsList.map(surveyId => {
+                  let surveyQuestions = questions
+                     .filter(
+                        question =>
+                           question.surveyId._id.toString() ===
+                           surveyId.toString(),
+                     )
+                     .sort((a, b) => a.superSurveyCol - b.superSurveyCol)
+
+                  surveyQuestions.forEach(q => {
+                     allSurveyQuestions.push(q)
+                  })
+
+                  let surveyCalculatedFields = calculatedFields
+                     .filter(
+                        calculatedField =>
+                           calculatedField.surveyId._id.toString() ===
+                           surveyId.toString(),
+                     )
+                     .sort((a, b) => a.sequence - b.sequence)
+
+                  surveyCalculatedFields.forEach(cal => {
+                     allCalculatedFields.push(cal)
+                  })
+               })
+
+               LogThis(
+                  log,
+                  `calculatedFields=${JSON.stringify(
+                     allSurveyQuestions,
+                     null,
+                     2,
+                  )};`,
+               )
+
+               LogThis(
+                  log,
+                  `Filtered calculated fields allCalculatedFields=${JSON.stringify(
+                     allCalculatedFields,
+                     null,
+                     2,
+                  )};`,
+               )
+
+               //  let questionDesc = "";
+               //  let questionShortDesc = "";
+               //  let csv = "";
+               //  console.log(`Mapping Questions`);
+
+               //  questions.map((q) => {
+               //    questionDesc = questionDesc + q.question.replace(/,/g, ";") + ",";
+               //    questionShortDesc =
+               //      questionShortDesc + q.questionShort.replace(/,/g, ";") + ",";
+               //  });
+
+               //  allCalculatedFields.map((c) => {
+               //    questionDesc =
+               //      questionDesc + c.description.replace(/,/g, ";") + ",";
+               //    questionShortDesc =
+               //      questionShortDesc + c.shortDescription.replace(/,/g, ";") + ",";
+               //  });
+               //  questionDesc = questionDesc.slice(0, -1);
+               //  questionShortDesc = questionShortDesc.slice(0, -1);
+               //  questionDesc = questionDesc + "\n";
+               //  questionShortDesc = questionShortDesc + "\n";
+
+               //  csv = csv + questionDesc + questionShortDesc;
+
+               let rowClean = ''
+               let answers = []
+               let respondentId = ''
+
+               let rowRealClean = ''
+               let answersReal = []
+               //console.log(`Processing rows`);
+
+               for (let r = 0; r < answersRows.length; r++) {
+                  // if (r % 10 === 0) {
+                  //   dispatch({
+                  //     type: SURVEY_PROCESS_ANSWERS_STATUS,
+                  //     payload: {
+                  //       message: "Procesando respuestas para la encuesta número: ",
+                  //       row: r + 1,
+                  //     },
+                  //   });
+                  //   await new Promise((resolve) => setTimeout(resolve, 1));
+                  // }
+                  // LogThis(
+                  //   log,
+                  //   `Processing Row r=${r}; allSurveyQuestions=${JSON.stringify(
+                  //     allSurveyQuestions,
+                  //     null,
+                  //     1
+                  //   )} length=${allSurveyQuestions.length}`,
+                  //   L3
+                  // );
+                  // rowClean = rowCleaner2(answersRows[r]);
+                  // LogThis(
+                  //   log,
+                  //   `before calling split rowClean 1 rowClean=${JSON.stringify(
+                  //     rowClean
+                  //   )}`,
+                  //   L3
+                  // );
+                  answers = answersRows[r]
+                  // LogThis(
+                  //   log,
+                  //   `before calling split rowClean 2 answers=${JSON.stringify(
+                  //     answers
+                  //   )}`,
+                  //   L3
+                  // );
+                  // rowRealClean = rowCleaner2(answersRealRows[r]);
+                  // LogThis(
+                  //   log,
+                  //   `before calling split rowClean 3 rowRealClean=${JSON.stringify(
+                  //     rowRealClean
+                  //   )}`,
+                  //   L3
+                  // );
+                  answersReal = answersRealRows[r]
+                  // LogThis(
+                  //   log,
+                  //   `before calling split rowClean 4 answersReal=${JSON.stringify(
+                  //     answersReal
+                  //   )}`,
+                  //   L3
+                  // );
+
+                  LogThis(log, `answers=${answers}`, L3)
+                  if (answers[0] == '' || answers[0].trim() == '') {
+                     break
+                  }
+
+                  respondentId = answers[0].trim()
+                  let row = r + 1
+                  for (let a = 0; a < allSurveyQuestions.length; a++) {
+                     //LogThis(log, `processing question a=${a}`, L0)
+
+                     let surveyQuestion = allSurveyQuestions[a]
+                     LogVarsFilter(
+                        log,
+                        `processing question ${a}`,
+                        a,
+                        305,
+                        L0,
+                        'surveyQuestion=',
+                        surveyQuestion,
+                     )
+                     let superSurveyQuestionCol =
+                        surveyQuestion.superSurveyCol - 1
+                     //transform the question answer value into the weighted answer for that Survey.
+                     let weightedResponse = null
+                     let response = null
+                     let isWeighted = null
+
+                     if (
+                        surveyQuestion.weights &&
+                        (Object.keys(surveyQuestion.weights).length > 0 ||
+                           surveyQuestion.weigths.length > 0)
+                     ) {
+                        let answerA = answers[superSurveyQuestionCol]
+                           .toString()
+                           .trim()
+                           .replace(/'\n'/g, '')
+                        switch (surveyQuestion.weightType) {
+                           case WEIGHTED_PAIRS:
+                              weightedResponse = surveyQuestion.weights[answerA]
+                              break
+                           case WEIGHTED_CRITERIA:
+                              try {
+                                 weightedResponse = applyStringCriteriaToValue(
+                                    surveyQuestion.weights,
+                                    answerA,
+                                 )
+                              } catch (error) {
+                                 LogThis(log, `error: ${error.message}`, L0)
+                              }
+                        }
+                        LogThis(
+                           log,
+                           `question weights=${JSON.stringify(
+                              surveyQuestion.weights,
+                           )}`,
+                           L3,
+                        )
+                        LogThis(
+                           log,
+                           `BEFORE col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+                           L3,
+                        )
+                        if (weightedResponse === undefined) {
+                           weightedResponse = answerA
+                           isWeighted = false
+                        } else {
+                           isWeighted = true
+                        }
+                        response = answerA
+                        answers[superSurveyQuestionCol] = weightedResponse
+                        LogThis(
+                           log,
+                           `AFTER col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+                           L3,
+                        )
+                     } else {
+                        //CASE NO_WEIGHTED
+                        let answerA = answers[superSurveyQuestionCol]
+                        response = answerA
+                        weightedResponse = answerA
+                        isWeighted = false
+                        LogThis(
+                           log,
+                           `no weighted: superSurveyQuestionCol=${superSurveyQuestionCol}; answer=${weightedResponse}`,
+                           L3,
+                        )
+                     }
+
+                     surveyResponses.push({
+                        questionId: surveyQuestion._id,
+                        respondentId: respondentId,
+                        row: row,
+                        col: a + 1,
+                        response: response,
+                        responseReal: answersReal[superSurveyQuestionCol],
+                        weightedResponse: weightedResponse,
+                        isWeighted: isWeighted,
+                     })
+
+                     if (isWeighted) {
+                        LogThis(
+                           log,
+                           `Adding csv weighted answer: weightedResponse=${weightedResponse}`,
+                           L3,
+                        )
+                        weightedResponse = weightedResponse ?? ''
+                        //csv = csv + weightedResponse.toString() + ",";
+                     } //else {
+                     //     csv = csv + response.toString() + ",";
+                     //   }
+                  }
+
+                  LogThis(
+                     log,
+                     `surveyResponses=${JSON.stringify(
+                        surveyResponses,
+                        null,
+                        2,
+                     )}`,
+                     L3,
+                  )
+
+                  LogThis(
+                     log,
+                     `allCalculatedFields=${JSON.stringify(
+                        allCalculatedFields,
+                        null,
+                        1,
+                     )}`,
+                     L3,
+                  )
+                  for (let a = 0; a < allCalculatedFields.length; a++) {
+                     LogThis(
+                        log,
+                        `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a].fieldName}`,
+                        L0,
+                     )
+                     let allCalculatedField = allCalculatedFields[a]
+                     let value = null
+                     if (
+                        allCalculatedField.calculationType ===
+                        CAL_CRITERIA_ON_OTHER_FIELD
+                     ) {
+                        let criteria = allCalculatedField.criteria
+                        LogThis(
+                           log,
+                           `Criteria in Question: criteria=${JSON.stringify(
+                              criteria,
+                              null,
+                              2,
+                           )}`,
+                           L3,
+                        )
+                        let fieldNameValue = allCalculatedFields.find(
+                           calField => {
+                              LogThis(
+                                 log,
+                                 `calField=${JSON.stringify(
+                                    calField,
+                                    null,
+                                    2,
+                                 )}`,
+                                 L3,
+                              )
+                              return (
+                                 calField.fieldName ==
+                                 criteria.fieldNameValue[0]
+                              )
+                           },
+                        )
+                        LogThis(
+                           log,
+                           `fieldNameValue1=${JSON.stringify(
+                              fieldNameValue,
+                              null,
+                              2,
+                           )}`,
+                           L3,
+                        )
+                        let sequence = fieldNameValue.sequence
+                        let calValue = calculatedValues.find(
+                           value => value.col == sequence && value.row == row,
+                        )
+                        LogThis(
+                           log,
+                           `About to get into case > calValue=${JSON.stringify(
+                              calValue,
+                              null,
+                              2,
+                           )}; criteria.operator=${JSON.stringify(
+                              criteria.operator,
+                              null,
+                              2,
+                           )}`,
+                           L3,
+                        )
+                        switch (criteria.operator) {
+                           case '>':
+                              LogThis(
+                                 log,
+                                 `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`,
+                                 L3,
+                              )
+                              if (calValue.value > criteria.value) {
+                                 value = criteria.resultIfTrue
+                                 LogThis(
+                                    log,
+                                    `Creteria is true: value=${value}`,
+                                    L3,
+                                 )
+                              } else {
+                                 value = criteria.resultIfFalse
+                                 LogThis(
+                                    log,
+                                    `Creteria is false: value=${value}`,
+                                    L3,
+                                 )
+                              }
+                              break
+                           default:
+                              value = null
+                              LogThis(
+                                 log,
+                                 `Case entered default: value${value}`,
+                                 L3,
+                              )
+                        }
+                     } else if (
+                        allCalculatedField.calculationType === CAL_SUM_THE_GROUP
+                     ) {
+                        let groups = allCalculatedField.group
+                        groups.map(group => {
+                           let newVal = parseInt(answers[group])
+
+                           if (
+                              typeof newVal != 'number' ||
+                              newVal == null ||
+                              isNaN(newVal)
+                           ) {
+                              newVal = 0
+                           }
+                           value = value + newVal
+                        })
+                     } else if (
+                        allCalculatedField.calculationType ===
+                        CAL_CONCAT_GROUP_BASED_ON_CRITERIA
+                     ) {
+                        let groups = allCalculatedField.group
+                        value = ''
+                        for (let i = 0; i < groups.length; i++) {
+                           let group = groups[i]
+                           if (
+                              applyStringCriteriaToValue(
+                                 allCalculatedField.criteria,
+                                 parseInt(answers[group]),
+                              ) == 1
+                           ) {
+                              LogThis(
+                                 log,
+                                 `groups=${groups}; group=${group}; calField=${allCalculatedField.fieldName};`,
+                                 L3,
+                              )
+                              let questionSelected = allSurveyQuestions.find(
+                                 q => q.superSurveyCol == group + 1,
+                              )
+                              LogThis(
+                                 log,
+                                 `groups=${groups}; group=${
+                                    group + 1
+                                 }; calField=${
+                                    allCalculatedField.fieldName
+                                 }; questionSelected.questionShort=${questionSelected.question.replace(
+                                    /,/g,
+                                    ';',
+                                 )}`,
+                                 L3,
+                              )
+
+                              value =
+                                 value +
+                                 questionSelected.question.replace(/,/g, ' ') +
+                                 '; '
+                           }
+                        }
+                     } else {
+                        LogThis(
+                           log,
+                           `Invalid calculated field calculation type = ${
+                              allCalculatedField.calculationType
+                           } ${JSON.stringify(allCalculatedField)}`,
+                           L3,
+                        )
+
+                        throw new Error(
+                           `Invalid calculated field calculation type = ${JSON.stringify(
+                              allCalculatedField,
+                           )}`,
+                        )
+                     }
+                     LogThis(
+                        log,
+                        `Pushing value: calculatedFieldId=${
+                           allCalculatedFields[a]._id
+                        }; row=${row};col=${a + 1}; value=${value};`,
+                        L3,
+                     )
+
+                     calculatedValues.push({
+                        calculatedFieldId: allCalculatedFields[a]._id,
+                        respondentId: respondentId,
+                        row: row,
+                        col: a + 1,
+                        value: value,
+                     })
+                     //csv = csv + value.toString() + ",";
+                  }
+                  //csv = csv.slice(0, -1);
+                  //csv = csv + "\n";
+               }
+               LogThis(
+                  log,
+                  `calculatedValues=${JSON.stringify(
+                     calculatedValues,
+                     null,
+                     2,
+                  )}`,
+                  L3,
+               )
+               //get outputLayout from response
+
+               const outputLayout = surveyConfigs.outputLayout
+
+               LogThis(
+                  log,
+                  `outputLayouts=${JSON.stringify(outputLayout, null, 2)}`,
+                  L3,
+               )
+
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: { message: "Generando el archivo CSV.", row: 0 },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+
+               //let csvLayout = ''
+               let layout = null
+               for (let o = 0; o < outputLayout.length - 1; o++) {
+                  layout = outputLayout[o]
+                  csvLayout =
+                     csvLayout + layout.description.replace(/,/g, ';') + ','
+               }
+               LogThis(log, `outputLayout data csvLayout=${csvLayout}`, L3)
+
+               layout = outputLayout[outputLayout.length - 1]
+               csvLayout =
+                  csvLayout + layout.description.replace(/,/g, ';') + '\n'
+
+               for (let o = 0; o < outputLayout.length - 1; o++) {
+                  layout = outputLayout[o]
+                  csvLayout =
+                     csvLayout +
+                     layout.shortDescription.replace(/,/g, ';') +
+                     ','
+               }
+               layout = outputLayout[outputLayout.length - 1]
+               csvLayout =
+                  csvLayout + layout.shortDescription.replace(/,/g, ';') + '\n'
+
+               const cols = []
+               LogThis(log, `Mapping columns to Layout`, L3)
+
+               for (let o = 0; o < outputLayout.length; o++) {
+                  layout = outputLayout[o]
+                  LogThis(
+                     log,
+                     `layout.fieldId=${layout.fieldId}; layout.isCalculated=${layout.isCalculated}`,
+                     L3,
+                  )
+                  if (layout.isCalculated) {
+                     LogThis(
+                        log,
+                        `layout.isCalculated=${layout.isCalculated}`,
+                        L3,
+                     )
+                     cols.push(
+                        calculatedValues
+                           .filter(
+                              val => val.calculatedFieldId == layout.fieldId,
+                           )
+                           .sort((a, b) => a.row - b.row),
+                     )
+                  } else {
+                     let responses = surveyResponses.filter(
+                        val => val.questionId == layout.fieldId,
+                     )
+                     //LogThis(log, `responsesFound = ${JSON.stringify(responses)}`);
+                     responses = responses.sort((a, b) => a.row - b.row)
+                     //LogThis(log, `responsesSorted = ${JSON.stringify(responses)}`);
+                     cols.push(responses)
+                  }
+               }
+               LogThis(
+                  log,
+                  `cols=${JSON.stringify(
+                     cols,
+                     null,
+                     2,
+                  )}; outputLayout=${JSON.stringify(outputLayout, null, 2)}`,
+                  L3,
+               )
+
+               let value = null
+               LogThis(
+                  log,
+                  `cols Length=${cols.length}; rows length=${cols[0].length}; outputLayout Length=${outputLayout.length}`,
+                  L3,
+               )
+               console.log(`Getting values for the columns in the layout`)
+
+               let row = []
+               let outputValues = []
+               for (let r = 0; r < cols[0].length; r++) {
+                  // if (r % 10 === 0) {
+                  //   dispatch({
+                  //     type: SURVEY_PROCESS_ANSWERS_STATUS,
+                  //     payload: {
+                  //       message: "Agregando encuesta al archivo CSV, número:",
+                  //       row: r + 1,
+                  //     },
+                  //   });
+                  //   await new Promise((resolve) => setTimeout(resolve, 1));
+                  // }
+
+                  for (let c = 0; c < cols.length - 1; c++) {
+                     layout = outputLayout[c]
+
+                     // LogThis(
+                     //    log,
+                     //    `Processing Col=${c}; row=${r}`,
+                     //    DEBUG_SECTION,
+                     // )
+
+                     value = cols[c][r]
+                     LogThis(
+                        log,
+                        `value cycle=${JSON.stringify(value, null, 2)}`,
+                        L3,
+                     )
+                     if (layout.outputAsReal) {
+                        value = value.responseReal
+                     } else {
+                        if ('isWeighted' in value) {
+                           if (value.isWeighted) {
+                              value = value.weightedResponse
+                           } else {
+                              value = value.response
+                           }
+                        } else {
+                           value = value.value
+                        }
+                     }
+
+                     if (value == null || value == undefined) {
+                        value = ''
+                     }
+                     LogThis(log, `value=${value}`, L3)
+                     csvLayout = csvLayout + value + ','
+                     row.push(value)
+                  }
+                  LogThis(
+                     log,
+                     `Processing Last Col=${outputLayout.length - 1}; row=${r}`,
+                     L3,
+                  )
+                  value = cols[outputLayout.length - 1][r]
+
+                  if (layout.outputAsReal) {
+                     value = value.responseReal
+                  } else {
+                     if ('isWeighted' in value) {
+                        if (value.isWeighted) {
+                           value = value.weightedResponse
+                        } else {
+                           value = value.response
+                        }
+                     } else {
+                        value = value.value
+                     }
+                  }
+
+                  if (value == null || value == undefined) {
+                     value = ''
+                  }
+                  LogThis(log, `value=${value}`, L3)
+                  csvLayout = csvLayout + value + '\n'
+                  row.push(value)
+
+                  outputValues.push([...row])
+                  LogThis(
+                     log,
+                     `Building outputValues: row=${JSON.stringify(
+                        row,
+                     )}; outputValues=${JSON.stringify(outputValues)}`,
+                     L3,
+                  )
+                  row.length = 0
+               }
+               LogThis(log, `Output layout is ready`, L3)
+
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: { message: "Archivo CSV generado.", row: 0 },
+               //  });
+
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: {
+               //      message: "Guardando encuestas y respuestas en la base de datos",
+               //      row: 0,
+               //    },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+               //console.log(`CATCH PRE`);
+               const columnsNames = []
+               outputLayout.forEach(column => {
+                  columnsNames.push(column.fieldName)
+               })
+
+               const outputData = {
+                  columnsNames: columnsNames,
+                  outputValues: null,
+               }
+
+               if (csvLayout && csvLayout.length > 0) {
+                  //console.log(`CATCH IN OUTPUT`);
+
+                  // dispatch({
+                  //   type: SURVEY_PROCESS_ANSWERS_STATUS,
+                  //   payload: {
+                  //     message: "Enviando respuestas a la base de datos en partes.",
+                  //     row: 0,
+                  //   },
+                  // });
+                  // await new Promise((resolve) => setTimeout(resolve, 1));
+                  LogThis(log, `status sent`, L3)
+
+                  LogThis(log, `after promise`, L3)
+                  let row = 0
+                  let r = 0
+                  const outputValuesSlice = []
+                  const sliceSize =
+                     process.env.KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE
+
+                  // if (updateType == "all") {
+                  //   LogThis(log, `About to call axios.delete for /outputs`, L3);
+
+                  //   await axios.delete(
+                  //     BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
+                  //     config
+                  //   );
+                  //   LogThis(log, `After calling axios.delete for /outputs`, L3);
+                  // }
+
+                  for (
+                     let slice = 1;
+                     slice <= Math.ceil(outputValues.length / sliceSize);
+                     slice++
+                  ) {
+                     LogThis(log, `CATCH ERROR 2`, L3)
+                     for (
+                        r = row;
+                        r < row + sliceSize && r < outputValues.length;
+                        r++
+                     ) {
+                        outputValuesSlice.push([...outputValues[r]])
+                        LogThis(
+                           log,
+                           `Pushing row to slice ${slice} row ${r}; outputValues=${JSON.stringify(
+                              outputValues[r],
+                           )}; outputValuesSlice=${JSON.stringify(
+                              outputValuesSlice,
+                           )}`,
+                           L3,
+                        )
+                     }
+                     LogThis(log, `CATCH ERROR 3`, L3)
+                     //outputData.outputValues = outputValuesSlice;
+                     row = r
+                     LogThis(
+                        log,
+                        `current slice ${slice} outputValuesSlice=${JSON.stringify(
+                           outputValuesSlice,
+                        )}`,
+                        L3,
+                     )
+
+                     //   dispatch({
+                     //     type: SURVEY_PROCESS_ANSWERS_STATUS,
+                     //     payload: {
+                     //       message: `Enviando parte ${slice} encuesta número ${
+                     //         r - sliceSize
+                     //       } a la ${r}`,
+                     //       row: r,
+                     //     },
+                     //   });
+                     //   await new Promise((resolve) => setTimeout(resolve, 1));
+                     //LogThis(log, `about to call axios send output data`, L3);
+                     // LogThis(
+                     //    log,
+                     //    `about to call post axios for /outputs with: config=${JSON.stringify(
+                     //       config,
+                     //    )}; slice=${slice}`,
+                     //    L3,
+                     // )
+
+                     //   await axios.post(
+                     //     BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/outputs`,
+                     //     outputData,
+                     //     config
+                     //   );
+                     await surveySaveOutputHelper(
+                        surveySuperiorId,
+                        columnsNames,
+                        outputValuesSlice,
+                     )
+
+                     LogThis(
+                        log,
+                        `AFTER call surveySaveOutputHelper get /outputs slice=${slice}`,
+                        L3,
+                     )
+                     outputValuesSlice.length = 0
+                  }
+
+                  //const csvLayout = "Hola Mundo";
+                  // dispatch({
+                  //   type: SURVEY_PROCESS_ANSWERS_SUCCESS,
+                  //   payload: {
+                  //     csvLayout: csvLayout,
+                  //     surveySuccessMessage: `Procesamiento finalizado. Encuestas nuevas procesadas: ${outputValues.length}`,
+                  //   },
+                  // });
+                  // await new Promise((resolve) => setTimeout(resolve, 1));
+                  // dispatch({
+                  //   type: SURVEY_PROCESS_ANSWERS_STATUS,
+                  //   payload: {
+                  //     message: `Procesamiento de encuestas terminado, encuentre archivo CSV in el folder de downloads`,
+                  //     row: r,
+                  //     //row: 0,
+                  //   },
+                  // });
+                  // await new Promise((resolve) => setTimeout(resolve, 1000));
+               } else {
+                  throw Error('No CSV data generated.')
+               }
+            } else {
+               LogThis(log, `answersRows files does not contains new data`, L3)
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_STATUS,
+               //    payload: {
+               //      message: `Los archivos no contienen respuestas nuevas, el sistema ya está al corriente.`,
+               //      row: 0,
+               //    },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+               //const csvLayout = "Hola Mundo";
+               LogThis(
+                  log,
+                  `answersRows files does not contains new data Dispatched SUCCESS`,
+                  L3,
+               )
+               //  dispatch({
+               //    type: SURVEY_PROCESS_ANSWERS_SUCCESS,
+               //    payload: {
+               //      csvLayout: "",
+               //      surveySuccessMessage: `Procesamiento finalizado. Encuestas nuevas procesadas: 0`,
+               //    },
+               //  });
+               //  await new Promise((resolve) => setTimeout(resolve, 1));
+            }
+         } else {
+            throw Error('Survey response files were not provided as expected.')
+         }
+      } catch (error) {
+         // dispatch({
+         //   type: SURVEY_PROCESS_ANSWERS_FAIL,
+         //   payload:
+         //     error.response && error.response.data.message
+         //       ? error.response.data.message
+         //       : error.message,
+         // });
+         LogThis(
+            log,
+            `error while updating responses: error=${error.message}`,
+            L0,
+         )
+         throw error
+      }
+
+      // END OF PROCESSING THE SURVEY MONKEY ANSWERS INCLUDING CALCULATED FIELDS
+
       res.header('Content-Type', 'application/json; charset=utf-8')
       res.status(200).json({
+         csvLayout: csvLayout,
          rowValue: rowValue,
          rowReal: rowReal,
          rowScore: rowScore,
          surveyMonkeyConfigs: surveyMonkeyConfigs,
          monkeyResponses: monkeyResponses,
       })
-
-      // monkeyResponses.forEach((monkeyResponse) => {
-      //   let rowValue = [];
-      //   let rowReal = [];
-      //   let rowScore = [];
-      //   addResponseInfo(rowValue, monkeyResponse);
-      //   addResponseInfo(rowReal, monkeyResponse);
-      //   LogThis(log, `line 1`, L3);
-      //   rowValue.forEach((r) => rowScore.push(0));
-      //   LogThis(log, `line 2`, L3);
-      //   let monkeySurveys = monkeyResponse.pages;
-      //   const superSurvey = superSurveysConfigs[0];
-
-      //   LogThis(log, `line 3, superSurveysConfigs=${j(superSurvey)}`, L3);
-
-      //   superSurvey.surveys.forEach((surveyConfig) => {
-      //     LogThis(log, `line 4`, L3);
-      //     let monkeySurvey = monkeySurveys.find((monkeySurvey) => {
-      //       LogThis(
-      //         log,
-      //         `THIS monkeySurvey.id=${
-      //           monkeySurvey.id
-      //         }; surveyConfig.surveyMonkeyId=${
-      //           surveyConfig.surveyMonkeyId
-      //         } condition: ${monkeySurvey.id == surveyConfig.surveyMonkeyId}`,
-      //         L3
-      //       );
-      //       return monkeySurvey.id == surveyConfig.surveyMonkeyId;
-      //     });
-      //     if (!monkeySurvey) {
-      //       throw new Error(`Survey Monkey response is missing a survey`);
-      //     }
-      //     let x = 0;
-
-      //     LogThis(log, `Here ${x++}`, L3);
-      //     surveyConfig.questions.forEach((surveyQuestion) => {
-      //       let monkeyQuestions = monkeySurvey.questions;
-
-      //       let monkeyQuestion = null;
-      //       let monkeyAnswerObject = null;
-      //       let monkeyAnswer = null;
-      //       //LogThis(log, `question family=${surveyQuestion.surveyMonkeyFamily}`)
-      //       if (
-      //         surveyQuestion.surveyMonkeyFamily == "matrix" &&
-      //         surveyQuestion.surveyMonkeySubType == "rating"
-      //       ) {
-      //         if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //           LogThis(
-      //             log,
-      //             `matrix rating monkeyQuestions=${j(monkeyQuestions)}`,
-      //             L3
-      //           );
-      //           LogThis(
-      //             log,
-      //             `matrix rating surveyQuestion=${j(surveyQuestion)}`,
-      //             L3
-      //           );
-      //         }
-      //         monkeyQuestion = monkeyQuestions[0].answers.find(
-      //           (monkeyQuestion) =>
-      //             monkeyQuestion.row_id == surveyQuestion.surveyMonkeyId
-      //         );
-      //         LogThis(log, `monkeyQuestionFound=${j(monkeyQuestion)}`, L3);
-
-      //         if (monkeyQuestion) {
-      //           monkeyAnswer =
-      //             monkeyQuestion[surveyQuestion.surveyMonkeyAnswers.answerField];
-      //         } else {
-      //           monkeyAnswer = "";
-      //         }
-      //         if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //           LogThis(log, `monkeyQuestionFound=${j(monkeyQuestion)}`, L3);
-      //           LogThis(log, `monkeyAnswer=${monkeyAnswer}`, L3);
-      //         }
-      //       } else if (
-      //         surveyQuestion.surveyMonkeyFamily == "multiple_choice" &&
-      //         surveyQuestion.surveyMonkeySubType == "vertical"
-      //       ) {
-      //         LogThis(log, `monkeyQuestions=${j(monkeyQuestions)}`, L3);
-      //         LogThis(log, `surveyQuestion=${j(surveyQuestion)}`, L3);
-
-      //         monkeyQuestion = monkeyQuestions[
-      //           surveyQuestion.surveyMonkeyPosition - 1
-      //         ].answers.find(
-      //           (monkeyQuestion) =>
-      //             monkeyQuestion.choice_id == surveyQuestion.surveyMonkeyId
-      //         );
-
-      //         LogThis(log, `monkeyQuestionFound=${j(monkeyQuestion)}`, L3);
-      //         if (surveyQuestion.fieldName == "ESTRES_1") {
-      //           LogThis(
-      //             log,
-      //             `ESTRES_1 finding answer: values=${j({
-      //               surveyQuestion: surveyQuestion,
-      //               monkeyQuestions: monkeyQuestions,
-      //               monkeyQuestion: monkeyQuestion,
-      //               //monkeyAnswer: monkeyAnswer,
-      //             })}`,
-      //             L0
-      //           );
-      //         }
-      //         if (
-      //           monkeyQuestion &&
-      //           monkeyQuestion.answers &&
-      //           monkeyQuestion.answers.length > 0 &&
-      //           monkeyQuestion.answers[0]
-      //         ) {
-      //           monkeyAnswer =
-      //             monkeyQuestion.answers[0][
-      //               surveyQuestion.surveyMonkeyAnswers.answerField
-      //             ];
-      //         } else {
-      //           monkeyAnswer = "";
-      //         }
-      //         if (surveyQuestion.fieldName == "ESTRES_1") {
-      //           LogThis(
-      //             log,
-      //             `ESTRES_1 finding answer: values=${j({
-      //               surveyQuestion: surveyQuestion,
-      //               monkeyQuestions: monkeyQuestions,
-      //               monkeyQuestion: monkeyQuestion,
-      //               monkeyAnswer: monkeyAnswer,
-      //             })}`,
-      //             L0
-      //           );
-      //         }
-      //       } else {
-      //         LogThis(
-      //           log,
-      //           `monkeyQuestion is not matrix nor multiple_choice: surveyQuestion=${j(
-      //             surveyQuestion
-      //           )}`,
-      //           L3
-      //         );
-      //         monkeyQuestion = monkeyQuestions.find(
-      //           (monkeyQuestion) =>
-      //             monkeyQuestion.id == surveyQuestion.surveyMonkeyId
-      //         );
-      //         LogThis(
-      //           log,
-      //           `not matrix before answer: monkeyQuestion=${j(monkeyQuestion)}`,
-      //           L3
-      //         );
-      //         if (monkeyQuestion) {
-      //           monkeyAnswerObject = monkeyQuestion.answers[0];
-      //           LogThis(log, `not matrix after answer`, L3);
-      //           monkeyAnswer =
-      //             monkeyAnswerObject[
-      //               surveyQuestion.surveyMonkeyAnswers.answerField
-      //             ];
-      //         } else {
-      //           monkeyAnswer = "";
-      //         }
-      //       }
-
-      //       let value = null;
-      //       let realValue = null;
-      //       let score = null;
-
-      //       let questionType =
-      //         surveyQuestion.surveyMonkeyFamily +
-      //         "_" +
-      //         surveyQuestion.surveyMonkeySubType;
-      //       if (monkeyAnswer != "") {
-      //         switch (questionType) {
-      //           case "open_ended_single":
-      //             value = monkeyAnswer;
-      //             realValue = monkeyAnswer;
-      //             score = "";
-      //             break;
-      //           case "single_choice_menu":
-      //             //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
-      //             if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
-      //               if (monkeyAnswer) {
-      //                 value = monkeyAnswer;
-      //                 realValue = monkeyAnswer.trim();
-      //                 score = "";
-      //               } else {
-      //                 value = "";
-      //                 realValue = "";
-      //                 score = "";
-      //               }
-      //             } else if (
-      //               surveyQuestion.surveyMonkeyPosition.answerType == "noother"
-      //             ) {
-      //               let surveyChoice =
-      //                 surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
-      //                   (choice) => choice.id == monkeyAnswer
-      //                 );
-      //               value = surveyChoice.value;
-      //               realValue = surveyChoice.realValue.trim();
-      //               score = surveyChoice.score;
-      //             } else {
-      //               LogThis(
-      //                 log,
-      //                 `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
-      //                 L1
-      //               );
-      //               throw new Error(
-      //                 `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
-      //               );
-      //             }
-      //             break;
-      //           case "single_choice_vertical":
-      //             //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
-      //             if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
-      //               if (monkeyAnswer) {
-      //                 value = monkeyAnswer;
-      //                 realValue = monkeyAnswer.trim();
-      //                 score = "";
-      //               } else {
-      //                 value = "";
-      //                 realValue = "";
-      //                 score = "";
-      //               }
-      //             } else if (
-      //               surveyQuestion.surveyMonkeyPosition.answerType == "noother"
-      //             ) {
-      //               let surveyChoice =
-      //                 surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
-      //                   (choice) => choice.id == monkeyAnswer
-      //                 );
-      //               value = surveyChoice.value;
-      //               realValue = surveyChoice.realValue.trim();
-      //               score = surveyChoice.score;
-      //             } else {
-      //               LogThis(
-      //                 log,
-      //                 `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
-      //                 L1
-      //               );
-      //               throw new Error(
-      //                 `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
-      //               );
-      //             }
-      //             break;
-      //           case "matrix_rating": //for updating responses from survey monkey
-      //             {
-      //               let surveyChoice =
-      //                 surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
-      //                   (choice) => choice.id == monkeyAnswer
-      //                 );
-      //               if (!surveyChoice) {
-      //                 LogThis(log, `Choice not found for ${monkeyAnswer}`, L1);
-      //                 throw new Error(`Choice not found for ${monkeyAnswer}`);
-      //               }
-      //               value = surveyChoice.score; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.
-      //               let realValueFromMonkey = surveyChoice.realValue.trim();
-      //               realValue =
-      //                 realValueFromMonkey == ""
-      //                   ? surveyChoice.score
-      //                   : realValueFromMonkey;
-      //               score = surveyChoice.score;
-      //               if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //                 LogThis(
-      //                   log,
-      //                   `matrix values found: monkeyAnswer=${monkeyAnswer}; surveyQuestion=${j(
-      //                     surveyQuestion
-      //                   )}; surveyChoice=${j(surveyChoice)}; finalValues=${j({
-      //                     value: value,
-      //                     realValue: realValue,
-      //                     score: score,
-      //                   })}`,
-      //                   L3
-      //                 );
-      //               }
-      //             }
-      //             break;
-      //           case "multiple_choice_vertical": //for updating responses from survey monkey
-      //             {
-      //               if (surveyQuestion.fieldName == "ESTRES_4") {
-      //                 LogThis(
-      //                   log,
-      //                   `ESTRES_4 multiple choice value inputs=${j({
-      //                     surveyQuestion: surveyQuestion,
-      //                     monkeyAnswer: monkeyAnswer,
-      //                   })}; `,
-      //                   L0
-      //                 );
-      //               }
-      //               let surveyChoice =
-      //                 surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
-      //                   (choice) => {
-      //                     if (surveyQuestion.fieldName == "ESTRES_5") {
-      //                       LogThis(
-      //                         log,
-      //                         `finding choice values =${j({
-      //                           choice: choice,
-      //                           choiceId: choice.id.toString().trim(),
-      //                           monkeyAnswer: monkeyAnswer.toString().trim(),
-      //                           condition:
-      //                             choice.id.toString().trim() ==
-      //                             monkeyAnswer.toString().trim(),
-      //                         })}`,
-      //                         L0
-      //                       );
-      //                     }
-      //                     return (
-      //                       choice.id.toString().trim() ==
-      //                       monkeyAnswer.toString().trim()
-      //                     );
-      //                   }
-      //                 );
-      //               if (surveyQuestion.fieldName == "ESTRES_5") {
-      //                 LogThis(
-      //                   log,
-      //                   `found surveyChoice = ${j({
-      //                     surveyChoice: surveyChoice,
-      //                     negatedSurveyChoice: !surveyChoice,
-      //                   })}`,
-      //                   L0
-      //                 );
-      //               }
-      //               if (!surveyChoice) {
-      //                 LogThis(
-      //                   log,
-      //                   `Log Choice not found for ${monkeyAnswer} surveyChoice=${j(
-      //                     surveyChoice
-      //                   )}; question field: ${surveyQuestion.fieldName}`,
-      //                   L0
-      //                 );
-      //                 throw new Error(
-      //                   `Error Choice not found for ${monkeyAnswer}`
-      //                 );
-      //               }
-      //               value = surveyChoice.value; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.
-      //               realValue = surveyChoice.realValue.trim(); //Triming because Survey Monkey sometimes introduces a non-breaking space character that is an invisible character that looks like a space but is not really a space (ASCII code 32) but an NBSP (ASCII code 160), which causes problems when copying the data into an Excel spreadsheet or CSV files.
-      //               score = surveyChoice.score;
-      //               if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //                 LogThis(
-      //                   log,
-      //                   ` BECK_Nomesientoespecialme multiple_choice_vertical: finalValues=${j(
-      //                     {
-      //                       monkeyAnswer: monkeyAnswer,
-      //                       value: value,
-      //                       realValue: realValue,
-      //                       score: score,
-      //                       surveyChoice: surveyChoice,
-      //                       surveyQuestion: surveyQuestion,
-      //                     }
-      //                   )}`,
-      //                   L3
-      //                 );
-      //               }
-      //             }
-      //             break;
-      //           default:
-      //             LogThis(
-      //               log,
-      //               `Family:${surveyQuestion.surveyMonkeyFamily} and subType=${surveyQuestion.surveyMonkeySubType} combination is not valid.`,
-      //               L1
-      //             );
-      //             throw new Error(
-      //               `Family:${family} and subType=${subtype} combination is not valid.`
-      //             );
-      //         }
-      //       } else {
-      //         value = ""; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.
-      //         realValue = "";
-      //         score = "";
-      //         if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //           LogThis(
-      //             log,
-      //             ` BECK_Nomesientoespecialme else happened: finalValues=${j({
-      //               value: value,
-      //               realValue: realValue,
-      //               score: score,
-      //             })}`,
-      //             L3
-      //           );
-      //         }
-      //       }
-      //       //case end
-      //       if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //         LogThis(
-      //           log,
-      //           ` BECK_Nomesientoespecialme pushing values to rows: finalValues=${j(
-      //             {
-      //               value: value,
-      //               realValue: realValue,
-      //               score: score,
-      //             }
-      //           )}`,
-      //           L0
-      //         );
-      //       }
-      //       rowValue.push(value);
-      //       LogThis(
-      //         log,
-      //         `pushing one more value= "${value}" for surveyQuestion Field = "${surveyQuestion.fieldName}"`,
-      //         L0
-      //       );
-      //       rowReal.push(realValue);
-      //       rowScore.push(score);
-      //       if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
-      //         LogThis(
-      //           log,
-      //           ` BECK_Nomesientoespecialme falues after pushing: finalValues=${j(
-      //             {
-      //               rowValue: rowValue,
-      //             }
-      //           )}`,
-      //           L0
-      //         );
-      //       }
-      //     });
-      //   });
-      //   rowsValue.push(rowValue);
-      //   rowsReal.push(rowReal);
-      //   rowsScore.push(rowScore);
-      // });
-      // res.header("Content-Type", "application/json; charset=utf-8");
-      // res.status(200).json({
-      //   rowsValue: rowsValue,
-      //   rowsReal: rowsReal,
-      //   rowsScore: rowsScore,
-      //   superSurveysConfigs: superSurveysConfigs,
-      //   monkeyResponses: monkeyResponses,
-      // });
-
-      // await surveySaveOutputHelper(superSurveyId, columnsNames, outputValues);
-      // const superSurveyShortName = req.params.id;
-      // //const superSurveyShortName = req.query.superSurveyShortName;
-
-      // LogThis(log, `superSurveyShortName=${superSurveyShortName}`, L1);
-      // const surveyOutputCollectionName = `surveyOutputs_${superSurveyShortName}`;
-
-      // let surveyOutputCollectionFound = await loadOneDynamicModelFromDB(
-      //   surveyOutputCollectionName
-      // );
-      // // LogThis(
-      // //   log,
-      // //   `surveyOutputCollectionFound=${surveyOutputCollectionFound}`,
-      // //   L1
-      // // );
-      // //await surveyOutputCollectionFound.deleteMany({});
-      // const respondentIdsInfo = await surveyOutputCollectionFound
-      //   .find({})
-      //   .select(
-      //     "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
-      //   )
-      //   .sort({ SCOLINFO_respondent_id: -1 })
-      //   .lean();
-      // //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L1);
-      // res.status(200).json({
-      //   newRespondents: newRespondents,
-      // });
    } catch (error) {
       res.status(404).json({ message: 'Error surveyMonkeyUpdateResponses2' })
       throw new Error(

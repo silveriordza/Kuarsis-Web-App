@@ -16,8 +16,8 @@ let {
    LogThisFilter,
    LogVarsFilter,
    HasData,
+   j,
 } = require('../utils/Logger.js')
-const { j } = require('./Functions.js')
 
 const srcFileName = 'surveyMonkeyAPI.js'
 
@@ -512,7 +512,7 @@ const AnalyzeQuestionResponse = (
             `Family:${monkeyQuestionDetailsConf.family} and subType=${monkeyQuestionDetailsConf.subtype} combination is not valid.`,
          )
    }
-   LogThis(log, `cols=${j(cols)}`, L0)
+   LogThis(log, `cols=${j(cols)}`, L3)
    return cols
    // } else {
    //   value = ""; //if file is downloaded from survey monkey it sets the value of as the score instead of the position of the choice for matrix rating type.

@@ -1,6 +1,6 @@
 /** @format */
 
-const { j } = require('./Functions')
+//const { j } = require('./Functions')
 
 const OFF = -1
 const L0 = 0
@@ -9,6 +9,10 @@ const L2 = 2
 const L3 = 3
 
 const srcFileName = 'Logger.js'
+
+const j = value => {
+   return JSON.stringify(value, null, 1)
+}
 
 const initLogSettings = (fileName = '', functionName = '') => {
    return {
@@ -22,7 +26,7 @@ function LoggerSettings(fileName = '', functionName = '') {
    this.functionName = functionName || ''
 }
 
-const LogThis = (logSettings, logMessage, level = L0) => {
+const LogThis = (logSettings, logMessage, level = L3) => {
    if (level != OFF && process.env.LOG_LEVEL != OFF) {
       const LOG_LEVEL = process.env.LOG_LEVEL
 
@@ -42,6 +46,7 @@ const LogThis = (logSettings, logMessage, level = L0) => {
       }
    }
 }
+
 /**
  * - LogVars function to log one or more variables at once with names
  * @param {*} log - LoggerSettings object same as LogThis
@@ -105,8 +110,10 @@ const LogVarsFilter = (
    varNamesIn,
    ...vars
 ) => {
+   const logLocal = new LoggerSettings('Logger.js', 'LogVarsFilter')
+
    LogThis(
-      log,
+      logLocal,
       `filterBy=${filterBy}; filterValue=${filterValue}; condition=${
          filterBy == filterValue
       }`,
@@ -195,6 +202,7 @@ module.exports = {
    initLogSettings,
    LoggerSettings,
    LogDebugSection,
+   j,
    OFF,
    L0,
    L1,
