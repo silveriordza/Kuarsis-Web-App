@@ -16,8 +16,8 @@ const L1 = 1
 const L2 = 2
 const L3 = 3
 
-const local_debug_level = OFF
-const dev_debug_level = OFF
+const local_debug_level = L0
+const dev_debug_level = L0
 const qa_debug_level = L1
 const artpixanprod_debug_level = OFF
 
@@ -29,7 +29,7 @@ let V_KUARSIS_PUBLIC_STATIC_FOLDER = null
 // let V_KUARSIS_PUBLIC_STATIC_MODELS_FOLDER = null
 let V_KUARSIS_BANNER_MAIN_LOGO = null
 let V_KUARSIS_PUBLIC_BUCKET_URL = null
-let V_KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE = 100
+let V_KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE = 200
 
 switch (ENVIRONMENT) {
    case LOCAL:
@@ -57,7 +57,7 @@ switch (ENVIRONMENT) {
       //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
       V_LOG_LEVEL = dev_debug_level
-      V_CURRENT_VERSION = `v1.0.0.4-2023-12-24-13:11`
+      V_CURRENT_VERSION = `v1.0.0.4-2024-01-04-01:47`
       V_BACKEND_ENDPOINT =
          'https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncaredev.kuarxis.com/images'
