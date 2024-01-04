@@ -11,7 +11,10 @@ const axios = require('axios')
 let asyncHandler = require('express-async-handler')
 
 const { SURVEY_PROCESS_STATUS } = require('../config/surveyConstants.js')
-const { applyStringCriteriaToValue } = require('../utils/Functions.js')
+const {
+   applyStringCriteriaToValue,
+   formatDate,
+} = require('../utils/Functions.js')
 const {
    getMonkeyResponses,
    ValidateMonkeyConfigs,
@@ -968,83 +971,93 @@ const surveyMonkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
    res.status(200).end()
 })
 
-const surveyMonkeyWebhookCompletedEvent = asyncHandler(async (req, res) => {
-   const functionName = 'surveyMonkeyWebhookCompletedEvent'
-   const log = new LoggerSettings(srcFileName, functionName)
+const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
+   async (req, res) => {
+      const functionName = 'surveyMonkeyWebhookCompletedEventTalentos2020'
+      const log = new LoggerSettings(srcFileName, functionName)
 
-   try {
-      LogThis(log, `START`, L3)
-      LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L3)
-      const bd = req.body
-      LogThis(
-         log,
-         `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
-         L3,
-      )
-
-      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L3)
-      const resources = bd.resources
-
-      const superSurveyFound = await SurveySuperior.findOne({
-         surveyMonkeyId: resources.survey_id,
-      }).lean()
-
-      if (!superSurveyFound) {
-         throw new Error(
-            `Monkey webhook: survey_id ${resources.survey_id} of respondent ${resources.respondent_id} not found`,
-         )
-      }
-      LogThis(
-         log,
-         `superSurveyFound=${JSON.stringify(superSurveyFound, null, 1)}`,
-         L3,
-      )
-      const superSurvey = superSurveyFound
-      let newResponseFound = await SurveyMonkeyNewResponse.findOne({
-         respondent_id: resources.respondent_id,
-         surveyMonkeyId: resources.survey_id,
-      })
-      //let newResponse = null;
-      if (newResponseFound) {
-         //newResponse = newResponseFound[0];
+      try {
+         LogThis(log, `START`, L3)
+         LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L3)
+         const bd = req.body
          LogThis(
             log,
-            `updating respondent, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
+            `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
             L3,
          )
-         newResponseFound.event_type = bd.event_type
-         newResponseFound.event_datetime = bd.event_datetime
-         newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
-      } else {
-         LogThis(log, `creating respondent`, L3)
-         LogThis(
-            log,
-            `resources.event_datetime=${
-               bd.event_datetime
-            }; date converted=${new Date(bd.event_datetime)}; status=${
-               SURVEY_PROCESS_STATUS.NEW
-            }`,
-            L3,
-         )
-         newResponseFound = new SurveyMonkeyNewResponse({
+
+         LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L3)
+         const resources = bd.resources
+
+         const superSurveyFound = await SurveySuperior.findOne({
             surveyMonkeyId: resources.survey_id,
+         }).lean()
+
+         if (!superSurveyFound) {
+            throw new Error(
+               `Monkey webhook: survey_id ${resources.survey_id} of respondent ${resources.respondent_id} not found`,
+            )
+         }
+         LogThis(
+            log,
+            `superSurveyFound=${JSON.stringify(superSurveyFound, null, 1)}`,
+            L3,
+         )
+         //const superSurvey = superSurveyFound
+         let newResponseFound = await SurveyMonkeyNewResponse.findOne({
             respondent_id: resources.respondent_id,
-            event_type: bd.event_type,
-            event_datetime: bd.event_datetime,
-            process_status: SURVEY_PROCESS_STATUS.NEW,
+            surveyMonkeyId: resources.survey_id,
          })
+         //let newResponse = null;
+         if (newResponseFound) {
+            //newResponse = newResponseFound[0];
+            LogThis(
+               log,
+               `updating respondent, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
+               L3,
+            )
+            newResponseFound.event_type = bd.event_type
+            newResponseFound.event_datetime = bd.event_datetime
+            newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
+         } else {
+            LogThis(log, `creating respondent`, L3)
+            LogThis(
+               log,
+               `resources.event_datetime=${
+                  bd.event_datetime
+               }; date converted=${new Date(bd.event_datetime)}; status=${
+                  SURVEY_PROCESS_STATUS.NEW
+               }`,
+               L3,
+            )
+            newResponseFound = new SurveyMonkeyNewResponse({
+               surveyMonkeyId: resources.survey_id,
+               respondent_id: resources.respondent_id,
+               event_type: bd.event_type,
+               event_datetime: bd.event_datetime,
+               process_status: SURVEY_PROCESS_STATUS.NEW,
+            })
+         }
+
+         await newResponseFound.save()
+
+         const updateResponseRes = await surveyMonkeyUpdateResponses2Helper(
+            superSurveyFound.surveyShortName,
+         )
+
+         LogThis(
+            log,
+            `Event Happened survey=${resources.survey_id}; respondent=${resources.respondent_id}`,
+            L0,
+         )
+
+         res.status(200).json({ updateResponseRes: updateResponseRes })
+      } catch (error) {
+         LogThis(log, `Error found: ${error.message}`, L0)
+         res.status(200).end()
       }
-
-      await newResponseFound.save()
-
-      LogThis(log, `Event Happened`, L3)
-
-      res.status(200).end()
-   } catch (error) {
-      LogThis(log, `Error found: ${error.message}`, L3)
-      res.status(200).end()
-   }
-})
+   },
+)
 
 const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
    const functionName = 'updateSurveyMonkeyConfigs'
@@ -2192,6 +2205,7 @@ const surveySaveOutputHelper = async (
    superSurveyId,
    columnsNames,
    outputValues,
+   isFromWebhook,
 ) => {
    const functionName = 'surveySaveOutputHelper'
    const log = new LoggerSettings(srcFileName, functionName)
@@ -2228,8 +2242,12 @@ const surveySaveOutputHelper = async (
       // );
 
       //const surveyOutputs = mongoose.model(surveyOutputCollectionName);
-      let surveyOutputCollection = mongoose.connection.collection(
-         surveyOutputCollectionName.toLocaleLowerCase(),
+      // let surveyOutputCollection = mongoose.connection.collection(
+      //    surveyOutputCollectionName.toLocaleLowerCase(),
+      // )
+
+      let surveyOutputCollection = await loadOneDynamicModelFromDB(
+         surveyOutputCollectionName,
       )
       // x = x + 1;
       // LogThis(log, `x=${x}`, L3);
@@ -2244,26 +2262,34 @@ const surveySaveOutputHelper = async (
          columnsNames.forEach((column, index) => {
             switch (column) {
                case 'SCOLINFO_date_created':
-                  dateTimeParts = row[index].split(/[\s/:\-]/)
-                  dateValue = new Date(
-                     dateTimeParts[2], // Year
-                     dateTimeParts[0] - 1, // Month
-                     dateTimeParts[1], // Day
-                     dateTimeParts[3], // Hours
-                     dateTimeParts[4], // Minutes)
-                  )
-                  doc[column] = dateValue
+                  if (isFromWebhook) {
+                     doc[column] = formatDate(row[index])
+                  } else {
+                     dateTimeParts = row[index].split(/[\s/:\-]/)
+                     dateValue = new Date(
+                        dateTimeParts[2], // Year
+                        dateTimeParts[0] - 1, // Month
+                        dateTimeParts[1], // Day
+                        dateTimeParts[3], // Hours
+                        dateTimeParts[4], // Minutes)
+                     )
+                     doc[column] = dateValue
+                  }
                   break
                case 'SCOLINFO_date_modified':
-                  dateTimeParts = row[index].split(/[\s/:\-]/)
-                  dateValue = new Date(
-                     dateTimeParts[2], // Year
-                     dateTimeParts[0] - 1, // Month
-                     dateTimeParts[1], // Day
-                     dateTimeParts[3], // Hours
-                     dateTimeParts[4], // Minutes)
-                  )
-                  doc[column] = dateValue
+                  if (isFromWebhook) {
+                     doc[column] = formatDate(row[index])
+                  } else {
+                     dateTimeParts = row[index].split(/[\s/:\-]/)
+                     dateValue = new Date(
+                        dateTimeParts[2], // Year
+                        dateTimeParts[0] - 1, // Month
+                        dateTimeParts[1], // Day
+                        dateTimeParts[3], // Hours
+                        dateTimeParts[4], // Minutes)
+                     )
+                     doc[column] = dateValue
+                  }
                   break
                default:
                   doc[column] = row[index]
@@ -2272,17 +2298,93 @@ const surveySaveOutputHelper = async (
          outputValueDocuments.push(doc)
          doc = {}
       })
-      x = x + 1
-      LogThis(log, `x=${x}`, L3)
+
+      if (outputValueDocuments && outputValueDocuments.length > 0) {
+         const respondentsFound = await surveyOutputCollection.find({
+            SCOLINFO_respondent_id: {
+               $in: outputValueDocuments.map(outputValue => {
+                  LogThis(
+                     log,
+                     `respondent id = ${outputValue['SCOLINFO_respondent_id']}`,
+                     L0,
+                  )
+                  return outputValue['SCOLINFO_respondent_id']
+               }),
+            },
+         })
+
+         let outputNews = null
+         if (respondentsFound && respondentsFound.length > 0) {
+            const outputUpdates = outputValueDocuments.filter(doc =>
+               respondentsFound.find(
+                  res =>
+                     doc.SCOLINFO_respondent_id === res.SCOLINFO_respondent_id,
+               ),
+            )
+            outputUpdates[0].SCOLINFO_date_modified = formatDate(new Date())
+
+            for (let r = 0; r < respondentsFound.length; r++) {
+               let respondentFound = respondentsFound[r]
+               let outputUpdate = outputUpdates.find(
+                  update =>
+                     update.SCOLINFO_respondent_id ===
+                     respondentFound.SCOLINFO_respondent_id,
+               )
+
+               Object.keys(outputUpdate).forEach(key => {
+                  respondentFound[key] = outputUpdate[key]
+               })
+
+               await respondentFound.save()
+            }
+
+            // const outputCollectionUpdated =
+            //    await surveyOutputCollection.updateMany(
+            //       {
+            //          SCOLINFO_respondent_id: {
+            //             $in: outputUpdates.map(outputUpdate => {
+            //                LogThis(
+            //                   log,
+            //                   `scolInfoIdList=${outputUpdate.SCOLINFO_respondent_id}`,
+            //                   L0,
+            //                )
+            //                return outputUpdate.SCOLINFO_respondent_id
+            //             }),
+            //          },
+            //       },
+            //       { $set: outputUpdates },
+            //    )
+
+            outputNews = outputValueDocuments.filter(
+               doc =>
+                  !respondentsFound.find(
+                     res =>
+                        doc.SCOLINFO_respondent_id ===
+                        res.SCOLINFO_respondent_id,
+                  ),
+            )
+         } else {
+            outputNews = outputValueDocuments
+         }
+
+         await surveyOutputCollection.insertMany(outputNews)
+      }
+
+      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.SCOLINFO_respondent_id)
+
+      // if(respondentsFound && respondentsFound.length > 0){
+      //    for (let res =0; res < respondentsFound.length; res++){
+      //       let respondentFound = respondentsFound[res]
+      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.SCOLINFO_respondent_id === respondentFound.SCOLINFO_respondent_id)
+      //    }
+      // }
+
       // LogThis(
       //   log,
       //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
       // );
-      // x = x + 1;
-      // LogThis(log, `x=${x}`, L3);
-      await surveyOutputCollection.insertMany(outputValueDocuments)
-      x = x + 1
-      LogThis(log, `x=${x}`, L3)
+
+      //await surveyOutputCollection.insertMany(outputValueDocuments)
    } catch (error) {
       LogThis(log, `error ocurred: ${error.message}`, L3)
       throw error
@@ -2301,7 +2403,12 @@ const superSurveySaveOutput = asyncHandler(async (req, res) => {
 
       const superSurveyId = req.params.id
 
-      await surveySaveOutputHelper(superSurveyId, columnsNames, outputValues)
+      await surveySaveOutputHelper(
+         superSurveyId,
+         columnsNames,
+         outputValues,
+         false,
+      )
 
       res.status(200).json({ surveyOutputStatus: 'success' })
    } catch (error) {
@@ -2418,9 +2525,12 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       })
 
       const outputValuesFound = await surveyOutputCollectionFound
-         .find({
-            $or: conditions,
-         })
+         .find(
+            {
+               $or: conditions,
+            },
+            '-__v',
+         )
          .sort({ SCOLINFO_respondent_id: -1 })
          .limit(pageSize)
          .skip(pageSize * (page - 1))
@@ -3068,14 +3178,10 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //   }
 // });
 
-// const surveyMonkeyUpdateResponses2Helper = async (req, res) => {
-
-// }
-
-const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
-   const functionName = 'surveyMonkeyUpdateResponses2'
+const surveyMonkeyUpdateResponses2Helper = async surveyShortNameIn => {
+   const functionName = 'surveyMonkeyUpdateResponses2Helper'
    const log = new LoggerSettings(srcFileName, functionName)
-
+   let newRespondents = null
    try {
       //const DEBUG_SECTION = 'RESPONSE_PROCESSING'
       //LogDebugSection(DEBUG_SECTION)
@@ -3084,7 +3190,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
        */
-      const surveyShortName = req.params.id
+      const surveyShortName = surveyShortNameIn
       const superSurveysList = await SurveySuperior.findOne({
          surveyShortName: surveyShortName,
       }).lean()
@@ -3095,7 +3201,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
          log,
       )
 
-      const newRespondents = await SurveyMonkeyNewResponse.find({
+      newRespondents = await SurveyMonkeyNewResponse.find({
          $and: [
             { surveyMonkeyId: superSurveysList.surveyMonkeyId },
             {
@@ -3105,7 +3211,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                ],
             },
          ],
-      }).lean()
+      })
       LogThis(log, `newRespondents=${j(newRespondents)}`, L3)
 
       if (!(newRespondents && newRespondents.length > 0)) {
@@ -3247,7 +3353,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
       }
 
       // START OF PROCESSING THE SURVEY MONKEY ANSWERS INCLUDING CALCULATED FIELDS
-      let csvLayout = ''
+      //let csvLayout = ''
       try {
          const fileNumeric = rowValue
          const fileReal = rowReal
@@ -3503,11 +3609,11 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
 
                //  csv = csv + questionDesc + questionShortDesc;
 
-               let rowClean = ''
+               //let rowClean = ''
                let answers = []
                let respondentId = ''
 
-               let rowRealClean = ''
+               //let rowRealClean = ''
                let answersReal = []
                //console.log(`Processing rows`);
 
@@ -3580,7 +3686,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                         `processing question ${a}`,
                         a,
                         305,
-                        L0,
+                        L3,
                         'surveyQuestion=',
                         surveyQuestion,
                      )
@@ -3909,28 +4015,28 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                //  await new Promise((resolve) => setTimeout(resolve, 1));
 
                //let csvLayout = ''
-               let layout = null
-               for (let o = 0; o < outputLayout.length - 1; o++) {
-                  layout = outputLayout[o]
-                  csvLayout =
-                     csvLayout + layout.description.replace(/,/g, ';') + ','
-               }
-               LogThis(log, `outputLayout data csvLayout=${csvLayout}`, L3)
+               // let layout = null
+               // for (let o = 0; o < outputLayout.length - 1; o++) {
+               //    layout = outputLayout[o]
+               //    csvLayout =
+               //       csvLayout + layout.description.replace(/,/g, ';') + ','
+               // }
+               // LogThis(log, `outputLayout data csvLayout=${csvLayout}`, L3)
 
-               layout = outputLayout[outputLayout.length - 1]
-               csvLayout =
-                  csvLayout + layout.description.replace(/,/g, ';') + '\n'
+               // layout = outputLayout[outputLayout.length - 1]
+               // csvLayout =
+               //    csvLayout + layout.description.replace(/,/g, ';') + '\n'
 
-               for (let o = 0; o < outputLayout.length - 1; o++) {
-                  layout = outputLayout[o]
-                  csvLayout =
-                     csvLayout +
-                     layout.shortDescription.replace(/,/g, ';') +
-                     ','
-               }
-               layout = outputLayout[outputLayout.length - 1]
-               csvLayout =
-                  csvLayout + layout.shortDescription.replace(/,/g, ';') + '\n'
+               // for (let o = 0; o < outputLayout.length - 1; o++) {
+               //    layout = outputLayout[o]
+               //    csvLayout =
+               //       csvLayout +
+               //       layout.shortDescription.replace(/,/g, ';') +
+               //       ','
+               // }
+               // layout = outputLayout[outputLayout.length - 1]
+               //csvLayout =
+               //  csvLayout + layout.shortDescription.replace(/,/g, ';') + '\n'
 
                const cols = []
                LogThis(log, `Mapping columns to Layout`, L3)
@@ -4030,7 +4136,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                         value = ''
                      }
                      LogThis(log, `value=${value}`, L3)
-                     csvLayout = csvLayout + value + ','
+                     //csvLayout = csvLayout + value + ','
                      row.push(value)
                   }
                   LogThis(
@@ -4058,7 +4164,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                      value = ''
                   }
                   LogThis(log, `value=${value}`, L3)
-                  csvLayout = csvLayout + value + '\n'
+                  //csvLayout = csvLayout + value + '\n'
                   row.push(value)
 
                   outputValues.push([...row])
@@ -4098,7 +4204,8 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                   outputValues: null,
                }
 
-               if (csvLayout && csvLayout.length > 0) {
+               //if (csvLayout && csvLayout.length > 0) {
+               if (outputValues && outputValues.length > 0) {
                   //console.log(`CATCH IN OUTPUT`);
 
                   // dispatch({
@@ -4189,6 +4296,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
                         surveySuperiorId,
                         columnsNames,
                         outputValuesSlice,
+                        true,
                      )
 
                      LogThis(
@@ -4264,22 +4372,53 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
          throw error
       }
 
-      // END OF PROCESSING THE SURVEY MONKEY ANSWERS INCLUDING CALCULATED FIELDS
+      for (let i = 0; i < newRespondents.length; i++) {
+         respondent = newRespondents[i]
+         respondent.process_status = SURVEY_PROCESS_STATUS.PROCESSED
+         await respondent.save()
+      }
 
-      res.header('Content-Type', 'application/json; charset=utf-8')
-      res.status(200).json({
-         csvLayout: csvLayout,
+      // END OF PROCESSING THE SURVEY MONKEY ANSWERS INCLUDING CALCULATED FIELDS
+      return {
+         //csvLayout: csvLayout,
          rowValue: rowValue,
          rowReal: rowReal,
          rowScore: rowScore,
          surveyMonkeyConfigs: surveyMonkeyConfigs,
          monkeyResponses: monkeyResponses,
+      }
+   } catch (error) {
+      // //res.status(404).json({ message: 'Error surveyMonkeyUpdateResponses2' })
+      // for (let i = 0; i < newRespondents.length; i++) {
+      //    respondent = newRespondents[i]
+      //    respondent.process_status = RESPONSE_PROCESSING_COMPLETE_FAILED
+      //    await response.save()
+      // }
+      throw new Error(
+         `Error surveyMonkeyUpdateResponses2Helper error=${error.message}`,
+      )
+   }
+}
+
+const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
+   try {
+      const surveyShortName = req.params.id
+      const returnValue = await surveyMonkeyUpdateResponses2Helper(
+         surveyShortName,
+      )
+
+      res.header('Content-Type', 'application/json; charset=utf-8')
+      res.status(200).json({
+         csvLayout: returnValue.csvLayout,
+         rowValue: returnValue.rowValue,
+         rowReal: returnValue.rowReal,
+         rowScore: returnValue.rowScore,
+         surveyMonkeyConfigs: returnValue.surveyMonkeyConfigs,
+         monkeyResponses: returnValue.monkeyResponses,
       })
    } catch (error) {
       res.status(404).json({ message: 'Error surveyMonkeyUpdateResponses2' })
-      throw new Error(
-         `Error surveyMonkeyUpdateResponses2 error=${error.message}`,
-      )
+      throw error
    }
 })
 
@@ -4297,7 +4436,7 @@ module.exports = {
    superSurveyCreateConfigIntegratedWithMonkey,
    testSurveyMonkey,
    surveyMonkeyWebhookCreatedEvent,
-   surveyMonkeyWebhookCompletedEvent,
+   surveyMonkeyWebhookCompletedEventTalentos2020,
    //surveyMonkeyUpdateResponses,
    surveyMonkeyUpdateResponses2,
 }

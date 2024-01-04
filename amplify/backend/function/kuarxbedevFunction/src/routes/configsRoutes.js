@@ -1,15 +1,17 @@
 /** @format */
 
-let express = require("express");
-const router = express.Router();
+let express = require('express')
+const router = express.Router()
 let {
-  getAddressStates,
-  getSurveyMonkeyToken,
-} = require("../controllers/configsController.js");
+   getAddressStates,
+   getSurveyMonkeyToken,
+   generateToken,
+} = require('../controllers/configsController.js')
 
-let { protect, admin } = require("../middleware/authMiddleware.js");
+let { protect, admin } = require('../middleware/authMiddleware.js')
 
 // This is comming from /api/getAddressStates
-router.route("/addressstates").get(getAddressStates);
-router.route("/surveymonkey").get(protect, admin, getSurveyMonkeyToken);
-module.exports = router;
+router.route('/addressstates').get(getAddressStates)
+router.route('/surveymonkey').get(protect, admin, getSurveyMonkeyToken)
+router.route('/generatetoken').get(protect, admin, generateToken)
+module.exports = router

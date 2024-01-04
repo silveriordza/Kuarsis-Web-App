@@ -1,3 +1,31 @@
+/*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN","KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
+/*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
 /**
  * Use the following code to retrieve configured secrets from SSM:
  *
@@ -129,6 +157,10 @@ const surveyMonkeyTokenParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR,
 )
 
+const surveyMonkeyWebhooksTokenParam = getSecretParamNameFromEnv(
+   process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR,
+)
+
 //Added the dotenv expand feature, to expand the variables in the .env file that have references to other variables using the ${variablename} format. Look into the .env file for more information.
 //let newExpandedEnv = dotenvExpand.expand(myEnv)
 
@@ -168,16 +200,12 @@ const loadParameters = data => {
          case surveyMonkeyTokenParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR] =
                param.Value
-            // LogThis(
-            //   log,
-            //   `Processing param.Value=${
-            //     param.Value
-            //   }; process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR]=${
-            //     process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR]
-            //   }`,
-            //   L3
-            // );
+               
             break
+            case surveyMonkeyWebhooksTokenParam:
+               process.env[process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR] =
+                  param.Value
+               break
          default:
             break
       }
@@ -197,6 +225,7 @@ const params = {
       accessKeyParam,
       secretKeyParam,
       surveyMonkeyTokenParam,
+      surveyMonkeyWebhooksTokenParam,
    ],
    WithDecryption: true,
 }
@@ -278,7 +307,7 @@ app.use((err, req, res, next) => {
    const log = new LoggerSettings('app.js', 'Async Error Handler Global')
    //console.error('Error caught:', err.message)
    LogThis(log, `error: ${err.message}`, L0)
-   if (errorFound.name === 'UnauthorizedError') {
+   if (err.name === 'UnauthorizedError') {
       res.status(401).json({ error: 'Unauthorized' })
    } else {
       res.status(500).json({ error: 'Internal Server Error' })
