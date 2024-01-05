@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const util = require('util')
 const axios = require('axios')
+const { getSecretValue } = require('../awsServices/awsMiscellaneous.js')
 
 let asyncHandler = require('express-async-handler')
 
@@ -971,90 +972,147 @@ const surveyMonkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
    res.status(200).end()
 })
 
+const surveyMonkeyWebhookCompletedEventHelper = async req => {
+   const functionName = 'surveyMonkeyWebhookCompletedEventHelper'
+   const log = new LoggerSettings(srcFileName, functionName)
+
+   try {
+      LogThis(log, `START`, L0)
+      LogThis(log, `req.headers = ${JSON.stringify(req.headers, null, 2)}`, L0)
+
+      const bd = req.body
+
+      // const bd = {
+      //    name: 'webhookcompletedeventTalentos2020',
+      //    filter_type: 'survey',
+      //    filter_id: '182423261',
+      //    event_type: 'response_completed',
+      //    event_id: '10095505277',
+      //    event_datetime: '2024-01-04T20:43:33.306289+00:00',
+      //    object_type: 'response',
+      //    object_id: '19130956913',
+      //    resources: {
+      //       respondent_id: '19130956913',
+      //       recipient_id: '0',
+      //       survey_id: '182423261',
+      //       user_id: '74589357',
+      //       collector_id: '259432991',
+      //    },
+      // }
+
+      LogThis(
+         log,
+         `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
+         L0,
+      )
+
+      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
+      const resources = bd.resources
+
+      const superSurveyFound = await SurveySuperior.findOne({
+         surveyMonkeyId: resources.survey_id,
+      }).lean()
+
+      if (!superSurveyFound) {
+         throw new Error(
+            `Monkey webhook: survey_id ${resources.survey_id} of respondent ${resources.respondent_id} not found`,
+         )
+      }
+      LogThis(
+         log,
+         `superSurveyFound=${JSON.stringify(superSurveyFound, null, 1)}`,
+         L0,
+      )
+      //const superSurvey = superSurveyFound
+      let newResponseFound = await SurveyMonkeyNewResponse.findOne({
+         respondent_id: resources.respondent_id,
+         surveyMonkeyId: resources.survey_id,
+      })
+      //let newResponse = null;
+      if (newResponseFound) {
+         //newResponse = newResponseFound[0];
+         LogThis(
+            log,
+            `updating respondent ${resources.respondent_id}, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
+            L0,
+         )
+         newResponseFound.event_type = bd.event_type
+         newResponseFound.event_datetime = bd.event_datetime
+         newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
+      } else {
+         LogThis(log, `creating respondent id ${resources.respondent_id}`, L0)
+         LogThis(
+            log,
+            `resources.event_datetime=${
+               bd.event_datetime
+            }; date converted=${new Date(bd.event_datetime)}; status=${
+               SURVEY_PROCESS_STATUS.NEW
+            }`,
+            L0,
+         )
+         newResponseFound = new SurveyMonkeyNewResponse({
+            surveyMonkeyId: resources.survey_id,
+            respondent_id: resources.respondent_id,
+            event_type: bd.event_type,
+            event_datetime: bd.event_datetime,
+            process_status: SURVEY_PROCESS_STATUS.NEW,
+         })
+      }
+      LogThis(
+         log,
+         `Saving new response trigger into database for respondent_id ${resources.respondent_id}`,
+         L0,
+      )
+      await newResponseFound.save()
+      LogThis(
+         log,
+         `Saving new response trigger into database completed for respondent_id ${resources.respondent_id}`,
+         L0,
+      )
+      LogThis(
+         log,
+         `Processing of surveyMonkeyUpdateResponses2Helper started`,
+         L0,
+      )
+
+      LogThis(
+         log,
+         `Processing of surveyMonkeyUpdateResponses2Helper started`,
+         L0,
+      )
+      const updateResponseRes = await surveyMonkeyUpdateResponses2Helper(
+         superSurveyFound.surveyShortName,
+      )
+      LogThis(log, `Processing of surveyMonkeyUpdateResponses2Helper ended`, L0)
+
+      return true
+   } catch (error) {
+      LogThis(log, `Error while processing webhook event ${req.body}`, L0)
+      throw error
+   }
+}
+
 const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
    async (req, res) => {
       const functionName = 'surveyMonkeyWebhookCompletedEventTalentos2020'
       const log = new LoggerSettings(srcFileName, functionName)
 
       try {
-         LogThis(log, `START`, L3)
-         LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L3)
-         const bd = req.body
-         LogThis(
-            log,
-            `name=${bd.name}; event_type=${bd.event_type}; object_id=${bd.object_id}`,
-            L3,
-         )
+         LogThis(log, `START`, L0)
+         LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
 
-         LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L3)
-         const resources = bd.resources
-
-         const superSurveyFound = await SurveySuperior.findOne({
-            surveyMonkeyId: resources.survey_id,
-         }).lean()
-
-         if (!superSurveyFound) {
-            throw new Error(
-               `Monkey webhook: survey_id ${resources.survey_id} of respondent ${resources.respondent_id} not found`,
-            )
-         }
-         LogThis(
-            log,
-            `superSurveyFound=${JSON.stringify(superSurveyFound, null, 1)}`,
-            L3,
-         )
-         //const superSurvey = superSurveyFound
-         let newResponseFound = await SurveyMonkeyNewResponse.findOne({
-            respondent_id: resources.respondent_id,
-            surveyMonkeyId: resources.survey_id,
-         })
-         //let newResponse = null;
-         if (newResponseFound) {
-            //newResponse = newResponseFound[0];
-            LogThis(
-               log,
-               `updating respondent, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
-               L3,
-            )
-            newResponseFound.event_type = bd.event_type
-            newResponseFound.event_datetime = bd.event_datetime
-            newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
+         const result = await surveyMonkeyWebhookCompletedEventHelper(req)
+         if (result) {
+            res.status(200).end()
          } else {
-            LogThis(log, `creating respondent`, L3)
-            LogThis(
-               log,
-               `resources.event_datetime=${
-                  bd.event_datetime
-               }; date converted=${new Date(bd.event_datetime)}; status=${
-                  SURVEY_PROCESS_STATUS.NEW
-               }`,
-               L3,
-            )
-            newResponseFound = new SurveyMonkeyNewResponse({
-               surveyMonkeyId: resources.survey_id,
-               respondent_id: resources.respondent_id,
-               event_type: bd.event_type,
-               event_datetime: bd.event_datetime,
-               process_status: SURVEY_PROCESS_STATUS.NEW,
-            })
+            res.status(500).end()
          }
 
-         await newResponseFound.save()
-
-         const updateResponseRes = await surveyMonkeyUpdateResponses2Helper(
-            superSurveyFound.surveyShortName,
-         )
-
-         LogThis(
-            log,
-            `Event Happened survey=${resources.survey_id}; respondent=${resources.respondent_id}`,
-            L0,
-         )
-
-         res.status(200).json({ updateResponseRes: updateResponseRes })
+         //res.status(200).json({ updateResponseRes: updateResponseRes })
+         //res.status(200).end()
       } catch (error) {
          LogThis(log, `Error found: ${error.message}`, L0)
-         res.status(200).end()
+         res.status(500).end()
       }
    },
 )
@@ -2334,8 +2392,15 @@ const surveySaveOutputHelper = async (
                Object.keys(outputUpdate).forEach(key => {
                   respondentFound[key] = outputUpdate[key]
                })
-
+               LogThis(
+                  log,
+                  `updating respondents response ${j(
+                     respondentFound.SCOLINFO_respondent_id,
+                  )}`,
+                  L0,
+               )
                await respondentFound.save()
+               LogThis(log, `updated respondents DONE.`, L0)
             }
 
             // const outputCollectionUpdated =
@@ -2366,8 +2431,9 @@ const surveySaveOutputHelper = async (
          } else {
             outputNews = outputValueDocuments
          }
-
+         LogThis(log, `inserting new respondents ${j(outputNews)}`, L0)
          await surveyOutputCollection.insertMany(outputNews)
+         LogThis(log, `respondents inserted new DONE.`, L0)
       }
 
       // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.SCOLINFO_respondent_id)
@@ -3805,7 +3871,7 @@ const surveyMonkeyUpdateResponses2Helper = async surveyShortNameIn => {
                      LogThis(
                         log,
                         `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a].fieldName}`,
-                        L0,
+                        L3,
                      )
                      let allCalculatedField = allCalculatedFields[a]
                      let value = null

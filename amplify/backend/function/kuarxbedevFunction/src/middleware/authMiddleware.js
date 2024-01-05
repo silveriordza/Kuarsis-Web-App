@@ -4,7 +4,7 @@ let jwt = require('jsonwebtoken')
 let asyncHandler = require('express-async-handler')
 let User = require('../models/userModel.js')
 const { getSecretValue } = require('../awsServices/awsMiscellaneous.js')
-const { LogThis, LoggerSettings, L0, L3 } = require('../utils/Logger')
+const { LogThis, LoggerSettings, j, L0, L3 } = require('../utils/Logger')
 const srcFile = 'authMiddleware.js'
 
 const protect = asyncHandler(async (req, res, next) => {
@@ -58,33 +58,66 @@ const protectSurveyMonkeyWebhook = asyncHandler(async (req, res, next) => {
 
    try {
       let token
+      req.monkeyAccess = false
       if (
          req.headers.authorization &&
          req.headers.authorization.startsWith('Bearer')
       ) {
          token = req.headers.authorization.split(' ')[1]
+         apiKey = req.headers['sm-apikey']
+         eventType = req.headers['sm-eventtype']
 
-         //if (token == "tokenpass") {
-         if (token == process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN) {
-            req.monkeyAccess = true
-         } else {
-            req.monkeyAccess = false
+         const secretToken = await getSecretValue(
+            process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR,
+         )
+
+         const secretApiKey = await getSecretValue(
+            process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR,
+         )
+
+         if (token !== secretToken) {
             throw new Error(
-               `Invalid survey monkey webhook token, req.body.name=${req.body.name}`,
+               `Invalid survey monkey webhook token for req.headers=${j(
+                  req.headers,
+               )};`,
             )
          }
 
+         if (apiKey !== secretApiKey) {
+            throw new Error(
+               `Invalid survey monkey webhook apiKey for req.headers=${j(
+                  req.headers,
+               )};`,
+            )
+         }
+
+         if (eventType !== 'ResponseEvent') {
+            throw new Error(
+               `Invalid survey monkey webhook eventType for req.headers=${j(
+                  req.headers,
+               )};`,
+            )
+         }
+
+         req.monkeyAccess = true
+         LogThis(
+            log,
+            `Survey Monkey webhook authentication approved for ${req.body.name}`,
+         )
          next()
+      } else {
+         res.status(401)
+         throw new Error(`Not authorized, no token for ${j(req.body)}`)
       }
 
       if (!token || !req.monkeyAccess) {
          res.status(401)
-         throw new Error(`Not authorized, no token for ${req.body.name}`)
+         throw new Error(`Not authorized, no token for ${j(req.body)}`)
       }
    } catch (error) {
       console.error(error)
       res.status(401)
-      throw new Error(`Not authorized, token failed for ${req.body.name}`)
+      throw new Error(`Not authorized, token failed for ${j(req.body)}`)
    }
 })
 

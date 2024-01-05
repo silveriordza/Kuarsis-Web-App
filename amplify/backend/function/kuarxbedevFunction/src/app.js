@@ -5,13 +5,30 @@ const aws = require('aws-sdk');
 
 const { Parameters } = await (new aws.SSM())
   .getParameters({
-    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN","KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN"].map(secretName => process.env[secretName]),
+    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN","KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN","KUARSIS_SURVEY_MONKEY_APIKEY"].map(secretName => process.env[secretName]),
     WithDecryption: true,
   })
   .promise();
 
 Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 */
+/**
+ * Use the following code to retrieve configured secrets from SSM:
+ *
+ * const aws = require('aws-sdk');
+ *
+ * const { Parameters } = await (new aws.SSM())
+ *   .getParameters({
+ *     Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN","KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN"].map(secretName => process.env[secretName]),
+ *     WithDecryption: true,
+ *   })
+ *   .promise();
+ *
+ * Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+ *
+ * @format
+ */
+
 /*
 Use the following code to retrieve configured secrets from SSM:
 
@@ -161,6 +178,10 @@ const surveyMonkeyWebhooksTokenParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR,
 )
 
+const surveyMonkeyApiKeyParam = getSecretParamNameFromEnv(
+   process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR,
+)
+
 //Added the dotenv expand feature, to expand the variables in the .env file that have references to other variables using the ${variablename} format. Look into the .env file for more information.
 //let newExpandedEnv = dotenvExpand.expand(myEnv)
 
@@ -200,12 +221,16 @@ const loadParameters = data => {
          case surveyMonkeyTokenParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR] =
                param.Value
-               
+
             break
-            case surveyMonkeyWebhooksTokenParam:
-               process.env[process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR] =
-                  param.Value
-               break
+         case surveyMonkeyWebhooksTokenParam:
+            process.env[process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR] =
+               param.Value
+            break
+         case surveyMonkeyApiKeyParam:
+            process.env[process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR] =
+               param.Value
+            break
          default:
             break
       }
@@ -226,6 +251,7 @@ const params = {
       secretKeyParam,
       surveyMonkeyTokenParam,
       surveyMonkeyWebhooksTokenParam,
+      surveyMonkeyApiKeyParam,
    ],
    WithDecryption: true,
 }
@@ -243,7 +269,7 @@ Parameters.then(loadParameters, error => {
    )
 })
 
-let path = require('path')
+//let path = require('path')
 let express = require('express')
 let morgan = require('morgan')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')

@@ -32,7 +32,7 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
    let isCalculated = false
    let outputFields = []
    for (let i = 0; i < outputLayout.length; i++) {
-      //LogThis(log, `output header = ${i} of ${outputLayout.length}: `, L0)
+      //LogThis(log, `output header = ${i} of ${outputLayout.length}: `, L3)
       isCalculated = false
       layout = outputLayout[i]
       LogThis(
@@ -40,7 +40,7 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
          `output header = ${i} of ${
             outputLayout.length
          }: layout=${JSON.stringify(layout)}`,
-         L0,
+         L3,
       )
       let field = fields.find(
          field =>
@@ -113,10 +113,10 @@ const getSuperSurveysConfigs = async superSurveysList => {
       survey.questions = questions.filter(question => {
          return question.surveyId.toString() == survey._id.toString()
       })
-      //LogThis(log, `Questions mapped to survey ${j(survey.questions)} `, L0);
+      //LogThis(log, `Questions mapped to survey ${j(survey.questions)} `, L3);
    })
 
-   //LogThis(log, `surveys.questionsAll=${j(surveys)}`, L0);
+   //LogThis(log, `surveys.questionsAll=${j(surveys)}`, L3);
 
    superSurveysList.forEach(superSurvey => {
       superSurvey.surveys = surveys.filter(
@@ -125,7 +125,7 @@ const getSuperSurveysConfigs = async superSurveysList => {
       )
    })
 
-   //LogThis(log, `All configs=${j(superSurveysList)}`, L0);
+   //LogThis(log, `All configs=${j(superSurveysList)}`, L3);
    return superSurveysList
 }
 
