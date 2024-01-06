@@ -203,6 +203,7 @@ const AnalyzeQuestionResponse = (
          //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
          {
             const DEBUG_SECTION = 'DEBUG_SINGLE_MENU'
+            //process.env.LOG_LEVEL = 'DEBUG_SINGLE_MENU'
             const msg = 'single_choice_menu'
             const monkeyResponseAnswer = monkeyResponseAnswers[0]
             if (monkeyResponseAnswer['choice_id']) {
@@ -218,15 +219,6 @@ const AnalyzeQuestionResponse = (
                )
                //when choice is selected, the value, real and score are in the selected choice found in survey config.
 
-               LogVarsFilter(
-                  log,
-                  msg,
-                  monkeyResponseAnswer.choice_id,
-                  '308206450',
-                  DEBUG_SECTION,
-                  'monkeyResponseAnswer',
-                  monkeyResponseAnswer,
-               )
                pushChoiceCol(monkeyAnswerChoiceConf)
 
                //When choice is selected, other values are empty in the output file.
@@ -240,7 +232,7 @@ const AnalyzeQuestionResponse = (
                LogVars(
                   log,
                   msg,
-                  L0,
+                  L3,
                   'monkeyAnswerChoiceConf',
                   monkeyAnswerChoiceConf,
                )
@@ -331,38 +323,46 @@ const AnalyzeQuestionResponse = (
                rowIndex++
             ) {
                let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
-
+               LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
                //for(let monkeyResponseIndex=0; monkeyResponseIndex<monkeyResponseAnswers.length ; monkeyResponseIndex++){
                let monkeyResponseAnswer = monkeyResponseAnswers.find(
                   monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
                )
 
-               HasDataException(
-                  monkeyResponseAnswer,
-                  `The monkey answer row was not found in the answers responses for ${monkeyRowConf}`,
-                  log,
-               )
-
-               if (monkeyResponseAnswer['choice_id']) {
-                  const monkeyAnswerChoiceConf =
-                     monkeyQuestionAnswersConf.choices.find(
-                        confChoice =>
-                           confChoice.id == monkeyResponseAnswer.choice_id,
+               // HasDataException(
+               //    monkeyResponseAnswer,
+               //    `The monkey answer row was not found in the answers responses for ${j(
+               //       monkeyRowConf,
+               //    )}`,
+               //    log,
+               // )
+               if (HasData(monkeyResponseAnswer)) {
+                  if (monkeyResponseAnswer['choice_id']) {
+                     const monkeyAnswerChoiceConf =
+                        monkeyQuestionAnswersConf.choices.find(
+                           confChoice =>
+                              confChoice.id == monkeyResponseAnswer.choice_id,
+                        )
+                     HasDataException(
+                        monkeyAnswerChoiceConf,
+                        `Choice in monkey response not found in survey config ${j(
+                           monkeyResponseAnswer.choice_id,
+                        )}`,
+                        log,
                      )
-                  HasDataException(
-                     monkeyAnswerChoiceConf,
-                     `Choice in monkey response not found in survey config ${monkeyResponseAnswer.choice_id}`,
-                     log,
-                  )
-                  //when choice is selected, the value, real and score are in the selected choice found in survey config.
-                  pushChoiceCol(monkeyAnswerChoiceConf, true)
-                  //When choice is selected, other values are empty in the output file.
+                     //when choice is selected, the value, real and score are in the selected choice found in survey config.
+                     pushChoiceCol(monkeyAnswerChoiceConf, true)
+                     //When choice is selected, other values are empty in the output file.
+                  } else {
+                     // throw Error(
+                     //    `The choice_id value was not found in the answer as expected: ${j(
+                     //       monkeyResponseAnswer,
+                     //    )}`,
+                     // )
+                     pushEmptyCol()
+                  }
                } else {
-                  throw Error(
-                     `The choice_id value was not found in the answer as expected: ${j(
-                        monkeyResponseAnswer,
-                     )}`,
-                  )
+                  pushEmptyCol()
                }
             }
          }
@@ -381,17 +381,20 @@ const AnalyzeQuestionResponse = (
                   monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
                )
 
-               HasDataException(
-                  monkeyResponseAnswer,
-                  `The monkey answer row was not found in the answers responses for ${monkeyRowConf}`,
-                  log,
-               )
+               // HasDataException(
+               //    monkeyResponseAnswer,
+               //    `The monkey answer row was not found in the answers responses for ${monkeyRowConf}`,
+               //    log,
+               // )
+               if (HasData(monkeyResponseAnswer)) {
+                  let text = monkeyResponseAnswer.text
+                  let value = Number.parseInt(text)
 
-               let text = monkeyResponseAnswer.text
-               let value = Number.parseInt(text)
-
-               //when choice is selected, the value, real and score are in the selected choice found in survey config.
-               pushValueCol(value, text, value)
+                  //when choice is selected, the value, real and score are in the selected choice found in survey config.
+                  pushValueCol(value, text, value)
+               } else {
+                  pushEmptyCol()
+               }
             }
          }
          break
