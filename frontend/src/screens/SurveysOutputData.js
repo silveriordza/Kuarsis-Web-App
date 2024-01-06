@@ -387,30 +387,17 @@ const SurveysOutputData = ({ match, history }) => {
                            {surveyOutputsInfo.outputValues.map(outputValue => {
                               const keys = Object.keys(outputValue)
                               keys.shift()
-                              //console.log(`MAP outputValue=${JSON.stringify(outputValue)}`);
                               let outputField = null
                               let outputValueData = null
                               return (
                                  <tr key={outputValue._id}>
                                     {keys.map(key => {
-                                       // console.log(
-                                       //   `outputValueKey=${key}; outputValue=${outputValue[key]}`
-                                       // );
                                        outputField =
                                           surveyOutputsInfo.outputLayouts.find(
                                              x => {
-                                                console.log(`${key}`)
                                                 return x.fieldName == key
                                              },
                                           )
-                                       // console.log(
-                                       //   `outputField=${JSON.stringify(
-                                       //     outputField
-                                       //   )}; outputField.showInSurveyOutputScreen=${
-                                       //     outputField.showInSurveyOutputScreen
-                                       //   };`
-                                       // );
-
                                        if (
                                           outputField.showInSurveyOutputScreen
                                        ) {

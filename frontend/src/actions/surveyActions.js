@@ -1305,13 +1305,13 @@ export const surveyProcessAnswersAtClientAction =
                      })
                      await new Promise(resolve => setTimeout(resolve, 1))
                      LogThis(log, `about to call axios send output data`, L3)
-                     LogThis(
-                        log,
-                        `about to call post axios for /outputs with: config=${JSON.stringify(
-                           config,
-                        )}; slice=${slice}`,
-                        L0,
-                     )
+                     // LogThis(
+                     //    log,
+                     //    `about to call post axios for /outputs with: config=${JSON.stringify(
+                     //       config,
+                     //    )}; slice=${slice}`,
+                     //    L3,
+                     // )
                      await axios.post(
                         BACKEND_ENDPOINT +
                            `/surveys/${surveySuperiorId}/outputs`,
