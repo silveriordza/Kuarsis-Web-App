@@ -1,13 +1,10 @@
 {
    "superSurveyConfig": {
-      "owner": "652b0b3e1d61edfd4b8d4e8e",
-      "surveyName": "Oncare Treatment Center 2020 Talentos",
-      "surveyShortName": "TALENTOS_2020",
+      "surveyName": "General Oncare Treatment Center PI2022",
+      "surveyShortName": "GENERAL_OTC_PI2022",
       "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
-      "surveyMonkeyId": "182423261",
       "surveyList": [
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "surveyCollectionInformation",
             "surveyShortName": "SCOLINFO",
             "description": "Informacion de la ecuesta recolectada.",
@@ -107,7 +104,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "Datos",
             "surveyShortName": "Datos",
             "description": "Informacion de la persona encuestada.",
@@ -312,7 +308,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "Cuestionario General de Salud.",
             "surveyShortName": "CSG",
             "description": "Cuestionario General de Salud.",
@@ -837,7 +832,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "Fiad-15",
             "surveyShortName": "Fiad-15",
             "description": "Cuestionario de Maslach (Burnout Inventory)",
@@ -1072,7 +1066,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
             "surveyShortName": "BURN",
             "description": "Cuestionario de Maslach (Burnout Inventory)",
@@ -1517,7 +1510,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "ESTRES",
             "surveyShortName": "ESTRES",
             "description": "NIVEL DE ESTRES",
@@ -2158,7 +2150,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "HAMILTON",
             "surveyShortName": "HAMILTON",
             "description": "ESCALA DE ANSIEDAD DE HAMILTON",
@@ -2395,7 +2386,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "JEFF STATIC",
             "surveyShortName": "JEFF",
             "description": "ESCALA DE ACTITUDES JEFFERSON HACIA LA COLABORACION INTERPROFESIONAL (JeffSTATIC)",
@@ -2906,7 +2896,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "INVENTARIO DE DEPRESION DE BECK",
             "surveyShortName": "BECK",
             "description": "INVENTARIO DE DEPRESION DE BECK",
@@ -3758,7 +3747,6 @@
             ]
          },
          {
-            "owner": "652b0b3e1d61edfd4b8d4e8e",
             "surveyName": "SCL 90",
             "surveyShortName": "SCL90",
             "description": "SCL 90",

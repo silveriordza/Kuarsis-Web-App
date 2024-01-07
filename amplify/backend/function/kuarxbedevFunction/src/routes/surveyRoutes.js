@@ -57,7 +57,9 @@ router
       superSurveyUploadAnswers,
    )
 
-router.route('/:id/surveymonkey').put(protect, admin, updateSurveyMonkeyConfigs)
+router
+   .route('/:id/surveymonkey')
+   .post(protect, admin, updateSurveyMonkeyConfigs)
 
 router
    .route('/surveymonkey')
