@@ -6,6 +6,16 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.5 (pending)
+Version date: 1/07/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Fixed defect: negative number showing up in the upload status in UploadSurveyAnswers when picking option NEW responses only. This fix was made in the Front End surveyActions.js in the slice calculations.
+2.- Modularized the Survey Monkey calls into a SurveyMonkeyManager class, for better code reusability. Removed logic form the path surveys/surveymonkey/:id handler and transfered it to the SurveyMonkeyManager, the handler now calls SurveyMonkeyManager functions to execute logic and it only servers as a controller of the logic.
+3.- Added a SurveyMonkeyWebhook for Completed Survey event with its corresponding handler function on the path surveys/surveymonkey/webhookcompletedeventTalentos2020. This path will be triggered by Survey Monkey whenever a new survey response is completed by a user, and it will also trigger the processing of the survey responses in the KSS system which will then store the responses into the corresponding output collection.
+4.- Redesigned the update responses handler to integrate it with the SurveyMonkeyWebhook (mentioned above) so that when the webhook is triggered, the update responses function will process the survey accordingly.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.0.4
 Version date: 12/24/23
 Modificator name: Silverio Rodriguez Alcorta

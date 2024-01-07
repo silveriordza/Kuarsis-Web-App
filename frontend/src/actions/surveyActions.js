@@ -1297,8 +1297,8 @@ export const surveyProcessAnswersAtClientAction =
                      dispatch({
                         type: SURVEY_PROCESS_ANSWERS_STATUS,
                         payload: {
-                           message: `Enviando parte ${slice} encuesta número ${
-                              r - sliceSize
+                           message: `Enviando a la base de datos parte ${slice} encuesta número ${
+                              r - sliceSize <= sliceSize ? r : r - sliceSize
                            } a la ${r}`,
                            row: r,
                         },
