@@ -406,7 +406,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
 
       //res.status(201).json(surveyMonkeyConfigs);
       //Save Survey Superior
-      superSurveyConfig.surveyMonkeyId = surveyMonkeyConfigs.id
+      superSurveyConfig.surveyMonkeyId = surveyMonkeyConfigs.survey.id
       const superSurvey = new SurveySuperior({
          owner: ownerId,
          surveyName: superSurveyConfig.surveyName,
