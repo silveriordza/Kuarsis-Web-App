@@ -39,31 +39,26 @@ const surveyQuestionModel = mongoose.Schema(
 
 const SurveyQuestion = mongoose.model('SurveyQuestion', surveyQuestionModel)
 
-// const surveyMultiModel = mongoose.Schema(
-//   {
-//     owner: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "User",
-//     },
-//     superSurveyId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "SuperSurvey",
-//     },
-//     surveyId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "Survey",
-//     },
-//     sequence: { type: Number, required: true },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
+const surveyMultiModel = mongoose.Schema(
+   {
+      superSurveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SuperSurvey',
+      },
+      surveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'Survey',
+      },
+      sequence: { type: Number, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
 
-// const SurveyMulti = mongoose.model("SurveyMulti", surveyMultiModel);
+const SurveyMulti = mongoose.model('SurveyMulti', surveyMultiModel)
 
 // const surveyCollectedModel = mongoose.Schema(
 //   {
@@ -160,11 +155,6 @@ const SurveyCalculatedField = mongoose.model(
 
 const surveyCalculatedValueModel = mongoose.Schema(
    {
-      // surveyCollectedId: {
-      //   type: mongoose.Schema.Types.ObjectId,
-      //   required: true,
-      //   ref: "SuperSurveyCollected",
-      // },
       calculatedFieldId: {
          type: mongoose.Schema.Types.ObjectId,
          required: true,
@@ -186,17 +176,13 @@ const SurveyCalculatedValue = mongoose.model(
 
 const surveyModel = mongoose.Schema(
    {
-      superSurveyId: {
-         type: mongoose.Schema.Types.ObjectId,
-         required: true,
-         ref: 'SurveySuperior',
-      },
       surveyName: { type: String, required: true },
       surveyShortName: { type: String, required: true },
       description: { type: String, required: false },
       instructions: { type: String, required: false },
       surveyMonkeyId: { type: String, required: false, default: '' },
       surveyMonkeyPosition: { type: Number, required: false, default: 0 },
+      monkeyInfo { type: mongoose.Schema.Types.Mixed, required: false }
    },
    {
       timestamps: true,

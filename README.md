@@ -7,7 +7,15 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Dev Tag: (pending)
-Git feature branches: tagkuarxisBeSurveySystemDEV-v1.0.0.4.1->kuarxisFeSurveySystemDev-SurveyMonkeyIntegration1.0
+Git feature branches: tagkuarxisBeSurveySystemDEV-v1.0.0.4->kuarxisFeSurveySystemDev-SurveyMonkeyIntegration1.0->kuarxisBeSurveySystemDev-SurveyMonkeyIntegration1.0-ClaculatedFieldsRedesign1.0
+Version date: 1/07/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Started working on redesigning how the Calculated Fields grups work to have relative position to the Survey position.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: (pending)
+Git feature branches: tagkuarxisBeSurveySystemDEV-v1.0.0.4->kuarxisFeSurveySystemDev-SurveyMonkeyIntegration1.0->
 Version date: 1/07/24
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:

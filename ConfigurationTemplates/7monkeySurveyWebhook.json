@@ -1,0 +1,24 @@
+https://es.surveymonkey.com/r/Z8FFHL8
+Request.
+{
+  "name": "SurveySystemTest",
+  "subscription_url": "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev/surveys/surveymonkey/webhookevent",
+  "authorization": "tokenpass",
+  "verify_ssl": true,
+  "event_type": "response_created",
+  "object_type": "survey",
+  "object_ids": ["516096351"]
+}
+Response
+{
+  "id": "4689407",
+  "name": "SurveySystemTest",
+  "event_type": "response_created",
+  "subscription_url": "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev/surveys/surveymonkey/webhookevent",
+  "authorization": "tokenpass",
+  "object_type": "survey",
+  "object_ids": [
+      "516096351"
+  ],
+  "href": "https://api.surveymonkey.com/v3/webhooks/4689407"
+}

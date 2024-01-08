@@ -1,0 +1,143 @@
+{
+  "data": [
+    {
+      "title": "Datos",
+      "description": "",
+      "position": 1,
+      "id": "84651064",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651064"
+    },
+    {
+      "title": "Cuestionario General de Salud",
+      "description": "",
+      "position": 2,
+      "id": "84651065",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651065"
+    },
+    {
+      "title": "<strong>FIAD-15 (NOFP)</strong>",
+      "description": "",
+      "position": 3,
+      "id": "85134604",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/85134604"
+    },
+    {
+      "title": "<strong>CUESTIONARIO DE MASLACH (BURNOUT INVENTORY)</strong>",
+      "description": "",
+      "position": 4,
+      "id": "85134472",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/85134472"
+    },
+    {
+      "title": "Escala de evaluación de estrés",
+      "description": "",
+      "position": 5,
+      "id": "84657592",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84657592"
+    },
+    {
+      "title": "Escala de ansiedad de Hamilton",
+      "description": "",
+      "position": 6,
+      "id": "84660346",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84660346"
+    },
+    {
+      "title": "Escala de actitudes hacia la colaboración interpersonal de Jefferson",
+      "description": "",
+      "position": 7,
+      "id": "84663614",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84663614"
+    },
+    {
+      "title": "Inventario de Depresión de Beck",
+      "description": "<div>A continuación señala cuál de las afirmaciones de cada grupo describe mejor cómo se ha sentido durante esta última semana, incluido en el día de hoy. Si dentro de un mismo grupo, hay más de una afirmación que considere aplicable a su caso, márquela también. Asegúrese de leer todas las afirmaciones dentro de cada grupo antes de efectuar la elección. </div>",
+      "position": 8,
+      "id": "84711393",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84711393"
+    },
+    {
+      "title": "",
+      "description": "",
+      "position": 9,
+      "id": "122497082",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/122497082"
+    },
+    {
+      "title": "<strong>SCL 90</strong>",
+      "description": "",
+      "position": 10,
+      "id": "84971248",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84971248"
+    },
+    {
+      "title": "Escala de Jeferson de empatía de los profesionales- HP",
+      "description": "",
+      "position": 11,
+      "id": "84651070",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651070"
+    },
+    {
+      "title": "E-EFF 17",
+      "description": "<div>Para las siguientes afirmaciones se considera familia todas las personas que usted considere su familia: familiares, parientes y amigos a quienes acepta como de su familia; familia son todos los que usted siente emocionalmente cercanos o que le preocupan de manera especial; puede ser que vivan en su casa o vivan en otra parte, pero siempre mantienen contacto más o menos estrecho con usted.</div>",
+      "position": 12,
+      "id": "84651066",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651066"
+    },
+    {
+      "title": "Cuestionario de detección de violencia",
+      "description": "",
+      "position": 13,
+      "id": "84651067",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651067"
+    },
+    {
+      "title": "",
+      "description": "",
+      "position": 14,
+      "id": "122372691",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/122372691"
+    },
+    {
+      "title": "",
+      "description": "",
+      "position": 15,
+      "id": "122372932",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/122372932"
+    },
+    {
+      "title": "",
+      "description": "",
+      "position": 16,
+      "id": "122385181",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/122385181"
+    },
+    {
+      "title": "Actitud hacia el aprendizaje a lo largo de la vida",
+      "description": "",
+      "position": 17,
+      "id": "84651071",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651071"
+    },
+    {
+      "title": "<strong>Escala de Jefferson de Actitudes Hacia la Colaboración entre Médicos y Enfermería</strong>",
+      "description": "",
+      "position": 18,
+      "id": "84651072",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/84651072"
+    },
+    {
+      "title": "Test de Zavic",
+      "description": "<div>A continuación usted encontrará una serie de situaciones que le van a sugerir 4 respuestas. Lea cada una de ellas cuidadosamente y anote en la hoja de repuestas en el paréntesis que corresponda un número de la siguiente manera:</div>\n<div><br></div>\n<div><strong>El número 4 cuando la respuesta sea más importante. </strong><br><strong>El número 3 cuando la respuesta le sea importante pero no tanto como la anterior.</strong><br><strong>El número 2 cuando la prefiera menos que las anteriores.</strong><br><strong>El número 1 cuando tenga menos importancia.</strong><br><br><strong><span style=\"color: #003366;\">No deben repetirse los números en una misma situación, siempre será 1,2,3 y 4 según sea su punto de vista. No deje ninguna sin contestar.</span></strong><br><br>EJEMPLO: Me encuentro sentado frente a un vidrio que esta sucio, a mi no me gusta esta situación lo que haría es:<br>A) Lo limpiaría       3<br>B) Le diría al licenciado que si lo manda limpiar      2<br>C) Le diría a la señora del aseo que lo haga               1<br>D) Me guardaría la pena y me quedaría callado        4</div>",
+      "position": 19,
+      "id": "108527080",
+      "href": "https://api.surveymonkey.com/v3/surveys/182423261/pages/108527080"
+    }
+  ],
+  "per_page": 50,
+  "page": 1,
+  "total": 19,
+  "links": {
+    "self": "https://api.surveymonkey.com/v3/surveys/182423261/pages?per_page=50&page=1"
+  }
+}
