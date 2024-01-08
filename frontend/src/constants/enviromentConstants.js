@@ -57,7 +57,7 @@ switch (ENVIRONMENT) {
       //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
       V_LOG_LEVEL = dev_debug_level
-      V_CURRENT_VERSION = `v1.0.0.4-2024-01-04-22:12`
+      V_CURRENT_VERSION = `v1.0.0.5-2024-01-08-18:23`
       V_BACKEND_ENDPOINT =
          'https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncaredev.kuarxis.com/images'
