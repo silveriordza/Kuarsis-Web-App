@@ -8,7 +8,8 @@ const Schema = mongoose.Schema
 //const util = require('util')
 const axios = require('axios')
 //const { getSecretValue } = require('../awsServices/awsMiscellaneous.js')
-const SurveyMonkeyManager = require('../classes/SurveyMonkeyManager.js')
+const MonkeyManager = require('../classes/MonkeyManager.js')
+const SurveyTemplateManager = require('../classes/SurveyTemplateManager.js')
 
 let asyncHandler = require('express-async-handler')
 
@@ -99,7 +100,7 @@ const RESPONSE_PROCESSING_COMPLETE_UPDATED =
 // @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
 // @access  Private/Admin
-const superSurveyCreateConfig = asyncHandler(async (req, res) => {
+const createSuperSurvey = asyncHandler(async (req, res) => {
    const functionName = 'getSuperSurveyConfigs'
    const log = new LoggerSettings(srcFileName, functionName)
    const { superSurveyConfig } = req.body
@@ -333,9 +334,10 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
    async (req, res) => {
       const functionName = 'superSurveyCreateConfigIntegratedWithMonkey'
       const log = new LoggerSettings(srcFileName, functionName)
-      const { superSurveyConfig } = req.body
+      const { surveyConfigTemplate } = req.body
       let ownerId = req.user._id
-      superSurveyConfig.owner = ownerId
+      surveyConfigTemplate.owner = ownerId
+
       // const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
       // if (!surveyMonkeyToken || surveyMonkeyToken == '') {
@@ -351,7 +353,14 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
       //   },
       // };
 
-      const monkeyManager = new SurveyMonkeyManager()
+      const surveyTemplateManager = new SurveyTemplateManager(
+         surveyConfigTemplate,
+      )
+      const superSurveyConfig = await surveyTemplateManager.process()
+
+      // const superSurveyConfig = surveyConfigTemplate.superSurveyConfig
+
+      const monkeyManager = new MonkeyManager()
 
       const result = await SurveySuperior.deleteOne({
          surveyShortName: superSurveyConfig.surveyShortName,
@@ -952,7 +961,7 @@ const createSurveys = asyncHandler(async (req, res) => {
    //   },
    // };
 
-   const monkeyManager = new SurveyMonkeyManager()
+   const monkeyManager = new MonkeyManager()
 
    const result = await SurveySuperior.deleteOne({
       surveyShortName: superSurveyConfig.surveyShortName,
@@ -1890,7 +1899,7 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    //       Accept: 'application/json',
    //    },
    // }
-   const surveyMonkeyManager = new SurveyMonkeyManager()
+   const surveyMonkeyManager = new MonkeyManager()
 
    // let superSurvey = await SurveySuperior.findOne({
    //    surveyShortName: surveyShortName,
@@ -5170,7 +5179,7 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
 
 module.exports = {
    superSurveyUploadAnswers,
-   superSurveyCreateConfig,
+   createSuperSurvey,
    superSurveyTests,
    getSuperSurveyConfigs,
    superSurveyGetList,

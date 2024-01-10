@@ -11,7 +11,7 @@ const { LogThis, LoggerSettings, L0 } = require('../utils/Logger.js')
 const router = express.Router()
 let {
    superSurveyUploadAnswers,
-   superSurveyCreateConfig,
+   createSuperSurvey,
    superSurveyTests,
    getSuperSurveyConfigs,
    superSurveyGetList,
@@ -61,9 +61,9 @@ router
    .route('/:id/surveymonkey')
    .post(protect, admin, updateSurveyMonkeyConfigs)
 
-router
-   .route('/surveymonkey')
-   .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
+// router
+//    .route('/surveymonkey')
+//    .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
 
 router.route('/surveymonkey/test').get(protect, admin, testSurveyMonkey)
 
@@ -97,6 +97,6 @@ router
 router
    .route('/')
    .get(protect, admin, superSurveyGetList)
-   .post(protect, admin, superSurveyCreateConfig)
+   .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
 
 module.exports = router
