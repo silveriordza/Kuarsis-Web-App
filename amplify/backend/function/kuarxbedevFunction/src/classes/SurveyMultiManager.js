@@ -1,13 +1,13 @@
 const TemplateManager = require("./TemplateManager")
 let {
-    Survey,
+    SurveyMulti,
  } = require('../models/surveysModel.js')
 
-class SurveyManager extends TemplateManager {
-    constructor(template, owner){
+class SurveyMultiManager extends TemplateManager {
+    constructor(templateList){
         super(
-            template,
-            owner,
+            new LoggerSettings("SurveySuperiorManager.js", "constructor"),
+            templateList,
             )
     }
 
@@ -21,4 +21,4 @@ class SurveyManager extends TemplateManager {
     
 }
 
-module.exports = SurveyManager
+module.exports = SurveyMultiManager

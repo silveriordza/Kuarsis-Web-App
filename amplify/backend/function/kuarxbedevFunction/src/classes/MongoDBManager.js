@@ -1,46 +1,48 @@
-const {LogThis, HasDataException, j, LoggerSettings} = require("../utils/Logger");
 const { LogManager } = require("./LogManager");
-
+const mongoose = require('mongoose');
 
 class MongoDBManager {
-    constructor(log){
-        this.logLocal = new LogManager("MongoDBManager.js", "constructor")
-        this.log = log
+    constructor(){
+        this.log = new LogManager("MongoDBManager.js", "constructor")
     }
 
-    isDeletedEx(data, msg){
-        if (!data || !data.acknowledged) {
+    isDeletedEx(result, msg){
+        if (!result || !result.acknowledged) {
             throw new Error(
                 msg,
             )
          }
     }
 
-    isDeletedCheck(data, msg){
-        this.logLocal.setFunctionName("isDeletedCheck")
-        if (!data || !data.acknowledged) {
-            this.logLocal.LogThis (msg, L3)
+    isDeletedCheck(result, msg){
+        this.log.setFunctionName("isDeletedCheck")
+        if (!result || !result.acknowledged) {
+            this.log.LogThis (msg, L3)
             return false
          }
     }
 
-    async saveWithEx(mongoDocument){
+    async saveWithEx(documentToSave){
         try{
-            const savedDocument = await mongoDocument.save()
-            this.log.HasDataException(savedDocument,`Couldn't save ${mongoDocument.modelName}`)
+            const savedDocument = await documentToSave.save()
+            this.log.HasDataException(savedDocument,`Couldn't save ${documentToSave.modelName}`)
             return savedDocument
         } catch (error){
-            throw new Error(`Couldn't save document ${mongoDocument.modelName}; ${j(mongoDocument)}; ${j(this.log.logSettings)}; error=${error.message}`)
+            throw new Error(`Couldn't save document ${documentToSave.modelName}; ${j(documentToSave)}; ${j(this.log.logSettings)}; error=${error.message}`)
         }
     }
 
-    async deleteManyWithCheck (collectionToUse, fieldToMatch, valuesListToMatch){
-        const log = this.log
+    async deleteManyWithCheck (collectionToDeleteFrom, filterByField, identifiersList){
         const filter = {}
-        filter[fieldToMatch]={$in: listToMatch}
-        const result = await collectionToUse.deleteMany(filter)
-        isDeletedEx(result, `Error deleting documents from collection ${collectionToUse.modelName} matching by field ${fieldToMatch} for the values list ${valuesListToMatch}`)
+        filter[filterByField]={$in: identifiersList}
+        
+        const result = await collectionToDeleteFrom.deleteMany(filter)
+        isDeletedEx(result, `Error deleting documents from collection ${collectionToDeleteFrom.modelName} matching by field ${filterByField} for the values list ${identifiersList}`)
         return result
+    }
+
+    getModelByName = (modelName) => {
+        return mongoose.model(modelName)
     }
 } 
 

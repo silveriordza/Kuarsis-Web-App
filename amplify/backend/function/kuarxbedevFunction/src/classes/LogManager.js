@@ -48,13 +48,12 @@ LogThis = (logMessage, level = L3) => {
    }
 }
 
-validateVars = (logLocal, logLevel, varNamesIn, vars) => {
+validateVars = (logLevel, varNamesIn, vars) => {
    if (varNamesIn && varNamesIn != '' && vars && vars.length > 0) {
       varNamesClean = varNamesIn.replace(/\s/g, '')
       varNames = varNamesClean.split(',')
       if (varNames.length != vars.length) {
          LogThis(
-            logLocal,
             `Var names count does not match vars count varNamesIn=${varNamesIn}; varNames=${varNames}; vars=${j(
                vars,
             )}`,
@@ -64,7 +63,6 @@ validateVars = (logLocal, logLevel, varNamesIn, vars) => {
       }
    } else {
       LogThis(
-         logLocal,
          `varNamesIn or vars is empty varNamesIn=${varNamesIn}; vars=${j(
             args,
          )}`,
@@ -83,17 +81,17 @@ validateVars = (logLocal, logLevel, varNamesIn, vars) => {
  * @param {*} varNamesIn - String comma separated list of variable names
  * @param  {...any} vars - The variables themselves
  */
- LogVars = (log, msg, level, varNamesIn, ...vars) => {
-   const logLocal = new LoggerSettings(srcFileName, 'LogVars')
+ LogVars = (msg, level, varNamesIn, ...vars) => {
+   //const logLocal = new LoggerSettings(srcFileName, 'LogVars')
 
    const varMap = {}
 
-   let varNames = validateVars(log, level, varNamesIn, vars)
+   let varNames = validateVars(level, varNamesIn, vars)
 
    for (let i = 0; i < varNames.length; i++) {
       varMap[varNames[i]] = vars[i]
    }
-   LogThis(log, `${msg}: vars=${j(varMap)}`, level)
+   LogThis(`${msg}: vars=${j(varMap)}`, level)
 }
 
 /**
@@ -107,7 +105,6 @@ validateVars = (logLocal, logLevel, varNamesIn, vars) => {
  * @param  {...any} vars - List of variables to display, position should match with the position in varNamesIn
  */
  LogVarsFilter = (
-   log,
    msg,
    filterBy,
    filterValue,
@@ -115,16 +112,14 @@ validateVars = (logLocal, logLevel, varNamesIn, vars) => {
    varNamesIn,
    ...vars
 ) => {
-   const logLocal = new LoggerSettings('Logger.js', 'LogVarsFilter')
 
    LogThis(
-      logLocal,
       `filterBy=${filterBy}; filterValue=${filterValue}; condition=${
          filterBy == filterValue
       }`,
    )
    if (filterBy == filterValue) {
-      LogVars(log, msg, level, varNamesIn, ...vars)
+      LogVars(msg, level, varNamesIn, ...vars)
    }
 }
 
@@ -136,9 +131,9 @@ validateVars = (logLocal, logLevel, varNamesIn, vars) => {
  * @param {*} filterValue - Log messages will be logged when filterBy variable value matches with filterValue.
  * @param {*} level - Log level when when this log message will show up, default is L0.
  */
- LogThisFilter = (log, msg, filterBy, filterValue, level = L0) => {
+ LogThisFilter = (msg, filterBy, filterValue, level = L0) => {
    if (filterBy == filterValue) {
-      LogThis(log, msg, level)
+      LogThis(msg, level)
    }
 }
 
@@ -170,27 +165,26 @@ validateVars = (logLocal, logLevel, varNamesIn, vars) => {
  HasDataException = (dataToCheck, logMessage='') => {
    if (!HasData(dataToCheck)) {
       throw new Error(
-         `${new Date().toLocaleTimeString()} ${this.logSettings?.fileName ?? 'NA'} ${
-            this.logSettings?.functionName ?? 'NA'
+         `${new Date().toLocaleTimeString()} ${this.log.logSettings?.fileName ?? 'NA'} ${
+            this.log.logSettings?.functionName ?? 'NA'
          } ${logMessage}`,
       )
    }
 }
 
- HasDataMultipeEx = (logLocal, varNamesIn, ...vars) => {
-   const varNames = validateVars(logLocal, L0, varNamesIn, vars)
+ HasDataMultipeEx = (varNamesIn, ...vars) => {
+   const varNames = validateVars(L0, varNamesIn, vars)
    for (let i = 0; i < varNames.length; i++) {
       HasDataException(
          vars[i],
-         `${new Date().toLocaleTimeString()} ${logLocal.fileName ?? 'NA'} ${
-            logLocal.functionName ?? 'NA'
-         } the variable ${varName[i]} is empty`,
-         logLocal,
+         `${new Date().toLocaleTimeString()} ${this.log.logSettings.fileName ?? 'NA'} ${
+            this.log.logSettings.functionName ?? 'NA'
+         } the variable ${varName[i]} is empty`
       )
    }
 }
 
- LogDebugSection = (debugSectionNumber = process.env.LOG_LEVEL) => {
+ SetDebugSection = (debugSectionNumber = process.env.LOG_LEVEL) => {
    process.env.LOG_LEVEL = debugSectionNumber
 }
 }

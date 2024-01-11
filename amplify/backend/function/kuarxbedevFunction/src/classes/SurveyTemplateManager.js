@@ -30,15 +30,16 @@ const {
  const MonkeyManager = require('../classes/MonkeyManager.js')
 const MongoDBManager = require('../classes/MongoDBManager.js')
 const SurveyManager = require('./SurveyManager.js')
+const SurveySuperiorManager = require('./SurveySuperiorManager.js')
  
  class SurveyTemplateManager {
-    constructor(surveyTemplate, ownerId) {
+    constructor(surveyAllTemplates, owner) {
        this.log = new LoggerSettings(this.sourceFile, "constructor")
        HasDataException(surveyTemplate,`surveyTemplate is empty`, this.log)
-       HasDataException(ownerId, `ownerId is empty`, this.log)
-       this.ownerId = ownerId
-       //surveyTemplate.owner = ownerId
-       this.surveyTemplate = surveyTemplate
+       HasDataException(owner, `owner is empty`, this.log)
+       this.owner = owner
+       //surveyTemplate.owner = owner
+       this.surveyTemplate = surveyAllTemplates
        this.monkeyManager = new MonkeyManager()
     }
 
@@ -46,7 +47,7 @@ const SurveyManager = require('./SurveyManager.js')
       this.log.functionName="integrateSurveyWithMonkey"
       const log = this.log
       const surveyTemplate = this.surveyTemplate
-      const ownerId = this.ownerId
+      const owner = this.owner
 
         const superSurveyConf = surveyTemplate?.superSurvey
         const multiSurveyConf = surveyTemplate?.multiSurvey
@@ -89,7 +90,7 @@ const SurveyManager = require('./SurveyManager.js')
          //Save Survey Superior
          superSurveyConf.monkeyId = monkeyConfigs.id
          const superSurvey = new SurveySuperior({
-            owner: ownerId,
+            owner: owner,
             surveyName: superSurveyConfig.surveyName,
             surveyShortName: superSurveyConfig.surveyShortName,
             description: superSurveyConfig.description,
@@ -601,11 +602,14 @@ const SurveyManager = require('./SurveyManager.js')
       this.log.functionName="processTemplate"
       const log = this.log
       const superSurveyConfig = this.surveyTemplate
-      const ownerId = this.ownerId
+      const owner = this.owner
+
+      const surveySuperior = new SurveySuperiorManager(superSurveyConfig.superSurveys, owner)
+      const surveySuperiorResult = surveySuperior.save()
 
       //let superSurveyConfigTest = superSurveyConfig
    const superSurvey = new SurveySuperior({
-      owner: ownerId,
+      owner: owner,
       surveyName: superSurveyConfig.surveyName,
       surveyShortName: superSurveyConfig.surveyShortName,
       description: superSurveyConfig.description,
@@ -624,7 +628,7 @@ const SurveyManager = require('./SurveyManager.js')
    
    const surveys = superSurveyConfig.surveys
 
-   const surveyManager = new SurveyManager(ownerId, surveys)
+   const surveyManager = new SurveyManager(owner, surveys)
 
    const surveysShortNames = getSurveyShortNamesList (surveys)
 
@@ -648,7 +652,7 @@ const SurveyManager = require('./SurveyManager.js')
       })
       surveyCreated = await survey.save()
       // let multiSurvey = new SurveyMulti({
-      //   owner: ownerId,
+      //   owner: owner,
       //   superSurveyId: createdSurveySuperior._id,
       //   surveyId: surveyCreated._id,
       //   position: i + 1,

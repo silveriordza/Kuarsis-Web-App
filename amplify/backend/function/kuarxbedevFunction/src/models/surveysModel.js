@@ -64,30 +64,16 @@ const surveyMultiModel = mongoose.Schema(
          required: true,
          ref: 'SuperSurvey',
       },
-      surveys: {
-         //The template has the shortSurveyName value which the code will use to match with the survey and get its surveyId which will store in this field.
-         surveyId: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true,
-            ref: 'Survey',
-         },
-         //This is the position of the survey within the superSurvey in KSS.
-         position: { type: Number, required: true },
-         //This is the corresponding position in Survey Monkey for this survey within the Overall Survey. This is the Pages.Page.position field in Survey Monkey.
-         monkeyPosition: { type: Number, required: true },
+      //The template has the shortSurveyName value which the code will use to match with the survey and get its surveyId which will store in this field.
+      surveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'Survey',
       },
-      outputLayout: {
-         surveyId: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true,
-            ref: 'Survey',
-         },
-         fieldName: { type: String, required: true },
-         outputAsReal: { type: Boolean, required: true },
-         showInOutputScreen: { type: Boolean, require: true },
-         position: { type: Number, required: true },
-      },
-
+      //This is the position of the survey within the superSurvey in KSS.
+      position: { type: Number, required: true },
+      //This is the corresponding position in Survey Monkey for this survey within the Overall Survey. This is the Pages.Page.position field in Survey Monkey.
+      monkeyPosition: { type: Number, required: true },
       // //surveyId was moved to the surveys array which will list all surveys for the super survey.
       // surveyId: {
       //    type: mongoose.Schema.Types.ObjectId,
@@ -107,6 +93,28 @@ const surveyMultiModel = mongoose.Schema(
 )
 
 const SurveyMulti = mongoose.model('SurveyMulti', surveyMultiModel)
+
+const surveySuperiorOutputLayoutModel = mongoose.Schema(
+   {
+      surveySuperiorId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SurveySuperior',
+      },
+      surveyShortName: { type: String, required: true },
+      fieldName: { type: String, required: true },
+      outputAsReal: { type: Boolean, required: true },
+      showInSurveyOutputScreen: { type: Boolean, require: true },
+      sequence: { type: Number, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+const SurveySuperiorOutputLayout = mongoose.model(
+   'SurveySuperiorOutputLayout',
+   surveySuperiorOutputLayoutModel,
+)
 
 const surveyCalculatedFieldModel = mongoose.Schema(
    {
