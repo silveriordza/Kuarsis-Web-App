@@ -11,8 +11,8 @@ let {
    //SurveyMulti,
    SurveySuperiorOutputLayout,
    SurveyResponse,
-   SurveyMonkeyConfig,
-   SurveyMonkeyNewResponse,
+   MonkeyConfig,
+   MonkeyNewResponse,
 } = require('../models/surveysModel.js')
 
 let {
@@ -73,8 +73,8 @@ const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
                ? field.shortDescription
                : field.questionShort,
             fieldName: field.fieldName,
-            outputSequence: layout.sequence,
-            valuePosition: isCalculated ? field.sequence : field.superSurveyCol,
+            outputSequence: layout.position,
+            valuePosition: isCalculated ? field.position : field.superSurveyCol,
             isCalculated: isCalculated,
             outputAsReal: layout.outputAsReal,
             field: field,
@@ -97,7 +97,7 @@ const getSuperSurveysConfigs = async superSurveysList => {
    let surveys = await Survey.find({
       superSurveyId: { $all: superSurveysList.map(survey => survey._id) },
    })
-      .sort({ surveyMonkeyPosition: 1 })
+      .sort({ monkeyPosition: 1 })
       .lean()
 
    LogThis(log, `surveys=${j(surveys)}`, L3)

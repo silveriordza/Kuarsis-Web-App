@@ -170,15 +170,15 @@ const secretKeyParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR,
 )
 
-const surveyMonkeyTokenParam = getSecretParamNameFromEnv(
+const monkeyTokenParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR,
 )
 
-const surveyMonkeyWebhooksTokenParam = getSecretParamNameFromEnv(
+const monkeyWebhooksTokenParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR,
 )
 
-const surveyMonkeyApiKeyParam = getSecretParamNameFromEnv(
+const monkeyApiKeyParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR,
 )
 
@@ -218,16 +218,16 @@ const loadParameters = data => {
             process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR] =
                param.Value
             break
-         case surveyMonkeyTokenParam:
+         case monkeyTokenParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR] =
                param.Value
 
             break
-         case surveyMonkeyWebhooksTokenParam:
+         case monkeyWebhooksTokenParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR] =
                param.Value
             break
-         case surveyMonkeyApiKeyParam:
+         case monkeyApiKeyParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR] =
                param.Value
             break
@@ -249,9 +249,9 @@ const params = {
       paypalClientIdParam,
       accessKeyParam,
       secretKeyParam,
-      surveyMonkeyTokenParam,
-      surveyMonkeyWebhooksTokenParam,
-      surveyMonkeyApiKeyParam,
+      monkeyTokenParam,
+      monkeyWebhooksTokenParam,
+      monkeyApiKeyParam,
    ],
    WithDecryption: true,
 }

@@ -52,8 +52,8 @@ const admin = (req, res, next) => {
    }
 }
 
-const protectSurveyMonkeyWebhook = asyncHandler(async (req, res, next) => {
-   const log = new LoggerSettings(srcFile, 'protectSurveyMonkeyWebhook')
+const protectMonkeyWebhook = asyncHandler(async (req, res, next) => {
+   const log = new LoggerSettings(srcFile, 'protectMonkeyWebhook')
    LogThis(log, `START`, L3)
 
    try {
@@ -121,4 +121,4 @@ const protectSurveyMonkeyWebhook = asyncHandler(async (req, res, next) => {
    }
 })
 
-module.exports = { protect, admin, protectSurveyMonkeyWebhook }
+module.exports = { protect, admin, protectMonkeyWebhook }

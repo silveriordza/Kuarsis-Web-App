@@ -12,8 +12,8 @@ let {
    //SurveyMulti,
    SurveySuperiorOutputLayout,
    SurveyResponse,
-   SurveyMonkeyConfig,
-   SurveyMonkeyNewResponse,
+   MonkeyConfig,
+   MonkeyNewResponse,
 } = require('../models/surveysModel.js')
 const {
    HasDataException,
@@ -35,7 +35,7 @@ class MonkeyManager {
       if (!this.token || this.token == '') {
          throw new Error(`Survey Monkey token not found.`)
       }
-      this.configSurveyMonkey = {
+      this.configMonkey = {
          //responseType: "arraybuffer",
          headers: {
             //"Content-Type": "multipart/form-data",
@@ -45,70 +45,66 @@ class MonkeyManager {
       }
    }
 
-   async getSurveyMonkeyConfigById(surveyMonkeyId) {
-      const log = new LoggerSettings(
-         this.sourceFile,
-         'getSurveyMonkeyConfigById',
-      )
+   async getMonkeyConfigById(monkeyId) {
+      const log = new LoggerSettings(this.sourceFile, 'getMonkeyConfigById')
 
-      HasDataException(surveyMonkeyId, `Id must not be empty`, log)
+      HasDataException(monkeyId, `Id must not be empty`, log)
 
-      const result = await SurveyMonkeyConfig.findOne({
-         id: surveyMonkeyId,
+      const result = await MonkeyConfig.findOne({
+         id: monkeyId,
       }).lean()
       return result
    }
 
-   async getSurveyMonkeyConfigBySurveyName(name) {
+   async getMonkeyConfigBySurveyName(name) {
       const log = new LoggerSettings(
          this.sourceFile,
-         'getSurveyMonkeyConfigBySurveyName',
+         'getMonkeyConfigBySurveyName',
       )
 
       HasDataException(name, `Name must not be empty`, log)
 
-      const result = await SurveyMonkeyConfig.findOne({
+      const result = await MonkeyConfig.findOne({
          'survey.title': name,
       }).lean()
       return result
    }
 
-   async getSurveyMonkeyConfigByIdorName(surveyMonkeyId, surveyName) {
-      const log = new LoggerSettings(this.sourceFile, 'getSurveyMonkeyConfig')
+   async getMonkeyConfigByIdorName(monkeyId, surveyName) {
+      const log = new LoggerSettings(this.sourceFile, 'getMonkeyConfig')
 
-      let surveyMonkeyConfigsResult = null
+      let monkeyConfigsResult = null
 
-      if (!surveyMonkeyId || surveyMonkeyId === '') {
-         surveyMonkeyConfigsResult =
-            await this.getSurveyMonkeyConfigBySurveyName(surveyName)
-      } else {
-         surveyMonkeyConfigsResult = await this.getSurveyMonkeyConfigById(
-            surveyMonkeyId,
+      if (!monkeyId || monkeyId === '') {
+         monkeyConfigsResult = await this.getMonkeyConfigBySurveyName(
+            surveyName,
          )
+      } else {
+         monkeyConfigsResult = await this.getMonkeyConfigById(monkeyId)
       }
 
-      return surveyMonkeyConfigsResult
+      return monkeyConfigsResult
    }
 
-   async getSurveyMonkeySurveysList() {
+   async getMonkeySurveysList() {
       const result = await axios.get(
          `https://api.surveymonkey.com/v3/surveys`,
-         this.configSurveyMonkey,
+         this.configMonkey,
       )
       const data = result.data.data
       LogThis(log, `data=${j(data)}`, L3)
       return data
    }
 
-   async getSurveyMonkeySurveyDetails(surveyMonkeyId) {
+   async getMonkeySurveyDetails(monkeyId) {
       const log = new LoggerSettings(
          this.sourceFile,
-         'getSurveyMonkeySurveyDetailsById',
+         'getMonkeySurveyDetailsById',
       )
-      HasDataException(surveyMonkeyId, `surveyId must not be empty`, log)
+      HasDataException(monkeyId, `surveyId must not be empty`, log)
       const result = await axios.get(
-         `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}`,
-         this.configSurveyMonkey,
+         `https://api.surveymonkey.com/v3/surveys/${monkeyId}`,
+         this.configMonkey,
       )
 
       const data = result.data
@@ -116,15 +112,15 @@ class MonkeyManager {
       return data
    }
 
-   async getSurveyMonkeySurveyPages(surveyMonkeyId) {
+   async getMonkeySurveyPages(monkeyId) {
       const log = new LoggerSettings(
          this.sourceFile,
-         'getSurveyMonkeySurveyDetailsById',
+         'getMonkeySurveyDetailsById',
       )
-      HasDataException(surveyMonkeyId, `surveyMonkeyId must not be empty`, log)
+      HasDataException(monkeyId, `monkeyId must not be empty`, log)
       const result = await axios.get(
-         `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages`,
-         this.configSurveyMonkey,
+         `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages`,
+         this.configMonkey,
       )
 
       const data = result.data.data
@@ -132,59 +128,56 @@ class MonkeyManager {
       return data
    }
 
-   async getSurveyMonkeyPageQuestions(surveyMonkeyId, pageId) {
-      const log = new LoggerSettings(
-         this.sourceFile,
-         'getSurveyMonkeyPageQuestions',
-      )
-      HasDataException(surveyMonkeyId, `surveyMonkeyId must not be empty`, log)
+   async getMonkeyPageQuestions(monkeyId, pageId) {
+      const log = new LoggerSettings(this.sourceFile, 'getMonkeyPageQuestions')
+      HasDataException(monkeyId, `monkeyId must not be empty`, log)
       const result = await axios.get(
-         `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${pageId}/questions`,
-         this.configSurveyMonkey,
+         `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${pageId}/questions`,
+         this.configMonkey,
       )
       const data = result.data.data
       LogThis(log, `data=${j(data)}`, L3)
       return data
    }
-   async getSurveyMonkeyQuestionDetails(surveyMonkeyId, pageId, questionId) {
+   async getMonkeyQuestionDetails(monkeyId, pageId, questionId) {
       const log = new LoggerSettings(
          this.sourceFile,
-         'getSurveyMonkeySurveyDetailsById',
+         'getMonkeySurveyDetailsById',
       )
-      HasDataException(surveyMonkeyId, `surveyId must not be empty`, log)
+      HasDataException(monkeyId, `surveyId must not be empty`, log)
       const result = await axios.get(
-         `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${pageId}/questions/${questionId}`,
-         this.configSurveyMonkey,
+         `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${pageId}/questions/${questionId}`,
+         this.configMonkey,
       )
       const data = result.data
       LogThis(log, `data=${j(data)}`, L3)
       return data
    }
-   async saveSurveyMonkeyConfig(surveyMonkeyInfo) {
-      const surveyMonkeyId = surveyMonkeyInfo.survey.id
-      const survey = surveyMonkeyInfo.survey
+   async saveMonkeyConfig(monkeyInfo) {
+      const monkeyId = monkeyInfo.survey.id
+      const survey = monkeyInfo.survey
 
-      const surveyMonkeyConfig = new SurveyMonkeyConfig({
-         surveyMonkeyId: surveyMonkeyId,
+      const monkeyConfig = new MonkeyConfig({
+         monkeyId: monkeyId,
          survey: survey,
       })
 
-      await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId })
-      const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save()
+      await MonkeyConfig.deleteOne({ monkeyId: monkeyId })
+      const monkeyConfigSaved = await monkeyConfig.save()
 
-      if (!surveyMonkeyConfigSaved) {
+      if (!monkeyConfigSaved) {
          throw new Error('Error saving Survey Monkey Config into database.')
       } else {
-         return surveyMonkeyConfigSaved
+         return monkeyConfigSaved
       }
    }
 
    /**
-    * - Given a surveyShortName (that already exists in SurveySuperior collection) it check if the SurveySuperior has a surveyMonkeyId, otherwise it gets it from Survey Monkey matching by the Survey Name in Survey Superior then updates the SurveySuperior with the surveyMonkeyId and returns the SurveySuperior object already updated. It also updates the SurveySuperior with in the database.
+    * - Given a surveyShortName (that already exists in SurveySuperior collection) it check if the SurveySuperior has a monkeyId, otherwise it gets it from Survey Monkey matching by the Survey Name in Survey Superior then updates the SurveySuperior with the monkeyId and returns the SurveySuperior object already updated. It also updates the SurveySuperior with in the database.
     * @param {*} surveyShortName
-    * @returns - SurveySuperior updated with surveyMonkeyId
+    * @returns - SurveySuperior updated with monkeyId
     */
-   async updateSurveyMonkeyIdFromShortName(surveyShortName) {
+   async updateMonkeyIdFromShortName(surveyShortName) {
       let superSurvey = await SurveySuperior.findOne({
          surveyShortName: surveyShortName,
       })
@@ -192,14 +185,14 @@ class MonkeyManager {
          throw new Error(`Super surveyShortName value was not found`)
       }
 
-      if (superSurvey.surveyMonkeyId == '') {
+      if (superSurvey.monkeyId == '') {
          //Start getting survey monkey configs
          // const surveysResult = await axios.get(
          //    `https://api.surveymonkey.com/v3/surveys`,
-         //    this.configSurveyMonkey,
+         //    this.configMonkey,
          // )
          // const surveys = surveysResult.data.data
-         const surveys = await this.getSurveyMonkeySurveysList()
+         const surveys = await this.getMonkeySurveysList()
 
          const surveyFound = surveys.find(
             survey => survey.title == superSurvey.surveyName,
@@ -207,41 +200,39 @@ class MonkeyManager {
          if (!surveyFound) {
             throw new Error('Survey not found.')
          } else {
-            superSurvey.surveyMonkeyId = surveyFound.id
+            superSurvey.monkeyId = surveyFound.id
             superSurvey = await superSurvey.save()
          }
       }
       return superSurvey
    }
 
-   async getConfigsFromSurveyMonkeyAndUpdateKSSB(surveyMonkeyIdIn) {
+   async getConfigsFromMonkeyAndUpdateKSSB(monkeyIdIn) {
       const log = new LoggerSettings(
          this.sourceFile,
-         'getConfigsFromSurveyMonkeyAndUpdateKSSById',
+         'getConfigsFromMonkeyAndUpdateKSSById',
       )
 
-      const surveyInfo = await this.getSurveyMonkeySurveyDetails(
-         surveyMonkeyIdIn,
-      )
+      const surveyInfo = await this.getMonkeySurveyDetails(monkeyIdIn)
       HasDataException(
          surveyInfo,
          `Survey id was not found in Survey Monkey.`,
          log,
       )
-      const surveyMonkeyInfo = { survey: {} }
+      const monkeyInfo = { survey: {} }
 
-      surveyMonkeyInfo.survey.title = surveyInfo.title
-      surveyMonkeyInfo.survey.category = surveyInfo.category
-      surveyMonkeyInfo.survey.question_count = surveyInfo.question_count
-      surveyMonkeyInfo.survey.page_count = surveyInfo.page_count
-      surveyMonkeyInfo.survey.date_created = surveyInfo.date_created
-      surveyMonkeyInfo.survey.date_modified = surveyInfo.date_modified
-      surveyMonkeyInfo.survey.id = surveyInfo.id
+      monkeyInfo.survey.title = surveyInfo.title
+      monkeyInfo.survey.category = surveyInfo.category
+      monkeyInfo.survey.question_count = surveyInfo.question_count
+      monkeyInfo.survey.page_count = surveyInfo.page_count
+      monkeyInfo.survey.date_created = surveyInfo.date_created
+      monkeyInfo.survey.date_modified = surveyInfo.date_modified
+      monkeyInfo.survey.id = surveyInfo.id
 
-      const surveyMonkeyId = surveyInfo.id
+      const monkeyId = surveyInfo.id
 
-      LogThis(log, `surveyMonkeyInfo=${j(surveyMonkeyInfo)}`, L3)
-      const pages = await this.getSurveyMonkeySurveyPages(surveyMonkeyId)
+      LogThis(log, `monkeyInfo=${j(monkeyInfo)}`, L3)
+      const pages = await this.getMonkeySurveyPages(monkeyId)
       let page = null
       //LogThis(log, `pages=${j(pages)}`, L3)
       if (HasData(pages)) {
@@ -249,14 +240,11 @@ class MonkeyManager {
             page = pages[pageIndex]
             //Start getting survey monkey configs
             // let questionsResult = await axios.get(
-            //    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions`,
-            //    configSurveyMonkey,
+            //    `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${page.id}/questions`,
+            //    configMonkey,
             // )
             // let questions = questionsResult.data.data
-            let questions = await this.getSurveyMonkeyPageQuestions(
-               surveyMonkeyId,
-               page.id,
-            )
+            let questions = await this.getMonkeyPageQuestions(monkeyId, page.id)
 
             LogThis(log, `questions=${j(questions)}`, L3)
             if (!HasData(questions)) {
@@ -273,17 +261,16 @@ class MonkeyManager {
                let question = page.questions[questionIndex]
 
                // let questionDetailsResult = await axios.get(
-               //    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions/${question.id}`,
-               //    configSurveyMonkey,
+               //    `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${page.id}/questions/${question.id}`,
+               //    configMonkey,
                // )
 
                // let questionDetails = questionDetailsResult.data
-               const questionDetails =
-                  await this.getSurveyMonkeyQuestionDetails(
-                     surveyMonkeyId,
-                     page.id,
-                     question.id,
-                  )
+               const questionDetails = await this.getMonkeyQuestionDetails(
+                  monkeyId,
+                  page.id,
+                  question.id,
+               )
 
                LogThis(log, `questionDetails=${j(questionDetails)}`, L3)
                if (!HasData(questionDetails)) {
@@ -292,14 +279,10 @@ class MonkeyManager {
                question.details = questionDetails
             }
          }
-         surveyMonkeyInfo.survey.pages = pages
+         monkeyInfo.survey.pages = pages
       }
-      LogThis(
-         log,
-         `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
-         L3,
-      )
-      const returnResult = await this.saveSurveyMonkeyConfig(surveyMonkeyInfo)
+      LogThis(log, `monkeyInfo=${JSON.stringify(monkeyInfo, null, 2)}`, L3)
+      const returnResult = await this.saveMonkeyConfig(monkeyInfo)
       return returnResult
    }
 }

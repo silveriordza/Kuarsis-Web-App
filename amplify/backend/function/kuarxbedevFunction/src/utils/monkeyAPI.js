@@ -19,21 +19,21 @@ let {
    j,
 } = require('../utils/Logger.js')
 
-const srcFileName = 'surveyMonkeyAPI.js'
+const srcFileName = 'monkeyAPI.js'
 
 const getMonkeyResponses = async newResponses => {
    const log = new LoggerSettings(srcFileName, 'getMonkeyResponses')
-   const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
+   const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
-   if (!surveyMonkeyToken || surveyMonkeyToken == '') {
+   if (!monkeyToken || monkeyToken == '') {
       throw new Error(`Survey Monkey token not found.`)
    }
 
-   const configSurveyMonkey = {
+   const configMonkey = {
       //responseType: "arraybuffer",
       headers: {
          //"Content-Type": "multipart/form-data",
-         Authorization: `Bearer ${surveyMonkeyToken}`,
+         Authorization: `Bearer ${monkeyToken}`,
          Accept: 'application/json',
       },
    }
@@ -42,8 +42,8 @@ const getMonkeyResponses = async newResponses => {
       let response = newResponses[r]
 
       let surveyResponseResult = await axios.get(
-         `https://api.surveymonkey.com/v3/surveys/${response.surveyMonkeyId}/responses/${response.respondent_id}/details`,
-         configSurveyMonkey,
+         `https://api.surveymonkey.com/v3/surveys/${response.monkeyId}/responses/${response.respondent_id}/details`,
+         configMonkey,
       )
       let surveyResponse = surveyResponseResult.data
       monkeyResponses.push(surveyResponse)
@@ -51,26 +51,22 @@ const getMonkeyResponses = async newResponses => {
    return monkeyResponses
 }
 
-const ValidateMonkeyConfigs = (surveyMonkeyConfigs, log) => {
+const ValidateMonkeyConfigs = (monkeyConfigs, log) => {
+   HasDataException(monkeyConfigs, `Monkey configuration is null or empty`, log)
    HasDataException(
-      surveyMonkeyConfigs,
-      `Monkey configuration is null or empty`,
-      log,
-   )
-   HasDataException(
-      surveyMonkeyConfigs.survey,
+      monkeyConfigs.survey,
       `Monkey configuration does not have super survey`,
       log,
    )
    HasDataException(
-      surveyMonkeyConfigs.survey.pages,
+      monkeyConfigs.survey.pages,
       `Monkey configuration super survey does not have any surveys or pages`,
       log,
    )
 }
 
 const PushBlankPage = (colsValue, colsReal, colsScore, monkeyPageConfig) => {
-   const functionName = 'surveyMonkeyUpdateResponses'
+   const functionName = 'monkeyUpdateResponses'
    const log = new LoggerSettings(srcFileName, functionName)
    //LogThis(log, `Array filled with empties: ${Array(monkeyPageConfig.questions.length).fill("")}`, L0)
 
@@ -200,7 +196,7 @@ const AnalyzeQuestionResponse = (
          break
       case 'single_choice_menu':
          //throw new Error(`BREAKING EXECUTION`)
-         //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
+         //questionMonkeyPosition = questionItem.monkeyPosition;
          {
             const DEBUG_SECTION = 'DEBUG_SINGLE_MENU'
             //process.env.LOG_LEVEL = 'DEBUG_SINGLE_MENU'
@@ -450,7 +446,7 @@ const AnalyzeQuestionResponse = (
       //       );
       //     }
       //     let surveyChoice =
-      //       surveyQuestion.surveyMonkeyAnswers.answerChoices.find((choice) => {
+      //       surveyQuestion.monkeyAnswers.answerChoices.find((choice) => {
       //         if (surveyQuestion.fieldName == "ESTRES_5") {
       //           LogThis(
       //             log,

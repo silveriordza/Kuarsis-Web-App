@@ -1,32 +1,33 @@
-/** @format */
-
-//const { j } = require('./Functions')
-
 const OFF = -1
 const L0 = 0
 const L1 = 1
 const L2 = 2
 const L3 = 3
+        
+class LogManager {
+    constructor(fileName = '', functionName = ''){
+        this.logSettings = {
+            fileName : fileName,
+        functionName: functionName
+    }
+    }
 
-const srcFileName = 'Logger.js'
-
-const j = value => {
+ j = value => {
    return JSON.stringify(value, null, 1)
 }
 
-const initLogSettings = (fileName = '', functionName = '') => {
-   return {
-      sourceFilename: fileName,
-      sourceFunction: functionName,
-   }
+
+
+setLogSettings(fileName = '', functionName = '') {
+   this.fileName = fileName
+   this.functionName = functionName
 }
 
-function LoggerSettings(fileName = '', functionName = '') {
-   this.fileName = fileName || ''
-   this.functionName = functionName || ''
-}
+setFunctionName(functionName = '') {
+    this.functionName = functionName
+ }
 
-const LogThis = (logSettings, logMessage, level = L3) => {
+LogThis = (logMessage, level = L3) => {
    if (level != OFF && process.env.LOG_LEVEL != OFF) {
       const LOG_LEVEL = process.env.LOG_LEVEL
 
@@ -34,24 +35,20 @@ const LogThis = (logSettings, logMessage, level = L3) => {
          (isNaN(LOG_LEVEL) && LOG_LEVEL === level) ||
          process.env.LOG_LEVEL >= level
       ) {
-         !logSettings
+         !this.logSettings
             ? console.log('%s: %s', new Date().toLocaleTimeString(), logMessage)
             : console.log(
                  '%s: %s, %s: %s',
                  new Date().toLocaleTimeString(),
-                 logSettings.fileName ?? 'NA',
-                 logSettings.functionName ?? 'NA',
+                 this.logSettings.fileName ?? 'NA',
+                 this.logSettings.functionName ?? 'NA',
                  logMessage,
               )
       }
    }
 }
 
-const cleanSpaces = data => {
-   return
-}
-
-const validateVars = (logLocal, logLevel, varNamesIn, vars) => {
+validateVars = (logLocal, logLevel, varNamesIn, vars) => {
    if (varNamesIn && varNamesIn != '' && vars && vars.length > 0) {
       varNamesClean = varNamesIn.replace(/\s/g, '')
       varNames = varNamesClean.split(',')
@@ -86,7 +83,7 @@ const validateVars = (logLocal, logLevel, varNamesIn, vars) => {
  * @param {*} varNamesIn - String comma separated list of variable names
  * @param  {...any} vars - The variables themselves
  */
-const LogVars = (log, msg, level, varNamesIn, ...vars) => {
+ LogVars = (log, msg, level, varNamesIn, ...vars) => {
    const logLocal = new LoggerSettings(srcFileName, 'LogVars')
 
    const varMap = {}
@@ -109,7 +106,7 @@ const LogVars = (log, msg, level, varNamesIn, ...vars) => {
  * @param {*} varNamesIn - String comma separated list of how you want the vars elements to be named, position should match the position of the vars elements.
  * @param  {...any} vars - List of variables to display, position should match with the position in varNamesIn
  */
-const LogVarsFilter = (
+ LogVarsFilter = (
    log,
    msg,
    filterBy,
@@ -139,31 +136,18 @@ const LogVarsFilter = (
  * @param {*} filterValue - Log messages will be logged when filterBy variable value matches with filterValue.
  * @param {*} level - Log level when when this log message will show up, default is L0.
  */
-const LogThisFilter = (log, msg, filterBy, filterValue, level = L0) => {
+ LogThisFilter = (log, msg, filterBy, filterValue, level = L0) => {
    if (filterBy == filterValue) {
       LogThis(log, msg, level)
    }
 }
 
-const LogThisLegacy = (logSettings = null, logMessage) => {
-   if (process.env.LOG_LEVEL >= 1) {
-      !logSettings
-         ? console.log('%s: %s', new Date().toLocaleTimeString(), logMessage)
-         : console.log(
-              '%s: %s, %s: %s',
-              new Date().toLocaleTimeString(),
-              logSettings.sourceFilename,
-              logSettings.sourceFunction,
-              logMessage,
-           )
-   }
-}
 /**
  *
  * @param {*} dataToCheck - could be an array, object, string or number, it will check if it contains data.
  * @returns - true if the value has data, false otherwise.
  */
-const HasData = dataToCheck => {
+ HasData = dataToCheck => {
    if (
       !(
          dataToCheck &&
@@ -182,20 +166,18 @@ const HasData = dataToCheck => {
  * Throws an exception with the message and log settings provided if the dataToCheck variable does not have data.
  * @param {*} dataToCheck
  * @param {*} logMessage
- * @param {*} logSettings - Same as LoggerSettings used for LogThis function
  */
-const HasDataException = (dataToCheck, logMessage, logSettings) => {
+ HasDataException = (dataToCheck, logMessage='') => {
    if (!HasData(dataToCheck)) {
-      //LogThis(logSettings, errorMessage, L0)
       throw new Error(
-         `${new Date().toLocaleTimeString()} ${logSettings?.fileName ?? 'NA'} ${
-            logSettings?.functionName ?? 'NA'
+         `${new Date().toLocaleTimeString()} ${this.logSettings?.fileName ?? 'NA'} ${
+            this.logSettings?.functionName ?? 'NA'
          } ${logMessage}`,
       )
    }
 }
 
-const HasDataMultipeEx = (logLocal, varNamesIn, ...vars) => {
+ HasDataMultipeEx = (logLocal, varNamesIn, ...vars) => {
    const varNames = validateVars(logLocal, L0, varNamesIn, vars)
    for (let i = 0; i < varNames.length; i++) {
       HasDataException(
@@ -208,26 +190,16 @@ const HasDataMultipeEx = (logLocal, varNamesIn, ...vars) => {
    }
 }
 
-const LogDebugSection = (debugSectionNumber = process.env.LOG_LEVEL) => {
+ LogDebugSection = (debugSectionNumber = process.env.LOG_LEVEL) => {
    process.env.LOG_LEVEL = debugSectionNumber
+}
 }
 
 module.exports = {
-   LogThis,
-   LogThisFilter,
-   LogVars,
-   LogVarsFilter,
-   HasData,
-   HasDataException,
-   HasDataMultipeEx,
-   LogThisLegacy,
-   initLogSettings,
-   LoggerSettings,
-   LogDebugSection,
-   j,
-   OFF,
-   L0,
-   L1,
-   L2,
-   L3,
-}
+    LogManager,
+    OFF,
+    L0,
+    L1,
+    L2,
+    L3,
+ }
