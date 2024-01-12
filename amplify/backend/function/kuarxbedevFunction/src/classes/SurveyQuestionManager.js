@@ -1,18 +1,21 @@
 const TemplateManager = require("./TemplateManager")
 let {
-    Survey
+    SurveyQuestion
  } = require('../models/surveysModel.js')
 const { LogManager, L3} = require("./LogManager.js")
 const { addPropertyValueInArray } = require("../utils/Functions.js")
 
-const identifierFieldName = "superSurveyShortName"
-const sourceFilename = "SurveSuperiorManager.js"
+const identifierFieldName = "fieldName"
+const templateLinkField = "surveyShortName"
+const templateReferenceField = "surveyId"
 
-class SurveyManager extends TemplateManager {
-    constructor(templateList, owner){
+const sourceFilename = "SurveyQuestionManager.js"
+
+class SurveyQuestionManager extends TemplateManager {
+    constructor(templateList, tamplateToLink){
         super(    
             templateList,
-            Survey,
+            SurveyQuestion,
             identifierFieldName,
             owner,
             )
@@ -25,11 +28,11 @@ class SurveyManager extends TemplateManager {
 
     //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
     preProcessTemplate = () => {
-        addPropertyValueInArray(this.templateList, "owner", this.owner)
+        
     }
     //deleteAllExistentTemplates is implemented in the parent class TemplateManager, no override required.
 
     
 }
 
-module.exports = SurveyManager
+module.exports = SurveyQuestionManager

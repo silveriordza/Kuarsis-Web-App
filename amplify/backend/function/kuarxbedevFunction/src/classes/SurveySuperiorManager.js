@@ -1,16 +1,17 @@
 const TemplateManager = require("./TemplateManager")
 let {
-    SurveySuperior, L3
+    SurveySuperior
  } = require('../models/surveysModel.js')
-const { LogManager } = require("./LogManager.js")
+const { LogManager, L3} = require("./LogManager.js")
+const { addPropertyValueInArray } = require("../utils/Functions.js")
 
-const identifierFieldName = "superSurveyShortName"
+const identifierFieldName = "surveyShortName"
 const sourceFilename = "SurveSuperiorManager.js"
 
 class SurveySuperiorManager extends TemplateManager {
-    constructor(template, owner){
+    constructor(templateList, owner){
         super(    
-            template,
+            templateList,
             SurveySuperior,
             identifierFieldName,
             owner,
@@ -18,7 +19,13 @@ class SurveySuperiorManager extends TemplateManager {
             
             this.log = new LogManager (sourceFilename, "constructor")
             this.log.LogThis(`START`, L3)
+            this.preProcessTemplate()
         }
+        preProcessTemplate = () => 
+        {
+            addPropertyValueInArray(this.templateList, "owner", this.owner)
+        }
+        
     }
 
 module.exports = SurveySuperiorManager

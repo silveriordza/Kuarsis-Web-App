@@ -49,8 +49,9 @@ LogThis = (logMessage, level = L3) => {
 }
 
 validateVars = (logLevel, varNamesIn, vars) => {
+   let varNames = null
    if (varNamesIn && varNamesIn != '' && vars && vars.length > 0) {
-      varNamesClean = varNamesIn.replace(/\s/g, '')
+      const varNamesClean = varNamesIn.replace(/\s/g, '')
       varNames = varNamesClean.split(',')
       if (varNames.length != vars.length) {
          LogThis(
@@ -86,7 +87,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
 
    const varMap = {}
 
-   let varNames = validateVars(level, varNamesIn, vars)
+   let varNames = this.validateVars(level, varNamesIn, vars)
 
    for (let i = 0; i < varNames.length; i++) {
       varMap[varNames[i]] = vars[i]
@@ -143,18 +144,20 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @returns - true if the value has data, false otherwise.
  */
  HasData = dataToCheck => {
-   if (
-      !(
-         dataToCheck &&
+   const typeOfData = typeof dataToCheck
+   if ( dataToCheck &&
          ((Array.isArray(dataToCheck) && dataToCheck.length > 0) ||
-            (typeof dataToCheck === 'string' && dataToCheck != '') ||
-            (typeof dataToCheck === 'number' && Number.isFinite(dataToCheck)) ||
-            typeof dataToCheck === 'object')
-      )
+            (typeOfData === 'string' && dataToCheck != '') ||
+            (typeOfData === 'number' && Number.isFinite(dataToCheck)) ||
+            (typeOfData === 'bigint' && Number.isFinite(dataToCheck)) ||
+            typeOfData === 'function' ||
+            typeOfData === 'boolean' ||
+            typeOfData === 'object')
+      
    ) {
-      return false
+      return true
    }
-   return true
+   return false
 }
 
 /**
@@ -163,23 +166,23 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @param {*} logMessage
  */
  HasDataException = (dataToCheck, logMessage='') => {
-   if (!HasData(dataToCheck)) {
+   if (!this.HasData(dataToCheck)) {
       throw new Error(
-         `${new Date().toLocaleTimeString()} ${this.log.logSettings?.fileName ?? 'NA'} ${
-            this.log.logSettings?.functionName ?? 'NA'
+         `${new Date().toLocaleTimeString()} ${this.logSettings?.fileName ?? 'NA'} ${
+            this.logSettings?.functionName ?? 'NA'
          } ${logMessage}`,
       )
    }
 }
 
  HasDataMultipeEx = (varNamesIn, ...vars) => {
-   const varNames = validateVars(L0, varNamesIn, vars)
+   const varNames = this.validateVars(L0, varNamesIn, vars)
    for (let i = 0; i < varNames.length; i++) {
-      HasDataException(
+      this.HasDataException(
          vars[i],
-         `${new Date().toLocaleTimeString()} ${this.log.logSettings.fileName ?? 'NA'} ${
-            this.log.logSettings.functionName ?? 'NA'
-         } the variable ${varName[i]} is empty`
+         `${new Date().toLocaleTimeString()} ${this.logSettings.fileName ?? 'NA'} ${
+            this.logSettings.functionName ?? 'NA'
+         } the variable ${varNames[i]} is empty`
       )
    }
 }

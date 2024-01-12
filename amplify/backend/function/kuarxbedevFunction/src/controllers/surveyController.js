@@ -103,7 +103,7 @@ const RESPONSE_PROCESSING_COMPLETE_UPDATED =
 const createSuperSurvey = asyncHandler(async (req, res) => {
    const functionName = 'getSuperSurveyConfigs'
    const log = new LoggerSettings(srcFileName, functionName)
-   const { superSurveyConfig } = req.body
+   const superSurveyConfig = req.body
    let ownerId = req.user._id
 
    // await SurveySuperior.deleteMany({})
@@ -114,15 +114,16 @@ const createSuperSurvey = asyncHandler(async (req, res) => {
    // await SurveySuperiorOutputLayout.deleteMany({})
 
    const templateManager = new SurveyTemplateManager(superSurveyConfig, ownerId)
-   const superSurveyTemplate = await templateManager.startToProcessTemplate()
+   const superSurveyTemplate = await templateManager.processTemplate()
 
    console.log('about to respond')
    res.status(201).json({
-      surveySuperiorId: createdSurveySuperior._id,
-      surveysCreated: surveysCreated,
-      questionsCreated: questionsCreated,
-      createdOutputLayout: createdOutputLayout,
-      surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+      superSurveyTemplate: superSurveyTemplate,
+      // surveySuperiorId: createdSurveySuperior._id,
+      // surveysCreated: surveysCreated,
+      // questionsCreated: questionsCreated,
+      // createdOutputLayout: createdOutputLayout,
+      // surveyOutputCollectionSchema: surveyOutputCollectionSchema,
    })
 })
 

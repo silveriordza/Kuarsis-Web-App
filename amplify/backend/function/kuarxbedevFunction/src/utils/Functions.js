@@ -74,4 +74,14 @@ const applyStringCriteriaToValue = (criteria, value) => {
    }
 }
 
-module.exports = { formatDate, addDecimals, applyStringCriteriaToValue }
+const addPropertyValueInArray = (objectsList, propertyName, value) => {
+   objectsList.forEach(object => (object[propertyName] = value))
+}
+
+module.exports = {
+   formatDate,
+   addDecimals,
+   applyStringCriteriaToValue,
+   validateHasData,
+   addPropertyValueInArray,
+}

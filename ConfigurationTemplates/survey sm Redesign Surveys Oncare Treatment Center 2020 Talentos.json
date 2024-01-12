@@ -1,9 +1,14 @@
 {
-   "superSurvey": {
-      "surveyName": "Oncare Treatment Center 2020 Talentos",
-      "superSurveyShortName": "TALENTOS_2020",
-      "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
-      "multiSurveys": [
+   "surveySuperiors": [
+      {
+         "surveyName": "Oncare Treatment Center 2020 Talentos",
+         "superSurveyShortName": "TALENTOS_2020",
+         "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020"
+      }
+   ],
+
+   "multiSurveys": {
+      "surveys": [
          { "surveyShortName": "INFO", "position": 10, "monkeyPosition": 0 },
          { "surveyShortName": "Datos", "position": 20, "monkeyPosition": 1 },
          { "surveyShortName": "CSG", "position": 30, "monkeyPosition": 2 },
@@ -2360,7 +2365,7 @@
       },
       {
          "surveyName": "Datos",
-         "surveyShortName": "Datos",
+         "surveyShortName": "INFO",
          "description": "Informacion de la persona encuestada.",
          "instructions": ""
       },

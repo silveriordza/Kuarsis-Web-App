@@ -28,18 +28,19 @@ const {
     L3,
  } = require('../utils/Logger.js')
  const MonkeyManager = require('../classes/MonkeyManager.js')
-const MongoDBManager = require('../classes/MongoDBManager.js')
 const SurveyManager = require('./SurveyManager.js')
 const SurveySuperiorManager = require('./SurveySuperiorManager.js')
+const SurveyQuestionManager = require('./SurveyQuestionManager.js')
  
  class SurveyTemplateManager {
     constructor(surveyAllTemplates, owner) {
        this.log = new LoggerSettings(this.sourceFile, "constructor")
-       HasDataException(surveyTemplate,`surveyTemplate is empty`, this.log)
+       HasDataException(surveyAllTemplates,`surveyTemplate is empty`, this.log)
        HasDataException(owner, `owner is empty`, this.log)
        this.owner = owner
        //surveyTemplate.owner = owner
        this.surveyTemplate = surveyAllTemplates
+       this.surveyConfig = null
        this.monkeyManager = new MonkeyManager()
     }
 
@@ -601,219 +602,228 @@ const SurveySuperiorManager = require('./SurveySuperiorManager.js')
     processTemplate = async () => {
       this.log.functionName="processTemplate"
       const log = this.log
+      const surveyConfig = this.surveyConfig
       const superSurveyConfig = this.surveyTemplate
       const owner = this.owner
 
-      const surveySuperior = new SurveySuperiorManager(superSurveyConfig.superSurveys, owner)
-      const surveySuperiorResult = surveySuperior.save()
+      const surveySuperior = new SurveySuperiorManager(superSurveyConfig.surveySuperiors, owner)
+      const surveySuperiorResult = await surveySuperior.save()
 
-      //let superSurveyConfigTest = superSurveyConfig
-   const superSurvey = new SurveySuperior({
-      owner: owner,
-      surveyName: superSurveyConfig.surveyName,
-      surveyShortName: superSurveyConfig.surveyShortName,
-      description: superSurveyConfig.description,
-   })
+      const surveys = new SurveyManager(superSurveyConfig.surveys, owner)
+      const surveysResult = await surveys.save()
+      
+      const questions = new SurveyQuestionManager(superSurveyConfig.questions, surveys)
+      const questionsResult = await questions.save()
+      
 
-   const MongoDBManager = new MongoDBManager()
-   const createdSurveySuperior = await MongoDBManager.saveWithCheckEx(superSurvey, log)
+      return surveySuperiorResult
+   //    //let superSurveyConfigTest = superSurveyConfig
+   // const superSurvey = new SurveySuperior({
+   //    owner: owner,
+   //    surveyName: superSurveyConfig.surveyName,
+   //    surveyShortName: superSurveyConfig.surveyShortName,
+   //    description: superSurveyConfig.description,
+   // })
 
-   let surveysCreated = []
-   let questionsCreated = []
-   //let calculatedFieldsCreated = [];
-   let surveyCreated = null
-   let questions = []
-   let calculatedFields = []
-   let questionItem = null
+   // const MongoDBManager = new MongoDBManager()
+   // const createdSurveySuperior = await MongoDBManager.saveWithCheckEx(superSurvey, log)
+
+   // let surveysCreated = []
+   // let questionsCreated = []
+   // //let calculatedFieldsCreated = [];
+   // let surveyCreated = null
+   // let questions = []
+   // let calculatedFields = []
+   // let questionItem = null
    
-   const surveys = superSurveyConfig.surveys
+   // const surveys = superSurveyConfig.surveys
 
-   const surveyManager = new SurveyManager(owner, surveys)
+   // const surveyManager = new SurveyManager(owner, surveys)
 
-   const surveysShortNames = getSurveyShortNamesList (surveys)
+   // const surveysShortNames = getSurveyShortNamesList (surveys)
 
-   const surveyShortNamesList = surveyManager.getTemplatesNamesList()
+   // const surveyShortNamesList = surveyManager.getTemplatesNamesList()
 
-   const result = surveyManager.deleteAllExistentTemplates(Survey, "surveyShortName")
-
-   
-   
+   // const result = surveyManager.deleteAllExistentTemplates(Survey, "surveyShortName")
 
    
    
-   for (let i = 0; i < superSurveyConfig.surveys.length; i++) {
-      let surveyItem = superSurveyConfig.surveys[i]
-      let survey = new Survey({
-         superSurveyId: createdSurveySuperior._id,
-         surveyName: surveyItem.surveyName,
-         surveyShortName: surveyItem.surveyShortName,
-         description: surveyItem.description,
-         instructions: surveyItem.instructions,
-      })
-      surveyCreated = await survey.save()
-      // let multiSurvey = new SurveyMulti({
-      //   owner: owner,
-      //   superSurveyId: createdSurveySuperior._id,
-      //   surveyId: surveyCreated._id,
-      //   position: i + 1,
-      // });
-      // let multiSurveyCreated = await multiSurvey.save();
 
-      surveysCreated.push(surveyCreated)
+   
+   
+   // for (let i = 0; i < superSurveyConfig.surveys.length; i++) {
+   //    let surveyItem = superSurveyConfig.surveys[i]
+   //    let survey = new Survey({
+   //       superSurveyId: createdSurveySuperior._id,
+   //       surveyName: surveyItem.surveyName,
+   //       surveyShortName: surveyItem.surveyShortName,
+   //       description: surveyItem.description,
+   //       instructions: surveyItem.instructions,
+   //    })
+   //    surveyCreated = await survey.save()
+   //    // let multiSurvey = new SurveyMulti({
+   //    //   owner: owner,
+   //    //   superSurveyId: createdSurveySuperior._id,
+   //    //   surveyId: surveyCreated._id,
+   //    //   position: i + 1,
+   //    // });
+   //    // let multiSurveyCreated = await multiSurvey.save();
 
-      for (let x = 0; x < surveyItem.questionList.length; x++) {
-         questionItem = surveyItem.questionList[x]
-         questions.push({
-            surveyId: surveyCreated._id,
-            question: questionItem.question,
-            questionShort: questionItem.questionShort,
-            fieldName: questionItem.fieldName,
-            weightType: questionItem.weightType,
-            weights: questionItem.weights,
-            position: questionItem.position,
-            superSurveyCol: questionItem.superSurveyCol,
-         })
-      }
+   //    surveysCreated.push(surveyCreated)
 
-      for (
-         let x = 0;
-         surveyItem.calculatedFieldList &&
-         x < surveyItem.calculatedFieldList.length;
-         x++
-      ) {
-         calculatedFieldItem = surveyItem.calculatedFieldList[x]
-         calculatedFields
-         calculatedFields.push({
-            surveyId: surveyCreated._id,
-            description: calculatedFieldItem.description,
-            shortDescription: calculatedFieldItem.shortDescription,
-            fieldName: calculatedFieldItem.fieldName,
-            calculationType: calculatedFieldItem.calculationType,
-            criteria: calculatedFieldItem.criteria ?? null,
-            group: calculatedFieldItem.group,
-            position: calculatedFieldItem.position,
-         })
-      }
-      LogThis(log, 'About to insert many', L3)
-      LogThis(log, `questions=${JSON.stringify(questions)}`, L3)
-      questionsCreated = await SurveyQuestion.insertMany(questions)
-      questions = []
-      LogThis(log, `calculatedFields=${JSON.stringify(calculatedFields)}`, L3)
-      if (calculatedFields.length > 0) {
-         calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
-            calculatedFields,
-         )
-         calculatedFields = []
-      }
-   }
+   //    for (let x = 0; x < surveyItem.questionList.length; x++) {
+   //       questionItem = surveyItem.questionList[x]
+   //       questions.push({
+   //          surveyId: surveyCreated._id,
+   //          question: questionItem.question,
+   //          questionShort: questionItem.questionShort,
+   //          fieldName: questionItem.fieldName,
+   //          weightType: questionItem.weightType,
+   //          weights: questionItem.weights,
+   //          position: questionItem.position,
+   //          superSurveyCol: questionItem.superSurveyCol,
+   //       })
+   //    }
 
-   let outputLayouts = superSurveyConfig.surveySuperiorOutputLayout.sort(
-      (a, b) => a.position - b.position,
-   )
-   LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3)
-   let outputLayoutFields = []
-   for (let i = 0; i < outputLayouts.length; i++) {
-      outputLayout = outputLayouts[i]
-      outputLayoutFields.push({
-         surveySuperiorId: createdSurveySuperior._id,
-         surveyShortName: outputLayout.surveyShortName,
-         fieldName: outputLayout.fieldName,
-         outputAsReal: outputLayout.outputAsReal,
-         showInOutputScreen: outputLayout.showInOutputScreen,
-         position: outputLayout.position,
-      })
-   }
-   LogThis(
-      log,
-      `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
-      L3,
-   )
-   const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
-      outputLayoutFields,
-   )
-
-   //Start Output Collection
-   let x = 0
-   x++
-   const surveyOutputCollectionName =
-      `surveyOutputs_${superSurveyConfig.surveyShortName}`.toLocaleLowerCase()
-   LogThis(
-      log,
-      `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
-      L3,
-   )
-
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
-   const collections = await mongoose.connection.db
-      .listCollections({ name: surveyOutputCollectionName })
-      .toArray()
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
-   const collInfo = collections.find(
-      collection => collection.name === surveyOutputCollectionName,
-   )
-   if (collInfo) {
-      LogThis(log, `dropping surveyOutputCollectionName`, L3)
-      let surveyOutputCollection = await mongoose.connection.collection(
-         surveyOutputCollectionName,
-      )
-
-      await surveyOutputCollection.drop()
-
-      LogThis(log, `dropped surveyOutputCollectionName`, L3)
-
-      delete mongoose.models[surveyOutputCollectionName]
-      LogThis(log, `deleted models`, L3)
-   }
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
-
-   let surveyOutputColumns = {}
-
-   outputLayoutFields.forEach(column => {
-      LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3)
-      surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
-   })
-   x = x + 1
-   LogThis(
-      log,
-      `x=${x}; surveyOutputColumns=${JSON.stringify(
-         Object.entries(surveyOutputColumns),
-      )}`,
-      L3,
-   )
-
-   const surveyOutputCollectionSchema = new Schema(surveyOutputColumns)
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
-   const surveyOutputCollection = mongoose.model(
-      surveyOutputCollectionName,
-      surveyOutputCollectionSchema,
-   )
-
-   saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns)
-
-   // await DynamicCollection.deleteOne({
-   //   collectionName: surveyOutputCollectionName,
-   // });
-
-   // const schemaDefinition = {
-   //   field1: String,
-   //   field2: Number,
-   //   // Add more fields as needed
-   // };
-   // const dynamicCollection = new DynamicCollection();
-   // dynamicCollection.collectionName = surveyOutputCollectionName;
-   // dynamicCollection.schemaDefinition = schemaDefinition;
-
-   // const createdDynamicCollection = await dynamicCollection.save();
-   // if (!createdDynamicCollection) {
-   //   throw new Error(`DynamicCollection couldn't be created`);
+   //    for (
+   //       let x = 0;
+   //       surveyItem.calculatedFieldList &&
+   //       x < surveyItem.calculatedFieldList.length;
+   //       x++
+   //    ) {
+   //       calculatedFieldItem = surveyItem.calculatedFieldList[x]
+   //       calculatedFields
+   //       calculatedFields.push({
+   //          surveyId: surveyCreated._id,
+   //          description: calculatedFieldItem.description,
+   //          shortDescription: calculatedFieldItem.shortDescription,
+   //          fieldName: calculatedFieldItem.fieldName,
+   //          calculationType: calculatedFieldItem.calculationType,
+   //          criteria: calculatedFieldItem.criteria ?? null,
+   //          group: calculatedFieldItem.group,
+   //          position: calculatedFieldItem.position,
+   //       })
+   //    }
+   //    LogThis(log, 'About to insert many', L3)
+   //    LogThis(log, `questions=${JSON.stringify(questions)}`, L3)
+   //    questionsCreated = await SurveyQuestion.insertMany(questions)
+   //    questions = []
+   //    LogThis(log, `calculatedFields=${JSON.stringify(calculatedFields)}`, L3)
+   //    if (calculatedFields.length > 0) {
+   //       calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
+   //          calculatedFields,
+   //       )
+   //       calculatedFields = []
+   //    }
    // }
 
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
+   // let outputLayouts = superSurveyConfig.surveySuperiorOutputLayout.sort(
+   //    (a, b) => a.position - b.position,
+   // )
+   // LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3)
+   // let outputLayoutFields = []
+   // for (let i = 0; i < outputLayouts.length; i++) {
+   //    outputLayout = outputLayouts[i]
+   //    outputLayoutFields.push({
+   //       surveySuperiorId: createdSurveySuperior._id,
+   //       surveyShortName: outputLayout.surveyShortName,
+   //       fieldName: outputLayout.fieldName,
+   //       outputAsReal: outputLayout.outputAsReal,
+   //       showInOutputScreen: outputLayout.showInOutputScreen,
+   //       position: outputLayout.position,
+   //    })
+   // }
+   // LogThis(
+   //    log,
+   //    `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
+   //    L3,
+   // )
+   // const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
+   //    outputLayoutFields,
+   // )
+
+   // //Start Output Collection
+   // let x = 0
+   // x++
+   // const surveyOutputCollectionName =
+   //    `surveyOutputs_${superSurveyConfig.surveyShortName}`.toLocaleLowerCase()
+   // LogThis(
+   //    log,
+   //    `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+   //    L3,
+   // )
+
+   // x = x + 1
+   // LogThis(log, `x=${x}`, L3)
+   // const collections = await mongoose.connection.db
+   //    .listCollections({ name: surveyOutputCollectionName })
+   //    .toArray()
+   // x = x + 1
+   // LogThis(log, `x=${x}`, L3)
+   // const collInfo = collections.find(
+   //    collection => collection.name === surveyOutputCollectionName,
+   // )
+   // if (collInfo) {
+   //    LogThis(log, `dropping surveyOutputCollectionName`, L3)
+   //    let surveyOutputCollection = await mongoose.connection.collection(
+   //       surveyOutputCollectionName,
+   //    )
+
+   //    await surveyOutputCollection.drop()
+
+   //    LogThis(log, `dropped surveyOutputCollectionName`, L3)
+
+   //    delete mongoose.models[surveyOutputCollectionName]
+   //    LogThis(log, `deleted models`, L3)
+   // }
+   // x = x + 1
+   // LogThis(log, `x=${x}`, L3)
+
+   // let surveyOutputColumns = {}
+
+   // outputLayoutFields.forEach(column => {
+   //    LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3)
+   //    surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
+   // })
+   // x = x + 1
+   // LogThis(
+   //    log,
+   //    `x=${x}; surveyOutputColumns=${JSON.stringify(
+   //       Object.entries(surveyOutputColumns),
+   //    )}`,
+   //    L3,
+   // )
+
+   // const surveyOutputCollectionSchema = new Schema(surveyOutputColumns)
+   // x = x + 1
+   // LogThis(log, `x=${x}`, L3)
+   // const surveyOutputCollection = mongoose.model(
+   //    surveyOutputCollectionName,
+   //    surveyOutputCollectionSchema,
+   // )
+
+   // saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns)
+
+   // // await DynamicCollection.deleteOne({
+   // //   collectionName: surveyOutputCollectionName,
+   // // });
+
+   // // const schemaDefinition = {
+   // //   field1: String,
+   // //   field2: Number,
+   // //   // Add more fields as needed
+   // // };
+   // // const dynamicCollection = new DynamicCollection();
+   // // dynamicCollection.collectionName = surveyOutputCollectionName;
+   // // dynamicCollection.schemaDefinition = schemaDefinition;
+
+   // // const createdDynamicCollection = await dynamicCollection.save();
+   // // if (!createdDynamicCollection) {
+   // //   throw new Error(`DynamicCollection couldn't be created`);
+   // // }
+
+   // x = x + 1
+   // LogThis(log, `x=${x}`, L3)
 
     }
 }
