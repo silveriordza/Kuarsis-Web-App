@@ -31,6 +31,9 @@ const {
 const SurveyManager = require('./SurveyManager.js')
 const SurveySuperiorManager = require('./SurveySuperiorManager.js')
 const SurveyQuestionManager = require('./SurveyQuestionManager.js')
+const SurveyCalculatedFieldManager = require('./SurveyCalculatedFieldManager.js')
+const SurveySuperiorOutputLayoutManager = require('./SurveySuperiorOutputLayoutManager.js')
+const SurveyMultiManager = require('./SurveyMultiManager.js')
  
  class SurveyTemplateManager {
     constructor(surveyAllTemplates, owner) {
@@ -612,9 +615,23 @@ const SurveyQuestionManager = require('./SurveyQuestionManager.js')
       const surveys = new SurveyManager(superSurveyConfig.surveys, owner)
       const surveysResult = await surveys.save()
       
-      const questions = new SurveyQuestionManager(superSurveyConfig.questions, surveys)
+      surveySuperiorResult.surveysResult=surveysResult
+
+      const questions = new SurveyQuestionManager(superSurveyConfig.questions, surveysResult)
       const questionsResult = await questions.save()
-      
+      surveySuperiorResult.questionsResult=questionsResult
+
+      const calculatedFields = new SurveyCalculatedFieldManager(superSurveyConfig.calculatedFields, surveysResult)
+      const calculatedFieldsResult = await calculatedFields.save()
+      surveySuperiorResult.calculatedFieldsResult=calculatedFieldsResult
+
+      const outputLayouts = new SurveySuperiorOutputLayoutManager(superSurveyConfig.multiSurveys.outputLayout, surveySuperiorResult[0]._id)
+      const outputLayoutsResult = await outputLayouts.save()
+      surveySuperiorResult.outputLayoutsResult=outputLayoutsResult
+
+      const surveyMulti = new SurveyMultiManager (superSurveyConfig.multiSurveys.surveys, surveySuperiorResult[0]._id, surveysResult)
+      const surveyMultiResult = await surveyMulti.save()
+      surveySuperiorResult.surveyMultiResult=surveyMultiResult
 
       return surveySuperiorResult
    //    //let superSurveyConfigTest = superSurveyConfig

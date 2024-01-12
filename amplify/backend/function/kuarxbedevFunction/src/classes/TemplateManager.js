@@ -7,6 +7,8 @@ class TemplateManager {
     constructor(templateList, collection, identiferFieldName, owner=''){
         this.log = new LogManager("TemplateManager.js", "constructor")
         this.log.LogThis(`START`, L3)
+        this.log.HasDataMultipeEx("templateList, collection, identiferFieldName",
+        templateList, collection, identiferFieldName)
         this.mongoDBManager = new MongoDBManager(collection)
         this.templateList = templateList
         this.collection = collection

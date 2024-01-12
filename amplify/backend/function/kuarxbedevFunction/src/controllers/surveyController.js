@@ -119,6 +119,11 @@ const createSuperSurvey = asyncHandler(async (req, res) => {
    console.log('about to respond')
    res.status(201).json({
       superSurveyTemplate: superSurveyTemplate,
+      surveys: superSurveyTemplate.surveysResult,
+      questions: superSurveyTemplate.questionsResult,
+      calculatedFieldsResult: superSurveyTemplate.calculatedFieldsResult,
+      outputLayoutsResult: superSurveyTemplate.outputLayoutsResult,
+
       // surveySuperiorId: createdSurveySuperior._id,
       // surveysCreated: surveysCreated,
       // questionsCreated: questionsCreated,

@@ -74,8 +74,41 @@ const applyStringCriteriaToValue = (criteria, value) => {
    }
 }
 
-const addPropertyValueInArray = (objectsList, propertyName, value) => {
-   objectsList.forEach(object => (object[propertyName] = value))
+const addPropertyValueInArray = (objectsList, fieldNameToAdd, value) => {
+   objectsList.forEach(object => (object[fieldNameToAdd] = value))
+}
+
+const addPropertyMatchingValueInArray = (
+   objectsList,
+   fieldNameToAdd,
+   matchingField,
+   externalIdField,
+   matchingValueArray,
+) => {
+   objectsList.forEach(object => {
+      object[fieldNameToAdd] = matchingValueArray.find(matchingValue => {
+         return (
+            object[matchingField].toLowerCase() ===
+            matchingValue[matchingField].toLowerCase()
+         )
+      })[externalIdField]
+   })
+}
+
+function getValueByPath(obj, path) {
+   const keys = path.split('.')
+   let currentObj = obj
+
+   for (const key of keys) {
+      if (currentObj && typeof currentObj === 'object' && key in currentObj) {
+         currentObj = currentObj[key]
+      } else {
+         // Property not found, return a default value or handle the case as needed
+         return undefined
+      }
+   }
+
+   return currentObj
 }
 
 module.exports = {
@@ -84,4 +117,5 @@ module.exports = {
    applyStringCriteriaToValue,
    validateHasData,
    addPropertyValueInArray,
+   addPropertyMatchingValueInArray,
 }

@@ -1,30 +1,29 @@
 const TemplateManager = require("./TemplateManager")
 let {
-    SurveyMulti
+    SurveyCalculatedField
  } = require('../models/surveysModel.js')
 const { LogManager, L3} = require("./LogManager.js")
-const { addPropertyMatchingValueInArray, addPropertyValueInArray } = require("../utils/Functions.js")
+const { addPropertyMatchingValueInArray } = require("../utils/Functions.js")
 
 
- const identifierFieldName = "surveyShortName"
+ const identifierFieldName = "fieldName"
  const templateLinkField = "surveyShortName"
  const referenceField = "surveyId"
  const externalIdField = "_id"
 
-const sourceFilename = "SurveyMultiManager.js"
+const sourceFilename = "SurveyCalculatedFieldManager.js"
 
-class SurveyMultiManager extends TemplateManager {
-    constructor(templateList, superSurveyId, templateListToLink){
+class SurveyCalculatedFieldManager extends TemplateManager {
+    constructor(templateList, templateListToLink){
         super(    
             templateList,
-            SurveyMulti,
+            SurveyCalculatedField,
             identifierFieldName
             )
             this.logChild = new LogManager (sourceFilename, "constructor")
             this.logChild.LogThis(`START`, L3)
             this.logChild.HasDataException(templateListToLink)
             this.templateListToLink = templateListToLink
-            this.superSurveyId = superSurveyId
             //this.templateListToLinkLean = templateListToLink.map(template => (template.toObject({ virtuals: true, getters: true })))
                         
             this.preProcessTemplate()
@@ -33,8 +32,6 @@ class SurveyMultiManager extends TemplateManager {
 
     //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
     preProcessTemplate = () => {
-        
-        addPropertyValueInArray(this.templateList, "superSurveyId", this.superSurveyId)
         addPropertyMatchingValueInArray(
             this.templateList,
             referenceField,
@@ -48,4 +45,4 @@ class SurveyMultiManager extends TemplateManager {
     
 }
 
-module.exports = SurveyMultiManager
+module.exports = SurveyCalculatedFieldManager

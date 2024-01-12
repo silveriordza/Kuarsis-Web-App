@@ -22,8 +22,10 @@ const surveyQuestionModel = mongoose.Schema(
       weightType: { type: String, required: true },
       weights: { type: mongoose.Schema.Types.Mixed },
       monkeyInfo: {
-         type: mongoose.Schema.Types.Mixed,
-         required: false,
+         position: { type: Number, required: true },
+         subPosition: { type: Number, required: true },
+         answerType: { type: String, required: true },
+         otherInfo: { type: mongoose.Schema.Types.Mixed, required: false },
       },
 
       //surveyCol changed name to position.
@@ -105,7 +107,7 @@ const surveySuperiorOutputLayoutModel = mongoose.Schema(
       fieldName: { type: String, required: true },
       outputAsReal: { type: Boolean, required: true },
       showInSurveyOutputScreen: { type: Boolean, require: true },
-      sequence: { type: Number, required: true },
+      position: { type: Number, required: true },
    },
    {
       timestamps: true,
@@ -269,6 +271,7 @@ module.exports = {
    SurveyMulti,
    SurveyQuestion,
    SurveyCalculatedField,
+   SurveySuperiorOutputLayout,
    MonkeyConfig,
    MonkeyNewResponse,
 }
