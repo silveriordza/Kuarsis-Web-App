@@ -2365,7 +2365,7 @@
       },
       {
          "surveyName": "Datos",
-         "surveyShortName": "INFO",
+         "surveyShortName": "Datos",
          "description": "Informacion de la persona encuestada.",
          "instructions": ""
       },
@@ -7242,7 +7242,7 @@
          "shortDescription": "Somáticos",
          "fieldName": "CSG_SOMATICOS",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["CSG_SOMATICOS"],
+         "subScales": ["CSG_SOMATICOS"],
          "position": 10
       },
       {
@@ -7251,7 +7251,7 @@
          "shortDescription": "Ansiedad/insomnio",
          "fieldName": "CSG_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["CSG_ANSIEDAD"],
+         "subScales": ["CSG_ANSIEDAD"],
          "position": 20
       },
       {
@@ -7260,7 +7260,7 @@
          "shortDescription": "Disfunción social",
          "fieldName": "CSG_DISF_SOCIAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["CSG_DISF_SOCIAL"],
+         "subScales": ["CSG_DISF_SOCIAL"],
          "position": 30
       },
       {
@@ -7269,7 +7269,7 @@
          "shortDescription": "Depresión severa",
          "fieldName": "CSG_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["CSG_DEPRESION"],
+         "subScales": ["CSG_DEPRESION"],
          "position": 40
       },
       {
@@ -7278,7 +7278,7 @@
          "shortDescription": "TOTAL CSG",
          "fieldName": "CSG_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": [
+         "subScales": [
             "CSG_SOMATICOS",
             "CSG_ANSIEDAD",
             "CSG_DISF_SOCIAL",
@@ -7308,7 +7308,7 @@
          "shortDescription": "Emocional",
          "fieldName": "BURN_EMOCIONAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["BURN_EMOCIONAL"],
+         "subScales": ["BURN_EMOCIONAL"],
          "position": 10
       },
       {
@@ -7317,7 +7317,7 @@
          "shortDescription": "Despersonalizacion",
          "fieldName": "BURN_DESPERS",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["BURN_DESPERS"],
+         "subScales": ["BURN_DESPERS"],
          "position": 20
       },
       {
@@ -7326,7 +7326,7 @@
          "shortDescription": "Logros personales",
          "fieldName": "BURN_LOGROS",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["BURN_LOGROS"],
+         "subScales": ["BURN_LOGROS"],
          "position": 30
       },
       {
@@ -7335,7 +7335,7 @@
          "shortDescription": "TOTAL BURNOUT",
          "fieldName": "BURN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
+         "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
          "position": 40
       },
       {
@@ -7344,7 +7344,7 @@
          "shortDescription": "Total estres",
          "fieldName": "ESTRES_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["ESTRES_TOTAL"],
+         "subScales": ["ESTRES_TOTAL"],
          "position": 10
       },
       {
@@ -7354,7 +7354,7 @@
          "fieldName": "ESTRES_CAL_LISTA_ESTRES",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
-         "group": ["ESTRES_TOTAL"],
+         "subScales": ["ESTRES_TOTAL"],
          "position": 20
       },
       {
@@ -7363,7 +7363,7 @@
          "shortDescription": "HAMILTON TOTAL PSIQUICA",
          "fieldName": "HAMILTON_TOTAL_PSIQUICA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["HAMILTON_TOTAL_PSIQUICA"],
+         "subScales": ["HAMILTON_TOTAL_PSIQUICA"],
          "position": 10
       },
       {
@@ -7372,7 +7372,7 @@
          "shortDescription": "HAMILTON TOTAL SOMATICA",
          "fieldName": "HAMILTON_TOTAL_SOMATICA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["HAMILTON_TOTAL_SOMATICA"],
+         "subScales": ["HAMILTON_TOTAL_SOMATICA"],
          "position": 20
       },
       {
@@ -7381,7 +7381,7 @@
          "shortDescription": "HAMILTON TOTAL ANSIEDAD",
          "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["HAMILTON_TOTAL_PSIQUICA", "HAMILTON_TOTAL_SOMATICA"],
+         "subScales": ["HAMILTON_TOTAL_PSIQUICA", "HAMILTON_TOTAL_SOMATICA"],
          "position": 30
       },
 
@@ -7391,7 +7391,7 @@
          "shortDescription": "JEFF PACIENTE PERSPECTIVA",
          "fieldName": "JEFF_PACIENTE_PERSPECTIVA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["JEFF_PACIENTE_PERSPECTIVA"],
+         "subScales": ["JEFF_PACIENTE_PERSPECTIVA"],
          "position": 10
       },
       {
@@ -7400,7 +7400,7 @@
          "shortDescription": "JEFF COMPASION",
          "fieldName": "JEFF_COMPASION",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["JEFF_COMPASION"],
+         "subScales": ["JEFF_COMPASION"],
          "position": 20
       },
       {
@@ -7409,7 +7409,7 @@
          "shortDescription": "JEFF ZAPATOS PACIENTE",
          "fieldName": "JEFF_ZAPATOS_PACIENTE",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["JEFF_ZAPATOS_PACIENTE"],
+         "subScales": ["JEFF_ZAPATOS_PACIENTE"],
          "position": 30
       },
       {
@@ -7418,7 +7418,7 @@
          "shortDescription": "JEFF TOTAL",
          "fieldName": "JEFF_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": [
+         "subScales": [
             "JEFF_PACIENTE_PERSPECTIVA",
             "JEFF_COMPASION",
             "JEFF_ZAPATOS_PACIENTE"
@@ -7432,7 +7432,7 @@
          "shortDescription": "TOTAL BECK",
          "fieldName": "BECK_TOTAL_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["BECK_TOTAL_DEPRESION"],
+         "subScales": ["BECK_TOTAL_DEPRESION"],
          "position": 10
       },
       {
@@ -7457,7 +7457,7 @@
          "shortDescription": "SCL90 SOMATIZACION",
          "fieldName": "SCL90_SOMATIZACION",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_SOMATIZACION"],
+         "subScales": ["SCL90_SOMATIZACION"],
          "position": 10
       },
       {
@@ -7466,7 +7466,7 @@
          "shortDescription": "SCL90 OBSESION COMPULSION",
          "fieldName": "SCL90_OBSESION_COMPULSION",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_OBSESION_COMPULSION"],
+         "subScales": ["SCL90_OBSESION_COMPULSION"],
          "position": 20
       },
       {
@@ -7475,7 +7475,7 @@
          "shortDescription": "SCL90 SENSIB INTERPERS",
          "fieldName": "SCL90_SENS_INTERPERS",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_SENS_INTERPERS"],
+         "subScales": ["SCL90_SENS_INTERPERS"],
          "position": 30
       },
       {
@@ -7484,7 +7484,7 @@
          "shortDescription": "SCL90 DEPRESION",
          "fieldName": "SCL90_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_DEPRESION"],
+         "subScales": ["SCL90_DEPRESION"],
          "position": 40
       },
       {
@@ -7493,7 +7493,7 @@
          "shortDescription": "SCL90 ANSIEDAD",
          "fieldName": "SCL90_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_ANSIEDAD"],
+         "subScales": ["SCL90_ANSIEDAD"],
          "position": 50
       },
       {
@@ -7502,7 +7502,7 @@
          "shortDescription": "SCL90 HOSTILIDAD",
          "fieldName": "SCL90_HOSTILIDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_HOSTILIDAD"],
+         "subScales": ["SCL90_HOSTILIDAD"],
          "position": 60
       },
       {
@@ -7511,7 +7511,7 @@
          "shortDescription": "SCL90 FOBIA ANSIOSA",
          "fieldName": "SCL90_FOBIA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_FOBIA"],
+         "subScales": ["SCL90_FOBIA"],
          "position": 70
       },
       {
@@ -7520,7 +7520,7 @@
          "shortDescription": "SCL90 PARANOIA",
          "fieldName": "SCL90_PARANOIA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_PARANOIA"],
+         "subScales": ["SCL90_PARANOIA"],
          "position": 80
       },
       {
@@ -7529,7 +7529,7 @@
          "shortDescription": "SCL90 PSYCOTISMO",
          "fieldName": "SCL90_PSICOSIS",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_PSICOSIS"],
+         "subScales": ["SCL90_PSICOSIS"],
          "position": 90
       },
       {
@@ -7538,7 +7538,7 @@
          "shortDescription": "SCL90 ADICIONALES",
          "fieldName": "SCL90_ADICIONALES",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": ["SCL90_ADICIONALES"],
+         "subScales": ["SCL90_ADICIONALES"],
          "position": 100
       },
       {
@@ -7547,7 +7547,7 @@
          "shortDescription": "SCL90 TOTAL",
          "fieldName": "SCL90_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "group": [
+         "subScales": [
             "SCL90_SOMATIZACION",
             "SCL90_OBSESION_COMPULSION",
             "SCL90_SENS_INTERPERS",
