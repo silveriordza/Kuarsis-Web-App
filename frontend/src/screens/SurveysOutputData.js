@@ -360,11 +360,11 @@ const SurveysOutputData = ({ match, history }) => {
                                     // console.log(
                                     //   `dipslaying headers: layout=${JSON.stringify(
                                     //     layout
-                                    //   )}; layout.showInSurveyOutputScreen = ${
-                                    //     layout.showInSurveyOutputScreen
+                                    //   )}; layout.showInOutputScreen = ${
+                                    //     layout.showInOutputScreen
                                     //   }`
                                     // );
-                                    if (layout.showInSurveyOutputScreen) {
+                                    if (layout.showInOutputScreen) {
                                        // console.log(
                                        //   `returning field layout.fieldName=${layout.fieldName}`
                                        // );
@@ -398,9 +398,7 @@ const SurveysOutputData = ({ match, history }) => {
                                                 return x.fieldName == key
                                              },
                                           )
-                                       if (
-                                          outputField.showInSurveyOutputScreen
-                                       ) {
+                                       if (outputField.showInOutputScreen) {
                                           switch (outputField.fieldName) {
                                              case 'SCOLINFO_date_created':
                                                 outputValueData = formatDate(

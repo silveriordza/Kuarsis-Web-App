@@ -3,6 +3,7 @@
 const LOCAL = 'LOCAL'
 const ONCARE_LOCAL = 'ONCARE_LOCAL'
 const ONCARE_DEV = 'ONCARE_DEV'
+const ONCARE_RED = 'ONCARE_RED'
 const ONCARE_QA = 'ONCARE_QA'
 const ARTPIXANDEV = 'ARTPIXANDEV'
 const ARTPIXANPROD = 'ARTPIXANPROD'
@@ -18,6 +19,7 @@ const L3 = 3
 
 const local_debug_level = OFF
 const dev_debug_level = L0
+const red_debug_level = L0
 const qa_debug_level = L1
 const artpixanprod_debug_level = OFF
 
@@ -61,6 +63,18 @@ switch (ENVIRONMENT) {
       V_BACKEND_ENDPOINT =
          'https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncaredev.kuarxis.com/images'
+      V_KUARSIS_BANNER_MAIN_LOGO = 'OnCareLogo256px.png'
+      V_KUARSIS_PUBLIC_BUCKET_URL =
+         'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
+      break
+   case ONCARE_RED:
+      //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
+
+      V_LOG_LEVEL = red_debug_level
+      V_CURRENT_VERSION = `v1.0.0.4-2024-01-04-22:12`
+      V_BACKEND_ENDPOINT =
+         'https://qfainlabh5.execute-api.us-east-1.amazonaws.com/oncrebered'
+      V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncarered.kuarxis.com/images'
       V_KUARSIS_BANNER_MAIN_LOGO = 'OnCareLogo256px.png'
       V_KUARSIS_PUBLIC_BUCKET_URL =
          'https://kuarsis-products-s3-public-dev.s3.amazonaws.com/'
