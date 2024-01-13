@@ -10,7 +10,7 @@ node_modules
 .pnp.js
 
 # testing
-/coverage
+/coverages
 
 # production
 /frontend/build
@@ -31,7 +31,7 @@ yarn-error.log*
 
 # .tfstate files
 *.tfstate
-*.tfstate.*
+*.tfstate.*s
 
 # Crash log files
 crash.log
@@ -62,17 +62,8 @@ override.tf.json
 terraform.rc
 #TERRAFORM SECTION END
 
-**/team-provider-info.json
-**/function-parameters.json
-**/kuarxbedevFunction-cloudformation-template.json
-
-#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
+s#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
 **backend-config.json
-**/team-provider-info.json
-**/function-parameters.json 
-**/kuarxbedevFunction-cloudformation-template.json
-**/backend-config.json
-*secretConstants*
 **/team-provider-info.json
 **/function-parameters.json 
 **/kuarxbedevFunction-cloudformation-template.json
