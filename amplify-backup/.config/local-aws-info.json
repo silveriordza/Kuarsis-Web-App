@@ -1,0 +1,17 @@
+{
+  "oncrebeqa": {
+    "configLevel": "project",
+    "useProfile": true,
+    "profileName": "kuarxisprofile"
+  },
+  "oncrebedev": {
+    "configLevel": "project",
+    "useProfile": true,
+    "profileName": "kuarxisprofile"
+  },
+  "oncrebered": {
+    "configLevel": "project",
+    "useProfile": true,
+    "profileName": "kuarxisprofile"
+  }
+}

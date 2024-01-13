@@ -1,0 +1,70 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-oncrebedev-182531-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-oncrebedev-182531-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-oncrebedev-182531-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-oncrebedev-182531-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-oncrebedev-182531-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-oncrebedev-182531",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-oncrebedev-182531/455a52e0-840e-11ee-a9c3-0e794a83bfff",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    }
+  },
+  "api": {
+    "kuarxbedevAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "kuarxbedevFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway",
+      "output": {
+        "ApiName": "kuarxbedevAPI",
+        "RootUrl": "https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev",
+        "ApiId": "liklebz726"
+      },
+      "lastPushTimeStamp": "2024-01-08T07:37:11.272Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-kuarxiswebapp-oncrebedev-182531-deployment/amplify-cfn-templates/api/kuarxbedevAPI-cloudformation-template.json",
+        "logicalId": "apikuarxbedevAPI"
+      }
+    }
+  },
+  "function": {
+    "kuarxbedevFunction": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::704484783207:role/kuarxiswebappLambdaRole63d074f3-oncrebedev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:704484783207:function:kuarxbedevFunction-oncrebedev",
+        "Name": "kuarxbedevFunction-oncrebedev",
+        "LambdaExecutionRole": "kuarxiswebappLambdaRole63d074f3-oncrebedev"
+      },
+      "lastPushTimeStamp": "2024-01-08T07:37:11.526Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-kuarxiswebapp-oncrebedev-182531-deployment/amplify-cfn-templates/function/kuarxbedevFunction-cloudformation-template.json",
+        "logicalId": "functionkuarxbedevFunction"
+      },
+      "lastBuildTimeStamp": "2024-01-08T07:35:29.963Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-01-08T07:35:59.689Z",
+      "distZipFilename": "kuarxbedevFunction-6175374f79354133566b-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-kuarxiswebapp-oncrebedev-182531-deployment",
+        "s3Key": "amplify-builds/kuarxbedevFunction-6175374f79354133566b-build.zip"
+      },
+      "lastPushDirHash": "CZQ7GKm4j1Jj7Wa88Nj/RkfMfI4="
+    }
+  }
+}
