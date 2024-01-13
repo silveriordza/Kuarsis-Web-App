@@ -6,9 +6,8 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Dev Tag: (pending)
-Git feature branches: tagkuarxisBeSurveySystemDEV-v1.0.0.4.1->kuarxisFeSurveySystemDev-SurveyMonkeyIntegration1.0
-Version date: 1/07/24
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.5
+Version date: 1/13/24
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:
 1.- Fixed defect: negative number showing up in the upload status in UploadSurveyAnswers when picking option NEW responses only. This fix was made in the Front End surveyActions.js in the slice calculations.
