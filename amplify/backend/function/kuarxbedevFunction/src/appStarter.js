@@ -143,6 +143,9 @@ const secretKeyParam = getSecretParamNameFromEnv(
   process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR
 );
 
+const surveyMonkeyTokenParam = getSecretParamNameFromEnv(
+  process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR
+);
 const params = {
   Names: [
     mongoUriParam,
@@ -150,6 +153,7 @@ const params = {
     paypalClientIdParam,
     accessKeyParam,
     secretKeyParam,
+    surveyMonkeyTokenParam,
   ],
   WithDecryption: true,
 };
@@ -225,9 +229,22 @@ const loadParameters = (data) => {
           }; process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR]=${
             process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR]
           }`,
-          L0
+          L3
         );
         break;
+      case surveyMonkeyTokenParam:
+        process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR] = param.Value;
+        LogThis(
+          log,
+          `Processing param.Value=${
+            param.Value
+          }; process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR]=${
+            process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR]
+          }`,
+          L3
+        );
+        break;
+
       default:
         break;
     }

@@ -1,0 +1,23 @@
+{
+  "name": "kuarxis-web-app",
+  "version": "1.0.4",
+  "description": "Kuarxis Survey System Web App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./amplify/backend/function/kuarxbedevFunction/src/app.js",
+    "server": "nodemon ./amplify/backend/function/kuarxbedevFunction/src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silveriordza/Kuarxis-Web-App.git"
+  },
+  "author": "Silverio Rodriguez Alcorta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silveriordza/Kuarxis-Web-App/issues"
+  },
+  "homepage": "https://github.com/silveriordza/Kuarxis-Web-App#readme",
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
