@@ -2,7 +2,8 @@
 
 #sec files
 kuarsis-web-app-admin_Credentials.csv
-
+.env.dev
+.env.prod
 # dependencies
 node_modules
 /.pnp
@@ -88,5 +89,16 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 #Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
 **backend-config.json
+**/team-provider-info.json
+**/function-parameters.json 
+**/kuarxbedevFunction-cloudformation-template.json
+**/backend-config.json
+*secretConstants*
+**/team-provider-info.json
+**/function-parameters.json 
+**/kuarxbedevFunction-cloudformation-template.json
+**/backend-config.json
+*secretConstants*
+*surveyRespondentIdsDat*
 
 
