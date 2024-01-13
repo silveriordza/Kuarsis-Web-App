@@ -6,7 +6,7 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.5
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.6
 Version date: 1/13/24
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:
