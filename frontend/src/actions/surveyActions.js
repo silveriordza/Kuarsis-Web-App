@@ -15,8 +15,6 @@ import {
    SURVEY_OUTPUTS_RESET,
 } from '../constants/surveyConstants'
 
-import respondentIdsMonkeyCached from '../constants/surveyRespondentIdsData.json'
-
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
 //import { SURVEY_MONKEY_TOKEN } from "../constants/secretConstants";
 
