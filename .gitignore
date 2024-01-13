@@ -10,7 +10,7 @@ node_modules
 .pnp.js
 
 # testing
-/coverage
+/coverages
 
 # production
 /frontend/build
@@ -31,7 +31,7 @@ yarn-error.log*
 
 # .tfstate files
 *.tfstate
-*.tfstate.*
+*.tfstate.*s
 
 # Crash log files
 crash.log
@@ -62,9 +62,28 @@ override.tf.json
 terraform.rc
 #TERRAFORM SECTION END
 
+#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact.
+**backend-config.json
 **/team-provider-info.json
 **/function-parameters.json
 **/kuarxbedevFunction-cloudformation-template.json
+**/backend-config.json
+*secretConstants*
+*surveyRespondentIdsDat*
+**/amplify/.config/project-config.json
+**/amplify/README.md
+**/amplify/backend/backend-config.json
+**/amplify/backend/hosting/amplifyhosting/amplifyhosting-template.json
+**/amplify/backend/tags.json
+**/amplify/backend/types/amplify-dependent-resources-ref.d.ts
+**/amplify/cli.json
+**/amplify/hooks/README.md
+
+#Other amplify files that has to be ignored to avoid checking in amplify files for BACKEND
+**/amplify/backend/api/kuarxbedevAPI/cli-inputs.json
+**/amplify/backend/function/kuarxbedevFunction/amplify.state
+**/amplify/backend/function/kuarxbedevFunction/custom-policies.json
+**/amplify/backend/function/kuarxbedevFunction/parameters.json
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -87,18 +106,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
-**backend-config.json
-**/team-provider-info.json
-**/function-parameters.json 
-**/kuarxbedevFunction-cloudformation-template.json
-**/backend-config.json
-*secretConstants*
-**/team-provider-info.json
-**/function-parameters.json 
-**/kuarxbedevFunction-cloudformation-template.json
-**/backend-config.json
-*secretConstants*
-*surveyRespondentIdsDat*
-
-
