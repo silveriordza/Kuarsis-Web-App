@@ -560,9 +560,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
                   <br />
                   <br />
                   {surveyStatusMessage && surveyStatusMessage != '' && (
-                     <Form.Label>
-                        Estado: {surveyStatusMessage} ${surveyRow}
-                     </Form.Label>
+                     <Form.Label>Estado: {surveyStatusMessage}</Form.Label>
                   )}
                   {surveySuccessMessage && surveySuccessMessage != '' && (
                      <Form.Label>{surveySuccessMessage}</Form.Label>

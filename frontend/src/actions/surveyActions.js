@@ -659,8 +659,9 @@ export const surveyProcessAnswersAtClientAction =
                      dispatch({
                         type: SURVEY_PROCESS_ANSWERS_STATUS,
                         payload: {
-                           message:
-                              'Procesando respuestas para la encuesta número: ',
+                           message: `Procesando respuestas para la encuesta número: ${
+                              r + 1
+                           }`,
                            row: r + 1,
                         },
                      })
@@ -1289,13 +1290,16 @@ export const surveyProcessAnswersAtClientAction =
                         )}`,
                         L3,
                      )
-
+                     let fromSurvey = 0
+                     if (sliceSize >= r) {
+                        fromSurvey = r
+                     } else {
+                        fromSurvey = r - sliceSize
+                     }
                      dispatch({
                         type: SURVEY_PROCESS_ANSWERS_STATUS,
                         payload: {
-                           message: `Enviando parte ${slice} encuesta número ${
-                              r - sliceSize
-                           } a la ${r}`,
+                           message: `Enviando parte ${slice} encuesta número ${fromSurvey} a la ${r}`,
                            row: r,
                         },
                      })
