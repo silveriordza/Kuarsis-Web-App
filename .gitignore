@@ -79,7 +79,6 @@ terraform.rc
 **/amplify/cli.json
 **/amplify/hooks/README.md
 
-
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
