@@ -62,7 +62,7 @@ override.tf.json
 terraform.rc
 #TERRAFORM SECTION END
 
-s#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
+#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
 **backend-config.json
 **/team-provider-info.json
 **/function-parameters.json 
@@ -78,6 +78,7 @@ s#Other amplify files that I removed so it does not causes problems when switchi
 **/amplify/backend/types/amplify-dependent-resources-ref.d.ts
 **/amplify/cli.json
 **/amplify/hooks/README.md
+
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
