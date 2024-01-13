@@ -7,7 +7,7 @@ Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on sel
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.5
-Version date: 1/07/24
+Version date: 1/13/24
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:
 1.- Fixed defect: negative number showing up in the upload status in UploadSurveyAnswers when picking option NEW responses only. This fix was made in the Front End surveyActions.js in the slice calculations.
