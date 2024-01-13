@@ -55,15 +55,17 @@ export const rowCleaner = (rowToClean) => {
   return rowArray.join("");
 };
 export const saveStringAsCSV = (stringData, fileName) => {
-  const blob = new Blob([stringData], { type: "text/csv" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  if (stringData != "") {
+    const blob = new Blob([stringData], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 };
 
 export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
