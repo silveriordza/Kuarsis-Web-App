@@ -1,4 +1,4 @@
-echo 'First remove files from git cache if they were already added'
+echo 'First remove files from git cache if they were already added' 
 git rm --cache ./amplify/.config/project-config.json
 git rm --cache ./amplify/README.md
 git rm --cache ./amplify/backend/backend-config.json

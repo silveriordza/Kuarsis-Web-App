@@ -79,6 +79,12 @@ terraform.rc
 **/amplify/cli.json
 **/amplify/hooks/README.md
 
+#Other amplify files that has to be ignored to avoid checking in amplify files for BACKEND
+**/amplify/backend/api/kuarxbedevAPI/cli-inputs.json
+**/amplify/backend/function/kuarxbedevFunction/amplify.state
+**/amplify/backend/function/kuarxbedevFunction/custom-policies.json
+**/amplify/backend/function/kuarxbedevFunction/parameters.json
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
