@@ -2,7 +2,8 @@
 
 #sec files
 kuarsis-web-app-admin_Credentials.csv
-
+.env.dev
+.env.prod
 # dependencies
 node_modules
 /.pnp
@@ -16,10 +17,11 @@ node_modules
 
 # misc
 .DS_Store
-.env*
+#.env*
 *.orig
+#.gitignore
 
-npm-debug.log* 
+npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
@@ -36,8 +38,8 @@ crash.log
 crash.*.log
 
 # Exclude all .tfvars files, which are likely to contain sensitive data, such as
-# password, private keys, and other secrets. These should not be part of version 
-# control as they are data points which are potentially sensitive and subject 
+# password, private keys, and other secrets. These should not be part of version
+# control as they are data points which are potentially sensitive and subject
 # to change depending on the environment.
 *.tfvars
 *.tfvars.json
@@ -60,6 +62,10 @@ override.tf.json
 terraform.rc
 #TERRAFORM SECTION END
 
+**/team-provider-info.json
+**/function-parameters.json
+**/kuarxbedevFunction-cloudformation-template.json
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -81,9 +87,18 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+#Other amplify files that I removed so it does not causes problems when switching branches and maintain the code intact. 
+**backend-config.json
+**/team-provider-info.json
+**/function-parameters.json 
+**/kuarxbedevFunction-cloudformation-template.json
+**/backend-config.json
+*secretConstants*
 **/team-provider-info.json
 **/function-parameters.json 
 **/kuarxbedevFunction-cloudformation-template.json
 **/backend-config.json
 *secretConstants*
 *surveyRespondentIdsDat*
+
+
