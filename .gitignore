@@ -100,5 +100,13 @@ amplifytools.xcconfig
 **/backend-config.json
 *secretConstants*
 *surveyRespondentIdsDat*
+**/amplify/.config/project-config.json
+**/amplify/README.md
+**/amplify/backend/backend-config.json
+**/amplify/backend/hosting/amplifyhosting/amplifyhosting-template.json
+**/amplify/backend/tags.json
+**/amplify/backend/types/amplify-dependent-resources-ref.d.ts
+**/amplify/cli.json
+**/amplify/hooks/README.md
 
 
