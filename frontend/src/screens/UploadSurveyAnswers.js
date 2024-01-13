@@ -560,7 +560,9 @@ const UploadSurveyAnswers = ({ match, history }) => {
                   <br />
                   <br />
                   {surveyStatusMessage && surveyStatusMessage != '' && (
-                     <Form.Label>Estado: {surveyStatusMessage}</Form.Label>
+                     <Form.Label>
+                        Estado: {surveyStatusMessage} ${surveyRow}
+                     </Form.Label>
                   )}
                   {surveySuccessMessage && surveySuccessMessage != '' && (
                      <Form.Label>{surveySuccessMessage}</Form.Label>
@@ -574,6 +576,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
                   surveyRow &&
                   surveyRow > 0 ? (
                      <Form.Label>
+                        {console.log(`surveyRow=${surveyRow}`)}
                         Procesando encuesta número: {surveyRow}
                      </Form.Label>
                   ) : (

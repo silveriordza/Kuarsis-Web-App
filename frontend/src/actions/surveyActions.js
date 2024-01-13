@@ -15,8 +15,6 @@ import {
    SURVEY_OUTPUTS_RESET,
 } from '../constants/surveyConstants'
 
-import respondentIdsMonkeyCached from '../constants/surveyRespondentIdsData.json'
-
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
 //import { SURVEY_MONKEY_TOKEN } from "../constants/secretConstants";
 
@@ -266,8 +264,6 @@ export const processAnswersFromSurveyMonkey =
             configSurveyMonkey,
          )
          const surveyMonkeyRespondentIds = respondentIdsMonkeyApi.data
-
-         //const surveyMonkeyRespondentIds = respondentIdsMonkeyCached;
 
          LogThis(
             log,
@@ -1297,21 +1293,21 @@ export const surveyProcessAnswersAtClientAction =
                      dispatch({
                         type: SURVEY_PROCESS_ANSWERS_STATUS,
                         payload: {
-                           message: `Enviando a la base de datos parte ${slice} encuesta número ${
-                              r - sliceSize <= sliceSize ? r : r - sliceSize
+                           message: `Enviando parte ${slice} encuesta número ${
+                              r - sliceSize
                            } a la ${r}`,
                            row: r,
                         },
                      })
                      await new Promise(resolve => setTimeout(resolve, 1))
                      LogThis(log, `about to call axios send output data`, L3)
-                     // LogThis(
-                     //    log,
-                     //    `about to call post axios for /outputs with: config=${JSON.stringify(
-                     //       config,
-                     //    )}; slice=${slice}`,
-                     //    L3,
-                     // )
+                     LogThis(
+                        log,
+                        `about to call post axios for /outputs with: config=${JSON.stringify(
+                           config,
+                        )}; slice=${slice}`,
+                        L0,
+                     )
                      await axios.post(
                         BACKEND_ENDPOINT +
                            `/surveys/${surveySuperiorId}/outputs`,

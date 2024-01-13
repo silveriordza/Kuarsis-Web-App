@@ -6,7 +6,7 @@ const ONCARE_DEV = 'ONCARE_DEV'
 const ONCARE_QA = 'ONCARE_QA'
 const ARTPIXANDEV = 'ARTPIXANDEV'
 const ARTPIXANPROD = 'ARTPIXANPROD'
-const ENVIRONMENT = ONCARE_DEV
+const ENVIRONMENT = ONCARE_LOCAL
 
 // LOCALHOST DEV VARIABLES
 
@@ -16,7 +16,7 @@ const L1 = 1
 const L2 = 2
 const L3 = 3
 
-const local_debug_level = OFF
+const local_debug_level = L3
 const dev_debug_level = OFF
 const qa_debug_level = L1
 const artpixanprod_debug_level = OFF
