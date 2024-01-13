@@ -1,0 +1,322 @@
+[
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  },
+  [0]  {
+  [0]   "_id": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveySuperiorId": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "surveyShortName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "fieldName": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "outputAsReal": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "showInSurveyOutputScreen": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "sequence": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "__v": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "createdAt": {
+  [0]    "$regex": {}
+  [0]   },
+  [0]   "updatedAt": {
+  [0]    "$regex": {}
+  [0]   }
+  [0]  }
+  [0] ]
