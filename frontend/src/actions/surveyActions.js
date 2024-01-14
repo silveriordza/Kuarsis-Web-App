@@ -15,8 +15,6 @@ import {
    SURVEY_OUTPUTS_RESET,
 } from '../constants/surveyConstants'
 
-import respondentIdsMonkeyCached from '../constants/surveyRespondentIdsData.json'
-
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
 //import { SURVEY_MONKEY_TOKEN } from "../constants/secretConstants";
 
@@ -262,9 +260,7 @@ export const processAnswersFromMonkey =
             `https://api.surveymonkey.com/v3/surveys/182423261/responses?per_page=${pageSize}&page=${page}`,
             configMonkey,
          )
-         const monkeyRespondentIds = respondentIdsMonkeyApi.data
-
-         //const monkeyRespondentIds = respondentIdsMonkeyCached;
+         const surveyMonkeyRespondentIds = respondentIdsMonkeyApi.data
 
          LogThis(
             log,
@@ -660,8 +656,9 @@ export const surveyProcessAnswersAtClientAction =
                      dispatch({
                         type: SURVEY_PROCESS_ANSWERS_STATUS,
                         payload: {
-                           message:
-                              'Procesando respuestas para la encuesta número: ',
+                           message: `Procesando respuestas para la encuesta número: ${
+                              r + 1
+                           }`,
                            row: r + 1,
                         },
                      })
@@ -1290,13 +1287,16 @@ export const surveyProcessAnswersAtClientAction =
                         )}`,
                         L3,
                      )
-
+                     let fromSurvey = 0
+                     if (sliceSize >= r) {
+                        fromSurvey = r
+                     } else {
+                        fromSurvey = r - sliceSize
+                     }
                      dispatch({
                         type: SURVEY_PROCESS_ANSWERS_STATUS,
                         payload: {
-                           message: `Enviando a la base de datos parte ${slice} encuesta número ${
-                              r - sliceSize <= sliceSize ? r : r - sliceSize
-                           } a la ${r}`,
+                           message: `Enviando parte ${slice} encuesta número ${fromSurvey} a la ${r}`,
                            row: r,
                         },
                      })
