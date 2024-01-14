@@ -4,6 +4,8 @@
 kuarsis-web-app-admin_Credentials.csv
 .env.dev
 .env.prod
+
+**.bak
 # dependencies
 node_modules
 /.pnp
