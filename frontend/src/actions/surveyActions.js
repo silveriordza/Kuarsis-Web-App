@@ -260,7 +260,7 @@ export const processAnswersFromMonkey =
             `https://api.surveymonkey.com/v3/surveys/182423261/responses?per_page=${pageSize}&page=${page}`,
             configMonkey,
          )
-         const surveyMonkeyRespondentIds = respondentIdsMonkeyApi.data
+         const monkeyRespondentIds = respondentIdsMonkeyApi.data
 
          LogThis(
             log,
