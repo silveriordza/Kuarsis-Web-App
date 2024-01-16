@@ -40,7 +40,7 @@ class TemplateManager {
 
     
 
-    save = async () => {
+    async save () {
         await this.deleteAllMatchingTemplates()
 
         this.templateStoredInDB = this.mongoDBManager.insertMany(this.templateList)

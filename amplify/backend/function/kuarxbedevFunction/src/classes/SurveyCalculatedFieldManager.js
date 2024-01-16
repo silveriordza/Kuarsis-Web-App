@@ -9,7 +9,7 @@ const { addPropertyMatchingValueInArray } = require("../utils/Functions.js")
  const identifierFieldName = "fieldName"
  const templateLinkField = "surveyShortName"
  const referenceField = "surveyId"
- const externalIdField = "_id"
+ const externalReferenceField = "_id"
 
 const sourceFilename = "SurveyCalculatedFieldManager.js"
 
@@ -20,11 +20,10 @@ class SurveyCalculatedFieldManager extends TemplateManager {
             SurveyCalculatedField,
             identifierFieldName
             )
-            this.logChild = new LogManager (sourceFilename, "constructor")
-            this.logChild.LogThis(`START`, L3)
-            this.logChild.HasDataException(templateListToLink)
+            this.log = new LogManager (sourceFilename, "constructor")
+            this.log.LogThis(`START`, L3)
+            this.log.HasDataException(templateListToLink)
             this.templateListToLink = templateListToLink
-            //this.templateListToLinkLean = templateListToLink.map(template => (template.toObject({ virtuals: true, getters: true })))
                         
             this.preProcessTemplate()
         }
@@ -36,7 +35,7 @@ class SurveyCalculatedFieldManager extends TemplateManager {
             this.templateList,
             referenceField,
             templateLinkField,
-            externalIdField,
+            externalReferenceField,
             this.templateListToLink)
             //SurveyQuestionManager.referenceField='hola'
     }

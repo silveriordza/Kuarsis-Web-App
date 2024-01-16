@@ -34,7 +34,9 @@ const SurveyQuestionManager = require('./SurveyQuestionManager.js')
 const SurveyCalculatedFieldManager = require('./SurveyCalculatedFieldManager.js')
 const SurveySuperiorOutputLayoutManager = require('./SurveySuperiorOutputLayoutManager.js')
 const SurveyMultiManager = require('./SurveyMultiManager.js')
- 
+const { LogManager } = require('./LogManager.js')
+
+const sourceFile = "SurveyTemplateManager.js"
  class SurveyTemplateManager {
     constructor(surveyAllTemplates, owner) {
        this.log = new LoggerSettings(this.sourceFile, "constructor")
@@ -45,6 +47,7 @@ const SurveyMultiManager = require('./SurveyMultiManager.js')
        this.surveyTemplate = surveyAllTemplates
        this.surveyConfig = null
        this.monkeyManager = new MonkeyManager()
+       this.logNew = new LogManager(sourceFile, "constructor")
     }
 
     integrateSurveyWithMonkey = async () => {
@@ -603,13 +606,13 @@ const SurveyMultiManager = require('./SurveyMultiManager.js')
     
 
     processTemplate = async () => {
-      this.log.functionName="processTemplate"
-      const log = this.log
-      const surveyConfig = this.surveyConfig
+      // this.log.functionName="processTemplate"
+      // const log = this.log
+      //const surveyConfig = this.surveyConfig
       const superSurveyConfig = this.surveyTemplate
       const owner = this.owner
 
-      const surveySuperior = new SurveySuperiorManager(superSurveyConfig.surveySuperiors, owner)
+      const surveySuperior = new SurveySuperiorManager(superSurveyConfig.surveySuperiors.surveySuperior, owner)
       const surveySuperiorResult = await surveySuperior.save()
 
       const surveys = new SurveyManager(superSurveyConfig.surveys, owner)
@@ -625,11 +628,11 @@ const SurveyMultiManager = require('./SurveyMultiManager.js')
       const calculatedFieldsResult = await calculatedFields.save()
       surveySuperiorResult.calculatedFieldsResult=calculatedFieldsResult
 
-      const outputLayouts = new SurveySuperiorOutputLayoutManager(superSurveyConfig.multiSurveys.outputLayout, surveySuperiorResult[0]._id)
+      const outputLayouts = new SurveySuperiorOutputLayoutManager(superSurveyConfig.surveySuperiors.outputLayout, surveySuperiorResult[0]._id, superSurveyConfig.surveySuperiors.surveySuperior[0].superSurveyShortName)
       const outputLayoutsResult = await outputLayouts.save()
       surveySuperiorResult.outputLayoutsResult=outputLayoutsResult
 
-      const surveyMulti = new SurveyMultiManager (superSurveyConfig.multiSurveys.surveys, surveySuperiorResult[0]._id, surveysResult)
+      const surveyMulti = new SurveyMultiManager (superSurveyConfig.surveySuperiors.multiSurveys.surveys, surveySuperiorResult[0]._id, surveysResult)
       const surveyMultiResult = await surveyMulti.save()
       surveySuperiorResult.surveyMultiResult=surveyMultiResult
 

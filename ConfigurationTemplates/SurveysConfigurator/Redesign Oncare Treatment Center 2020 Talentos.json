@@ -1,24 +1,11 @@
 {
-   "surveySuperiors": [
-      {
-         "surveyName": "Oncare Treatment Center 2020 Talentos",
-         "superSurveyShortName": "TALENTOS_2020",
-         "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020"
-      }
-   ],
-
-   "multiSurveys": {
-      "surveys": [
-         { "surveyShortName": "INFO", "position": 10, "monkeyPosition": 0 },
-         { "surveyShortName": "Datos", "position": 20, "monkeyPosition": 1 },
-         { "surveyShortName": "CSG", "position": 30, "monkeyPosition": 2 },
-         { "surveyShortName": "Fiad-15", "position": 40, "monkeyPosition": 3 },
-         { "surveyShortName": "BURN", "position": 50, "monkeyPosition": 4 },
-         { "surveyShortName": "ESTRES", "position": 60, "monkeyPosition": 5 },
-         { "surveyShortName": "HAMILTON", "position": 70, "monkeyPosition": 6 },
-         { "surveyShortName": "JEFF", "position": 80, "monkeyPosition": 7 },
-         { "surveyShortName": "BECK", "position": 90, "monkeyPosition": 8 },
-         { "surveyShortName": "SCL90", "position": 100, "monkeyPosition": 10 }
+   "surveySuperiors": {
+      "surveySuperior": [
+         {
+            "surveyName": "Oncare Treatment Center 2020 Talentos",
+            "superSurveyShortName": "TALENTOS_2020",
+            "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020"
+         }
       ],
       "outputLayout": [
          {
@@ -2354,7 +2341,37 @@
             "showInOutputScreen": true,
             "position": 951
          }
-      ]
+      ],
+      "multiSurveys": {
+         "surveys": [
+            { "surveyShortName": "INFO", "position": 10, "monkeyPosition": 0 },
+            { "surveyShortName": "Datos", "position": 20, "monkeyPosition": 1 },
+            { "surveyShortName": "CSG", "position": 30, "monkeyPosition": 2 },
+            {
+               "surveyShortName": "Fiad-15",
+               "position": 40,
+               "monkeyPosition": 3
+            },
+            { "surveyShortName": "BURN", "position": 50, "monkeyPosition": 4 },
+            {
+               "surveyShortName": "ESTRES",
+               "position": 60,
+               "monkeyPosition": 5
+            },
+            {
+               "surveyShortName": "HAMILTON",
+               "position": 70,
+               "monkeyPosition": 6
+            },
+            { "surveyShortName": "JEFF", "position": 80, "monkeyPosition": 7 },
+            { "surveyShortName": "BECK", "position": 90, "monkeyPosition": 8 },
+            {
+               "surveyShortName": "SCL90",
+               "position": 100,
+               "monkeyPosition": 10
+            }
+         ]
+      }
    },
    "surveys": [
       {

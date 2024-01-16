@@ -6,7 +6,7 @@ const { LogManager, L3} = require("./LogManager.js")
 const { addPropertyValueInArray } = require("../utils/Functions.js")
 
 const identifierFieldName = "superSurveyShortName"
-const sourceFilename = "SurveSuperiorManager.js"
+const sourceFilename = "SurveyManager.js"
 
 class SurveyManager extends TemplateManager {
     constructor(templateList, owner){

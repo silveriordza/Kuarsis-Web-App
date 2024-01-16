@@ -20,9 +20,9 @@ class SurveyQuestionManager extends TemplateManager {
             SurveyQuestion,
             identifierFieldName
             )
-            this.logChild = new LogManager (sourceFilename, "constructor")
-            this.logChild.LogThis(`START`, L3)
-            this.logChild.HasDataException(templateListToLink)
+            this.log = new LogManager (sourceFilename, "constructor")
+            this.log.LogThis(`START`, L3)
+            this.log.HasDataException(templateListToLink)
             this.templateListToLink = templateListToLink
             //this.templateListToLinkLean = templateListToLink.map(template => (template.toObject({ virtuals: true, getters: true })))
                         
