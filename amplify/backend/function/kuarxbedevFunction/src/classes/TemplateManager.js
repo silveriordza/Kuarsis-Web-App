@@ -7,8 +7,7 @@ class TemplateManager {
     constructor(templateList, collection, identiferFieldName, owner=''){
         this.log = new LogManager("TemplateManager.js", "constructor")
         this.log.LogThis(`START`, L3)
-        this.log.HasDataMultipeEx("templateList, collection, identiferFieldName",
-        templateList, collection, identiferFieldName)
+        
         this.mongoDBManager = new MongoDBManager(collection)
         this.templateList = templateList
         this.collection = collection
@@ -34,6 +33,9 @@ class TemplateManager {
     }
      //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
      getIdentifiersList = () => {
+        this.log.HasDataMultipeEx("templateList, identiferFieldName",
+        this.templateList, this.identiferFieldName)
+
         this.identifiersList = this.templateList.map(template => (template[this.identiferFieldName]))
         return this.identifiersList
     }
@@ -41,6 +43,9 @@ class TemplateManager {
     
 
     async save () {
+        this.log.HasDataMultipeEx("templateList, collection, identiferFieldName",
+        this.templateList, this.collection, this.identiferFieldName)
+
         await this.deleteAllMatchingTemplates()
 
         this.templateStoredInDB = this.mongoDBManager.insertMany(this.templateList)

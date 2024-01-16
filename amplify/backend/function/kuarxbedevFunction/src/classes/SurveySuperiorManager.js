@@ -9,7 +9,7 @@ const identifierFieldName = "surveyShortName"
 const sourceFilename = "SurveSuperiorManager.js"
 
 class SurveySuperiorManager extends TemplateManager {
-    constructor(templateList, owner){
+    constructor(templateList=null, owner=''){
         super(    
             templateList,
             SurveySuperior,
@@ -22,7 +22,8 @@ class SurveySuperiorManager extends TemplateManager {
             this.preProcessTemplate()
         }
         preProcessTemplate = () => 
-        {
+        {   this.log.HasDataMultipeEx("templateList, owner",
+        this.templateList, this.owner)
             addPropertyValueInArray(this.templateList, "owner", this.owner)
         }
         
