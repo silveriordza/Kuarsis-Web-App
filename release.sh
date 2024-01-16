@@ -11,14 +11,17 @@ echo " The return value is: $returnedValue"
 
 if [ "$returnedValue" -ge 2 ]; then
 echo "$result"
-# echo "no y"
 return 1
 fi
 
-# echo "Process not exited"
+tagVersion="$1"
+comment="$2"
 
-# git add .
-# git commit -m 'Intermediate commig to backup local changes'
+
+git add .
+git commit -m 'Intermediate commig to backup local changes'
+
+source commitwmsh.sh
 # localBranchName=$(git branch --show-current)
 # git push origin $localBranchName
  
