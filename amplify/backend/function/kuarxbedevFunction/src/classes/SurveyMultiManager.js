@@ -1,50 +1,44 @@
-const TemplateManager = require("./TemplateManager")
-let {
-    SurveyMulti
- } = require('../models/surveysModel.js')
+const SurveyFieldManager = require("./SurveyFieldManager")
 const { LogManager, L3} = require("./LogManager.js")
-const { addPropertyMatchingValueInArray, addPropertyValueInArray } = require("../utils/Functions.js")
-
-
- const identifierFieldName = "surveyShortName"
- const templateLinkField = "surveyShortName"
- const referenceField = "surveyId"
- const externalIdField = "_id"
+const { addPropertyMatchingValueInArray } = require("../utils/Functions.js")
 
 const sourceFilename = "SurveyMultiManager.js"
 
-class SurveyMultiManager extends TemplateManager {
-    constructor(templateList, superSurveyId, templateListToLink){
-        super(    
-            templateList,
-            SurveyMulti,
-            identifierFieldName
+class SurveyMultiManager extends SurveyFieldManager {
+    constructor(collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField){
+        super(     
+            collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField
             )
-            this.logChild = new LogManager (sourceFilename, "constructor")
-            this.logChild.LogThis(`START`, L3)
-            this.logChild.HasDataException(templateListToLink)
-            this.templateListToLink = templateListToLink
-            this.superSurveyId = superSurveyId
-            //this.templateListToLinkLean = templateListToLink.map(template => (template.toObject({ virtuals: true, getters: true })))
-                        
-            this.preProcessTemplate()
+            this.log = new LogManager (sourceFilename, "constructor")
+            this.log.LogThis(`START`, L3)
+            this.preProcessTemplate = this.preProcessTemplate.bind(this); // Bind A to 
         }
         
-
-    //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
-    preProcessTemplate = () => {
         
-        addPropertyValueInArray(this.templateList, "superSurveyId", this.superSurveyId)
-        addPropertyMatchingValueInArray(
-            this.templateList,
-            referenceField,
-            templateLinkField,
-            externalIdField,
-            this.templateListToLink)
-            //SurveyQuestionManager.referenceField='hola'
-    }
-    //deleteAllExistentTemplates is implemented in the parent class TemplateManager, no override required.
+     //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
+    preProcessTemplate ()  {
+        // addPropertyMatchingValueInArray(
+        //     this.templateList,
+        //     this.referencedLinkField,
+        //     this.templateFieldToLink,
+        //     this.externalLinkField,
+        //     this.collectionToLink)
+        this.setOneToManyConstantLink(this.linkField, this.linkValue)
+        this.prepareOneToManyConstantTemplate()
 
+        
+    }
+
+    async save(templateList, collectionToLInk, linkField, linkValue){
+        this.log.setFunctionName('save')
+        this.templateList=templateList
+        this.linkField=linkField 
+        this.linkValue=linkValue[0][this.externalLinkField]
+        this.collectionToLink=collectionToLInk
+        
+        SurveyMultiManager.prototype.preProcessTemplate.call(this);
+        return await super.save(this.templateList, this.collectionToLink)
+    }
     
 }
 

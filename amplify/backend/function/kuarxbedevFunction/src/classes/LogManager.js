@@ -19,12 +19,12 @@ class LogManager {
 
 
 setLogSettings(fileName = '', functionName = '') {
-   this.fileName = fileName
-   this.functionName = functionName
+   this.logSettings.fileName = fileName
+   this.logSettings.functionName = functionName
 }
 
 setFunctionName(functionName = '') {
-    this.functionName = functionName
+    this.logSettings.functionName = functionName
  }
 
 LogThis = (logMessage, level = L3) => {

@@ -2,17 +2,17 @@ const { addPropertyValueInArray } = require("../utils/Functions")
 const { LogManager, L0, L3} = require("./LogManager")
 const MongoDBManager = require("./MongoDBManager")
 
-
 class TemplateManager {
-    constructor(templateList, collection, identiferFieldName, owner=''){
+    constructor(/*templateList,*/ collection, identiferFieldName){
         this.log = new LogManager("TemplateManager.js", "constructor")
         this.log.LogThis(`START`, L3)
         
         this.mongoDBManager = new MongoDBManager(collection)
-        this.templateList = templateList
+        this.oneToManyLinkField = ''
+        this.oneToManyLinkValue = ''
+        this.templateList = null
         this.collection = collection
         this.identiferFieldName = identiferFieldName
-        this.owner = owner
         this.identifiersList = null
     }
 
@@ -39,8 +39,15 @@ class TemplateManager {
         this.identifiersList = this.templateList.map(template => (template[this.identiferFieldName]))
         return this.identifiersList
     }
-
-    
+    setOneToManyConstantLink(oneToManyLinkField, oneToManyLinkValue){
+        this.oneToManyLinkField=oneToManyLinkField
+        this.oneToManyLinkValue=oneToManyLinkValue
+    }
+    prepareOneToManyConstantTemplate = () => 
+        {   this.log.HasDataMultipeEx(`templateList, ${this.oneToManyLinkField}`,
+            this.templateList, this.oneToManyLinkValue)
+            addPropertyValueInArray(this.templateList, this.oneToManyLinkField, this.oneToManyLinkValue)
+        }
 
     async save () {
         this.log.HasDataMultipeEx("templateList, collection, identiferFieldName",

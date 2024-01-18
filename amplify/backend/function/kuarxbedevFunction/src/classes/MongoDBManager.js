@@ -8,7 +8,7 @@ const Schema = mongoose.Schema
 
 class MongoDBManager {
    constructor(collection) {
-      this.collection = collection
+      this.collection = mongoose.model(collection)
       this.log = new LogManager('MongoDBManager.js', 'constructor')
    }
 

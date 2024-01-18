@@ -85,13 +85,23 @@ const addPropertyMatchingValueInArray = (
    externalIdField,
    matchingValueArray,
 ) => {
+   console.log(`start again`)
    objectsList.forEach(object => {
-      object[fieldNameToAdd] = matchingValueArray.find(matchingValue => {
+      let idFound = matchingValueArray.find(matchingValue => {
+         console.log(
+            `${object[matchingField]}; ${matchingValue[matchingField]} ;${
+               object['fieldName']
+            }; condition: ${
+               object[matchingField].toLowerCase() ===
+               matchingValue[matchingField].toLowerCase()
+            }`,
+         )
          return (
             object[matchingField].toLowerCase() ===
             matchingValue[matchingField].toLowerCase()
          )
-      })[externalIdField]
+      })
+      object[fieldNameToAdd] = idFound[externalIdField]
    })
 }
 
