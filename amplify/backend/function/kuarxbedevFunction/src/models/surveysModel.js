@@ -159,6 +159,7 @@ const surveyModel = mongoose.Schema(
       surveyShortName: { type: String, required: true, unique: true },
       description: { type: String, required: false },
       instructions: { type: String, required: false },
+      position: { type: Number, required: false, default: 0 },
       //monkeyId and monkeyPosition names changed to monkeyId and monkeyPosition and moved inside the monkeyInfo
       // monkeyId: { type: String, required: false, default: '' },
       // monkeyPosition: { type: Number, required: false, default: 0 },
@@ -199,6 +200,7 @@ const surveySuperiorModel = mongoose.Schema(
       surveyName: { type: String, required: true },
       superSurveyShortName: { type: String, required: true, unique: true },
       description: { type: String, required: false },
+      position: { type: Number, required: false, default: 0 },
       monkeyInfo: { monkeyId: { type: Number, required: false } },
       //monkeyId: { type: String, required: false, default: '' },
    },
@@ -265,6 +267,22 @@ const MonkeyNewResponse = mongoose.model(
    monkeyNewResponseModel,
 )
 
+const superSurveyMonkey = mongoose.Schema(
+   {
+      superSurveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SurveySuperior',
+      },
+      superSurveyShortName: { type: String, required: true, unique: true },
+      survey: { type: mongoose.Schema.Types.Mixed, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+const SuperSurveyMonkey = mongoose.model('SuperSurveyMonkey', superSurveyMonkey)
+
 module.exports = {
    SurveySuperior,
    Survey,
@@ -274,4 +292,5 @@ module.exports = {
    SurveySuperiorOutputLayout,
    MonkeyConfig,
    MonkeyNewResponse,
+   SuperSurveyMonkey,
 }

@@ -4,7 +4,8 @@
          {
             "surveyName": "Oncare Treatment Center 2020 Talentos",
             "superSurveyShortName": "TALENTOS_2020",
-            "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020"
+            "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
+            "position": 1
          }
       ],
       "outputLayout": [
@@ -2375,64 +2376,74 @@
    },
    "surveys": [
       {
-         "surveyName": "positionlectionInformation",
+         "surveyName": "INFO",
          "surveyShortName": "INFO",
          "description": "Informacion de la ecuesta recolectada.",
-         "instructions": ""
+         "instructions": "",
+         "position": 1
       },
       {
          "surveyName": "Datos",
          "surveyShortName": "Datos",
          "description": "Informacion de la persona encuestada.",
-         "instructions": ""
+         "instructions": "",
+         "position": 10
       },
       {
          "surveyName": "Cuestionario General de Salud.",
          "surveyShortName": "CSG",
          "description": "Cuestionario General de Salud.",
-         "instructions": ""
+         "instructions": "",
+         "position": 20
       },
       {
          "surveyName": "Fiad-15",
          "surveyShortName": "Fiad-15",
-         "description": "Cuestionario de Maslach (Burnout Inventory)",
-         "instructions": "FIAD-15 (NOFP)Instrucciones: El FIAD-15 le ayudará a describir sus ideas; sentimientos y actitudes hacia sí mismo y hacía los demás. Los resultados podrían ayudarle a conocerse a sí mismo o a identificar la naturaleza de sus problemas y la mejor manera de ayudarle a usted en particular. Lea cuidadosamente cada uno de los enunciados; todos describen formas y maneras de ser de las personas. Después de leer cada enunciado decida qué número (del 0 al 4) corresponde a lo más cercano a su manera de ser. Todos los enunciados son en algún grado posibles; no hay respuestas correctas o incorrectas; todas son válidas y solo tiene que contestar con lo que venga a su mente como el mejor número que lo describa. Tome el tiempo que requiera para contestar; pero se le recomienda responder tan rápido como le sea posible."
+         "description": "Fiad-15",
+         "instructions": "FIAD-15 (NOFP)Instrucciones: El FIAD-15 le ayudará a describir sus ideas; sentimientos y actitudes hacia sí mismo y hacía los demás. Los resultados podrían ayudarle a conocerse a sí mismo o a identificar la naturaleza de sus problemas y la mejor manera de ayudarle a usted en particular. Lea cuidadosamente cada uno de los enunciados; todos describen formas y maneras de ser de las personas. Después de leer cada enunciado decida qué número (del 0 al 4) corresponde a lo más cercano a su manera de ser. Todos los enunciados son en algún grado posibles; no hay respuestas correctas o incorrectas; todas son válidas y solo tiene que contestar con lo que venga a su mente como el mejor número que lo describa. Tome el tiempo que requiera para contestar; pero se le recomienda responder tan rápido como le sea posible.",
+         "position": 30
       },
       {
          "surveyName": "Cuestionario de Maslach (Burnout Inventory)",
          "surveyShortName": "BURN",
          "description": "Cuestionario de Maslach (Burnout Inventory)",
-         "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta"
+         "instructions": "Deberá responder frente a cada una de estas afirmaciones, en función de la escala que se presenta",
+         "position": 40
       },
       {
          "surveyName": "ESTRES",
          "surveyShortName": "ESTRES",
          "description": "NIVEL DE ESTRES",
-         "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año."
+         "instructions": "Instrucciones: a continuación marque los sucesos que ha vivido en el último año.",
+         "position": 50
       },
       {
          "surveyName": "HAMILTON",
          "surveyShortName": "HAMILTON",
          "description": "ESCALA DE ANSIEDAD DE HAMILTON",
-         "instructions": "Instrucciones: La respuesta corresponde a los 7 días previos. Deberá calificarse el grado de intensidad de acuerdo a la siguiente escala. Anotando el número correspondiente dentro del paréntesis."
+         "instructions": "Instrucciones: La respuesta corresponde a los 7 días previos. Deberá calificarse el grado de intensidad de acuerdo a la siguiente escala. Anotando el número correspondiente dentro del paréntesis.",
+         "position": 60
       },
       {
          "surveyName": "JEFF STATIC",
          "surveyShortName": "JEFF",
          "description": "ESCALA DE ACTITUDES JEFFERSON HACIA LA COLABORACION INTERPROFESIONAL (JeffSTATIC)",
-         "instructions": "Instrucciones: Indique el grado hasta el que está de acuerdo o en desacuerdo con cada una de las siguientes afirmaciones según la siguiente escala."
+         "instructions": "Instrucciones: Indique el grado hasta el que está de acuerdo o en desacuerdo con cada una de las siguientes afirmaciones según la siguiente escala.",
+         "position": 70
       },
       {
          "surveyName": "INVENTARIO DE DEPRESION DE BECK",
          "surveyShortName": "BECK",
          "description": "INVENTARIO DE DEPRESION DE BECK",
-         "instructions": "A continuación señala cuál de las afirmaciones de cada grupo describe mejor cómo se ha sentido durante esta última semana, incluido en el día de hoy. Si dentro de un mismo grupo, hay más de una afirmación que considere aplicable a su caso, márquela también. Asegúrese de leer todas las afirmaciones dentro de cada grupo antes de efectuar la elección."
+         "instructions": "A continuación señala cuál de las afirmaciones de cada grupo describe mejor cómo se ha sentido durante esta última semana, incluido en el día de hoy. Si dentro de un mismo grupo, hay más de una afirmación que considere aplicable a su caso, márquela también. Asegúrese de leer todas las afirmaciones dentro de cada grupo antes de efectuar la elección.",
+         "position": 80
       },
       {
          "surveyName": "SCL 90",
          "surveyShortName": "SCL90",
          "description": "SCL 90",
-         "instructions": "Señale hasta que punto se ha sentido molesto por el síntoma:"
+         "instructions": "Señale hasta que punto se ha sentido molesto por el síntoma:",
+         "position": 90
       }
    ],
    "questions": [

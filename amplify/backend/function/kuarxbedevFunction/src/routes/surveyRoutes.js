@@ -60,7 +60,7 @@ router
 router.route('/:id/surveymonkey').post(protect, admin, updateMonkeyConfigs)
 
 router
-   .route('/surveymonkey')
+   .route('/:id/integratemonkey')
    .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
 
 router.route('/surveymonkey/test').get(protect, admin, testMonkey)

@@ -1,6 +1,6 @@
 /** @format */
 
-const { HasDataException } = require('../utils/Logger')
+const { j } = require('../utils/Logger')
 const { saveDynamicModelToDB } = require('../utils/mongoDbHelper')
 const { LogManager, L3 } = require('./LogManager')
 const mongoose = require('mongoose')
@@ -44,7 +44,7 @@ class MongoDBManager {
       }
    }
 
-   deleteManyWithCheck = async (filterByField, identifiersList) => {
+   async deleteManyWithCheck(filterByField, identifiersList) {
       this.log.setFunctionName('deleteManyWithCheck')
       const filter = {}
       filter[filterByField] = { $in: identifiersList }
@@ -76,15 +76,15 @@ class MongoDBManager {
       return results
    }
 
-   useCollection = collection => {
+   useCollection(collection) {
       this.collection = collection
       return mongoose.model(model)
    }
-   useCollectionByStringName = collection => {
+   useCollectionByStringName(collection) {
       this.collection = mongoose.model(model)
    }
 
-   createDynamicCollectionFromFields = async (modelName, modelFields) => {
+   async createDynamicCollectionFromFields(modelName, modelFields) {
       const collections = await mongoose.connection.db
          .listCollections({ name: modelName })
          .toArray()
@@ -122,27 +122,23 @@ class MongoDBManager {
          modelName,
          surveyOutputCollectionSchema,
       )
-
-      //saveDynamicModelToDB(modelName, surveyOutputColumns)
       await saveDynamicModelToDB(modelName, surveyOutputColumns)
+   }
 
-      // await DynamicCollection.deleteOne({
-      //   collectionName: modelName,
-      // });
+   leanCollectionList(collectionList) {
+      let leanList = collectionList.map(collection =>
+         collection.toObject({ virtuals: true, getters: true }),
+      )
+      //leanList = j(leanList)
+      return leanList
+   }
+   async findSortedAsc(filter) {
+      //this.log.HasDataException(collectionList, `Collection List is empty`)
+      this.log.setFunctionName('find')
 
-      // const schemaDefinition = {
-      //   field1: String,
-      //   field2: Number,
-      //   // Add more fields as needed
-      // };
-      // const dynamicCollection = new DynamicCollection();
-      // dynamicCollection.collectionName = modelName;
-      // dynamicCollection.schemaDefinition = schemaDefinition;
+      const results = await this.collection.find(filter).sort({ position: 1 })
 
-      // const createdDynamicCollection = await dynamicCollection.save();
-      // if (!createdDynamicCollection) {
-      //   throw new Error(`DynamicCollection couldn't be created`);
-      // }
+      return results
    }
 }
 

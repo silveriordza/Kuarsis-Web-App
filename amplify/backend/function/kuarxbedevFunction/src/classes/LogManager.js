@@ -3,6 +3,7 @@ const L0 = 0
 const L1 = 1
 const L2 = 2
 const L3 = 3
+
         
 class LogManager {
     constructor(fileName = '', functionName = ''){
@@ -12,7 +13,7 @@ class LogManager {
     }
     }
 
- j = value => {
+ j ( value)  {
    return JSON.stringify(value, null, 1)
 }
 
@@ -27,7 +28,7 @@ setFunctionName(functionName = '') {
     this.logSettings.functionName = functionName
  }
 
-LogThis = (logMessage, level = L3) => {
+LogThis  (logMessage, level = L3)  {
    if (level != OFF && process.env.LOG_LEVEL != OFF) {
       const LOG_LEVEL = process.env.LOG_LEVEL
 
@@ -48,7 +49,7 @@ LogThis = (logMessage, level = L3) => {
    }
 }
 
-validateVars = (logLevel, varNamesIn, vars) => {
+validateVars (logLevel, varNamesIn, vars)  {
    let varNames = null
    if (varNamesIn && varNamesIn != '' && vars && vars.length > 0) {
       const varNamesClean = varNamesIn.replace(/\s/g, '')
@@ -82,7 +83,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @param {*} varNamesIn - String comma separated list of variable names
  * @param  {...any} vars - The variables themselves
  */
- LogVars = (msg, level, varNamesIn, ...vars) => {
+ LogVars  (msg, level, varNamesIn, ...vars)  {
    //const logLocal = new LoggerSettings(srcFileName, 'LogVars')
 
    const varMap = {}
@@ -92,7 +93,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
    for (let i = 0; i < varNames.length; i++) {
       varMap[varNames[i]] = vars[i]
    }
-   LogThis(`${msg}: vars=${j(varMap)}`, level)
+   this.LogThis(`${msg}: vars=${this.j(varMap)}`, level)
 }
 
 /**
@@ -105,22 +106,22 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @param {*} varNamesIn - String comma separated list of how you want the vars elements to be named, position should match the position of the vars elements.
  * @param  {...any} vars - List of variables to display, position should match with the position in varNamesIn
  */
- LogVarsFilter = (
+ LogVarsFilter (
    msg,
    filterBy,
    filterValue,
    level,
    varNamesIn,
    ...vars
-) => {
+)  {
 
-   LogThis(
+   this.LogThis(
       `filterBy=${filterBy}; filterValue=${filterValue}; condition=${
          filterBy == filterValue
       }`,
    )
    if (filterBy == filterValue) {
-      LogVars(msg, level, varNamesIn, ...vars)
+      this.LogVars(msg, level, varNamesIn, ...vars)
    }
 }
 
@@ -132,9 +133,9 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @param {*} filterValue - Log messages will be logged when filterBy variable value matches with filterValue.
  * @param {*} level - Log level when when this log message will show up, default is L0.
  */
- LogThisFilter = (msg, filterBy, filterValue, level = L0) => {
+ LogThisFilter (msg, filterBy, filterValue, level = L0) {
    if (filterBy == filterValue) {
-      LogThis(msg, level)
+      this.LogThis(msg, level)
    }
 }
 
@@ -143,7 +144,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @param {*} dataToCheck - could be an array, object, string or number, it will check if it contains data.
  * @returns - true if the value has data, false otherwise.
  */
- HasData = dataToCheck => {
+ HasData (dataToCheck)  {
    const typeOfData = typeof dataToCheck
    if ( dataToCheck &&
          ((Array.isArray(dataToCheck) && dataToCheck.length > 0) ||
@@ -165,7 +166,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
  * @param {*} dataToCheck
  * @param {*} logMessage
  */
- HasDataException = (dataToCheck, logMessage='') => {
+ HasDataException (dataToCheck, logMessage='')  {
    if (!this.HasData(dataToCheck)) {
       throw new Error(
          `${new Date().toLocaleTimeString()} ${this.logSettings?.fileName ?? 'NA'} ${
@@ -175,7 +176,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
    }
 }
 
- HasDataMultipeEx = (varNamesIn, ...vars) => {
+ HasDataMultipeEx (varNamesIn, ...vars) {
    const varNames = this.validateVars(L0, varNamesIn, vars)
    for (let i = 0; i < varNames.length; i++) {
       this.HasDataException(
@@ -187,7 +188,7 @@ validateVars = (logLevel, varNamesIn, vars) => {
    }
 }
 
- SetDebugSection = (debugSectionNumber = process.env.LOG_LEVEL) => {
+ SetDebugSection(debugSectionNumber = process.env.LOG_LEVEL)  {
    process.env.LOG_LEVEL = debugSectionNumber
 }
 }

@@ -104,15 +104,9 @@ const createSuperSurvey = asyncHandler(async (req, res) => {
    const superSurveyConfig = req.body
    let ownerId = req.user._id
 
-   // await SurveySuperior.deleteMany({})
-   // await Survey.deleteMany({})
-   // await SurveyQuestion.deleteMany({})
-   // //await SurveyMulti.deleteMany({});
-   // await SurveyCalculatedField.deleteMany({})
-   // await SurveySuperiorOutputLayout.deleteMany({})
-
-   const templateManager = new SurveyTemplateManager(superSurveyConfig, ownerId)
-   const superSurveyTemplate = await templateManager.processTemplate()
+   const templateManager = new SurveyTemplateManager()
+   templateManager.activateTemplateSaver(superSurveyConfig, ownerId)
+   const superSurveyTemplate = await templateManager.saveTemplate()
 
    console.log('about to respond')
    res.status(201).json({
@@ -144,9 +138,10 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
    async (req, res) => {
       const functionName = 'superSurveyCreateConfigIntegratedWithMonkey'
       const log = new LoggerSettings(srcFileName, functionName)
-      const { surveyConfigTemplate } = req.body
-      let ownerId = req.user._id
-      surveyConfigTemplate.owner = ownerId
+      //const { surveyConfigTemplate } = req.body
+      //let ownerId = req.user._id
+      //surveyConfigTemplate.owner = ownerId
+      const superSurveyShortName = req.params.id
 
       // const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
@@ -163,18 +158,20 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
       //   },
       // };
 
-      const surveyTemplateManager = new SurveyTemplateManager(
-         surveyConfigTemplate,
-         ownerId,
-      )
-      const superSurveyConfig = await surveyTemplateManager.process()
+      const surveyTemplateManager = new SurveyTemplateManager()
+
+      const superSurveyConfig =
+         await surveyTemplateManager.integrateSurveyWithMonkey(
+            superSurveyShortName,
+         )
 
       res.status(201).json({
-         surveySuperiorId: createdSurveySuperior._id,
-         surveysCreated: surveysCreated,
-         questionsCreated: questionsCreated,
-         createdOutputLayout: createdOutputLayout,
-         surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+         superSurveyConfig: superSurveyConfig,
+         // surveySuperiorId: createdSurveySuperior._id,
+         // surveysCreated: surveysCreated,
+         // questionsCreated: questionsCreated,
+         // createdOutputLayout: createdOutputLayout,
+         // surveyOutputCollectionSchema: surveyOutputCollectionSchema,
       })
    },
 )

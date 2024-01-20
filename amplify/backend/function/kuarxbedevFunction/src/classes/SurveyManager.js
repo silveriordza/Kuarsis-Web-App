@@ -22,6 +22,28 @@ class SurveyManager extends TemplateManager {
             this.prepareOneToManyConstantTemplate()
             return await super.save()
         }
+        
+        async load(identifierValue){
+            this.log.setFunctionName("load")
+            this.filter = {}
+            this.identifierValue = identifierValue
+
+            this.filter[this.identifierFieldName]=identifierValue
+            
+            return await super.load(this.filter) 
+        }
+
+        async loadMatchList (matchListValues, matchField){
+            this.log.setFunctionName("loadMatchList")
+            this.log.HasDataMultipeEx("matchListValues, matchField", matchListValues, matchField)
+            const matchValues = matchListValues.map(matchValue => matchValue[matchField])
+            
+            this.filter = {}
+            this.identifierValues = matchValues
+            this.filter[this.identifierFieldName]={$in: matchValues}
+            return await super.load(this.filter)
+        }
+
     }
 
 module.exports = SurveyManager

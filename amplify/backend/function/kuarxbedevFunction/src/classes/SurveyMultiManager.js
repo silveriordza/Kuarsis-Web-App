@@ -17,16 +17,8 @@ class SurveyMultiManager extends SurveyFieldManager {
         
      //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
     preProcessTemplate ()  {
-        // addPropertyMatchingValueInArray(
-        //     this.templateList,
-        //     this.referencedLinkField,
-        //     this.templateFieldToLink,
-        //     this.externalLinkField,
-        //     this.collectionToLink)
         this.setOneToManyConstantLink(this.linkField, this.linkValue)
         this.prepareOneToManyConstantTemplate()
-
-        
     }
 
     async save(templateList, collectionToLInk, linkField, linkValue){
