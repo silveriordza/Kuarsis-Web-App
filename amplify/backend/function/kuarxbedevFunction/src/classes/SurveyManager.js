@@ -1,49 +1,80 @@
-const TemplateManager = require("./TemplateManager")
-const { LogManager, L3} = require("./LogManager.js")
+/** @format */
 
-const sourceFilename = "SurveyManager.js"
+const SurveyTemplateManager = require('./SurveyTemplateManager')
+const { LogManager, L3 } = require('./LogManager.js')
 
-class SurveyManager extends TemplateManager {
-    constructor(collectionName, identifierFieldName){
-        super(    
-            //templateList,
-            collectionName,
-            identifierFieldName,
-            //owner,
-            )
-            this.log = new LogManager (sourceFilename, "constructor")
-            this.log.LogThis(`START`, L3)
-        }
-        async save(templateList, linkField, linkValue){
-            this.log.setFunctionName("Save")
-            this.log.LogThis(`START`, L3)
-            this.setOneToManyConstantLink(linkField, linkValue)
-            this.templateList=templateList
-            this.prepareOneToManyConstantTemplate()
-            return await super.save()
-        }
-        
-        async load(identifierValue){
-            this.log.setFunctionName("load")
-            this.filter = {}
-            this.identifierValue = identifierValue
+const collectionName = 'Survey'
+const identifierFieldName = '_id'
+const sourceFilename = 'SurveyManager.js'
 
-            this.filter[this.identifierFieldName]=identifierValue
-            
-            return await super.load(this.filter) 
-        }
+const surveyQuestionsComboFieldName = 'questions'
+const questionsLinkField = 'surveyId'
 
-        async loadMatchList (matchListValues, matchField){
-            this.log.setFunctionName("loadMatchList")
-            this.log.HasDataMultipeEx("matchListValues, matchField", matchListValues, matchField)
-            const matchValues = matchListValues.map(matchValue => matchValue[matchField])
-            
-            this.filter = {}
-            this.identifierValues = matchValues
-            this.filter[this.identifierFieldName]={$in: matchValues}
-            return await super.load(this.filter)
-        }
+const surveyCalculatedFieldsComboFieldName = 'calculatedFields'
+const calculatedFieldsLinkField = 'surveyId'
 
-    }
+class SurveyManager extends SurveyTemplateManager {
+   constructor() {
+      super(collectionName, identifierFieldName)
+      this.log = new LogManager(sourceFilename, 'constructor')
+      this.log.LogThis(`START`, L3)
+      this.questionComboFieldsMap = null
+      this.calcualtedFieldsComboFieldsMap = null
+
+      this.sourceFilename = sourceFilename
+
+      this.surveyQuestionsComboFieldName = surveyQuestionsComboFieldName
+      this.questionsLinkField = questionsLinkField
+
+      this.surveyCalculatedFieldsComboFieldName =
+         surveyCalculatedFieldsComboFieldName
+      this.calculatedFieldsLinkField = calculatedFieldsLinkField
+   }
+
+   addFieldToComboMap(mapObject) {
+      mapObject.set('surveyShortName', 'surveyShortName')
+      //This map is to include other fields from the Survey into the combined config and the format is (fieldName in combined object, field name in the Survey config (current object))
+      mapObject.set('position', 'surveyPosition')
+   }
+
+   combineQuestionsConfig(questionsData) {
+      this.questionComboFieldsMap = new Map()
+
+      this.addFieldToComboMap(this.questionComboFieldsMap)
+
+      super.combineSurveyElements(
+         this.surveyQuestionsComboFieldName,
+         questionsData,
+         this.questionsLinkField,
+         this.questionComboFieldsMap,
+      )
+   }
+
+   combineCalculatedFieldsConfig(calculatedFieldsData) {
+      this.calcualtedFieldsComboFieldsMap = new Map()
+
+      this.addFieldToComboMap(this.calcualtedFieldsComboFieldsMap)
+
+      super.combineSurveyElements(
+         this.surveyCalculatedFieldsComboFieldName,
+         calculatedFieldsData,
+         this.calculatedFieldsLinkField,
+         this.calcualtedFieldsComboFieldsMap,
+      )
+   }
+
+   // combineMultiSurveysConfig(multiSurveys) {
+   //    this.multiSurveysComboFieldsMap = new Map()
+
+   //    this.addFieldToComboMap(this.multiSurveysComboFieldsMap)
+
+   //    super.combineSurveyElements(
+   //       this.surveyCalculatedFieldsComboFieldName,
+   //       multiSurveys,
+   //       this.calculatedFieldsLinkField,
+   //       this.calcualtedFieldsComboFieldsMap,
+   //    )
+   // }
+}
 
 module.exports = SurveyManager

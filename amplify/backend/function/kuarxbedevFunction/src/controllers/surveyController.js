@@ -9,7 +9,7 @@ const Schema = mongoose.Schema
 const axios = require('axios')
 //const { getSecretValue } = require('../awsServices/awsMiscellaneous.js')
 const MonkeyManager = require('../classes/MonkeyManager.js')
-const SurveyTemplateManager = require('../classes/SurveyTemplateManager.js')
+const SurveyProcessManager = require('../classes/SurveyProcessManager.js')
 
 let asyncHandler = require('express-async-handler')
 
@@ -104,7 +104,7 @@ const createSuperSurvey = asyncHandler(async (req, res) => {
    const superSurveyConfig = req.body
    let ownerId = req.user._id
 
-   const templateManager = new SurveyTemplateManager()
+   const templateManager = new SurveyProcessManager()
    templateManager.activateTemplateSaver(superSurveyConfig, ownerId)
    const superSurveyTemplate = await templateManager.saveTemplate()
 
@@ -158,7 +158,7 @@ const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
       //   },
       // };
 
-      const surveyTemplateManager = new SurveyTemplateManager()
+      const surveyTemplateManager = new SurveyProcessManager()
 
       const superSurveyConfig =
          await surveyTemplateManager.integrateSurveyWithMonkey(

@@ -2,11 +2,11 @@
 
 const { LogManager, L3 } = require('./LogManager.js')
 
-const SurveyManager = require('./SurveyManager.js')
+const SurveyTemplateManager = require('./SurveyTemplateManager.js')
 
 const sourceFilename = 'SurveyOutputManager.js'
 
-class SurveyOutputManager extends SurveyManager {
+class SurveyOutputManager extends SurveyTemplateManager {
    constructor(collectionName, identifierFieldName) {
       super(collectionName, identifierFieldName)
 
@@ -21,15 +21,15 @@ class SurveyOutputManager extends SurveyManager {
          `surveyOutputs_${this.superSurveyShortName}`.toLocaleLowerCase()
       return await this.mongoDBManager.createDynamicCollectionFromFields(
          surveyOutputCollectionName,
-         this.templateList,
+         this.configs,
       )
    }
 
-   async save(templateList, linkField, linkValue) {
+   async save(configs, linkField, linkValue) {
       this.superSurveyShortName = linkValue[0].superSurveyShortName
       this.superSurveyId = linkValue[0]._id
       const collectionSaved = await super.save(
-         templateList,
+         configs,
          linkField,
          this.superSurveyId,
       )

@@ -1,37 +1,49 @@
-const SurveyFieldManager = require("./SurveyFieldManager")
-const { LogManager, L3} = require("./LogManager.js")
-const { addPropertyMatchingValueInArray } = require("../utils/Functions.js")
+/** @format */
 
-const sourceFilename = "SurveyMultiManager.js"
+const SurveyTemplateManager = require('./SurveyTemplateManager')
+const { LogManager, L3 } = require('./LogManager.js')
 
-class SurveyMultiManager extends SurveyFieldManager {
-    constructor(collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField){
-        super(     
-            collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField
-            )
-            this.log = new LogManager (sourceFilename, "constructor")
-            this.log.LogThis(`START`, L3)
-            this.preProcessTemplate = this.preProcessTemplate.bind(this); // Bind A to 
-        }
-        
-        
-     //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
-    preProcessTemplate ()  {
-        this.setOneToManyConstantLink(this.linkField, this.linkValue)
-        this.prepareOneToManyConstantTemplate()
-    }
+const collectionName = 'SurveyMulti'
+const identifierFieldName = 'superSurveyId'
+const sourceFilename = 'SurveyMultiManager.js'
 
-    async save(templateList, collectionToLInk, linkField, linkValue){
-        this.log.setFunctionName('save')
-        this.templateList=templateList
-        this.linkField=linkField 
-        this.linkValue=linkValue[0][this.externalLinkField]
-        this.collectionToLink=collectionToLInk
-        
-        SurveyMultiManager.prototype.preProcessTemplate.call(this);
-        return await super.save(this.templateList, this.collectionToLink)
-    }
-    
+const surveysComboFieldName = 'surveys'
+const surveyLinkField = '_id'
+
+class SurveyMultiManager extends SurveyTemplateManager {
+   constructor() {
+      super(collectionName, identifierFieldName)
+      this.log = new LogManager(sourceFilename, 'constructor')
+      this.log.LogThis(`START`, L3)
+      this.surveysComboFieldsMap = null
+      this.surveysComboFieldName = surveysComboFieldName
+      this.surveyLinkField = surveyLinkField
+   }
+
+   addFieldToComboMap(mapObject) {
+      mapObject.set('superSurveyId', 'superSurveyId')
+      //This map is to include other fields from the Survey into the combined config and the format is (fieldName in combined object, field name in the Survey config (current object))
+      mapObject.set('position', 'position')
+      mapObject.set('monkeyPosition', 'monkeyInfo.position')
+   }
+
+   combineSurveys(surveys) {
+      this.surveysComboFieldsMap = new Map()
+
+      this.addFieldToComboMap(this.surveysComboFieldsMap)
+      this.setIdentifierFieldName('surveyId')
+      super.combineSurveyElements(
+         this.surveysComboFieldName,
+         surveys.getConfigsCombo(),
+         this.surveyLinkField,
+         this.surveysComboFieldsMap,
+      )
+   }
+
+   getSurveysCombo() {
+      this.surveys = this.getConfigsCombo().map(config => config.surveys[0])
+      return this.surveys
+   }
 }
 
 module.exports = SurveyMultiManager

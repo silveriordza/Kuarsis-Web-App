@@ -16,7 +16,7 @@ class SurveyFieldManager extends TemplateManager {
       externalLinkField,
    ) {
       super(
-         //templateList,
+         //configs,
          collectionName,
          identifierFieldName,
       )
@@ -32,7 +32,7 @@ class SurveyFieldManager extends TemplateManager {
    //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
    preProcessTemplate() {
       addPropertyMatchingValueInArray(
-         this.templateList,
+         this.configs,
          this.referencedLinkField,
          this.templateFieldToLink,
          this.externalLinkField,
@@ -40,9 +40,9 @@ class SurveyFieldManager extends TemplateManager {
       )
    }
 
-   async save(templateList, collectionToLInk) {
+   async save(configs, collectionToLInk) {
       this.log.setFunctionName('save')
-      this.templateList = templateList
+      this.configs = configs
       this.collectionToLink = collectionToLInk
       this.preProcessTemplate()
       //If I don't add the call like below with prototype and the name of the class, there was an issue because the child class of SurveyFieldManager is SurveyMiltiManager and both share the function preProcessTemplate with the same name and when the child invokes save of the parent then the parent was calling the child's preProcessTemplate if invoked form the parent with this.preProcessTemplate. To fix that I added theis explicit invokation.

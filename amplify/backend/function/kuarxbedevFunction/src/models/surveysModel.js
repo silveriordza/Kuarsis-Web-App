@@ -132,7 +132,7 @@ const surveyCalculatedFieldModel = mongoose.Schema(
       criteria: { type: mongoose.Schema.Types.Mixed, required: false },
       ////changed group name by subScale
       //group: { type: mongoose.Schema.Types.Mixed, required: false },
-      subScale: { type: mongoose.Schema.Types.Mixed, required: false },
+      subScales: { type: mongoose.Schema.Types.Mixed, required: false },
       // //changed position name by position
       // position: { type: Number, required: true },
       position: { type: Number, required: true },
@@ -159,7 +159,6 @@ const surveyModel = mongoose.Schema(
       surveyShortName: { type: String, required: true, unique: true },
       description: { type: String, required: false },
       instructions: { type: String, required: false },
-      position: { type: Number, required: false, default: 0 },
       //monkeyId and monkeyPosition names changed to monkeyId and monkeyPosition and moved inside the monkeyInfo
       // monkeyId: { type: String, required: false, default: '' },
       // monkeyPosition: { type: Number, required: false, default: 0 },
@@ -202,7 +201,6 @@ const surveySuperiorModel = mongoose.Schema(
       description: { type: String, required: false },
       position: { type: Number, required: false, default: 0 },
       monkeyInfo: { monkeyId: { type: Number, required: false } },
-      //monkeyId: { type: String, required: false, default: '' },
    },
    {
       timestamps: true,

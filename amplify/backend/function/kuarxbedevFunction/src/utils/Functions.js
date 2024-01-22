@@ -121,6 +121,45 @@ function getValueByPath(obj, path) {
    return currentObj
 }
 
+function cloneObject(object) {
+   if (object === null || typeof object !== 'object') {
+      // Base case: return primitive values and null as is
+      return object
+   }
+
+   if (Array.isArray(object)) {
+      // If the object is an array, recursively copy its elements
+      return object.map(item => cloneObject(item))
+   }
+
+   // If the object is a plain object, recursively copy its properties
+   const clonedObject = {}
+   for (const key in object) {
+      if (object.hasOwnProperty(key)) {
+         clonedObject[key] = cloneObject(object[key])
+      }
+   }
+
+   return clonedObject
+}
+
+function insertValueInNestedObjectPath(paths, nestedObject, valueToInsert) {
+   if (paths.length == 1) {
+      nestedObject[paths.shift()] = valueToInsert
+      return nestedObject
+   }
+
+   let path = paths.shift()
+   nestedObject[path] = {}
+
+   insertValueInNestedObjectPath(paths, nestedObject[path], valueToInsert)
+}
+
+function insertValueInObjectPath(pathWithDots, nestedObject, valueToInsert) {
+   let paths = pathWithDots.split('.')
+   insertValueInNestedObjectPath(paths, nestedObject, valueToInsert)
+}
+
 module.exports = {
    formatDate,
    addDecimals,
@@ -128,4 +167,7 @@ module.exports = {
    validateHasData,
    addPropertyValueInArray,
    addPropertyMatchingValueInArray,
+   cloneObject,
+   insertValueInNestedObjectPath,
+   insertValueInObjectPath,
 }

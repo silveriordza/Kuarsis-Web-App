@@ -148,6 +148,7 @@ validateVars (logLevel, varNamesIn, vars)  {
    const typeOfData = typeof dataToCheck
    if ( dataToCheck &&
          ((Array.isArray(dataToCheck) && dataToCheck.length > 0) ||
+            ((dataToCheck instanceof Map) && (dataToCheck.size) > 0) ||
             (typeOfData === 'string' && dataToCheck != '') ||
             (typeOfData === 'number' && Number.isFinite(dataToCheck)) ||
             (typeOfData === 'bigint' && Number.isFinite(dataToCheck)) ||
