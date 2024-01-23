@@ -40,6 +40,7 @@ const SurveyMultiManager = require('./SurveyMultiManager.js')
 const SurveyManager = require('./SurveyManager.js')
 const SurveyQuestionManager = require('./SurveyQuestionManager.js')
 const SurveyCalculatedFieldManager = require('./SurveyCalculatedFieldManager.js')
+const SurveyMonkeyIntegratedManager = require('./SurveyMonkeyIntegratedManager.js')
 
 const sourceFile = "SurveyProcessManager.js"
  class SurveyProcessManager {
@@ -69,19 +70,23 @@ const sourceFile = "SurveyProcessManager.js"
       this.logNew.setFunctionName("integrateSurveyWithMonkey") 
       
       let result = null
+      this.superSurveyObjects = {}
 
       this.superSurvey = new SurveySuperiorManager ()
       result = await this.superSurvey.load(superSurveyShortName)  
       this.superSurveyConfig = {superSurvey: result}
+      this.superSurveyObjects.superSurvey = this.superSurvey
 
       this.multiSurveys = new SurveyMultiManager()
       this.superSurveyId = this.superSurveyConfig.superSurvey._id
       result = await this.multiSurveys.load(this.superSurveyId)
       this.superSurveyConfig.multiSurveys=result
+      this.superSurveyObjects.multiSurveys = this.multiSurveys
 
       this.surveys = new SurveyManager ()
       result = await this.surveys.loadMatchList(this.superSurveyConfig.multiSurveys, 'surveyId')
       this.superSurveyConfig.surveys = result
+      this.superSurveyObjects.surveys = this.surveys
 
       this.multiSurveys.combineSurveys(this.surveys)
 
@@ -92,13 +97,14 @@ const sourceFile = "SurveyProcessManager.js"
       result = await this.questions.loadMatchList(this.superSurveyConfig.surveys)
       this.superSurveyConfig.questions=result
       this.surveys.combineQuestionsConfig(result) 
+      this.superSurveyObjects.questions = this.questions
 
       this.calculatedFields = new SurveyCalculatedFieldManager() 
  
       result = await this.calculatedFields.loadMatchList(this.superSurveyConfig.surveys)
       this.superSurveyConfig.calculatedFields=result
       this.surveys.combineCalculatedFieldsConfig(result) 
-      
+      this.superSurveyObjects.calculatedFields = this.calculatedFields
       //this.multiSurvey.combineSurveys(this.surveys)
       //this.superSurvey.combineMultiSurvey(this.multiSurveys, this.surveys)
 
@@ -107,44 +113,48 @@ const sourceFile = "SurveyProcessManager.js"
       result = this.superSurvey.getConfigsCombo()
       result[0].surveys=this.surveys.getConfigsCombo()
 
-      return this.superSurvey.getConfigsCombo()
+      this.superSurveyConfig.configsCombo = this.superSurvey.getConfigsCombo()
+      
+      return this.superSurveyConfig
     }
    
     async integrateSurveyWithMonkey (superSurveyShortName){
       this.logNew.setFunctionName("integrateSurveyWithMonkey")
       
-      let result = await this.loadTemplate(superSurveyShortName) 
+      await this.loadTemplate(superSurveyShortName) 
 
      
-      return result
+      //return this.superSurveyConfig
 
 
-       const surveyTemplate = this.superSurveyConfig
-       let superSurveyConfig = this.superSurveyConfig
-       //const owner = this.owner
+      //  const surveyTemplate = this.superSurveyConfig
+      //  let superSurveyConfig = this.superSurveyConfig
+      //  //const owner = this.owner
+      //  const superSurveyElements = this.superSurveyElements
 
-        const superSurveyConf = surveyTemplate?.superSurvey
-        const multiSurveyConf = surveyTemplate?.multiSurveys
-        const surveysConf = surveyTemplate?.surveys
-        const questionsConf = surveyTemplate?.surveys.map( 
-          survey => survey.questions.map(field => {
-            field.surveyPosition = survey.position 
-            field.surveyShortName = survey.surveyShortName
-            return field
-           }
-        ))
-        const calculatedFieldsConf = surveyTemplate?.surveys.map( 
-          survey => survey.calculatedFields.map(field => {
-            field.surveyPosition = survey.position 
-            field.surveyShortName = survey.surveyShortName
-            return field
-           }
-        ))
-        const monkeyManager = new MonkeyManager()
+
+      //   const superSurveyConf = superSurveyElements.superSurvey.getConfigs()
+      //   const multiSurveyConf = surveyTemplate?.multiSurveys
+      //   const surveysConf = surveyTemplate?.surveys
+      //   const questionsConf = surveyTemplate?.surveys.map( 
+      //    survey => survey.questions.map(field => {
+      //      field.surveyPosition = survey.position 
+      //      field.surveyShortName = survey.surveyShortName
+      //      return field
+      //     }
+      //  ))
+      //   const calculatedFieldsConf = surveyTemplate?.surveys.map( 
+      //     survey => survey.calculatedFields.map(field => {
+      //       field.surveyPosition = survey.position 
+      //       field.surveyShortName = survey.surveyShortName
+      //       return field
+      //      }
+      //   ))
+        //const monkeyManager = new MonkeyManager()
 
         //const mondoDbManager = new MongoDBManager()
 
-        this.logNew.HasDataMultipeEx("superSurveyConfig,multiSurvey,surveys,questions,calculatedFields",superSurveyConf,multiSurveyConf,surveysConf,questionsConf,calculatedFieldsConf)
+      //   this.logNew.HasDataMultipeEx("superSurveyConfig,multiSurvey,surveys,questions,calculatedFields",superSurveyConf,multiSurveyConf,surveysConf,questionsConf,calculatedFieldsConf)
 //TODO Aqui me quede, sigue create la tabla donde se guardara la encuesta instanciada e integrada con suvery monkey.
 
       //   const result = await SurveySuperior.deleteOne({
@@ -161,19 +171,25 @@ const sourceFile = "SurveyProcessManager.js"
    
       //    //Search in the MonkeyConfigs collection the config corresponding to this SuperSurvey config from the template. The Survey Monkey config must have already been created/updated using the path surveys/surveymonkey/:id where the id is the Survey Monkey Id for this survey in Survey Monkey, make sure to run that one first.
          
-         
-         const monkeyConfigs =
-            await this.monkeyManager.getMonkeyConfigByIdorName(
-              superSurveyConf?.monkeyId,
-              superSurveyConf.surveyName,
-            )
+         // let superSurveyConf = this.superSurveyConfig.configsCombo[0]
+         // const monkeyConfigs =
+         //    await this.monkeyManager.getMonkeyConfigByIdorName(
+         //      superSurveyConf?.monkeyId,
+         //      superSurveyConf?.surveyName,
+         //    )
+
+         this.surveyMonkeyIntegratedConfig = new SurveyMonkeyIntegratedManager(this.superSurveyConfig.configsCombo, monkeyConfigs)
+
+         const surveyMonkeyIntegratedConfig = this.surveyMonkeyIntegratedConfig
+
+
    
             this.logNew.HasDataException(monkeyConfigs,
                `No Survey Monkey config found, run surveys/surveymonkey/:id first to download the corresponding Survey Monkey configs for this survey or verify the id or the name in your template matches in Survey Monkey by superSurveyConfig.id=${superSurveyConf._id} or superSurveyConfig.name=${superSurveyConf.name}`)
          
    
          //Save Survey Superior
-         superSurveyConf.monkeyInfo = {monkeyId: monkeyConfigs.id}
+         superSurveyConf.monkeyInfo = {monkeyId: monkeyConfigs.surveyMonkeyId}
       //    const superSurvey = new SurveySuperior({
       //       owner: owner,
       //       surveyName: superSurveyConfig.surveyName,
@@ -184,26 +200,22 @@ const sourceFile = "SurveyProcessManager.js"
    
       //    const createdSurveySuperior = MongoDBManager.saveWithCheckEx(superSurvey, log)
    
-      //    let surveysCreated = []
-      //    let surveyCreated = null
-      //    let questions = []
-      //    let calculatedFields = []
-      //    let questionItem = null
+          let surveysCreated = []
+         let surveyCreated = null
+         let questions = []
+         let calculatedFields = []
+         let questionItem = null        
 
-      //    //TODO: 1/10/2024 0040 Aqui me quede
-
-         
-
-         let surveyResponse = superSurveyConfig.surveyList[0]
-         let responseInfo = new Survey({
-            superSurveyId: createdSurveySuperior._id,
-            surveyName: surveyResponse.surveyName,
-            surveyShortName: surveyResponse.surveyShortName,
-            description: surveyResponse.description,
-            instructions: surveyResponse.instructions,
-            monkeyPosition: surveyResponse.monkeyPosition,
-         })
-         const responseInfoCreated = await responseInfo.save()
+         // let surveyResponse = superSurveyConfig.surveyList[0]
+         // let responseInfo = new Survey({
+         //    superSurveyId: createdSurveySuperior._id,
+         //    surveyName: surveyResponse.surveyName,
+         //    surveyShortName: surveyResponse.surveyShortName,
+         //    description: surveyResponse.description,
+         //    instructions: surveyResponse.instructions,
+         //    monkeyPosition: surveyResponse.monkeyPosition,
+         // })
+         // const responseInfoCreated = await responseInfo.save()
 
          
    
@@ -679,7 +691,7 @@ const sourceFile = "SurveyProcessManager.js"
       //    )
    
       //    saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns)
-              return result
+              return this.superSurveyConfig
          
     }
 

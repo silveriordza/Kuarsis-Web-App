@@ -237,7 +237,7 @@ const monkeyConfigModel = mongoose.Schema(
    {
       ////changed name from monkeyId to monkeyId
       //monkeyId: { type: String, required: true },
-      monkeyId: { type: String, required: true },
+      monkeyId: { type: String, required: true, unique: true },
       survey: { type: mongoose.Schema.Types.Mixed, required: false },
    },
    {
@@ -245,6 +245,29 @@ const monkeyConfigModel = mongoose.Schema(
    },
 )
 const MonkeyConfig = mongoose.model('MonkeyConfig', monkeyConfigModel)
+
+const surveyMonkeyIntegratedModel = mongoose.Schema(
+   {
+      ////changed name from monkeyId to monkeyId
+      //monkeyId: { type: String, required: true },
+      superSurveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SurveySuperior',
+      },
+      monkeyId: { type: String, required: true, unique: true },
+      superSurveyShortName: { type: String, required: true, unique: true },
+      survey: { type: mongoose.Schema.Types.Mixed, required: false },
+   },
+   {
+      timestamps: true,
+   },
+)
+const SurveyMonkeyIntegrated = mongoose.model(
+   'SurveyMonkeyIntegrated',
+   surveyMonkeyIntegratedModel,
+)
+
 //changed  name from monkeyNewResponseModel to monkeyNewResponseModel
 //const monkeyNewResponseModel = mongoose.Schema(
 const monkeyNewResponseModel = mongoose.Schema(
@@ -291,4 +314,5 @@ module.exports = {
    MonkeyConfig,
    MonkeyNewResponse,
    SuperSurveyMonkey,
+   SurveyMonkeyIntegrated,
 }
