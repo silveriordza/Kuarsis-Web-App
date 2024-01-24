@@ -150,7 +150,7 @@ const sourceFile = "SurveyProcessManager.js"
       //       return field
       //      }
       //   ))
-        //const monkeyManager = new MonkeyManager()
+        const monkeyManager = new MonkeyManager()
 
         //const mondoDbManager = new MongoDBManager()
 
@@ -171,25 +171,27 @@ const sourceFile = "SurveyProcessManager.js"
    
       //    //Search in the MonkeyConfigs collection the config corresponding to this SuperSurvey config from the template. The Survey Monkey config must have already been created/updated using the path surveys/surveymonkey/:id where the id is the Survey Monkey Id for this survey in Survey Monkey, make sure to run that one first.
          
-         // let superSurveyConf = this.superSurveyConfig.configsCombo[0]
-         // const monkeyConfigs =
-         //    await this.monkeyManager.getMonkeyConfigByIdorName(
-         //      superSurveyConf?.monkeyId,
-         //      superSurveyConf?.surveyName,
-         //    )
+         let superSurveyConf = this.superSurveyConfig.configsCombo[0]
+         const monkeyConfigs =
+            await this.monkeyManager.getMonkeyConfigByIdorName(
+              superSurveyConf?.monkeyId,
+              superSurveyConf?.surveyName,
+            )
 
          this.surveyMonkeyIntegratedConfig = new SurveyMonkeyIntegratedManager(this.superSurveyConfig.configsCombo, monkeyConfigs)
 
          const surveyMonkeyIntegratedConfig = this.surveyMonkeyIntegratedConfig
 
+         const result = await surveyMonkeyIntegratedConfig.integrateConfigs()
+         return result
 
    
-            this.logNew.HasDataException(monkeyConfigs,
-               `No Survey Monkey config found, run surveys/surveymonkey/:id first to download the corresponding Survey Monkey configs for this survey or verify the id or the name in your template matches in Survey Monkey by superSurveyConfig.id=${superSurveyConf._id} or superSurveyConfig.name=${superSurveyConf.name}`)
+         //    this.logNew.HasDataException(monkeyConfigs,
+         //       `No Survey Monkey config found, run surveys/surveymonkey/:id first to download the corresponding Survey Monkey configs for this survey or verify the id or the name in your template matches in Survey Monkey by superSurveyConfig.id=${superSurveyConf._id} or superSurveyConfig.name=${superSurveyConf.name}`)
          
    
-         //Save Survey Superior
-         superSurveyConf.monkeyInfo = {monkeyId: monkeyConfigs.surveyMonkeyId}
+         // //Save Survey Superior
+         // superSurveyConf.monkeyInfo = {monkeyId: monkeyConfigs.surveyMonkeyId}
       //    const superSurvey = new SurveySuperior({
       //       owner: owner,
       //       surveyName: superSurveyConfig.surveyName,
@@ -228,30 +230,30 @@ const sourceFile = "SurveyProcessManager.js"
       //       surveyResponse.questionList,
       //    )
    
-      //    for (let i = 1; i < superSurveyConfig.surveyList.length; i++) {
-      //       let surveyItem = superSurveyConfig.surveyList[i]
-      //       LogThis(
-      //          log,
-      //          `position=${
-      //             surveyItem.monkeyPosition - 1
-      //          }; surveyItem=${JSON.stringify(surveyItem, null, 1)}`,
-      //          L3,
-      //       )
-      //       let monkeyItem =
-      //          monkeyConfigs.survey.pages[
-      //             surveyItem.monkeyPosition - 1
-      //          ]
+         // for (let i = 1; i < superSurveyConfig.surveyList.length; i++) {
+         //    let surveyItem = superSurveyConfig.surveyList[i]
+         //    LogThis(
+         //       log,
+         //       `position=${
+         //          surveyItem.monkeyPosition - 1
+         //       }; surveyItem=${JSON.stringify(surveyItem, null, 1)}`,
+         //       L3,
+         //    )
+         //    let monkeyItem =
+         //       monkeyConfigs.survey.pages[
+         //          surveyItem.monkeyPosition - 1
+         //       ]
    
-      //       let survey = new Survey({
-      //          superSurveyId: createdSurveySuperior._id,
-      //          surveyName: surveyItem.surveyName,
-      //          surveyShortName: surveyItem.surveyShortName,
-      //          description: surveyItem.description,
-      //          instructions: surveyItem.instructions,
-      //          monkeyId: monkeyItem.id,
-      //          monkeyPosition: surveyItem.monkeyPosition,
-      //       })
-      //       surveyCreated = await survey.save()
+         //    let survey = new Survey({
+         //       superSurveyId: createdSurveySuperior._id,
+         //       surveyName: surveyItem.surveyName,
+         //       surveyShortName: surveyItem.surveyShortName,
+         //       description: surveyItem.description,
+         //       instructions: surveyItem.instructions,
+         //       monkeyId: monkeyItem.id,
+         //       monkeyPosition: surveyItem.monkeyPosition,
+         //    })
+         //    surveyCreated = await survey.save()
    
       //       surveysCreated.push(surveyCreated)
    

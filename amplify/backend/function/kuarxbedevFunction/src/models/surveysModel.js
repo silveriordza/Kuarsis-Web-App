@@ -257,7 +257,7 @@ const surveyMonkeyIntegratedModel = mongoose.Schema(
       },
       monkeyId: { type: String, required: true, unique: true },
       superSurveyShortName: { type: String, required: true, unique: true },
-      survey: { type: mongoose.Schema.Types.Mixed, required: false },
+      surveyConfigs: { type: mongoose.Schema.Types.Mixed, required: false },
    },
    {
       timestamps: true,

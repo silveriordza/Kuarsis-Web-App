@@ -11,7 +11,7 @@ const { LogManager, L0, L3, L1, L2 } = require('./LogManager')
 const MongoDBManager = require('./MongoDBManager')
 
 class TemplateManager {
-   constructor(/*configs,*/ collectionName, identifierFieldName) {
+   constructor(collectionName, identifierFieldName) {
       this.log = new LogManager('TemplateManager.js', 'constructor')
       this.log.LogThis(`START`, L3)
 

@@ -41,7 +41,10 @@ class SurveyMultiManager extends SurveyTemplateManager {
    }
 
    getSurveysCombo() {
-      this.surveys = this.getConfigsCombo().map(config => config.surveys[0])
+      this.surveys = this.getConfigsCombo()
+         .map(config => config.surveys[0])
+         .sort((surveyX, surveyY) => surveyX.position - surveyY.position)
+
       return this.surveys
    }
 }
