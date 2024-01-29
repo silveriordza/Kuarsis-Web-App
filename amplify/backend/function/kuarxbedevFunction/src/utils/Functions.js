@@ -136,7 +136,7 @@ function cloneObject(object) {
    const clonedObject = {}
    for (const key in object) {
       if (object.hasOwnProperty(key)) {
-         if (key != 'createdAt' && key != 'updatedAt') {
+         if (key != 'createdAt' && key != 'updatedAt' && key != '__v') {
             clonedObject[key] = cloneObject(object[key])
          } else {
             cloneObject(object[key])
