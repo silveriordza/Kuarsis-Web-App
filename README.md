@@ -6,6 +6,13 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.5.1
+Version date: 2/25/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Fixed defect: columns in surveyoutput screen showing in disorder, fixed it in surveyController superSurveyGetOutputValues function, added a sort action by the sequence fieldname into the await SurveySuperiorOutputLayout.find, this fixed the column order displayed in the screen. The weird thing here was that it was working before, but somehow this defect reappeared in DEV and also in QA environments of Oncare.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.5
 Version date: 1/13/24
 Modificator name: Silverio Rodriguez Alcorta
