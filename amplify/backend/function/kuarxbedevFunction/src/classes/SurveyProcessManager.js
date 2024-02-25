@@ -150,7 +150,7 @@ const sourceFile = "SurveyProcessManager.js"
       //       return field
       //      }
       //   ))
-        const monkeyManager = new MonkeyManager()
+        //const monkeyManager = new MonkeyManager()
 
         //const mondoDbManager = new MongoDBManager()
 
