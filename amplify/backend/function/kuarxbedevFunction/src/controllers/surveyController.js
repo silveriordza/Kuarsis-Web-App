@@ -2572,7 +2572,9 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       )
       const outputLayouts = await SurveySuperiorOutputLayout.find({
          surveySuperiorId: superSurveyId,
-      }).lean()
+      })
+         .sort({ sequence: 1 })
+         .lean()
 
       let x = 0
       x = x + 1
