@@ -13,35 +13,35 @@
             "surveyShortName": "INFO",
             "fieldName": "INFO_1",
             "outputAsReal": true,
-            "showInOutputScreen": true,
+            "showInSurveyOutputScreen": true,
             "position": 1
          },
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_2",
             "outputAsReal": true,
-            "showInOutputScreen": false,
+            "showInSurveyOutputScreen": false,
             "position": 11
          },
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_3",
             "outputAsReal": true,
-            "showInOutputScreen": true,
+            "showInSurveyOutputScreen": true,
             "position": 21
          },
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_4",
             "outputAsReal": true,
-            "showInOutputScreen": true,
+            "showInSurveyOutputScreen": true,
             "position": 31
          },
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
+            "showInSurveyOutputScreen": false,
             "position": 41
          },
 
@@ -49,2298 +49,2080 @@
             "surveyShortName": "Datos",
             "fieldName": "Datos_1",
             "outputAsReal": true,
-            "showInOutputScreen": true,
+            "showInSurveyOutputScreen": true,
             "position": 51
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_2",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 10
+            "showInSurveyOutputScreen": true,
+            "position": 61
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_3",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 10
+            "showInSurveyOutputScreen": true,
+            "position": 71
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_4",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 10
+            "showInSurveyOutputScreen": true,
+            "position": 81
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_5",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 10
+            "showInSurveyOutputScreen": true,
+            "position": 91
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_6",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 61
+            "showInSurveyOutputScreen": true,
+            "position": 101
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_7",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 20
+            "showInSurveyOutputScreen": true,
+            "position": 111
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_8",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 20
+            "showInSurveyOutputScreen": true,
+            "position": 121
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_9",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 20
+            "showInSurveyOutputScreen": true,
+            "position": 131
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_10",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 20
+            "showInSurveyOutputScreen": true,
+            "position": 141
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_11",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 71
+            "showInSurveyOutputScreen": true,
+            "position": 151
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_12",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 30
+            "showInSurveyOutputScreen": true,
+            "position": 161
          },
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_13",
             "outputAsReal": true,
-            "showInOutputScreen": true,
-            "position": 30
+            "showInSurveyOutputScreen": true,
+            "position": 171
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 30
+            "showInSurveyOutputScreen": false,
+            "position": 181
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 30
+            "showInSurveyOutputScreen": false,
+            "position": 191
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 81
+            "showInSurveyOutputScreen": false,
+            "position": 201
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 40
+            "showInSurveyOutputScreen": false,
+            "position": 211
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 40
+            "showInSurveyOutputScreen": false,
+            "position": 221
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 40
+            "showInSurveyOutputScreen": false,
+            "position": 231
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 40
+            "showInSurveyOutputScreen": false,
+            "position": 241
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 91
+            "showInSurveyOutputScreen": false,
+            "position": 251
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 50
+            "showInSurveyOutputScreen": false,
+            "position": 261
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 50
+            "showInSurveyOutputScreen": false,
+            "position": 271
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 50
+            "showInSurveyOutputScreen": false,
+            "position": 281
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 50
+            "showInSurveyOutputScreen": false,
+            "position": 291
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 101
+            "showInSurveyOutputScreen": false,
+            "position": 301
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 60
+            "showInSurveyOutputScreen": false,
+            "position": 311
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 60
+            "showInSurveyOutputScreen": false,
+            "position": 321
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_16",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 60
+            "showInSurveyOutputScreen": false,
+            "position": 331
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_17",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 60
+            "showInSurveyOutputScreen": false,
+            "position": 341
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_18",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 111
+            "showInSurveyOutputScreen": false,
+            "position": 351
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_19",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 70
+            "showInSurveyOutputScreen": false,
+            "position": 361
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_20",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 70
+            "showInSurveyOutputScreen": false,
+            "position": 371
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_21",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 70
+            "showInSurveyOutputScreen": false,
+            "position": 381
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_22",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 70
+            "showInSurveyOutputScreen": false,
+            "position": 391
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_23",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 121
+            "showInSurveyOutputScreen": false,
+            "position": 401
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_24",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 80
+            "showInSurveyOutputScreen": false,
+            "position": 411
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_25",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 80
+            "showInSurveyOutputScreen": false,
+            "position": 421
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_26",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 80
+            "showInSurveyOutputScreen": false,
+            "position": 431
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_27",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 80
+            "showInSurveyOutputScreen": false,
+            "position": 441
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_28",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 131
+            "showInSurveyOutputScreen": false,
+            "position": 451
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_29",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 90
+            "showInSurveyOutputScreen": false,
+            "position": 461
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_30",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 90
+            "showInSurveyOutputScreen": false,
+            "position": 471
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 90
+            "showInSurveyOutputScreen": false,
+            "position": 481
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 90
+            "showInSurveyOutputScreen": false,
+            "position": 491
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 141
+            "showInSurveyOutputScreen": false,
+            "position": 501
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 100
+            "showInSurveyOutputScreen": false,
+            "position": 511
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 100
+            "showInSurveyOutputScreen": false,
+            "position": 521
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 100
+            "showInSurveyOutputScreen": false,
+            "position": 531
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 100
+            "showInSurveyOutputScreen": false,
+            "position": 541
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 151
+            "showInSurveyOutputScreen": false,
+            "position": 551
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 110
+            "showInSurveyOutputScreen": false,
+            "position": 561
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 110
+            "showInSurveyOutputScreen": false,
+            "position": 571
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 110
+            "showInSurveyOutputScreen": false,
+            "position": 581
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 110
+            "showInSurveyOutputScreen": false,
+            "position": 591
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 161
+            "showInSurveyOutputScreen": false,
+            "position": 601
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 120
+            "showInSurveyOutputScreen": false,
+            "position": 611
          },
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 120
+            "showInSurveyOutputScreen": false,
+            "position": 621
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 120
+            "showInSurveyOutputScreen": false,
+            "position": 631
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 120
+            "showInSurveyOutputScreen": false,
+            "position": 641
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 171
+            "showInSurveyOutputScreen": false,
+            "position": 651
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 130
+            "showInSurveyOutputScreen": false,
+            "position": 661
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 130
+            "showInSurveyOutputScreen": false,
+            "position": 671
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 130
+            "showInSurveyOutputScreen": false,
+            "position": 681
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 130
+            "showInSurveyOutputScreen": false,
+            "position": 691
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 181
+            "showInSurveyOutputScreen": false,
+            "position": 701
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 140
+            "showInSurveyOutputScreen": false,
+            "position": 711
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 140
+            "showInSurveyOutputScreen": false,
+            "position": 721
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 140
+            "showInSurveyOutputScreen": false,
+            "position": 731
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 140
+            "showInSurveyOutputScreen": false,
+            "position": 741
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 191
+            "showInSurveyOutputScreen": false,
+            "position": 751
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 150
+            "showInSurveyOutputScreen": false,
+            "position": 761
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 150
+            "showInSurveyOutputScreen": false,
+            "position": 771
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_16",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 150
+            "showInSurveyOutputScreen": false,
+            "position": 781
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_17",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 150
+            "showInSurveyOutputScreen": false,
+            "position": 791
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_18",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 201
+            "showInSurveyOutputScreen": false,
+            "position": 801
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_19",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 160
+            "showInSurveyOutputScreen": false,
+            "position": 811
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_20",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 160
+            "showInSurveyOutputScreen": false,
+            "position": 821
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_21",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 160
+            "showInSurveyOutputScreen": false,
+            "position": 831
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_22",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 160
+            "showInSurveyOutputScreen": false,
+            "position": 841
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 211
+            "showInSurveyOutputScreen": false,
+            "position": 851
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 170
+            "showInSurveyOutputScreen": false,
+            "position": 861
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 170
+            "showInSurveyOutputScreen": false,
+            "position": 871
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 170
+            "showInSurveyOutputScreen": false,
+            "position": 881
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 170
+            "showInSurveyOutputScreen": false,
+            "position": 891
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 221
+            "showInSurveyOutputScreen": false,
+            "position": 901
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 180
+            "showInSurveyOutputScreen": false,
+            "position": 911
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 180
+            "showInSurveyOutputScreen": false,
+            "position": 921
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 180
+            "showInSurveyOutputScreen": false,
+            "position": 931
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 180
+            "showInSurveyOutputScreen": false,
+            "position": 941
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 231
+            "showInSurveyOutputScreen": false,
+            "position": 951
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 190
+            "showInSurveyOutputScreen": false,
+            "position": 961
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 190
+            "showInSurveyOutputScreen": false,
+            "position": 971
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 190
+            "showInSurveyOutputScreen": false,
+            "position": 981
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 190
+            "showInSurveyOutputScreen": false,
+            "position": 991
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_16",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 241
+            "showInSurveyOutputScreen": false,
+            "position": 1001
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_17",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 200
+            "showInSurveyOutputScreen": false,
+            "position": 1011
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_18",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 200
+            "showInSurveyOutputScreen": false,
+            "position": 1021
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_19",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 200
+            "showInSurveyOutputScreen": false,
+            "position": 1031
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_20",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 200
+            "showInSurveyOutputScreen": false,
+            "position": 1041
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_21",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 251
+            "showInSurveyOutputScreen": false,
+            "position": 1051
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_22",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 210
+            "showInSurveyOutputScreen": false,
+            "position": 1061
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_23",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 210
+            "showInSurveyOutputScreen": false,
+            "position": 1071
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_24",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 210
+            "showInSurveyOutputScreen": false,
+            "position": 1081
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_25",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 210
+            "showInSurveyOutputScreen": false,
+            "position": 1091
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_26",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 261
+            "showInSurveyOutputScreen": false,
+            "position": 1101
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_27",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 220
+            "showInSurveyOutputScreen": false,
+            "position": 1111
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_28",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 220
+            "showInSurveyOutputScreen": false,
+            "position": 1121
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_29",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 220
+            "showInSurveyOutputScreen": false,
+            "position": 1131
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_30",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 220
+            "showInSurveyOutputScreen": false,
+            "position": 1141
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_31",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 271
+            "showInSurveyOutputScreen": false,
+            "position": 1151
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_32",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 230
+            "showInSurveyOutputScreen": false,
+            "position": 1161
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_33",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 230
+            "showInSurveyOutputScreen": false,
+            "position": 1171
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_34",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 230
+            "showInSurveyOutputScreen": false,
+            "position": 1181
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_35",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 230
+            "showInSurveyOutputScreen": false,
+            "position": 1191
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_36",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 281
+            "showInSurveyOutputScreen": false,
+            "position": 1201
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_37",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 240
+            "showInSurveyOutputScreen": false,
+            "position": 1211
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_38",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 240
+            "showInSurveyOutputScreen": false,
+            "position": 1221
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_39",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 240
+            "showInSurveyOutputScreen": false,
+            "position": 1231
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_40",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 240
+            "showInSurveyOutputScreen": false,
+            "position": 1241
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 291
+            "showInSurveyOutputScreen": false,
+            "position": 1251
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 250
+            "showInSurveyOutputScreen": false,
+            "position": 1261
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 250
+            "showInSurveyOutputScreen": false,
+            "position": 1271
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 250
+            "showInSurveyOutputScreen": false,
+            "position": 1281
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 250
+            "showInSurveyOutputScreen": false,
+            "position": 1291
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 301
+            "showInSurveyOutputScreen": false,
+            "position": 1301
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 260
+            "showInSurveyOutputScreen": false,
+            "position": 1311
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 260
+            "showInSurveyOutputScreen": false,
+            "position": 1321
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 260
+            "showInSurveyOutputScreen": false,
+            "position": 1331
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 260
+            "showInSurveyOutputScreen": false,
+            "position": 1341
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 311
+            "showInSurveyOutputScreen": false,
+            "position": 1351
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 270
+            "showInSurveyOutputScreen": false,
+            "position": 1361
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 270
+            "showInSurveyOutputScreen": false,
+            "position": 1371
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 270
+            "showInSurveyOutputScreen": false,
+            "position": 1381
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 270
+            "showInSurveyOutputScreen": false,
+            "position": 1391
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 321
+            "showInSurveyOutputScreen": false,
+            "position": 1401
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 280
+            "showInSurveyOutputScreen": false,
+            "position": 1411
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 280
+            "showInSurveyOutputScreen": false,
+            "position": 1421
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 280
+            "showInSurveyOutputScreen": false,
+            "position": 1431
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 280
+            "showInSurveyOutputScreen": false,
+            "position": 1441
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 331
+            "showInSurveyOutputScreen": false,
+            "position": 1451
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 290
+            "showInSurveyOutputScreen": false,
+            "position": 1461
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 290
+            "showInSurveyOutputScreen": false,
+            "position": 1471
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 290
+            "showInSurveyOutputScreen": false,
+            "position": 1481
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 290
+            "showInSurveyOutputScreen": false,
+            "position": 1491
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 341
+            "showInSurveyOutputScreen": false,
+            "position": 1501
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 300
+            "showInSurveyOutputScreen": false,
+            "position": 1511
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 300
+            "showInSurveyOutputScreen": false,
+            "position": 1521
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_16",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 300
+            "showInSurveyOutputScreen": false,
+            "position": 1531
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_17",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 300
+            "showInSurveyOutputScreen": false,
+            "position": 1541
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_18",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 351
+            "showInSurveyOutputScreen": false,
+            "position": 1551
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_19",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 310
+            "showInSurveyOutputScreen": false,
+            "position": 1561
          },
          {
             "surveyShortName": "JEFF",
             "fieldName": "JEFF_20",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 310
+            "showInSurveyOutputScreen": false,
+            "position": 1571
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 310
+            "showInSurveyOutputScreen": false,
+            "position": 1581
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 310
+            "showInSurveyOutputScreen": false,
+            "position": 1591
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 361
+            "showInSurveyOutputScreen": false,
+            "position": 1601
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 320
+            "showInSurveyOutputScreen": false,
+            "position": 1611
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 320
+            "showInSurveyOutputScreen": false,
+            "position": 1621
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 320
+            "showInSurveyOutputScreen": false,
+            "position": 1631
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 320
+            "showInSurveyOutputScreen": false,
+            "position": 1641
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 371
+            "showInSurveyOutputScreen": false,
+            "position": 1651
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 330
+            "showInSurveyOutputScreen": false,
+            "position": 1661
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 330
+            "showInSurveyOutputScreen": false,
+            "position": 1671
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 330
+            "showInSurveyOutputScreen": false,
+            "position": 1681
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 330
+            "showInSurveyOutputScreen": false,
+            "position": 1691
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 381
+            "showInSurveyOutputScreen": false,
+            "position": 1701
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 340
+            "showInSurveyOutputScreen": false,
+            "position": 1711
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 340
+            "showInSurveyOutputScreen": false,
+            "position": 1721
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_16",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 340
+            "showInSurveyOutputScreen": false,
+            "position": 1731
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_17",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 340
+            "showInSurveyOutputScreen": false,
+            "position": 1741
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_18",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 391
+            "showInSurveyOutputScreen": false,
+            "position": 1751
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_19",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 350
+            "showInSurveyOutputScreen": false,
+            "position": 1761
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_20",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 350
+            "showInSurveyOutputScreen": false,
+            "position": 1771
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_21",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 350
+            "showInSurveyOutputScreen": false,
+            "position": 1781
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_22",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 350
+            "showInSurveyOutputScreen": false,
+            "position": 1791
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_23",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 401
+            "showInSurveyOutputScreen": false,
+            "position": 1801
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_24",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 360
+            "showInSurveyOutputScreen": false,
+            "position": 1811
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_25",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 360
+            "showInSurveyOutputScreen": false,
+            "position": 1821
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_26",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 360
+            "showInSurveyOutputScreen": false,
+            "position": 1831
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_27",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 360
+            "showInSurveyOutputScreen": false,
+            "position": 1841
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_28",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 411
+            "showInSurveyOutputScreen": false,
+            "position": 1851
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_29",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 370
+            "showInSurveyOutputScreen": false,
+            "position": 1861
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_30",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 370
+            "showInSurveyOutputScreen": false,
+            "position": 1871
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_31",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 370
+            "showInSurveyOutputScreen": false,
+            "position": 1881
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_32",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 370
+            "showInSurveyOutputScreen": false,
+            "position": 1891
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_33",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 421
+            "showInSurveyOutputScreen": false,
+            "position": 1901
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_34",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 380
+            "showInSurveyOutputScreen": false,
+            "position": 1911
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_35",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 380
+            "showInSurveyOutputScreen": false,
+            "position": 1921
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_36",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 380
+            "showInSurveyOutputScreen": false,
+            "position": 1931
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_37",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 380
+            "showInSurveyOutputScreen": false,
+            "position": 1941
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_38",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 431
+            "showInSurveyOutputScreen": false,
+            "position": 1951
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_39",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 390
+            "showInSurveyOutputScreen": false,
+            "position": 1961
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_40",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 390
+            "showInSurveyOutputScreen": false,
+            "position": 1971
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_41",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 390
+            "showInSurveyOutputScreen": false,
+            "position": 1981
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_42",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 390
+            "showInSurveyOutputScreen": false,
+            "position": 1991
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_43",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 441
+            "showInSurveyOutputScreen": false,
+            "position": 2001
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_44",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 400
+            "showInSurveyOutputScreen": false,
+            "position": 2011
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_45",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 400
+            "showInSurveyOutputScreen": false,
+            "position": 2021
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_46",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 400
+            "showInSurveyOutputScreen": false,
+            "position": 2031
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_47",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 400
+            "showInSurveyOutputScreen": false,
+            "position": 2041
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_48",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 451
+            "showInSurveyOutputScreen": false,
+            "position": 2051
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_49",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 410
+            "showInSurveyOutputScreen": false,
+            "position": 2061
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_50",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 410
+            "showInSurveyOutputScreen": false,
+            "position": 2071
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_51",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 410
+            "showInSurveyOutputScreen": false,
+            "position": 2081
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_52",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 410
+            "showInSurveyOutputScreen": false,
+            "position": 2091
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_53",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 461
+            "showInSurveyOutputScreen": false,
+            "position": 2101
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_54",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 420
+            "showInSurveyOutputScreen": false,
+            "position": 2111
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_1",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 420
+            "showInSurveyOutputScreen": false,
+            "position": 2121
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_2",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 420
+            "showInSurveyOutputScreen": false,
+            "position": 2131
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_3",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 420
+            "showInSurveyOutputScreen": false,
+            "position": 2141
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_4",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 471
+            "showInSurveyOutputScreen": false,
+            "position": 2151
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_5",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 430
+            "showInSurveyOutputScreen": false,
+            "position": 2161
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_6",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 430
+            "showInSurveyOutputScreen": false,
+            "position": 2171
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_7",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 430
+            "showInSurveyOutputScreen": false,
+            "position": 2181
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_8",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 430
+            "showInSurveyOutputScreen": false,
+            "position": 2191
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_9",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 481
+            "showInSurveyOutputScreen": false,
+            "position": 2201
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_10",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 440
+            "showInSurveyOutputScreen": false,
+            "position": 2211
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_11",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 440
+            "showInSurveyOutputScreen": false,
+            "position": 2221
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_12",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 440
+            "showInSurveyOutputScreen": false,
+            "position": 2231
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_13",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 440
+            "showInSurveyOutputScreen": false,
+            "position": 2241
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_14",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 491
+            "showInSurveyOutputScreen": false,
+            "position": 2251
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_15",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 450
+            "showInSurveyOutputScreen": false,
+            "position": 2261
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_16",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 450
+            "showInSurveyOutputScreen": false,
+            "position": 2271
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_17",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 450
+            "showInSurveyOutputScreen": false,
+            "position": 2281
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_18",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 450
+            "showInSurveyOutputScreen": false,
+            "position": 2291
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_19",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 501
+            "showInSurveyOutputScreen": false,
+            "position": 2301
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_20",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 460
+            "showInSurveyOutputScreen": false,
+            "position": 2311
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_21",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 460
+            "showInSurveyOutputScreen": false,
+            "position": 2321
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_22",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 460
+            "showInSurveyOutputScreen": false,
+            "position": 2331
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_23",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 460
+            "showInSurveyOutputScreen": false,
+            "position": 2341
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_24",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 511
+            "showInSurveyOutputScreen": false,
+            "position": 2351
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_25",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 470
+            "showInSurveyOutputScreen": false,
+            "position": 2361
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_26",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 470
+            "showInSurveyOutputScreen": false,
+            "position": 2371
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_27",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 470
+            "showInSurveyOutputScreen": false,
+            "position": 2381
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_28",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 470
+            "showInSurveyOutputScreen": false,
+            "position": 2391
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_29",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 521
+            "showInSurveyOutputScreen": false,
+            "position": 2401
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_30",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 480
+            "showInSurveyOutputScreen": false,
+            "position": 2411
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_31",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 480
+            "showInSurveyOutputScreen": false,
+            "position": 2421
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_32",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 480
+            "showInSurveyOutputScreen": false,
+            "position": 2431
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_33",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 480
+            "showInSurveyOutputScreen": false,
+            "position": 2441
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_34",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 531
+            "showInSurveyOutputScreen": false,
+            "position": 2451
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_35",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 490
+            "showInSurveyOutputScreen": false,
+            "position": 2461
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_36",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 490
+            "showInSurveyOutputScreen": false,
+            "position": 2471
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_37",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 490
+            "showInSurveyOutputScreen": false,
+            "position": 2481
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_38",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 490
+            "showInSurveyOutputScreen": false,
+            "position": 2491
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_39",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 541
+            "showInSurveyOutputScreen": false,
+            "position": 2501
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_40",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 500
+            "showInSurveyOutputScreen": false,
+            "position": 2511
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_41",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 500
+            "showInSurveyOutputScreen": false,
+            "position": 2521
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_42",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 500
+            "showInSurveyOutputScreen": false,
+            "position": 2531
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_43",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 500
+            "showInSurveyOutputScreen": false,
+            "position": 2541
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_44",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 551
+            "showInSurveyOutputScreen": false,
+            "position": 2551
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_45",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 510
+            "showInSurveyOutputScreen": false,
+            "position": 2561
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_46",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 510
+            "showInSurveyOutputScreen": false,
+            "position": 2571
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_47",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 510
+            "showInSurveyOutputScreen": false,
+            "position": 2581
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_48",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 510
+            "showInSurveyOutputScreen": false,
+            "position": 2591
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_49",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 561
+            "showInSurveyOutputScreen": false,
+            "position": 2601
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_50",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 520
+            "showInSurveyOutputScreen": false,
+            "position": 2611
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_51",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 520
+            "showInSurveyOutputScreen": false,
+            "position": 2621
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_52",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 520
+            "showInSurveyOutputScreen": false,
+            "position": 2631
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_53",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 520
+            "showInSurveyOutputScreen": false,
+            "position": 2641
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_54",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 571
+            "showInSurveyOutputScreen": false,
+            "position": 2651
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_55",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 530
+            "showInSurveyOutputScreen": false,
+            "position": 2661
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_56",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 530
+            "showInSurveyOutputScreen": false,
+            "position": 2671
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_57",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 530
+            "showInSurveyOutputScreen": false,
+            "position": 2681
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_58",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 530
+            "showInSurveyOutputScreen": false,
+            "position": 2691
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_59",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 581
+            "showInSurveyOutputScreen": false,
+            "position": 2701
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_60",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 540
+            "showInSurveyOutputScreen": false,
+            "position": 2711
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_61",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 540
+            "showInSurveyOutputScreen": false,
+            "position": 2721
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_62",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 540
+            "showInSurveyOutputScreen": false,
+            "position": 2731
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_63",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 540
+            "showInSurveyOutputScreen": false,
+            "position": 2741
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_64",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 591
+            "showInSurveyOutputScreen": false,
+            "position": 2751
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_65",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 550
+            "showInSurveyOutputScreen": false,
+            "position": 2761
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_66",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 550
+            "showInSurveyOutputScreen": false,
+            "position": 2771
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_67",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 550
+            "showInSurveyOutputScreen": false,
+            "position": 2781
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_68",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 550
+            "showInSurveyOutputScreen": false,
+            "position": 2791
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_69",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 601
+            "showInSurveyOutputScreen": false,
+            "position": 2801
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_70",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 560
+            "showInSurveyOutputScreen": false,
+            "position": 2811
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_71",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 560
+            "showInSurveyOutputScreen": false,
+            "position": 2821
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_72",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 560
+            "showInSurveyOutputScreen": false,
+            "position": 2831
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_73",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 560
+            "showInSurveyOutputScreen": false,
+            "position": 2841
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_74",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 611
+            "showInSurveyOutputScreen": false,
+            "position": 2851
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_75",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 570
+            "showInSurveyOutputScreen": false,
+            "position": 2861
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_76",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 570
+            "showInSurveyOutputScreen": false,
+            "position": 2871
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_77",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 570
+            "showInSurveyOutputScreen": false,
+            "position": 2881
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_78",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 570
+            "showInSurveyOutputScreen": false,
+            "position": 2891
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_79",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 621
+            "showInSurveyOutputScreen": false,
+            "position": 2901
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_80",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 580
+            "showInSurveyOutputScreen": false,
+            "position": 2911
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_81",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 580
+            "showInSurveyOutputScreen": false,
+            "position": 2921
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_82",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 580
+            "showInSurveyOutputScreen": false,
+            "position": 2931
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_83",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 580
+            "showInSurveyOutputScreen": false,
+            "position": 2941
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_84",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 631
+            "showInSurveyOutputScreen": false,
+            "position": 2951
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_85",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 590
+            "showInSurveyOutputScreen": false,
+            "position": 2961
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_86",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 590
+            "showInSurveyOutputScreen": false,
+            "position": 2971
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_87",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 590
+            "showInSurveyOutputScreen": false,
+            "position": 2981
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_88",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 590
+            "showInSurveyOutputScreen": false,
+            "position": 2991
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_89",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 641
+            "showInSurveyOutputScreen": false,
+            "position": 3001
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_90",
             "outputAsReal": false,
-            "showInOutputScreen": false,
-            "position": 600
-         },
-
-         {
-            "surveyShortName": "CSG",
-            "fieldName": "CSG_SOMATICOS",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 651
-         },
-         {
-            "surveyShortName": "CSG",
-            "fieldName": "CSG_ANSIEDAD",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 661
-         },
-         {
-            "surveyShortName": "CSG",
-            "fieldName": "CSG_DISF_SOCIAL",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 671
-         },
-         {
-            "surveyShortName": "CSG",
-            "fieldName": "CSG_DEPRESION",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 681
-         },
-         {
-            "surveyShortName": "CSG",
-            "fieldName": "CSG_TOTAL_CSG",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 691
-         },
-         {
-            "surveyShortName": "CSG",
-            "fieldName": "CSG_ES_CASO",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 701
-         },
-         {
-            "surveyShortName": "BURN",
-            "fieldName": "BURN_EMOCIONAL",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 711
-         },
-         {
-            "surveyShortName": "BURN",
-            "fieldName": "BURN_DESPERS",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 721
-         },
-         {
-            "surveyShortName": "BURN",
-            "fieldName": "BURN_LOGROS",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 731
-         },
-         {
-            "surveyShortName": "BURN",
-            "fieldName": "BURN_TOTAL",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 741
-         },
-         {
-            "surveyShortName": "ESTRES",
-            "fieldName": "ESTRES_TOTAL_ESTRES",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 751
-         },
-         {
-            "surveyShortName": "ESTRES",
-            "fieldName": "ESTRES_LISTA_ESTRES",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 761
-         },
-         {
-            "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_TOTAL_PSIQUICA",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 771
-         },
-         {
-            "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_TOTAL_SOMATICA",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 781
-         },
-         {
-            "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 791
-         },
-         {
-            "surveyShortName": "JEFF",
-            "fieldName": "JEFF_PACIENTE_PERSPECTIVA",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 801
-         },
-         {
-            "surveyShortName": "JEFF",
-            "fieldName": "JEFF_COMPASION",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 811
-         },
-         {
-            "surveyShortName": "JEFF",
-            "fieldName": "JEFF_ZAPATOS_PACIENTE",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 821
-         },
-         {
-            "surveyShortName": "JEFF",
-            "fieldName": "JEFF_TOTAL",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 831
-         },
-         {
-            "surveyShortName": "BECK",
-            "fieldName": "BECK_TOTAL_DEPRESION",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 841
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_SOMATIZACION",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 851
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_OBSESION_COMPULSION",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 861
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_SENS_INTERPERS",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 871
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_DEPRESION",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 881
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_ANSIEDAD",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 891
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_HOSTILIDAD",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 901
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_FOBIA",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 911
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_PARANOIA",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 921
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_PSICOSIS",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 931
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_ADICIONALES",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 941
-         },
-         {
-            "surveyShortName": "SCL90",
-            "fieldName": "SCL90_TOTAL",
-            "outputAsReal": false,
-            "showInOutputScreen": true,
-            "position": 951
+            "showInSurveyOutputScreen": false,
+            "position": 3011
          }
       ],
       "multiSurveys": [
