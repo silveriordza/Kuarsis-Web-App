@@ -227,7 +227,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             } 
 
         }
-
+ 
         integrateQuestions(){
             this.log.setFunctionName('integrateQuestions')
             this.log.LogThis(`START`, L3)
@@ -247,25 +247,6 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 }
             }
 
-            // const surveyQuestionsMap = new Map()
-            // const monkeyQuestionsMap = new Map()
-
-            // surveys.forEach(survey => {
-            //     questionsMap = new Map()
-            //     survey.questions.forEach(question => questionsMap.set(question.monkeyInfo.position, question))
-
-            //     surveyQuestionsMap.set(survey.surveyShortName, questionsMap)
-            // })
-
-            // monkeyPages.forEach( page => {
-            //     questionsMap = new Map()
-                
-            //     for( const question of page.questions){
-            //         questionsMap.set(getIndex(page, question), question)
-            //     }
-
-            //     surveyQuestionsMap.set(survey.surveyShortName, questionsMap)
-            // })
             return this.superSurveyConfigs
         }
         
@@ -277,7 +258,6 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             this.integrateSurveys()
             this.integrateQuestions()
 
-            //LAST CODE: Me quede en que el questionario de BECK_25 no se encuentra en los datos de survey monkey.
             return await this.save()
         }
         

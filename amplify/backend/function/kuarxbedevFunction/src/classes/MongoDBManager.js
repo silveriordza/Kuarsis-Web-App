@@ -183,7 +183,7 @@ class MongoDBManager {
       //this.log.HasDataException(collectionList, `Collection List is empty`)
       this.log.setFunctionName('findSortedAsc')
 
-      const results = await findByFilter(filter).sort({ position: 1 })
+      const results = await this.collection.find(filter).sort({ position: 1 })
 
       return results
    }

@@ -24,19 +24,23 @@ class TemplateManager {
       //configs is the template as it came from the JSON Template configuration file, or in case it came from the database, it is the lean version of the mongoDB collection objects.
       this.configs = null
 
-      //configsCombined is whenever the template is linked to other elements, this variable will contain all those elements linked and combined on the same config. Example is: Survey has Questions, in this.config the original template config for the survey is maintained, but if the Survey is then combined with its questions, then the combined object Surveys plus Questions data will be storied in configsCombined.
+      //configsCombined is whenever the template is linked to other elements, this variable will contain all those elements linked and combined on the same config. Example is: Survey has Questions, in this.config the original template config for the survey is maintained, but if the Survey is then combined with its questions, then the combined object Surveys plus Questions data will be stored in configsCombined.
       this.configsCombo = null
 
+      //Thi sis the name of the collection as it is named in the mongoose model.
       this.collectionName = collectionName
+
       //The template configuration in MongoDb collection format as it came from mongoDB from a find or insertMany, or by assigning it directly using some Template function. This is always an array of collections even if the template object is only one.
       this.collection = null
 
       //Identifier fieldName is just the field from which you want to filter or find the template in the database.
       this.identifierFieldName = identifierFieldName
 
+      //This is the list of identifiers (in case the collection has many elements, a list of ids of those elements will be created here)
       this.identifiersList = null
    }
 
+   //This function will delete all templates that matches the list of identiiers this.identifiersList. This is useful when updating the templates configurations in the database, for example, deleting all questions from a Survey to then re-insert the questions with updated information.
    async deleteAllMatchingTemplates() {
       const log = this.log
 
@@ -72,10 +76,12 @@ class TemplateManager {
       )
       return this.identifiersList
    }
+
    setOneToManyConstantLink(oneToManyLinkField, oneToManyLinkValue) {
       this.oneToManyLinkField = oneToManyLinkField
       this.oneToManyLinkValue = oneToManyLinkValue
    }
+
    prepareOneToManyConstantTemplate() {
       this.log.HasDataMultipeEx(
          `configs, ${this.oneToManyLinkField}`,
@@ -100,6 +106,7 @@ class TemplateManager {
       return this.configs
    }
 
+   //The load function receives a filter (which could be in any accepted mongoose filter format usually an object containing field and values{field: value}) or could be any other like {field: {$in: {val1, val2, val3}}} where val1, val2 and val3 could be an array of values.
    async load(filter) {
       this.collection = await this.mongoDBManager.findByFilter(filter)
 
@@ -107,6 +114,15 @@ class TemplateManager {
       return this.configs
    }
 
+   //The load function receives a filter (which could be in any accepted mongoose filter format usually an object containing field and values{field: value}) or could be any other like {field: {$in: {val1, val2, val3}}} where val1, val2 and val3 could be an array of values.
+   async loadSortedAsc(filter) {
+      this.collection = await this.mongoDBManager.findSortedAsc(filter)
+
+      this.configs = this.mongoDBManager.leanCollectionList(this.collection)
+      return this.configs
+   }
+
+   //This function creates a new this.configsCombo cloning the survey configs this.configs, but only the first time the this.configsCombo is created. if the conbigsCombo is already created, it will not modify it again.
    getOrCreateConfigsCombo() {
       if (!this.log.HasData(this.configsCombo)) {
          this.configsCombo = cloneObject(this.configs)

@@ -33,6 +33,16 @@ class SurveyTemplateManager extends TemplateManager {
             return await super.load(this.filter) 
         }
 
+        async loadSortedAsc(identifierValue){
+            this.log.setFunctionName("load")
+            this.filter = {}
+            this.identifierValue = identifierValue
+
+            this.filter[this.identifierFieldName]=identifierValue
+            
+            return await super.loadSortedAsc(this.filter) 
+        }
+
         async loadMatchList (matchListValues, matchField){
             this.log.setFunctionName("loadMatchList")
             this.log.HasDataMultipeEx("matchListValues, matchField", matchListValues, matchField)

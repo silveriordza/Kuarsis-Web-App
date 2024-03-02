@@ -121,6 +121,8 @@ function getValueByPath(obj, path) {
    return currentObj
 }
 
+//This function will take a javascript object and copy all its attributes and values into a new object. This function is useful because there is not an out of the box function in javascript that can copy an object that has attributes with a level deeper than 1, by level we mean the attribues hierarchy and having embbeded attributes over embbedded attributes.
+//Note that this function will not copy or clone the MongoDB fields createdAt, updatedAt and __v, because those introduce noise when processing the Survey elements.
 function cloneObject(object) {
    if (object === null || typeof object !== 'object') {
       // Base case: return primitive values and null as is

@@ -6,6 +6,7 @@ let {
     SurveyMulti,
     MonkeyConfig,
     MonkeyNewResponse,
+    SurveySuperiorOutputLayout,
  } = require('../models/surveysModel.js')
 
  let {
@@ -41,6 +42,7 @@ const SurveyManager = require('./SurveyManager.js')
 const SurveyQuestionManager = require('./SurveyQuestionManager.js')
 const SurveyCalculatedFieldManager = require('./SurveyCalculatedFieldManager.js')
 const SurveyMonkeyIntegratedManager = require('./SurveyMonkeyIntegratedManager.js')
+const SurveySuperiorOutputLayoutManager = require('./SurveySuperiorOutputLayoutManager.js')
 
 const sourceFile = "SurveyProcessManager.js"
  class SurveyProcessManager {
@@ -110,8 +112,15 @@ const sourceFile = "SurveyProcessManager.js"
 
       //this.superSurvey.combineSurveysConfig(this.surveys)
 
+      this.surveySuperiorOutputLayout = new SurveySuperiorOutputLayoutManager()
+      result = await this.surveySuperiorOutputLayout.loadSortedAsc(this.superSurveyId)
+      this.superSurveyConfig.outputLayouts=result
+      this.superSurveyObjects.surveySuperiorOutputLayout = this.surveySuperiorOutputLayout
+
       result = this.superSurvey.getConfigsCombo()
       result[0].surveys=this.surveys.getConfigsCombo()
+      result[0].outputLayouts=this.surveySuperiorOutputLayout.getConfigsCombo()
+
 
       this.superSurveyConfig.configsCombo = this.superSurvey.getConfigsCombo()
       
