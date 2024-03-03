@@ -25,6 +25,7 @@ let {
    testMonkey,
    monkeyWebhookCreatedEvent,
    monkeyWebhookCompletedEventTalentos2020,
+   monkeyWebhookCompletedEventTalentosRedesign2020,
    monkeyUpdateResponses,
    monkeyUpdateResponses2,
 } = require('../controllers/surveyController.js')
@@ -84,7 +85,18 @@ router
       res.status(200).end()
    })
    .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentos2020)
-superSurveyCreateConfigIntegratedWithMonkey
+//superSurveyCreateConfigIntegratedWithMonkey
+
+router
+   .route('/surveymonkey/webhookcompletedeventTalentosRedesign2020')
+   .head((req, res) => {
+      // Respond to HEAD requests with appropriate headers
+      const log = LoggerSettings('surveyRoutes.js', 'webhookcompletedevent')
+      LogThis(log, `req.header=${JSON.stringify(req.headers)}`, L0)
+      res.status(200).end()
+   })
+   .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentosRedesign2020)
+
 router.route('/surveymonkey/updateresponses/:id').put(monkeyUpdateResponses2)
 
 router

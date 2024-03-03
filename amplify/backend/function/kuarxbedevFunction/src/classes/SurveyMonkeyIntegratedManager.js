@@ -15,15 +15,14 @@ const QTYPE_PRESENTATION_DESCRIPTIVE = "QTYPE_PRESENTATION_DESCRIPTIVE"
 const sourceFilename = "SurveyMonkeyIntegratedManager.js"
 const collectionName = "SurveyMonkeyIntegrated"
 const identifierFieldName = "superSurveyShortName"
+const monkeyIdentifierFieldName = "monkeyId"
 
 class SurveyMonkeyIntegratedManager extends TemplateManager {
-    constructor(superSurveyConfigs, monkeyConfigs){
+    constructor(){
         super(collectionName, identifierFieldName)
             this.log = new LogManager (sourceFilename, "constructor")
             this.log.LogThis(`START`, L3)
             this.mongoDBManager = new MongoDBManager(collectionName)
-            this.superSurveyConfigs = superSurveyConfigs[0]
-            this.monkeyConfigs = monkeyConfigs
         }
 
         async save (){
@@ -40,13 +39,33 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             this.configs = configs
             return await super.save() 
         }
+
+        async load(identifierValue){
+            this.log.setFunctionName("load")
+            this.filter = {}
+            this.identifierValue = identifierValue
+            this.setIdentifierToMonkeyId()
+
+            this.filter[this.identifierFieldName]=identifierValue
+            const result = await super.load(this.filter) 
+            this.setIdentifierBackToNormal()
+            return result
+        }
+        setIdentifierToMonkeyId(){
+            this.identifierFieldName = monkeyIdentifierFieldName
+        }
+
+        setIdentifierBackToNormal(){
+            this.identifierFieldName = identifierFieldName
+        }
         
-        integrateSuperSurvey(){
+        integrateSuperSurvey(superSurveyConfigs, monkeyConfigs){
             this.log.setFunctionName('integrateSuperSurvey')
             this.log.LogThis(`START`, L3)
-            const superSurveyConfig = this.superSurveyConfigs
-            const monkeyConfigs = this.monkeyConfigs
-            
+
+            this.superSurveyConfigs = superSurveyConfigs[0]
+            this.monkeyConfigs = monkeyConfigs
+                       
             //superSurveyConfig.surveyConfigs = superSurveyConfig
             superSurveyConfig.monkeyInfo = {monkeyId: monkeyConfigs.surveyMonkeyId}
             //this.superSurveyConfigs = config
