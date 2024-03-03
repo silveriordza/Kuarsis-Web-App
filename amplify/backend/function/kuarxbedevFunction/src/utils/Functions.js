@@ -121,9 +121,16 @@ function getValueByPath(obj, path) {
    return currentObj
 }
 
+function getCloneObjectExceptionFieldsList(exceptingFieldsList) {
+   const finalList = ['createdAt', 'updatedAt', '__v', ...exceptingFieldsList]
+   return finalList
+}
 //This function will take a javascript object and copy all its attributes and values into a new object. This function is useful because there is not an out of the box function in javascript that can copy an object that has attributes with a level deeper than 1, by level we mean the attribues hierarchy and having embbeded attributes over embbedded attributes.
 //Note that this function will not copy or clone the MongoDB fields createdAt, updatedAt and __v, because those introduce noise when processing the Survey elements.
-function cloneObject(object) {
+function cloneObject(
+   object,
+   exceptingFieldsList = ['createdAt', 'updatedAt', '__v'],
+) {
    if (object === null || typeof object !== 'object') {
       // Base case: return primitive values and null as is
       return object
@@ -138,7 +145,8 @@ function cloneObject(object) {
    const clonedObject = {}
    for (const key in object) {
       if (object.hasOwnProperty(key)) {
-         if (key != 'createdAt' && key != 'updatedAt' && key != '__v') {
+         //if (key != 'createdAt' && key != 'updatedAt' && key != '__v') {
+         if (!exceptingFieldsList.includes(key)) {
             clonedObject[key] = cloneObject(object[key])
          } else {
             cloneObject(object[key])
@@ -174,6 +182,7 @@ module.exports = {
    addPropertyValueInArray,
    addPropertyMatchingValueInArray,
    cloneObject,
+   getCloneObjectExceptionFieldsList,
    insertValueInNestedObjectPath,
    insertValueInObjectPath,
 }

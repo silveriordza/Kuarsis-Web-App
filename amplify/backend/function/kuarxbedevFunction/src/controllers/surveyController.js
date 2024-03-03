@@ -3193,7 +3193,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       const surveyConfigs = await surveyConfigsObj.load(resources.survey_id)
 
       let x = 0
-
+      return surveyConfigs
       // const superSurveysList = await SurveySuperior.findOne({
       //    monkeyId: resources.survey_id,
       // }).lean()

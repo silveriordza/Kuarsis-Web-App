@@ -187,11 +187,12 @@ const sourceFile = "SurveyProcessManager.js"
               superSurveyConf?.surveyName,
             )
 
-         this.surveyMonkeyIntegratedConfig = new SurveyMonkeyIntegratedManager(this.superSurveyConfig.configsCombo, monkeyConfigs)
+         this.surveyMonkeyIntegratedConfig = new SurveyMonkeyIntegratedManager()
 
          const surveyMonkeyIntegratedConfig = this.surveyMonkeyIntegratedConfig
 
-         const result = await surveyMonkeyIntegratedConfig.integrateConfigs()
+
+         const result = await surveyMonkeyIntegratedConfig.integrateConfigs(this.superSurveyConfig.configsCombo, monkeyConfigs)
          return result
 
    

@@ -3,6 +3,11 @@ const { LogManager, L3} = require("./LogManager.js")
 const MongoDBManager = require("./MongoDBManager.js")
 const TemplateManager = require("./TemplateManager.js")
 
+const {
+    cloneObject,
+    getCloneObjectExceptionFieldsList,
+ } = require('../utils/Functions')
+
 const QTYPE_OPEN_ENDED_SINGLE = "OPEN_ENDED_SINGLE"
 const QTYPE_SINGLE_CHOICE_MENU = "SINGLE_CHOICE_MENU"
 const QTYPE_SINGLE_CHOICE_VERTICAL = "SINGLE_CHOICE_VERTICAL"
@@ -40,6 +45,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             return await super.save() 
         }
 
+        
         async load(identifierValue){
             this.log.setFunctionName("load")
             this.filter = {}
@@ -47,7 +53,8 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             this.setIdentifierToMonkeyId()
 
             this.filter[this.identifierFieldName]=identifierValue
-            const result = await super.load(this.filter) 
+            const result = await super.load(this.filter)
+
             this.setIdentifierBackToNormal()
             return result
         }
@@ -59,19 +66,43 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             this.identifierFieldName = identifierFieldName
         }
         
-        integrateSuperSurvey(superSurveyConfigs, monkeyConfigs){
+        integrateSuperSurvey(){
             this.log.setFunctionName('integrateSuperSurvey')
             this.log.LogThis(`START`, L3)
-
-            this.superSurveyConfigs = superSurveyConfigs[0]
-            this.monkeyConfigs = monkeyConfigs
                        
             //superSurveyConfig.surveyConfigs = superSurveyConfig
-            superSurveyConfig.monkeyInfo = {monkeyId: monkeyConfigs.surveyMonkeyId}
+            this.superSurveyConfigs.monkeyInfo = {monkeyId: this.monkeyConfigs.surveyMonkeyId}
             //this.superSurveyConfigs = config
             return this.superSurveyConfigs
         }
        
+
+        mapifySurveyConfigToProcessAnswers(){
+            this.log.setFunctionName("mapifySurveyConfig")
+            
+            this.log.HasDataMultipeEx("this.configs,this.configs.superSurveyConfig", this.configs, this.configs?.superSurveyConfig)
+
+            const superSurveyConfig = this.configs.superSurveyConfig
+            
+            const superSurveyMap = new Map()
+            let surveysMap = null
+            // const questionsMap = new Map()
+            // const calculatedFieldsMap = new Map()
+            // const outputLayoutsMap = new Map()
+
+            const surveysConfigs = superSurveyConfig.surveys
+
+            for (const survey in surveysConfigs){
+                let surveyCloned = cloneObject(survey, getCloneObjectExceptionFieldsList(["questions", "calculatedFields"]))
+                let questions = survey.questions
+                let questionsMap = 
+                surveysMap = new Map(survey.monkeyInfo.id, surveyCloned)
+
+            }
+
+
+        }
+
         integrateSurveys(){
             this.log.setFunctionName('integrateSurveys')
             this.log.LogThis(`START`, L3)
@@ -247,6 +278,8 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
 
         }
  
+        
+
         integrateQuestions(){
             this.log.setFunctionName('integrateQuestions')
             this.log.LogThis(`START`, L3)
@@ -269,18 +302,19 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             return this.superSurveyConfigs
         }
         
-        async integrateConfigs(){
+        async integrateConfigs(superSurveyConfigs, monkeyConfigs){
             this.log.setFunctionName('integrateQuestions')
             this.log.LogThis(`START`, L3)
-
+            this.superSurveyConfigs = superSurveyConfigs[0]
+            this.monkeyConfigs = monkeyConfigs
             this.integrateSuperSurvey() 
             this.integrateSurveys()
             this.integrateQuestions()
 
             return await this.save()
         }
-        
-        
+
+       
     }
 
     
