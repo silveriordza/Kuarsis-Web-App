@@ -3192,17 +3192,15 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
 
       const surveyConfigs = await surveyConfigsObj.load(resources.survey_id)
 
-      let x = 0
-      return surveyConfigs
       // const superSurveysList = await SurveySuperior.findOne({
       //    monkeyId: resources.survey_id,
       // }).lean()
 
-      // HasDataException(
-      //    superSurveysList,
-      //    `Invalid super survey short name ${superSurveysList.surveyShortName}`,
-      //    log,
-      // )
+      HasDataException(
+         surveyConfigs,
+         `surveyConfigs not found for ${resources.survey_id}`,
+         log,
+      )
 
       // // newRespondents = await MonkeyNewResponse.find({
       // //    $and: [
@@ -3227,10 +3225,10 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
 
       newRespondents.push(newResponseFound)
       const monkeyResponses = await getMonkeyResponses(newRespondents)
-
+      superSurveysList = surveyConfigs[0]
       HasDataException(
          monkeyResponses,
-         `Couldn't get responses from Survey Monkey ${superSurveysList.surveyShortName}`,
+         `Couldn't get responses from Survey Monkey ${superSurveysList.superSurveyShortName}`,
          log,
       )
 
@@ -3240,11 +3238,13 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
          )
       }
 
-      // const monkeyConfigs = await MonkeyConfig.findOne({
-      //    monkeyId: superSurveysList.monkeyId,
-      // }).lean()
+      // 3/6/24 NEXT STEP: I decided to start processing the surveys answers from scratch, and do not create a CSV but start creating a Super Survey Output Layout with values. Perhaps I have to create a map of the Monkey Answers to make easier to find out pages, questions and answers using the Monkey Id, instead of traversing with foreach of for loops.
 
-      // //const surveyRows = [];
+      // // const monkeyConfigs = await MonkeyConfig.findOne({
+      // //    monkeyId: superSurveysList.monkeyId,
+      // // }).lean()
+
+      // // //const surveyRows = [];
       // const rowValue = []
       // const rowReal = []
       // const rowScore = []

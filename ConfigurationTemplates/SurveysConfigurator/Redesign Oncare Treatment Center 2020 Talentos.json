@@ -2123,6 +2123,223 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3011
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_SOMATICOS",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3021
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_ANSIEDAD",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3031
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_DISF_SOCIAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3041
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_DEPRESION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3051
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_TOTAL_CSG",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3061
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_ES_CASO",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3071
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_EMOCIONAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3081
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_DESPERS",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3091
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_LOGROS",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3101
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3111
+         },
+         {
+            "surveyShortName": "ESTRES",
+            "fieldName": "ESTRES_TOTAL_ESTRES",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3121
+         },
+         {
+            "surveyShortName": "ESTRES",
+            "fieldName": "ESTRES_LISTA_ESTRES",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3131
+         },
+         {
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_TOTAL_PSIQUICA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3141
+         },
+         {
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_TOTAL_SOMATICA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3151
+         },
+         {
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3161
+         },
+         {
+            "surveyShortName": "JEFF",
+            "fieldName": "JEFF_PACIENTE_PERSPECTIVA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3171
+         },
+         {
+            "surveyShortName": "JEFF",
+            "fieldName": "JEFF_COMPASION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3181
+         },
+         {
+            "surveyShortName": "JEFF",
+            "fieldName": "JEFF_ZAPATOS_PACIENTE",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3191
+         },
+         {
+            "surveyShortName": "JEFF",
+            "fieldName": "JEFF_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3201
+         },
+         {
+            "surveyShortName": "BECK",
+            "fieldName": "BECK_TOTAL_DEPRESION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3211
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_SOMATIZACION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3221
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_OBSESION_COMPULSION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3231
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_SENS_INTERPERS",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3241
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_DEPRESION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3251
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_ANSIEDAD",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3261
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_HOSTILIDAD",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3271
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_FOBIA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3281
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_PARANOIA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3291
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_PSICOSIS",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3301
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_ADICIONALES",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3311
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3321
          }
       ],
       "multiSurveys": [

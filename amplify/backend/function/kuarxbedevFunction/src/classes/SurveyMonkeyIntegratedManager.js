@@ -8,6 +8,12 @@ const {
     getCloneObjectExceptionFieldsList,
  } = require('../utils/Functions')
 
+ const {
+    getsurveyElementKey,
+ } = require('../utils/surveysLib')
+
+ 
+
 const QTYPE_OPEN_ENDED_SINGLE = "OPEN_ENDED_SINGLE"
 const QTYPE_SINGLE_CHOICE_MENU = "SINGLE_CHOICE_MENU"
 const QTYPE_SINGLE_CHOICE_VERTICAL = "SINGLE_CHOICE_VERTICAL"
@@ -77,7 +83,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
         }
        
 
-        mapifySurveyConfigToProcessAnswers(){
+        mapifySurveyConfigToProcessMonkeyWebhookAnswers(){
             this.log.setFunctionName("mapifySurveyConfig")
             
             this.log.HasDataMultipeEx("this.configs,this.configs.superSurveyConfig", this.configs, this.configs?.superSurveyConfig)
@@ -85,20 +91,35 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             const superSurveyConfig = this.configs.superSurveyConfig
             
             const superSurveyMap = new Map()
-            let surveysMap = null
+            const surveysMap = new Map()
+
             // const questionsMap = new Map()
             // const calculatedFieldsMap = new Map()
             // const outputLayoutsMap = new Map()
 
             const surveysConfigs = superSurveyConfig.surveys
 
-            for (const survey in surveysConfigs){
-                let surveyCloned = cloneObject(survey, getCloneObjectExceptionFieldsList(["questions", "calculatedFields"]))
-                let questions = survey.questions
-                let questionsMap = 
-                surveysMap = new Map(survey.monkeyInfo.id, surveyCloned)
+            for (let survey in surveysConfigs){
 
+                let questions = survey.questions
+                let questionsMap = new Map()
+                for(let question in questions){
+                    let questionKey = getsurveyElementKey(question)
+                    questionsMap.set(questionKey,question)
+                }
+                let calculatedFields = survey.calcualtedFields
+                let calculatedFieldsMap = new Map()
+                for(let calculatedField in calculatedFields ){
+                    let calculatedFieldKey = getsurveyElementKey(calculatedField)
+                    calculatedFieldsMap.set(calculatedFieldKey, calculatedField)
+                }
+
+                survey.questionsMap = questionsMap
+                survey.calculatedFieldsMap = calculatedFieldsMap
+                surveysMap.set(survey.surveyShortName, survey)
             }
+            superSurveyConfig.surveysMap = surveysMap
+            superSurveyMap.set(superSurveyConfig.superSurveyShortName, ) 
 
 
         }

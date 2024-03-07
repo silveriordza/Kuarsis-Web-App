@@ -153,10 +153,41 @@ const addResponseInfoAll = (values, realValues, scores, response) => {
    addRepeatValues(scores, 9, '')
 }
 
+const getsurveyElementKey = (
+   surveyElement,
+   keyList = ['surveyShortName', 'fieldName'],
+) => {
+   let questionKey = null
+
+   if (keyList.length <= 0) {
+      return null
+   } else if (keyList === 1) {
+      return surveyElement[keyList[0]]
+   } else {
+      for (let key in keyList) {
+         if (surveyElement.hasOwnProperty(key)) {
+            let keyValue = surveyElement[key]
+            if (!questionKey) {
+               questionKey = keyValue
+            } else {
+               questionKey = questionKey + `_${keyValue}`
+            }
+         } else {
+            throw Error(
+               'Property incorrect and not found in getSurveyElementKey into the surveyElement.',
+            )
+         }
+      }
+   }
+
+   return questionKey
+}
+
 module.exports = {
    buildOutputHeaders,
    getSuperSurveysConfigs,
    addResponseInfo,
    addResponseInfoAll,
    addRepeatValues,
+   getsurveyElementKey,
 }

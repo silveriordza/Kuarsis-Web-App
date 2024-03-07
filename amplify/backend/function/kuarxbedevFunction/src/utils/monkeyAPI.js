@@ -46,8 +46,55 @@ const getMonkeyResponses = async newResponses => {
          configMonkey,
       )
       let surveyResponse = surveyResponseResult.data
+
+      let surveyPagesMap = null
+      surveyPagesMap = new Map()
+      for (const page of surveyResponse.pages) {
+         let questionAnswersMap = null
+         questionAnswersMap = new Map()
+         for (const question of page.questions) {
+            for (const answer of question.answers) {
+               if (answer.hasOwnProperty('row_id')) {
+                  questionAnswersMap.set(answer.row_id, answer)
+               } else if (
+                  answer.hasOwnProperty('choice_id') &&
+                  question.answers.length > 1
+               ) {
+                  questionAnswersMap.set(answer.choice_id, answer)
+               } else {
+                  questionAnswersMap.set(question.id, answer)
+               }
+            }
+         }
+         surveyPagesMap.set(page.id, questionAnswersMap)
+      }
+      surveyResponse.surveyPagesMap = surveyPagesMap
+
       monkeyResponses.push(surveyResponse)
    }
+
+   // for (let monkeyResponse in monkeyResponses){
+   //    let surveyPagesMap = null
+   //    surveyPagesMap = new Map()
+
+   //    for (let page in monkeyResponse.pages){
+   //       let questionAnswersMap = null
+   //       questionAnswersMap = new Map()
+   //       for(let question in page.questions){
+   //          for (let answer in question.answers){
+   //             if (answer.hasOwnProperty("row_id")){
+   //                questionAnswersMap.set(answer.row_id, answer)
+   //             }else{
+   //                questionAnswersMap.set(question.id, answer)
+   //             }
+   //          }
+   //       }
+   //       surveyPagesMap.set(page.id, questionAnswersMap)
+   //       monkeyResponse.surveyPagesMap = surveyPagesMap
+   //    }
+   //    //182423261
+   // }
+
    return monkeyResponses
 }
 
