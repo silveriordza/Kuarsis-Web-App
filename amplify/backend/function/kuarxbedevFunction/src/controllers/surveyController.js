@@ -3238,8 +3238,12 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
          )
       }
 
-      // 3/6/24 NEXT STEP: I decided to start processing the surveys answers from scratch, and do not create a CSV but start creating a Super Survey Output Layout with values. Perhaps I have to create a map of the Monkey Answers to make easier to find out pages, questions and answers using the Monkey Id, instead of traversing with foreach of for loops.
+      /*
+      
 
+      3/6/24 NEXT STEP: Traverse the survey configurations and map them to the answers that are in the monkeyResponses.surveyPagesMap. 
+      What I did today: I decided to start processing the surveys answers from scratch, and do not create a CSV but start creating a Super Survey Output Layout with values. I also created surveyPagesMap into the monkeyResponses, that is mapping the survey pages to questions and that mapping to answers and the idea is to use that to find questions and answers quickly later in this code that I will start coding here. 
+*/
       // // const monkeyConfigs = await MonkeyConfig.findOne({
       // //    monkeyId: superSurveysList.monkeyId,
       // // }).lean()
