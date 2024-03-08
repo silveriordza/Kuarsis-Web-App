@@ -48,9 +48,22 @@ const getMonkeyResponses = async newResponses => {
       let surveyResponse = surveyResponseResult.data
 
       let surveyPagesMap = null
+      let questionAnswersMap = null
       surveyPagesMap = new Map()
+      questionAnswersMap = new Map()
+
+      questionAnswersMap.set('INFO_1', surveyResponse.respondent_id)
+      questionAnswersMap.set('INFO_2', surveyResponse.collector_id)
+      questionAnswersMap.set('INFO_3', surveyResponse.date_created)
+      questionAnswersMap.set('INFO_4', surveyResponse.date_modified)
+      questionAnswersMap.set('INFO_5', surveyResponse.ip_address)
+      questionAnswersMap.set('INFO_6', surveyResponse.email_address)
+      questionAnswersMap.set('INFO_7', surveyResponse.first_name)
+      questionAnswersMap.set('INFO_8', surveyResponse.last_name)
+      questionAnswersMap.set('INFO_9', surveyResponse.custom_1)
+      surveyPagesMap.set('INFO', questionAnswersMap)
+
       for (const page of surveyResponse.pages) {
-         let questionAnswersMap = null
          questionAnswersMap = new Map()
          for (const question of page.questions) {
             for (const answer of question.answers) {

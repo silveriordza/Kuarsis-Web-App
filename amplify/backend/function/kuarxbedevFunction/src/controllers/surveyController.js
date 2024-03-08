@@ -3191,7 +3191,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       const surveyConfigsObj = new SurveyMonkeyIntegratedManager()
 
       const surveyConfigs = await surveyConfigsObj.load(resources.survey_id)
-
+      //LogThis(log, `surveyConfigs=${j(surveyConfigs)}`)
       // const superSurveysList = await SurveySuperior.findOne({
       //    monkeyId: resources.survey_id,
       // }).lean()
@@ -3237,13 +3237,41 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
             `Number of responses from Survey Monkey are different from the count of new responses expected`,
          )
       }
+      const superSurveyConfig = surveyConfigs[0].surveyConfigs
+      const surveys = superSurveyConfig.surveys
+      const monkeyPagesAnswersMap = monkeyResponses[0].surveyPagesMap
+      const surveysAnswersMap = new Map()
+      let fieldsAnswersMap = new Map()
+      let monkeyPageAnswer = null
+      let fieldName = null
 
-      /*
-      
+      for (const survey of surveys) {
+         if (survey.surveyShortName === 'INFO') {
+            fieldsAnswersMap = new Map()
+            monkeyPageAnswer = monkeyPagesAnswersMap.get(survey.surveyShortName)
+            for (const question of survey.questions) {
+               fieldName = question.fieldName
+               fieldsAnswersMap.set(fieldName, monkeyPageAnswer.get(fieldName))
+            }
+         } else {
+            monkeyPageAnswer = monkeyPagesAnswersMap.get(survey.monkeyInfo.id)
+            fieldsAnswersMap = new Map()
+            for (const question of survey.questions) {
+               fieldName = question.fieldName
+               fieldsAnswersMap.set(
+                  fieldName,
+                  monkeyPageAnswer.get(question.monkeyInfo.id),
+               )
+            }
+         }
+         surveysAnswersMap.set(survey.surveyShortName, fieldsAnswersMap)
+      }
 
-      3/6/24 NEXT STEP: Traverse the survey configurations and map them to the answers that are in the monkeyResponses.surveyPagesMap. 
-      What I did today: I decided to start processing the surveys answers from scratch, and do not create a CSV but start creating a Super Survey Output Layout with values. I also created surveyPagesMap into the monkeyResponses, that is mapping the survey pages to questions and that mapping to answers and the idea is to use that to find questions and answers quickly later in this code that I will start coding here. 
-*/
+      /**
+       * 3/7/24 8:01 AM NEXT STEP: Continue mapping the Survey Monkey pages answers to the survey Config outputs.
+       * DECISION: Will travers the survey config one by one an use the monkeyPagesAnswersMap to populate the answer values into the question answer. I will create an answer object that will take the Real, Value and Score and store it into a field map where the key could be the surveyShortName_fieldName.
+       */
+
       // // const monkeyConfigs = await MonkeyConfig.findOne({
       // //    monkeyId: superSurveysList.monkeyId,
       // // }).lean()
