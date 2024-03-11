@@ -18,6 +18,7 @@ let {
    HasData,
    j,
 } = require('../utils/Logger.js')
+const { validateHasData } = require('./Functions.js')
 
 const srcFileName = 'monkeyAPI.js'
 
@@ -591,9 +592,389 @@ const AnalyzeQuestionResponse = (
    // }
 }
 
+const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
+   const log = new LoggerSettings(srcFileName, 'AnalyzeQuestionResponse')
+   let value = null
+   let realValue = null
+   let score = null
+   // const monkeyQuestionDetailsConf = surveyQuestion.details
+   // const monkeyQuestionAnswersConf = monkeyQuestionDetailsConf.answers
+   // const monkeyResponseAnswers = monkeyAnswer?.answers
+   // const colsValue = []
+   // const colsReal = []
+   // const colsScore = []
+   // const cols = {
+   //    colsValue: colsValue,
+   //    colsReal: colsReal,
+   //    colsScore: colsScore,
+   // }
+
+   const pushValueCol = (valueIn, realValueIn, scoreIn) => {
+      value = valueIn
+      realValue = realValueIn.trim().replace(/\u00A0/g, ' ')
+      score = scoreIn
+      return {
+         value: valueIn,
+         realValue: realValueIn.trim().replace(/\u00A0/g, ' '),
+         score: scoreIn,
+      }
+   }
+   const pushEmptyCol = () => {
+      value = ''
+      realValue = ''
+      score = ''
+
+      return {
+         value: '',
+         realValue: '',
+         score: '',
+      }
+   }
+
+   /**
+    *
+    * @param {*} choice - This is the survey monkey confing choice that should have position text and score properties.
+    * @param {*} outputScoreAsValue - Set this value as true to set the value as score for the rated subtypes
+    */
+   const pushChoiceCol = (choice, outputScoreAsValue = false) => {
+      let value = choice.value
+      let text = choice.realValue.trim()
+      let score = choice.score
+
+      // if (choice['quiz_options'] != undefined) {
+      //    score = choice.quiz_options.score
+      // } else if (choice['weight'] != undefined) {
+      //    score = choice.weight
+      // } else {
+      //    throw new Error(
+      //       `Score property not found in question for choice id: ${choice.id}`,
+      //    )
+      // }
+
+      if (outputScoreAsValue) {
+         value = score
+      }
+
+      if (!text || text == '') {
+         text = value.toString()
+      }
+      return pushValueCol(value, text, score)
+   }
+
+   let questionType = surveyQuestion.monkeyInfo.type
+
+   switch (questionType) {
+      case 'OPEN_ENDED_SINGLE':
+         if (monkeyAnswer && monkeyAnswer.text) {
+            value = monkeyAnswer.text.trim()
+            realValue = monkeyAnswer.text.trim()
+            score = ''
+         } else {
+            value = ''
+            realValue = ''
+            score = ''
+         }
+         return pushValueCol(value, realValue, score)
+      //break
+      case 'SINGLE_CHOICE_MENU': {
+         // const DEBUG_SECTION = 'DEBUG_SINGLE_MENU'
+         // const msg = 'single_choice_menu'
+         // const monkeyResponseAnswer = monkeyResponseAnswers[0]
+         let answerField = surveyQuestion.monkeyInfo.monkeyAnswers.answerField
+         if (monkeyAnswer[answerField] != undefined) {
+            const monkeyAnswerChoiceConf =
+               surveyQuestion.monkeyInfo.monkeyAnswers.answerChoices.find(
+                  confChoice => confChoice.id == monkeyAnswer[answerField],
+               )
+            if (HasData(monkeyAnswerChoiceConf)) {
+               if (answerField == 'other_id') {
+                  monkeyAnswerChoiceConf.realValue = monkeyAnswer.text
+                  monkeyAnswerChoiceConf.value = monkeyAnswer.text
+                  monkeyAnswerChoiceConf.score = 0
+               }
+               return pushChoiceCol(monkeyAnswerChoiceConf)
+            } else {
+               return pushEmptyCol()
+            }
+            //when choice is selected, the value, real and score are in the selected choice found in survey config.
+
+            // //When choice is selected, other values are empty in the output file.
+            // if (
+            //    monkeyQuestionAnswersConf['other'] != undefined &&
+            //    monkeyResponseAnswer['other_id'] == undefined
+            // ) {
+            //    pushEmptyCol()
+            // }
+
+            // LogVars(
+            //    log,
+            //    msg,
+            //    L3,
+            //    'monkeyAnswerChoiceConf',
+            //    monkeyAnswerChoiceConf,
+            // )
+         } else {
+            return pushEmptyCol()
+         }
+      }
+      //break
+      case 'SINGLE_CHOICE_VERTICAL':
+      case 'SINGLE_CHOICE_VERTICAL_THREE_COL':
+         {
+            const monkeyResponseAnswer = monkeyResponseAnswers[0]
+            if (monkeyResponseAnswer['choice_id']) {
+               const monkeyAnswerChoiceConf =
+                  monkeyQuestionAnswersConf.choices.find(
+                     confChoice =>
+                        confChoice.id == monkeyResponseAnswer.choice_id,
+                  )
+               HasDataException(
+                  monkeyAnswerChoiceConf,
+                  `Choice in monkey response not found in survey config ${monkeyResponseAnswer.choice_id}`,
+                  log,
+               )
+               //when choice is selected, the value, real and score are in the selected choice found in survey config.
+               pushChoiceCol(monkeyAnswerChoiceConf)
+               //When choice is selected, other values are empty in the output file.
+
+               if (
+                  monkeyQuestionAnswersConf['other'] != undefined &&
+                  monkeyResponseAnswer['other_id'] == undefined
+               ) {
+                  pushEmptyCol()
+               }
+            } else if (monkeyResponseAnswer['other_id'] != undefined) {
+               const monkeyAnswerChoiceConf =
+                  monkeyQuestionAnswersConf.other.find(
+                     otherConf => otherConf.id == monkeyResponseAnswer.other_id,
+                  )
+
+               HasDataException(
+                  monkeyAnswerChoiceConf,
+                  `Other choice in monkey response not found in survey config ${monkeyResponseAnswer.other_id}`,
+                  log,
+               )
+
+               pushChoiceCol(monkeyAnswerChoiceConf)
+               pushValueCol(
+                  monkeyResponseAnswer.text,
+                  monkeyResponseAnswer.text,
+                  '',
+               )
+            } else {
+               throw Error(
+                  `Invalid choice in survey monkey response for question details=${j(
+                     monkeyQuestionDetailsConf,
+                  )}`,
+               )
+            }
+         }
+         break
+      case 'matrix_rating': //for updating responses from survey monkey
+         {
+            for (
+               let rowIndex = 0;
+               rowIndex < monkeyQuestionAnswersConf.rows.length;
+               rowIndex++
+            ) {
+               let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
+               LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
+
+               let monkeyResponseAnswer = monkeyResponseAnswers.find(
+                  monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
+               )
+
+               if (HasData(monkeyResponseAnswer)) {
+                  if (monkeyResponseAnswer['choice_id']) {
+                     const monkeyAnswerChoiceConf =
+                        monkeyQuestionAnswersConf.choices.find(
+                           confChoice =>
+                              confChoice.id == monkeyResponseAnswer.choice_id,
+                        )
+                     HasDataException(
+                        monkeyAnswerChoiceConf,
+                        `Choice in monkey response not found in survey config ${j(
+                           monkeyResponseAnswer.choice_id,
+                        )}`,
+                        log,
+                     )
+                     //when choice is selected, the value, real and score are in the selected choice found in survey config.
+                     pushChoiceCol(monkeyAnswerChoiceConf, true)
+                     //When choice is selected, other values are empty in the output file.
+                  } else {
+                     pushEmptyCol()
+                  }
+               } else {
+                  pushEmptyCol()
+               }
+            }
+         }
+         break
+      case 'open_ended_numerical': //for updating responses from survey monkey
+         {
+            for (
+               let rowIndex = 0;
+               rowIndex < monkeyQuestionAnswersConf.rows.length;
+               rowIndex++
+            ) {
+               let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
+
+               let monkeyResponseAnswer = monkeyResponseAnswers.find(
+                  monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
+               )
+
+               if (HasData(monkeyResponseAnswer)) {
+                  let text = monkeyResponseAnswer.text
+                  let value = Number.parseInt(text)
+
+                  //when choice is selected, the value, real and score are in the selected choice found in survey config.
+                  pushValueCol(value, text, value)
+               } else {
+                  pushEmptyCol()
+               }
+            }
+         }
+         break
+      case 'multiple_choice_vertical_three_col':
+      case 'multiple_choice_vertical': //for updating responses from survey monkey
+         {
+            for (
+               let choiceIndex = 0;
+               choiceIndex < monkeyQuestionAnswersConf.choices.length;
+               choiceIndex++
+            ) {
+               let monkeyChoiceConf =
+                  monkeyQuestionAnswersConf.choices[choiceIndex]
+
+               let monkeyResponseAnswer = monkeyResponseAnswers?.find(
+                  monkeyResponse =>
+                     monkeyResponse.choice_id == monkeyChoiceConf.id,
+               )
+
+               if (HasData(monkeyResponseAnswer)) {
+                  if (monkeyResponseAnswer['choice_id'] != undefined) {
+                     //when choice is selected, the value, real and score are in the selected choice found in survey config.
+                     pushChoiceCol(monkeyChoiceConf)
+                  } else {
+                     throw Error(
+                        `The choice_id value was not found in the answer as expected: ${j(
+                           monkeyResponseAnswer,
+                        )}`,
+                     )
+                  }
+               } else {
+                  //For multiple choice vertical option, if the choice was not selected in the answers, then push en empty column.
+                  pushEmptyCol()
+               }
+            }
+         }
+         break
+
+      default:
+         throw new Error(
+            `Family:${monkeyQuestionDetailsConf.family} and subType=${monkeyQuestionDetailsConf.subtype} combination is not valid.`,
+         )
+   }
+   LogThis(log, `cols=${j(cols)}`, L3)
+   return cols
+}
+
+const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
+   const log = new LoggerSettings(srcFileName, 'AnalyzeQuestionResponse')
+   let weightedResponse = null
+   let response = null
+   let isWeighted = null
+
+   if (
+      surveyQuestion.weights &&
+      (Object.keys(surveyQuestion.weights).length > 0 ||
+         surveyQuestion.weigths.length > 0)
+   ) {
+      switch (surveyQuestion.weightType) {
+         case WEIGHTED_PAIRS:
+            weightedResponse = surveyQuestion.weights[answerA]
+            break
+         case WEIGHTED_CRITERIA:
+            try {
+               weightedResponse = applyStringCriteriaToValue(
+                  surveyQuestion.weights,
+                  answerA,
+               )
+            } catch (error) {
+               LogThis(log, `error: ${error.message}`, L0)
+            }
+      }
+      LogThis(
+         log,
+         `question weights=${JSON.stringify(surveyQuestion.weights)}`,
+         L3,
+      )
+      LogThis(
+         log,
+         `BEFORE col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+         L3,
+      )
+      if (weightedResponse === undefined) {
+         weightedResponse = answerA
+         isWeighted = false
+      } else {
+         isWeighted = true
+      }
+      response = answerA
+      answers[superSurveyQuestionCol] = weightedResponse
+      LogThis(
+         log,
+         `AFTER col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+         L3,
+      )
+   } else {
+      //CASE NO_WEIGHTED
+      //let answerA = answers[superSurveyQuestionCol]
+      // //response = answerA
+      // weightedResponse = answerA
+      // isWeighted = false
+
+      monkeyAnswer.weightedResponse = monkeyAnswer.value
+      monkeyAnswer.isWeighted = false
+      LogThis(log, `no weighted: monkeyAnswer=${j(monkeyAnswer)};`, L3)
+      return monkeyAnswer
+   }
+
+   // surveyResponses.push({
+   //    questionId: surveyQuestion._id,
+   //    respondentId: respondentId,
+   //    row: row,
+   //    col: a + 1,
+   //    response: response,
+   //    responseReal: answersReal[superSurveyQuestionCol],
+   //    weightedResponse: weightedResponse,
+   //    isWeighted: isWeighted,
+   // })
+
+   // if (isWeighted) {
+   //    LogThis(
+   //       log,
+   //       `Adding csv weighted answer: weightedResponse=${weightedResponse}`,
+   //       L3,
+   //    )
+   //    weightedResponse = weightedResponse ?? ''
+   //    //csv = csv + weightedResponse.toString() + ",";
+   // } //else {
+   // //     csv = csv + response.toString() + ",";
+   // //   }
+
+   // LogThis(
+   //    log,
+   //    `surveyResponses=${JSON.stringify(surveyResponses, null, 2)}`,
+   //    L3,
+   // )
+}
+
 module.exports = {
    getMonkeyResponses,
    ValidateMonkeyConfigs,
    AnalyzeQuestionResponse,
    PushBlankPage,
+   AnalyzeQuestionResponseRedesign,
+   getWeightedResponse,
 }

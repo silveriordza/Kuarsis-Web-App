@@ -23,6 +23,8 @@ const {
    ValidateMonkeyConfigs,
    PushBlankPage,
    AnalyzeQuestionResponse,
+   AnalyzeQuestionResponseRedesign,
+   getWeightedResponse,
 } = require('../utils/monkeyAPI.js')
 const {
    buildOutputHeaders,
@@ -3242,33 +3244,41 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       const monkeyPagesAnswersMap = monkeyResponses[0].surveyPagesMap
       const surveysAnswersMap = new Map()
       let fieldsAnswersMap = new Map()
+      let monkeyPageAnswers = null
       let monkeyPageAnswer = null
       let fieldName = null
 
       for (const survey of surveys) {
          if (survey.surveyShortName === 'INFO') {
             fieldsAnswersMap = new Map()
-            monkeyPageAnswer = monkeyPagesAnswersMap.get(survey.surveyShortName)
+            monkeyPageAnswers = monkeyPagesAnswersMap.get(
+               survey.surveyShortName,
+            )
             for (const question of survey.questions) {
                fieldName = question.fieldName
-               fieldsAnswersMap.set(fieldName, monkeyPageAnswer.get(fieldName))
+               fieldsAnswersMap.set(fieldName, monkeyPageAnswers.get(fieldName))
             }
          } else {
-            monkeyPageAnswer = monkeyPagesAnswersMap.get(survey.monkeyInfo.id)
+            monkeyPageAnswers = monkeyPagesAnswersMap.get(survey.monkeyInfo.id)
             fieldsAnswersMap = new Map()
             for (const question of survey.questions) {
                fieldName = question.fieldName
-               fieldsAnswersMap.set(
-                  fieldName,
-                  monkeyPageAnswer.get(question.monkeyInfo.id),
+
+               monkeyPageAnswer = monkeyPageAnswers.get(question.monkeyInfo.id)
+               let monkeyAnswer = AnalyzeQuestionResponseRedesign(
+                  question,
+                  monkeyPageAnswer,
                )
+               let weightedAnswer = getWeightedResponse(question, monkeyAnswer)
+               fieldsAnswersMap.set(fieldName, weightedAnswer)
             }
          }
          surveysAnswersMap.set(survey.surveyShortName, fieldsAnswersMap)
       }
 
       /**
-       * 3/7/24 8:01 AM NEXT STEP: Continue mapping the Survey Monkey pages answers to the survey Config outputs.
+       * 3/8/24 NEXT STEP: I formed the surveyAnswersMap which contains key is survey shortname, and the fieldAnswersMap is the fieldName of the survey containing the answers as they are straight from Survey Monkey Reponses. Next step is to continue processing the answers now, using the fieldNames and the Calculated Fields, perhaps you can create another map that will have the map of fields subscales mapped to the answers that correspond to those subscales, that way you can sum or do the calculations easier when grouping the subscales.
+       *
        * DECISION: Will travers the survey config one by one an use the monkeyPagesAnswersMap to populate the answer values into the question answer. I will create an answer object that will take the Real, Value and Score and store it into a field map where the key could be the surveyShortName_fieldName.
        */
 
