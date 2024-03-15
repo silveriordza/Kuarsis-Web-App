@@ -20,6 +20,13 @@ let {
 } = require('../utils/Logger.js')
 const { validateHasData } = require('./Functions.js')
 
+const WEIGHTED_PAIRS = 'WEIGHTED_PAIRS'
+const WEIGHTED_CRITERIA = 'WEIGHTED_CRITERIA'
+
+const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
+const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
+const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
+
 const srcFileName = 'monkeyAPI.js'
 
 const getMonkeyResponses = async newResponses => {
@@ -661,6 +668,28 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
       return pushValueCol(value, text, score)
    }
 
+   const ProcessSingleChoiceAnswer = (surveyQuestion, monkeyAnswer) => {
+      let answerField = surveyQuestion.monkeyInfo.monkeyAnswers.answerField
+      if (monkeyAnswer[answerField] != undefined) {
+         const monkeyAnswerChoiceConf =
+            surveyQuestion.monkeyInfo.monkeyAnswers.answerChoices.find(
+               confChoice => confChoice.id == monkeyAnswer[answerField],
+            )
+         if (HasData(monkeyAnswerChoiceConf)) {
+            if (answerField == 'other_id') {
+               monkeyAnswerChoiceConf.realValue = monkeyAnswer.text
+               monkeyAnswerChoiceConf.value = monkeyAnswer.text
+               monkeyAnswerChoiceConf.score = 0
+            }
+            return pushChoiceCol(monkeyAnswerChoiceConf)
+         } else {
+            return pushEmptyCol()
+         }
+      } else {
+         return pushEmptyCol()
+      }
+   }
+
    let questionType = surveyQuestion.monkeyInfo.type
 
    switch (questionType) {
@@ -676,138 +705,54 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
          }
          return pushValueCol(value, realValue, score)
       //break
-      case 'SINGLE_CHOICE_MENU': {
-         // const DEBUG_SECTION = 'DEBUG_SINGLE_MENU'
-         // const msg = 'single_choice_menu'
-         // const monkeyResponseAnswer = monkeyResponseAnswers[0]
-         let answerField = surveyQuestion.monkeyInfo.monkeyAnswers.answerField
-         if (monkeyAnswer[answerField] != undefined) {
-            const monkeyAnswerChoiceConf =
-               surveyQuestion.monkeyInfo.monkeyAnswers.answerChoices.find(
-                  confChoice => confChoice.id == monkeyAnswer[answerField],
-               )
-            if (HasData(monkeyAnswerChoiceConf)) {
-               if (answerField == 'other_id') {
-                  monkeyAnswerChoiceConf.realValue = monkeyAnswer.text
-                  monkeyAnswerChoiceConf.value = monkeyAnswer.text
-                  monkeyAnswerChoiceConf.score = 0
-               }
-               return pushChoiceCol(monkeyAnswerChoiceConf)
-            } else {
-               return pushEmptyCol()
-            }
-            //when choice is selected, the value, real and score are in the selected choice found in survey config.
+      case 'SINGLE_CHOICE_MENU':
+         return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
 
-            // //When choice is selected, other values are empty in the output file.
-            // if (
-            //    monkeyQuestionAnswersConf['other'] != undefined &&
-            //    monkeyResponseAnswer['other_id'] == undefined
-            // ) {
-            //    pushEmptyCol()
-            // }
-
-            // LogVars(
-            //    log,
-            //    msg,
-            //    L3,
-            //    'monkeyAnswerChoiceConf',
-            //    monkeyAnswerChoiceConf,
-            // )
-         } else {
-            return pushEmptyCol()
-         }
-      }
       //break
       case 'SINGLE_CHOICE_VERTICAL':
+         return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
       case 'SINGLE_CHOICE_VERTICAL_THREE_COL':
+         return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
+
+      case 'MATRIX_RATING': //for updating responses from survey monkey
          {
-            const monkeyResponseAnswer = monkeyResponseAnswers[0]
-            if (monkeyResponseAnswer['choice_id']) {
-               const monkeyAnswerChoiceConf =
-                  monkeyQuestionAnswersConf.choices.find(
-                     confChoice =>
-                        confChoice.id == monkeyResponseAnswer.choice_id,
-                  )
-               HasDataException(
-                  monkeyAnswerChoiceConf,
-                  `Choice in monkey response not found in survey config ${monkeyResponseAnswer.choice_id}`,
-                  log,
-               )
-               //when choice is selected, the value, real and score are in the selected choice found in survey config.
-               pushChoiceCol(monkeyAnswerChoiceConf)
-               //When choice is selected, other values are empty in the output file.
+            return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
+            // for (
+            //    let rowIndex = 0;
+            //    rowIndex < monkeyQuestionAnswersConf.rows.length;
+            //    rowIndex++
+            // ) {
+            //    let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
+            //    LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
 
-               if (
-                  monkeyQuestionAnswersConf['other'] != undefined &&
-                  monkeyResponseAnswer['other_id'] == undefined
-               ) {
-                  pushEmptyCol()
-               }
-            } else if (monkeyResponseAnswer['other_id'] != undefined) {
-               const monkeyAnswerChoiceConf =
-                  monkeyQuestionAnswersConf.other.find(
-                     otherConf => otherConf.id == monkeyResponseAnswer.other_id,
-                  )
+            //    let monkeyResponseAnswer = monkeyResponseAnswers.find(
+            //       monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
+            //    )
 
-               HasDataException(
-                  monkeyAnswerChoiceConf,
-                  `Other choice in monkey response not found in survey config ${monkeyResponseAnswer.other_id}`,
-                  log,
-               )
-
-               pushChoiceCol(monkeyAnswerChoiceConf)
-               pushValueCol(
-                  monkeyResponseAnswer.text,
-                  monkeyResponseAnswer.text,
-                  '',
-               )
-            } else {
-               throw Error(
-                  `Invalid choice in survey monkey response for question details=${j(
-                     monkeyQuestionDetailsConf,
-                  )}`,
-               )
-            }
-         }
-         break
-      case 'matrix_rating': //for updating responses from survey monkey
-         {
-            for (
-               let rowIndex = 0;
-               rowIndex < monkeyQuestionAnswersConf.rows.length;
-               rowIndex++
-            ) {
-               let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
-               LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
-
-               let monkeyResponseAnswer = monkeyResponseAnswers.find(
-                  monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
-               )
-
-               if (HasData(monkeyResponseAnswer)) {
-                  if (monkeyResponseAnswer['choice_id']) {
-                     const monkeyAnswerChoiceConf =
-                        monkeyQuestionAnswersConf.choices.find(
-                           confChoice =>
-                              confChoice.id == monkeyResponseAnswer.choice_id,
-                        )
-                     HasDataException(
-                        monkeyAnswerChoiceConf,
-                        `Choice in monkey response not found in survey config ${j(
-                           monkeyResponseAnswer.choice_id,
-                        )}`,
-                        log,
-                     )
-                     //when choice is selected, the value, real and score are in the selected choice found in survey config.
-                     pushChoiceCol(monkeyAnswerChoiceConf, true)
-                     //When choice is selected, other values are empty in the output file.
-                  } else {
-                     pushEmptyCol()
-                  }
-               } else {
-                  pushEmptyCol()
-               }
-            }
+            //    if (HasData(monkeyResponseAnswer)) {
+            //       if (monkeyResponseAnswer['choice_id']) {
+            //          const monkeyAnswerChoiceConf =
+            //             monkeyQuestionAnswersConf.choices.find(
+            //                confChoice =>
+            //                   confChoice.id == monkeyResponseAnswer.choice_id,
+            //             )
+            //          HasDataException(
+            //             monkeyAnswerChoiceConf,
+            //             `Choice in monkey response not found in survey config ${j(
+            //                monkeyResponseAnswer.choice_id,
+            //             )}`,
+            //             log,
+            //          )
+            //          //when choice is selected, the value, real and score are in the selected choice found in survey config.
+            //          pushChoiceCol(monkeyAnswerChoiceConf, true)
+            //          //When choice is selected, other values are empty in the output file.
+            //       } else {
+            //          pushEmptyCol()
+            //       }
+            //    } else {
+            //       pushEmptyCol()
+            //    }
+            // }
          }
          break
       case 'open_ended_numerical': //for updating responses from survey monkey
@@ -883,26 +828,30 @@ const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
    const log = new LoggerSettings(srcFileName, 'AnalyzeQuestionResponse')
    let weightedResponse = null
    let response = null
-   let isWeighted = null
+   let isWeighted = false
+   let answerValue = monkeyAnswer.value
 
    if (
       surveyQuestion.weights &&
-      (Object.keys(surveyQuestion.weights).length > 0 ||
-         surveyQuestion.weigths.length > 0)
+      Object.keys(surveyQuestion.weights).length > 0
    ) {
       switch (surveyQuestion.weightType) {
          case WEIGHTED_PAIRS:
-            weightedResponse = surveyQuestion.weights[answerA]
+            weightedResponse = surveyQuestion.weights[answerValue]
+            isWeighted = true
             break
          case WEIGHTED_CRITERIA:
             try {
                weightedResponse = applyStringCriteriaToValue(
                   surveyQuestion.weights,
-                  answerA,
+                  answerValue,
                )
+               isWeighted = true
             } catch (error) {
                LogThis(log, `error: ${error.message}`, L0)
             }
+         default:
+            isWeighted = false
       }
       LogThis(
          log,
@@ -911,22 +860,25 @@ const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
       )
       LogThis(
          log,
-         `BEFORE col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+         `fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerValue}; weightedResponse=${weightedResponse}`,
          L3,
       )
       if (weightedResponse === undefined) {
-         weightedResponse = answerA
+         weightedResponse = answerValue
          isWeighted = false
       } else {
          isWeighted = true
       }
-      response = answerA
-      answers[superSurveyQuestionCol] = weightedResponse
+      //response = answerValue
+      //answers[superSurveyQuestionCol] = weightedResponse
+      monkeyAnswer.weightedResponse = weightedResponse
+      monkeyAnswer.isWeighted = isWeighted
       LogThis(
          log,
-         `AFTER col=${superSurveyQuestionCol}; fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerA}; weightedResponse=${weightedResponse}`,
+         `fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerValue}; weightedResponse=${weightedResponse}`,
          L3,
       )
+      return monkeyAnswer
    } else {
       //CASE NO_WEIGHTED
       //let answerA = answers[superSurveyQuestionCol]
