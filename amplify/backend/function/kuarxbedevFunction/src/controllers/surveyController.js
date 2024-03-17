@@ -24,13 +24,14 @@ const {
    PushBlankPage,
    AnalyzeQuestionResponse,
    AnalyzeQuestionResponseRedesign,
-   getWeightedResponse,
+   GetWeightedResponse,
 } = require('../utils/monkeyAPI.js')
 const {
    buildOutputHeaders,
    //getSuperSurveysConfigs,
    //addResponseInfo,
    addResponseInfoAll,
+   processCalculatedFields,
 } = require('../utils/surveysLib.js')
 
 // let {
@@ -3244,9 +3245,12 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       const monkeyPagesAnswersMap = monkeyResponses[0].surveyPagesMap
       const surveysAnswersMap = new Map()
       let fieldsAnswersMap = new Map()
+      const subscaleToFieldsMap = new Map()
       let monkeyPageAnswers = null
       let monkeyPageAnswer = null
       let fieldName = null
+      let weightedAnswers = null
+      const allFieldsAnswersMap = new Map()
 
       for (const survey of surveys) {
          if (survey.surveyShortName === 'INFO') {
@@ -3257,6 +3261,10 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
             for (const question of survey.questions) {
                fieldName = question.fieldName
                fieldsAnswersMap.set(fieldName, monkeyPageAnswers.get(fieldName))
+               allFieldsAnswersMap.set(
+                  fieldName,
+                  monkeyPageAnswers.get(fieldName),
+               )
             }
          } else {
             monkeyPageAnswers = monkeyPagesAnswersMap.get(survey.monkeyInfo.id)
@@ -3269,12 +3277,53 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                   question,
                   monkeyPageAnswer,
                )
-               let weightedAnswer = getWeightedResponse(question, monkeyAnswer)
+               let weightedAnswer = GetWeightedResponse(question, monkeyAnswer)
+               weightedAnswer.fieldName = fieldName
+               weightedAnswer.isCalculatedField = false
                fieldsAnswersMap.set(fieldName, weightedAnswer)
+               allFieldsAnswersMap.set(fieldName, weightedAnswer)
+
+               if (subscaleToFieldsMap.has(question.subScale)) {
+                  weightedAnswers = subscaleToFieldsMap.get(question.subScale)
+                  weightedAnswers.push(weightedAnswer)
+               } else {
+                  weightedAnswers = []
+                  weightedAnswers.push(weightedAnswer)
+                  subscaleToFieldsMap.set(question.subScale, weightedAnswers)
+               }
+            }
+
+            for (const calculatedField of survey.calculatedFields) {
+               let initialValue = {
+                  isCalculatedField: true,
+                  calculatedValue: 0,
+               }
+               fieldsAnswersMap.set(calculatedField.fieldName, initialValue)
+               allFieldsAnswersMap.set(calculatedField.fieldName, initialValue)
             }
          }
+
+         //for (const calculatedField of survey.calculatedFields) {
+
+         processCalculatedFields(survey, fieldsAnswersMap, subscaleToFieldsMap)
+         //}
          surveysAnswersMap.set(survey.surveyShortName, fieldsAnswersMap)
       }
+
+      const outputLayouts = superSurveyConfig.outputLayouts
+      for (const outputField of outputLayouts) {
+         outputField.processedAnswer = allFieldsAnswersMap.get(
+            outputField.fieldName,
+         )
+         let Y = 1
+      }
+
+      let x = 1
+
+      return Array.from(surveysAnswersMap, ([survey, value]) => {
+         let field = Array.from(value, ([name, answer]) => ({ name, answer }))
+         return { survey, field }
+      })
 
       /**
        * 3/8/24 NEXT STEP: I formed the surveyAnswersMap which contains key is survey shortname, and the fieldAnswersMap is the fieldName of the survey containing the answers as they are straight from Survey Monkey Reponses. Next step is to continue processing the answers now, using the fieldNames and the Calculated Fields, perhaps you can create another map that will have the map of fields subscales mapped to the answers that correspond to those subscales, that way you can sum or do the calculations easier when grouping the subscales.
@@ -4438,6 +4487,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       //    monkeyConfigs: monkeyConfigs,
       //    monkeyResponses: monkeyResponses,
       // }
+      //RESPONSE HERE
    } catch (error) {
       // //res.status(404).json({ message: 'Error monkeyUpdateResponses2' })
       // for (let i = 0; i < newRespondents.length; i++) {

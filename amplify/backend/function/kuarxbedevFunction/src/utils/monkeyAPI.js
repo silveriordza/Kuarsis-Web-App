@@ -20,6 +20,11 @@ let {
 } = require('../utils/Logger.js')
 const { validateHasData } = require('./Functions.js')
 
+const {
+   applyStringCriteriaToValue,
+   formatDate,
+} = require('../utils/Functions.js')
+
 const WEIGHTED_PAIRS = 'WEIGHTED_PAIRS'
 const WEIGHTED_CRITERIA = 'WEIGHTED_CRITERIA'
 
@@ -60,7 +65,7 @@ const getMonkeyResponses = async newResponses => {
       surveyPagesMap = new Map()
       questionAnswersMap = new Map()
 
-      questionAnswersMap.set('INFO_1', surveyResponse.respondent_id)
+      questionAnswersMap.set('INFO_1', surveyResponse.id)
       questionAnswersMap.set('INFO_2', surveyResponse.collector_id)
       questionAnswersMap.set('INFO_3', surveyResponse.date_created)
       questionAnswersMap.set('INFO_4', surveyResponse.date_modified)
@@ -68,7 +73,7 @@ const getMonkeyResponses = async newResponses => {
       questionAnswersMap.set('INFO_6', surveyResponse.email_address)
       questionAnswersMap.set('INFO_7', surveyResponse.first_name)
       questionAnswersMap.set('INFO_8', surveyResponse.last_name)
-      questionAnswersMap.set('INFO_9', surveyResponse.custom_1)
+      questionAnswersMap.set('INFO_9', surveyResponse.custom_value)
       surveyPagesMap.set('INFO', questionAnswersMap)
 
       for (const page of surveyResponse.pages) {
@@ -627,14 +632,14 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
       }
    }
    const pushEmptyCol = () => {
-      value = ''
+      value = 0
       realValue = ''
-      score = ''
+      score = 0
 
       return {
-         value: '',
+         value: 0,
          realValue: '',
-         score: '',
+         score: 0,
       }
    }
 
@@ -670,7 +675,7 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
 
    const ProcessSingleChoiceAnswer = (surveyQuestion, monkeyAnswer) => {
       let answerField = surveyQuestion.monkeyInfo.monkeyAnswers.answerField
-      if (monkeyAnswer[answerField] != undefined) {
+      if (HasData(monkeyAnswer) && monkeyAnswer[answerField] != undefined) {
          const monkeyAnswerChoiceConf =
             surveyQuestion.monkeyInfo.monkeyAnswers.answerChoices.find(
                confChoice => confChoice.id == monkeyAnswer[answerField],
@@ -781,39 +786,40 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
          }
          break
       case 'multiple_choice_vertical_three_col':
-      case 'multiple_choice_vertical': //for updating responses from survey monkey
-         {
-            for (
-               let choiceIndex = 0;
-               choiceIndex < monkeyQuestionAnswersConf.choices.length;
-               choiceIndex++
-            ) {
-               let monkeyChoiceConf =
-                  monkeyQuestionAnswersConf.choices[choiceIndex]
+      case 'MULTIPLE_CHOICE_VERTICAL': {
+         //for updating responses from survey monkey
+         return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
+         //    for (
+         //       let choiceIndex = 0;
+         //       choiceIndex < monkeyQuestionAnswersConf.choices.length;
+         //       choiceIndex++
+         //    ) {
+         //       let monkeyChoiceConf =
+         //          monkeyQuestionAnswersConf.choices[choiceIndex]
 
-               let monkeyResponseAnswer = monkeyResponseAnswers?.find(
-                  monkeyResponse =>
-                     monkeyResponse.choice_id == monkeyChoiceConf.id,
-               )
+         //       let monkeyResponseAnswer = monkeyResponseAnswers?.find(
+         //          monkeyResponse =>
+         //             monkeyResponse.choice_id == monkeyChoiceConf.id,
+         //       )
 
-               if (HasData(monkeyResponseAnswer)) {
-                  if (monkeyResponseAnswer['choice_id'] != undefined) {
-                     //when choice is selected, the value, real and score are in the selected choice found in survey config.
-                     pushChoiceCol(monkeyChoiceConf)
-                  } else {
-                     throw Error(
-                        `The choice_id value was not found in the answer as expected: ${j(
-                           monkeyResponseAnswer,
-                        )}`,
-                     )
-                  }
-               } else {
-                  //For multiple choice vertical option, if the choice was not selected in the answers, then push en empty column.
-                  pushEmptyCol()
-               }
-            }
-         }
-         break
+         //       if (HasData(monkeyResponseAnswer)) {
+         //          if (monkeyResponseAnswer['choice_id'] != undefined) {
+         //             //when choice is selected, the value, real and score are in the selected choice found in survey config.
+         //             pushChoiceCol(monkeyChoiceConf)
+         //          } else {
+         //             throw Error(
+         //                `The choice_id value was not found in the answer as expected: ${j(
+         //                   monkeyResponseAnswer,
+         //                )}`,
+         //             )
+         //          }
+         //       } else {
+         //          //For multiple choice vertical option, if the choice was not selected in the answers, then push en empty column.
+         //          pushEmptyCol()
+         //       }
+         //    }
+      }
+      // break
 
       default:
          throw new Error(
@@ -824,7 +830,7 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
    return cols
 }
 
-const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
+const GetWeightedResponse = (surveyQuestion, monkeyAnswer) => {
    const log = new LoggerSettings(srcFileName, 'AnalyzeQuestionResponse')
    let weightedResponse = null
    let response = null
@@ -837,7 +843,7 @@ const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
    ) {
       switch (surveyQuestion.weightType) {
          case WEIGHTED_PAIRS:
-            weightedResponse = surveyQuestion.weights[answerValue]
+            weightedResponse = Number(surveyQuestion.weights[answerValue])
             isWeighted = true
             break
          case WEIGHTED_CRITERIA:
@@ -846,10 +852,12 @@ const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
                   surveyQuestion.weights,
                   answerValue,
                )
+               weightedResponse = Number(weightedResponse)
                isWeighted = true
             } catch (error) {
                LogThis(log, `error: ${error.message}`, L0)
             }
+            break
          default:
             isWeighted = false
       }
@@ -863,7 +871,7 @@ const getWeightedResponse = (surveyQuestion, monkeyAnswer) => {
          `fieldName=${surveyQuestion.fieldName}; isWeighted=${isWeighted}; answerA=${answerValue}; weightedResponse=${weightedResponse}`,
          L3,
       )
-      if (weightedResponse === undefined) {
+      if (weightedResponse === undefined || weightedResponse === '') {
          weightedResponse = answerValue
          isWeighted = false
       } else {
@@ -928,5 +936,5 @@ module.exports = {
    AnalyzeQuestionResponse,
    PushBlankPage,
    AnalyzeQuestionResponseRedesign,
-   getWeightedResponse,
+   GetWeightedResponse,
 }

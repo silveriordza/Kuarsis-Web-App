@@ -25,7 +25,13 @@ let {
    L3,
 } = require('../utils/Logger.js')
 
+const { applyStringCriteriaToValue } = require('../utils/Functions.js')
+
 const srcFileName = 'surveysLib.js'
+
+const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
+const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
+const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
 
 const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
    const log = new LoggerSettings(srcFileName, 'buildOutputHeaders')
@@ -183,6 +189,220 @@ const getsurveyElementKey = (
    return questionKey
 }
 
+//const findField (fieldsAnswersMap, )
+
+const processCalculatedFields = (
+   survey,
+   fieldsAnswersMap,
+   subscaleToFieldsMap,
+) => {
+   const log = new LoggerSettings(srcFileName, 'getSuperSurveysConfigs')
+
+   try {
+      // for (let a = 0; a < allCalculatedFields.length; a++) {
+      //    LogThis(
+      //       log,
+      //       `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a].fieldName}`,
+      //       L3,
+      //    )
+      //let allCalculatedField = allCalculatedFields[a]
+      for (const allCalculatedField of survey.calculatedFields) {
+         let currentCalculatedField = null
+         currentCalculatedField = fieldsAnswersMap.get(
+            allCalculatedField.fieldName,
+         )
+         if (
+            allCalculatedField.calculationType === CAL_CRITERIA_ON_OTHER_FIELD
+         ) {
+            let criteria = allCalculatedField.criteria
+            LogThis(
+               log,
+               `Criteria in Question: criteria=${JSON.stringify(
+                  criteria,
+                  null,
+                  2,
+               )}`,
+               L3,
+            )
+
+            // let fieldNameValue = allCalculatedFields.find(calField => {
+            //    LogThis(log, `calField=${JSON.stringify(calField, null, 2)}`, L3)
+            //    return calField.fieldName == criteria.fieldNameValue[0]
+            // })
+            let fieldNameValue = fieldsAnswersMap.get(
+               criteria.fieldNameValue[0],
+            )
+
+            LogThis(
+               log,
+               `fieldNameValue1=${JSON.stringify(fieldNameValue, null, 2)}`,
+               L3,
+            )
+            //let position = fieldNameValue.position
+            // let calValue = calculatedValues.find(
+            //    value => value.col == position && value.row == row,
+            // )
+            let calValue = {}
+            if (fieldNameValue.isCalculatedField) {
+               calValue.value = fieldNameValue.calculatedValue
+            } else {
+               calValue.value = fieldNameValue.weightedResponse
+            }
+            LogThis(
+               log,
+               `About to get into case > calValue=${JSON.stringify(
+                  calValue,
+                  null,
+                  2,
+               )}; criteria.operator=${JSON.stringify(
+                  criteria.operator,
+                  null,
+                  2,
+               )}`,
+               L3,
+            )
+            switch (criteria.operator) {
+               case '>':
+                  LogThis(
+                     log,
+                     `Inside case: calValue.value=${calValue.value};criteria.value=${criteria.value};criteria.resultIfTrue=${criteria.resultIfTrue}`,
+                     L3,
+                  )
+                  if (calValue.value > criteria.value) {
+                     currentCalculatedField.calculatedValue =
+                        criteria.resultIfTrue
+                     LogThis(
+                        log,
+                        `Creteria is true: value=${currentCalculatedField.calculatedValue}`,
+                        L3,
+                     )
+                  } else {
+                     currentCalculatedField.calculatedValue =
+                        criteria.resultIfFalse
+                     LogThis(
+                        log,
+                        `Creteria is false: value=${currentCalculatedField.calculatedValue}`,
+                        L3,
+                     )
+                  }
+                  break
+               default:
+                  currentCalculatedField.calculatedValue = null
+                  LogThis(
+                     log,
+                     `Case entered default: value${currentCalculatedField.calculatedValue}`,
+                     L3,
+                  )
+            }
+         } else if (allCalculatedField.calculationType === CAL_SUM_THE_GROUP) {
+            // let groups = allCalculatedField.group
+            // groups.map(group => {
+            //    let newVal = parseInt(answers[group])
+            //    if (
+            //       typeof newVal != 'number' ||
+            //       newVal == null ||
+            //       isNaN(newVal)
+            //    ) {
+            //       newVal = 0
+            //    }
+            //    value = value + newVal
+            // })
+            let subScalesTotalSum = 0
+            for (const subScale of allCalculatedField.subScales) {
+               subScalesTotalSum =
+                  subScalesTotalSum +
+                  subscaleToFieldsMap
+                     .get(subScale)
+                     .reduce((sumTotal, currentFieldAnswer) => {
+                        return sumTotal + currentFieldAnswer.weightedResponse
+                     }, 0)
+            }
+            currentCalculatedField.calculatedValue = subScalesTotalSum
+         } else if (
+            allCalculatedField.calculationType ===
+            CAL_CONCAT_GROUP_BASED_ON_CRITERIA
+         ) {
+            //let groups = allCalculatedField.group
+
+            let value = ''
+            let calculatedValue = ''
+            for (const subScale of allCalculatedField.subScales) {
+               let subScaleGroup = subscaleToFieldsMap.get(subScale)
+
+               for (const subScaleFieldAnswer of subScaleGroup) {
+                  if (subScaleFieldAnswer.isCalculatedField) {
+                     value = subScaleFieldAnswer.calculatedValue
+                  } else {
+                     value = subScaleFieldAnswer.weightedResponse
+                  }
+
+                  if (
+                     applyStringCriteriaToValue(
+                        allCalculatedField.criteria,
+                        value,
+                     ) == 1
+                  ) {
+                     // LogThis(
+                     //    log,
+                     //    `groups=${groups}; group=${group}; calField=${allCalculatedField.fieldName};`,
+                     //    L3,
+                     // )
+                     // let questionSelected = allSurveyQuestions.find(
+                     //    q => q.superSurveyCol == group + 1,
+                     // )
+                     // LogThis(
+                     //    log,
+                     //    `groups=${groups}; group=${group + 1}; calField=${
+                     //       allCalculatedField.fieldName
+                     //    }; questionSelected.questionShort=${questionSelected.question.replace(
+                     //       /,/g,
+                     //       ';',
+                     //    )}`,
+                     //    L3,
+                     // )
+                     calculatedValue =
+                        calculatedValue + subScaleFieldAnswer.realValue + '; '
+                  }
+               }
+            }
+            currentCalculatedField.calculatedValue = calculatedValue
+         } else {
+            LogThis(
+               log,
+               `Invalid calculated field calculation type = ${
+                  allCalculatedField.calculationType
+               } ${JSON.stringify(allCalculatedField)}`,
+               L3,
+            )
+            throw new Error(
+               `Invalid calculated field calculation type = ${JSON.stringify(
+                  allCalculatedField,
+               )}`,
+            )
+         }
+         // LogThis(
+         //    log,
+         //    `Pushing value: calculatedFieldId=${
+         //       allCalculatedFields[a]._id
+         //    }; row=${row};col=${a + 1}; value=${value};`,
+         //    L3,
+         // )
+
+         // calculatedValues.push({
+         //    calculatedFieldId: allCalculatedFields[a]._id,
+         //    respondentId: respondentId,
+         //    row: row,
+         //    col: a + 1,
+         //    value: value,
+         // })
+         //csv = csv + value.toString() + ",";
+         //}
+      }
+   } catch (error) {
+      throw error
+   }
+}
+
 module.exports = {
    buildOutputHeaders,
    getSuperSurveysConfigs,
@@ -190,4 +410,5 @@ module.exports = {
    addResponseInfoAll,
    addRepeatValues,
    getsurveyElementKey,
+   processCalculatedFields,
 }
