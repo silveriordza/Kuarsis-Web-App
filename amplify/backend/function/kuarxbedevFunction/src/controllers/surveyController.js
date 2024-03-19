@@ -32,6 +32,7 @@ const {
    //addResponseInfo,
    addResponseInfoAll,
    processCalculatedFields,
+   surveySaveOutputRedesignedHelper,
 } = require('../utils/surveysLib.js')
 
 // let {
@@ -3251,6 +3252,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       let fieldName = null
       let weightedAnswers = null
       const allFieldsAnswersMap = new Map()
+      allSurveysFieldsMap = new Map()
 
       for (const survey of surveys) {
          if (survey.surveyShortName === 'INFO') {
@@ -3260,11 +3262,21 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
             )
             for (const question of survey.questions) {
                fieldName = question.fieldName
-               fieldsAnswersMap.set(fieldName, monkeyPageAnswers.get(fieldName))
-               allFieldsAnswersMap.set(
-                  fieldName,
-                  monkeyPageAnswers.get(fieldName),
-               )
+               let answer = null
+               let finalAnswer = {}
+               answer = monkeyPageAnswers.get(fieldName)
+
+               finalAnswer.fieldName = fieldName
+               finalAnswer.isCalculatedField = false
+               finalAnswer.isWeighted = false
+               finalAnswer.realValue = answer
+               finalAnswer.score = 0
+               finalAnswer.value = answer
+               finalAnswer.weightedResponse = answer
+
+               fieldsAnswersMap.set(fieldName, finalAnswer)
+               allFieldsAnswersMap.set(fieldName, finalAnswer)
+               allSurveysFieldsMap.set(fieldName, question)
             }
          } else {
             monkeyPageAnswers = monkeyPagesAnswersMap.get(survey.monkeyInfo.id)
@@ -3291,6 +3303,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                   weightedAnswers.push(weightedAnswer)
                   subscaleToFieldsMap.set(question.subScale, weightedAnswers)
                }
+               allSurveysFieldsMap.set(fieldName, question)
             }
 
             for (const calculatedField of survey.calculatedFields) {
@@ -3300,6 +3313,10 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                }
                fieldsAnswersMap.set(calculatedField.fieldName, initialValue)
                allFieldsAnswersMap.set(calculatedField.fieldName, initialValue)
+               allSurveysFieldsMap.set(
+                  calculatedField.fieldName,
+                  calculatedField,
+               )
             }
          }
 
@@ -3315,10 +3332,16 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
          outputField.processedAnswer = allFieldsAnswersMap.get(
             outputField.fieldName,
          )
-         let Y = 1
+         outputField.fieldInfo = allSurveysFieldsMap.get(outputField.fieldName)
       }
 
       let x = 1
+
+      await surveySaveOutputRedesignedHelper(
+         superSurveyConfig._id,
+         outputLayouts,
+         true,
+      )
 
       return Array.from(surveysAnswersMap, ([survey, value]) => {
          let field = Array.from(value, ([name, answer]) => ({ name, answer }))

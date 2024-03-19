@@ -25,7 +25,12 @@ let {
    L3,
 } = require('../utils/Logger.js')
 
-const { applyStringCriteriaToValue } = require('../utils/Functions.js')
+const {
+   applyStringCriteriaToValue,
+   formatDate,
+} = require('../utils/Functions.js')
+
+let { loadOneDynamicModelFromDB } = require('../utils/mongoDbHelper.js')
 
 const srcFileName = 'surveysLib.js'
 
@@ -189,7 +194,180 @@ const getsurveyElementKey = (
    return questionKey
 }
 
-//const findField (fieldsAnswersMap, )
+/**
+ *
+ */
+const surveySaveOutputRedesignedHelper = async (
+   superSurveyId,
+   outputLayoutValues,
+   isFromWebhook,
+) => {
+   const functionName = 'surveySaveOutputHelper'
+   const log = new LoggerSettings(srcFileName, functionName)
+   try {
+      const columnsNames = outputLayoutValues
+      const outputValues = outputLayoutValues
+
+      LogThis(
+         log,
+         `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
+            outputLayoutValues,
+            null,
+            2,
+         )}; outputValues=${JSON.stringify(outputValues)}`,
+         L3,
+      )
+      const surveySuperiors = await SurveySuperior.find({
+         _id: superSurveyId,
+      }).lean()
+      let x = 1
+      LogThis(
+         log,
+         `x=${x}; surveySuperiors=${JSON.stringify(surveySuperiors)}`,
+         L3,
+      )
+
+      const surveyOutputCollectionName = `surveyOutputs_${surveySuperiors[0].superSurveyShortName}`
+
+      let surveyOutputCollection = await loadOneDynamicModelFromDB(
+         surveyOutputCollectionName,
+      )
+
+      const outputValueDocuments = []
+      let dateTimeParts = []
+      let dateValue = null
+      let doc = {}
+      outputValues.forEach(row => {
+         let doc = {}
+         let column = row.fieldName
+         let answer = null
+         answer = row.outputAsReal
+            ? row.processedAnswer.realValue
+            : row.processedAnswer.weightedResponse
+
+         //columnsNames.forEach((column, index) => {
+         switch (column) {
+            case 'INFO_3':
+               if (isFromWebhook) {
+                  doc[column] = formatDate(answer)
+               } else {
+                  dateTimeParts = answer.split(/[\s/:\-]/)
+                  dateValue = new Date(
+                     dateTimeParts[2], // Year
+                     dateTimeParts[0] - 1, // Month
+                     dateTimeParts[1], // Day
+                     dateTimeParts[3], // Hours
+                     dateTimeParts[4], // Minutes)
+                  )
+                  doc[column] = dateValue
+               }
+               break
+            case 'INFO_4':
+               if (isFromWebhook) {
+                  doc[column] = formatDate(answer)
+               } else {
+                  dateTimeParts = answer.split(/[\s/:\-]/)
+                  dateValue = new Date(
+                     dateTimeParts[2], // Year
+                     dateTimeParts[0] - 1, // Month
+                     dateTimeParts[1], // Day
+                     dateTimeParts[3], // Hours
+                     dateTimeParts[4], // Minutes)
+                  )
+                  doc[column] = dateValue
+               }
+               break
+            default:
+               doc[column] = answer
+         }
+         // })
+      })
+      outputValueDocuments.push(doc)
+      doc = {}
+      //NEXT 111
+      if (outputValueDocuments && outputValueDocuments.length > 0) {
+         const respondentsFound = await surveyOutputCollection.find({
+            INFO_1: {
+               $in: outputValueDocuments.map(outputValue => {
+                  LogThis(log, `respondent id = ${outputValue['INFO_1']}`, L0)
+                  return outputValue['INFO_1']
+               }),
+            },
+         })
+
+         let outputNews = null
+         if (respondentsFound && respondentsFound.length > 0) {
+            const outputUpdates = outputValueDocuments.filter(doc =>
+               respondentsFound.find(res => doc.INFO_1 === res.INFO_1),
+            )
+            outputUpdates[0].INFO_4 = formatDate(new Date())
+
+            for (let r = 0; r < respondentsFound.length; r++) {
+               let respondentFound = respondentsFound[r]
+               let outputUpdate = outputUpdates.find(
+                  update => update.INFO_1 === respondentFound.INFO_1,
+               )
+
+               Object.keys(outputUpdate).forEach(key => {
+                  respondentFound[key] = outputUpdate[key]
+               })
+               LogThis(
+                  log,
+                  `updating respondents response ${j(respondentFound.INFO_1)}`,
+                  L0,
+               )
+               await respondentFound.save()
+               LogThis(log, `updated respondents DONE.`, L0)
+            }
+
+            // const outputCollectionUpdated =
+            //    await surveyOutputCollection.updateMany(
+            //       {
+            //          SCOLINFO_respondent_id: {
+            //             $in: outputUpdates.map(outputUpdate => {
+            //                LogThis(
+            //                   log,
+            //                   `scolInfoIdList=${outputUpdate.SCOLINFO_respondent_id}`,
+            //                   L0,
+            //                )
+            //                return outputUpdate.SCOLINFO_respondent_id
+            //             }),
+            //          },
+            //       },
+            //       { $set: outputUpdates },
+            //    )
+
+            outputNews = outputValueDocuments.filter(
+               doc => !respondentsFound.find(res => doc.INFO_1 === res.INFO_1),
+            )
+         } else {
+            outputNews = outputValueDocuments
+         }
+         LogThis(log, `inserting new respondents ${j(outputNews)}`, L3)
+         await surveyOutputCollection.insertMany(outputNews)
+         LogThis(log, `respondents inserted new DONE.`, L3)
+      }
+
+      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.SCOLINFO_respondent_id)
+
+      // if(respondentsFound && respondentsFound.length > 0){
+      //    for (let res =0; res < respondentsFound.length; res++){
+      //       let respondentFound = respondentsFound[res]
+      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.SCOLINFO_respondent_id === respondentFound.SCOLINFO_respondent_id)
+      //    }
+      // }
+
+      // LogThis(
+      //   log,
+      //   `outputValueDocuments=${JSON.stringify(outputValueDocuments)}`
+      // );
+
+      //await surveyOutputCollection.insertMany(outputValueDocuments)
+   } catch (error) {
+      LogThis(log, `error ocurred: ${error.message}`, L3)
+      throw error
+   }
+}
 
 const processCalculatedFields = (
    survey,
@@ -411,4 +589,5 @@ module.exports = {
    addRepeatValues,
    getsurveyElementKey,
    processCalculatedFields,
+   surveySaveOutputRedesignedHelper,
 }
