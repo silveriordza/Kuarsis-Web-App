@@ -293,7 +293,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             } else if (questionType===QTYPE_MULTIPLE_CHOICE_VERTICAL){
                 let monkeyAnswer = monkeyQuestion.details.answers.choices[surveyQuestion.monkeyInfo.subPosition-1]
                 surveyQuestion.question = monkeyAnswer.text
-                surveyQuestion.monkeyInfo.id = monkeyAnswer.id
+                surveyQuestion.monkeyInfo.id = monkeyQuestion.details.id
                 this.mapAnswerChoice(surveyQuestion, 'choice_id', [monkeyAnswer])   
             } 
 

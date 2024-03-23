@@ -2265,6 +2265,13 @@
             "position": 3211
          },
          {
+            "surveyShortName": "BECK",
+            "fieldName": "BECK_ES_CASO",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3215
+         },
+         {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SOMATIZACION",
             "outputAsReal": false,

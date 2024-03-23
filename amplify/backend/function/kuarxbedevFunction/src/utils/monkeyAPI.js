@@ -632,14 +632,10 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
       }
    }
    const pushEmptyCol = () => {
-      value = 0
-      realValue = ''
-      score = 0
-
       return {
-         value: 0,
+         value: null,
          realValue: '',
-         score: 0,
+         score: null,
       }
    }
 
@@ -649,7 +645,7 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
     * @param {*} outputScoreAsValue - Set this value as true to set the value as score for the rated subtypes
     */
    const pushChoiceCol = (choice, outputScoreAsValue = false) => {
-      let value = choice.value
+      let value = choice.value - 1
       let text = choice.realValue.trim()
       let score = choice.score
 
@@ -836,10 +832,10 @@ const GetWeightedResponse = (surveyQuestion, monkeyAnswer) => {
    let response = null
    let isWeighted = false
    let answerValue = monkeyAnswer.value
-
    if (
       surveyQuestion.weights &&
-      Object.keys(surveyQuestion.weights).length > 0
+      Object.keys(surveyQuestion.weights).length > 0 &&
+      answerValue
    ) {
       switch (surveyQuestion.weightType) {
          case WEIGHTED_PAIRS:
@@ -894,41 +890,41 @@ const GetWeightedResponse = (surveyQuestion, monkeyAnswer) => {
       // weightedResponse = answerA
       // isWeighted = false
 
-      monkeyAnswer.weightedResponse = monkeyAnswer.value
+      monkeyAnswer.weightedResponse = 0
       monkeyAnswer.isWeighted = false
       LogThis(log, `no weighted: monkeyAnswer=${j(monkeyAnswer)};`, L3)
       return monkeyAnswer
    }
-
-   // surveyResponses.push({
-   //    questionId: surveyQuestion._id,
-   //    respondentId: respondentId,
-   //    row: row,
-   //    col: a + 1,
-   //    response: response,
-   //    responseReal: answersReal[superSurveyQuestionCol],
-   //    weightedResponse: weightedResponse,
-   //    isWeighted: isWeighted,
-   // })
-
-   // if (isWeighted) {
-   //    LogThis(
-   //       log,
-   //       `Adding csv weighted answer: weightedResponse=${weightedResponse}`,
-   //       L3,
-   //    )
-   //    weightedResponse = weightedResponse ?? ''
-   //    //csv = csv + weightedResponse.toString() + ",";
-   // } //else {
-   // //     csv = csv + response.toString() + ",";
-   // //   }
-
-   // LogThis(
-   //    log,
-   //    `surveyResponses=${JSON.stringify(surveyResponses, null, 2)}`,
-   //    L3,
-   // )
 }
+
+// surveyResponses.push({
+//    questionId: surveyQuestion._id,
+//    respondentId: respondentId,
+//    row: row,
+//    col: a + 1,
+//    response: response,
+//    responseReal: answersReal[superSurveyQuestionCol],
+//    weightedResponse: weightedResponse,
+//    isWeighted: isWeighted,
+// })
+
+// if (isWeighted) {
+//    LogThis(
+//       log,
+//       `Adding csv weighted answer: weightedResponse=${weightedResponse}`,
+//       L3,
+//    )
+//    weightedResponse = weightedResponse ?? ''
+//    //csv = csv + weightedResponse.toString() + ",";
+// } //else {
+// //     csv = csv + response.toString() + ",";
+// //   }
+
+// LogThis(
+//    log,
+//    `surveyResponses=${JSON.stringify(surveyResponses, null, 2)}`,
+//    L3,
+// )
 
 module.exports = {
    getMonkeyResponses,

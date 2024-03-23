@@ -208,15 +208,15 @@ const surveySaveOutputRedesignedHelper = async (
       const columnsNames = outputLayoutValues
       const outputValues = outputLayoutValues
 
-      LogThis(
-         log,
-         `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
-            outputLayoutValues,
-            null,
-            2,
-         )}; outputValues=${JSON.stringify(outputValues)}`,
-         L3,
-      )
+      // LogThis(
+      //    log,
+      //    `superSurveyId=${superSurveyId}; columnsNames=${JSON.stringify(
+      //       outputLayoutValues,
+      //       null,
+      //       2,
+      //    )}; outputValues=${JSON.stringify(outputValues)}`,
+      //    L3,
+      // )
       const surveySuperiors = await SurveySuperior.find({
          _id: superSurveyId,
       }).lean()
@@ -238,11 +238,13 @@ const surveySaveOutputRedesignedHelper = async (
       let dateValue = null
       let doc = {}
       outputValues.forEach(row => {
-         let doc = {}
+         //let doc = {}
          let column = row.fieldName
          let answer = null
          answer = row.outputAsReal
-            ? row.processedAnswer.realValue
+            ? row.processedAnswer?.realValue || ''
+            : row.processedAnswer.isCalculatedField
+            ? row.processedAnswer.calculatedValue
             : row.processedAnswer.weightedResponse
 
          //columnsNames.forEach((column, index) => {
