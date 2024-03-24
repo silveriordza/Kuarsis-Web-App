@@ -890,7 +890,7 @@ const GetWeightedResponse = (surveyQuestion, monkeyAnswer) => {
       // weightedResponse = answerA
       // isWeighted = false
 
-      monkeyAnswer.weightedResponse = 0
+      monkeyAnswer.weightedResponse = monkeyAnswer.value
       monkeyAnswer.isWeighted = false
       LogThis(log, `no weighted: monkeyAnswer=${j(monkeyAnswer)};`, L3)
       return monkeyAnswer

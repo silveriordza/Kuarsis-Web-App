@@ -247,7 +247,6 @@ const surveySaveOutputRedesignedHelper = async (
             ? row.processedAnswer.calculatedValue
             : row.processedAnswer.weightedResponse
 
-         //columnsNames.forEach((column, index) => {
          switch (column) {
             case 'INFO_3':
                if (isFromWebhook) {
