@@ -50,6 +50,7 @@ let {
    SurveyResponse,
    MonkeyConfig,
    MonkeyNewResponse,
+   SurveyMonkeyIntegrated,
 } = require('../models/surveysModel.js')
 
 //let { DynamicCollection } = require('../models/dynamicCollectionModel.js')
@@ -680,7 +681,7 @@ const createSurveys = asyncHandler(async (req, res) => {
          surveyShortName: outputLayout.surveyShortName,
          fieldName: outputLayout.fieldName,
          outputAsReal: outputLayout.outputAsReal,
-         showInOutputScreen: outputLayout.showInOutputScreen,
+         showInSurveyOutputScreenScreen: outputLayout.showInSurveyOutputScreen,
          position: outputLayout.position,
       })
    }
@@ -727,10 +728,10 @@ const createSurveys = asyncHandler(async (req, res) => {
    outputLayoutFields.forEach(column => {
       LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3)
       switch (column.fieldName) {
-         case 'SCOLINFO_date_created':
+         case 'INFO_3':
             surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
             break
-         case 'SCOLINFO_date_modified':
+         case 'INFO_4':
             surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
             break
          default:
@@ -2204,7 +2205,7 @@ const surveySaveOutputHelper = async (
          let doc = {}
          columnsNames.forEach((column, index) => {
             switch (column) {
-               case 'SCOLINFO_date_created':
+               case 'INFO_3':
                   if (isFromWebhook) {
                      doc[column] = formatDate(row[index])
                   } else {
@@ -2219,7 +2220,7 @@ const surveySaveOutputHelper = async (
                      doc[column] = dateValue
                   }
                   break
-               case 'SCOLINFO_date_modified':
+               case 'INFO_4':
                   if (isFromWebhook) {
                      doc[column] = formatDate(row[index])
                   } else {
@@ -2244,14 +2245,10 @@ const surveySaveOutputHelper = async (
 
       if (outputValueDocuments && outputValueDocuments.length > 0) {
          const respondentsFound = await surveyOutputCollection.find({
-            SCOLINFO_respondent_id: {
+            INFO_1: {
                $in: outputValueDocuments.map(outputValue => {
-                  LogThis(
-                     log,
-                     `respondent id = ${outputValue['SCOLINFO_respondent_id']}`,
-                     L0,
-                  )
-                  return outputValue['SCOLINFO_respondent_id']
+                  LogThis(log, `respondent id = ${outputValue['INFO_1']}`, L0)
+                  return outputValue['INFO_1']
                }),
             },
          })
@@ -2259,19 +2256,14 @@ const surveySaveOutputHelper = async (
          let outputNews = null
          if (respondentsFound && respondentsFound.length > 0) {
             const outputUpdates = outputValueDocuments.filter(doc =>
-               respondentsFound.find(
-                  res =>
-                     doc.SCOLINFO_respondent_id === res.SCOLINFO_respondent_id,
-               ),
+               respondentsFound.find(res => doc.INFO_1 === res.INFO_1),
             )
-            outputUpdates[0].SCOLINFO_date_modified = formatDate(new Date())
+            outputUpdates[0].INFO_4
 
             for (let r = 0; r < respondentsFound.length; r++) {
                let respondentFound = respondentsFound[r]
                let outputUpdate = outputUpdates.find(
-                  update =>
-                     update.SCOLINFO_respondent_id ===
-                     respondentFound.SCOLINFO_respondent_id,
+                  update => update.INFO_1 === respondentFound.INFO_1,
                )
 
                Object.keys(outputUpdate).forEach(key => {
@@ -2279,9 +2271,7 @@ const surveySaveOutputHelper = async (
                })
                LogThis(
                   log,
-                  `updating respondents response ${j(
-                     respondentFound.SCOLINFO_respondent_id,
-                  )}`,
+                  `updating respondents response ${j(respondentFound.INFO_1)}`,
                   L0,
                )
                await respondentFound.save()
@@ -2291,14 +2281,14 @@ const surveySaveOutputHelper = async (
             // const outputCollectionUpdated =
             //    await surveyOutputCollection.updateMany(
             //       {
-            //          SCOLINFO_respondent_id: {
+            //          INFO_1: {
             //             $in: outputUpdates.map(outputUpdate => {
             //                LogThis(
             //                   log,
-            //                   `scolInfoIdList=${outputUpdate.SCOLINFO_respondent_id}`,
+            //                   `scolInfoIdList=${outputUpdate.INFO_1}`,
             //                   L0,
             //                )
-            //                return outputUpdate.SCOLINFO_respondent_id
+            //                return outputUpdate.INFO_1
             //             }),
             //          },
             //       },
@@ -2306,12 +2296,7 @@ const surveySaveOutputHelper = async (
             //    )
 
             outputNews = outputValueDocuments.filter(
-               doc =>
-                  !respondentsFound.find(
-                     res =>
-                        doc.SCOLINFO_respondent_id ===
-                        res.SCOLINFO_respondent_id,
-                  ),
+               doc => !respondentsFound.find(res => doc.INFO_1 === res.INFO_1),
             )
          } else {
             outputNews = outputValueDocuments
@@ -2321,12 +2306,12 @@ const surveySaveOutputHelper = async (
          LogThis(log, `respondents inserted new DONE.`, L3)
       }
 
-      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.SCOLINFO_respondent_id)
+      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.INFO_1)
 
       // if(respondentsFound && respondentsFound.length > 0){
       //    for (let res =0; res < respondentsFound.length; res++){
       //       let respondentFound = respondentsFound[res]
-      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.SCOLINFO_respondent_id === respondentFound.SCOLINFO_respondent_id)
+      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.INFO_1 === respondentFound.INFO_1)
       //    }
       // }
 
@@ -2424,9 +2409,40 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          )}`,
          L3,
       )
-      const outputLayouts = await SurveySuperiorOutputLayout.find({
-         surveySuperiorId: superSurveyId,
+      // const outputLayouts = await SurveySuperiorOutputLayout.find({
+      //    surveySuperiorId: superSurveyId,
+      // }).lean()
+
+      const superSurvey = await SurveyMonkeyIntegrated.findOne({
+         superSurveyId: superSurveyId,
       }).lean()
+
+      const fieldsMap = new Map()
+
+      for (const survey of superSurvey.surveyConfigs.surveys) {
+         for (const field of survey.questions) {
+            field.isCalculated = false
+            fieldsMap.set(field.fieldName, field)
+         }
+
+         for (const field of survey.calculatedFields) {
+            field.isCalculated = true
+            fieldsMap.set(field.fieldName, field)
+         }
+      }
+
+      const outputLayouts = superSurvey.surveyConfigs.outputLayouts
+      for (const outputField of outputLayouts) {
+         let field = null
+         field = fieldsMap.get(outputField.fieldName)
+         if (field.isCalculated) {
+            outputField.question = field.fieldName
+            outputField.questionShort = field.fieldName
+         } else {
+            outputField.question = field.question
+            outputField.questionShort = field.questionShort
+         }
+      }
 
       let x = 0
       x = x + 1
@@ -2440,7 +2456,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          //LogThis(log, `fields=${JSON.stringify(fields)}`, L3);
          //const condition = {};
          outputLayouts.forEach(field => {
-            if (field.showInOutputScreen) {
+            if (field.showInSurveyOutputScreen) {
                condition[field.fieldName] = { $regex: new RegExp(keyword, 'i') }
                conditions.push(condition)
                condition = {}
@@ -2482,7 +2498,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
             },
             '-__v',
          )
-         .sort({ SCOLINFO_respondent_id: -1 })
+         .sort({ INFO_1: -1 })
          .limit(pageSize)
          .skip(pageSize * (page - 1))
          .lean()
@@ -2614,10 +2630,8 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
       //await surveyOutputCollectionFound.deleteMany({});
       const respondentIdsInfo = await surveyOutputCollectionFound
          .find({})
-         .select(
-            'SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified',
-         )
-         .sort({ SCOLINFO_respondent_id: -1 })
+         .select('INFO_1 INFO_3 INFO_4')
+         .sort({ INFO_1: -1 })
          .lean()
       //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L3);
       res.status(200).json({
@@ -3114,9 +3128,9 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //     // const respondentIdsInfo = await surveyOutputCollectionFound
 //     //   .find({})
 //     //   .select(
-//     //     "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
+//     //     "INFO_1 INFO_3 INFO_4"
 //     //   )
-//     //   .sort({ SCOLINFO_respondent_id: -1 })
+//     //   .sort({ INFO_1: -1 })
 //     //   .lean();
 //     // //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L3);
 //     // res.status(200).json({
@@ -3531,7 +3545,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
 
       //       //       let filteredAnswersRows = [];
       //       //       let filteredRealAnswersRows = [];
-      //       //       const lastestIdSaved = respondentIdsInfo[0].SCOLINFO_respondent_id;
+      //       //       const lastestIdSaved = respondentIdsInfo[0].INFO_1
 
       //       //       const firstRow = rowCleaner2(answersRows[0]).split(",");
       //       //       if (firstRow[0] >= lastestIdSaved) {
@@ -3559,7 +3573,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       //       //           (row) =>
       //       //             !respondentIdsInfo.find(
       //       //               (respondentId) =>
-      //       //                 respondentId.SCOLINFO_respondent_id ==
+      //       //                 respondentId.INFO_1 ==
       //       //                 rowCleaner2(row).split(",")[0]
       //       //             )
       //       //         );
@@ -4813,7 +4827,7 @@ const monkeyUpdateResponses2Helper = async req => {
 
             //       let filteredAnswersRows = [];
             //       let filteredRealAnswersRows = [];
-            //       const lastestIdSaved = respondentIdsInfo[0].SCOLINFO_respondent_id;
+            //       const lastestIdSaved = respondentIdsInfo[0].INFO_1;
 
             //       const firstRow = rowCleaner2(answersRows[0]).split(",");
             //       if (firstRow[0] >= lastestIdSaved) {
@@ -4841,7 +4855,7 @@ const monkeyUpdateResponses2Helper = async req => {
             //           (row) =>
             //             !respondentIdsInfo.find(
             //               (respondentId) =>
-            //                 respondentId.SCOLINFO_respondent_id ==
+            //                 respondentId.INFO_1 ==
             //                 rowCleaner2(row).split(",")[0]
             //             )
             //         );

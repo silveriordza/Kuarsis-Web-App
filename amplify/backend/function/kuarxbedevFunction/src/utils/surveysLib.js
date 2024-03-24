@@ -325,14 +325,14 @@ const surveySaveOutputRedesignedHelper = async (
             // const outputCollectionUpdated =
             //    await surveyOutputCollection.updateMany(
             //       {
-            //          SCOLINFO_respondent_id: {
+            //          INFO_1: {
             //             $in: outputUpdates.map(outputUpdate => {
             //                LogThis(
             //                   log,
-            //                   `scolInfoIdList=${outputUpdate.SCOLINFO_respondent_id}`,
+            //                   `scolInfoIdList=${outputUpdate.INFO_1}`,
             //                   L0,
             //                )
-            //                return outputUpdate.SCOLINFO_respondent_id
+            //                return outputUpdate.INFO_1
             //             }),
             //          },
             //       },
@@ -350,12 +350,12 @@ const surveySaveOutputRedesignedHelper = async (
          LogThis(log, `respondents inserted new DONE.`, L3)
       }
 
-      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.SCOLINFO_respondent_id)
+      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.INFO_1)
 
       // if(respondentsFound && respondentsFound.length > 0){
       //    for (let res =0; res < respondentsFound.length; res++){
       //       let respondentFound = respondentsFound[res]
-      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.SCOLINFO_respondent_id === respondentFound.SCOLINFO_respondent_id)
+      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.INFO_1 === respondentFound.INFO_1)
       //    }
       // }
 

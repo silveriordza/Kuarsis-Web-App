@@ -626,7 +626,7 @@ const sourceFile = "SurveyProcessManager.js"
       //          surveyShortName: outputLayout.surveyShortName,
       //          fieldName: outputLayout.fieldName,
       //          outputAsReal: outputLayout.outputAsReal,
-      //          showInOutputScreen: outputLayout.showInOutputScreen,
+      //          showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
       //          position: outputLayout.position,
       //       })
       //    }
@@ -677,11 +677,11 @@ const sourceFile = "SurveyProcessManager.js"
       //          L3,
       //       )
       //       switch (column.fieldName) {
-      //          case 'SCOLINFO_date_created':
+      //          case 'INFO_3':
       //             surveyOutputColumns[column.fieldName] =
       //                mongoose.Schema.Types.Date
       //             break
-      //          case 'SCOLINFO_date_modified':
+      //          case 'INFO_4':
       //             surveyOutputColumns[column.fieldName] =
       //                mongoose.Schema.Types.Date
       //             break

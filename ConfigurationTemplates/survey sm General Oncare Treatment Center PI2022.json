@@ -45,7 +45,7 @@
                   "surveyId": "",
                   "question": "date_modified",
                   "questionShort": "date_modified…",
-                  "fieldName": "SCOLINFO_date_modified",
+                  "fieldName": "INFO_4",
                   "weightType": "NO_WEIGHT",
                   "weights": {},
                   "position": 4,
@@ -5245,7 +5245,7 @@
          },
          {
             "surveyShortName": "SCOLINFO",
-            "fieldName": "SCOLINFO_date_modified",
+            "fieldName": "INFO_4",
             "outputAsReal": true,
             "showInOutputScreen": true,
             "position": 4
