@@ -275,8 +275,7 @@ export const processAnswersFromMonkey =
          )
          const newRespondentIds = []
          const respondentIdsMonkeyData = monkeyRespondentIds.data
-         const lastExistentRespondentId =
-            existentRespondentIdsInfo[0].SCOLINFO_respondent_id
+         const lastExistentRespondentId = existentRespondentIdsInfo[0].INFO_1
          LogThis(
             log,
             `lastExistentRespondentId=${lastExistentRespondentId}`,
@@ -436,8 +435,7 @@ export const surveyProcessAnswersAtClientAction =
 
                   let filteredAnswersRows = []
                   let filteredRealAnswersRows = []
-                  const lastestIdSaved =
-                     respondentIdsInfo[0].SCOLINFO_respondent_id
+                  const lastestIdSaved = respondentIdsInfo[0].INFO_1
 
                   const firstRow = rowCleaner2(answersRows[0]).split(',')
                   if (firstRow[0] >= lastestIdSaved) {
@@ -465,7 +463,7 @@ export const surveyProcessAnswersAtClientAction =
                         row =>
                            !respondentIdsInfo.find(
                               respondentId =>
-                                 respondentId.SCOLINFO_respondent_id ==
+                                 respondentId.INFO_1 ==
                                  rowCleaner2(row).split(',')[0],
                            ),
                      )
@@ -1449,7 +1447,7 @@ export const surveyGetOutputValuesAction =
          )
          const { data } = await axios.get(
             BACKEND_ENDPOINT +
-               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.surveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
+               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
             config,
          )
 
