@@ -3454,7 +3454,7 @@
          "question": "1. Me siento emocionalmente agotado por mi trabajo",
          "questionShort": "1. Me siento emocionalmente ag…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -3469,7 +3469,7 @@
          "question": "2. Cuando termino mi jornada de trabajo me siento vacío",
          "questionShort": "2. Cuando termino mi jornada d…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 2,
@@ -3484,7 +3484,7 @@
          "question": "3. Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
          "questionShort": "3. Cuando me levanto por la ma…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 3,
@@ -3499,15 +3499,7 @@
          "question": "4. Siento que puedo entender fácilmente a los pacientes.",
          "questionShort": "4. Siento que puedo entender f…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 4,
@@ -3522,7 +3514,7 @@
          "question": "5. Siento que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
          "questionShort": "5. Siento que estoy tratando a…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 5,
@@ -3537,7 +3529,7 @@
          "question": "6. Siento que trabajar todo el día con la gente me cansa.",
          "questionShort": "6. Siento que trabajar todo el…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 6,
@@ -3552,15 +3544,7 @@
          "question": "7. Siento que trato con mucha eficacia los problemas de mis pacientes.",
          "questionShort": "7. Siento que trato con mucha …",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 7,
@@ -3575,7 +3559,7 @@
          "question": "8. Siento que mi trabajo me está desgastando.",
          "questionShort": "8. Siento que mi trabajo me es…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 8,
@@ -3590,15 +3574,7 @@
          "question": "9. Siento que estoy influyendo positivamente en la vida de otras personas a través de mi trabajo",
          "questionShort": "9. Siento que estoy influyendo…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 9,
@@ -3613,7 +3589,7 @@
          "question": "10. Siento que me he hecho mas duro con la gente",
          "questionShort": "10. Siento que me he hecho mas…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 10,
@@ -3628,7 +3604,7 @@
          "question": "11. Me preocupa que este trabajo me esté endureciendo emocionalmente",
          "questionShort": "11. Me preocupa que este traba…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 11,
@@ -3643,15 +3619,7 @@
          "question": "12. Me siento con mucha energía en mi trabajo",
          "questionShort": "12. Me siento con mucha energí…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 12,
@@ -3666,7 +3634,7 @@
          "question": "13. Me siento frustrado en mi trabajo",
          "questionShort": "13. Me siento frustrado en mi …",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 13,
@@ -3681,7 +3649,7 @@
          "question": "14. Siento que estoy demasiado tiempo en mi trabajo",
          "questionShort": "14. Siento que estoy demasiado…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 14,
@@ -3696,7 +3664,7 @@
          "question": "15. Siento que realmente no me importa lo que les ocurre a mis pacientes",
          "questionShort": "15. Siento que realmente no me…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 15,
@@ -3711,7 +3679,7 @@
          "question": "16. Siento que trabajar en contacto directo con la gente me cansa",
          "questionShort": "16. Siento que trabajar en con…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 16,
@@ -3726,15 +3694,7 @@
          "question": "17. Siento que puedo crear con facilidad un clima agradable con mis pacientes",
          "questionShort": "17. Siento que puedo crear con…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 17,
@@ -3749,15 +3709,7 @@
          "question": "18. Me siento estimado después de haber trabajado íntimamente con los pacientes",
          "questionShort": "18. Me siento estimado después…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 18,
@@ -3772,15 +3724,7 @@
          "question": "19. Creo que consigo muchas cosas valiosas en este trabajo",
          "questionShort": "19. Creo que consigo muchas co…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 19,
@@ -3795,7 +3739,7 @@
          "question": "20. Me siento como si estuviera al límite de mis posibilidades",
          "questionShort": "20. Me siento como si estuvier…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 20,
@@ -3810,15 +3754,7 @@
          "question": "21. Siento que en mi trabajo los problemas emocionales son tratados de forma adecuada",
          "questionShort": "21. Siento que en mi trabajo l…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "6": 0,
-            "5": 1,
-            "4": 2,
-            "3": 3,
-            "2": 4,
-            "1": 5,
-            "0": 6
-         },
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 21,
@@ -3833,13 +3769,14 @@
          "question": "22. Me parece que los pacientes me culpan de algunos de sus problemas",
          "questionShort": "22. Me parece que los paciente…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {},
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 22,
             "answerType": "noother"
          }
       },
+
       {
          "surveyShortName": "ESTRES",
          "position": 1,
@@ -4448,7 +4385,7 @@
          "question": "Preocupaciones, anticipación de lo peor, anticipación miedosa, irritabilidad.",
          "questionShort": "Preocupaciones, anticipación d…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -4463,7 +4400,7 @@
          "question": "Sensación de tensión, fatigabilidad.",
          "questionShort": "Sensación de tensión, fatigabi…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 2,
@@ -4478,7 +4415,7 @@
          "question": "Temores de la obscuridad, de extraños, de estar solo, de animales, de tráfico, de multitudes.",
          "questionShort": "Temores de la obscuridad, de e…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 3,
@@ -4493,7 +4430,7 @@
          "question": "Dificultad para conciliar el sueño, sueño interrumpido (roto), sueño insatisfactorio, fatiga de levantarse, sueños, pesadillas, terrores nocturnos.",
          "questionShort": "Dificultad para conciliar el s…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 4,
@@ -4508,7 +4445,7 @@
          "question": "Dificultad en concentrarse, memoria pobre.",
          "questionShort": "Dificultad en concentrarse, me…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 5,
@@ -4523,7 +4460,7 @@
          "question": "Pérdida de interés, ausencia de placer en diversiones (hobbies), depresión, despertar temprano, variación diurna del afecto.",
          "questionShort": "Pérdida de interés, ausencia d…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 6,
@@ -4538,7 +4475,7 @@
          "question": "Dolores, punzadas, torceduras, rigidez, sacudidas micológicas, bruxismo, voz inestable, aumento del tono muscular, tinnitus, visión borrosa, oleadas de calor y de frío, sensación de debilidad, sensación de punzadas.",
          "questionShort": "Dolores, punzadas, torceduras,…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 7,
@@ -4553,7 +4490,7 @@
          "question": "Taquicardia, palpitaciones, dolor pectoral, palpitación de vasos, sensación de desmayo.",
          "questionShort": "Taquicardia, palpitaciones, do…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 8,
@@ -4568,7 +4505,7 @@
          "question": "Presión constrictora en el pecho, sensación de ahogo, suspiros, disnea.",
          "questionShort": "Presión constrictora en el pec…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 9,
@@ -4583,7 +4520,7 @@
          "question": "Dificultad para tragar, flatulencia, dolor abdominal, sensación de quemadura, saciedad abdominal, náuseas, vómito, borborigmos, diarrea, pérdida de peso, estreñimiento.",
          "questionShort": "Dificultad para tragar, flatul…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 10,
@@ -4598,7 +4535,7 @@
          "question": "Frecuencia de orinar, urgencia de orinar, amenorrea, menorragia, desarrollo de frigidez, eyaculación precoz, pérdida de apetito sexual (libido), impotencia.",
          "questionShort": "Frecuencia de orinar, urgencia…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 11,
@@ -4613,7 +4550,7 @@
          "question": "Boca seca, rubor, tendencia a la sudoración, vértigo, cefalea tensional, jalarse los pelos.",
          "questionShort": "Boca seca, rubor, tendencia a …",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 12,
@@ -4628,13 +4565,14 @@
          "question": "Conducta ante entrevistas:Impaciencia, inquietud o caminando de un lado a otro, temblor de manos, entrecejo arrugado, expresiones de tensión, suspiros o respiración rápida, palidez facial.",
          "questionShort": "Conducta ante entrevistas:Impa…",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 13,
             "answerType": "noother"
          }
       },
+
       {
          "surveyShortName": "JEFF",
          "position": 1,
@@ -4650,7 +4588,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4673,7 +4612,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4691,12 +4631,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -4719,7 +4660,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4737,12 +4679,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -4765,7 +4708,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4788,7 +4732,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4806,12 +4751,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -4829,12 +4775,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -4857,7 +4804,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4880,7 +4828,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4898,12 +4847,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -4926,7 +4876,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4949,7 +4900,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -4967,12 +4919,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -4990,12 +4943,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -5018,7 +4972,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -5041,7 +4996,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -5059,12 +5015,13 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 6,
-            "3": 5,
-            "4": 4,
-            "5": 3,
-            "6": 2,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
          },
          "monkeyInfo": {
             "position": 1,
@@ -5087,7 +5044,8 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7
+            "7": 7,
+            "8": 7
          },
          "monkeyInfo": {
             "position": 1,
@@ -5095,6 +5053,7 @@
             "answerType": "noother"
          }
       },
+
       {
          "surveyShortName": "BECK",
          "position": 1,

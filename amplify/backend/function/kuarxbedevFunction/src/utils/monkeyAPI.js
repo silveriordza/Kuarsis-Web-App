@@ -645,7 +645,7 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
     * @param {*} outputScoreAsValue - Set this value as true to set the value as score for the rated subtypes
     */
    const pushChoiceCol = (choice, outputScoreAsValue = false) => {
-      let value = choice.value - 1
+      let value = choice.value
       let text = choice.realValue.trim()
       let score = choice.score
 

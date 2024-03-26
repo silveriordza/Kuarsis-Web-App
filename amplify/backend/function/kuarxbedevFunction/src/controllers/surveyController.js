@@ -3298,7 +3298,11 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
             for (const question of survey.questions) {
                fieldName = question.fieldName
 
-               monkeyPageAnswer = monkeyPageAnswers.get(question.monkeyInfo.id)
+               monkeyPageAnswer = monkeyPageAnswers.get(
+                  question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL'
+                     ? question.monkeyInfo.monkeyAnswers.answerChoices[0].id
+                     : question.monkeyInfo.id,
+               )
                let monkeyAnswer = AnalyzeQuestionResponseRedesign(
                   question,
                   monkeyPageAnswer,
