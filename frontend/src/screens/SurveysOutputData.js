@@ -183,6 +183,61 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
+   const GenerateOutputFile = outputId => {
+      let outputText = null
+      const outputValue = surveyOutputsInfo.outputValues.find(
+         output => output._id === outputId,
+      )
+      if (outputValue) {
+         const keys = Object.keys(outputValue)
+         keys.shift()
+         let outputField = null
+         let outputValueData = null
+         keys.map(key => {
+            outputField = surveyOutputsInfo.outputLayouts.find(x => {
+               return x.fieldName == key
+            })
+            if (outputField.showInSurveyOutputScreen) {
+               switch (outputField.fieldName) {
+                  case 'INFO_3':
+                     outputValueData = formatDate(outputValue[key])
+                     break
+                  case 'INFO_4':
+                     outputValueData = formatDate(outputValue[key])
+                     break
+                  default:
+                     outputValueData = outputValue[key]
+               }
+
+               let encoder = new TextEncoder()
+               let utf8Array = encoder.encode(outputValueData)
+               let utf8String = new TextDecoder().decode(utf8Array)
+               if (outputText) {
+                  outputText =
+                     outputText +
+                     '\n' +
+                     `${outputField.questionShort},${outputValueData}`
+               } else {
+                  outputText = `${outputField.questionShort},${outputValueData}`
+               }
+               return outputText
+               // return (
+               //    <td
+               //       key={key}
+               //       style={{ whiteSpace: 'nowrap' }}
+               //    >
+               //       {utf8String}
+               //    </td>
+               // )
+            } else {
+               return
+            }
+         })
+
+         console.log(`outputText=${outputText}`)
+      }
+   }
+
    useEffect(() => {
       LogThis(
          log,
@@ -356,6 +411,7 @@ const SurveysOutputData = ({ match, history }) => {
                       surveyOutputsInfo
                     )}`
                   )} */}
+                              <th></th>
                               {surveyOutputsInfo.outputLayouts.map(
                                  (layout, keyVal) => {
                                     // console.log(
@@ -376,12 +432,12 @@ const SurveysOutputData = ({ match, history }) => {
                                        let utf8String =
                                           new TextDecoder().decode(utf8Array)
                                        return (
-                                          <td
+                                          <th
                                              key={keyVal}
                                              style={{ whiteSpace: 'nowrap' }}
                                           >
                                              {utf8String}
-                                          </td>
+                                          </th>
                                        )
                                     } else {
                                        return
@@ -396,8 +452,20 @@ const SurveysOutputData = ({ match, history }) => {
                               keys.shift()
                               let outputField = null
                               let outputValueData = null
+                              console.log(`outputValue._id=${outputValue._id}`)
                               return (
                                  <tr key={outputValue._id}>
+                                    <td>
+                                       <Button
+                                          variant="dark"
+                                          className="btn-sm"
+                                          onClick={() =>
+                                             GenerateOutputFile(outputValue._id)
+                                          }
+                                       >
+                                          <i className="fas fa-tasks"></i>
+                                       </Button>
+                                    </td>
                                     {keys.map(key => {
                                        outputField =
                                           surveyOutputsInfo.outputLayouts.find(
