@@ -64,6 +64,7 @@ const getMonkeyResponses = async newResponses => {
       let questionAnswersMap = null
       surveyPagesMap = new Map()
       questionAnswersMap = new Map()
+      let multipleChoiceMap = null
 
       questionAnswersMap.set('INFO_1', surveyResponse.id)
       questionAnswersMap.set('INFO_2', surveyResponse.collector_id)
@@ -83,10 +84,27 @@ const getMonkeyResponses = async newResponses => {
                if (answer.hasOwnProperty('row_id')) {
                   questionAnswersMap.set(answer.row_id, answer)
                } else if (
-                  answer.hasOwnProperty('choice_id') &&
-                  question.answers.length > 1
+                  answer.hasOwnProperty('choice_id') ||
+                  answer.hasOwnProperty('other_id') /*&&
+                  question.answers.length > 1*/
                ) {
-                  questionAnswersMap.set(answer.choice_id, answer)
+                  //questionAnswersMap.set(answer.choice_id, answer)
+                  //} else */ else {
+                  let choice_id = null
+                  if (answer.hasOwnProperty('other_id')) {
+                     choice_id = answer.other_id
+                  } else {
+                     choice_id = answer.choice_id
+                  }
+
+                  if (questionAnswersMap.has(question.id)) {
+                     multipleChoiceMap = questionAnswersMap.get(question.id)
+                     multipleChoiceMap.set(choice_id, answer)
+                  } else {
+                     multipleChoiceMap = new Map()
+                     multipleChoiceMap.set(choice_id, answer)
+                     questionAnswersMap.set(question.id, multipleChoiceMap)
+                  }
                } else {
                   questionAnswersMap.set(question.id, answer)
                }

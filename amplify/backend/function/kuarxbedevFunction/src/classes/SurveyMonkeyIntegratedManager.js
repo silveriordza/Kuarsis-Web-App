@@ -271,7 +271,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                     
                 } else if(surveyQuestion.monkeyInfo.answerType=="other"){
                    
-                    this.mapAnswerChoice(surveyQuestion, 'text', [monkeyQuestion.details.answers.other])                   
+                    this.mapAnswerChoice(surveyQuestion, 'other_id', [monkeyQuestion.details.answers.other])                   
                 }
                 
             } else if(questionType===QTYPE_PRESENTATION_DESCRIPTIVE) {

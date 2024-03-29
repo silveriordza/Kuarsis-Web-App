@@ -3261,8 +3261,8 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       const surveysAnswersMap = new Map()
       let fieldsAnswersMap = new Map()
       const subscaleToFieldsMap = new Map()
+      let monkeyPageQuestions = null
       let monkeyPageAnswers = null
-      let monkeyPageAnswer = null
       let fieldName = null
       let weightedAnswers = null
       const allFieldsAnswersMap = new Map()
@@ -3271,14 +3271,14 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       for (const survey of surveys) {
          if (survey.surveyShortName === 'INFO') {
             fieldsAnswersMap = new Map()
-            monkeyPageAnswers = monkeyPagesAnswersMap.get(
+            monkeyPageQuestions = monkeyPagesAnswersMap.get(
                survey.surveyShortName,
             )
             for (const question of survey.questions) {
                fieldName = question.fieldName
                let answer = null
                let finalAnswer = {}
-               answer = monkeyPageAnswers.get(fieldName)
+               answer = monkeyPageQuestions.get(fieldName)
 
                finalAnswer.fieldName = fieldName
                finalAnswer.isCalculatedField = false
@@ -3293,19 +3293,55 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                allSurveysFieldsMap.set(fieldName, question)
             }
          } else {
-            monkeyPageAnswers = monkeyPagesAnswersMap.get(survey.monkeyInfo.id)
+            monkeyPageQuestions = monkeyPagesAnswersMap.get(
+               survey.monkeyInfo.id,
+            )
             fieldsAnswersMap = new Map()
             for (const question of survey.questions) {
                fieldName = question.fieldName
-
-               monkeyPageAnswer = monkeyPageAnswers.get(
-                  question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL'
-                     ? question.monkeyInfo.monkeyAnswers.answerChoices[0].id
-                     : question.monkeyInfo.id,
+               //NEXT 222
+               //if (question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL') {
+               monkeyPageAnswers = monkeyPageQuestions.get(
+                  question.monkeyInfo.id,
                )
+               // } else {
+               //    monkeyPageAnswers = monkeyPageQuestions.get(
+               //       question.monkeyInfo.monkeyAnswers.answerChoices[0].id,
+               //    )
+               // }
+               let answer = null
+               if (
+                  question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL' ||
+                  question.monkeyInfo.type === 'SINGLE_CHOICE_VERTICAL' ||
+                  question.monkeyInfo.type === 'SINGLE_CHOICE_MENU' ||
+                  question.monkeyInfo.type ===
+                     'MULTIPLE_CHOICE_VERTICAL_THREE_COL'
+               ) {
+                  for (const [key, monkeyPageAnswer] of monkeyPageAnswers) {
+                     let choice_id = null
+                     answer = null
+                     if (monkeyPageAnswer.hasOwnProperty('other_id')) {
+                        choice_id = monkeyPageAnswer.other_id
+                     } else {
+                        choice_id = monkeyPageAnswer.choice_id
+                     }
+                     answer =
+                        question.monkeyInfo.monkeyAnswers.answerChoices.find(
+                           choice => choice.id === choice_id,
+                        )
+                     if (answer) {
+                        answer = monkeyPageAnswer
+                        break
+                     }
+                  }
+               } else {
+                  answer = monkeyPageAnswers
+               }
+
+               //for (const [key, answer] of monkeyPageAnswers) {
                let monkeyAnswer = AnalyzeQuestionResponseRedesign(
                   question,
-                  monkeyPageAnswer,
+                  answer,
                )
                let weightedAnswer = GetWeightedResponse(question, monkeyAnswer)
                weightedAnswer.fieldName = fieldName
@@ -3322,6 +3358,34 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                   subscaleToFieldsMap.set(question.subScale, weightedAnswers)
                }
                allSurveysFieldsMap.set(fieldName, question)
+               //}
+               // } else {
+               //    const answer = monkeyPageAnswers
+               //    let monkeyAnswer = AnalyzeQuestionResponseRedesign(
+               //       question,
+               //       answer,
+               //    )
+               //    let weightedAnswer = GetWeightedResponse(
+               //       question,
+               //       monkeyAnswer,
+               //    )
+               //    weightedAnswer.fieldName = fieldName
+               //    weightedAnswer.isCalculatedField = false
+               //    fieldsAnswersMap.set(fieldName, weightedAnswer)
+               //    allFieldsAnswersMap.set(fieldName, weightedAnswer)
+
+               //    if (subscaleToFieldsMap.has(question.subScale)) {
+               //       weightedAnswers = subscaleToFieldsMap.get(
+               //          question.subScale,
+               //       )
+               //       weightedAnswers.push(weightedAnswer)
+               //    } else {
+               //       weightedAnswers = []
+               //       weightedAnswers.push(weightedAnswer)
+               //       subscaleToFieldsMap.set(question.subScale, weightedAnswers)
+               //    }
+               //    allSurveysFieldsMap.set(fieldName, question)
+               // }
             }
 
             for (const calculatedField of survey.calculatedFields) {
