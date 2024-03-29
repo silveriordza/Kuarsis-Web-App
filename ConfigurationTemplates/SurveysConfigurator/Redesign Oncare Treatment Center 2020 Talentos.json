@@ -2447,7 +2447,7 @@
          "fieldName": "INFO_1",
          "subScale": "INFO",
          "question": "respondent_id",
-         "questionShort": "respondent_id…",
+         "questionShort": "respondent_id",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2462,7 +2462,7 @@
          "fieldName": "INFO_2",
          "subScale": "INFO",
          "question": "collector_id",
-         "questionShort": "collector_id…",
+         "questionShort": "collector_id",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2477,7 +2477,7 @@
          "fieldName": "INFO_3",
          "subScale": "INFO",
          "question": "date_created",
-         "questionShort": "date_created…",
+         "questionShort": "date_created",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2492,7 +2492,7 @@
          "fieldName": "INFO_4",
          "subScale": "INFO",
          "question": "date_modified",
-         "questionShort": "date_modified…",
+         "questionShort": "date_modified",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2507,7 +2507,7 @@
          "fieldName": "INFO_5",
          "subScale": "INFO",
          "question": "ip_address",
-         "questionShort": "ip_address…",
+         "questionShort": "ip_address",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2522,7 +2522,7 @@
          "fieldName": "INFO_6",
          "subScale": "INFO",
          "question": "email_address",
-         "questionShort": "email_address…",
+         "questionShort": "email_address",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2537,7 +2537,7 @@
          "fieldName": "INFO_7",
          "subScale": "INFO",
          "question": "first_name",
-         "questionShort": "first_name…",
+         "questionShort": "first_name",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2552,7 +2552,7 @@
          "fieldName": "INFO_8",
          "subScale": "INFO",
          "question": "last_name",
-         "questionShort": "last_name…",
+         "questionShort": "last_name",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2567,7 +2567,7 @@
          "fieldName": "INFO_9",
          "subScale": "INFO",
          "question": "custom_1",
-         "questionShort": "custom_1…",
+         "questionShort": "custom_1",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2582,7 +2582,7 @@
          "fieldName": "Datos_1",
          "subScale": "Datos",
          "question": "Nombre completo:",
-         "questionShort": "Nombre completo:…",
+         "questionShort": "Nombre completo:",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2597,7 +2597,7 @@
          "fieldName": "Datos_2",
          "subScale": "Datos",
          "question": "Edad",
-         "questionShort": "Edad…",
+         "questionShort": "Edad",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2612,7 +2612,7 @@
          "fieldName": "Datos_3",
          "subScale": "Datos",
          "question": "Fecha de nacimiento (dd/mm/aaaa)",
-         "questionShort": "Fecha de nacimiento (dd/mm/aaa…",
+         "questionShort": "Fecha de nacimiento (dd/mm/aaa",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2627,7 +2627,7 @@
          "fieldName": "Datos_4",
          "subScale": "Datos",
          "question": "Sexo",
-         "questionShort": "Sexo…",
+         "questionShort": "Sexo",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2642,7 +2642,7 @@
          "fieldName": "Datos_5",
          "subScale": "Datos",
          "question": "Estado civil",
-         "questionShort": "Estado civil…",
+         "questionShort": "Estado civil",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2657,7 +2657,7 @@
          "fieldName": "Datos_6",
          "subScale": "Datos",
          "question": "Estado de procedencia",
-         "questionShort": "Estado de procedencia…",
+         "questionShort": "Estado de procedencia",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2672,7 +2672,7 @@
          "fieldName": "Datos_7",
          "subScale": "Datos",
          "question": "Otro país (especifique)",
-         "questionShort": "Otro país (especifique)…",
+         "questionShort": "Otro país (especifique)",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2687,7 +2687,7 @@
          "fieldName": "Datos_8",
          "subScale": "Datos",
          "question": "Municipio de residencia actual:",
-         "questionShort": "Municipio de residencia actual…",
+         "questionShort": "Municipio de residencia actual",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2702,7 +2702,7 @@
          "fieldName": "Datos_9",
          "subScale": "Datos",
          "question": "Medio de transporte:",
-         "questionShort": "Medio de transporte:…",
+         "questionShort": "Medio de transporte:",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2717,7 +2717,7 @@
          "fieldName": "Datos_10",
          "subScale": "Datos",
          "question": "Distancia aproximada de traslado entre su hogar y trabajo:",
-         "questionShort": "Distancia aproximada de trasla…",
+         "questionShort": "Distancia aproximada de trasla",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2732,7 +2732,7 @@
          "fieldName": "Datos_11",
          "subScale": "Datos",
          "question": "Ãšltimo grado de estudios:",
-         "questionShort": "Ãšltimo grado de estudios:…",
+         "questionShort": "Ãšltimo grado de estudios:",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2747,7 +2747,7 @@
          "fieldName": "Datos_12",
          "subScale": "Datos",
          "question": "Ocupación actual",
-         "questionShort": "Ocupación actual…",
+         "questionShort": "Ocupación actual",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2762,7 +2762,7 @@
          "fieldName": "Datos_13",
          "subScale": "Datos",
          "question": "Ãrea a la que aplica:",
-         "questionShort": "Ãrea a la que aplica:…",
+         "questionShort": "Ãrea a la que aplica:",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2777,7 +2777,7 @@
          "fieldName": "CSG_1",
          "subScale": "CSG_SOMATICOS",
          "question": "A1 Se ha sentido perfectamente bien y con buena salud.",
-         "questionShort": "A1 Se ha sentido perfectamente…",
+         "questionShort": "A1 Se ha sentido perfectamente",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2792,7 +2792,7 @@
          "fieldName": "CSG_2",
          "subScale": "CSG",
          "question": "Otro (especifique)",
-         "questionShort": "Otro (especifique)…",
+         "questionShort": "Otro (especifique)",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2807,7 +2807,7 @@
          "fieldName": "CSG_3",
          "subScale": "CSG_SOMATICOS",
          "question": "A2 Ha sentido la necesidad de un buen tónico",
-         "questionShort": "A2 Ha sentido la necesidad de …",
+         "questionShort": "A2 Ha sentido la necesidad de ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2822,7 +2822,7 @@
          "fieldName": "CSG_4",
          "subScale": "CSG",
          "question": "Otro (especifique)",
-         "questionShort": "Otro (especifique)…",
+         "questionShort": "Otro (especifique)",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2837,7 +2837,7 @@
          "fieldName": "CSG_5",
          "subScale": "CSG_SOMATICOS",
          "question": "A3 Se ha sentido agotado y sin motivaciones.",
-         "questionShort": "A3 Se ha sentido agotado y sin…",
+         "questionShort": "A3 Se ha sentido agotado y sin",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2852,7 +2852,7 @@
          "fieldName": "CSG_6",
          "subScale": "CSG_SOMATICOS",
          "question": "A4 Se ha sentido enfermo.",
-         "questionShort": "A4 Se ha sentido enfermo.…",
+         "questionShort": "A4 Se ha sentido enfermo.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2867,7 +2867,7 @@
          "fieldName": "CSG_7",
          "subScale": "CSG_SOMATICOS",
          "question": "A5 Ha tenido dolores de cabeza.",
-         "questionShort": "A5 Ha tenido dolores de cabeza…",
+         "questionShort": "A5 Ha tenido dolores de cabeza",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2882,7 +2882,7 @@
          "fieldName": "CSG_8",
          "subScale": "CSG_SOMATICOS",
          "question": "A6 Ha sentido tensión o presión en la cabeza.",
-         "questionShort": "A6 Ha sentido tensión o presió…",
+         "questionShort": "A6 Ha sentido tensión o presió",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2897,7 +2897,7 @@
          "fieldName": "CSG_9",
          "subScale": "CSG_SOMATICOS",
          "question": "A7 Ha tenido ráfagas de calor o frío.",
-         "questionShort": "A7 Ha tenido ráfagas de calor …",
+         "questionShort": "A7 Ha tenido ráfagas de calor ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2912,7 +2912,7 @@
          "fieldName": "CSG_10",
          "subScale": "CSG_ANSIEDAD",
          "question": "B1 Ha tenido dificultades para dormir por estar preocupado.",
-         "questionShort": "B1 Ha tenido dificultades para…",
+         "questionShort": "B1 Ha tenido dificultades para",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2927,7 +2927,7 @@
          "fieldName": "CSG_11",
          "subScale": "CSG_ANSIEDAD",
          "question": "B2 Ha tenido dificultades para permanecer dormido una vez que ha empezado.",
-         "questionShort": "B2 Ha tenido dificultades para…",
+         "questionShort": "B2 Ha tenido dificultades para",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2942,7 +2942,7 @@
          "fieldName": "CSG_12",
          "subScale": "CSG_ANSIEDAD",
          "question": "B3 Se ha sentido constantemente bajo presión.",
-         "questionShort": "B3 Se ha sentido constantement…",
+         "questionShort": "B3 Se ha sentido constantement",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2957,7 +2957,7 @@
          "fieldName": "CSG_13",
          "subScale": "CSG_ANSIEDAD",
          "question": "B4 Se ha sentido irritable y de mal humor.",
-         "questionShort": "B4 Se ha sentido irritable y d…",
+         "questionShort": "B4 Se ha sentido irritable y d",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2972,7 +2972,7 @@
          "fieldName": "CSG_14",
          "subScale": "CSG_ANSIEDAD",
          "question": "B5 Se ha sentido asustado o con pánico sin ninguna razón.",
-         "questionShort": "B5 Se ha sentido asustado o co…",
+         "questionShort": "B5 Se ha sentido asustado o co",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -2987,7 +2987,7 @@
          "fieldName": "CSG_15",
          "subScale": "CSG_ANSIEDAD",
          "question": "B6 Ha tenido la sensación de que no puede manejar las situaciones.",
-         "questionShort": "B6 Ha tenido la sensación de q…",
+         "questionShort": "B6 Ha tenido la sensación de q",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3002,7 +3002,7 @@
          "fieldName": "CSG_16",
          "subScale": "CSG_ANSIEDAD",
          "question": "B7 Se ha sentido nervioso y tenso todo el tiempo.",
-         "questionShort": "B7 Se ha sentido nervioso y te…",
+         "questionShort": "B7 Se ha sentido nervioso y te",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3017,7 +3017,7 @@
          "fieldName": "CSG_17",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C1 Se las ha ingeniado para mantenerse 'muy ocupado'.",
-         "questionShort": "C1 Se las ha ingeniado para ma…",
+         "questionShort": "C1 Se las ha ingeniado para ma",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3032,7 +3032,7 @@
          "fieldName": "CSG_18",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C2 Se tarda más tiempo en hacer las cosas. ",
-         "questionShort": "C2 Se tarda más tiempo en hace…",
+         "questionShort": "C2 Se tarda más tiempo en hace",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3047,7 +3047,7 @@
          "fieldName": "CSG_19",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C3 En general siente que ha hecho las cosas bien.",
-         "questionShort": "C3 En general siente que ha he…",
+         "questionShort": "C3 En general siente que ha he",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3062,7 +3062,7 @@
          "fieldName": "CSG_20",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C4 Se ha sentido satisfecho por la manera en que ha llevado a cabo sus tareas.",
-         "questionShort": "C4 Se ha sentido satisfecho po…",
+         "questionShort": "C4 Se ha sentido satisfecho po",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3077,7 +3077,7 @@
          "fieldName": "CSG_21",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C5 Se ha sentido útil y parte importante de lo que lo rodea.",
-         "questionShort": "C5 Se ha sentido útil y parte …",
+         "questionShort": "C5 Se ha sentido útil y parte ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3092,7 +3092,7 @@
          "fieldName": "CSG_22",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C6 Se ha sentido capaz de tomar decisiones.",
-         "questionShort": "C6 Se ha sentido capaz de toma…",
+         "questionShort": "C6 Se ha sentido capaz de toma",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3107,7 +3107,7 @@
          "fieldName": "CSG_23",
          "subScale": "CSG_DISF_SOCIAL",
          "question": "C7 Se ha sentido capaz de disfrutar de sus actividades cotidianas.",
-         "questionShort": "C7 Se ha sentido capaz de disf…",
+         "questionShort": "C7 Se ha sentido capaz de disf",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3122,7 +3122,7 @@
          "fieldName": "CSG_24",
          "subScale": "CSG_DEPRESION",
          "question": "D1  Se ha sentido como una persona de poca valía.",
-         "questionShort": "D1  Se ha sentido como una per…",
+         "questionShort": "D1  Se ha sentido como una per",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3137,7 +3137,7 @@
          "fieldName": "CSG_25",
          "subScale": "CSG_DEPRESION",
          "question": "D2 Ha sentido que la vida no vale nada.",
-         "questionShort": "D2 Ha sentido que la vida no v…",
+         "questionShort": "D2 Ha sentido que la vida no v",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3152,7 +3152,7 @@
          "fieldName": "CSG_26",
          "subScale": "CSG_DEPRESION",
          "question": "D3 Ha sentido que no vale la pena vivir.",
-         "questionShort": "D3 Ha sentido que no vale la p…",
+         "questionShort": "D3 Ha sentido que no vale la p",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3167,7 +3167,7 @@
          "fieldName": "CSG_27",
          "subScale": "CSG_DEPRESION",
          "question": "D4 Ha pensado en la posibilidad de quitarse la vida.",
-         "questionShort": "D4 Ha pensado en la posibilida…",
+         "questionShort": "D4 Ha pensado en la posibilida",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3182,7 +3182,7 @@
          "fieldName": "CSG_28",
          "subScale": "CSG_DEPRESION",
          "question": "D5 Se ha sentido incapaz de hacer alguna actividad porque tiene nervios.",
-         "questionShort": "D5 Se ha sentido incapaz de ha…",
+         "questionShort": "D5 Se ha sentido incapaz de ha",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3197,7 +3197,7 @@
          "fieldName": "CSG_29",
          "subScale": "CSG_DEPRESION",
          "question": "D6 Ha sentido ganas de estar muerto y acabar con todo.",
-         "questionShort": "D6 Ha sentido ganas de estar m…",
+         "questionShort": "D6 Ha sentido ganas de estar m",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3212,7 +3212,7 @@
          "fieldName": "CSG_30",
          "subScale": "CSG_DEPRESION",
          "question": "D7 Le ha venido a la mente la idea repetitiva de quitarse la vida.",
-         "questionShort": "D7 Le ha venido a la mente la …",
+         "questionShort": "D7 Le ha venido a la mente la ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 0, "3": 1, "4": 1 },
          "monkeyInfo": {
@@ -3227,7 +3227,7 @@
          "fieldName": "FIAD-15_1",
          "subScale": "FIAD-15",
          "question": "1.Cuando confronto problemas serios y conflictos con los demás, el miedo y la preocupación me confunden tanto que termino por actuar irracionalmente.",
-         "questionShort": "1.Cuando confronto problemas …",
+         "questionShort": "1.Cuando confronto problemas ",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3242,7 +3242,7 @@
          "fieldName": "FIAD-15_2",
          "subScale": "FIAD-15",
          "question": "2.Aunque me doy cuenta que algunos de mis actos son francamente agresivos e incorrectos, en el momento de actuarlos me es indiferente; pienso que esta vez no me van a descubrir, o no lo van a “notar”.",
-         "questionShort": "2.Aunque me doy cuenta que al…",
+         "questionShort": "2.Aunque me doy cuenta que al",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3257,7 +3257,7 @@
          "fieldName": "FIAD-15_3",
          "subScale": "FIAD-15",
          "question": "3.Soy una persona prudente que actúa y responde en forma apropiada.",
-         "questionShort": "3.Soy una persona prudente qu…",
+         "questionShort": "3.Soy una persona prudente qu",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3272,7 +3272,7 @@
          "fieldName": "FIAD-15_4",
          "subScale": "FIAD-15",
          "question": "4.Cuando los sentimientos y la ira me invaden, me ofusco tanto que no puedo contenerme ni serenarme; termino por reaccionar de manera atropellada o fuera de mí.",
-         "questionShort": "4.Cuando los sentimientos y l…",
+         "questionShort": "4.Cuando los sentimientos y l",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3287,7 +3287,7 @@
          "fieldName": "FIAD-15_5",
          "subScale": "FIAD-15",
          "question": "5.Cuando me encolerizo, aunque deseo actuar al calor del momento, logro contenerme y después serenarme.",
-         "questionShort": "5.Cuando me encolerizo, aunqu…",
+         "questionShort": "5.Cuando me encolerizo, aunqu",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3302,7 +3302,7 @@
          "fieldName": "FIAD-15_6",
          "subScale": "FIAD-15",
          "question": "6.Soy una persona muy estable.",
-         "questionShort": "6.Soy una persona muy estable…",
+         "questionShort": "6.Soy una persona muy estable",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3317,7 +3317,7 @@
          "fieldName": "FIAD-15_7",
          "subScale": "FIAD-15",
          "question": "7.Por actuar precipitadamente termino por involucrarme en acciones inapropiadas y situaciones muy emproblemadas.",
-         "questionShort": "7.Por actuar precipitadamente…",
+         "questionShort": "7.Por actuar precipitadamente",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3332,7 +3332,7 @@
          "fieldName": "FIAD-15_8",
          "subScale": "FIAD-15",
          "question": "8.Dado que actuó como pienso y siento, vivo emproblemado(a) con los demás; la gente me considera impulsivo(a) y agresivo(a)",
-         "questionShort": "8.Dado que actuó como pienso …",
+         "questionShort": "8.Dado que actuó como pienso ",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3347,7 +3347,7 @@
          "fieldName": "FIAD-15_9",
          "subScale": "FIAD-15",
          "question": "9.Odio que la gente me diga que debería de sentirme culpable por ser tan agresivo(a), sin darse cuenta que constantemente me están atacando de modo injustificado.",
-         "questionShort": "9.Odio que la gente me diga q…",
+         "questionShort": "9.Odio que la gente me diga q",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3362,7 +3362,7 @@
          "fieldName": "FIAD-15_10",
          "subScale": "FIAD-15",
          "question": "10.Soy una persona inestable; cambio de manera de ser de un momento a otro.",
-         "questionShort": "10.Soy una persona inestable;…",
+         "questionShort": "10.Soy una persona inestable;",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3377,7 +3377,7 @@
          "fieldName": "FIAD-15_11",
          "subScale": "FIAD-15",
          "question": "11.Aunque tengo cierta idea del porqué de la intensidad de mis emociones, no siempre logro contenerme ni serenarme.",
-         "questionShort": "11.Aunque tengo cierta idea d…",
+         "questionShort": "11.Aunque tengo cierta idea d",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3392,7 +3392,7 @@
          "fieldName": "FIAD-15_12",
          "subScale": "FIAD-15",
          "question": "12.Soy tan imprudente, que tiendo a actuar de manera inapropiada y hasta destructiva sin anticipar las consecuencias, y si las anticipo, me es indiferente.",
-         "questionShort": "12.Soy tan imprudente, que ti…",
+         "questionShort": "12.Soy tan imprudente, que ti",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3407,7 +3407,7 @@
          "fieldName": "FIAD-15_13",
          "subScale": "FIAD-15",
          "question": "13.Si actuara todo el tiempo como pienso y siento, ya estaría en graves problemas con los demás.",
-         "questionShort": "13.Si actuara todo el tiempo …",
+         "questionShort": "13.Si actuara todo el tiempo ",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3422,7 +3422,7 @@
          "fieldName": "FIAD-15_14",
          "subScale": "FIAD-15",
          "question": "14.Aunque trato de controlarme, reincido en acciones y desplantes inapropiados.",
-         "questionShort": "14.Aunque trato de controlarm…",
+         "questionShort": "14.Aunque trato de controlarm",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3437,7 +3437,7 @@
          "fieldName": "FIAD-15_15",
          "subScale": "FIAD-15",
          "question": "15.Cuando me enredo en líos con los demás, mis miedos y mis odios me llevan a mal interpretar y distorsionar todo.",
-         "questionShort": "15.Cuando me enredo en líos c…",
+         "questionShort": "15.Cuando me enredo en líos c",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -3452,7 +3452,7 @@
          "fieldName": "BURN_1",
          "subScale": "BURN_DESPERS",
          "question": "1. Me siento emocionalmente agotado por mi trabajo",
-         "questionShort": "1. Me siento emocionalmente ag…",
+         "questionShort": "1. Me siento emocionalmente ag",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3467,7 +3467,7 @@
          "fieldName": "BURN_2",
          "subScale": "BURN_DESPERS",
          "question": "2. Cuando termino mi jornada de trabajo me siento vacío",
-         "questionShort": "2. Cuando termino mi jornada d…",
+         "questionShort": "2. Cuando termino mi jornada d",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3482,7 +3482,7 @@
          "fieldName": "BURN_3",
          "subScale": "BURN_DESPERS",
          "question": "3. Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
-         "questionShort": "3. Cuando me levanto por la ma…",
+         "questionShort": "3. Cuando me levanto por la ma",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3497,7 +3497,7 @@
          "fieldName": "BURN_4",
          "subScale": "BURN_EMOCIONAL",
          "question": "4. Siento que puedo entender fácilmente a los pacientes.",
-         "questionShort": "4. Siento que puedo entender f…",
+         "questionShort": "4. Siento que puedo entender f",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3512,7 +3512,7 @@
          "fieldName": "BURN_5",
          "subScale": "BURN_LOGROS",
          "question": "5. Siento que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
-         "questionShort": "5. Siento que estoy tratando a…",
+         "questionShort": "5. Siento que estoy tratando a",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3527,7 +3527,7 @@
          "fieldName": "BURN_6",
          "subScale": "BURN_DESPERS",
          "question": "6. Siento que trabajar todo el día con la gente me cansa.",
-         "questionShort": "6. Siento que trabajar todo el…",
+         "questionShort": "6. Siento que trabajar todo el",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3542,7 +3542,7 @@
          "fieldName": "BURN_7",
          "subScale": "BURN_EMOCIONAL",
          "question": "7. Siento que trato con mucha eficacia los problemas de mis pacientes.",
-         "questionShort": "7. Siento que trato con mucha …",
+         "questionShort": "7. Siento que trato con mucha ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3557,7 +3557,7 @@
          "fieldName": "BURN_8",
          "subScale": "BURN_DESPERS",
          "question": "8. Siento que mi trabajo me está desgastando.",
-         "questionShort": "8. Siento que mi trabajo me es…",
+         "questionShort": "8. Siento que mi trabajo me es",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3572,7 +3572,7 @@
          "fieldName": "BURN_9",
          "subScale": "BURN_EMOCIONAL",
          "question": "9. Siento que estoy influyendo positivamente en la vida de otras personas a través de mi trabajo",
-         "questionShort": "9. Siento que estoy influyendo…",
+         "questionShort": "9. Siento que estoy influyendo",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3587,7 +3587,7 @@
          "fieldName": "BURN_10",
          "subScale": "BURN_LOGROS",
          "question": "10. Siento que me he hecho mas duro con la gente",
-         "questionShort": "10. Siento que me he hecho mas…",
+         "questionShort": "10. Siento que me he hecho mas",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3602,7 +3602,7 @@
          "fieldName": "BURN_11",
          "subScale": "BURN_LOGROS",
          "question": "11. Me preocupa que este trabajo me esté endureciendo emocionalmente",
-         "questionShort": "11. Me preocupa que este traba…",
+         "questionShort": "11. Me preocupa que este traba",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3617,7 +3617,7 @@
          "fieldName": "BURN_12",
          "subScale": "BURN",
          "question": "12. Me siento con mucha energía en mi trabajo",
-         "questionShort": "12. Me siento con mucha energí…",
+         "questionShort": "12. Me siento con mucha energí",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3632,7 +3632,7 @@
          "fieldName": "BURN_13",
          "subScale": "BURN_DESPERS",
          "question": "13. Me siento frustrado en mi trabajo",
-         "questionShort": "13. Me siento frustrado en mi …",
+         "questionShort": "13. Me siento frustrado en mi ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3647,7 +3647,7 @@
          "fieldName": "BURN_14",
          "subScale": "BURN_DESPERS",
          "question": "14. Siento que estoy demasiado tiempo en mi trabajo",
-         "questionShort": "14. Siento que estoy demasiado…",
+         "questionShort": "14. Siento que estoy demasiado",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3662,7 +3662,7 @@
          "fieldName": "BURN_15",
          "subScale": "BURN_LOGROS",
          "question": "15. Siento que realmente no me importa lo que les ocurre a mis pacientes",
-         "questionShort": "15. Siento que realmente no me…",
+         "questionShort": "15. Siento que realmente no me",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3677,7 +3677,7 @@
          "fieldName": "BURN_16",
          "subScale": "BURN",
          "question": "16. Siento que trabajar en contacto directo con la gente me cansa",
-         "questionShort": "16. Siento que trabajar en con…",
+         "questionShort": "16. Siento que trabajar en con",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3692,7 +3692,7 @@
          "fieldName": "BURN_17",
          "subScale": "BURN_EMOCIONAL",
          "question": "17. Siento que puedo crear con facilidad un clima agradable con mis pacientes",
-         "questionShort": "17. Siento que puedo crear con…",
+         "questionShort": "17. Siento que puedo crear con",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3707,7 +3707,7 @@
          "fieldName": "BURN_18",
          "subScale": "BURN_EMOCIONAL",
          "question": "18. Me siento estimado después de haber trabajado íntimamente con los pacientes",
-         "questionShort": "18. Me siento estimado después…",
+         "questionShort": "18. Me siento estimado después",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3722,7 +3722,7 @@
          "fieldName": "BURN_19",
          "subScale": "BURN_EMOCIONAL",
          "question": "19. Creo que consigo muchas cosas valiosas en este trabajo",
-         "questionShort": "19. Creo que consigo muchas co…",
+         "questionShort": "19. Creo que consigo muchas co",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3737,7 +3737,7 @@
          "fieldName": "BURN_20",
          "subScale": "BURN_DESPERS",
          "question": "20. Me siento como si estuviera al límite de mis posibilidades",
-         "questionShort": "20. Me siento como si estuvier…",
+         "questionShort": "20. Me siento como si estuvier",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3752,7 +3752,7 @@
          "fieldName": "BURN_21",
          "subScale": "BURN_EMOCIONAL",
          "question": "21. Siento que en mi trabajo los problemas emocionales son tratados de forma adecuada",
-         "questionShort": "21. Siento que en mi trabajo l…",
+         "questionShort": "21. Siento que en mi trabajo l",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
          "monkeyInfo": {
@@ -3767,7 +3767,7 @@
          "fieldName": "BURN_22",
          "subScale": "BURN_LOGROS",
          "question": "22. Me parece que los pacientes me culpan de algunos de sus problemas",
-         "questionShort": "22. Me parece que los paciente…",
+         "questionShort": "22. Me parece que los paciente",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
          "monkeyInfo": {
@@ -3776,16 +3776,15 @@
             "answerType": "noother"
          }
       },
-
       {
          "surveyShortName": "ESTRES",
          "position": 1,
          "fieldName": "ESTRES_1",
          "subScale": "ESTRES_TOTAL",
          "question": "1. Muerte del cónyuge",
-         "questionShort": "1. Muerte del cónyuge…",
+         "questionShort": "1. Muerte del cónyuge",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -3798,9 +3797,9 @@
          "fieldName": "ESTRES_2",
          "subScale": "ESTRES_TOTAL",
          "question": "2. Descenso en el rol o estatus laboral",
-         "questionShort": "2. Descenso en el rol o estatu…",
+         "questionShort": "2. Descenso en el rol o estatu",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 2,
@@ -3813,9 +3812,9 @@
          "fieldName": "ESTRES_3",
          "subScale": "ESTRES_TOTAL",
          "question": "3. Separación matrimonial",
-         "questionShort": "3. Separación matrimonial…",
+         "questionShort": "3. Separación matrimonial",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 3,
@@ -3828,9 +3827,9 @@
          "fieldName": "ESTRES_4",
          "subScale": "ESTRES_TOTAL",
          "question": "4. Muerte de un ser querido/familiar",
-         "questionShort": "4. Muerte de un ser querido/fa…",
+         "questionShort": "4. Muerte de un ser querido/fa",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 4,
@@ -3843,9 +3842,9 @@
          "fieldName": "ESTRES_5",
          "subScale": "ESTRES_TOTAL",
          "question": "5. Pérdida del trabajo",
-         "questionShort": "5. Pérdida del trabajo…",
+         "questionShort": "5. Pérdida del trabajo",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 5,
@@ -3858,9 +3857,9 @@
          "fieldName": "ESTRES_6",
          "subScale": "ESTRES_TOTAL",
          "question": "6. Padecer una enfermedad seria",
-         "questionShort": "6. Padecer una enfermedad seri…",
+         "questionShort": "6. Padecer una enfermedad seri",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 6,
@@ -3873,9 +3872,9 @@
          "fieldName": "ESTRES_7",
          "subScale": "ESTRES_TOTAL",
          "question": "7. Quiebra en el estado financiero",
-         "questionShort": "7. Quiebra en el estado financ…",
+         "questionShort": "7. Quiebra en el estado financ",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 7,
@@ -3888,9 +3887,9 @@
          "fieldName": "ESTRES_8",
          "subScale": "ESTRES_TOTAL",
          "question": "8. Haber padecido un asalto",
-         "questionShort": "8. Haber padecido un asalto…",
+         "questionShort": "8. Haber padecido un asalto",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 8,
@@ -3903,9 +3902,9 @@
          "fieldName": "ESTRES_9",
          "subScale": "ESTRES_TOTAL",
          "question": "9. Problemas sexuales (impotencia, trastornos eyaculatorios, anorgasmia, fobias, crisis de identidad sexual)",
-         "questionShort": "9. Problemas sexuales (impoten…",
+         "questionShort": "9. Problemas sexuales (impoten",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 9,
@@ -3918,9 +3917,9 @@
          "fieldName": "ESTRES_10",
          "subScale": "ESTRES_TOTAL",
          "question": "10.  Ser abandonado por la pareja",
-         "questionShort": "10.  Ser abandonado por la par…",
+         "questionShort": "10.  Ser abandonado por la par",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 10,
@@ -3933,9 +3932,9 @@
          "fieldName": "ESTRES_11",
          "subScale": "ESTRES_TOTAL",
          "question": "11. Jubilación",
-         "questionShort": "11. Jubilación…",
+         "questionShort": "11. Jubilación",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 11,
@@ -3948,9 +3947,9 @@
          "fieldName": "ESTRES_12",
          "subScale": "ESTRES_TOTAL",
          "question": "12. Problemas judiciales",
-         "questionShort": "12. Problemas judiciales…",
+         "questionShort": "12. Problemas judiciales",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 12,
@@ -3963,9 +3962,9 @@
          "fieldName": "ESTRES_13",
          "subScale": "ESTRES_TOTAL",
          "question": "13. Menopausia",
-         "questionShort": "13. Menopausia…",
+         "questionShort": "13. Menopausia",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 13,
@@ -3978,9 +3977,9 @@
          "fieldName": "ESTRES_14",
          "subScale": "ESTRES_TOTAL",
          "question": "14. Deudas",
-         "questionShort": "14. Deudas…",
+         "questionShort": "14. Deudas",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 14,
@@ -3993,9 +3992,9 @@
          "fieldName": "ESTRES_15",
          "subScale": "ESTRES_TOTAL",
          "question": "15. Enfermedad de un familiar",
-         "questionShort": "15. Enfermedad de un familiar…",
+         "questionShort": "15. Enfermedad de un familiar",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 15,
@@ -4008,9 +4007,9 @@
          "fieldName": "ESTRES_16",
          "subScale": "ESTRES_TOTAL",
          "question": "16. Trabajar en horarios nocturno o rotatorios",
-         "questionShort": "16. Trabajar en horarios noctu…",
+         "questionShort": "16. Trabajar en horarios noctu",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 16,
@@ -4023,9 +4022,9 @@
          "fieldName": "ESTRES_17",
          "subScale": "ESTRES_TOTAL",
          "question": "17. Reconciliación marital",
-         "questionShort": "17. Reconciliación marital…",
+         "questionShort": "17. Reconciliación marital",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 17,
@@ -4038,9 +4037,9 @@
          "fieldName": "ESTRES_18",
          "subScale": "ESTRES_TOTAL",
          "question": "18. Embarazo",
-         "questionShort": "18. Embarazo…",
+         "questionShort": "18. Embarazo",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 18,
@@ -4053,9 +4052,9 @@
          "fieldName": "ESTRES_19",
          "subScale": "ESTRES_TOTAL",
          "question": "19. Nacimiento",
-         "questionShort": "19. Nacimiento…",
+         "questionShort": "19. Nacimiento",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 19,
@@ -4068,9 +4067,9 @@
          "fieldName": "ESTRES_20",
          "subScale": "ESTRES_TOTAL",
          "question": "20. Inseguridad en el barrio donde vive o trabaja",
-         "questionShort": "20. Inseguridad en el barrio d…",
+         "questionShort": "20. Inseguridad en el barrio d",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 20,
@@ -4083,9 +4082,9 @@
          "fieldName": "ESTRES_21",
          "subScale": "ESTRES_TOTAL",
          "question": "21. Cambio de estado financiero",
-         "questionShort": "21. Cambio de estado financier…",
+         "questionShort": "21. Cambio de estado financier",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 21,
@@ -4098,9 +4097,9 @@
          "fieldName": "ESTRES_22",
          "subScale": "ESTRES_TOTAL",
          "question": "22. Fuertes discusiones familiares (con hijos o familiares políticos)",
-         "questionShort": "22. Fuertes discusiones famili…",
+         "questionShort": "22. Fuertes discusiones famili",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 22,
@@ -4113,9 +4112,9 @@
          "fieldName": "ESTRES_23",
          "subScale": "ESTRES_TOTAL",
          "question": "23. Conflictos conyugales crónicos",
-         "questionShort": "23. Conflictos conyugales crón…",
+         "questionShort": "23. Conflictos conyugales crón",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 23,
@@ -4128,9 +4127,9 @@
          "fieldName": "ESTRES_24",
          "subScale": "ESTRES_TOTAL",
          "question": "24. Trastornos del sueño",
-         "questionShort": "24. Trastornos del sueño…",
+         "questionShort": "24. Trastornos del sueño",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 24,
@@ -4143,9 +4142,9 @@
          "fieldName": "ESTRES_25",
          "subScale": "ESTRES_TOTAL",
          "question": "25. Cambios en las tareas laborales habituales",
-         "questionShort": "25. Cambios en las tareas labo…",
+         "questionShort": "25. Cambios en las tareas labo",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 25,
@@ -4158,9 +4157,9 @@
          "fieldName": "ESTRES_26",
          "subScale": "ESTRES_TOTAL",
          "question": "26. Muerte de un amigo o amante",
-         "questionShort": "26. Muerte de un amigo o amant…",
+         "questionShort": "26. Muerte de un amigo o amant",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 26,
@@ -4173,9 +4172,9 @@
          "fieldName": "ESTRES_27",
          "subScale": "ESTRES_TOTAL",
          "question": "27. Abandono del hogar por un hijo",
-         "questionShort": "27. Abandono del hogar por un …",
+         "questionShort": "27. Abandono del hogar por un ",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 27,
@@ -4188,9 +4187,9 @@
          "fieldName": "ESTRES_28",
          "subScale": "ESTRES_TOTAL",
          "question": "28. Gran logro personal",
-         "questionShort": "28. Gran logro personal…",
+         "questionShort": "28. Gran logro personal",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 28,
@@ -4203,9 +4202,9 @@
          "fieldName": "ESTRES_29",
          "subScale": "ESTRES_TOTAL",
          "question": "29. Vivir en medio urbano",
-         "questionShort": "29. Vivir en medio urbano…",
+         "questionShort": "29. Vivir en medio urbano",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 29,
@@ -4218,9 +4217,9 @@
          "fieldName": "ESTRES_30",
          "subScale": "ESTRES_TOTAL",
          "question": "30. Trabajar más de 12 horas diarias",
-         "questionShort": "30. Trabajar más de 12 horas d…",
+         "questionShort": "30. Trabajar más de 12 horas d",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 30,
@@ -4233,9 +4232,9 @@
          "fieldName": "ESTRES_31",
          "subScale": "ESTRES_TOTAL",
          "question": "31 Cónyuge termina o comienza un trabajo",
-         "questionShort": "31 Cónyuge termina o comienza …",
+         "questionShort": "31 Cónyuge termina o comienza ",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 31,
@@ -4248,9 +4247,9 @@
          "fieldName": "ESTRES_32",
          "subScale": "ESTRES_TOTAL",
          "question": "32. Problemas con el jefe",
-         "questionShort": "32. Problemas con el jefe…",
+         "questionShort": "32. Problemas con el jefe",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 32,
@@ -4263,9 +4262,9 @@
          "fieldName": "ESTRES_33",
          "subScale": "ESTRES_TOTAL",
          "question": "33. Haber abandonado prácticas deportivas",
-         "questionShort": "33. Haber abandonado prácticas…",
+         "questionShort": "33. Haber abandonado prácticas",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 33,
@@ -4278,9 +4277,9 @@
          "fieldName": "ESTRES_34",
          "subScale": "ESTRES_TOTAL",
          "question": "34. Viajes prolongados (más aún si son lugares muy alejados)",
-         "questionShort": "34. Viajes prolongados (más aú…",
+         "questionShort": "34. Viajes prolongados (más aú",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 34,
@@ -4293,9 +4292,9 @@
          "fieldName": "ESTRES_35",
          "subScale": "ESTRES_TOTAL",
          "question": "35. Mudanzas",
-         "questionShort": "35. Mudanzas…",
+         "questionShort": "35. Mudanzas",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 35,
@@ -4308,9 +4307,9 @@
          "fieldName": "ESTRES_36",
          "subScale": "ESTRES_TOTAL",
          "question": "36. Conducir un auto en la ciudad por más de 3 horas",
-         "questionShort": "36. Conducir un auto en la ciu…",
+         "questionShort": "36. Conducir un auto en la ciu",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 36,
@@ -4323,9 +4322,9 @@
          "fieldName": "ESTRES_37",
          "subScale": "ESTRES_TOTAL",
          "question": "37. Cambios en los hábitos (dieta, dejar de fumar)",
-         "questionShort": "37. Cambios en los hábitos (di…",
+         "questionShort": "37. Cambios en los hábitos (di",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 37,
@@ -4338,9 +4337,9 @@
          "fieldName": "ESTRES_38",
          "subScale": "ESTRES_TOTAL",
          "question": "38. Cambio de carrera o colegio",
-         "questionShort": "38. Cambio de carrera o colegi…",
+         "questionShort": "38. Cambio de carrera o colegi",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 38,
@@ -4353,9 +4352,9 @@
          "fieldName": "ESTRES_39",
          "subScale": "ESTRES_TOTAL",
          "question": "39. Vacaciones",
-         "questionShort": "39. Vacaciones…",
+         "questionShort": "39. Vacaciones",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 39,
@@ -4368,9 +4367,9 @@
          "fieldName": "ESTRES_40",
          "subScale": "ESTRES_TOTAL",
          "question": "40. Fiestas de fin de año",
-         "questionShort": "40. Fiestas de fin de año…",
+         "questionShort": "40. Fiestas de fin de año",
          "weightType": "WEIGHTED_CRITERIA",
-         "weights": "> 0 : 1 : 0",
+         "weights": "> 0 : 1",
          "monkeyInfo": {
             "position": 1,
             "subPosition": 40,
@@ -4383,7 +4382,7 @@
          "fieldName": "HAMILTON_1",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Preocupaciones, anticipación de lo peor, anticipación miedosa, irritabilidad.",
-         "questionShort": "Preocupaciones, anticipación d…",
+         "questionShort": "Preocupaciones, anticipación d",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4398,7 +4397,7 @@
          "fieldName": "HAMILTON_2",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Sensación de tensión, fatigabilidad.",
-         "questionShort": "Sensación de tensión, fatigabi…",
+         "questionShort": "Sensación de tensión, fatigabi",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4413,7 +4412,7 @@
          "fieldName": "HAMILTON_3",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Temores de la obscuridad, de extraños, de estar solo, de animales, de tráfico, de multitudes.",
-         "questionShort": "Temores de la obscuridad, de e…",
+         "questionShort": "Temores de la obscuridad, de e",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4428,7 +4427,7 @@
          "fieldName": "HAMILTON_4",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Dificultad para conciliar el sueño, sueño interrumpido (roto), sueño insatisfactorio, fatiga de levantarse, sueños, pesadillas, terrores nocturnos.",
-         "questionShort": "Dificultad para conciliar el s…",
+         "questionShort": "Dificultad para conciliar el s",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4443,7 +4442,7 @@
          "fieldName": "HAMILTON_5",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Dificultad en concentrarse, memoria pobre.",
-         "questionShort": "Dificultad en concentrarse, me…",
+         "questionShort": "Dificultad en concentrarse, me",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4458,7 +4457,7 @@
          "fieldName": "HAMILTON_6",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Pérdida de interés, ausencia de placer en diversiones (hobbies), depresión, despertar temprano, variación diurna del afecto.",
-         "questionShort": "Pérdida de interés, ausencia d…",
+         "questionShort": "Pérdida de interés, ausencia d",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4473,7 +4472,7 @@
          "fieldName": "HAMILTON_7",
          "subScale": "HAMILTON_TOTAL_SOMATICA",
          "question": "Dolores, punzadas, torceduras, rigidez, sacudidas micológicas, bruxismo, voz inestable, aumento del tono muscular, tinnitus, visión borrosa, oleadas de calor y de frío, sensación de debilidad, sensación de punzadas.",
-         "questionShort": "Dolores, punzadas, torceduras,…",
+         "questionShort": "Dolores, punzadas, torceduras,",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4488,7 +4487,7 @@
          "fieldName": "HAMILTON_8",
          "subScale": "HAMILTON_TOTAL_SOMATICA",
          "question": "Taquicardia, palpitaciones, dolor pectoral, palpitación de vasos, sensación de desmayo.",
-         "questionShort": "Taquicardia, palpitaciones, do…",
+         "questionShort": "Taquicardia, palpitaciones, do",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4503,7 +4502,7 @@
          "fieldName": "HAMILTON_9",
          "subScale": "HAMILTON_TOTAL_SOMATICA",
          "question": "Presión constrictora en el pecho, sensación de ahogo, suspiros, disnea.",
-         "questionShort": "Presión constrictora en el pec…",
+         "questionShort": "Presión constrictora en el pec",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4518,7 +4517,7 @@
          "fieldName": "HAMILTON_10",
          "subScale": "HAMILTON_TOTAL_SOMATICA",
          "question": "Dificultad para tragar, flatulencia, dolor abdominal, sensación de quemadura, saciedad abdominal, náuseas, vómito, borborigmos, diarrea, pérdida de peso, estreñimiento.",
-         "questionShort": "Dificultad para tragar, flatul…",
+         "questionShort": "Dificultad para tragar, flatul",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4533,7 +4532,7 @@
          "fieldName": "HAMILTON_11",
          "subScale": "HAMILTON_TOTAL_SOMATICA",
          "question": "Frecuencia de orinar, urgencia de orinar, amenorrea, menorragia, desarrollo de frigidez, eyaculación precoz, pérdida de apetito sexual (libido), impotencia.",
-         "questionShort": "Frecuencia de orinar, urgencia…",
+         "questionShort": "Frecuencia de orinar, urgencia",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4548,7 +4547,7 @@
          "fieldName": "HAMILTON_12",
          "subScale": "HAMILTON_TOTAL_SOMATICA",
          "question": "Boca seca, rubor, tendencia a la sudoración, vértigo, cefalea tensional, jalarse los pelos.",
-         "questionShort": "Boca seca, rubor, tendencia a …",
+         "questionShort": "Boca seca, rubor, tendencia a ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4563,7 +4562,7 @@
          "fieldName": "HAMILTON_13",
          "subScale": "HAMILTON_TOTAL_PSIQUICA",
          "question": "Conducta ante entrevistas:Impaciencia, inquietud o caminando de un lado a otro, temblor de manos, entrecejo arrugado, expresiones de tensión, suspiros o respiración rápida, palidez facial.",
-         "questionShort": "Conducta ante entrevistas:Impa…",
+         "questionShort": "Conducta ante entrevistas:Impa",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -4572,14 +4571,13 @@
             "answerType": "noother"
          }
       },
-
       {
          "surveyShortName": "JEFF",
          "position": 1,
          "fieldName": "JEFF_1",
          "subScale": "JEFF_COMPASION",
          "question": "1. Los profesionales de la salud deben ser considerados colaboradores en lugar de superiores o subordinados.",
-         "questionShort": "1. Los profesionales de la sal…",
+         "questionShort": "1. Los profesionales de la sal",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4603,7 +4601,7 @@
          "fieldName": "JEFF_2",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "2. Durante su educación, todos los estudiantes de profesiones de la salud deben estar involucrados en trabajo en equipo interprofesional con el fin de entender",
-         "questionShort": "2. Durante su educación, todos…",
+         "questionShort": "2. Durante su educación, todos",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4627,7 +4625,7 @@
          "fieldName": "JEFF_3",
          "subScale": "JEFF_ZAPATOS_PACIENTE",
          "question": "3. Todos los profesionales de la salud pueden contribuir en las decisiones respecto al bienestar de los pacientes/clientes",
-         "questionShort": "3. Todos los profesionales de …",
+         "questionShort": "3. Todos los profesionales de ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4651,7 +4649,7 @@
          "fieldName": "JEFF_4",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "4. Los profesionales de la salud que trabajan  en equipo no pueden tener el mismo nivel de responsabilidad por el cuidado/servicio que proveen.",
-         "questionShort": "4. Los profesionales de la sal…",
+         "questionShort": "4. Los profesionales de la sal",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4675,7 +4673,7 @@
          "fieldName": "JEFF_5",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "5. Debido a la diferenciación de roles, no existen muchas áreas comunes de responsabilidad entre los profesionales de la salud al proveer cuidados a sus pacientes/clientes.",
-         "questionShort": "5. Debido a la diferenciación …",
+         "questionShort": "5. Debido a la diferenciación ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4699,7 +4697,7 @@
          "fieldName": "JEFF_6",
          "subScale": "JEFF_ZAPATOS_PACIENTE",
          "question": "6. Todos los profesionales de la salud tienen su propia experiencia y conocimientos especiales para proveer cuidados de calidad a sus pacientes/clientes.",
-         "questionShort": "6. Todos los profesionales de …",
+         "questionShort": "6. Todos los profesionales de ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4723,7 +4721,7 @@
          "fieldName": "JEFF_7",
          "subScale": "JEFF_COMPASION",
          "question": "7. Todos los profesionales de la salud deben contribuir a las decisiones respecto a la mejora del cuidado de sus pacientes/clientes.",
-         "questionShort": "7. Todos los profesionales de …",
+         "questionShort": "7. Todos los profesionales de ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4747,7 +4745,7 @@
          "fieldName": "JEFF_8",
          "subScale": "JEFF_COMPASION",
          "question": "8. La función primaria de otros profesionales de la salud es seguir, sin cuestionar, las órdenes del médico que está tratando a los pacientes/clientes.",
-         "questionShort": "8. La función primaria de otro…",
+         "questionShort": "8. La función primaria de otro",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4771,7 +4769,7 @@
          "fieldName": "JEFF_9",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "9. Los profesionales de la salud deben estar involucrados en la toma de decisiones sobre políticas concernientes a su trabajo.",
-         "questionShort": "9. Los profesionales de la sal…",
+         "questionShort": "9. Los profesionales de la sal",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4795,7 +4793,7 @@
          "fieldName": "JEFF_10",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "10. Todos los profesionales de la salud deben tener la responsabilidad de monitorear los efectos de las intervenciones en su pacientes/clientes.",
-         "questionShort": "10. Todos los profesionales de…",
+         "questionShort": "10. Todos los profesionales de",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4819,7 +4817,7 @@
          "fieldName": "JEFF_11",
          "subScale": "JEFF_COMPASION",
          "question": "11. Los profesionales de la salud no deben cuestionar las decisiones hechas por sus colegas aún cuando crean que pudieran tener efectos perjudiciales sobre el paciente/cliente.",
-         "questionShort": "11. Los profesionales de la sa…",
+         "questionShort": "11. Los profesionales de la sa",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4843,7 +4841,7 @@
          "fieldName": "JEFF_12",
          "subScale": "JEFF_COMPASION",
          "question": "12. Las instituciones académicas deben desarrollar programas educativos interdisciplinarios  para mejorar la práctica colaborativa.",
-         "questionShort": "12. Las instituciones académic…",
+         "questionShort": "12. Las instituciones académic",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4867,7 +4865,7 @@
          "fieldName": "JEFF_13",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "13. Para contribuir al mejor interés del paciente/cliente, los profesionales de la salud deben usar su propio juicio en lugar de consultar con sus colegas interprofesionales.",
-         "questionShort": "13. Para contribuir al mejor i…",
+         "questionShort": "13. Para contribuir al mejor i",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4891,7 +4889,7 @@
          "fieldName": "JEFF_14",
          "subScale": "JEFF_COMPASION",
          "question": "14. Los profesionales de la salud deben hacerse conscientes de que sus colegas interprofesionales pueden contribuir a una atención de alta calidad.",
-         "questionShort": "14. Los profesionales de la sa…",
+         "questionShort": "14. Los profesionales de la sa",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4915,7 +4913,7 @@
          "fieldName": "JEFF_15",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "15. La educación interdisciplinaria y la colaboración interprofesional no están vinculadas entre sí.",
-         "questionShort": "15. La educación interdiscipli…",
+         "questionShort": "15. La educación interdiscipli",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4939,7 +4937,7 @@
          "fieldName": "JEFF_16",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "16. El trabajo en equipo en el cuidado de la salud no puede ser el resultado de la educación interdisciplinaria.",
-         "questionShort": "16. El trabajo en equipo en el…",
+         "questionShort": "16. El trabajo en equipo en el",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -4963,7 +4961,7 @@
          "fieldName": "JEFF_17",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "17. La práctica colaborativa siempre funciona mejor cuando los profesionales de la salud desarrollan relaciones funcionales para conseguir metas mutuamente acordadas.",
-         "questionShort": "17. La práctica colaborativa s…",
+         "questionShort": "17. La práctica colaborativa s",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -4987,7 +4985,7 @@
          "fieldName": "JEFF_18",
          "subScale": "JEFF_COMPASION",
          "question": "18. Los errores médicos se verán minimizados cuando exista colaboración entre los profesionales de la salud.",
-         "questionShort": "18. Los errores médicos se ver…",
+         "questionShort": "18. Los errores médicos se ver",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -5011,7 +5009,7 @@
          "fieldName": "JEFF_19",
          "subScale": "JEFF_COMPASION",
          "question": "19. La colaboración interprofesional que incluye el respeto mutuo y la comunicación mejora el ambiente de trabajo.",
-         "questionShort": "19. La colaboración interprofe…",
+         "questionShort": "19. La colaboración interprofe",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
@@ -5035,7 +5033,7 @@
          "fieldName": "JEFF_20",
          "subScale": "JEFF_PACIENTE_PERSPECTIVA",
          "question": "20. La satisfacción con el trabajo no está relacionada con las prácticas colaborativas interprofesionales.",
-         "questionShort": "20. La satisfacción con el tra…",
+         "questionShort": "20. La satisfacción con el tra",
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 1,
@@ -5053,14 +5051,13 @@
             "answerType": "noother"
          }
       },
-
       {
          "surveyShortName": "BECK",
          "position": 1,
          "fieldName": "BECK_1",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No me siento triste.",
-         "questionShort": "No me siento triste.…",
+         "questionShort": "No me siento triste.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5075,7 +5072,7 @@
          "fieldName": "BECK_2",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento triste.",
-         "questionShort": "Me siento triste.…",
+         "questionShort": "Me siento triste.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5090,7 +5087,7 @@
          "fieldName": "BECK_3",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento triste continuamente y no puedo dejar de estarlo.",
-         "questionShort": "Me siento triste continuamente…",
+         "questionShort": "Me siento triste continuamente",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5105,7 +5102,7 @@
          "fieldName": "BECK_4",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento tan triste o tan desgraciado que no puedo soportarlo.",
-         "questionShort": "Me siento tan triste o tan des…",
+         "questionShort": "Me siento tan triste o tan des",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5120,7 +5117,7 @@
          "fieldName": "BECK_5",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No me siento especialmente desanimado respecto al futuro.",
-         "questionShort": "No me siento especialmente desanima…",
+         "questionShort": "No me siento especialmente desanima",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5135,7 +5132,7 @@
          "fieldName": "BECK_6",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento desanimado respecto al futuro.",
-         "questionShort": "Me siento desanimado respecto …",
+         "questionShort": "Me siento desanimado respecto ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5150,7 +5147,7 @@
          "fieldName": "BECK_7",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Siento que no tengo que esperar nada.",
-         "questionShort": "Siento que no tengo que espera…",
+         "questionShort": "Siento que no tengo que espera",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5165,7 +5162,7 @@
          "fieldName": "BECK_8",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Siento que el futuro es desesperanzador y las cosas no mejorarán.",
-         "questionShort": "Siento que el futuro es desesp…",
+         "questionShort": "Siento que el futuro es desesp",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5180,7 +5177,7 @@
          "fieldName": "BECK_9",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No me siento fracasado.",
-         "questionShort": "No me siento fracasado.…",
+         "questionShort": "No me siento fracasado.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5195,7 +5192,7 @@
          "fieldName": "BECK_10",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Creo que he fracasado más que la mayoría de las personas.",
-         "questionShort": "Creo que he fracasado más que …",
+         "questionShort": "Creo que he fracasado más que ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5210,7 +5207,7 @@
          "fieldName": "BECK_11",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Cuando miro hacia atrás, sólo veo fracaso tras fracaso.",
-         "questionShort": "Cuando miro hacia atrás, sólo …",
+         "questionShort": "Cuando miro hacia atrás, sólo ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5225,7 +5222,7 @@
          "fieldName": "BECK_12",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento una persona totalmente fracasada.",
-         "questionShort": "Me siento una persona totalmen…",
+         "questionShort": "Me siento una persona totalmen",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5240,7 +5237,7 @@
          "fieldName": "BECK_13",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Las cosas me satisfacen tanto como antes.",
-         "questionShort": "Las cosas me satisfacen tanto …",
+         "questionShort": "Las cosas me satisfacen tanto ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5255,7 +5252,7 @@
          "fieldName": "BECK_14",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No disfruto de las cosas tanto como antes.",
-         "questionShort": "No disfruto de las cosas tanto…",
+         "questionShort": "No disfruto de las cosas tanto",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5270,7 +5267,7 @@
          "fieldName": "BECK_15",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Ya no obtengo una satisfacción auténtica de las cosas.",
-         "questionShort": "Ya no obtengo una satisfacción…",
+         "questionShort": "Ya no obtengo una satisfacción",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5285,7 +5282,7 @@
          "fieldName": "BECK_16",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Estoy insatisfecho o aburrido de todo.",
-         "questionShort": "Estoy insatisfecho o aburrido …",
+         "questionShort": "Estoy insatisfecho o aburrido ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5300,7 +5297,7 @@
          "fieldName": "BECK_17",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No me siento especialmente culpable.",
-         "questionShort": "No me siento especialmente cul…",
+         "questionShort": "No me siento especialmente cul",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5315,7 +5312,7 @@
          "fieldName": "BECK_18",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento culpable en bastantes ocasiones.",
-         "questionShort": "Me siento culpable en bastante…",
+         "questionShort": "Me siento culpable en bastante",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5330,7 +5327,7 @@
          "fieldName": "BECK_19",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento culpable en la mayoría de las ocasiones.",
-         "questionShort": "Me siento culpable en la mayor…",
+         "questionShort": "Me siento culpable en la mayor",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5345,7 +5342,7 @@
          "fieldName": "BECK_20",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento culpable constantemente.",
-         "questionShort": "Me siento culpable constanteme…",
+         "questionShort": "Me siento culpable constanteme",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5360,7 +5357,7 @@
          "fieldName": "BECK_21",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No creo que esté siendo castigado.",
-         "questionShort": "No creo que esté siendo castig…",
+         "questionShort": "No creo que esté siendo castig",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5375,7 +5372,7 @@
          "fieldName": "BECK_22",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento como si fuese a ser castigado.",
-         "questionShort": "Me siento como si fuese a ser …",
+         "questionShort": "Me siento como si fuese a ser ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5390,7 +5387,7 @@
          "fieldName": "BECK_23",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Espero ser castigado.",
-         "questionShort": "Espero ser castigado.…",
+         "questionShort": "Espero ser castigado.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5405,7 +5402,7 @@
          "fieldName": "BECK_24",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Siento que estoy siendo castigado.",
-         "questionShort": "Siento que estoy siendo castig…",
+         "questionShort": "Siento que estoy siendo castig",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5420,7 +5417,7 @@
          "fieldName": "BECK_25",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No estoy decepcionado de mí mismos.",
-         "questionShort": "No estoy decepcionado de mí mi…",
+         "questionShort": "No estoy decepcionado de mí mi",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5435,7 +5432,7 @@
          "fieldName": "BECK_26",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Estoy decepcionado de mí mismo.",
-         "questionShort": "Estoy decepcionado de mí mismo…",
+         "questionShort": "Estoy decepcionado de mí mismo",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5450,7 +5447,7 @@
          "fieldName": "BECK_27",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me da vergÃ¼enza de mí mismo.",
-         "questionShort": "Me da vergÃ¼enza de mí mismo.…",
+         "questionShort": "Me da vergÃ¼enza de mí mismo.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5465,7 +5462,7 @@
          "fieldName": "BECK_28",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me detesto.",
-         "questionShort": "Me detesto.…",
+         "questionShort": "Me detesto.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5480,7 +5477,7 @@
          "fieldName": "BECK_29",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No me considero peor que cualquier otro.",
-         "questionShort": "No me considero peor que cualq…",
+         "questionShort": "No me considero peor que cualq",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5495,7 +5492,7 @@
          "fieldName": "BECK_30",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me autocritico por mis debilidades o por mis errores.",
-         "questionShort": "Me autocritico por mis debilid…",
+         "questionShort": "Me autocritico por mis debilid",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5510,7 +5507,7 @@
          "fieldName": "BECK_31",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Continuamente me culpo por mis faltas.",
-         "questionShort": "Continuamente me culpo por mis…",
+         "questionShort": "Continuamente me culpo por mis",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5525,7 +5522,7 @@
          "fieldName": "BECK_32",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me culpo por todo lo malo que sucede.",
-         "questionShort": "Me culpo por todo lo malo que …",
+         "questionShort": "Me culpo por todo lo malo que ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5540,7 +5537,7 @@
          "fieldName": "BECK_33",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No tengo ningún pensamiento de suicidio.",
-         "questionShort": "No tengo ningún pensamiento de…",
+         "questionShort": "No tengo ningún pensamiento de",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5555,7 +5552,7 @@
          "fieldName": "BECK_34",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "A veces pienso en suicidarme, pero no lo cometería.",
-         "questionShort": "A veces pienso en suicidarme, …",
+         "questionShort": "A veces pienso en suicidarme, ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5570,7 +5567,7 @@
          "fieldName": "BECK_35",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Desearía suicidarme.",
-         "questionShort": "Desearía suicidarme.…",
+         "questionShort": "Desearía suicidarme.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5585,7 +5582,7 @@
          "fieldName": "BECK_36",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me suicidaría si tuviese la oportunidad.",
-         "questionShort": "Me suicidaría si tuviese la op…",
+         "questionShort": "Me suicidaría si tuviese la op",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5600,7 +5597,7 @@
          "fieldName": "BECK_37",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No lloro más de lo que solía llorar.",
-         "questionShort": "No lloro más de lo que solía l…",
+         "questionShort": "No lloro más de lo que solía l",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5615,7 +5612,7 @@
          "fieldName": "BECK_38",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Ahora lloro más que antes.",
-         "questionShort": "Ahora lloro más que antes.…",
+         "questionShort": "Ahora lloro más que antes.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5630,7 +5627,7 @@
          "fieldName": "BECK_39",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Lloro continuamente.",
-         "questionShort": "Lloro continuamente.…",
+         "questionShort": "Lloro continuamente.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5645,7 +5642,7 @@
          "fieldName": "BECK_40",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Antes era capaz de llorar, pero ahora no puedo, incluso aunque quiera.",
-         "questionShort": "Antes era capaz de llorar, per…",
+         "questionShort": "Antes era capaz de llorar, per",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5660,7 +5657,7 @@
          "fieldName": "BECK_41",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No estoy más irritado de lo normal en mí.",
-         "questionShort": "No estoy más irritado de lo no…",
+         "questionShort": "No estoy más irritado de lo no",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5675,7 +5672,7 @@
          "fieldName": "BECK_42",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me molesto o irrito más fácilmente que antes.",
-         "questionShort": "Me molesto o irrito más fácilm…",
+         "questionShort": "Me molesto o irrito más fácilm",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5690,7 +5687,7 @@
          "fieldName": "BECK_43",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "Me siento irritado continuamente.",
-         "questionShort": "Me siento irritado continuamen…",
+         "questionShort": "Me siento irritado continuamen",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5705,7 +5702,7 @@
          "fieldName": "BECK_44",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "No me irrito absolutamente nada por las cosas que antes solían irritarme.",
-         "questionShort": "No me irrito absolutamente nad…",
+         "questionShort": "No me irrito absolutamente nad",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5720,7 +5717,7 @@
          "fieldName": "BECK_45",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "12",
-         "questionShort": "12…",
+         "questionShort": "12",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5735,7 +5732,7 @@
          "fieldName": "BECK_46",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "13",
-         "questionShort": "13…",
+         "questionShort": "13",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5750,7 +5747,7 @@
          "fieldName": "BECK_47",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "14",
-         "questionShort": "14…",
+         "questionShort": "14",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5765,7 +5762,7 @@
          "fieldName": "BECK_48",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "15",
-         "questionShort": "15…",
+         "questionShort": "15",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5780,7 +5777,7 @@
          "fieldName": "BECK_49",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "16",
-         "questionShort": "16…",
+         "questionShort": "16",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5795,7 +5792,7 @@
          "fieldName": "BECK_50",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "17",
-         "questionShort": "17…",
+         "questionShort": "17",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5810,7 +5807,7 @@
          "fieldName": "BECK_51",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "18",
-         "questionShort": "18…",
+         "questionShort": "18",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5825,7 +5822,7 @@
          "fieldName": "BECK_52",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "19",
-         "questionShort": "19…",
+         "questionShort": "19",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5840,7 +5837,7 @@
          "fieldName": "BECK_53",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "20",
-         "questionShort": "20…",
+         "questionShort": "20",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5855,7 +5852,7 @@
          "fieldName": "BECK_54",
          "subScale": "BECK_TOTAL_DEPRESION",
          "question": "21",
-         "questionShort": "21…",
+         "questionShort": "21",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
          "monkeyInfo": {
@@ -5864,14 +5861,13 @@
             "answerType": "noother"
          }
       },
-
       {
          "surveyShortName": "SCL90",
          "position": 1,
          "fieldName": "SCL90_1",
          "subScale": "SCL90_SOMATIZACION",
          "question": "1. Dolores de cabeza.",
-         "questionShort": "1. Dolores de cabeza.…",
+         "questionShort": "1. Dolores de cabeza.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5886,7 +5882,7 @@
          "fieldName": "SCL90_2",
          "subScale": "SCL90_ANSIEDAD",
          "question": "2. Nerviosismo o agitación.",
-         "questionShort": "2. Nerviosismo o agitación.…",
+         "questionShort": "2. Nerviosismo o agitación.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5901,7 +5897,7 @@
          "fieldName": "SCL90_3",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "3. Pensamientos, palabras o ideas no deseadas que no van de su mente.",
-         "questionShort": "3. Pensamientos, palabras o id…",
+         "questionShort": "3. Pensamientos, palabras o id",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5916,7 +5912,7 @@
          "fieldName": "SCL90_4",
          "subScale": "SCL90_SOMATIZACION",
          "question": "4. Sensaciones de desmayo o mareo.",
-         "questionShort": "4. Sensaciones de desmayo o ma…",
+         "questionShort": "4. Sensaciones de desmayo o ma",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5931,7 +5927,7 @@
          "fieldName": "SCL90_5",
          "subScale": "SCL90_DEPRESION",
          "question": "5. Pérdida de deseo o de placer sexual.",
-         "questionShort": "5. Pérdida de deseo o de place…",
+         "questionShort": "5. Pérdida de deseo o de place",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5946,7 +5942,7 @@
          "fieldName": "SCL90_6",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "6. Ver la gente de manera negativa, encontrar siempre faltas.",
-         "questionShort": "6. Ver la gente de manera nega…",
+         "questionShort": "6. Ver la gente de manera nega",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5961,7 +5957,7 @@
          "fieldName": "SCL90_7",
          "subScale": "SCL90_PSICOSIS",
          "question": "7. La idea de que otra persona pueda controlar sus pensamientos.",
-         "questionShort": "7. La idea de que otra persona…",
+         "questionShort": "7. La idea de que otra persona",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5976,7 +5972,7 @@
          "fieldName": "SCL90_8",
          "subScale": "SCL90_PARANOIA",
          "question": "8. La impresión de que la mayoría de sus problemas son culpa de los demás.",
-         "questionShort": "8. La impresión de que la mayo…",
+         "questionShort": "8. La impresión de que la mayo",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -5991,7 +5987,7 @@
          "fieldName": "SCL90_9",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "9. La dificultad para recordar.",
-         "questionShort": "9. La dificultad para recordar…",
+         "questionShort": "9. La dificultad para recordar",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6006,7 +6002,7 @@
          "fieldName": "SCL90_10",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "10. Preocupación acerca del desaseo, el descuido o la desorganización.",
-         "questionShort": "10. Preocupación acerca del de…",
+         "questionShort": "10. Preocupación acerca del de",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6021,7 +6017,7 @@
          "fieldName": "SCL90_11",
          "subScale": "SCL90_HOSTILIDAD",
          "question": "11. Sentirse fácilmente molesto, irritado o enfadado.",
-         "questionShort": "11. Sentirse fácilmente molest…",
+         "questionShort": "11. Sentirse fácilmente molest",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6036,7 +6032,7 @@
          "fieldName": "SCL90_12",
          "subScale": "SCL90_SOMATIZACION",
          "question": "12. Dolores en el corazón o el pecho.",
-         "questionShort": "12. Dolores en el corazón o el…",
+         "questionShort": "12. Dolores en el corazón o el",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6051,7 +6047,7 @@
          "fieldName": "SCL90_13",
          "subScale": "SCL90_FOBIA",
          "question": "13. Sentir miedo de los espacios abiertos en la calle.",
-         "questionShort": "13. Sentir miedo de los espaci…",
+         "questionShort": "13. Sentir miedo de los espaci",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6066,7 +6062,7 @@
          "fieldName": "SCL90_14",
          "subScale": "SCL90_DEPRESION",
          "question": "14. Sentirse bajo de energías o decaído.",
-         "questionShort": "14. Sentirse bajo de energías …",
+         "questionShort": "14. Sentirse bajo de energías ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6081,7 +6077,7 @@
          "fieldName": "SCL90_15",
          "subScale": "SCL90_DEPRESION",
          "question": "15. Pensamientos suicidas, o ideas de acabar con su vida.",
-         "questionShort": "15. Pensamientos suicidas, o i…",
+         "questionShort": "15. Pensamientos suicidas, o i",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6096,7 +6092,7 @@
          "fieldName": "SCL90_16",
          "subScale": "SCL90_PSICOSIS",
          "question": "16. Oír voces que otras personas no oyen.",
-         "questionShort": "16. Oír voces que otras person…",
+         "questionShort": "16. Oír voces que otras person",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6111,7 +6107,7 @@
          "fieldName": "SCL90_17",
          "subScale": "SCL90_ANSIEDAD",
          "question": "17. Temblores.",
-         "questionShort": "17. Temblores.…",
+         "questionShort": "17. Temblores.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6126,7 +6122,7 @@
          "fieldName": "SCL90_18",
          "subScale": "SCL90_PARANOIA",
          "question": "18. La idea de que uno no se puede fiar de la gente.",
-         "questionShort": "18. La idea de que uno no se p…",
+         "questionShort": "18. La idea de que uno no se p",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6141,7 +6137,7 @@
          "fieldName": "SCL90_19",
          "subScale": "SCL90_ADICIONALES",
          "question": "19. Falta de apetito.",
-         "questionShort": "19. Falta de apetito.…",
+         "questionShort": "19. Falta de apetito.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6156,7 +6152,7 @@
          "fieldName": "SCL90_20",
          "subScale": "SCL90_DEPRESION",
          "question": "20. Llorar fácilmente.",
-         "questionShort": "20. Llorar fácilmente.…",
+         "questionShort": "20. Llorar fácilmente.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6171,7 +6167,7 @@
          "fieldName": "SCL90_21",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "21. Timidez o incomodidad ante el sexo opuesto.",
-         "questionShort": "21. Timidez o incomodidad ante…",
+         "questionShort": "21. Timidez o incomodidad ante",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6186,7 +6182,7 @@
          "fieldName": "SCL90_22",
          "subScale": "SCL90_DEPRESION",
          "question": "22. La sensación de estar atrapado o como encerrado.",
-         "questionShort": "22. La sensación de estar atra…",
+         "questionShort": "22. La sensación de estar atra",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6201,7 +6197,7 @@
          "fieldName": "SCL90_23",
          "subScale": "SCL90_ANSIEDAD",
          "question": "23. Asustarme de repente sin razón alguna.",
-         "questionShort": "23. Asustarme de repente sin r…",
+         "questionShort": "23. Asustarme de repente sin r",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6216,7 +6212,7 @@
          "fieldName": "SCL90_24",
          "subScale": "SCL90_HOSTILIDAD",
          "question": "24. Arrebatos de cólera o ataques de furia que no logro controlar.",
-         "questionShort": "24. Arrebatos de cólera o ataq…",
+         "questionShort": "24. Arrebatos de cólera o ataq",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6231,7 +6227,7 @@
          "fieldName": "SCL90_25",
          "subScale": "SCL90_FOBIA",
          "question": "25. Miedo a salir de casa solo.",
-         "questionShort": "25. Miedo a salir de casa solo…",
+         "questionShort": "25. Miedo a salir de casa solo",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6246,7 +6242,7 @@
          "fieldName": "SCL90_26",
          "subScale": "SCL90_DEPRESION",
          "question": "26. Culparse a sí mismo de todo lo que pasa.",
-         "questionShort": "26. Culparse a sí mismo de tod…",
+         "questionShort": "26. Culparse a sí mismo de tod",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6261,7 +6257,7 @@
          "fieldName": "SCL90_27",
          "subScale": "SCL90_SOMATIZACION",
          "question": "27. Dolores en la parte baja de la espalda.",
-         "questionShort": "27. Dolores en la parte baja d…",
+         "questionShort": "27. Dolores en la parte baja d",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6276,7 +6272,7 @@
          "fieldName": "SCL90_28",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "28. Sentirse incapaz de hacer las cosas o terminar las tareas.",
-         "questionShort": "28. Sentirse incapaz de hacer …",
+         "questionShort": "28. Sentirse incapaz de hacer ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6291,7 +6287,7 @@
          "fieldName": "SCL90_29",
          "subScale": "SCL90_DEPRESION",
          "question": "29. Sentirse solo.",
-         "questionShort": "29. Sentirse solo.…",
+         "questionShort": "29. Sentirse solo.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6306,7 +6302,7 @@
          "fieldName": "SCL90_30",
          "subScale": "SCL90_DEPRESION",
          "question": "30. Sentirse triste.",
-         "questionShort": "30. Sentirse triste.…",
+         "questionShort": "30. Sentirse triste.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6321,7 +6317,7 @@
          "fieldName": "SCL90_31",
          "subScale": "SCL90_DEPRESION",
          "question": "31. Preocuparse demasiado por todo.",
-         "questionShort": "31. Preocuparse demasiado por …",
+         "questionShort": "31. Preocuparse demasiado por ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6336,7 +6332,7 @@
          "fieldName": "SCL90_32",
          "subScale": "SCL90_DEPRESION",
          "question": "32. No sentir interés por nada.",
-         "questionShort": "32. No sentir interés por nada…",
+         "questionShort": "32. No sentir interés por nada",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6351,7 +6347,7 @@
          "fieldName": "SCL90_33",
          "subScale": "SCL90_ANSIEDAD",
          "question": "33. Sentirse temeroso.",
-         "questionShort": "33. Sentirse temeroso.…",
+         "questionShort": "33. Sentirse temeroso.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6366,7 +6362,7 @@
          "fieldName": "SCL90_34",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "34. Ser demasiado sensible o sentirse herido con facilidad.",
-         "questionShort": "34. Ser demasiado sensible o s…",
+         "questionShort": "34. Ser demasiado sensible o s",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6381,7 +6377,7 @@
          "fieldName": "SCL90_35",
          "subScale": "SCL90_PSICOSIS",
          "question": "35. La impresión de que los demás se dan cuenta de que está pensando.",
-         "questionShort": "35. La impresión de que los de…",
+         "questionShort": "35. La impresión de que los de",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6396,7 +6392,7 @@
          "fieldName": "SCL90_36",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "36. La sensación de que los demás no le comprenden o no le hacen caso.",
-         "questionShort": "36. La sensación de que los de…",
+         "questionShort": "36. La sensación de que los de",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6411,7 +6407,7 @@
          "fieldName": "SCL90_37",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "37. La impresión de que otras personas son poco amistosas o que usted no les gusta.",
-         "questionShort": "37. La impresión de que otras …",
+         "questionShort": "37. La impresión de que otras ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6426,7 +6422,7 @@
          "fieldName": "SCL90_38",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "38. Tener que hacer las cosas muy despacio para estar más seguro de que las hace bien.",
-         "questionShort": "38. Tener que hacer las cosas …",
+         "questionShort": "38. Tener que hacer las cosas ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6441,7 +6437,7 @@
          "fieldName": "SCL90_39",
          "subScale": "SCL90_ANSIEDAD",
          "question": "39. Que su corazón palpite o vaya muy deprisa.",
-         "questionShort": "39. Que su corazón palpite o v…",
+         "questionShort": "39. Que su corazón palpite o v",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6456,7 +6452,7 @@
          "fieldName": "SCL90_40",
          "subScale": "SCL90_SOMATIZACION",
          "question": "40 Náuseas o malestar en el estómago.",
-         "questionShort": "40 Náuseas o malestar en el es…",
+         "questionShort": "40 Náuseas o malestar en el es",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6471,7 +6467,7 @@
          "fieldName": "SCL90_41",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "41. Sentirse inferior a los demás.",
-         "questionShort": "41. Sentirse inferior a los de…",
+         "questionShort": "41. Sentirse inferior a los de",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6486,7 +6482,7 @@
          "fieldName": "SCL90_42",
          "subScale": "SCL90_SOMATIZACION",
          "question": "42. Dolores musculares.",
-         "questionShort": "42. Dolores musculares.…",
+         "questionShort": "42. Dolores musculares.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6501,7 +6497,7 @@
          "fieldName": "SCL90_43",
          "subScale": "SCL90_PARANOIA",
          "question": "43. Sensación de que las otras personas le miran o hablan de usted.",
-         "questionShort": "43. Sensación de que las otras…",
+         "questionShort": "43. Sensación de que las otras",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6516,7 +6512,7 @@
          "fieldName": "SCL90_44",
          "subScale": "SCL90_ADICIONALES",
          "question": "44. Dificultad para conciliar el sueño.",
-         "questionShort": "44. Dificultad para conciliar …",
+         "questionShort": "44. Dificultad para conciliar ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6531,7 +6527,7 @@
          "fieldName": "SCL90_45",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "45. Tener que comprobar una y otra vez todo lo que hace.",
-         "questionShort": "45. Tener que comprobar una y …",
+         "questionShort": "45. Tener que comprobar una y ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6546,7 +6542,7 @@
          "fieldName": "SCL90_46",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "46. Dificultad en tomar decisiones.",
-         "questionShort": "46. Dificultad en tomar decisi…",
+         "questionShort": "46. Dificultad en tomar decisi",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6561,7 +6557,7 @@
          "fieldName": "SCL90_47",
          "subScale": "SCL90_FOBIA",
          "question": "47. Sentir temor de viajar en coche, autobuses, metros o trenes.",
-         "questionShort": "47. Sentir temor de viajar en …",
+         "questionShort": "47. Sentir temor de viajar en ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6576,7 +6572,7 @@
          "fieldName": "SCL90_48",
          "subScale": "SCL90_SOMATIZACION",
          "question": "48. Ahogo o dificultades para respirar.",
-         "questionShort": "48. Ahogo o dificultades para …",
+         "questionShort": "48. Ahogo o dificultades para ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6591,7 +6587,7 @@
          "fieldName": "SCL90_49",
          "subScale": "SCL90_SOMATIZACION",
          "question": "49. Escalofríos, sentir calor o frío de repente.",
-         "questionShort": "49. Escalofríos, sentir calor …",
+         "questionShort": "49. Escalofríos, sentir calor ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6606,7 +6602,7 @@
          "fieldName": "SCL90_50",
          "subScale": "SCL90_FOBIA",
          "question": "50. Tener que evitar ciertas cosas, lugares o actividades porque le dan miedo.",
-         "questionShort": "50. Tener que evitar ciertas c…",
+         "questionShort": "50. Tener que evitar ciertas c",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6621,7 +6617,7 @@
          "fieldName": "SCL90_51",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "51. Que se le quede la mente ne blanco.",
-         "questionShort": "51. Que se le quede la mente n…",
+         "questionShort": "51. Que se le quede la mente n",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6636,7 +6632,7 @@
          "fieldName": "SCL90_52",
          "subScale": "SCL90_SOMATIZACION",
          "question": "52. Entumecimiento u hormigueo en alguna parte del cuerpo.",
-         "questionShort": "52. Entumecimiento u hormigueo…",
+         "questionShort": "52. Entumecimiento u hormigueo",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6651,7 +6647,7 @@
          "fieldName": "SCL90_53",
          "subScale": "SCL90_SOMATIZACION",
          "question": "53. Sentir un nudo en la garganta.",
-         "questionShort": "53. Sentir un nudo en la garga…",
+         "questionShort": "53. Sentir un nudo en la garga",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6666,7 +6662,7 @@
          "fieldName": "SCL90_54",
          "subScale": "SCL90_DEPRESION",
          "question": "54. Sentirse desesperanzado con respecto al futuro.",
-         "questionShort": "54. Sentirse desesperanzado co…",
+         "questionShort": "54. Sentirse desesperanzado co",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6681,7 +6677,7 @@
          "fieldName": "SCL90_55",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "55. Tener dificultades para concentrarse.",
-         "questionShort": "55. Tener dificultades para co…",
+         "questionShort": "55. Tener dificultades para co",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6696,7 +6692,7 @@
          "fieldName": "SCL90_56",
          "subScale": "SCL90_SOMATIZACION",
          "question": "56. Sentirse débil en alguna parte del cuerpo.",
-         "questionShort": "56. Sentirse débil en alguna p…",
+         "questionShort": "56. Sentirse débil en alguna p",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6711,7 +6707,7 @@
          "fieldName": "SCL90_57",
          "subScale": "SCL90_ANSIEDAD",
          "question": "57. Sentirse tenso o con los nervios de punta.",
-         "questionShort": "57. Sentirse tenso o con los n…",
+         "questionShort": "57. Sentirse tenso o con los n",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6726,7 +6722,7 @@
          "fieldName": "SCL90_58",
          "subScale": "SCL90_SOMATIZACION",
          "question": "58. Pesadez en los brazos o en las piernas.",
-         "questionShort": "58. Pesadez en los brazos o en…",
+         "questionShort": "58. Pesadez en los brazos o en",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6741,7 +6737,7 @@
          "fieldName": "SCL90_59",
          "subScale": "SCL90_ADICIONALES",
          "question": "59. Ideas sobre la muerte o el hecho de morir.",
-         "questionShort": "59. Ideas sobre la muerte o el…",
+         "questionShort": "59. Ideas sobre la muerte o el",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6756,7 +6752,7 @@
          "fieldName": "SCL90_60",
          "subScale": "SCL90_ADICIONALES",
          "question": "60. El comer demasiado.",
-         "questionShort": "60. El comer demasiado.…",
+         "questionShort": "60. El comer demasiado.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6771,7 +6767,7 @@
          "fieldName": "SCL90_61",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "61. Sentirse incómodo cuando la gente le mira o habla cerca de usted.",
-         "questionShort": "61. Sentirse incómodo cuando l…",
+         "questionShort": "61. Sentirse incómodo cuando l",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6786,7 +6782,7 @@
          "fieldName": "SCL90_62",
          "subScale": "SCL90_PSICOSIS",
          "question": "62. Tener pensamientos que no son suyos.",
-         "questionShort": "62. Tener pensamientos que no …",
+         "questionShort": "62. Tener pensamientos que no ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6801,7 +6797,7 @@
          "fieldName": "SCL90_63",
          "subScale": "SCL90_HOSTILIDAD",
          "question": "63. Sentir el impulso de pegar, golpear o hacer daño a alguien.",
-         "questionShort": "63. Sentir el impulso de pegar…",
+         "questionShort": "63. Sentir el impulso de pegar",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6816,7 +6812,7 @@
          "fieldName": "SCL90_64",
          "subScale": "SCL90_ADICIONALES",
          "question": "64. Despertarse de madrugada.",
-         "questionShort": "64. Despertarse de madrugada.…",
+         "questionShort": "64. Despertarse de madrugada.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6831,7 +6827,7 @@
          "fieldName": "SCL90_65",
          "subScale": "SCL90_OBSESION_COMPULSION",
          "question": "65. Impulsos a tener que hacer las cosas de manera repetida (tocar algo- lavarse)",
-         "questionShort": "65. Impulsos a tener que hacer…",
+         "questionShort": "65. Impulsos a tener que hacer",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6846,7 +6842,7 @@
          "fieldName": "SCL90_66",
          "subScale": "SCL90_ADICIONALES",
          "question": "66. Sueño inquieto o perturbado.",
-         "questionShort": "66. Sueño inquieto o perturbad…",
+         "questionShort": "66. Sueño inquieto o perturbad",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6861,7 +6857,7 @@
          "fieldName": "SCL90_67",
          "subScale": "SCL90_HOSTILIDAD",
          "question": "67. Tener ganas de romper o estrellar algo.",
-         "questionShort": "67. Tener ganas de romper o es…",
+         "questionShort": "67. Tener ganas de romper o es",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6876,7 +6872,7 @@
          "fieldName": "SCL90_68",
          "subScale": "SCL90_PARANOIA",
          "question": "68. Tener ideas o creencias que los demás no comparten.",
-         "questionShort": "68. Tener ideas o creencias qu…",
+         "questionShort": "68. Tener ideas o creencias qu",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6891,7 +6887,7 @@
          "fieldName": "SCL90_69",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "69. Sentirse muy cohibido vergonzoso entre otras personas.",
-         "questionShort": "69. Sentirse muy cohibido verg…",
+         "questionShort": "69. Sentirse muy cohibido verg",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6906,7 +6902,7 @@
          "fieldName": "SCL90_70",
          "subScale": "SCL90_FOBIA",
          "question": "70. Sentirse incómodo entre mucha gente por ejemplo en el cine, tiendas, etc.",
-         "questionShort": "70. Sentirse incómodo entre mu…",
+         "questionShort": "70. Sentirse incómodo entre mu",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6921,7 +6917,7 @@
          "fieldName": "SCL90_71",
          "subScale": "SCL90_DEPRESION",
          "question": "71. Sentir que todo requiere un gran esfuerzo.",
-         "questionShort": "71. Sentir que todo requiere u…",
+         "questionShort": "71. Sentir que todo requiere u",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6936,7 +6932,7 @@
          "fieldName": "SCL90_72",
          "subScale": "SCL90_ANSIEDAD",
          "question": "72. Ataques de terror o pánico.",
-         "questionShort": "72. Ataques de terror o pánico…",
+         "questionShort": "72. Ataques de terror o pánico",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6951,7 +6947,7 @@
          "fieldName": "SCL90_73",
          "subScale": "SCL90_SENS_INTERPERS",
          "question": "73. Sentirse incómodo comiendo o bebiendo en público.",
-         "questionShort": "73. Sentirse incómodo comiendo…",
+         "questionShort": "73. Sentirse incómodo comiendo",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6966,7 +6962,7 @@
          "fieldName": "SCL90_74",
          "subScale": "SCL90_HOSTILIDAD",
          "question": "74. Tener discusiones frecuentes.",
-         "questionShort": "74. Tener discusiones frecuent…",
+         "questionShort": "74. Tener discusiones frecuent",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6981,7 +6977,7 @@
          "fieldName": "SCL90_75",
          "subScale": "SCL90_FOBIA",
          "question": "75. Sentirse nervioso cuando se queda solo.",
-         "questionShort": "75. Sentirse nervioso cuando s…",
+         "questionShort": "75. Sentirse nervioso cuando s",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -6996,7 +6992,7 @@
          "fieldName": "SCL90_76",
          "subScale": "SCL90_PARANOIA",
          "question": "76. El que otros no le reconozcan adecuadamente sus méritos.",
-         "questionShort": "76. El que otros no le reconoz…",
+         "questionShort": "76. El que otros no le reconoz",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7011,7 +7007,7 @@
          "fieldName": "SCL90_77",
          "subScale": "SCL90_PSICOSIS",
          "question": "77. Sentirse solo aunque estes con más gente.",
-         "questionShort": "77. Sentirse solo aunque estes…",
+         "questionShort": "77. Sentirse solo aunque estes",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7026,7 +7022,7 @@
          "fieldName": "SCL90_78",
          "subScale": "SCL90_ANSIEDAD",
          "question": "78. Sentirse tan inquieto que no puede ni estar sentado tranquilo.",
-         "questionShort": "78. Sentirse tan inquieto que …",
+         "questionShort": "78. Sentirse tan inquieto que ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7041,7 +7037,7 @@
          "fieldName": "SCL90_79",
          "subScale": "SCL90_DEPRESION",
          "question": "79. La sensación de ser inútil o no valer nada.",
-         "questionShort": "79. La sensación de ser inútil…",
+         "questionShort": "79. La sensación de ser inútil",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7056,7 +7052,7 @@
          "fieldName": "SCL90_80",
          "subScale": "SCL90_ANSIEDAD",
          "question": "80. Presentimiento de que va a pasar algo malo.",
-         "questionShort": "80. Presentimiento de que va a…",
+         "questionShort": "80. Presentimiento de que va a",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7071,7 +7067,7 @@
          "fieldName": "SCL90_81",
          "subScale": "SCL90_HOSTILIDAD",
          "question": "81. Gritar o tirar cosas.",
-         "questionShort": "81. Gritar o tirar cosas.…",
+         "questionShort": "81. Gritar o tirar cosas.",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7086,7 +7082,7 @@
          "fieldName": "SCL90_82",
          "subScale": "SCL90_FOBIA",
          "question": "82. Tener miedo de desmayarse en público.",
-         "questionShort": "82. Tener miedo de desmayarse …",
+         "questionShort": "82. Tener miedo de desmayarse ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7101,7 +7097,7 @@
          "fieldName": "SCL90_83",
          "subScale": "SCL90_PARANOIA",
          "question": "83. La impresión de que la gente intentaría aprovecharse de usted si lo permitiera.",
-         "questionShort": "83. La impresión de que la gen…",
+         "questionShort": "83. La impresión de que la gen",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7116,7 +7112,7 @@
          "fieldName": "SCL90_84",
          "subScale": "SCL90_PSICOSIS",
          "question": "84. Tener pensamientos sobre el sexo que le inquietan bastante.",
-         "questionShort": "84. Tener pensamientos sobre e…",
+         "questionShort": "84. Tener pensamientos sobre e",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7131,7 +7127,7 @@
          "fieldName": "SCL90_85",
          "subScale": "SCL90_PSICOSIS",
          "question": "85. Las idea de que debería ser castigado por sus pecados o sus actos.",
-         "questionShort": "85. Las idea de que debería se…",
+         "questionShort": "85. Las idea de que debería se",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7146,7 +7142,7 @@
          "fieldName": "SCL90_86",
          "subScale": "SCL90_ANSIEDAD",
          "question": "86. Pensamientos o imágenes estremecedoras o que le dan miedo.",
-         "questionShort": "86. Pensamientos o imágenes es…",
+         "questionShort": "86. Pensamientos o imágenes es",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7161,7 +7157,7 @@
          "fieldName": "SCL90_87",
          "subScale": "SCL90_PSICOSIS",
          "question": "87. La idea de que algo serio anda mal en su cuerpo.",
-         "questionShort": "87. La idea de que algo serio …",
+         "questionShort": "87. La idea de que algo serio ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7176,7 +7172,7 @@
          "fieldName": "SCL90_88",
          "subScale": "SCL90_PSICOSIS",
          "question": "88. Sentirse siempre distante sin sensación de intimidad con alguien.",
-         "questionShort": "88. Sentirse siempre distante …",
+         "questionShort": "88. Sentirse siempre distante ",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7191,7 +7187,7 @@
          "fieldName": "SCL90_89",
          "subScale": "SCL90_ADICIONALES",
          "question": "89. Sentimiento de culpabilidad.",
-         "questionShort": "89. Sentimiento de culpabilida…",
+         "questionShort": "89. Sentimiento de culpabilida",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
@@ -7206,7 +7202,7 @@
          "fieldName": "SCL90_90",
          "subScale": "SCL90_PSICOSIS",
          "question": "90. La idea de algo anda mal en su mente.",
-         "questionShort": "90. La idea de algo anda mal e…",
+         "questionShort": "90. La idea de algo anda mal e",
          "weightType": "WEIGHTED_PAIRS",
          "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
