@@ -2731,8 +2731,8 @@
          "position": 11,
          "fieldName": "Datos_11",
          "subScale": "Datos",
-         "question": "Ãšltimo grado de estudios:",
-         "questionShort": "Ãšltimo grado de estudios:",
+         "question": "Último grado de estudios:",
+         "questionShort": "Último grado de estudios:",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2761,8 +2761,8 @@
          "position": 13,
          "fieldName": "Datos_13",
          "subScale": "Datos",
-         "question": "Ãrea a la que aplica:",
-         "questionShort": "Ãrea a la que aplica:",
+         "question": "Área a la que aplica:",
+         "questionShort": "Área a la que aplica:",
          "weightType": "NO_WEIGHT",
          "weights": {},
          "monkeyInfo": {
@@ -2771,6 +2771,7 @@
             "answerType": "noother"
          }
       },
+
       {
          "surveyShortName": "CSG",
          "position": 1,

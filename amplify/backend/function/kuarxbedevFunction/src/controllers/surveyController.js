@@ -10,6 +10,7 @@ const axios = require('axios')
 //const { getSecretValue } = require('../awsServices/awsMiscellaneous.js')
 const MonkeyManager = require('../classes/MonkeyManager.js')
 const SurveyProcessManager = require('../classes/SurveyProcessManager.js')
+const webhookCompletedEventRequestTemplate = require('../config/monkeyConstants.json')
 
 let asyncHandler = require('express-async-handler')
 
@@ -922,6 +923,46 @@ const monkeyWebhookCompletedEventHelper = async req => {
       throw error
    }
 }
+
+const bulkMonkeyWebhookCompletedEventTalentosRedesign2020 = asyncHandler(
+   async (req, res) => {
+      const functionName = 'bulkMonkeyWebhookCompletedEventTalentosRedesign2020'
+      const log = new LoggerSettings(srcFileName, functionName)
+
+      try {
+         LogThis(log, `START`, L0)
+         //LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
+
+         const respondentIdsList = req.body.respondentIdsList
+         const reqWebhook = {}
+         let result = null
+         let respondentIdProcessed = []
+         for (const respondentId of respondentIdsList) {
+            webhookCompletedEventRequestTemplate.object_id = respondentId
+            webhookCompletedEventRequestTemplate.resources.respondent_id =
+               respondentId
+            reqWebhook.body = webhookCompletedEventRequestTemplate
+            result = await monkeyUpdateResponses2RedesignHelper(reqWebhook)
+            respondentIdProcessed.push(respondentId)
+         }
+
+         if (respondentIdProcessed) {
+            //res.status(200).end()
+            res.status(200).json({
+               result: respondentIdProcessed,
+            })
+         } else {
+            res.status(500).end()
+         }
+
+         //res.status(200).json({ updateResponseRes: updateResponseRes })
+         //res.status(200).end()
+      } catch (error) {
+         LogThis(log, `Error found: ${error.message}`, L0)
+         res.status(500).end()
+      }
+   },
+)
 
 const monkeyWebhookCompletedEventTalentosRedesign2020 = asyncHandler(
    async (req, res) => {
@@ -3158,7 +3199,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
        */
       const bd = req.body
 
-      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
+      // LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
       const resources = bd.resources
 
       newResponseFound = await MonkeyNewResponse.findOne({
@@ -3311,13 +3352,19 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                // }
                let answer = null
                if (
-                  question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL' ||
-                  question.monkeyInfo.type === 'SINGLE_CHOICE_VERTICAL' ||
-                  question.monkeyInfo.type === 'SINGLE_CHOICE_MENU' ||
-                  question.monkeyInfo.type ===
-                     'MULTIPLE_CHOICE_VERTICAL_THREE_COL'
+                  monkeyPageAnswers &&
+                  (question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL' ||
+                     question.monkeyInfo.type === 'SINGLE_CHOICE_VERTICAL' ||
+                     question.monkeyInfo.type === 'SINGLE_CHOICE_MENU' ||
+                     question.monkeyInfo.type ===
+                        'MULTIPLE_CHOICE_VERTICAL_THREE_COL')
                ) {
                   for (const [key, monkeyPageAnswer] of monkeyPageAnswers) {
+                     LogThis(
+                        log,
+                        `question.fieldName=${question.fieldName}; key=${key}`,
+                        L1,
+                     )
                      let choice_id = null
                      answer = null
                      if (monkeyPageAnswer.hasOwnProperty('other_id')) {
@@ -4603,7 +4650,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
       newResponseFound.process_status = SURVEY_PROCESS_STATUS.FAILED
       newResponseFound.save()
       throw new Error(
-         `Error monkeyUpdateResponses2Helper error=${error.message}`,
+         `Error monkeyUpdateResponses2RedesignHelper error=${error.message}`,
       )
    }
 }
@@ -5925,6 +5972,7 @@ module.exports = {
    monkeyWebhookCreatedEvent,
    monkeyWebhookCompletedEventTalentos2020,
    monkeyWebhookCompletedEventTalentosRedesign2020,
+   bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
    //monkeyUpdateResponses,
    monkeyUpdateResponses2,
 }

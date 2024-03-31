@@ -26,6 +26,7 @@ let {
    monkeyWebhookCreatedEvent,
    monkeyWebhookCompletedEventTalentos2020,
    monkeyWebhookCompletedEventTalentosRedesign2020,
+   bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
    monkeyUpdateResponses,
    monkeyUpdateResponses2,
 } = require('../controllers/surveyController.js')
@@ -96,6 +97,12 @@ router
       res.status(200).end()
    })
    .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentosRedesign2020)
+
+router
+   .route('/surveymonkey/bulkwebhookcompletedeventTalentosRedesign2020')
+   .post(protect, admin, bulkMonkeyWebhookCompletedEventTalentosRedesign2020)
+
+router.route('/surveymonkey/refresh')
 
 router.route('/surveymonkey/updateresponses/:id').put(monkeyUpdateResponses2)
 
