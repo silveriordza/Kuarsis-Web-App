@@ -17,6 +17,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import PaginateGeneric from '../components/PaginateGeneric'
+import { saveStringAsCSV } from '../libs/csvProcessingLib'
 
 //import _ from "lodash";
 
@@ -211,29 +212,30 @@ const SurveysOutputData = ({ match, history }) => {
 
                let encoder = new TextEncoder()
                let utf8Array = encoder.encode(outputValueData)
-               let utf8String = new TextDecoder().decode(utf8Array)
+               let utf8String = new TextDecoder()
+                  .decode(utf8Array)
+                  .replace(/,/g, ' ')
+                  .replace(/:/g, '')
+               let questionShortutf8Array = encoder.encode(outputField.question)
+               let questionShortUtf8String = new TextDecoder()
+                  .decode(questionShortutf8Array)
+                  .replace(/,/g, ' ')
+                  .replace(/:/g, '')
+
                if (outputText) {
                   outputText =
                      outputText +
                      '\n' +
-                     `${outputField.questionShort},${outputValueData}`
+                     `${questionShortUtf8String}: ${utf8String}`
                } else {
-                  outputText = `${outputField.questionShort},${outputValueData}`
+                  outputText = `${questionShortUtf8String}: ${utf8String}`
                }
                return outputText
-               // return (
-               //    <td
-               //       key={key}
-               //       style={{ whiteSpace: 'nowrap' }}
-               //    >
-               //       {utf8String}
-               //    </td>
-               // )
             } else {
                return
             }
          })
-
+         saveStringAsCSV(outputText, `OutputReport_${outputValue.INFO_1}.txt`)
          console.log(`outputText=${outputText}`)
       }
    }
@@ -429,8 +431,10 @@ const SurveysOutputData = ({ match, history }) => {
                                        let utf8Array = encoder.encode(
                                           layout.questionShort,
                                        )
-                                       let utf8String =
-                                          new TextDecoder().decode(utf8Array)
+                                       let utf8String = new TextDecoder()
+                                          .decode(utf8Array)
+                                          .replace(/,/g, ' ')
+                                          .replace(/:/g, '')
                                        return (
                                           <th
                                              key={keyVal}

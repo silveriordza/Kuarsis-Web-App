@@ -339,7 +339,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
             dispatch(
                surveyProcessAnswersAtClientAction({
                   surveySuperiorId: selectedSurveySuperior._id,
-                  surveyShortName: selectedSurveySuperior.surveyShortName,
+                  surveyShortName: selectedSurveySuperior.superSurveyShortName,
                   updateType: selectedUpdateType,
                   fileNumeric: fileNumeric,
                   fileReal: fileReal,
@@ -350,7 +350,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
             //   dispatch(
             //     surveyUpdateAnswersAtClientAction({
             //       surveySuperiorId: selectedSurveySuperior._id,
-            //       surveyShortName: selectedSurveySuperior.surveyShortName,
+            //       surveyShortName: selectedSurveySuperior.superSurveyShortName,
             //       fileNumeric: fileNumeric,
             //       fileReal: fileReal,
             //     })
