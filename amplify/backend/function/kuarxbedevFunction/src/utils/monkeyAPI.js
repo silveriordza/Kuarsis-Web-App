@@ -324,26 +324,18 @@ const AnalyzeQuestionResponse = (
                   monkeyAnswerChoiceConf,
                )
             } else if (monkeyResponseAnswer['other_id'] != undefined) {
+               const monkeyAnswerChoiceConf =
+                  monkeyQuestionAnswersConf.other.find(
+                     otherConf => otherConf.id == monkeyResponseAnswer.other_id,
+                  )
+
                HasDataException(
-                  monkeyQuestionAnswersConf['other'],
+                  monkeyAnswerChoiceConf,
                   `Other choice in monkey response not found in survey config ${monkeyResponseAnswer.other_id}`,
                   log,
                )
 
-               if (
-                  monkeyQuestionAnswersConf.other.id !=
-                  monkeyResponseAnswer['other_id']
-               ) {
-                  throw new Error(
-                     `Monkey answer other_id ${
-                        monkeyResponseAnswer['other_id']
-                     } does not match with Survey answer configuration for ${j(
-                        monkeyQuestionAnswersConf,
-                     )}`,
-                  )
-               }
-
-               pushEmptyCol()
+               pushChoiceCol(monkeyAnswerChoiceConf)
                pushValueCol(
                   monkeyResponseAnswer.text,
                   monkeyResponseAnswer.text,
@@ -384,26 +376,18 @@ const AnalyzeQuestionResponse = (
                   pushEmptyCol()
                }
             } else if (monkeyResponseAnswer['other_id'] != undefined) {
+               const monkeyAnswerChoiceConf =
+                  monkeyQuestionAnswersConf.other.find(
+                     otherConf => otherConf.id == monkeyResponseAnswer.other_id,
+                  )
+
                HasDataException(
-                  monkeyQuestionAnswersConf['other'],
+                  monkeyAnswerChoiceConf,
                   `Other choice in monkey response not found in survey config ${monkeyResponseAnswer.other_id}`,
                   log,
                )
 
-               if (
-                  monkeyQuestionAnswersConf.other.id !=
-                  monkeyResponseAnswer['other_id']
-               ) {
-                  throw new Error(
-                     `Monkey answer other_id ${
-                        monkeyResponseAnswer['other_id']
-                     } does not match with Survey answer configuration for ${j(
-                        monkeyQuestionAnswersConf,
-                     )}`,
-                  )
-               }
-
-               pushEmptyCol()
+               pushChoiceCol(monkeyAnswerChoiceConf)
                pushValueCol(
                   monkeyResponseAnswer.text,
                   monkeyResponseAnswer.text,
