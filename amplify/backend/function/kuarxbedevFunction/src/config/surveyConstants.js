@@ -6,7 +6,7 @@ const SURVEY_PROCESS_STATUS = Object.freeze({
    UPDATED: 'UPDATED',
    PROCESSING: 'PROCESSING',
    PROCESSED: 'PROCESSED',
-   FAILED: 'FAILED,',
+   FAILED: 'FAILED',
 })
 
 module.exports = {

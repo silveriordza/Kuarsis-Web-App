@@ -2771,7 +2771,6 @@
             "answerType": "noother"
          }
       },
-
       {
          "surveyShortName": "CSG",
          "position": 1,
@@ -3229,8 +3228,8 @@
          "subScale": "FIAD-15",
          "question": "1.Cuando confronto problemas serios y conflictos con los demás, el miedo y la preocupación me confunden tanto que termino por actuar irracionalmente.",
          "questionShort": "1.Cuando confronto problemas ",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -3244,8 +3243,8 @@
          "subScale": "FIAD-15",
          "question": "2.Aunque me doy cuenta que algunos de mis actos son francamente agresivos e incorrectos, en el momento de actuarlos me es indiferente; pienso que esta vez no me van a descubrir, o no lo van a “notar”.",
          "questionShort": "2.Aunque me doy cuenta que al",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 2,
@@ -3259,8 +3258,8 @@
          "subScale": "FIAD-15",
          "question": "3.Soy una persona prudente que actúa y responde en forma apropiada.",
          "questionShort": "3.Soy una persona prudente qu",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 3,
@@ -3274,8 +3273,8 @@
          "subScale": "FIAD-15",
          "question": "4.Cuando los sentimientos y la ira me invaden, me ofusco tanto que no puedo contenerme ni serenarme; termino por reaccionar de manera atropellada o fuera de mí.",
          "questionShort": "4.Cuando los sentimientos y l",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 4,
@@ -3289,8 +3288,8 @@
          "subScale": "FIAD-15",
          "question": "5.Cuando me encolerizo, aunque deseo actuar al calor del momento, logro contenerme y después serenarme.",
          "questionShort": "5.Cuando me encolerizo, aunqu",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 5,
@@ -3304,8 +3303,8 @@
          "subScale": "FIAD-15",
          "question": "6.Soy una persona muy estable.",
          "questionShort": "6.Soy una persona muy estable",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 6,
@@ -3319,8 +3318,8 @@
          "subScale": "FIAD-15",
          "question": "7.Por actuar precipitadamente termino por involucrarme en acciones inapropiadas y situaciones muy emproblemadas.",
          "questionShort": "7.Por actuar precipitadamente",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 7,
@@ -3334,8 +3333,8 @@
          "subScale": "FIAD-15",
          "question": "8.Dado que actuó como pienso y siento, vivo emproblemado(a) con los demás; la gente me considera impulsivo(a) y agresivo(a)",
          "questionShort": "8.Dado que actuó como pienso ",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 8,
@@ -3349,8 +3348,8 @@
          "subScale": "FIAD-15",
          "question": "9.Odio que la gente me diga que debería de sentirme culpable por ser tan agresivo(a), sin darse cuenta que constantemente me están atacando de modo injustificado.",
          "questionShort": "9.Odio que la gente me diga q",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 9,
@@ -3364,8 +3363,8 @@
          "subScale": "FIAD-15",
          "question": "10.Soy una persona inestable; cambio de manera de ser de un momento a otro.",
          "questionShort": "10.Soy una persona inestable;",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 10,
@@ -3379,8 +3378,8 @@
          "subScale": "FIAD-15",
          "question": "11.Aunque tengo cierta idea del porqué de la intensidad de mis emociones, no siempre logro contenerme ni serenarme.",
          "questionShort": "11.Aunque tengo cierta idea d",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 11,
@@ -3394,8 +3393,8 @@
          "subScale": "FIAD-15",
          "question": "12.Soy tan imprudente, que tiendo a actuar de manera inapropiada y hasta destructiva sin anticipar las consecuencias, y si las anticipo, me es indiferente.",
          "questionShort": "12.Soy tan imprudente, que ti",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 12,
@@ -3409,8 +3408,8 @@
          "subScale": "FIAD-15",
          "question": "13.Si actuara todo el tiempo como pienso y siento, ya estaría en graves problemas con los demás.",
          "questionShort": "13.Si actuara todo el tiempo ",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 13,
@@ -3424,8 +3423,8 @@
          "subScale": "FIAD-15",
          "question": "14.Aunque trato de controlarme, reincido en acciones y desplantes inapropiados.",
          "questionShort": "14.Aunque trato de controlarm",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 14,
@@ -3439,8 +3438,8 @@
          "subScale": "FIAD-15",
          "question": "15.Cuando me enredo en líos con los demás, mis miedos y mis odios me llevan a mal interpretar y distorsionar todo.",
          "questionShort": "15.Cuando me enredo en líos c",
-         "weightType": "NO_WEIGHT",
-         "weights": {},
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 15,
@@ -4587,7 +4586,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4611,7 +4610,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4630,7 +4629,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4659,7 +4658,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4678,7 +4677,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4707,7 +4706,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4731,7 +4730,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4750,7 +4749,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4774,7 +4773,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4803,7 +4802,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4827,7 +4826,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4846,7 +4845,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4875,7 +4874,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4899,7 +4898,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4918,7 +4917,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4942,7 +4941,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -4971,7 +4970,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -4995,7 +4994,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
@@ -5014,7 +5013,7 @@
          "weightType": "WEIGHTED_PAIRS",
          "weights": {
             "1": 7,
-            "2": 7,
+            "2": 6,
             "3": 6,
             "4": 5,
             "5": 4,
@@ -5043,7 +5042,7 @@
             "4": 4,
             "5": 5,
             "6": 6,
-            "7": 7,
+            "7": 6,
             "8": 7
          },
          "monkeyInfo": {
