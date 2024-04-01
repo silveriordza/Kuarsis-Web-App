@@ -85,7 +85,7 @@ router
       LogThis(log, `req.header=${JSON.stringify(req.headers)}`, L0)
       res.status(200).end()
    })
-   .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentos2020)
+   .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentosRedesign2020)
 //superSurveyCreateConfigIntegratedWithMonkey
 
 router
