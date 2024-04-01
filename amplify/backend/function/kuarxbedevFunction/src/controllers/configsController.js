@@ -24,13 +24,10 @@ const getAddressStates = asyncHandler(async (req, res) => {
 })
 
 // @desc    Get Address States
-// @route   POST /api/getSurveyMonkeyToken
+// @route   POST /api/getMonkeyToken
 // @access  Public
-const getSurveyMonkeyToken = asyncHandler(async (req, res) => {
-   const logSettings = initLogSettings(
-      'configsController',
-      'getSurveyMonkeyToken',
-   )
+const getMonkeyToken = asyncHandler(async (req, res) => {
+   const logSettings = initLogSettings('configsController', 'getMonkeyToken')
    const token = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
    // LogThisLegacy(
    //   logSettings,
@@ -48,7 +45,7 @@ const getSurveyMonkeyToken = asyncHandler(async (req, res) => {
 })
 
 // @desc    Get Address States
-// @route   POST /api/getSurveyMonkeyToken
+// @route   POST /api/getMonkeyToken
 // @access  Public
 const generateToken = asyncHandler(async (req, res) => {
    const logSettings = initLogSettings('configsController', 'generateToken')
@@ -69,6 +66,6 @@ const generateToken = asyncHandler(async (req, res) => {
 
 module.exports = {
    getAddressStates,
-   getSurveyMonkeyToken,
+   getMonkeyToken,
    generateToken,
 }

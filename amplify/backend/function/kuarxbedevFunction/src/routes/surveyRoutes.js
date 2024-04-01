@@ -11,7 +11,7 @@ const { LogThis, LoggerSettings, L0 } = require('../utils/Logger.js')
 const router = express.Router()
 let {
    superSurveyUploadAnswers,
-   superSurveyCreateConfig,
+   createSuperSurvey,
    superSurveyTests,
    getSuperSurveyConfigs,
    superSurveyGetList,
@@ -20,18 +20,20 @@ let {
    superSurveyGetOutputValues,
    superSurveyGetRespondentIds,
    superSurveyUpdateOutput,
-   updateSurveyMonkeyConfigs,
+   updateMonkeyConfigs,
    superSurveyCreateConfigIntegratedWithMonkey,
-   testSurveyMonkey,
-   surveyMonkeyWebhookCreatedEvent,
-   surveyMonkeyWebhookCompletedEventTalentos2020,
-   surveyMonkeyUpdateResponses,
-   surveyMonkeyUpdateResponses2,
+   testMonkey,
+   monkeyWebhookCreatedEvent,
+   monkeyWebhookCompletedEventTalentos2020,
+   monkeyWebhookCompletedEventTalentosRedesign2020,
+   bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
+   monkeyUpdateResponses,
+   monkeyUpdateResponses2,
 } = require('../controllers/surveyController.js')
 let {
    protect,
    admin,
-   protectSurveyMonkeyWebhook,
+   protectMonkeyWebhook,
 } = require('../middleware/authMiddleware.js')
 //const { LoggerSettings } = require("../utils/Logger.js");
 
@@ -57,15 +59,13 @@ router
       superSurveyUploadAnswers,
    )
 
-router
-   .route('/:id/surveymonkey')
-   .post(protect, admin, updateSurveyMonkeyConfigs)
+router.route('/:id/surveymonkey').post(protect, admin, updateMonkeyConfigs)
 
 router
-   .route('/surveymonkey')
+   .route('/:id/integratemonkey')
    .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
 
-router.route('/surveymonkey/test').get(protect, admin, testSurveyMonkey)
+router.route('/surveymonkey/test').get(protect, admin, testMonkey)
 
 router
    .route('/surveymonkey/webhookcreatedevent')
@@ -75,7 +75,7 @@ router
       LogThis(log, `req.header=${JSON.stringify(req.headers)}`, L0)
       res.status(200).end()
    })
-   .post(surveyMonkeyWebhookCreatedEvent)
+   .post(monkeyWebhookCreatedEvent)
 
 router
    .route('/surveymonkey/webhookcompletedeventTalentos2020')
@@ -85,18 +85,30 @@ router
       LogThis(log, `req.header=${JSON.stringify(req.headers)}`, L0)
       res.status(200).end()
    })
-   .post(
-      protectSurveyMonkeyWebhook,
-      surveyMonkeyWebhookCompletedEventTalentos2020,
-   )
+   .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentos2020)
+//superSurveyCreateConfigIntegratedWithMonkey
 
 router
-   .route('/surveymonkey/updateresponses/:id')
-   .put(surveyMonkeyUpdateResponses2)
+   .route('/surveymonkey/webhookcompletedeventTalentosRedesign2020')
+   .head((req, res) => {
+      // Respond to HEAD requests with appropriate headers
+      const log = LoggerSettings('surveyRoutes.js', 'webhookcompletedevent')
+      LogThis(log, `req.header=${JSON.stringify(req.headers)}`, L0)
+      res.status(200).end()
+   })
+   .post(protectMonkeyWebhook, monkeyWebhookCompletedEventTalentosRedesign2020)
+
+router
+   .route('/surveymonkey/bulkwebhookcompletedeventTalentosRedesign2020')
+   .post(protect, admin, bulkMonkeyWebhookCompletedEventTalentosRedesign2020)
+
+router.route('/surveymonkey/refresh')
+
+router.route('/surveymonkey/updateresponses/:id').put(monkeyUpdateResponses2)
 
 router
    .route('/')
    .get(protect, admin, superSurveyGetList)
-   .post(protect, admin, superSurveyCreateConfig)
+   .post(protect, admin, createSuperSurvey)
 
 module.exports = router

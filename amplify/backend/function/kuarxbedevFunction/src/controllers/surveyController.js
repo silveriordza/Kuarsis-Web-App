@@ -8,7 +8,9 @@ const Schema = mongoose.Schema
 //const util = require('util')
 const axios = require('axios')
 //const { getSecretValue } = require('../awsServices/awsMiscellaneous.js')
-const SurveyMonkeyManager = require('../classes/SurveyMonkeyManager.js')
+const MonkeyManager = require('../classes/MonkeyManager.js')
+const SurveyProcessManager = require('../classes/SurveyProcessManager.js')
+const webhookCompletedEventRequestTemplate = require('../config/monkeyConstants.json')
 
 let asyncHandler = require('express-async-handler')
 
@@ -22,12 +24,16 @@ const {
    ValidateMonkeyConfigs,
    PushBlankPage,
    AnalyzeQuestionResponse,
-} = require('../utils/surveyMonkeyAPI.js')
+   AnalyzeQuestionResponseRedesign,
+   GetWeightedResponse,
+} = require('../utils/monkeyAPI.js')
 const {
    buildOutputHeaders,
    //getSuperSurveysConfigs,
    //addResponseInfo,
    addResponseInfoAll,
+   processCalculatedFields,
+   surveySaveOutputRedesignedHelper,
 } = require('../utils/surveysLib.js')
 
 // let {
@@ -40,11 +46,12 @@ let {
    SurveyQuestion,
    SurveyCalculatedField,
    SurveyCalculatedValue,
-   //SurveyMulti,
+   SurveyMulti,
    SurveySuperiorOutputLayout,
    SurveyResponse,
-   SurveyMonkeyConfig,
-   SurveyMonkeyNewResponse,
+   MonkeyConfig,
+   MonkeyNewResponse,
+   SurveyMonkeyIntegrated,
 } = require('../models/surveysModel.js')
 
 //let { DynamicCollection } = require('../models/dynamicCollectionModel.js')
@@ -77,6 +84,7 @@ let {
 const srcFileName = 'surveyController.js'
 
 const fs = require('fs')
+const SurveyMonkeyIntegratedManager = require('../classes/SurveyMonkeyIntegratedManager.js')
 
 const WEIGHTED_PAIRS = 'WEIGHTED_PAIRS'
 const WEIGHTED_CRITERIA = 'WEIGHTED_CRITERIA'
@@ -85,7 +93,7 @@ const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
 const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
 const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
 
-//Constantas related to response auto processing and the SurveyMonkeyNewResponse collection process_status field.
+//Constantas related to response auto processing and the MonkeyNewResponse collection process_status field.
 const RESPONSE_PROCESSING_COMPLETE_SUCCEEDED =
    'RESPONSE_PROCESSING_COMPLETE_SUCCEEDED'
 const RESPONSE_PROCESSING_COMPLETE_FAILED =
@@ -94,34 +102,176 @@ const RESPONSE_PROCESSING_COMPLETE_NEW = 'RESPONSE_PROCESSING_COMPLETE_NEW'
 const RESPONSE_PROCESSING_COMPLETE_UPDATED =
    'RESPONSE_PROCESSING_COMPLETE_UPDATED'
 
-//let onCareSuperSurvey = require("../models/surveyOnCareTreatmentTalentos2020.json");
+// @desc    Creates a new Super Survey configuration
+// @route   POST /api/surveys/
+// @access  Private/Admin
+const createSuperSurvey = asyncHandler(async (req, res) => {
+   const functionName = 'getSuperSurveyConfigs'
+   const log = new LoggerSettings(srcFileName, functionName)
+   const superSurveyConfig = req.body
+   let ownerId = req.user._id
+
+   const templateManager = new SurveyProcessManager()
+   templateManager.activateTemplateSaver(superSurveyConfig, ownerId)
+   const superSurveyTemplate = await templateManager.saveTemplate()
+
+   console.log('about to respond')
+   res.status(201).json({
+      superSurveyTemplate: superSurveyTemplate,
+      surveys: superSurveyTemplate.surveysResult,
+      questions: superSurveyTemplate.questionsResult,
+      calculatedFieldsResult: superSurveyTemplate.calculatedFieldsResult,
+      outputLayoutsResult: superSurveyTemplate.outputLayoutsResult,
+
+      // surveySuperiorId: createdSurveySuperior._id,
+      // surveysCreated: surveysCreated,
+      // questionsCreated: questionsCreated,
+      // createdOutputLayout: createdOutputLayout,
+      // surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+   })
+})
 
 // @desc    Creates a new Super Survey configuration
 // @route   POST /api/surveys/
 // @access  Private/Admin
-const superSurveyCreateConfig = asyncHandler(async (req, res) => {
-   const functionName = 'getSuperSurveyConfigs'
+
+/**
+ * @description This function merges the Super Survey configurations coming from the Super Survey JSON template, with the Survey Monkey configurations, and then seves the merged configs into the corresponding Survey Superior, Survey, Questions, CalculatedFields, Outputs and the SurveyOutputs (dynamic table)
+ * @route - POST /surveys/surveymonkey
+ * @access - Private/Admin
+ * @param {*} req - req.body must have the Super Survey configuration template with all configs set there. req.user must be populated by the middleware at authentication.
+ */
+const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
+   async (req, res) => {
+      const functionName = 'superSurveyCreateConfigIntegratedWithMonkey'
+      const log = new LoggerSettings(srcFileName, functionName)
+      //const { surveyConfigTemplate } = req.body
+      //let ownerId = req.user._id
+      //surveyConfigTemplate.owner = ownerId
+      const superSurveyShortName = req.params.id
+
+      // const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
+
+      // if (!monkeyToken || monkeyToken == '') {
+      //    throw new Error(`Survey Monkey token not found.`)
+      // }
+
+      // const configMonkey = {
+      //   //responseType: "arraybuffer",
+      //   headers: {
+      //     //"Content-Type": "multipart/form-data",
+      //     Authorization: `Bearer ${monkeyToken}`,
+      //     Accept: "application/json",
+      //   },
+      // };
+
+      const surveyTemplateManager = new SurveyProcessManager()
+
+      const superSurveyConfig =
+         await surveyTemplateManager.integrateSurveyWithMonkey(
+            superSurveyShortName,
+         )
+
+      res.status(201).json({
+         superSurveyConfig: superSurveyConfig,
+         // surveySuperiorId: createdSurveySuperior._id,
+         // surveysCreated: surveysCreated,
+         // questionsCreated: questionsCreated,
+         // createdOutputLayout: createdOutputLayout,
+         // surveyOutputCollectionSchema: surveyOutputCollectionSchema,
+      })
+   },
+)
+
+/**
+ * @description This function merges the Super Survey configurations coming from the Super Survey JSON template, with the Survey Monkey configurations, and then seves the merged configs into the corresponding Survey Superior, Survey, Questions, CalculatedFields, Outputs and the SurveyOutputs (dynamic table)
+ * @route - POST /surveys/surveymonkey
+ * @access - Private/Admin
+ * @param {*} req - req.body must have the Super Survey configuration template with all configs set there. req.user must be populated by the middleware at authentication.
+ */
+const createSurveys = asyncHandler(async (req, res) => {
+   const functionName = 'superSurveyCreateConfigIntegratedWithMonkey'
    const log = new LoggerSettings(srcFileName, functionName)
    const { superSurveyConfig } = req.body
    let ownerId = req.user._id
+   superSurveyConfig.owner = ownerId
+   // const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
-   // await SurveySuperior.deleteMany({})
-   // await Survey.deleteMany({})
-   // await SurveyQuestion.deleteMany({})
-   // //await SurveyMulti.deleteMany({});
-   // await SurveyCalculatedField.deleteMany({})
-   // await SurveySuperiorOutputLayout.deleteMany({})
+   // if (!monkeyToken || monkeyToken == '') {
+   //    throw new Error(`Survey Monkey token not found.`)
+   // }
 
-   console.log('superSurveyConfig INPUT values are:')
-   console.log(superSurveyConfig)
-   console.log('Survey Configuration Values STRINGIFIED:')
+   // const configMonkey = {
+   //   //responseType: "arraybuffer",
+   //   headers: {
+   //     //"Content-Type": "multipart/form-data",
+   //     Authorization: `Bearer ${monkeyToken}`,
+   //     Accept: "application/json",
+   //   },
+   // };
 
-   let superSurveyConfigTest = superSurveyConfig
+   const monkeyManager = new MonkeyManager()
+
+   const result = await SurveySuperior.deleteOne({
+      surveyShortName: superSurveyConfig.surveyShortName,
+   })
+
+   if (!result || !result.acknowledged) {
+      throw new Error(
+         `There was a problem attempting to delete a potentially existing survey for survey name: ${superSurveyConfig.surveyShortName}`,
+      )
+   }
+
+   await SurveySuperior.deleteMany({})
+   await Survey.deleteMany({})
+   await SurveyQuestion.deleteMany({})
+   await SurveyMulti.deleteMany({})
+   await SurveyCalculatedField.deleteMany({})
+   await SurveySuperiorOutputLayout.deleteMany({})
+
+   // console.log("superSurveyConfig INPUT values are:");
+   // console.log(superSurveyConfig);
+   // console.log("Survey Configuration Values STRINGIFIED:");
+
+   // if (
+   //    superSurveyConfig.monkeyId &&
+   //    superSurveyConfig.monkeyId == ''
+   // ) {
+
+   // }
+
+   // const monkeyConfigsResult = await MonkeyConfig.find({
+   //    //monkeyId: superSurveyConfig.monkeyId,
+   //    'survey.title': superSurveyConfig.surveyName}
+   // ).lean()
+
+   // if (monkeyConfigsResult && monkeyConfigsResult.length <= 0) {
+   //    throw new Error(
+   //       `Survey does not exist in the cached Survey Monkey table`,
+   //    )
+   // }
+   // const monkeyConfigs = monkeyConfigsResult[0]
+   //Search in the MonkeyConfigs collection the config corresponding to this SuperSurvey config from the template. The Survey Monkey config must have already been created/updated using the path surveys/surveymonkey/:id where the id is the Survey Monkey Id for this survey in Survey Monkey, make sure to run that one first.
+   const monkeyConfigs = await monkeyManager.getMonkeyConfigByIdorName(
+      superSurveyConfig.monkeyId,
+      superSurveyConfig.surveyName,
+   )
+
+   if (!monkeyConfigs) {
+      throw new Error(
+         `No Survey Monkey config found, run surveys/surveymonkey/:id first to download the corresponding Survey Monkey configs for this survey or verify the id or the name in your template matches in Survey Monkey by superSurveyConfig.id=${superSurveyConfig.id} or superSurveyConfig.name=${superSurveyConfig.name}`,
+      )
+   }
+
+   //res.status(201).json(monkeyConfigs);
+   //Save Survey Superior
+   superSurveyConfig.monkeyId = monkeyConfigs.id
    const superSurvey = new SurveySuperior({
       owner: ownerId,
-      surveyName: superSurveyConfigTest.surveyName,
-      surveyShortName: superSurveyConfigTest.surveyShortName,
-      description: superSurveyConfigTest.description,
+      surveyName: superSurveyConfig.surveyName,
+      surveyShortName: superSurveyConfig.surveyShortName,
+      description: superSurveyConfig.description,
+      monkeyId: superSurveyConfig.monkeyId,
    })
 
    const createdSurveySuperior = await superSurvey.save()
@@ -133,40 +283,362 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
    let questions = []
    let calculatedFields = []
    let questionItem = null
+   //let questionMonkeyPosition = null
+   // LogThis(
+   //   log,
+   //   `monkeyConfigs=${JSON.stringify(monkeyConfigs)}`,
+   //   L3
+   // );
+   let surveyResponse = superSurveyConfig.surveyList[0]
+   let responseInfo = new Survey({
+      superSurveyId: createdSurveySuperior._id,
+      surveyName: surveyResponse.surveyName,
+      surveyShortName: surveyResponse.surveyShortName,
+      description: surveyResponse.description,
+      instructions: surveyResponse.instructions,
+      monkeyPosition: surveyResponse.monkeyPosition,
+   })
+   const responseInfoCreated = await responseInfo.save()
 
-   console.log('About to insert many')
-   for (let i = 0; i < superSurveyConfigTest.surveyList.length; i++) {
-      let surveyItem = superSurveyConfigTest.surveyList[i]
+   // const responseInfoQuestions = []
+   surveyResponse.questionList.forEach(
+      question => (question.surveyId = responseInfoCreated._id),
+   )
+
+   const responseInfoQuestionsSaved = await SurveyQuestion.insertMany(
+      surveyResponse.questionList,
+   )
+
+   for (let i = 1; i < superSurveyConfig.surveyList.length; i++) {
+      let surveyItem = superSurveyConfig.surveyList[i]
+      LogThis(
+         log,
+         `position=${
+            surveyItem.monkeyPosition - 1
+         }; surveyItem=${JSON.stringify(surveyItem, null, 1)}`,
+         L3,
+      )
+      let monkeyItem = monkeyConfigs.survey.pages[surveyItem.monkeyPosition - 1]
+
       let survey = new Survey({
          superSurveyId: createdSurveySuperior._id,
          surveyName: surveyItem.surveyName,
          surveyShortName: surveyItem.surveyShortName,
          description: surveyItem.description,
          instructions: surveyItem.instructions,
+         monkeyId: monkeyItem.id,
+         monkeyPosition: surveyItem.monkeyPosition,
       })
       surveyCreated = await survey.save()
-      // let multiSurvey = new SurveyMulti({
-      //   owner: ownerId,
-      //   superSurveyId: createdSurveySuperior._id,
-      //   surveyId: surveyCreated._id,
-      //   sequence: i + 1,
-      // });
-      // let multiSurveyCreated = await multiSurvey.save();
 
       surveysCreated.push(surveyCreated)
 
+      let monkeyQuestions = monkeyItem.questions
+      LogThis(
+         log,
+         `monkeyQuestions=${JSON.stringify(monkeyQuestions, null, 1)}`,
+         L3,
+      )
+
       for (let x = 0; x < surveyItem.questionList.length; x++) {
          questionItem = surveyItem.questionList[x]
-         questions.push({
+         LogThis(
+            log,
+            `questionItem.monkeyPosition.position=${questionItem.monkeyPosition.position}`,
+            L3,
+         )
+
+         let monkeyQuestionItem = monkeyQuestions.find(question => {
+            LogThis(
+               log,
+               `questio.position=${question.position}; monkeyPosition=${
+                  questionItem.monkeyPosition.position
+               }; condition=${
+                  question.position == questionItem.monkeyPosition.position
+               }`,
+               L3,
+            )
+
+            return question.position == questionItem.monkeyPosition.position
+         })
+         LogThis(
+            log,
+            `monkeyQuestionItem=${JSON.stringify(monkeyQuestionItem, null, 1)}`,
+            L3,
+         )
+         if (!monkeyQuestionItem) {
+            throw new Error(
+               `Monkey Question Item not found for questionItem=${j(
+                  questionItem,
+               )}`,
+            )
+         }
+         let monkeyQuestionDetails = monkeyQuestionItem.details
+         let monkeyQuestionId = monkeyQuestionItem.id
+         let family = monkeyQuestionDetails.family
+         let subtype = monkeyQuestionDetails.subtype
+         let monkeyQuestionAnswers = null
+         let questionMonkeyPosition = null
+         switch (family + '_' + subtype) {
+            case 'open_ended_single':
+               monkeyQuestionAnswers = {
+                  answerField: 'text',
+                  answerChoices: null,
+               }
+               break
+            case 'single_choice_menu':
+               questionMonkeyPosition = questionItem.monkeyPosition
+               if (questionMonkeyPosition.answerType == 'other') {
+                  monkeyQuestionAnswers = {
+                     answerField: 'text',
+                     answerChoices: {
+                        id: monkeyQuestionDetails.answers.other.id,
+                        value: monkeyQuestionDetails.answers.other.position,
+                        realValue: '',
+                        score: null,
+                     },
+                  }
+               } else if (questionMonkeyPosition.answerType == 'noother') {
+                  monkeyQuestionAnswers = {
+                     answerField: 'choice_id',
+                     answerChoices: monkeyQuestionDetails.answers.choices.map(
+                        choice => {
+                           return {
+                              id: choice.id,
+                              value: choice.position,
+                              realValue: choice.text.trim(),
+                              score: choice.quiz_options.score,
+                           }
+                        },
+                     ),
+                  }
+               } else {
+                  LogThis(
+                     log,
+                     `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
+                     L3,
+                  )
+                  throw new Error(
+                     `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
+                  )
+               }
+               break
+            case 'single_choice_vertical':
+               questionMonkeyPosition = questionItem.monkeyPosition
+               if (questionMonkeyPosition.answerType == 'other') {
+                  monkeyQuestionAnswers = {
+                     answerField: 'text',
+                     answerChoices: {
+                        id: monkeyQuestionDetails.answers.other.id,
+                        value: monkeyQuestionDetails.answers.other.position,
+                        realValue: '',
+                        score: null,
+                     },
+                  }
+               } else if (questionMonkeyPosition.answerType == 'noother') {
+                  monkeyQuestionAnswers = {
+                     answerField: 'choice_id',
+                     answerChoices: monkeyQuestionDetails.answers.choices.map(
+                        choice => {
+                           return {
+                              id: choice.id,
+                              value: choice.position,
+                              realValue: choice.text.trim(),
+                              score: choice.quiz_options.score,
+                           }
+                        },
+                     ),
+                  }
+               } else {
+                  LogThis(
+                     log,
+                     `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
+                     L3,
+                  )
+                  throw new Error(
+                     `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
+                  )
+               }
+               break
+            case 'matrix_rating': // for creating survey from survey monkey
+               {
+                  let monkeyQuestion = monkeyQuestionDetails.answers.rows.find(
+                     monkeyQuestion =>
+                        questionItem.monkeyPosition.subPosition ==
+                        monkeyQuestion.position,
+                  )
+
+                  if (!monkeyQuestion) {
+                     LogThis(
+                        log,
+                        `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
+                     )
+                     throw new Error(
+                        `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
+                     )
+                  }
+
+                  monkeyQuestionId = monkeyQuestion.id
+
+                  monkeyQuestionAnswers = {
+                     answerField: 'choice_id',
+                     answerChoices: monkeyQuestionDetails.answers.choices.map(
+                        choice => {
+                           return {
+                              id: choice.id,
+                              value: choice.position,
+                              realValue: choice.text.trim(),
+                              score: choice.weight,
+                           }
+                        },
+                     ),
+                  }
+               }
+               break
+
+            case 'multiple_choice_vertical': // for creating survey from survey monkey
+               {
+                  let monkeyQuestion =
+                     monkeyQuestionDetails.answers.choices.find(
+                        monkeyQuestion =>
+                           questionItem.monkeyPosition.subPosition ==
+                           monkeyQuestion.position,
+                     )
+
+                  if (!monkeyQuestion) {
+                     LogThis(
+                        log,
+                        `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
+                     )
+                     throw new Error(
+                        `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
+                     )
+                  }
+
+                  monkeyQuestionId = monkeyQuestion.id
+
+                  monkeyQuestionAnswers = {
+                     answerField: 'choice_id',
+                     answerChoices: [
+                        {
+                           id: monkeyQuestion.id,
+                           value: monkeyQuestion.position,
+                           realValue: monkeyQuestion.text.trim(),
+                           score: monkeyQuestion.quiz_options.score,
+                        },
+                     ],
+                  }
+               }
+               break
+            default:
+               LogThis(
+                  log,
+                  `Family:${family} and subType=${subtype} combination is not valid.`,
+                  L3,
+               )
+               throw new Error(
+                  `Family:${family} and subType=${subtype} combination is not valid.`,
+               )
+         }
+
+         let newQuestion = {
             surveyId: surveyCreated._id,
             question: questionItem.question,
             questionShort: questionItem.questionShort,
             fieldName: questionItem.fieldName,
             weightType: questionItem.weightType,
             weights: questionItem.weights,
-            surveyCol: questionItem.surveyCol,
+            position: questionItem.position,
             superSurveyCol: questionItem.superSurveyCol,
-         })
+            monkeyId: monkeyQuestionId,
+            monkeyPosition: questionItem.monkeyPosition,
+            monkeyFamily: monkeyQuestionItem.details.family,
+            monkeySubType: monkeyQuestionItem.details.subtype,
+            monkeyAnswers: monkeyQuestionAnswers,
+         }
+
+         // let monkeyQuestion = monkeyQuestions[x];
+         // LogThis(
+         //   log,
+         //   `questionItem.question=${JSON.stringify(
+         //     questionItem.question
+         //   )}; monkeyQuestion.heading=${
+         //     monkeyQuestion.heading
+         //   };monkeyQuestion=${JSON.stringify(monkeyQuestion)}`,
+         //   L3
+         // );
+         // newQuestion.monkeyId = monkeyQuestion.id;
+         // newQuestion.monkeyPosition = monkeyQuestion.position;
+
+         // let monkeyQuestionsDetailsResult = await axios.get(
+         //   `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.monkeyId}/pages/${surveyItem.monkeyId}/questions/${monkeyQuestion.id}`,
+         //   configMonkey
+         // );
+         // let monkeyQuestionsDetails =
+         //   monkeyQuestionsDetailsResult.data;
+
+         // LogThis(
+         //   log,
+         //   `monkeyQuestionsDetails=${JSON.stringify(
+         //     monkeyQuestionsDetails
+         //   )}`,
+         //   L3
+         // );
+         // newQuestion.monkeyFamily = monkeyQuestionsDetails.family;
+         // newQuestion.monkeySubType = monkeyQuestionsDetails.subtype;
+
+         // switch (monkeyQuestionsDetails.family) {
+         //   case "open_ended":
+         //     break;
+         //   case "single_choice":
+         //     switch (monkeyQuestionsDetails.subtype) {
+         //       case "menu":
+         //         if (monkeyQuestionsDetails.answers.choices ?? false) {
+         //           let choices = monkeyQuestionsDetails.answers.choices;
+         //           LogThis(log, `choices=${JSON.stringify(choices)}`, L3);
+
+         //           let choicesFields = choices.map((choice) => {
+         //             return {
+         //               id: choice.id,
+         //               value: choice.position,
+         //               realValue: choice.text,
+         //               weightedValue: choice.quiz_options.score,
+         //             };
+         //           });
+         //           LogThis(
+         //             log,
+         //             `choicesFields=${JSON.stringify(choicesFields)}`,
+         //             L3
+         //           );
+         //           newQuestion.monkeyAnswers = { choices: choicesFields };
+         //         }
+
+         //         if (monkeyQuestionsDetails.answers.other ?? false) {
+         //           newQuestion.monkeyAnswers.other = {
+         //             id: monkeyQuestionsDetails.answers.other.id,
+         //             value: monkeyQuestionsDetails.answers.other.position,
+         //             questionText:
+         //               monkeyQuestionsDetails.answers.other.text,
+         //           };
+         //         }
+
+         //         LogThis(
+         //           log,
+         //           `newQuestion.monkeyAnswers=${JSON.stringify(
+         //             newQuestion.monkeyAnswers
+         //           )}`,
+         //           L3
+         //         );
+         //         break;
+         //       default:
+         //         break;
+         //     }
+         //   default:
+         //     break;
+         // }
+
+         questions.push(newQuestion)
+         LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L3)
       }
 
       for (
@@ -185,24 +657,21 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
             calculationType: calculatedFieldItem.calculationType,
             criteria: calculatedFieldItem.criteria ?? null,
             group: calculatedFieldItem.group,
-            sequence: calculatedFieldItem.sequence,
+            position: calculatedFieldItem.position,
          })
       }
-      LogThis(log, 'About to insert many', L3)
-      LogThis(log, `questions=${JSON.stringify(questions)}`, L3)
       questionsCreated = await SurveyQuestion.insertMany(questions)
       questions = []
-      LogThis(log, `calculatedFields=${JSON.stringify(calculatedFields)}`, L3)
       if (calculatedFields.length > 0) {
          calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
             calculatedFields,
          )
          calculatedFields = []
       }
-   }
+   } //CLOSE SURVEY LOOP HERE
 
-   let outputLayouts = superSurveyConfigTest.surveySuperiorOutputLayout.sort(
-      (a, b) => a.sequence - b.sequence,
+   let outputLayouts = superSurveyConfig.surveySuperiorOutputLayout.sort(
+      (a, b) => a.position - b.position,
    )
    LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3)
    let outputLayoutFields = []
@@ -213,8 +682,8 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
          surveyShortName: outputLayout.surveyShortName,
          fieldName: outputLayout.fieldName,
          outputAsReal: outputLayout.outputAsReal,
-         showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
-         sequence: outputLayout.sequence,
+         showInSurveyOutputScreenScreen: outputLayout.showInSurveyOutputScreen,
+         position: outputLayout.position,
       })
    }
    LogThis(
@@ -227,23 +696,17 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
    )
 
    //Start Output Collection
-   let x = 0
-   x++
-   const surveyOutputCollectionName =
-      `surveyOutputs_${superSurveyConfigTest.surveyShortName}`.toLocaleLowerCase()
-   LogThis(
-      log,
-      `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
-      L3,
-   )
 
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
+   const surveyOutputCollectionName =
+      `surveyOutputs_${superSurveyConfig.surveyShortName}`.toLocaleLowerCase()
+   // LogThis(
+   //    log,
+   //    `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
+   //    L3,
+   // )
    const collections = await mongoose.connection.db
       .listCollections({ name: surveyOutputCollectionName })
       .toArray()
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
    const collInfo = collections.find(
       collection => collection.name === surveyOutputCollectionName,
    )
@@ -260,27 +723,29 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
       delete mongoose.models[surveyOutputCollectionName]
       LogThis(log, `deleted models`, L3)
    }
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
 
    let surveyOutputColumns = {}
 
    outputLayoutFields.forEach(column => {
       LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3)
-      surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
+      switch (column.fieldName) {
+         case 'INFO_3':
+            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
+            break
+         case 'INFO_4':
+            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
+            break
+         default:
+            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
+      }
    })
-   x = x + 1
    LogThis(
       log,
-      `x=${x}; surveyOutputColumns=${JSON.stringify(
-         Object.entries(surveyOutputColumns),
-      )}`,
+      `surveyOutputColumns=${j(Object.entries(surveyOutputColumns))}`,
       L3,
    )
 
    const surveyOutputCollectionSchema = new Schema(surveyOutputColumns)
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
    const surveyOutputCollection = mongoose.model(
       surveyOutputCollectionName,
       surveyOutputCollectionSchema,
@@ -288,28 +753,6 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
 
    saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns)
 
-   // await DynamicCollection.deleteOne({
-   //   collectionName: surveyOutputCollectionName,
-   // });
-
-   // const schemaDefinition = {
-   //   field1: String,
-   //   field2: Number,
-   //   // Add more fields as needed
-   // };
-   // const dynamicCollection = new DynamicCollection();
-   // dynamicCollection.collectionName = surveyOutputCollectionName;
-   // dynamicCollection.schemaDefinition = schemaDefinition;
-
-   // const createdDynamicCollection = await dynamicCollection.save();
-   // if (!createdDynamicCollection) {
-   //   throw new Error(`DynamicCollection couldn't be created`);
-   // }
-
-   x = x + 1
-   LogThis(log, `x=${x}`, L3)
-
-   console.log('about to respond')
    res.status(201).json({
       surveySuperiorId: createdSurveySuperior._id,
       surveysCreated: surveysCreated,
@@ -319,634 +762,29 @@ const superSurveyCreateConfig = asyncHandler(async (req, res) => {
    })
 })
 
-// @desc    Creates a new Super Survey configuration
-// @route   POST /api/surveys/
-// @access  Private/Admin
-
-/**
- * @description This function merges the Super Survey configurations coming from the Super Survey JSON template, with the Survey Monkey configurations, and then seves the merged configs into the corresponding Survey Superior, Survey, Questions, CalculatedFields, Outputs and the SurveyOutputs (dynamic table)
- * @route - POST /surveys/surveymonkey
- * @access - Private/Admin
- * @param {*} req - req.body must have the Super Survey configuration template with all configs set there. req.user must be populated by the middleware at authentication.
- */
-const superSurveyCreateConfigIntegratedWithMonkey = asyncHandler(
-   async (req, res) => {
-      const functionName = 'superSurveyCreateConfigIntegratedWithMonkey'
-      const log = new LoggerSettings(srcFileName, functionName)
-      const { superSurveyConfig } = req.body
-      let ownerId = req.user._id
-      superSurveyConfig.owner = ownerId
-      // const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
-
-      // if (!surveyMonkeyToken || surveyMonkeyToken == '') {
-      //    throw new Error(`Survey Monkey token not found.`)
-      // }
-
-      // const configSurveyMonkey = {
-      //   //responseType: "arraybuffer",
-      //   headers: {
-      //     //"Content-Type": "multipart/form-data",
-      //     Authorization: `Bearer ${surveyMonkeyToken}`,
-      //     Accept: "application/json",
-      //   },
-      // };
-
-      const monkeyManager = new SurveyMonkeyManager()
-
-      const result = await SurveySuperior.deleteOne({
-         surveyShortName: superSurveyConfig.surveyShortName,
-      })
-
-      if (!result || !result.acknowledged) {
-         throw new Error(
-            `There was a problem attempting to delete a potentially existing survey for survey name: ${superSurveyConfig.surveyShortName}`,
-         )
-      }
-
-      await SurveySuperior.deleteMany({})
-      await Survey.deleteMany({})
-      await SurveyQuestion.deleteMany({})
-      await SurveyCalculatedField.deleteMany({})
-      await SurveySuperiorOutputLayout.deleteMany({})
-
-      // console.log("superSurveyConfig INPUT values are:");
-      // console.log(superSurveyConfig);
-      // console.log("Survey Configuration Values STRINGIFIED:");
-
-      // if (
-      //    superSurveyConfig.surveyMonkeyId &&
-      //    superSurveyConfig.surveyMonkeyId == ''
-      // ) {
-
-      // }
-
-      // const surveyMonkeyConfigsResult = await SurveyMonkeyConfig.find({
-      //    //surveyMonkeyId: superSurveyConfig.surveyMonkeyId,
-      //    'survey.title': superSurveyConfig.surveyName}
-      // ).lean()
-
-      // if (surveyMonkeyConfigsResult && surveyMonkeyConfigsResult.length <= 0) {
-      //    throw new Error(
-      //       `Survey does not exist in the cached Survey Monkey table`,
-      //    )
-      // }
-      // const surveyMonkeyConfigs = surveyMonkeyConfigsResult[0]
-      //Search in the SurveyMonkeyConfigs collection the config corresponding to this SuperSurvey config from the template. The Survey Monkey config must have already been created/updated using the path surveys/surveymonkey/:id where the id is the Survey Monkey Id for this survey in Survey Monkey, make sure to run that one first.
-      const surveyMonkeyConfigs =
-         await monkeyManager.getSurveyMonkeyConfigByIdorName(
-            superSurveyConfig.surveyMonkeyId,
-            superSurveyConfig.surveyName,
-         )
-
-      if (!surveyMonkeyConfigs) {
-         throw new Error(
-            `No Survey Monkey config found, run surveys/surveymonkey/:id first to download the corresponding Survey Monkey configs for this survey or verify the id or the name in your template matches in Survey Monkey by superSurveyConfig.id=${superSurveyConfig.id} or superSurveyConfig.name=${superSurveyConfig.name}`,
-         )
-      }
-
-      //res.status(201).json(surveyMonkeyConfigs);
-      //Save Survey Superior
-      superSurveyConfig.surveyMonkeyId = surveyMonkeyConfigs.survey.id
-      const superSurvey = new SurveySuperior({
-         owner: ownerId,
-         surveyName: superSurveyConfig.surveyName,
-         surveyShortName: superSurveyConfig.surveyShortName,
-         description: superSurveyConfig.description,
-         surveyMonkeyId: superSurveyConfig.surveyMonkeyId,
-      })
-
-      const createdSurveySuperior = await superSurvey.save()
-
-      let surveysCreated = []
-      let questionsCreated = []
-      //let calculatedFieldsCreated = [];
-      let surveyCreated = null
-      let questions = []
-      let calculatedFields = []
-      let questionItem = null
-      //let questionMonkeyPosition = null
-      // LogThis(
-      //   log,
-      //   `surveyMonkeyConfigs=${JSON.stringify(surveyMonkeyConfigs)}`,
-      //   L3
-      // );
-      let surveyResponse = superSurveyConfig.surveyList[0]
-      let responseInfo = new Survey({
-         superSurveyId: createdSurveySuperior._id,
-         surveyName: surveyResponse.surveyName,
-         surveyShortName: surveyResponse.surveyShortName,
-         description: surveyResponse.description,
-         instructions: surveyResponse.instructions,
-         surveyMonkeyPosition: surveyResponse.surveyMonkeyPosition,
-      })
-      const responseInfoCreated = await responseInfo.save()
-
-      // const responseInfoQuestions = []
-      surveyResponse.questionList.forEach(
-         question => (question.surveyId = responseInfoCreated._id),
-      )
-
-      const responseInfoQuestionsSaved = await SurveyQuestion.insertMany(
-         surveyResponse.questionList,
-      )
-
-      for (let i = 1; i < superSurveyConfig.surveyList.length; i++) {
-         let surveyItem = superSurveyConfig.surveyList[i]
-         LogThis(
-            log,
-            `position=${
-               surveyItem.surveyMonkeyPosition - 1
-            }; surveyItem=${JSON.stringify(surveyItem, null, 1)}`,
-            L3,
-         )
-         let surveyMonkeyItem =
-            surveyMonkeyConfigs.survey.pages[
-               surveyItem.surveyMonkeyPosition - 1
-            ]
-
-         let survey = new Survey({
-            superSurveyId: createdSurveySuperior._id,
-            surveyName: surveyItem.surveyName,
-            surveyShortName: surveyItem.surveyShortName,
-            description: surveyItem.description,
-            instructions: surveyItem.instructions,
-            surveyMonkeyId: surveyMonkeyItem.id,
-            surveyMonkeyPosition: surveyItem.surveyMonkeyPosition,
-         })
-         surveyCreated = await survey.save()
-
-         surveysCreated.push(surveyCreated)
-
-         let surveyMonkeyQuestions = surveyMonkeyItem.questions
-         LogThis(
-            log,
-            `surveyMonkeyQuestions=${JSON.stringify(
-               surveyMonkeyQuestions,
-               null,
-               1,
-            )}`,
-            L3,
-         )
-
-         for (let x = 0; x < surveyItem.questionList.length; x++) {
-            questionItem = surveyItem.questionList[x]
-            LogThis(
-               log,
-               `questionItem.surveyMonkeyPosition.position=${questionItem.surveyMonkeyPosition.position}`,
-               L3,
-            )
-
-            let monkeyQuestionItem = surveyMonkeyQuestions.find(question => {
-               LogThis(
-                  log,
-                  `questio.position=${question.position}; monkeyPosition=${
-                     questionItem.surveyMonkeyPosition.position
-                  }; condition=${
-                     question.position ==
-                     questionItem.surveyMonkeyPosition.position
-                  }`,
-                  L3,
-               )
-
-               return (
-                  question.position ==
-                  questionItem.surveyMonkeyPosition.position
-               )
-            })
-            LogThis(
-               log,
-               `monkeyQuestionItem=${JSON.stringify(
-                  monkeyQuestionItem,
-                  null,
-                  1,
-               )}`,
-               L3,
-            )
-            if (!monkeyQuestionItem) {
-               throw new Error(
-                  `Monkey Question Item not found for questionItem=${j(
-                     questionItem,
-                  )}`,
-               )
-            }
-            let monkeyQuestionDetails = monkeyQuestionItem.details
-            let monkeyQuestionId = monkeyQuestionItem.id
-            let family = monkeyQuestionDetails.family
-            let subtype = monkeyQuestionDetails.subtype
-            let monkeyQuestionAnswers = null
-            let questionMonkeyPosition = null
-            switch (family + '_' + subtype) {
-               case 'open_ended_single':
-                  monkeyQuestionAnswers = {
-                     answerField: 'text',
-                     answerChoices: null,
-                  }
-                  break
-               case 'single_choice_menu':
-                  questionMonkeyPosition = questionItem.surveyMonkeyPosition
-                  if (questionMonkeyPosition.answerType == 'other') {
-                     monkeyQuestionAnswers = {
-                        answerField: 'text',
-                        answerChoices: {
-                           id: monkeyQuestionDetails.answers.other.id,
-                           value: monkeyQuestionDetails.answers.other.position,
-                           realValue: '',
-                           score: null,
-                        },
-                     }
-                  } else if (questionMonkeyPosition.answerType == 'noother') {
-                     monkeyQuestionAnswers = {
-                        answerField: 'choice_id',
-                        answerChoices:
-                           monkeyQuestionDetails.answers.choices.map(choice => {
-                              return {
-                                 id: choice.id,
-                                 value: choice.position,
-                                 realValue: choice.text.trim(),
-                                 score: choice.quiz_options.score,
-                              }
-                           }),
-                     }
-                  } else {
-                     LogThis(
-                        log,
-                        `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
-                        L3,
-                     )
-                     throw new Error(
-                        `Survey monkey position answer type ${questionMonkeyPosition.answerType} is not valid.`,
-                     )
-                  }
-                  break
-               case 'single_choice_vertical':
-                  questionMonkeyPosition = questionItem.surveyMonkeyPosition
-                  if (questionMonkeyPosition.answerType == 'other') {
-                     monkeyQuestionAnswers = {
-                        answerField: 'text',
-                        answerChoices: {
-                           id: monkeyQuestionDetails.answers.other.id,
-                           value: monkeyQuestionDetails.answers.other.position,
-                           realValue: '',
-                           score: null,
-                        },
-                     }
-                  } else if (questionMonkeyPosition.answerType == 'noother') {
-                     monkeyQuestionAnswers = {
-                        answerField: 'choice_id',
-                        answerChoices:
-                           monkeyQuestionDetails.answers.choices.map(choice => {
-                              return {
-                                 id: choice.id,
-                                 value: choice.position,
-                                 realValue: choice.text.trim(),
-                                 score: choice.quiz_options.score,
-                              }
-                           }),
-                     }
-                  } else {
-                     LogThis(
-                        log,
-                        `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
-                        L3,
-                     )
-                     throw new Error(
-                        `Survey monkey position type ${questionMonkeyPosition.answerType} is not valid.`,
-                     )
-                  }
-                  break
-               case 'matrix_rating': // for creating survey from survey monkey
-                  {
-                     let surveyMonkeyQuestion =
-                        monkeyQuestionDetails.answers.rows.find(
-                           monkeyQuestion =>
-                              questionItem.surveyMonkeyPosition.subPosition ==
-                              monkeyQuestion.position,
-                        )
-
-                     if (!surveyMonkeyQuestion) {
-                        LogThis(
-                           log,
-                           `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
-                        )
-                        throw new Error(
-                           `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
-                        )
-                     }
-
-                     monkeyQuestionId = surveyMonkeyQuestion.id
-
-                     monkeyQuestionAnswers = {
-                        answerField: 'choice_id',
-                        answerChoices:
-                           monkeyQuestionDetails.answers.choices.map(choice => {
-                              return {
-                                 id: choice.id,
-                                 value: choice.position,
-                                 realValue: choice.text.trim(),
-                                 score: choice.weight,
-                              }
-                           }),
-                     }
-                  }
-                  break
-
-               case 'multiple_choice_vertical': // for creating survey from survey monkey
-                  {
-                     let surveyMonkeyQuestion =
-                        monkeyQuestionDetails.answers.choices.find(
-                           monkeyQuestion =>
-                              questionItem.surveyMonkeyPosition.subPosition ==
-                              monkeyQuestion.position,
-                        )
-
-                     if (!surveyMonkeyQuestion) {
-                        LogThis(
-                           log,
-                           `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
-                        )
-                        throw new Error(
-                           `Question for field ${questionItem.fieldName} not found in Survey Monkey configs`,
-                        )
-                     }
-
-                     monkeyQuestionId = surveyMonkeyQuestion.id
-
-                     monkeyQuestionAnswers = {
-                        answerField: 'choice_id',
-                        answerChoices: [
-                           {
-                              id: surveyMonkeyQuestion.id,
-                              value: surveyMonkeyQuestion.position,
-                              realValue: surveyMonkeyQuestion.text.trim(),
-                              score: surveyMonkeyQuestion.quiz_options.score,
-                           },
-                        ],
-                     }
-                  }
-                  break
-               default:
-                  LogThis(
-                     log,
-                     `Family:${family} and subType=${subtype} combination is not valid.`,
-                     L3,
-                  )
-                  throw new Error(
-                     `Family:${family} and subType=${subtype} combination is not valid.`,
-                  )
-            }
-
-            let newQuestion = {
-               surveyId: surveyCreated._id,
-               question: questionItem.question,
-               questionShort: questionItem.questionShort,
-               fieldName: questionItem.fieldName,
-               weightType: questionItem.weightType,
-               weights: questionItem.weights,
-               surveyCol: questionItem.surveyCol,
-               superSurveyCol: questionItem.superSurveyCol,
-               surveyMonkeyId: monkeyQuestionId,
-               surveyMonkeyPosition: questionItem.surveyMonkeyPosition,
-               surveyMonkeyFamily: monkeyQuestionItem.details.family,
-               surveyMonkeySubType: monkeyQuestionItem.details.subtype,
-               surveyMonkeyAnswers: monkeyQuestionAnswers,
-            }
-
-            // let surveyMonkeyQuestion = surveyMonkeyQuestions[x];
-            // LogThis(
-            //   log,
-            //   `questionItem.question=${JSON.stringify(
-            //     questionItem.question
-            //   )}; surveyMonkeyQuestion.heading=${
-            //     surveyMonkeyQuestion.heading
-            //   };surveyMonkeyQuestion=${JSON.stringify(surveyMonkeyQuestion)}`,
-            //   L3
-            // );
-            // newQuestion.surveyMonkeyId = surveyMonkeyQuestion.id;
-            // newQuestion.surveyMonkeyPosition = surveyMonkeyQuestion.position;
-
-            // let surveyMonkeyQuestionsDetailsResult = await axios.get(
-            //   `https://api.surveymonkey.com/v3/surveys/${createdSurveySuperior.surveyMonkeyId}/pages/${surveyItem.surveyMonkeyId}/questions/${surveyMonkeyQuestion.id}`,
-            //   configSurveyMonkey
-            // );
-            // let surveyMonkeyQuestionsDetails =
-            //   surveyMonkeyQuestionsDetailsResult.data;
-
-            // LogThis(
-            //   log,
-            //   `surveyMonkeyQuestionsDetails=${JSON.stringify(
-            //     surveyMonkeyQuestionsDetails
-            //   )}`,
-            //   L3
-            // );
-            // newQuestion.surveyMonkeyFamily = surveyMonkeyQuestionsDetails.family;
-            // newQuestion.surveyMonkeySubType = surveyMonkeyQuestionsDetails.subtype;
-
-            // switch (surveyMonkeyQuestionsDetails.family) {
-            //   case "open_ended":
-            //     break;
-            //   case "single_choice":
-            //     switch (surveyMonkeyQuestionsDetails.subtype) {
-            //       case "menu":
-            //         if (surveyMonkeyQuestionsDetails.answers.choices ?? false) {
-            //           let choices = surveyMonkeyQuestionsDetails.answers.choices;
-            //           LogThis(log, `choices=${JSON.stringify(choices)}`, L3);
-
-            //           let choicesFields = choices.map((choice) => {
-            //             return {
-            //               id: choice.id,
-            //               value: choice.position,
-            //               realValue: choice.text,
-            //               weightedValue: choice.quiz_options.score,
-            //             };
-            //           });
-            //           LogThis(
-            //             log,
-            //             `choicesFields=${JSON.stringify(choicesFields)}`,
-            //             L3
-            //           );
-            //           newQuestion.surveyMonkeyAnswers = { choices: choicesFields };
-            //         }
-
-            //         if (surveyMonkeyQuestionsDetails.answers.other ?? false) {
-            //           newQuestion.surveyMonkeyAnswers.other = {
-            //             id: surveyMonkeyQuestionsDetails.answers.other.id,
-            //             value: surveyMonkeyQuestionsDetails.answers.other.position,
-            //             questionText:
-            //               surveyMonkeyQuestionsDetails.answers.other.text,
-            //           };
-            //         }
-
-            //         LogThis(
-            //           log,
-            //           `newQuestion.surveyMonkeyAnswers=${JSON.stringify(
-            //             newQuestion.surveyMonkeyAnswers
-            //           )}`,
-            //           L3
-            //         );
-            //         break;
-            //       default:
-            //         break;
-            //     }
-            //   default:
-            //     break;
-            // }
-
-            questions.push(newQuestion)
-            LogThis(log, `questions=${JSON.stringify(questions, null, 2)}`, L3)
-         }
-
-         for (
-            let x = 0;
-            surveyItem.calculatedFieldList &&
-            x < surveyItem.calculatedFieldList.length;
-            x++
-         ) {
-            calculatedFieldItem = surveyItem.calculatedFieldList[x]
-            calculatedFields
-            calculatedFields.push({
-               surveyId: surveyCreated._id,
-               description: calculatedFieldItem.description,
-               shortDescription: calculatedFieldItem.shortDescription,
-               fieldName: calculatedFieldItem.fieldName,
-               calculationType: calculatedFieldItem.calculationType,
-               criteria: calculatedFieldItem.criteria ?? null,
-               group: calculatedFieldItem.group,
-               sequence: calculatedFieldItem.sequence,
-            })
-         }
-         questionsCreated = await SurveyQuestion.insertMany(questions)
-         questions = []
-         if (calculatedFields.length > 0) {
-            calculatedFieldsCreated = await SurveyCalculatedField.insertMany(
-               calculatedFields,
-            )
-            calculatedFields = []
-         }
-      } //CLOSE SURVEY LOOP HERE
-
-      let outputLayouts = superSurveyConfig.surveySuperiorOutputLayout.sort(
-         (a, b) => a.sequence - b.sequence,
-      )
-      LogThis(log, `outputLayouts = ${JSON.stringify(outputLayouts)}`, L3)
-      let outputLayoutFields = []
-      for (let i = 0; i < outputLayouts.length; i++) {
-         outputLayout = outputLayouts[i]
-         outputLayoutFields.push({
-            surveySuperiorId: createdSurveySuperior._id,
-            surveyShortName: outputLayout.surveyShortName,
-            fieldName: outputLayout.fieldName,
-            outputAsReal: outputLayout.outputAsReal,
-            showInSurveyOutputScreen: outputLayout.showInSurveyOutputScreen,
-            sequence: outputLayout.sequence,
-         })
-      }
-      LogThis(
-         log,
-         `outputLayoutFields = ${JSON.stringify(outputLayoutFields)}`,
-         L3,
-      )
-      const createdOutputLayout = await SurveySuperiorOutputLayout.insertMany(
-         outputLayoutFields,
-      )
-
-      //Start Output Collection
-
-      const surveyOutputCollectionName =
-         `surveyOutputs_${superSurveyConfig.surveyShortName}`.toLocaleLowerCase()
-      // LogThis(
-      //    log,
-      //    `x=${x}; surveyOutputCollectionName=${surveyOutputCollectionName}`,
-      //    L3,
-      // )
-      const collections = await mongoose.connection.db
-         .listCollections({ name: surveyOutputCollectionName })
-         .toArray()
-      const collInfo = collections.find(
-         collection => collection.name === surveyOutputCollectionName,
-      )
-      if (collInfo) {
-         LogThis(log, `dropping surveyOutputCollectionName`, L3)
-         let surveyOutputCollection = await mongoose.connection.collection(
-            surveyOutputCollectionName,
-         )
-
-         await surveyOutputCollection.drop()
-
-         LogThis(log, `dropped surveyOutputCollectionName`, L3)
-
-         delete mongoose.models[surveyOutputCollectionName]
-         LogThis(log, `deleted models`, L3)
-      }
-
-      let surveyOutputColumns = {}
-
-      outputLayoutFields.forEach(column => {
-         LogThis(
-            log,
-            `output Layout Field column=${JSON.stringify(column)}`,
-            L3,
-         )
-         switch (column.fieldName) {
-            case 'SCOLINFO_date_created':
-               surveyOutputColumns[column.fieldName] =
-                  mongoose.Schema.Types.Date
-               break
-            case 'SCOLINFO_date_modified':
-               surveyOutputColumns[column.fieldName] =
-                  mongoose.Schema.Types.Date
-               break
-            default:
-               surveyOutputColumns[column.fieldName] =
-                  mongoose.Schema.Types.String
-         }
-      })
-      LogThis(
-         log,
-         `surveyOutputColumns=${j(Object.entries(surveyOutputColumns))}`,
-         L3,
-      )
-
-      const surveyOutputCollectionSchema = new Schema(surveyOutputColumns)
-      const surveyOutputCollection = mongoose.model(
-         surveyOutputCollectionName,
-         surveyOutputCollectionSchema,
-      )
-
-      saveDynamicModelToDB(surveyOutputCollectionName, surveyOutputColumns)
-
-      res.status(201).json({
-         surveySuperiorId: createdSurveySuperior._id,
-         surveysCreated: surveysCreated,
-         questionsCreated: questionsCreated,
-         createdOutputLayout: createdOutputLayout,
-         surveyOutputCollectionSchema: surveyOutputCollectionSchema,
-      })
-   },
-)
-
-const testSurveyMonkey = asyncHandler(async (req, res) => {
+const testMonkey = asyncHandler(async (req, res) => {
    const functionName = 'superSurveyCreateConfig'
    const log = new LoggerSettings(srcFileName, functionName)
    const { superSurveyConfig } = req.body
    let ownerId = req.user._id
-   const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
+   const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
-   if (!surveyMonkeyToken || surveyMonkeyToken == '') {
+   if (!monkeyToken || monkeyToken == '') {
       throw new Error(`Survey Monkey token not found.`)
    }
 
-   const configSurveyMonkey = {
+   const configMonkey = {
       //responseType: "arraybuffer",
       headers: {
          //"Content-Type": "multipart/form-data",
-         Authorization: `Bearer ${surveyMonkeyToken}`,
+         Authorization: `Bearer ${monkeyToken}`,
          Accept: 'application/json',
       },
    }
 
    const surveysResult = await axios.get(
       `https://api.surveymonkey.com/v3/surveys`,
-      configSurveyMonkey,
+      configMonkey,
    )
    const surveys = surveysResult.data.data
    LogThis(log, `surveys=${JSON.stringify(surveys)}`, L3)
@@ -956,8 +794,8 @@ const testSurveyMonkey = asyncHandler(async (req, res) => {
    })
 })
 
-const surveyMonkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
-   const functionName = 'surveyMonkeyWebhookCreatedEvent'
+const monkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
+   const functionName = 'monkeyWebhookCreatedEvent'
    const log = new LoggerSettings(srcFileName, functionName)
 
    LogThis(log, `START`, L3)
@@ -976,8 +814,8 @@ const surveyMonkeyWebhookCreatedEvent = asyncHandler(async (req, res) => {
    res.status(200).end()
 })
 
-const surveyMonkeyWebhookCompletedEventHelper = async req => {
-   const functionName = 'surveyMonkeyWebhookCompletedEventHelper'
+const monkeyWebhookCompletedEventHelper = async req => {
+   const functionName = 'monkeyWebhookCompletedEventHelper'
    const log = new LoggerSettings(srcFileName, functionName)
 
    try {
@@ -1014,7 +852,7 @@ const surveyMonkeyWebhookCompletedEventHelper = async req => {
       const resources = bd.resources
 
       const superSurveyFound = await SurveySuperior.findOne({
-         surveyMonkeyId: resources.survey_id,
+         monkeyId: resources.survey_id,
       }).lean()
 
       if (!superSurveyFound) {
@@ -1028,9 +866,9 @@ const surveyMonkeyWebhookCompletedEventHelper = async req => {
          L0,
       )
 
-      // let newResponseFound = await SurveyMonkeyNewResponse.findOne({
+      // let newResponseFound = await MonkeyNewResponse.findOne({
       //    respondent_id: resources.respondent_id,
-      //    surveyMonkeyId: resources.survey_id,
+      //    monkeyId: resources.survey_id,
       // })
 
       // if (newResponseFound) {
@@ -1054,8 +892,8 @@ const surveyMonkeyWebhookCompletedEventHelper = async req => {
       //       }`,
       //       L0,
       //    )
-      //    newResponseFound = new SurveyMonkeyNewResponse({
-      //       surveyMonkeyId: resources.survey_id,
+      //    newResponseFound = new MonkeyNewResponse({
+      //       monkeyId: resources.survey_id,
       //       respondent_id: resources.respondent_id,
       //       event_type: bd.event_type,
       //       event_datetime: bd.event_datetime,
@@ -1073,19 +911,11 @@ const surveyMonkeyWebhookCompletedEventHelper = async req => {
          `Saving new response trigger into database completed for respondent_id ${resources.respondent_id}`,
          L0,
       )
-      LogThis(
-         log,
-         `Processing of surveyMonkeyUpdateResponses2Helper started`,
-         L0,
-      )
+      LogThis(log, `Processing of monkeyUpdateResponses2Helper started`, L0)
 
-      LogThis(
-         log,
-         `Processing of surveyMonkeyUpdateResponses2Helper started`,
-         L0,
-      )
-      const updateResponseRes = await surveyMonkeyUpdateResponses2Helper(req)
-      LogThis(log, `Processing of surveyMonkeyUpdateResponses2Helper ended`, L0)
+      LogThis(log, `Processing of monkeyUpdateResponses2Helper started`, L0)
+      const updateResponseRes = await monkeyUpdateResponses2Helper(req)
+      LogThis(log, `Processing of monkeyUpdateResponses2Helper ended`, L0)
 
       return true
    } catch (error) {
@@ -1094,16 +924,84 @@ const surveyMonkeyWebhookCompletedEventHelper = async req => {
    }
 }
 
-const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
+const bulkMonkeyWebhookCompletedEventTalentosRedesign2020 = asyncHandler(
    async (req, res) => {
-      const functionName = 'surveyMonkeyWebhookCompletedEventTalentos2020'
+      const functionName = 'bulkMonkeyWebhookCompletedEventTalentosRedesign2020'
+      const log = new LoggerSettings(srcFileName, functionName)
+
+      try {
+         LogThis(log, `START`, L0)
+         //LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
+
+         const respondentIdsList = req.body.respondentIdsList
+         const reqWebhook = {}
+         let result = null
+         let respondentIdProcessed = []
+         for (const respondentId of respondentIdsList) {
+            webhookCompletedEventRequestTemplate.object_id = respondentId
+            webhookCompletedEventRequestTemplate.resources.respondent_id =
+               respondentId
+            reqWebhook.body = webhookCompletedEventRequestTemplate
+            result = await monkeyUpdateResponses2RedesignHelper(reqWebhook)
+            respondentIdProcessed.push(respondentId)
+         }
+
+         if (respondentIdProcessed) {
+            //res.status(200).end()
+            res.status(200).json({
+               result: respondentIdProcessed,
+            })
+         } else {
+            res.status(500).end()
+         }
+
+         //res.status(200).json({ updateResponseRes: updateResponseRes })
+         //res.status(200).end()
+      } catch (error) {
+         LogThis(log, `Error found: ${error.message}`, L0)
+         res.status(500).end()
+      }
+   },
+)
+
+const monkeyWebhookCompletedEventTalentosRedesign2020 = asyncHandler(
+   async (req, res) => {
+      const functionName = 'monkeyWebhookCompletedEventTalentosRedesign2020'
+      const log = new LoggerSettings(srcFileName, functionName)
+
+      try {
+         LogThis(log, `START`, L0)
+         //LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
+
+         const result = await monkeyUpdateResponses2RedesignHelper(req)
+         if (result) {
+            //res.status(200).end()
+            res.status(200).json({
+               result: result,
+            })
+         } else {
+            res.status(500).end()
+         }
+
+         //res.status(200).json({ updateResponseRes: updateResponseRes })
+         //res.status(200).end()
+      } catch (error) {
+         LogThis(log, `Error found: ${error.message}`, L0)
+         res.status(500).end()
+      }
+   },
+)
+
+const monkeyWebhookCompletedEventTalentos2020 = asyncHandler(
+   async (req, res) => {
+      const functionName = 'monkeyWebhookCompletedEventTalentos2020'
       const log = new LoggerSettings(srcFileName, functionName)
 
       try {
          LogThis(log, `START`, L0)
          LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
 
-         const result = await surveyMonkeyUpdateResponses2Helper(req)
+         const result = await monkeyUpdateResponses2Helper(req)
          if (result) {
             res.status(200).end()
          } else {
@@ -1119,8 +1017,8 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
    },
 )
 
-// const getSurveyMonkeyResponses = asyncHandler(async (req, res) => {
-//    const functionName = 'updateSurveyMonkeyConfigs'
+// const getMonkeyResponses = asyncHandler(async (req, res) => {
+//    const functionName = 'updateMonkeyConfigs'
 //    const log = new LoggerSettings(srcFileName, functionName)
 //    //const { superSurveyConfig } = req.body;
 //    //let ownerId = req.user._id;
@@ -1129,17 +1027,17 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
 //    const superSurveyId = req.params.id
 
 //    LogThis(log, `START superSurveyId=${superSurveyId}`, L3)
-//    const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
+//    const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
-//    if (!surveyMonkeyToken || surveyMonkeyToken == '') {
+//    if (!monkeyToken || monkeyToken == '') {
 //       throw new Error(`Survey Monkey token not found.`)
 //    }
 
-//    const configSurveyMonkey = {
+//    const configMonkey = {
 //       //responseType: "arraybuffer",
 //       headers: {
 //          //"Content-Type": "multipart/form-data",
-//          Authorization: `Bearer ${surveyMonkeyToken}`,
+//          Authorization: `Bearer ${monkeyToken}`,
 //          Accept: 'application/json',
 //       },
 //    }
@@ -1148,11 +1046,11 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
 //       surveySuperiorId: superSurveyId,
 //    })
 
-//    if (superSurvey.surveyMonkeyId == '') {
+//    if (superSurvey.monkeyId == '') {
 //       //Start getting survey monkey configs
 //       const surveysResult = await axios.get(
 //          `https://api.surveymonkey.com/v3/surveys`,
-//          configSurveyMonkey,
+//          configMonkey,
 //       )
 //       const surveys = surveysResult.data.data
 //       const surveyFound = surveys.find(
@@ -1161,42 +1059,42 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
 //       if (!surveyFound) {
 //          throw new Error('Survey not found.')
 //       } else {
-//          superSurvey.surveyMonkeyId = surveyFound.id
+//          superSurvey.monkeyId = surveyFound.id
 //          superSurvey = await superSurvey.save()
 //       }
 //    }
-//    const surveyMonkeyId = superSurvey.surveyMonkeyId
+//    const monkeyId = superSurvey.monkeyId
 
-//    await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId })
+//    await MonkeyConfig.deleteOne({ monkeyId: monkeyId })
 
 //    //Start getting survey monkey configs
 //    const surveyInfoResult = await axios.get(
-//       `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}`,
-//       configSurveyMonkey,
+//       `https://api.surveymonkey.com/v3/surveys/${monkeyId}`,
+//       configMonkey,
 //    )
 
 //    const surveyInfo = surveyInfoResult.data
 
-//    const surveyMonkeyInfo = { survey: {} }
+//    const monkeyInfo = { survey: {} }
 
-//    surveyMonkeyInfo.survey.title = surveyInfo.title
-//    surveyMonkeyInfo.survey.category = surveyInfo.category
-//    surveyMonkeyInfo.survey.question_count = surveyInfo.question_count
-//    surveyMonkeyInfo.survey.page_count = surveyInfo.page_count
-//    surveyMonkeyInfo.survey.date_created = surveyInfo.date_created
-//    surveyMonkeyInfo.survey.date_modified = surveyInfo.date_modified
-//    surveyMonkeyInfo.survey.id = surveyInfo.id
+//    monkeyInfo.survey.title = surveyInfo.title
+//    monkeyInfo.survey.category = surveyInfo.category
+//    monkeyInfo.survey.question_count = surveyInfo.question_count
+//    monkeyInfo.survey.page_count = surveyInfo.page_count
+//    monkeyInfo.survey.date_created = surveyInfo.date_created
+//    monkeyInfo.survey.date_modified = surveyInfo.date_modified
+//    monkeyInfo.survey.id = surveyInfo.id
 
 //    LogThis(
 //       log,
-//       `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+//       `monkeyInfo=${JSON.stringify(monkeyInfo, null, 2)}`,
 //       L3,
 //    )
 
 //    //Start getting survey monkey configs
 //    const pagesResult = await axios.get(
-//       `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages`,
-//       configSurveyMonkey,
+//       `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages`,
+//       configMonkey,
 //    )
 
 //    const pages = pagesResult.data.data
@@ -1207,8 +1105,8 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
 //       page = pages[pageIndex]
 //       //Start getting survey monkey configs
 //       let questionsResult = await axios.get(
-//          `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions`,
-//          configSurveyMonkey,
+//          `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${page.id}/questions`,
+//          configMonkey,
 //       )
 //       let questions = questionsResult.data.data
 
@@ -1223,8 +1121,8 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
 //          let question = page.questions[questionIndex]
 
 //          let questionDetailsResult = await axios.get(
-//             `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions/${question.id}`,
-//             configSurveyMonkey,
+//             `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${page.id}/questions/${question.id}`,
+//             configMonkey,
 //          )
 
 //          let questionDetails = questionDetailsResult.data
@@ -1238,28 +1136,28 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
 //       }
 //    }
 
-//    surveyMonkeyInfo.survey.pages = pages
-//    const surveyMonkeyConfig = new SurveyMonkeyConfig({
+//    monkeyInfo.survey.pages = pages
+//    const monkeyConfig = new MonkeyConfig({
 //       superSurveyId: superSurveyId,
-//       surveyMonkeyId: surveyMonkeyId,
-//       survey: surveyMonkeyInfo.survey,
+//       monkeyId: monkeyId,
+//       survey: monkeyInfo.survey,
 //    })
 
 //    LogThis(
 //       log,
-//       `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+//       `monkeyInfo=${JSON.stringify(monkeyInfo, null, 2)}`,
 //       L3,
 //    )
 
-//    const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save()
-//    if (!surveyMonkeyConfigSaved) {
+//    const monkeyConfigSaved = await monkeyConfig.save()
+//    if (!monkeyConfigSaved) {
 //       res.status(401).json({
-//          surveyMonkeyInfo: surveyMonkeyInfo,
+//          monkeyInfo: monkeyInfo,
 //       })
 //       throw new Error('Error saving Survey Monkey Config into database.')
 //    } else {
 //       res.status(201).json({
-//          surveyMonkeyInfo: surveyMonkeyInfo,
+//          monkeyInfo: monkeyInfo,
 //       })
 //    }
 // })
@@ -1269,48 +1167,48 @@ const surveyMonkeyWebhookCompletedEventTalentos2020 = asyncHandler(
  * PUT /surveymonkey/:id
  * PRE-REQUISITES: Survey must already exist in the SurveySuperior collection, otherwise run the POST /surveys path function superSurveyCreateConfig first.
  * ACCESS: User logged in, and must have admin role.
- * - This function updates SurveySuperior with the surveyMonkeyId based on a surveyShortName passed
- * - It also get all the configs for the Survey, Pages, Questions and stores them in the SurveyMonkeyConfigs collection
- * - It will delete from the SurveyMonkeyConfigs collections if there is a survey there matching with the surveyMonkeyId and replace it with the updated confis
+ * - This function updates SurveySuperior with the monkeyId based on a surveyShortName passed
+ * - It also get all the configs for the Survey, Pages, Questions and stores them in the MonkeyConfigs collection
+ * - It will delete from the MonkeyConfigs collections if there is a survey there matching with the monkeyId and replace it with the updated confis
  * @param {*} req - req.params.id must have the surveyShortName.
  * @param {*} res
  */
-const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
-   const functionName = 'updateSurveyMonkeyConfigs'
+const updateMonkeyConfigs = asyncHandler(async (req, res) => {
+   const functionName = 'updateMonkeyConfigs'
    const log = new LoggerSettings(srcFileName, functionName)
    //const { superSurveyConfig } = req.body;
    //let ownerId = req.user._id;
 
    //const paramTest = req.params.id;
-   const surveyMonkeyId = req.params.id
+   const monkeyId = req.params.id
    //const surveyName = req.query.surveyName
 
-   LogThis(log, `START surveyMonkeyId=${surveyMonkeyId}`, L3)
-   // const surveyMonkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
+   LogThis(log, `START monkeyId=${monkeyId}`, L3)
+   // const monkeyToken = process.env.KUARSIS_SURVEY_MONKEY_TOKEN
 
-   // if (!surveyMonkeyToken || surveyMonkeyToken == '') {
+   // if (!monkeyToken || monkeyToken == '') {
    //    throw new Error(`Survey Monkey token not found.`)
    // }
 
-   // const configSurveyMonkey = {
+   // const configMonkey = {
    //    //responseType: "arraybuffer",
    //    headers: {
    //       //"Content-Type": "multipart/form-data",
-   //       Authorization: `Bearer ${surveyMonkeyToken}`,
+   //       Authorization: `Bearer ${monkeyToken}`,
    //       Accept: 'application/json',
    //    },
    // }
-   const surveyMonkeyManager = new SurveyMonkeyManager()
+   const monkeyManager = new MonkeyManager()
 
    // let superSurvey = await SurveySuperior.findOne({
    //    surveyShortName: surveyShortName,
    // })
 
-   // if (superSurvey.surveyMonkeyId == '') {
+   // if (superSurvey.monkeyId == '') {
    //    //Start getting survey monkey configs
    //    const surveysResult = await axios.get(
    //       `https://api.surveymonkey.com/v3/surveys`,
-   //       configSurveyMonkey,
+   //       configMonkey,
    //    )
    //    const surveys = surveysResult.data.data
    //    const surveyFound = surveys.find(
@@ -1319,43 +1217,43 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    //    if (!surveyFound) {
    //       throw new Error('Survey not found.')
    //    } else {
-   //       superSurvey.surveyMonkeyId = surveyFound.id
+   //       superSurvey.monkeyId = surveyFound.id
    //       superSurvey = await superSurvey.save()
    //    }
    // }
 
    // const superSurvey =
-   //    surveyMonkeyManager.getSurveyMonkeyConfigById(id)
-   // const surveyMonkeyId = superSurvey.surveyMonkeyId
+   //    monkeyManager.getMonkeyConfigById(id)
+   // const monkeyId = superSurvey.monkeyId
 
    //Start getting survey monkey configs
    // const surveyInfoResult = await axios.get(
-   //    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}`,
-   //    configSurveyMonkey,
+   //    `https://api.surveymonkey.com/v3/surveys/${monkeyId}`,
+   //    configMonkey,
    // )
 
    // const surveyInfo = surveyInfoResult.data
 
-   // const surveyMonkeyInfo = { survey: {} }
+   // const monkeyInfo = { survey: {} }
 
-   // surveyMonkeyInfo.survey.title = surveyInfo.title
-   // surveyMonkeyInfo.survey.category = surveyInfo.category
-   // surveyMonkeyInfo.survey.question_count = surveyInfo.question_count
-   // surveyMonkeyInfo.survey.page_count = surveyInfo.page_count
-   // surveyMonkeyInfo.survey.date_created = surveyInfo.date_created
-   // surveyMonkeyInfo.survey.date_modified = surveyInfo.date_modified
-   // surveyMonkeyInfo.survey.id = surveyInfo.id
+   // monkeyInfo.survey.title = surveyInfo.title
+   // monkeyInfo.survey.category = surveyInfo.category
+   // monkeyInfo.survey.question_count = surveyInfo.question_count
+   // monkeyInfo.survey.page_count = surveyInfo.page_count
+   // monkeyInfo.survey.date_created = surveyInfo.date_created
+   // monkeyInfo.survey.date_modified = surveyInfo.date_modified
+   // monkeyInfo.survey.id = surveyInfo.id
 
    // LogThis(
    //    log,
-   //    `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+   //    `monkeyInfo=${JSON.stringify(monkeyInfo, null, 2)}`,
    //    L3,
    // )
 
    // //Start getting survey monkey configs
    // const pagesResult = await axios.get(
-   //    `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages`,
-   //    configSurveyMonkey,
+   //    `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages`,
+   //    configMonkey,
    // )
 
    // const pages = pagesResult.data.data
@@ -1366,8 +1264,8 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    //    page = pages[pageIndex]
    //    //Start getting survey monkey configs
    //    let questionsResult = await axios.get(
-   //       `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions`,
-   //       configSurveyMonkey,
+   //       `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${page.id}/questions`,
+   //       configMonkey,
    //    )
    //    let questions = questionsResult.data.data
 
@@ -1382,8 +1280,8 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    //       let question = page.questions[questionIndex]
 
    //       let questionDetailsResult = await axios.get(
-   //          `https://api.surveymonkey.com/v3/surveys/${surveyMonkeyId}/pages/${page.id}/questions/${question.id}`,
-   //          configSurveyMonkey,
+   //          `https://api.surveymonkey.com/v3/surveys/${monkeyId}/pages/${page.id}/questions/${question.id}`,
+   //          configMonkey,
    //       )
 
    //       let questionDetails = questionDetailsResult.data
@@ -1397,42 +1295,40 @@ const updateSurveyMonkeyConfigs = asyncHandler(async (req, res) => {
    //    }
    // }
 
-   // surveyMonkeyInfo.survey.pages = pages
-   // const surveyMonkeyConfig = new SurveyMonkeyConfig({
-   //    surveyMonkeyId: surveyMonkeyId,
-   //    survey: surveyMonkeyInfo.survey,
+   // monkeyInfo.survey.pages = pages
+   // const monkeyConfig = new MonkeyConfig({
+   //    monkeyId: monkeyId,
+   //    survey: monkeyInfo.survey,
    // })
 
    // LogThis(
    //    log,
-   //    `surveyMonkeyInfo=${JSON.stringify(surveyMonkeyInfo, null, 2)}`,
+   //    `monkeyInfo=${JSON.stringify(monkeyInfo, null, 2)}`,
    //    L3,
    // )
 
-   // await SurveyMonkeyConfig.deleteOne({ surveyMonkeyId: surveyMonkeyId })
-   // const surveyMonkeyConfigSaved = await surveyMonkeyConfig.save()
-   // if (!surveyMonkeyConfigSaved) {
+   // await MonkeyConfig.deleteOne({ monkeyId: monkeyId })
+   // const monkeyConfigSaved = await monkeyConfig.save()
+   // if (!monkeyConfigSaved) {
    //    res.status(401).json({
-   //       surveyMonkeyInfo: surveyMonkeyInfo,
+   //       monkeyInfo: monkeyInfo,
    //    })
    //    throw new Error('Error saving Survey Monkey Config into database.')
    // } else {
    //    res.status(201).json({
-   //       surveyMonkeyInfo: surveyMonkeyInfo,
+   //       monkeyInfo: monkeyInfo,
    //    })
    // }
-   const surveyMonkeyConfigSaved =
-      await surveyMonkeyManager.getConfigsFromSurveyMonkeyAndUpdateKSSB(
-         surveyMonkeyId,
-      )
-   if (!surveyMonkeyConfigSaved) {
+   const monkeyConfigSaved =
+      await monkeyManager.getConfigsFromMonkeyAndUpdateKSSB(monkeyId)
+   if (!monkeyConfigSaved) {
       res.status(401).json({
-         surveyMonkeyConfig: surveyMonkeyConfigSaved,
+         monkeyConfig: monkeyConfigSaved,
       })
       throw new Error('Error saving Survey Monkey Config into database.')
    } else {
       res.status(201).json({
-         surveyMonkeyInfo: surveyMonkeyConfigSaved,
+         monkeyInfo: monkeyConfigSaved,
       })
    }
 })
@@ -1513,8 +1409,8 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
          superSurveyId: superSurveyId,
          owner: owner,
       })
-         .select('surveyId sequence')
-         .sort({ sequence: 1 })
+         .select('surveyId position')
+         .sort({ position: 1 })
          .lean()
 
       if (!multiSurveys) {
@@ -1580,7 +1476,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
                   calculatedField.surveyId._id.toString() ===
                   surveyId.toString(),
             )
-            .sort((a, b) => a.sequence - b.sequence)
+            .sort((a, b) => a.position - b.position)
 
          allCalculatedFields = [
             ...allCalculatedFields,
@@ -1759,9 +1655,9 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
                   return calField.fieldName == criteria.fieldNameValue[0]
                })
                LogThis(log, `fieldNameValue1=${JSON.stringify(fieldNameValue)}`)
-               let sequence = fieldNameValue.sequence
+               let position = fieldNameValue.position
                calValue = calculatedValues.find(
-                  value => value.col == sequence && value.row == row,
+                  value => value.col == position && value.row == row,
                )
                LogThis(
                   log,
@@ -1842,7 +1738,7 @@ const superSurveyUploadAnswers = asyncHandler(async (req, res) => {
 
       const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
          surveySuperiorId: superSurveyId,
-      }).sort({ sequence: 1 })
+      }).sort({ position: 1 })
 
       // // questions;
       // // calculatedFields;
@@ -2183,7 +2079,7 @@ const getSuperSurveyConfigsHelper = async (
    let multiSurveys = await Survey.find({
       superSurveyId: superSurveyId,
    })
-      .sort({ surveyMonkeyPosition: 1 })
+      .sort({ monkeyPosition: 1 })
       .lean()
 
    if (!multiSurveys) {
@@ -2229,7 +2125,7 @@ const getSuperSurveyConfigsHelper = async (
 
    const outputLayoutsResult = await SurveySuperiorOutputLayout.find({
       surveySuperiorId: superSurveyId,
-   }).sort({ sequence: 1 })
+   }).sort({ position: 1 })
    LogThis(log, `buildOutputHeaders`)
    //co});nsole.log(`Building output headers`);
 
@@ -2350,7 +2246,7 @@ const surveySaveOutputHelper = async (
          let doc = {}
          columnsNames.forEach((column, index) => {
             switch (column) {
-               case 'SCOLINFO_date_created':
+               case 'INFO_3':
                   if (isFromWebhook) {
                      doc[column] = formatDate(row[index])
                   } else {
@@ -2365,7 +2261,7 @@ const surveySaveOutputHelper = async (
                      doc[column] = dateValue
                   }
                   break
-               case 'SCOLINFO_date_modified':
+               case 'INFO_4':
                   if (isFromWebhook) {
                      doc[column] = formatDate(row[index])
                   } else {
@@ -2390,14 +2286,10 @@ const surveySaveOutputHelper = async (
 
       if (outputValueDocuments && outputValueDocuments.length > 0) {
          const respondentsFound = await surveyOutputCollection.find({
-            SCOLINFO_respondent_id: {
+            INFO_1: {
                $in: outputValueDocuments.map(outputValue => {
-                  LogThis(
-                     log,
-                     `respondent id = ${outputValue['SCOLINFO_respondent_id']}`,
-                     L0,
-                  )
-                  return outputValue['SCOLINFO_respondent_id']
+                  LogThis(log, `respondent id = ${outputValue['INFO_1']}`, L0)
+                  return outputValue['INFO_1']
                }),
             },
          })
@@ -2405,19 +2297,14 @@ const surveySaveOutputHelper = async (
          let outputNews = null
          if (respondentsFound && respondentsFound.length > 0) {
             const outputUpdates = outputValueDocuments.filter(doc =>
-               respondentsFound.find(
-                  res =>
-                     doc.SCOLINFO_respondent_id === res.SCOLINFO_respondent_id,
-               ),
+               respondentsFound.find(res => doc.INFO_1 === res.INFO_1),
             )
-            outputUpdates[0].SCOLINFO_date_modified = formatDate(new Date())
+            outputUpdates[0].INFO_4
 
             for (let r = 0; r < respondentsFound.length; r++) {
                let respondentFound = respondentsFound[r]
                let outputUpdate = outputUpdates.find(
-                  update =>
-                     update.SCOLINFO_respondent_id ===
-                     respondentFound.SCOLINFO_respondent_id,
+                  update => update.INFO_1 === respondentFound.INFO_1,
                )
 
                Object.keys(outputUpdate).forEach(key => {
@@ -2425,9 +2312,7 @@ const surveySaveOutputHelper = async (
                })
                LogThis(
                   log,
-                  `updating respondents response ${j(
-                     respondentFound.SCOLINFO_respondent_id,
-                  )}`,
+                  `updating respondents response ${j(respondentFound.INFO_1)}`,
                   L0,
                )
                await respondentFound.save()
@@ -2437,14 +2322,14 @@ const surveySaveOutputHelper = async (
             // const outputCollectionUpdated =
             //    await surveyOutputCollection.updateMany(
             //       {
-            //          SCOLINFO_respondent_id: {
+            //          INFO_1: {
             //             $in: outputUpdates.map(outputUpdate => {
             //                LogThis(
             //                   log,
-            //                   `scolInfoIdList=${outputUpdate.SCOLINFO_respondent_id}`,
+            //                   `scolInfoIdList=${outputUpdate.INFO_1}`,
             //                   L0,
             //                )
-            //                return outputUpdate.SCOLINFO_respondent_id
+            //                return outputUpdate.INFO_1
             //             }),
             //          },
             //       },
@@ -2452,12 +2337,7 @@ const surveySaveOutputHelper = async (
             //    )
 
             outputNews = outputValueDocuments.filter(
-               doc =>
-                  !respondentsFound.find(
-                     res =>
-                        doc.SCOLINFO_respondent_id ===
-                        res.SCOLINFO_respondent_id,
-                  ),
+               doc => !respondentsFound.find(res => doc.INFO_1 === res.INFO_1),
             )
          } else {
             outputNews = outputValueDocuments
@@ -2467,12 +2347,12 @@ const surveySaveOutputHelper = async (
          LogThis(log, `respondents inserted new DONE.`, L3)
       }
 
-      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.SCOLINFO_respondent_id)
+      // let outputUpdates = outputValueDocuments.filter(out => respondentsFoundout.INFO_1)
 
       // if(respondentsFound && respondentsFound.length > 0){
       //    for (let res =0; res < respondentsFound.length; res++){
       //       let respondentFound = respondentsFound[res]
-      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.SCOLINFO_respondent_id === respondentFound.SCOLINFO_respondent_id)
+      //       let outputFound = outputValueDocuments.find(outputDoc => outputDoc.INFO_1 === respondentFound.INFO_1)
       //    }
       // }
 
@@ -2570,11 +2450,40 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          )}`,
          L3,
       )
-      const outputLayouts = await SurveySuperiorOutputLayout.find({
-         surveySuperiorId: superSurveyId,
-      })
-         .sort({ sequence: 1 })
-         .lean()
+      // const outputLayouts = await SurveySuperiorOutputLayout.find({
+      //    surveySuperiorId: superSurveyId,
+      // }).lean()
+
+      const superSurvey = await SurveyMonkeyIntegrated.findOne({
+         superSurveyId: superSurveyId,
+      }).lean()
+
+      const fieldsMap = new Map()
+
+      for (const survey of superSurvey.surveyConfigs.surveys) {
+         for (const field of survey.questions) {
+            field.isCalculated = false
+            fieldsMap.set(field.fieldName, field)
+         }
+
+         for (const field of survey.calculatedFields) {
+            field.isCalculated = true
+            fieldsMap.set(field.fieldName, field)
+         }
+      }
+
+      const outputLayouts = superSurvey.surveyConfigs.outputLayouts
+      for (const outputField of outputLayouts) {
+         let field = null
+         field = fieldsMap.get(outputField.fieldName)
+         if (field.isCalculated) {
+            outputField.question = field.fieldName
+            outputField.questionShort = field.fieldName
+         } else {
+            outputField.question = field.question
+            outputField.questionShort = field.questionShort
+         }
+      }
 
       let x = 0
       x = x + 1
@@ -2630,7 +2539,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
             },
             '-__v',
          )
-         .sort({ SCOLINFO_respondent_id: -1 })
+         .sort({ INFO_1: -1 })
          .limit(pageSize)
          .skip(pageSize * (page - 1))
          .lean()
@@ -2762,10 +2671,8 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
       //await surveyOutputCollectionFound.deleteMany({});
       const respondentIdsInfo = await surveyOutputCollectionFound
          .find({})
-         .select(
-            'SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified',
-         )
-         .sort({ SCOLINFO_respondent_id: -1 })
+         .select('INFO_1 INFO_3 INFO_4')
+         .sort({ INFO_1: -1 })
          .lean()
       //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L3);
       res.status(200).json({
@@ -2782,8 +2689,8 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
    }
 })
 
-// const surveyMonkeyUpdateResponses = asyncHandler(async (req, res) => {
-//   const functionName = "surveyMonkeyUpdateResponses";
+// const monkeyUpdateResponses = asyncHandler(async (req, res) => {
+//   const functionName = "monkeyUpdateResponses";
 //   const log = new LoggerSettings(srcFileName, functionName);
 //   try {
 //     //LogThis(log, `START BY user=${req.user.email}`, L3);
@@ -2796,9 +2703,9 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //       surveyShortName: surveyShortName,
 //     }).lean();
 
-//     const newRespondents = await SurveyMonkeyNewResponse.find({
+//     const newRespondents = await MonkeyNewResponse.find({
 //       $and: [
-//         { surveyMonkeyId: superSurveysList.surveyMonkeyId },
+//         { monkeyId: superSurveysList.monkeyId },
 //         {
 //           $or: [
 //             { process_status: SURVEY_PROCESS_STATUS.NEW },
@@ -2845,12 +2752,12 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //             log,
 //             `THIS monkeySurvey.id=${
 //               monkeySurvey.id
-//             }; surveyConfig.surveyMonkeyId=${
-//               surveyConfig.surveyMonkeyId
-//             } condition: ${monkeySurvey.id == surveyConfig.surveyMonkeyId}`,
+//             }; surveyConfig.monkeyId=${
+//               surveyConfig.monkeyId
+//             } condition: ${monkeySurvey.id == surveyConfig.monkeyId}`,
 //             L3
 //           );
-//           return monkeySurvey.id == surveyConfig.surveyMonkeyId;
+//           return monkeySurvey.id == surveyConfig.monkeyId;
 //         });
 //         if (!monkeySurvey) {
 //           throw new Error(`Survey Monkey response is missing a survey`);
@@ -2864,10 +2771,10 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //           let monkeyQuestion = null;
 //           let monkeyAnswerObject = null;
 //           let monkeyAnswer = null;
-//           //LogThis(log, `question family=${surveyQuestion.surveyMonkeyFamily}`)
+//           //LogThis(log, `question family=${surveyQuestion.monkeyFamily}`)
 //           if (
-//             surveyQuestion.surveyMonkeyFamily == "matrix" &&
-//             surveyQuestion.surveyMonkeySubType == "rating"
+//             surveyQuestion.monkeyFamily == "matrix" &&
+//             surveyQuestion.monkeySubType == "rating"
 //           ) {
 //             if (surveyQuestion.fieldName == "BECK_Nomesientoespecialme") {
 //               LogThis(
@@ -2883,13 +2790,13 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //             }
 //             monkeyQuestion = monkeyQuestions[0].answers.find(
 //               (monkeyQuestion) =>
-//                 monkeyQuestion.row_id == surveyQuestion.surveyMonkeyId
+//                 monkeyQuestion.row_id == surveyQuestion.monkeyId
 //             );
 //             LogThis(log, `monkeyQuestionFound=${j(monkeyQuestion)}`, L3);
 
 //             if (monkeyQuestion) {
 //               monkeyAnswer =
-//                 monkeyQuestion[surveyQuestion.surveyMonkeyAnswers.answerField];
+//                 monkeyQuestion[surveyQuestion.monkeyAnswers.answerField];
 //             } else {
 //               monkeyAnswer = "";
 //             }
@@ -2898,17 +2805,17 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //               LogThis(log, `monkeyAnswer=${monkeyAnswer}`, L3);
 //             }
 //           } else if (
-//             surveyQuestion.surveyMonkeyFamily == "multiple_choice" &&
-//             surveyQuestion.surveyMonkeySubType == "vertical"
+//             surveyQuestion.monkeyFamily == "multiple_choice" &&
+//             surveyQuestion.monkeySubType == "vertical"
 //           ) {
 //             LogThis(log, `monkeyQuestions=${j(monkeyQuestions)}`, L3);
 //             LogThis(log, `surveyQuestion=${j(surveyQuestion)}`, L3);
 
 //             monkeyQuestion = monkeyQuestions[
-//               surveyQuestion.surveyMonkeyPosition - 1
+//               surveyQuestion.monkeyPosition - 1
 //             ].answers.find(
 //               (monkeyQuestion) =>
-//                 monkeyQuestion.choice_id == surveyQuestion.surveyMonkeyId
+//                 monkeyQuestion.choice_id == surveyQuestion.monkeyId
 //             );
 
 //             LogThis(log, `monkeyQuestionFound=${j(monkeyQuestion)}`, L3);
@@ -2932,7 +2839,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //             ) {
 //               monkeyAnswer =
 //                 monkeyQuestion.answers[0][
-//                   surveyQuestion.surveyMonkeyAnswers.answerField
+//                   surveyQuestion.monkeyAnswers.answerField
 //                 ];
 //             } else {
 //               monkeyAnswer = "";
@@ -2959,7 +2866,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //             );
 //             monkeyQuestion = monkeyQuestions.find(
 //               (monkeyQuestion) =>
-//                 monkeyQuestion.id == surveyQuestion.surveyMonkeyId
+//                 monkeyQuestion.id == surveyQuestion.monkeyId
 //             );
 //             LogThis(
 //               log,
@@ -2971,7 +2878,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //               LogThis(log, `not matrix after answer`, L3);
 //               monkeyAnswer =
 //                 monkeyAnswerObject[
-//                   surveyQuestion.surveyMonkeyAnswers.answerField
+//                   surveyQuestion.monkeyAnswers.answerField
 //                 ];
 //             } else {
 //               monkeyAnswer = "";
@@ -2983,9 +2890,9 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //           let score = null;
 
 //           let questionType =
-//             surveyQuestion.surveyMonkeyFamily +
+//             surveyQuestion.monkeyFamily +
 //             "_" +
-//             surveyQuestion.surveyMonkeySubType;
+//             surveyQuestion.monkeySubType;
 //           if (monkeyAnswer != "") {
 //             switch (questionType) {
 //               case "open_ended_single":
@@ -2994,8 +2901,8 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                 score = "";
 //                 break;
 //               case "single_choice_menu":
-//                 //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
-//                 if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
+//                 //questionMonkeyPosition = questionItem.monkeyPosition;
+//                 if (surveyQuestion.monkeyPosition.answerType == "other") {
 //                   if (monkeyAnswer) {
 //                     value = monkeyAnswer;
 //                     realValue = monkeyAnswer.trim();
@@ -3006,10 +2913,10 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                     score = "";
 //                   }
 //                 } else if (
-//                   surveyQuestion.surveyMonkeyPosition.answerType == "noother"
+//                   surveyQuestion.monkeyPosition.answerType == "noother"
 //                 ) {
 //                   let surveyChoice =
-//                     surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+//                     surveyQuestion.monkeyAnswers.answerChoices.find(
 //                       (choice) => choice.id == monkeyAnswer
 //                     );
 //                   value = surveyChoice.value;
@@ -3018,17 +2925,17 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                 } else {
 //                   LogThis(
 //                     log,
-//                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
+//                     `Survey monkey position type ${surveyQuestion.monkeyPosition.answerType} is not valid.`,
 //                     L3
 //                   );
 //                   throw new Error(
-//                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
+//                     `Survey monkey position type ${surveyQuestion.monkeyPosition.answerType} is not valid.`
 //                   );
 //                 }
 //                 break;
 //               case "single_choice_vertical":
-//                 //questionMonkeyPosition = questionItem.surveyMonkeyPosition;
-//                 if (surveyQuestion.surveyMonkeyPosition.answerType == "other") {
+//                 //questionMonkeyPosition = questionItem.monkeyPosition;
+//                 if (surveyQuestion.monkeyPosition.answerType == "other") {
 //                   if (monkeyAnswer) {
 //                     value = monkeyAnswer;
 //                     realValue = monkeyAnswer.trim();
@@ -3039,10 +2946,10 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                     score = "";
 //                   }
 //                 } else if (
-//                   surveyQuestion.surveyMonkeyPosition.answerType == "noother"
+//                   surveyQuestion.monkeyPosition.answerType == "noother"
 //                 ) {
 //                   let surveyChoice =
-//                     surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+//                     surveyQuestion.monkeyAnswers.answerChoices.find(
 //                       (choice) => choice.id == monkeyAnswer
 //                     );
 //                   value = surveyChoice.value;
@@ -3051,18 +2958,18 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                 } else {
 //                   LogThis(
 //                     log,
-//                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`,
+//                     `Survey monkey position type ${surveyQuestion.monkeyPosition.answerType} is not valid.`,
 //                     L3
 //                   );
 //                   throw new Error(
-//                     `Survey monkey position type ${surveyQuestion.surveyMonkeyPosition.answerType} is not valid.`
+//                     `Survey monkey position type ${surveyQuestion.monkeyPosition.answerType} is not valid.`
 //                   );
 //                 }
 //                 break;
 //               case "matrix_rating": //for updating responses from survey monkey
 //                 {
 //                   let surveyChoice =
-//                     surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+//                     surveyQuestion.monkeyAnswers.answerChoices.find(
 //                       (choice) => choice.id == monkeyAnswer
 //                     );
 //                   if (!surveyChoice) {
@@ -3104,7 +3011,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //                     );
 //                   }
 //                   let surveyChoice =
-//                     surveyQuestion.surveyMonkeyAnswers.answerChoices.find(
+//                     surveyQuestion.monkeyAnswers.answerChoices.find(
 //                       (choice) => {
 //                         if (surveyQuestion.fieldName == "ESTRES_5") {
 //                           LogThis(
@@ -3172,7 +3079,7 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //               default:
 //                 LogThis(
 //                   log,
-//                   `Family:${surveyQuestion.surveyMonkeyFamily} and subType=${surveyQuestion.surveyMonkeySubType} combination is not valid.`,
+//                   `Family:${surveyQuestion.monkeyFamily} and subType=${surveyQuestion.monkeySubType} combination is not valid.`,
 //                   L3
 //                 );
 //                 throw new Error(
@@ -3262,9 +3169,9 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //     // const respondentIdsInfo = await surveyOutputCollectionFound
 //     //   .find({})
 //     //   .select(
-//     //     "SCOLINFO_respondent_id SCOLINFO_date_created SCOLINFO_date_modified"
+//     //     "INFO_1 INFO_3 INFO_4"
 //     //   )
-//     //   .sort({ SCOLINFO_respondent_id: -1 })
+//     //   .sort({ INFO_1: -1 })
 //     //   .lean();
 //     // //LogThis(log, `respondentIdsInfo=${JSON.stringify(respondentIdsInfo)}`, L3);
 //     // res.status(200).json({
@@ -3277,8 +3184,8 @@ const superSurveyGetRespondentIds = asyncHandler(async (req, res) => {
 //   }
 // });
 
-const surveyMonkeyUpdateResponses2Helper = async req => {
-   const functionName = 'surveyMonkeyUpdateResponses2Helper'
+const monkeyUpdateResponses2RedesignHelper = async req => {
+   const functionName = 'monkeyUpdateResponses2RedesignHelper'
    const log = new LoggerSettings(srcFileName, functionName)
    let newRespondents = []
    let newResponseFound = null
@@ -3292,12 +3199,12 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
        */
       const bd = req.body
 
-      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
+      // LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
       const resources = bd.resources
 
-      newResponseFound = await SurveyMonkeyNewResponse.findOne({
+      newResponseFound = await MonkeyNewResponse.findOne({
          respondent_id: resources.respondent_id,
-         surveyMonkeyId: resources.survey_id,
+         monkeyId: resources.survey_id,
       })
 
       if (newResponseFound) {
@@ -3320,8 +3227,260 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
             }`,
             L0,
          )
-         newResponseFound = new SurveyMonkeyNewResponse({
-            surveyMonkeyId: resources.survey_id,
+         newResponseFound = new MonkeyNewResponse({
+            monkeyId: resources.survey_id,
+            respondent_id: resources.respondent_id,
+            event_type: bd.event_type,
+            event_datetime: bd.event_datetime,
+            process_status: SURVEY_PROCESS_STATUS.NEW,
+         })
+      }
+      LogThis(
+         log,
+         `Saving new response trigger into database for respondent_id ${resources.respondent_id}`,
+         L0,
+      )
+      newResponseFound = await newResponseFound.save()
+      LogThis(
+         log,
+         `Saving new response trigger into database completed for respondent_id ${resources.respondent_id}`,
+         L0,
+      )
+
+      const surveyConfigsObj = new SurveyMonkeyIntegratedManager()
+
+      const surveyConfigs = await surveyConfigsObj.load(resources.survey_id)
+
+      HasDataException(
+         surveyConfigs,
+         `surveyConfigs not found for ${resources.survey_id}`,
+         log,
+      )
+      newResponseFound.process_status = SURVEY_PROCESS_STATUS.PROCESSING
+
+      await newResponseFound.save()
+
+      newRespondents.push(newResponseFound)
+      const monkeyResponses = await getMonkeyResponses(newRespondents)
+      superSurveysList = surveyConfigs[0]
+      HasDataException(
+         monkeyResponses,
+         `Couldn't get responses from Survey Monkey ${superSurveysList.superSurveyShortName}`,
+         log,
+      )
+
+      if (monkeyResponses.length != newRespondents.length) {
+         throw new Error(
+            `Number of responses from Survey Monkey are different from the count of new responses expected`,
+         )
+      }
+      const superSurveyConfig = surveyConfigs[0].surveyConfigs
+      const surveys = superSurveyConfig.surveys
+      const monkeyPagesAnswersMap = monkeyResponses[0].surveyPagesMap
+      const surveysAnswersMap = new Map()
+      let fieldsAnswersMap = new Map()
+      const subscaleToFieldsMap = new Map()
+      let monkeyPageQuestions = null
+      let monkeyPageAnswers = null
+      let fieldName = null
+      let weightedAnswers = null
+      const allFieldsAnswersMap = new Map()
+      allSurveysFieldsMap = new Map()
+
+      for (const survey of surveys) {
+         if (survey.surveyShortName === 'INFO') {
+            fieldsAnswersMap = new Map()
+            monkeyPageQuestions = monkeyPagesAnswersMap.get(
+               survey.surveyShortName,
+            )
+            for (const question of survey.questions) {
+               fieldName = question.fieldName
+               let answer = null
+               let finalAnswer = {}
+               answer = monkeyPageQuestions.get(fieldName)
+
+               finalAnswer.fieldName = fieldName
+               finalAnswer.isCalculatedField = false
+               finalAnswer.isWeighted = false
+               finalAnswer.realValue = answer
+               finalAnswer.score = 0
+               finalAnswer.value = answer
+               finalAnswer.weightedResponse = answer
+
+               fieldsAnswersMap.set(fieldName, finalAnswer)
+               allFieldsAnswersMap.set(fieldName, finalAnswer)
+               allSurveysFieldsMap.set(fieldName, question)
+            }
+         } else {
+            monkeyPageQuestions = monkeyPagesAnswersMap.get(
+               survey.monkeyInfo.id,
+            )
+            fieldsAnswersMap = new Map()
+            for (const question of survey.questions) {
+               fieldName = question.fieldName
+               //NEXT 222
+               //if (question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL') {
+               monkeyPageAnswers = monkeyPageQuestions.get(
+                  question.monkeyInfo.id,
+               )
+               // } else {
+               //    monkeyPageAnswers = monkeyPageQuestions.get(
+               //       question.monkeyInfo.monkeyAnswers.answerChoices[0].id,
+               //    )
+               // }
+               let answer = null
+               if (
+                  monkeyPageAnswers &&
+                  (question.monkeyInfo.type === 'MULTIPLE_CHOICE_VERTICAL' ||
+                     question.monkeyInfo.type === 'SINGLE_CHOICE_VERTICAL' ||
+                     question.monkeyInfo.type === 'SINGLE_CHOICE_MENU' ||
+                     question.monkeyInfo.type ===
+                        'MULTIPLE_CHOICE_VERTICAL_THREE_COL')
+               ) {
+                  for (const [key, monkeyPageAnswer] of monkeyPageAnswers) {
+                     LogThis(
+                        log,
+                        `question.fieldName=${question.fieldName}; key=${key}`,
+                        L1,
+                     )
+                     let choice_id = null
+                     answer = null
+                     if (monkeyPageAnswer.hasOwnProperty('other_id')) {
+                        choice_id = monkeyPageAnswer.other_id
+                     } else {
+                        choice_id = monkeyPageAnswer.choice_id
+                     }
+                     answer =
+                        question.monkeyInfo.monkeyAnswers.answerChoices.find(
+                           choice => choice.id === choice_id,
+                        )
+                     if (answer) {
+                        answer = monkeyPageAnswer
+                        break
+                     }
+                  }
+               } else {
+                  answer = monkeyPageAnswers
+               }
+
+               //for (const [key, answer] of monkeyPageAnswers) {
+               let monkeyAnswer = AnalyzeQuestionResponseRedesign(
+                  question,
+                  answer,
+               )
+               let weightedAnswer = GetWeightedResponse(question, monkeyAnswer)
+               weightedAnswer.fieldName = fieldName
+               weightedAnswer.isCalculatedField = false
+               fieldsAnswersMap.set(fieldName, weightedAnswer)
+               allFieldsAnswersMap.set(fieldName, weightedAnswer)
+
+               if (subscaleToFieldsMap.has(question.subScale)) {
+                  weightedAnswers = subscaleToFieldsMap.get(question.subScale)
+                  weightedAnswers.push(weightedAnswer)
+               } else {
+                  weightedAnswers = []
+                  weightedAnswers.push(weightedAnswer)
+                  subscaleToFieldsMap.set(question.subScale, weightedAnswers)
+               }
+               allSurveysFieldsMap.set(fieldName, question)
+            }
+
+            for (const calculatedField of survey.calculatedFields) {
+               let initialValue = {
+                  isCalculatedField: true,
+                  calculatedValue: 0,
+               }
+               fieldsAnswersMap.set(calculatedField.fieldName, initialValue)
+               allFieldsAnswersMap.set(calculatedField.fieldName, initialValue)
+               allSurveysFieldsMap.set(
+                  calculatedField.fieldName,
+                  calculatedField,
+               )
+            }
+         }
+
+         processCalculatedFields(survey, fieldsAnswersMap, subscaleToFieldsMap)
+         surveysAnswersMap.set(survey.surveyShortName, fieldsAnswersMap)
+      }
+
+      const outputLayouts = superSurveyConfig.outputLayouts
+      for (const outputField of outputLayouts) {
+         outputField.processedAnswer = allFieldsAnswersMap.get(
+            outputField.fieldName,
+         )
+         outputField.fieldInfo = allSurveysFieldsMap.get(outputField.fieldName)
+      }
+
+      let x = 1
+
+      await surveySaveOutputRedesignedHelper(
+         superSurveyConfig._id,
+         outputLayouts,
+         true,
+      )
+
+      newResponseFound.process_status = SURVEY_PROCESS_STATUS.PROCESSED
+
+      await newResponseFound.save()
+
+      return Array.from(surveysAnswersMap, ([survey, value]) => {
+         let field = Array.from(value, ([name, answer]) => ({ name, answer }))
+         return { survey, field }
+      })
+   } catch (error) {
+      newResponseFound.process_status = SURVEY_PROCESS_STATUS.FAILED
+      const result = await newResponseFound.save()
+      throw new Error(
+         `Error monkeyUpdateResponses2RedesignHelper error=${error.message}`,
+      )
+   }
+}
+
+const monkeyUpdateResponses2Helper = async req => {
+   const functionName = 'monkeyUpdateResponses2Helper'
+   const log = new LoggerSettings(srcFileName, functionName)
+   let newRespondents = []
+   let newResponseFound = null
+   try {
+      //const DEBUG_SECTION = 'RESPONSE_PROCESSING'
+      //LogDebugSection(DEBUG_SECTION)
+      //LogThis(log, `START BY user=${req.user.email}`, L3);
+      /**
+       * On 12/7/23 I was working on the pagination and lookup by keyword
+       * This function won't work without page beein provided by the client, the keyword is optional.
+       */
+      const bd = req.body
+
+      LogThis(log, `resources=${JSON.stringify(bd.resources, null, 2)}`, L0)
+      const resources = bd.resources
+
+      newResponseFound = await MonkeyNewResponse.findOne({
+         respondent_id: resources.respondent_id,
+         monkeyId: resources.survey_id,
+      })
+
+      if (newResponseFound) {
+         LogThis(
+            log,
+            `updating respondent ${resources.respondent_id}, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
+            L0,
+         )
+         newResponseFound.event_type = bd.event_type
+         newResponseFound.event_datetime = bd.event_datetime
+         newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
+      } else {
+         LogThis(log, `creating respondent id ${resources.respondent_id}`, L0)
+         LogThis(
+            log,
+            `resources.event_datetime=${
+               bd.event_datetime
+            }; date converted=${new Date(bd.event_datetime)}; status=${
+               SURVEY_PROCESS_STATUS.NEW
+            }`,
+            L0,
+         )
+         newResponseFound = new MonkeyNewResponse({
+            monkeyId: resources.survey_id,
             respondent_id: resources.respondent_id,
             event_type: bd.event_type,
             event_datetime: bd.event_datetime,
@@ -3342,7 +3501,7 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
 
       //    const surveyShortName = superSurveyFoundIn.surveyShortName
       const superSurveysList = await SurveySuperior.findOne({
-         surveyMonkeyId: resources.survey_id,
+         monkeyId: resources.survey_id,
       }).lean()
 
       HasDataException(
@@ -3351,9 +3510,9 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
          log,
       )
 
-      // newRespondents = await SurveyMonkeyNewResponse.find({
+      // newRespondents = await MonkeyNewResponse.find({
       //    $and: [
-      //       { surveyMonkeyId: superSurveysList.surveyMonkeyId },
+      //       { monkeyId: superSurveysList.monkeyId },
       //       {
       //          $or: [
       //             { process_status: SURVEY_PROCESS_STATUS.NEW },
@@ -3387,8 +3546,8 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
          )
       }
 
-      const surveyMonkeyConfigs = await SurveyMonkeyConfig.findOne({
-         surveyMonkeyId: superSurveysList.surveyMonkeyId,
+      const monkeyConfigs = await MonkeyConfig.findOne({
+         monkeyId: superSurveysList.monkeyId,
       }).lean()
 
       //const surveyRows = [];
@@ -3405,9 +3564,9 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
          rowScore.push([])
       })
 
-      ValidateMonkeyConfigs(surveyMonkeyConfigs, log)
+      ValidateMonkeyConfigs(monkeyConfigs, log)
 
-      const monkeySurveyConf = surveyMonkeyConfigs.survey
+      const monkeySurveyConf = monkeyConfigs.survey
       const monkeyPagesConf = monkeySurveyConf.pages
 
       for (
@@ -3564,7 +3723,7 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
 
             //       let filteredAnswersRows = [];
             //       let filteredRealAnswersRows = [];
-            //       const lastestIdSaved = respondentIdsInfo[0].SCOLINFO_respondent_id;
+            //       const lastestIdSaved = respondentIdsInfo[0].INFO_1;
 
             //       const firstRow = rowCleaner2(answersRows[0]).split(",");
             //       if (firstRow[0] >= lastestIdSaved) {
@@ -3592,7 +3751,7 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
             //           (row) =>
             //             !respondentIdsInfo.find(
             //               (respondentId) =>
-            //                 respondentId.SCOLINFO_respondent_id ==
+            //                 respondentId.INFO_1 ==
             //                 rowCleaner2(row).split(",")[0]
             //             )
             //         );
@@ -3650,7 +3809,7 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
                //    BACKEND_ENDPOINT + `/surveys/${surveySuperiorId}/configs`,
                //    config
                //  );
-               const userId = 'SurveyMonkeyUser'
+               const userId = 'MonkeyUser'
 
                const data = await getSuperSurveyConfigsHelper(
                   userId,
@@ -3718,7 +3877,7 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
                            calculatedField.surveyId._id.toString() ===
                            surveyId.toString(),
                      )
-                     .sort((a, b) => a.sequence - b.sequence)
+                     .sort((a, b) => a.position - b.position)
 
                   surveyCalculatedFields.forEach(cal => {
                      allCalculatedFields.push(cal)
@@ -4007,9 +4166,9 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
                            )}`,
                            L3,
                         )
-                        let sequence = fieldNameValue.sequence
+                        let position = fieldNameValue.position
                         let calValue = calculatedValues.find(
-                           value => value.col == sequence && value.row == row,
+                           value => value.col == position && value.row == row,
                         )
                         LogThis(
                            log,
@@ -4540,11 +4699,11 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
          rowValue: rowValue,
          rowReal: rowReal,
          rowScore: rowScore,
-         surveyMonkeyConfigs: surveyMonkeyConfigs,
+         monkeyConfigs: monkeyConfigs,
          monkeyResponses: monkeyResponses,
       }
    } catch (error) {
-      // //res.status(404).json({ message: 'Error surveyMonkeyUpdateResponses2' })
+      // //res.status(404).json({ message: 'Error monkeyUpdateResponses2' })
       // for (let i = 0; i < newRespondents.length; i++) {
       //    respondent = newRespondents[i]
       //    respondent.process_status = RESPONSE_PROCESSING_COMPLETE_FAILED
@@ -4553,17 +4712,15 @@ const surveyMonkeyUpdateResponses2Helper = async req => {
       newResponseFound.process_status = SURVEY_PROCESS_STATUS.FAILED
       newResponseFound.save()
       throw new Error(
-         `Error surveyMonkeyUpdateResponses2Helper error=${error.message}`,
+         `Error monkeyUpdateResponses2Helper error=${error.message}`,
       )
    }
 }
 
-const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
+const monkeyUpdateResponses2 = asyncHandler(async (req, res) => {
    try {
       const surveyShortName = req.params.id
-      const returnValue = await surveyMonkeyUpdateResponses2Helper(
-         surveyShortName,
-      )
+      const returnValue = await monkeyUpdateResponses2Helper(surveyShortName)
 
       res.header('Content-Type', 'application/json; charset=utf-8')
       res.status(200).json({
@@ -4571,18 +4728,18 @@ const surveyMonkeyUpdateResponses2 = asyncHandler(async (req, res) => {
          rowValue: returnValue.rowValue,
          rowReal: returnValue.rowReal,
          rowScore: returnValue.rowScore,
-         surveyMonkeyConfigs: returnValue.surveyMonkeyConfigs,
+         monkeyConfigs: returnValue.monkeyConfigs,
          monkeyResponses: returnValue.monkeyResponses,
       })
    } catch (error) {
-      res.status(404).json({ message: 'Error surveyMonkeyUpdateResponses2' })
+      res.status(404).json({ message: 'Error monkeyUpdateResponses2' })
       throw error
    }
 })
 
 module.exports = {
    superSurveyUploadAnswers,
-   superSurveyCreateConfig,
+   createSuperSurvey,
    superSurveyTests,
    getSuperSurveyConfigs,
    superSurveyGetList,
@@ -4590,11 +4747,13 @@ module.exports = {
    superSurveyDeleteOutputValues,
    superSurveyGetOutputValues,
    superSurveyGetRespondentIds,
-   updateSurveyMonkeyConfigs,
+   updateMonkeyConfigs,
    superSurveyCreateConfigIntegratedWithMonkey,
-   testSurveyMonkey,
-   surveyMonkeyWebhookCreatedEvent,
-   surveyMonkeyWebhookCompletedEventTalentos2020,
-   //surveyMonkeyUpdateResponses,
-   surveyMonkeyUpdateResponses2,
+   testMonkey,
+   monkeyWebhookCreatedEvent,
+   monkeyWebhookCompletedEventTalentos2020,
+   monkeyWebhookCompletedEventTalentosRedesign2020,
+   bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
+   //monkeyUpdateResponses,
+   monkeyUpdateResponses2,
 }

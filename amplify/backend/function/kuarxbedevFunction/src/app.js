@@ -12,6 +12,20 @@ const { Parameters } = await (new aws.SSM())
 
 Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 */
+/*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN","KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN","KUARSIS_SURVEY_MONKEY_APIKEY"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
 /**
  * Use the following code to retrieve configured secrets from SSM:
  *
@@ -170,15 +184,15 @@ const secretKeyParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR,
 )
 
-const surveyMonkeyTokenParam = getSecretParamNameFromEnv(
+const monkeyTokenParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR,
 )
 
-const surveyMonkeyWebhooksTokenParam = getSecretParamNameFromEnv(
+const monkeyWebhooksTokenParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR,
 )
 
-const surveyMonkeyApiKeyParam = getSecretParamNameFromEnv(
+const monkeyApiKeyParam = getSecretParamNameFromEnv(
    process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR,
 )
 
@@ -218,16 +232,16 @@ const loadParameters = data => {
             process.env[process.env.KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY_VAR] =
                param.Value
             break
-         case surveyMonkeyTokenParam:
+         case monkeyTokenParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_TOKEN_VAR] =
                param.Value
 
             break
-         case surveyMonkeyWebhooksTokenParam:
+         case monkeyWebhooksTokenParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN_VAR] =
                param.Value
             break
-         case surveyMonkeyApiKeyParam:
+         case monkeyApiKeyParam:
             process.env[process.env.KUARSIS_SURVEY_MONKEY_APIKEY_VAR] =
                param.Value
             break
@@ -249,9 +263,9 @@ const params = {
       paypalClientIdParam,
       accessKeyParam,
       secretKeyParam,
-      surveyMonkeyTokenParam,
-      surveyMonkeyWebhooksTokenParam,
-      surveyMonkeyApiKeyParam,
+      monkeyTokenParam,
+      monkeyWebhooksTokenParam,
+      monkeyApiKeyParam,
    ],
    WithDecryption: true,
 }
