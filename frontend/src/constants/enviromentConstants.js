@@ -7,7 +7,7 @@ const ONCARE_RED = 'ONCARE_RED'
 const ONCARE_QA = 'ONCARE_QA'
 const ARTPIXANDEV = 'ARTPIXANDEV'
 const ARTPIXANPROD = 'ARTPIXANPROD'
-const ENVIRONMENT = ONCARE_LOCAL
+const ENVIRONMENT = ONCARE_DEV
 
 // LOCALHOST DEV VARIABLES
 
@@ -59,7 +59,7 @@ switch (ENVIRONMENT) {
       //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
       V_LOG_LEVEL = dev_debug_level
-      V_CURRENT_VERSION = `v1.0.0.5-2024-01-08-18:23`
+      V_CURRENT_VERSION = `v1.0.6.1-2024-03-31-21:46`
       V_BACKEND_ENDPOINT =
          'https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncaredev.kuarxis.com/images'
