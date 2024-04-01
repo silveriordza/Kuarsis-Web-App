@@ -171,12 +171,9 @@ export const testsAction = survey => async (dispatch, getState) => {
    }
 }
 
-export const processAnswersFromSurveyMonkey =
+export const processAnswersFromMonkey =
    survey => async (dispatch, getState) => {
-      const log = new LoggerSettings(
-         srcFileName,
-         'processAnswersFromSurveyMonkey',
-      )
+      const log = new LoggerSettings(srcFileName, 'processAnswersFromMonkey')
       try {
          dispatch({
             type: SURVEY_PROCESS_ANSWERS_REQUEST,
@@ -206,19 +203,19 @@ export const processAnswersFromSurveyMonkey =
          }
 
          //Getting Survey Monkey Token
-         const surveyMonkeyTokenResult = await axios.get(
+         const monkeyTokenResult = await axios.get(
             BACKEND_ENDPOINT + `/configs/surveymonkey`,
             config,
          )
          // LogThis(
          //   log,
-         //   `monkeyTokResult=${JSON.stringify(surveyMonkeyTokenResult)}`,
+         //   `monkeyTokResult=${JSON.stringify(monkeyTokenResult)}`,
          //   L3
          // );
-         const surveyMonkeyToken = surveyMonkeyTokenResult.data
+         const monkeyToken = monkeyTokenResult.data
          // LogThis(
          //   log,
-         //   `surveyMonkeyToken=${JSON.stringify(surveyMonkeyToken)}`,
+         //   `monkeyToken=${JSON.stringify(monkeyToken)}`,
          //   L3
          // );
          const { data } = await axios.get(
@@ -246,11 +243,11 @@ export const processAnswersFromSurveyMonkey =
          })
          await new Promise(resolve => setTimeout(resolve, 1))
 
-         const configSurveyMonkey = {
+         const configMonkey = {
             //responseType: "arraybuffer",
             headers: {
                //"Content-Type": "multipart/form-data",
-               Authorization: `Bearer ${surveyMonkeyToken}`,
+               Authorization: `Bearer ${monkeyToken}`,
                Accept: 'application/json',
             },
          }
@@ -261,25 +258,24 @@ export const processAnswersFromSurveyMonkey =
          LogThis(log, `page is: ${page}`, L3)
          let respondentIdsMonkeyApi = await axios.get(
             `https://api.surveymonkey.com/v3/surveys/182423261/responses?per_page=${pageSize}&page=${page}`,
-            configSurveyMonkey,
+            configMonkey,
          )
-         const surveyMonkeyRespondentIds = respondentIdsMonkeyApi.data
+         const monkeyRespondentIds = respondentIdsMonkeyApi.data
 
          LogThis(
             log,
-            `surveyMonkeyRespondentIds.total=${
-               surveyMonkeyRespondentIds.total
-            }; surveyMonkeyRespondentIds=${JSON.stringify(
-               surveyMonkeyRespondentIds,
+            `monkeyRespondentIds.total=${
+               monkeyRespondentIds.total
+            }; monkeyRespondentIds=${JSON.stringify(
+               monkeyRespondentIds,
                null,
                2,
             )}`,
             L3,
          )
          const newRespondentIds = []
-         const respondentIdsMonkeyData = surveyMonkeyRespondentIds.data
-         const lastExistentRespondentId =
-            existentRespondentIdsInfo[0].SCOLINFO_respondent_id
+         const respondentIdsMonkeyData = monkeyRespondentIds.data
+         const lastExistentRespondentId = existentRespondentIdsInfo[0].INFO_1
          LogThis(
             log,
             `lastExistentRespondentId=${lastExistentRespondentId}`,
@@ -313,15 +309,15 @@ export const processAnswersFromSurveyMonkey =
             `newRespondentIds=${JSON.stringify(newRespondentIds, null, 2)}`,
             L3,
          )
-         // const superSurveyMonkey = await axios.get(
+         // const superMonkey = await axios.get(
          //   `https://api.surveymonkey.com/v3/surveys/182423261/responses?per_page=${pageSize}&page=${page}`,
-         //   configSurveyMonkey
+         //   configMonkey
          // );
 
          dispatch({
             type: SURVEY_PROCESS_ANSWERS_SUCCESS,
             payload: {
-               csvLayout: JSON.stringify(surveyMonkeyRespondentIds),
+               csvLayout: JSON.stringify(monkeyRespondentIds),
                surveySuccessMessage: newRespondentIds.length
                   ? `Procesamiento finalizado. Encuestas procesadas: ${newRespondentIds.length}`
                   : `Procesamiento finalizado. Los archivos no contienen respuestas nuevas. Encuestas procesadas: ${newRespondentIds.length}`,
@@ -439,8 +435,7 @@ export const surveyProcessAnswersAtClientAction =
 
                   let filteredAnswersRows = []
                   let filteredRealAnswersRows = []
-                  const lastestIdSaved =
-                     respondentIdsInfo[0].SCOLINFO_respondent_id
+                  const lastestIdSaved = respondentIdsInfo[0].INFO_1
 
                   const firstRow = rowCleaner2(answersRows[0]).split(',')
                   if (firstRow[0] >= lastestIdSaved) {
@@ -468,7 +463,7 @@ export const surveyProcessAnswersAtClientAction =
                         row =>
                            !respondentIdsInfo.find(
                               respondentId =>
-                                 respondentId.SCOLINFO_respondent_id ==
+                                 respondentId.INFO_1 ==
                                  rowCleaner2(row).split(',')[0],
                            ),
                      )
@@ -592,7 +587,7 @@ export const surveyProcessAnswersAtClientAction =
                            calculatedField.surveyId._id.toString() ===
                            surveyId.toString(),
                      )
-                     .sort((a, b) => a.sequence - b.sequence)
+                     .sort((a, b) => a.position - b.position)
 
                   surveyCalculatedFields.forEach(cal => {
                      allCalculatedFields.push(cal)
@@ -875,9 +870,9 @@ export const surveyProcessAnswersAtClientAction =
                            )}`,
                            L3,
                         )
-                        let sequence = fieldNameValue.sequence
+                        let position = fieldNameValue.position
                         let calValue = calculatedValues.find(
-                           value => value.col == sequence && value.row == row,
+                           value => value.col == position && value.row == row,
                         )
                         LogThis(
                            log,
@@ -1452,7 +1447,7 @@ export const surveyGetOutputValuesAction =
          )
          const { data } = await axios.get(
             BACKEND_ENDPOINT +
-               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.surveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
+               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
             config,
          )
 

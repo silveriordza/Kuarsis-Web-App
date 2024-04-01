@@ -17,6 +17,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import PaginateGeneric from '../components/PaginateGeneric'
+import { saveStringAsCSV } from '../libs/csvProcessingLib'
 
 //import _ from "lodash";
 
@@ -183,6 +184,62 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
+   const GenerateOutputFile = outputId => {
+      let outputText = null
+      const outputValue = surveyOutputsInfo.outputValues.find(
+         output => output._id === outputId,
+      )
+      if (outputValue) {
+         const keys = Object.keys(outputValue)
+         keys.shift()
+         let outputField = null
+         let outputValueData = null
+         keys.map(key => {
+            outputField = surveyOutputsInfo.outputLayouts.find(x => {
+               return x.fieldName == key
+            })
+            if (outputField.showInSurveyOutputScreen) {
+               switch (outputField.fieldName) {
+                  case 'INFO_3':
+                     outputValueData = formatDate(outputValue[key])
+                     break
+                  case 'INFO_4':
+                     outputValueData = formatDate(outputValue[key])
+                     break
+                  default:
+                     outputValueData = outputValue[key]
+               }
+
+               let encoder = new TextEncoder()
+               let utf8Array = encoder.encode(outputValueData)
+               let utf8String = new TextDecoder()
+                  .decode(utf8Array)
+                  .replace(/,/g, ' ')
+                  .replace(/:/g, '')
+               let questionShortutf8Array = encoder.encode(outputField.question)
+               let questionShortUtf8String = new TextDecoder()
+                  .decode(questionShortutf8Array)
+                  .replace(/,/g, ' ')
+                  .replace(/:/g, '')
+
+               if (outputText) {
+                  outputText =
+                     outputText +
+                     '\n' +
+                     `${questionShortUtf8String}: ${utf8String}`
+               } else {
+                  outputText = `${questionShortUtf8String}: ${utf8String}`
+               }
+               return outputText
+            } else {
+               return
+            }
+         })
+         saveStringAsCSV(outputText, `OutputReport_${outputValue.INFO_1}.txt`)
+         console.log(`outputText=${outputText}`)
+      }
+   }
+
    useEffect(() => {
       LogThis(
          log,
@@ -210,13 +267,14 @@ const SurveysOutputData = ({ match, history }) => {
             LogThis(log, `About to dispatch surveyGetOutputValuesAction`, L3)
             LogThis(
                log,
-               `dispatching selectedSurvey._id=${selectedSurveySuperior._id}; selectedSurveySuperior.surveyShortName=${selectedSurveySuperior.surveyShortName}; selectedPageNumber=${selectedPageNumber}; searchKeyword=${searchKeyword};`,
+               `dispatching selectedSurvey._id=${selectedSurveySuperior._id}; selectedSurveySuperior.superSurveyShortName=${selectedSurveySuperior.superSurveyShortName}; selectedPageNumber=${selectedPageNumber}; searchKeyword=${searchKeyword};`,
                L3,
             )
             dispatch(
                surveyGetOutputValuesAction({
                   surveySuperiorId: selectedSurveySuperior._id,
-                  surveyShortName: selectedSurveySuperior.surveyShortName,
+                  superSurveyShortName:
+                     selectedSurveySuperior.superSurveyShortName,
                   pageNumber: selectedPageNumber,
                   keyword: searchKeyword,
                }),
@@ -355,6 +413,7 @@ const SurveysOutputData = ({ match, history }) => {
                       surveyOutputsInfo
                     )}`
                   )} */}
+                              <th></th>
                               {surveyOutputsInfo.outputLayouts.map(
                                  (layout, keyVal) => {
                                     // console.log(
@@ -368,13 +427,21 @@ const SurveysOutputData = ({ match, history }) => {
                                        // console.log(
                                        //   `returning field layout.fieldName=${layout.fieldName}`
                                        // );
+                                       let encoder = new TextEncoder()
+                                       let utf8Array = encoder.encode(
+                                          layout.questionShort,
+                                       )
+                                       let utf8String = new TextDecoder()
+                                          .decode(utf8Array)
+                                          .replace(/,/g, ' ')
+                                          .replace(/:/g, '')
                                        return (
-                                          <td
+                                          <th
                                              key={keyVal}
                                              style={{ whiteSpace: 'nowrap' }}
                                           >
-                                             {layout.fieldName}
-                                          </td>
+                                             {utf8String}
+                                          </th>
                                        )
                                     } else {
                                        return
@@ -389,8 +456,20 @@ const SurveysOutputData = ({ match, history }) => {
                               keys.shift()
                               let outputField = null
                               let outputValueData = null
+                              console.log(`outputValue._id=${outputValue._id}`)
                               return (
                                  <tr key={outputValue._id}>
+                                    <td>
+                                       <Button
+                                          variant="dark"
+                                          className="btn-sm"
+                                          onClick={() =>
+                                             GenerateOutputFile(outputValue._id)
+                                          }
+                                       >
+                                          <i className="fas fa-tasks"></i>
+                                       </Button>
+                                    </td>
                                     {keys.map(key => {
                                        outputField =
                                           surveyOutputsInfo.outputLayouts.find(
@@ -402,12 +481,12 @@ const SurveysOutputData = ({ match, history }) => {
                                           outputField.showInSurveyOutputScreen
                                        ) {
                                           switch (outputField.fieldName) {
-                                             case 'SCOLINFO_date_created':
+                                             case 'INFO_3':
                                                 outputValueData = formatDate(
                                                    outputValue[key],
                                                 )
                                                 break
-                                             case 'SCOLINFO_date_modified':
+                                             case 'INFO_4':
                                                 outputValueData = formatDate(
                                                    outputValue[key],
                                                 )
