@@ -20,7 +20,7 @@ import {
    //surveyProcessAnswersAction,
    surveyProcessAnswersAtClientAction,
    surveyDetailsAction,
-   processAnswersFromSurveyMonkey,
+   processAnswersFromMonkey,
    //surveyUpdateAnswersAtClientAction,
 } from '../actions/surveyActions'
 //import { surveysConfigurations } from "../surveysConfigurations";
@@ -306,11 +306,11 @@ const UploadSurveyAnswers = ({ match, history }) => {
       setselectedUpdateType(event.target.id)
    }
 
-   const updateSurveyMonkeyDataHandler = () => {
-      log.functionName = 'updateSurveyMonkeyDataHandler'
+   const updateMonkeyDataHandler = () => {
+      log.functionName = 'updateMonkeyDataHandler'
 
       dispatch(
-         processAnswersFromSurveyMonkey({
+         processAnswersFromMonkey({
             surveyInfo: selectedSurveySuperior,
             updateType: selectedUpdateType,
          }),
@@ -339,7 +339,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
             dispatch(
                surveyProcessAnswersAtClientAction({
                   surveySuperiorId: selectedSurveySuperior._id,
-                  surveyShortName: selectedSurveySuperior.surveyShortName,
+                  surveyShortName: selectedSurveySuperior.superSurveyShortName,
                   updateType: selectedUpdateType,
                   fileNumeric: fileNumeric,
                   fileReal: fileReal,
@@ -350,7 +350,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
             //   dispatch(
             //     surveyUpdateAnswersAtClientAction({
             //       surveySuperiorId: selectedSurveySuperior._id,
-            //       surveyShortName: selectedSurveySuperior.surveyShortName,
+            //       surveyShortName: selectedSurveySuperior.superSurveyShortName,
             //       fileNumeric: fileNumeric,
             //       fileReal: fileReal,
             //     })
@@ -546,7 +546,7 @@ const UploadSurveyAnswers = ({ match, history }) => {
               type="button"
               variant="primary"
               disabled={selectedSurveySuperior != null ? false : true}
-              onClick={updateSurveyMonkeyDataHandler}
+              onClick={updateMonkeyDataHandler}
             >
               Update from Survey Monkey
             </Button>
