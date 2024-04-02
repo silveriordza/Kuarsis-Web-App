@@ -84,6 +84,7 @@ terraform.rc
 **/amplify/backend/function/kuarxbedevFunction/amplify.state
 **/amplify/backend/function/kuarxbedevFunction/custom-policies.json
 **/amplify/backend/function/kuarxbedevFunction/parameters.json
+**/amplify/.config/project-config.json
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -106,3 +107,5 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+
+
