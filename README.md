@@ -4,6 +4,29 @@ Kuarsis Web App is the code for the official website of Kuarsis Companies.
 Author: Silverio Rodriguez Alcorta
 Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemQA-v1.0.6.1
+Version date: 4/01/24
+Modificator name: Silverio Rodriguez Alcorta
+Description: Promoted tagkuarxisBeSurveySystemDEV-v1.0.6.1 from Dev to QA as tagkuarxisBeSurveySystemQA-v1.0.6.1 as is.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.6.1
+Git Feature Dev branch: tagkuarxisBeSurveySystemDEV-v1.0.6.1
+Version date: 4/01/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Full redesign for the survey templates processing.
+2.- Full redesign for the survey monkey integration.
+3.- Full redesign for the survey monkey answers processing.
+4.- Full redesign for the survey output generation.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.5.1
+Version date: 2/25/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Fixed defect: columns in surveyoutput screen showing in disorder, fixed it in surveyController superSurveyGetOutputValues function, added a sort action by the sequence fieldname into the await SurveySuperiorOutputLayout.find, this fixed the column order displayed in the screen. The weird thing here was that it was working before, but somehow this defect reappeared in DEV and also in QA environments of Oncare.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Dev Tag: tagkuarxisBeSurveySystemQA-v1.0.0.5
@@ -17,9 +40,9 @@ Version date: 1/13/24
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:
 1.- Fixed defect: negative number showing up in the upload status in UploadSurveyAnswers when picking option NEW responses only. This fix was made in the Front End surveyActions.js in the slice calculations.
-2.- Modularized the Survey Monkey calls into a SurveyMonkeyManager class, for better code reusability. Removed logic form the path surveys/surveymonkey/:id handler and transfered it to the SurveyMonkeyManager, the handler now calls SurveyMonkeyManager functions to execute logic and it only servers as a controller of the logic.
-3.- Added a SurveyMonkeyWebhook for Completed Survey event with its corresponding handler function on the path surveys/surveymonkey/webhookcompletedeventTalentos2020. This path will be triggered by Survey Monkey whenever a new survey response is completed by a user, and it will also trigger the processing of the survey responses in the KSS system which will then store the responses into the corresponding output collection.
-4.- Redesigned the update responses handler to integrate it with the SurveyMonkeyWebhook (mentioned above) so that when the webhook is triggered, the update responses function will process the survey accordingly.
+2.- Modularized the Survey Monkey calls into a MonkeyManager class, for better code reusability. Removed logic form the path surveys/surveymonkey/:id handler and transfered it to the MonkeyManager, the handler now calls MonkeyManager functions to execute logic and it only servers as a controller of the logic.
+3.- Added a MonkeyWebhook for Completed Survey event with its corresponding handler function on the path surveys/surveymonkey/webhookcompletedeventTalentos2020. This path will be triggered by Survey Monkey whenever a new survey response is completed by a user, and it will also trigger the processing of the survey responses in the KSS system which will then store the responses into the corresponding output collection.
+4.- Redesigned the update responses handler to integrate it with the MonkeyWebhook (mentioned above) so that when the webhook is triggered, the update responses function will process the survey accordingly.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.4

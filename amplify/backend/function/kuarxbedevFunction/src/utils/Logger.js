@@ -47,6 +47,37 @@ const LogThis = (logSettings, logMessage, level = L3) => {
    }
 }
 
+const cleanSpaces = data => {
+   return
+}
+
+const validateVars = (logLocal, logLevel, varNamesIn, vars) => {
+   if (varNamesIn && varNamesIn != '' && vars && vars.length > 0) {
+      varNamesClean = varNamesIn.replace(/\s/g, '')
+      varNames = varNamesClean.split(',')
+      if (varNames.length != vars.length) {
+         LogThis(
+            logLocal,
+            `Var names count does not match vars count varNamesIn=${varNamesIn}; varNames=${varNames}; vars=${j(
+               vars,
+            )}`,
+            logLevel,
+         )
+         throw new Error(`Var names count does not match vars count`)
+      }
+   } else {
+      LogThis(
+         logLocal,
+         `varNamesIn or vars is empty varNamesIn=${varNamesIn}; vars=${j(
+            args,
+         )}`,
+         logLevel,
+      )
+      throw new Error(`varNamesIn or vars is empty`)
+   }
+   return varNames
+}
+
 /**
  * - LogVars function to log one or more variables at once with names
  * @param {*} log - LoggerSettings object same as LogThis
@@ -59,31 +90,8 @@ const LogVars = (log, msg, level, varNamesIn, ...vars) => {
    const logLocal = new LoggerSettings(srcFileName, 'LogVars')
 
    const varMap = {}
-   let varNamesClean = null
-   let varNames = []
-   if (varNamesIn && varNamesIn != '' && vars && vars.length > 0) {
-      varNamesClean = varNamesIn.replace(/\s/g, '')
-      varNames = varNamesClean.split(',')
-      if (varNames.length != vars.length) {
-         LogThis(
-            logLocal,
-            `Var names count does not match vars count varNamesIn=${varNamesIn}; varNames=${varNames}; vars=${j(
-               vars,
-            )}`,
-            level,
-         )
-         throw new Error(`Var names count does not match vars count`)
-      }
-   } else {
-      LogThis(
-         logLocal,
-         `varNamesIn or vars is empty varNamesIn=${varNamesIn}; vars=${j(
-            args,
-         )}`,
-         level,
-      )
-      throw new Error(`varNamesIn or vars is empty`)
-   }
+
+   let varNames = validateVars(log, level, varNamesIn, vars)
 
    for (let i = 0; i < varNames.length; i++) {
       varMap[varNames[i]] = vars[i]
@@ -98,8 +106,8 @@ const LogVars = (log, msg, level, varNamesIn, ...vars) => {
  * @param {*} filterBy - Variable to filter the log messages.
  * @param {*} filterValue - Log messages will be logged when filterBy variable value matches with filterValue.
  * @param {*} level - Log level when when this log message will show up, default is L0.
- * @param {*} varNamesIn - String comma separated list of how you want the vars elements to be named, sequence should match the sequence of the vars elements.
- * @param  {...any} vars - List of variables to display, sequence should match with the sequence in varNamesIn
+ * @param {*} varNamesIn - String comma separated list of how you want the vars elements to be named, position should match the position of the vars elements.
+ * @param  {...any} vars - List of variables to display, position should match with the position in varNamesIn
  */
 const LogVarsFilter = (
    log,
@@ -180,9 +188,22 @@ const HasDataException = (dataToCheck, logMessage, logSettings) => {
    if (!HasData(dataToCheck)) {
       //LogThis(logSettings, errorMessage, L0)
       throw new Error(
-         `${new Date().toLocaleTimeString()} ${logSettings.fileName ?? 'NA'} ${
-            logSettings.functionName ?? 'NA'
+         `${new Date().toLocaleTimeString()} ${logSettings?.fileName ?? 'NA'} ${
+            logSettings?.functionName ?? 'NA'
          } ${logMessage}`,
+      )
+   }
+}
+
+const HasDataMultipeEx = (logLocal, varNamesIn, ...vars) => {
+   const varNames = validateVars(logLocal, L0, varNamesIn, vars)
+   for (let i = 0; i < varNames.length; i++) {
+      HasDataException(
+         vars[i],
+         `${new Date().toLocaleTimeString()} ${logLocal.fileName ?? 'NA'} ${
+            logLocal.functionName ?? 'NA'
+         } the variable ${varName[i]} is empty`,
+         logLocal,
       )
    }
 }
@@ -198,6 +219,7 @@ module.exports = {
    LogVarsFilter,
    HasData,
    HasDataException,
+   HasDataMultipeEx,
    LogThisLegacy,
    initLogSettings,
    LoggerSettings,

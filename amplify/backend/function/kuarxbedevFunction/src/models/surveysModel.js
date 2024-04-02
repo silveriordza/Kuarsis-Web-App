@@ -12,25 +12,44 @@ const surveyQuestionModel = mongoose.Schema(
          required: true,
          ref: 'Survey',
       },
+      position: { type: Number, required: true },
+      fieldName: { type: String, required: true },
+      //subScale was added and it will hold the subScale group for calculatedFields group sums or actions. All questions belonging to the same subscale, will have the same subScale value, which will be then referenced in the calculatedFields group property as a single subscale, or multiple subscales part of the same group.
+      subScale: { type: String, required: true },
       question: { type: String, required: true },
       questionShort: { type: String, required: true },
-      fieldName: { type: String, required: true },
+
       weightType: { type: String, required: true },
       weights: { type: mongoose.Schema.Types.Mixed },
-      surveyCol: { type: Number, required: true },
-      superSurveyCol: { type: Number, required: true },
-      surveyMonkeyId: { type: String, required: false, default: '' },
-      surveyMonkeyPosition: {
-         type: mongoose.Schema.Types.Mixed,
-         required: false,
+      monkeyInfo: {
+         position: { type: Number, required: true },
+         subPosition: { type: Number, required: true },
+         answerType: { type: String, required: true },
+         otherInfo: { type: mongoose.Schema.Types.Mixed, required: false },
       },
-      surveyMonkeyFamily: { type: String, required: false, default: '' },
-      surveyMonkeySubType: { type: String, required: false, default: '' },
-      surveyMonkeyAnswers: {
-         type: mongoose.Schema.Types.Mixed,
-         required: false,
-         default: null,
-      },
+
+      //surveyCol changed name to position.
+      //surveyCol: { type: Number, required: true },
+
+      //superSurveyCol was removed because questions no longer directly pertain to superSurveys, only pertain to surveys.
+      //superSurveyCol: { type: Number, required: true },
+
+      // //monkeyId, monkeyPoisition, monkeyFamily, monkeySubType and monkeyAnswers will be moved inside monkeyInfo and also planning to remove the survey word from monkey and will leave it as monkey only to make it shorter, and also to encapsulate all monkey information on the same property.
+
+      // monkeyId: { type: String, required: false, default: '' },
+      // monkeyPosition: {
+      //    type: mongoose.Schema.Types.Mixed,
+      //    required: false,
+      // },
+
+      // //The below commented fields will be part of monkeyInfo
+      // monkeyFamily: { type: String, required: false, default: '' },
+      // monkeySubType: { type: String, required: false, default: '' },
+      // monkeyAnswers: {
+      //    type: mongoose.Schema.Types.Mixed,
+      //    required: false,
+      //    default: null,
+      // },
    },
    {
       timestamps: true,
@@ -39,55 +58,43 @@ const surveyQuestionModel = mongoose.Schema(
 
 const SurveyQuestion = mongoose.model('SurveyQuestion', surveyQuestionModel)
 
-// const surveyMultiModel = mongoose.Schema(
-//   {
-//     owner: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "User",
-//     },
-//     superSurveyId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "SuperSurvey",
-//     },
-//     surveyId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "Survey",
-//     },
-//     sequence: { type: Number, required: true },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
+const surveyMultiModel = mongoose.Schema(
+   {
+      //The template
+      superSurveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SuperSurvey',
+      },
+      //The template has the shortSurveyName value which the code will use to match with the survey and get its surveyId which will store in this field.
+      surveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'Survey',
+      },
+      //This is the position of the survey within the superSurvey in KSS.
+      position: { type: Number, required: true },
+      //This is the corresponding position in Survey Monkey for this survey within the Overall Survey. This is the Pages.Page.position field in Survey Monkey.
+      monkeyPosition: { type: Number, required: true },
+      // //surveyId was moved to the surveys array which will list all surveys for the super survey.
+      // surveyId: {
+      //    type: mongoose.Schema.Types.ObjectId,
+      //    required: true,
+      //    ref: 'Survey',
+      // },
+      // //position name changed to position and moved into the surveys array.
+      // position: { type: Number, required: true },
+      // monkeyInfo: {
+      //    type: mongoose.Schema.Types.Mixed,
+      //    required: false,
+      // },
+   },
+   {
+      timestamps: true,
+   },
+)
 
-// const SurveyMulti = mongoose.model("SurveyMulti", surveyMultiModel);
-
-// const surveyCollectedModel = mongoose.Schema(
-//   {
-//     superSurveyId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "SuperSurvey",
-//     },
-//     respondentId: { type: Number, required: true },
-//     collectorId: { type: Number, required: true },
-//     dateCreated: { type: Date, required: true },
-//     dateModified: { type: Date, required: true },
-//     ipAddress: { type: String, required: true },
-//     emailAddress: { type: String, required: false },
-//     firstName: { type: String, required: false },
-//     lastName: { type: String, required: false },
-//     custom1: { type: String, required: false },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
-
-// const SurveyCollected = mongoose.model("SurveyCollected", surveyCollectedModel);
+const SurveyMulti = mongoose.model('SurveyMulti', surveyMultiModel)
 
 const surveySuperiorOutputLayoutModel = mongoose.Schema(
    {
@@ -100,7 +107,7 @@ const surveySuperiorOutputLayoutModel = mongoose.Schema(
       fieldName: { type: String, required: true },
       outputAsReal: { type: Boolean, required: true },
       showInSurveyOutputScreen: { type: Boolean, require: true },
-      sequence: { type: Number, required: true },
+      position: { type: Number, required: true },
    },
    {
       timestamps: true,
@@ -111,28 +118,6 @@ const SurveySuperiorOutputLayout = mongoose.model(
    surveySuperiorOutputLayoutModel,
 )
 
-const surveyResponseModel = mongoose.Schema(
-   {
-      questionId: {
-         type: mongoose.Schema.Types.ObjectId,
-         required: true,
-         ref: 'SurveyQuestion',
-      },
-      respondentId: { type: String, required: true },
-      row: { type: Number, required: true },
-      col: { type: Number, required: true },
-      response: { type: String, required: false, default: '' },
-      responseReal: { type: String, required: false, default: '' },
-      weightedResponse: { type: String, required: false, default: '' },
-      isWeighted: { type: Boolean, required: false, default: '' },
-   },
-   {
-      timestamps: true,
-   },
-)
-
-const SurveyResponse = mongoose.model('SurveyResponse', surveyResponseModel)
-
 const surveyCalculatedFieldModel = mongoose.Schema(
    {
       surveyId: {
@@ -142,11 +127,15 @@ const surveyCalculatedFieldModel = mongoose.Schema(
       },
       description: { type: String, required: true },
       shortDescription: { type: String, required: true },
-      fieldName: { type: String, required: true },
+      fieldName: { type: String, required: true, unique: true },
       calculationType: { type: String, required: true },
       criteria: { type: mongoose.Schema.Types.Mixed, required: false },
-      group: { type: mongoose.Schema.Types.Mixed, required: false },
-      sequence: { type: Number, required: true },
+      ////changed group name by subScale
+      //group: { type: mongoose.Schema.Types.Mixed, required: false },
+      subScales: { type: mongoose.Schema.Types.Mixed, required: false },
+      // //changed position name by position
+      // position: { type: Number, required: true },
+      position: { type: Number, required: true },
    },
    {
       timestamps: true,
@@ -158,45 +147,26 @@ const SurveyCalculatedField = mongoose.model(
    surveyCalculatedFieldModel,
 )
 
-const surveyCalculatedValueModel = mongoose.Schema(
-   {
-      // surveyCollectedId: {
-      //   type: mongoose.Schema.Types.ObjectId,
-      //   required: true,
-      //   ref: "SuperSurveyCollected",
-      // },
-      calculatedFieldId: {
-         type: mongoose.Schema.Types.ObjectId,
-         required: true,
-         ref: 'SurveyCalculatedField',
-      },
-      respondentId: { type: String, required: true },
-      row: { type: Number, required: true },
-      col: { type: Number, required: true },
-      value: { type: mongoose.Schema.Types.Mixed, required: false },
-   },
-   {
-      timestamps: true,
-   },
-)
-const SurveyCalculatedValue = mongoose.model(
-   'SurveyCalculatedValue',
-   surveyCalculatedValueModel,
-)
-
 const surveyModel = mongoose.Schema(
    {
-      superSurveyId: {
+      owner: {
          type: mongoose.Schema.Types.ObjectId,
          required: true,
-         ref: 'SurveySuperior',
+         ref: 'User',
       },
+
       surveyName: { type: String, required: true },
-      surveyShortName: { type: String, required: true },
+      surveyShortName: { type: String, required: true, unique: true },
       description: { type: String, required: false },
       instructions: { type: String, required: false },
-      surveyMonkeyId: { type: String, required: false, default: '' },
-      surveyMonkeyPosition: { type: Number, required: false, default: 0 },
+      //monkeyId and monkeyPosition names changed to monkeyId and monkeyPosition and moved inside the monkeyInfo
+      // monkeyId: { type: String, required: false, default: '' },
+      // monkeyPosition: { type: Number, required: false, default: 0 },
+      monkeyInfo: {
+         monkeyId: { type: String, required: false, default: '' },
+         monkeyPosition: { type: Number, required: false, default: 0 },
+         additionalInfo: { type: mongoose.Schema.Types.Mixed, required: false },
+      },
    },
    {
       timestamps: true,
@@ -227,9 +197,10 @@ const surveySuperiorModel = mongoose.Schema(
          ref: 'User',
       },
       surveyName: { type: String, required: true },
-      surveyShortName: { type: String, required: true },
+      superSurveyShortName: { type: String, required: true, unique: true },
       description: { type: String, required: false },
-      surveyMonkeyId: { type: String, required: false, default: '' },
+      position: { type: Number, required: false, default: 0 },
+      monkeyInfo: { monkeyId: { type: Number, required: false } },
    },
    {
       timestamps: true,
@@ -260,23 +231,48 @@ surveySuperiorModel.pre('remove', async function (next) {
 })
 const SurveySuperior = mongoose.model('SurveySuperior', surveySuperiorModel)
 
-const surveyMonkeyConfigModel = mongoose.Schema(
+////changed name from monkeyConfigModel to monkeyConfigModel
+//const monkeyConfigModel = mongoose.Schema(
+const monkeyConfigModel = mongoose.Schema(
    {
-      surveyMonkeyId: { type: String, required: true },
+      ////changed name from monkeyId to monkeyId
+      //monkeyId: { type: String, required: true },
+      monkeyId: { type: String, required: true, unique: true },
       survey: { type: mongoose.Schema.Types.Mixed, required: false },
    },
    {
       timestamps: true,
    },
 )
-const SurveyMonkeyConfig = mongoose.model(
-   'SurveyMonkeyConfig',
-   surveyMonkeyConfigModel,
+const MonkeyConfig = mongoose.model('MonkeyConfig', monkeyConfigModel)
+
+const surveyMonkeyIntegratedModel = mongoose.Schema(
+   {
+      ////changed name from monkeyId to monkeyId
+      //monkeyId: { type: String, required: true },
+      superSurveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SurveySuperior',
+      },
+      monkeyId: { type: String, required: true, unique: true },
+      superSurveyShortName: { type: String, required: true, unique: true },
+      surveyConfigs: { type: mongoose.Schema.Types.Mixed, required: false },
+   },
+   {
+      timestamps: true,
+   },
+)
+const SurveyMonkeyIntegrated = mongoose.model(
+   'SurveyMonkeyIntegrated',
+   surveyMonkeyIntegratedModel,
 )
 
-const surveyMonkeyNewResponseModel = mongoose.Schema(
+//changed  name from monkeyNewResponseModel to monkeyNewResponseModel
+//const monkeyNewResponseModel = mongoose.Schema(
+const monkeyNewResponseModel = mongoose.Schema(
    {
-      surveyMonkeyId: { type: String, required: true },
+      monkeyId: { type: String, required: true },
       respondent_id: { type: String, required: true },
       event_type: { type: String, required: true },
       event_datetime: { type: Date, required: true },
@@ -287,48 +283,36 @@ const surveyMonkeyNewResponseModel = mongoose.Schema(
       timestamps: true,
    },
 )
-const SurveyMonkeyNewResponse = mongoose.model(
-   'SurveyMonkeyNewResponse',
-   surveyMonkeyNewResponseModel,
+const MonkeyNewResponse = mongoose.model(
+   'MonkeyNewResponse',
+   monkeyNewResponseModel,
 )
 
-// const surveyOutputReportHeadersModel = mongoose.Schema(
-//   {
-//     // surveyCollectedId: {
-//     //   type: mongoose.Schema.Types.ObjectId,
-//     //   required: true,
-//     //   ref: "SuperSurveyCollected",
-//     // },
-//     surveySuperiorId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       required: true,
-//       ref: "SurveySuperior",
-//     },
-//     surveyName: { type: String, required: true },
-//     surveyField: { type: String, required: true },
-//     surveyIsCalculatedField: { type: Boolean, required: true },
-//     col: { type: Number, required: true },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
-
-// const SurveyOutputReport = mongoose.model(
-//   "SurveyOutputReport",
-//   surveyOutputReportModel
-// );
+const superSurveyMonkey = mongoose.Schema(
+   {
+      superSurveyId: {
+         type: mongoose.Schema.Types.ObjectId,
+         required: true,
+         ref: 'SurveySuperior',
+      },
+      superSurveyShortName: { type: String, required: true, unique: true },
+      survey: { type: mongoose.Schema.Types.Mixed, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+const SuperSurveyMonkey = mongoose.model('SuperSurveyMonkey', superSurveyMonkey)
 
 module.exports = {
    SurveySuperior,
    Survey,
-   //SurveyMulti,
+   SurveyMulti,
    SurveyQuestion,
-   //SurveyCollected,
-   SurveySuperiorOutputLayout,
-   SurveyResponse,
    SurveyCalculatedField,
-   SurveyCalculatedValue,
-   SurveyMonkeyConfig,
-   SurveyMonkeyNewResponse,
+   SurveySuperiorOutputLayout,
+   MonkeyConfig,
+   MonkeyNewResponse,
+   SuperSurveyMonkey,
+   SurveyMonkeyIntegrated,
 }
