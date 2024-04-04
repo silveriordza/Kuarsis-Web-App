@@ -2264,146 +2264,272 @@
             "showInSurveyOutputScreen": false,
             "position": 3211
          },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_1",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3221
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_2",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3231
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_3",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3241
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_4",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3251
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_5",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3261
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_6",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3271
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_6Otro",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3281
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_7",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3291
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_8",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3301
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_9",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3311
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_10",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3321
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_11",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3331
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_12",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3341
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_13",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3351
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_14",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3361
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_15",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3371
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_16",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3381
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_17",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3391
+         },
 
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_SOMATICOS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3221
+            "position": 3401
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3231
+            "position": 3411
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DISF_SOCIAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3241
+            "position": 3421
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3251
+            "position": 3431
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3261
+            "position": 3441
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ES_CASO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3271
+            "position": 3451
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_EMOCIONAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3281
+            "position": 3461
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_DESPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3291
+            "position": 3471
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_LOGROS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3301
+            "position": 3481
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3311
+            "position": 3491
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3321
+            "position": 3501
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3331
+            "position": 3511
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_PSIQUICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3341
+            "position": 3521
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_SOMATICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3351
+            "position": 3531
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3361
+            "position": 3541
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3371
+            "position": 3551
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_COMPASION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3381
+            "position": 3561
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_ZAPATOS_PACIENTE",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3391
+            "position": 3571
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3401
+            "position": 3581
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_TOTAL_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3411
+            "position": 3591
          },
          {
             "surveyShortName": "BECK",
@@ -2417,84 +2543,119 @@
             "fieldName": "SCL90_SOMATIZACION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3421
+            "position": 3601
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_OBSESION_COMPULSION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3431
+            "position": 3611
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SENS_INTERPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3441
+            "position": 3621
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3451
+            "position": 3631
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3461
+            "position": 3641
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_HOSTILIDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3471
+            "position": 3651
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_FOBIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3481
+            "position": 3661
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PARANOIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3491
+            "position": 3671
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PSICOSIS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3501
+            "position": 3681
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ADICIONALES",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3511
+            "position": 3691
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3521
+            "position": 3701
          },
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3531
+            "position": 3711
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_INDIVIDUACION",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3721
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3731
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3741
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_COHERENCIA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3751
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 3761
          }
       ],
       "multiSurveys": [
@@ -2532,6 +2693,11 @@
             "surveyShortName": "JEFF_HP",
             "position": 130,
             "monkeyPosition": 11
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "position": 160,
+            "monkeyPosition": 12
          }
       ]
    },
@@ -2601,6 +2767,12 @@
          "surveyShortName": "JEFF_HP",
          "description": "Escala de Jeferson de empatía de los profesionales- HP",
          "instructions": "Instrucciones: Indique su grado de acuerdo o desacuerdo en cada una de las siguientes afirmaciones marcando el espacio apropiado. Utilice la siguiente escala de 7 puntos (un mayor número en la escala indica un mayor acuerdo)."
+      },
+      {
+         "surveyName": "E-EFF 17",
+         "surveyShortName": "E_EFF_17",
+         "description": "E-EFF 17",
+         "instructions": "Para las siguientes afirmaciones se considera familia todas las personas que usted considere su familia: familiares, parientes y amigos a quienes acepta como de su familia; familia son todos los que usted siente emocionalmente cercanos o que le preocupan de manera especial; puede ser que vivan en su casa o vivan en otra parte, pero siempre mantienen contacto más o menos estrecho con usted."
       }
    ],
    "questions": [
@@ -2739,7 +2911,6 @@
             "answerType": "noother"
          }
       },
-
       {
          "surveyShortName": "Datos",
          "position": 1,
@@ -7674,6 +7845,277 @@
             "subPosition": 20,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 1,
+         "fieldName": "E_EFF_17_1",
+         "subScale": "COHERENCIA",
+         "question": "1. ",
+         "questionShort": "1. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 2,
+         "fieldName": "E_EFF_17_2",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "2. ",
+         "questionShort": "2. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 1, "3": 3 },
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 3,
+         "fieldName": "E_EFF_17_3",
+         "subScale": "INDIVIDUACION",
+         "question": "3. ",
+         "questionShort": "3. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 1, "3": 3 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 4,
+         "fieldName": "E_EFF_17_4",
+         "subScale": "CAMBIO_DEL_SISTEMA",
+         "question": "4. ",
+         "questionShort": "4. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3 },
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 5,
+         "fieldName": "E_EFF_17_5",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "5. ",
+         "questionShort": "5. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 3, "3": 1 },
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 6,
+         "fieldName": "E_EFF_17_6",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "6. ",
+         "questionShort": "6. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 3, "2": 1, "3": 2 },
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 7,
+         "fieldName": "E_EFF_17_6Otro",
+         "subScale": "OTRO",
+         "question": "6.Otro",
+         "questionShort": "6.Otro",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 7,
+            "answerType": "other"
+         }
+      },
+
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 8,
+         "fieldName": "E_EFF_17_7",
+         "subScale": "CAMBIO_DEL_SISTEMA",
+         "question": "7. ",
+         "questionShort": "7. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 3, "2": 1, "3": 2 },
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 9,
+         "fieldName": "E_EFF_17_8",
+         "subScale": "COHERENCIA",
+         "question": "8. ",
+         "questionShort": "8. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 3, "2": 1, "3": 2 },
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 10,
+         "fieldName": "E_EFF_17_9",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "9. ",
+         "questionShort": "9. ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 3, "3": 1 },
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 11,
+         "fieldName": "E_EFF_17_10",
+         "subScale": "INDIVIDUACION",
+         "question": "10.",
+         "questionShort": "10.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 1, "3": 3 },
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 12,
+         "fieldName": "E_EFF_17_11",
+         "subScale": "INDIVIDUACION",
+         "question": "11.",
+         "questionShort": "11.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3 },
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 13,
+         "fieldName": "E_EFF_17_12",
+         "subScale": "INDIVIDUACION",
+         "question": "12.",
+         "questionShort": "12.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 3, "3": 1 },
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 14,
+         "fieldName": "E_EFF_17_13",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "13.",
+         "questionShort": "13.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 3, "2": 2, "3": 1 },
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 15,
+         "fieldName": "E_EFF_17_14",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "14.",
+         "questionShort": "14.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 3, "3": 2 },
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 16,
+         "fieldName": "E_EFF_17_15",
+         "subScale": "CAMBIO_DEL_SISTEMA",
+         "question": "15.",
+         "questionShort": "15.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 3, "2": 2, "3": 1 },
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 16,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 17,
+         "fieldName": "E_EFF_17_16",
+         "subScale": "MANTENIMIENTO_DEL_SISTEMA",
+         "question": "16.",
+         "questionShort": "16.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 2, "2": 3, "3": 1 },
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 17,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "position": 18,
+         "fieldName": "E_EFF_17_17",
+         "subScale": "CAMBIO_DEL_SISTEMA",
+         "question": "17.",
+         "questionShort": "17.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 3, "2": 1, "3": 2 },
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 18,
+            "answerType": "noother"
+         }
       }
    ],
 
@@ -8011,6 +8453,56 @@
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_HP"],
          "position": 120
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "description": "E-EFF 17 INDIVIDUACION TOTAL",
+         "shortDescription": "EFF-17 INDIVIDUACION",
+         "fieldName": "E_EFF_17_INDIVIDUACION",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["INDIVIDUACION"],
+         "position": 130
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "description": "E-EFF 17 MANTENIMIENTO DEL SISTEMA TOTAL",
+         "shortDescription": "EFF-17 MANTENIMIENTO",
+         "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["MANTENIMIENTO_DEL_SISTEMA"],
+         "position": 140
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "description": "E-EFF 17 CAMBIO DEL SISTEMA TOTAL",
+         "shortDescription": "EFF-17 SISTEMA",
+         "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["CAMBIO_DEL_SISTEMA"],
+         "position": 150
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "description": "E-EFF 17 COHERENCIA TOTAL",
+         "shortDescription": "EFF-17 COHERENCIA",
+         "fieldName": "E_EFF_17_COHERENCIA",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["COHERENCIA"],
+         "position": 160
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "description": "E-EFF 17 TOTAL",
+         "shortDescription": "EFF-17 TOTAL",
+         "fieldName": "E_EFF_17_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": [
+            "INDIVIDUACION",
+            "MANTENIMIENTO_DEL_SISTEMA",
+            "CAMBIO_DEL_SISTEMA",
+            "COHERENCIA"
+         ],
+         "position": 170
       }
    ]
 }
