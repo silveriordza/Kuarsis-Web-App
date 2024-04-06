@@ -435,6 +435,9 @@ const SurveysOutputData = ({ match, history }) => {
                                           .decode(utf8Array)
                                           .replace(/,/g, ' ')
                                           .replace(/:/g, '')
+                                       console.log(
+                                          `${layout.fieldName}:pos${layout.position}`,
+                                       )
                                        return (
                                           <th
                                              key={keyVal}
@@ -456,7 +459,7 @@ const SurveysOutputData = ({ match, history }) => {
                               keys.shift()
                               let outputField = null
                               let outputValueData = null
-                              console.log(`outputValue._id=${outputValue._id}`)
+                              //console.log(`outputValue._id=${outputValue._id}`)
                               return (
                                  <tr key={outputValue._id}>
                                     <td>
@@ -470,50 +473,60 @@ const SurveysOutputData = ({ match, history }) => {
                                           <i className="fas fa-tasks"></i>
                                        </Button>
                                     </td>
-                                    {keys.map(key => {
-                                       outputField =
-                                          surveyOutputsInfo.outputLayouts.find(
-                                             x => {
-                                                return x.fieldName == key
-                                             },
-                                          )
-                                       if (
-                                          outputField.showInSurveyOutputScreen
-                                       ) {
-                                          switch (outputField.fieldName) {
-                                             case 'INFO_3':
-                                                outputValueData = formatDate(
-                                                   outputValue[key],
+                                    {surveyOutputsInfo.outputLayouts.map(
+                                       outputField => {
+                                          // outputField =
+                                          //    surveyOutputsInfo.outputLayouts.find(
+                                          //       x => {
+                                          //          return x.fieldName == key
+                                          //       },
+                                          //    )
+                                          let key = null
+                                          key = outputField.fieldName
+                                          if (
+                                             outputField.showInSurveyOutputScreen
+                                          ) {
+                                             switch (outputField.fieldName) {
+                                                case 'INFO_3':
+                                                   outputValueData = formatDate(
+                                                      outputValue[key],
+                                                   )
+                                                   break
+                                                case 'INFO_4':
+                                                   outputValueData = formatDate(
+                                                      outputValue[key],
+                                                   )
+                                                   break
+                                                default:
+                                                   outputValueData =
+                                                      outputValue[key]
+                                             }
+
+                                             let encoder = new TextEncoder()
+                                             let utf8Array =
+                                                encoder.encode(outputValueData)
+                                             let utf8String =
+                                                new TextDecoder().decode(
+                                                   utf8Array,
                                                 )
-                                                break
-                                             case 'INFO_4':
-                                                outputValueData = formatDate(
-                                                   outputValue[key],
-                                                )
-                                                break
-                                             default:
-                                                outputValueData =
-                                                   outputValue[key]
+                                             console.log(
+                                                `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
+                                             )
+                                             return (
+                                                <td
+                                                   key={key}
+                                                   style={{
+                                                      whiteSpace: 'nowrap',
+                                                   }}
+                                                >
+                                                   {utf8String}
+                                                </td>
+                                             )
+                                          } else {
+                                             return
                                           }
-
-                                          let encoder = new TextEncoder()
-                                          let utf8Array =
-                                             encoder.encode(outputValueData)
-                                          let utf8String =
-                                             new TextDecoder().decode(utf8Array)
-
-                                          return (
-                                             <td
-                                                key={key}
-                                                style={{ whiteSpace: 'nowrap' }}
-                                             >
-                                                {utf8String}
-                                             </td>
-                                          )
-                                       } else {
-                                          return
-                                       }
-                                    })}
+                                       },
+                                    )}
                                  </tr>
                               )
                            })}
