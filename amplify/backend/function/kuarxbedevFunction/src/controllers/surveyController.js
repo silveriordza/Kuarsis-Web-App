@@ -2587,8 +2587,8 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
 
       // findAsync;
 
-      x = x + 1
-      LogThis(log, `outputValues=${JSON.stringify(outputValuesFound)}`, L3)
+      // x = x + 1
+      // LogThis(log, `outputValues=${JSON.stringify(outputValuesFound)}`, L3)
       LogThis(
          log,
          `page=${page}; count=${count}; pages=${Math.ceil(count / pageSize)}`,
@@ -3335,7 +3335,9 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                      question.monkeyInfo.type === 'SINGLE_CHOICE_VERTICAL' ||
                      question.monkeyInfo.type === 'SINGLE_CHOICE_MENU' ||
                      question.monkeyInfo.type ===
-                        'MULTIPLE_CHOICE_VERTICAL_THREE_COL')
+                        'MULTIPLE_CHOICE_VERTICAL_THREE_COL' ||
+                     question.monkeyInfo.type ===
+                        'SINGLE_CHOICE_VERTICAL_THREE_COL')
                ) {
                   for (const [key, monkeyPageAnswer] of monkeyPageAnswers) {
                      LogThis(
@@ -3351,12 +3353,15 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                         choice_id = monkeyPageAnswer.choice_id
                      }
                      answer =
-                        question.monkeyInfo.monkeyAnswers.answerChoices.find(
+                        question?.monkeyInfo?.monkeyAnswers?.answerChoices?.find(
                            choice => choice.id === choice_id,
                         )
                      if (answer) {
                         answer = monkeyPageAnswer
                         break
+                     } else {
+                        answer = null
+                        //break
                      }
                   }
                } else {

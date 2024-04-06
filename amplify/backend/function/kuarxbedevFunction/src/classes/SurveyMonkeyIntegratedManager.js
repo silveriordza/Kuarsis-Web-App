@@ -17,8 +17,10 @@ const {
 const QTYPE_OPEN_ENDED_SINGLE = "OPEN_ENDED_SINGLE"
 const QTYPE_SINGLE_CHOICE_MENU = "SINGLE_CHOICE_MENU"
 const QTYPE_SINGLE_CHOICE_VERTICAL = "SINGLE_CHOICE_VERTICAL"
+const QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL = "SINGLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_MATRIX_RATING = "MATRIX_RATING"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL = "MULTIPLE_CHOICE_VERTICAL"
+const QTYPE_MULTIPLE_CHOICE_VERTICAL_THREE_COL = "MULTIPLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_PRESENTATION_DESCRIPTIVE = "QTYPE_PRESENTATION_DESCRIPTIVE"
 
 
@@ -263,7 +265,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                     score: null
                 }   
             }
-            else if(questionType===QTYPE_SINGLE_CHOICE_MENU || questionType === QTYPE_SINGLE_CHOICE_VERTICAL) {
+            else if(questionType===QTYPE_SINGLE_CHOICE_MENU || questionType === QTYPE_SINGLE_CHOICE_VERTICAL || questionType === QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL) {
 
                 if(surveyQuestion.monkeyInfo.answerType=="noother"){
                     
@@ -290,11 +292,11 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 surveyQuestion.monkeyInfo.id = monkeyAnswer.id
                 this.mapAnswerChoice(surveyQuestion, 'choice_id', monkeyQuestion.details.answers.choices)
                    
-            } else if (questionType===QTYPE_MULTIPLE_CHOICE_VERTICAL){
+            } else if (questionType===QTYPE_MULTIPLE_CHOICE_VERTICAL || questionType===QTYPE_MULTIPLE_CHOICE_VERTICAL_THREE_COL){
                 let monkeyAnswer = monkeyQuestion.details.answers.choices[surveyQuestion.monkeyInfo.subPosition-1]
                 surveyQuestion.question = monkeyAnswer.text
                 surveyQuestion.monkeyInfo.id = monkeyQuestion.details.id
-                this.mapAnswerChoice(surveyQuestion, 'choice_id', [monkeyAnswer])   
+                this.mapAnswerChoice(surveyQuestion, 'choice_id', [monkeyAnswer])
             } 
 
         }

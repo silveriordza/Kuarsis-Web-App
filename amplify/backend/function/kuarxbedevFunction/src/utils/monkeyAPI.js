@@ -799,7 +799,9 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
             }
          }
          break
-      case 'multiple_choice_vertical_three_col':
+      case 'MULTIPLE_CHOICE_VERTICAL_THREE_COL': {
+         return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
+      }
       case 'MULTIPLE_CHOICE_VERTICAL': {
          //for updating responses from survey monkey
          return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)

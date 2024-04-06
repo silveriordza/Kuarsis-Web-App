@@ -2390,272 +2390,930 @@
             "showInSurveyOutputScreen": false,
             "position": 3391
          },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA",
+            "fieldName": "VIOLENCIA_PADECIDA_1Alguiendesufamil",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 3401
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_1Yomismo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3411
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_2Hermanoa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3421
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_3Padre",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3431
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Abuelo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3441
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_5Madre",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3451
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_6Abuela",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3461
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_7Tiosas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3471
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_8Primosas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3481
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_9Amigo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3491
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_10Amiga",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3501
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_11Pareja",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3511
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_12Hijo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3521
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_13Hija",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3531
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_1Fisica",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3541
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_2Psicologica",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3551
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_3Emocional",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3561
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Sexual",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3571
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_5Social",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3581
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_6Patrimonial",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3591
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_7Fisicaporomision",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3601
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 3611
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_1Fisica",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3621
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_2Psicologica",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3631
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_3Emocional",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3641
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_4Sexual",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3651
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_5Social",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3661
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_6Patrimonial",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3671
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Fisicaporomision",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3681
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_1Yomismo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3691
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_2Hermanoa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3701
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_3Padre",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3711
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_4Abuelo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3721
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_5Madre",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3731
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_6Abuela",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3741
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Tiosas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3751
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_8Primosas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3761
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_9Amigo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3771
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_10Amiga",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3781
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_11Pareja",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3791
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_12Hijo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3801
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_13Hija",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3811
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 3821
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_1Fisica",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3831
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_2Psicologica",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3841
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_3Emocional",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3851
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_4Sexual",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3861
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_5Social",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3871
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_6Patrimonial",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3881
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_7Fisicaporomision",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3891
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_1Yomismo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3901
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_2Hermanoa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3911
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_3Padre",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3921
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_4Abuelo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3931
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_5Madre",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3941
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_6Abuela",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3951
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_7Tiosas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3961
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_8Primosas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3971
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_9Amigo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3981
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Amiga",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 3991
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Pareja",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4001
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Hijo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4011
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Hija",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4021
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4031
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4041
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4051
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4061
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4071
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4081
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4091
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4101
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": false,
+            "position": 4111
+         },
 
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_SOMATICOS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3401
+            "position": 4121
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3411
+            "position": 4131
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DISF_SOCIAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3421
+            "position": 4141
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3431
+            "position": 4151
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3441
+            "position": 4161
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ES_CASO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3451
+            "position": 4171
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_EMOCIONAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3461
+            "position": 4181
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_DESPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3471
+            "position": 4191
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_LOGROS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3481
+            "position": 4201
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3491
+            "position": 4211
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3501
+            "position": 4221
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3511
+            "position": 4231
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_PSIQUICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3521
+            "position": 4241
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_SOMATICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3531
+            "position": 4251
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3541
+            "position": 4261
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3551
+            "position": 4271
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_COMPASION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3561
+            "position": 4281
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_ZAPATOS_PACIENTE",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3571
+            "position": 4291
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3581
+            "position": 4301
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_TOTAL_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3591
+            "position": 4311
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_ES_CASO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3215
+            "position": 4321
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SOMATIZACION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3601
+            "position": 4331
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_OBSESION_COMPULSION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3611
+            "position": 4341
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SENS_INTERPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3621
+            "position": 4351
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3631
+            "position": 4361
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3641
+            "position": 4371
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_HOSTILIDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3651
+            "position": 4381
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_FOBIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3661
+            "position": 4391
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PARANOIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3671
+            "position": 4401
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PSICOSIS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3681
+            "position": 4411
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ADICIONALES",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3691
+            "position": 4421
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3701
+            "position": 4431
          },
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3711
+            "position": 4441
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_INDIVIDUACION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3721
+            "position": 4451
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3731
+            "position": 4461
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3741
+            "position": 4471
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_COHERENCIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3751
+            "position": 4481
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 3761
+            "position": 4491
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA",
+            "fieldName": "VIOLENCIA_PADECIDA_1Alguiendesufamil",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4501
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4511
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VP_DETALLES_P2_QUIEN_LISTA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4511
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4521
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4531
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4541
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4541
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VP_TIPOS_P5_PADECIO_LISTA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4551
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4561
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VP_TIPOS_P6_QUIEN_LISTA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4571
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4581
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4581
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 4591
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4601
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4611
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4621
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4631
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4641
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4651
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4661
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4671
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "position": 4681
          }
       ],
       "multiSurveys": [
@@ -2793,6 +3451,30 @@
          "surveyShortName": "E_EFF_17",
          "description": "E-EFF 17",
          "instructions": "Para las siguientes afirmaciones se considera familia todas las personas que usted considere su familia: familiares, parientes y amigos a quienes acepta como de su familia; familia son todos los que usted siente emocionalmente cercanos o que le preocupan de manera especial; puede ser que vivan en su casa o vivan en otra parte, pero siempre mantienen contacto más o menos estrecho con usted."
+      },
+      {
+         "surveyName": "Cuestionario de detección de violencia",
+         "surveyShortName": "VIOLENCIA_PADECIDA",
+         "description": "Cuestionario de detección de violencia",
+         "instructions": "Cuestionario de detección de violencia"
+      },
+      {
+         "surveyName": "Cuestionario de detección de violencia detalle de violencia recibida",
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "description": "Cuestionario de detección de violencia detalle de violencia recibida",
+         "instructions": "Cuestionario de detección de violencia detalle de violencia recibida"
+      },
+      {
+         "surveyName": "Cuestionario de detección de violencia tipos de violencia recibida",
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "description": "Cuestionario de detección de violencia tipos de violencia recibida",
+         "instructions": "Cuestionario de detección de violencia tipos de violencia recibida"
+      },
+      {
+         "surveyName": "Cuestionario de detección de violencia detalle de violencia ejercida.",
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "description": "Cuestionario de detección de violencia detalle de violencia ejercida.",
+         "instructions": "Cuestionario de detección de violencia detalle de violencia ejercida."
       }
    ],
    "questions": [
@@ -7971,7 +8653,6 @@
             "answerType": "other"
          }
       },
-
       {
          "surveyShortName": "E_EFF_17",
          "position": 8,
@@ -8134,6 +8815,1109 @@
          "monkeyInfo": {
             "position": 17,
             "subPosition": 18,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA",
+         "position": 1,
+         "fieldName": "VIOLENCIA_PADECIDA_1Alguiendesufamil",
+         "subScale": "VP_P1",
+         "question": "[1] ¿Alguien de su familia ha vivido violencia? Si contestó NO pase a la pregunta 4.",
+         "questionShort": "[1] ¿Alguien de su familia ha ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 1,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_1Yomismo",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(1) Yo mismo",
+         "questionShort": "(1) Yo mismo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 2,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_2Hermanoa",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(2) Hermano (a)",
+         "questionShort": "(2) Hermano (a)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 3,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_3Padre",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(3) Padre",
+         "questionShort": "(3) Padre",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 4,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Abuelo",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(4) Abuelo",
+         "questionShort": "(4) Abuelo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 5,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_5Madre",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(5) Madre",
+         "questionShort": "(5) Madre",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 6,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_6Abuela",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(6) Abuela",
+         "questionShort": "(6) Abuela",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 7,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_7Tiosas",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(7) Tíos(as)",
+         "questionShort": "(7) Tíos(as)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 8,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_8Primosas",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(8) Primos(as)",
+         "questionShort": "(8) Primos(as)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 9,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_9Amigo",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(9) Amigo",
+         "questionShort": "(9) Amigo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 10,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_10Amiga",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(10) Amiga",
+         "questionShort": "(10) Amiga",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 11,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_11Pareja",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(11) Pareja",
+         "questionShort": "(11) Pareja",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 12,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_12Hijo",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(12) Hijo",
+         "questionShort": "(12) Hijo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 13,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_13Hija",
+         "subScale": "VP_DETALLES_P2",
+         "question": "(13) Hija",
+         "questionShort": "(13) Hija",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 14,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_1Fisica",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(1)Física",
+         "questionShort": "(1)Física",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 15,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_2Psicologica",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(2)Psicológica",
+         "questionShort": "(2)Psicológica",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 16,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_3Emocional",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(3)Emocional",
+         "questionShort": "(3)Emocional",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 17,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Sexual",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(4)Sexual",
+         "questionShort": "(4)Sexual",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 18,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_5Social",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(5)Social",
+         "questionShort": "(5)Social",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 19,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_6Patrimonial",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(6)Patrimonial",
+         "questionShort": "(6)Patrimonial",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 20,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_7Fisicaporomision",
+         "subScale": "VP_DETALLES_P3",
+         "question": "(7)Física por omisión",
+         "questionShort": "(7)Física por omisión",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "position": 21,
+         "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
+         "subScale": "VP_DETALLES_P4",
+         "question": "[4]Usted siente que ha sufrido en algún momento, algún tipo de maltrato. Si contestó NO pase a la pregunta 7.",
+         "questionShort": "[4]Usted siente que ha sufrido",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 0 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 1,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_1Fisica",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(1)Física",
+         "questionShort": "(1)Física",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 2,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_2Psicologica",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(2)Psicológica",
+         "questionShort": "(2)Psicológica",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 3,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_3Emocional",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(3)Emocional",
+         "questionShort": "(3)Emocional",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 4,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_4Sexual",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(4)Sexual",
+         "questionShort": "(4)Sexual",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 5,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_5Social",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(5)Social",
+         "questionShort": "(5)Social",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 6,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_6Patrimonial",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(6)Patrimonial",
+         "questionShort": "(6)Patrimonial",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 7,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Fisicaporomision",
+         "subScale": "VP_TIPOS_P5",
+         "question": "(7)Física por omisión",
+         "questionShort": "(7)Física por omisión",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 8,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_1Yomismo",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(1) Yo mismo",
+         "questionShort": "(1) Yo mismo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 9,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_2Hermanoa",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(2) Hermano (a)",
+         "questionShort": "(2) Hermano (a)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 10,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_3Padre",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(3) Padre",
+         "questionShort": "(3) Padre",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 11,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_4Abuelo",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(4) Abuelo",
+         "questionShort": "(4) Abuelo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 12,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_5Madre",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(5) Madre",
+         "questionShort": "(5) Madre",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 13,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_6Abuela",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(6) Abuela",
+         "questionShort": "(6) Abuela",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 14,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Tiosas",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(7) Tíos(as)",
+         "questionShort": "(7) Tíos(as)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 15,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_8Primosas",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(8) Primos(as)",
+         "questionShort": "(8) Primos(as)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 16,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_9Amigo",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(9) Amigo",
+         "questionShort": "(9) Amigo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 17,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_10Amiga",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(10) Amiga",
+         "questionShort": "(10) Amiga",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 18,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_11Pareja",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(11) Pareja",
+         "questionShort": "(11) Pareja",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 19,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_12Hijo",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(12) Hijo",
+         "questionShort": "(12) Hijo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 20,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_13Hija",
+         "subScale": "VP_TIPOS_P6",
+         "question": "(13) Hija",
+         "questionShort": "(13) Hija",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "position": 21,
+         "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
+         "subScale": "VP_TIPOS_P7",
+         "question": "[7]Usted siente que ha maltratado en algún momento a alguien cercano. Si contestó NO pase a la pregunta 10.",
+         "questionShort": "[7]Usted siente que ha maltrat",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 0 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 1,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_1Fisica",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(1)Física",
+         "questionShort": "(1)Física",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 2,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_2Psicologica",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(2)Psicológica",
+         "questionShort": "(2)Psicológica",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 3,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_3Emocional",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(3)Emocional",
+         "questionShort": "(3)Emocional",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 4,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_4Sexual",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(4)Sexual",
+         "questionShort": "(4)Sexual",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 5,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_5Social",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(5)Social",
+         "questionShort": "(5)Social",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 6,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_6Patrimonial",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(6)Patrimonial",
+         "questionShort": "(6)Patrimonial",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 7,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_7Fisicaporomision",
+         "subScale": "VE_DETALLES_P8",
+         "question": "(7)Física por omisión",
+         "questionShort": "(7)Física por omisión",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 8,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_1Yomismo",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(1) Yo mismo",
+         "questionShort": "(1) Yo mismo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 9,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_2Hermanoa",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(2) Hermano (a)",
+         "questionShort": "(2) Hermano (a)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 10,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_3Padre",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(3) Padre",
+         "questionShort": "(3) Padre",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 11,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_4Abuelo",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(4) Abuelo",
+         "questionShort": "(4) Abuelo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 12,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_5Madre",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(5) Madre",
+         "questionShort": "(5) Madre",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 13,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_6Abuela",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(6) Abuela",
+         "questionShort": "(6) Abuela",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 14,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_7Tiosas",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(7) Tíos(as)",
+         "questionShort": "(7) Tíos(as)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 15,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_8Primosas",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(8) Primos(as)",
+         "questionShort": "(8) Primos(as)",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 16,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_9Amigo",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(9) Amigo",
+         "questionShort": "(9) Amigo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 17,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Amiga",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(10) Amiga",
+         "questionShort": "(10) Amiga",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 18,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Pareja",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(11) Pareja",
+         "questionShort": "(11) Pareja",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 19,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Hijo",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(12) Hijo",
+         "questionShort": "(12) Hijo",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 20,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Hija",
+         "subScale": "VE_DETALLES_P9",
+         "question": "(13) Hija",
+         "questionShort": "(13) Hija",
+         "weightType": "WEIGHTED_CRITERIA",
+         "weights": "> 0 : 1",
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 21,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
+         "subScale": "VE_DETALLES_P10",
+         "question": "[10]Vive su padre",
+         "questionShort": "[10]Vive su padre",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 0 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 22,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
+         "subScale": "VE_DETALLES_P11",
+         "question": "[11]Vive su madre",
+         "questionShort": "[11]Vive su madre",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 0 },
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 23,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
+         "subScale": "VE_DETALLES_P12",
+         "question": "[12]Sus padres están separados o divorciados",
+         "questionShort": "[12]Sus padres están separados",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 0 },
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 24,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
+         "subScale": "VE_DETALLES_P13",
+         "question": "[13]Â¿Qué edad tenía cuando se separaron?",
+         "questionShort": "[13]Â¿Qué edad tenía cuando se",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 25,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
+         "subScale": "VE_DETALLES_P14",
+         "question": "[14]Si falleció su padre Â¿Qué edad tenía usted?",
+         "questionShort": "[14]Si falleció su padre Â¿Qué",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 26,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
+         "subScale": "VE_DETALLES_P15",
+         "question": "[15]Si falleció su madre Â¿Qué edad tenía usted?",
+         "questionShort": "[15]Si falleció su madre Â¿Qué",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 27,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
+         "subScale": "VE_DETALLES_P16",
+         "question": "[16]Actividades de su padre",
+         "questionShort": "[16]Actividades de su padre",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 1,
+            "11": 1
+         },
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 28,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
+         "subScale": "VE_DETALLES_P17",
+         "question": "[17]Actividades de su madre",
+         "questionShort": "[17]Actividades de su madre",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 1
+         },
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "position": 29,
+         "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
+         "subScale": "VE_DETALLES_P18",
+         "question": "[18]En lo mejor de su conocimiento por favor indique de las siguientes afirmaciones la que mejor describa su situación cuando usted tenía menos de 5 años",
+         "questionShort": "[18]En lo mejor de su conocimi",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 1, "3": 1, "4": 1 },
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 1,
             "answerType": "noother"
          }
       }
@@ -8523,6 +10307,122 @@
             "COHERENCIA"
          ],
          "position": 170
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "description": "VP_DETALLES_P2_QUIEN_TOTAL",
+         "shortDescription": "VP_DETALLES_P2_QUIEN_TOTAL",
+         "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["VP_DETALLES_P2"],
+         "position": "210"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "description": "VP_DETALLES_P2_QUIEN_LISTA",
+         "shortDescription": "VP_DETALLES_P2_QUIEN_LISTA",
+         "fieldName": "VP_DETALLES_P2_QUIEN_LISTA",
+         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
+         "criteria": "== 1 : 1 : 0",
+         "subScales": ["VP_DETALLES_P2"],
+         "position": "240"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "description": "VP_DETALLES_P3_TIPO_TOTAL",
+         "shortDescription": "VP_DETALLES_P3_TIPO_TOTAL",
+         "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["VP_DETALLES_P3"],
+         "position": "270"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+         "description": "VP_DETALLES_P3_TIPO_LISTA",
+         "shortDescription": "VP_DETALLES_P3_TIPO_LISTA",
+         "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
+         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
+         "criteria": "== 1 : 1 : 0",
+         "subScales": ["VP_DETALLES_P3"],
+         "position": "300"
+      },
+
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "description": "VP_TIPOS_P5_PADECIO_TOTAL",
+         "shortDescription": "VP_TIPOS_P5_PADECIO_TOTAL",
+         "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["VP_TIPOS_P5"],
+         "position": "360"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "description": "VP_TIPOS_P5_PADECIO_LISTA",
+         "shortDescription": "VP_TIPOS_P5_PADECIO_LISTA",
+         "fieldName": "VP_TIPOS_P5_PADECIO_LISTA",
+         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
+         "criteria": "== 1 : 1 : 0",
+         "subScales": ["VP_TIPOS_P5"],
+         "position": "390"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "description": "VP_TIPOS_P6_QUIEN_TOTAL",
+         "shortDescription": "VP_TIPOS_P6_QUIEN_TOTAL",
+         "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["VP_TIPOS_P6"],
+         "position": "420"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+         "description": "VP_TIPOS_P6_QUIEN_LISTA",
+         "shortDescription": "VP_TIPOS_P6_QUIEN_LISTA",
+         "fieldName": "VP_TIPOS_P6_QUIEN_LISTA",
+         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
+         "criteria": "== 1 : 1 : 0",
+         "subScales": ["VP_TIPOS_P6"],
+         "position": "450"
+      },
+
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "description": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
+         "shortDescription": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
+         "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["VE_DETALLES_P8"],
+         "position": "510"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "description": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
+         "shortDescription": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
+         "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
+         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
+         "criteria": "== 1 : 1 : 0",
+         "subScales": ["VE_DETALLES_P8"],
+         "position": "540"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "description": "VE_DETALLES_P9_EJERCIDO_AQUIEN_TOTAL",
+         "shortDescription": "VE_DETALLES_P9_EJERCIDO_AQUIEN_TOTAL",
+         "fieldName": "VE_DETALLES_P9_EJERCIDO_AQUIEN_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["VE_DETALLES_P9"],
+         "position": "570"
+      },
+      {
+         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+         "description": "VE_DETALLES_P9_EJERCIDO_AQUIEN_LISTA",
+         "shortDescription": "VE_DETALLES_P9_EJERCIDO_AQUIEN_LISTA",
+         "fieldName": "VE_DETALLES_P9_EJERCIDO_AQUIEN_LISTA",
+         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
+         "criteria": "== 1 : 1 : 0",
+         "subScales": ["VE_DETALLES_P9"],
+         "position": "600"
       }
    ]
 }
