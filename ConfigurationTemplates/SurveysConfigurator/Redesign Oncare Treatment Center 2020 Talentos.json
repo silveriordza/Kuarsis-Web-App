@@ -2698,6 +2698,26 @@
             "surveyShortName": "E_EFF_17",
             "position": 160,
             "monkeyPosition": 12
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA",
+            "position": 190,
+            "monkeyPosition": 13
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
+            "position": 220,
+            "monkeyPosition": 14
+         },
+         {
+            "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
+            "position": 250,
+            "monkeyPosition": 15
+         },
+         {
+            "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
+            "position": 280,
+            "monkeyPosition": 16
          }
       ]
    },
