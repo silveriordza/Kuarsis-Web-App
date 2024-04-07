@@ -723,6 +723,17 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
             score = ''
          }
          return pushValueCol(value, realValue, score)
+      case 'OPEN_ENDED_NUMERICAL':
+         if (monkeyAnswer && monkeyAnswer.text) {
+            value = parseInt(monkeyAnswer.text.trim())
+            realValue = monkeyAnswer.text.trim()
+            score = parseInt(monkeyAnswer.text.trim())
+         } else {
+            value = ''
+            realValue = ''
+            score = ''
+         }
+         return pushValueCol(value, realValue, score)
       //break
       case 'SINGLE_CHOICE_MENU':
          return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)

@@ -2894,426 +2894,1258 @@
             "showInSurveyOutputScreen": false,
             "position": 4111
          },
-
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_1Buscarrespuestaauna",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4121
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_2Elaprendizajeperman",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4131
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_3Disfrutoleerarticul",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4141
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_4Asistorutinariament",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4151
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_5Leorevistasdemiambi",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4161
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_6Acostumbrobuscarenb",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4171
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_7Creoquepodriaatrasa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4181
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_8Unobjetivoimportant",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4191
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_9Loscambiosrapidosen",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4201
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_10Siempreencuentroel",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4211
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_11Reconozcominecesid",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4221
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_12Acostumbroasistira",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4231
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_13Aprovechocadaoport",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4241
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_14Mienfoquepreferido",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4251
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_1Enfermeriadeberiad",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4261
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_2Enfermeriaestacali",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4271
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_3Durantesuformacion",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4281
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_4Enfermeriadeberiad",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4291
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_5Enfermeriadeberiad",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4301
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_6Existenmuchasareas",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4311
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_7Enfermeriatienehab",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4321
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_8Losmedicosdebendes",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4331
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_9MedicosyEnfermeras",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4341
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_10Lafuncionprimaria",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4351
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_11Enfermeriadeberia",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4361
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_12Enfermeriadeberia",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4371
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_13Enfermeriadeberia",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4381
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_14Losmedicosdeberia",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4391
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_MEDICO_ENFERMERIA_15Relacionesinterpr",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4401
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_1_AAmodificartodosl",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4411
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_1_BAobtenerlogrospo",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4421
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_1_CAprestardineroaa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4431
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_1_DAcumplirconlasob",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4441
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_2_ASeponeaorarconla",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4451
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_2_BPideunaambulanci",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4461
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_2_CCuidalaspertenen",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4471
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_2_DTratadedeteneral",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4481
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_3_ALededicariatiemp",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4491
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_3_BLorechazariaamab",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4501
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_3_CAceptariaelprese",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4511
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_3_DLlamariaasuspadr",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4521
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_4_AArrancasuautomov",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4531
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_4_BTratadellegaraun",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4541
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_4_CPidelesealevanta",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4551
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_4_DAmenazaalagentec",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4561
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_5_ASeaactivoylegust",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4571
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_5_BSeintereseporser",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4581
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_5_CAsistirconfrecue",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4591
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_5_DLeinteresaempren",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4601
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_6_ATratariadeencont",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4611
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_6_BLoreportaasussup",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4621
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_6_CNohaceninguncome",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4631
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_6_DLodejadondeloenc",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4641
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_7_AAyudaralasclases",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4651
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_7_BAmpliarlaszonast",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4661
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_7_CBuscaralosmejore",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4671
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_7_DPermitirquelarel",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4681
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_8_AQueseacumplidoye",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4691
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_8_BQuebusquecualess",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4701
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_8_CQueprometaunaman",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4711
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_8_DQueofrezcaunaexc",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4721
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_9_ALlamariaalapolic",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4731
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_9_BLlamariaasuvecin",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4741
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_9_CPediriaalosasalt",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4751
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_9_DMejornoharianada",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4761
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_10_APedirunaumentod",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4771
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_10_BRecurriralsindi",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4781
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_10_CQuerecurraasugu",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4791
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_10_DQuesoliciteunap",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4801
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_11_AQueloconvenzade",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4811
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_11_BProponerlesuayu",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4821
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_11_CQuecomotodoleha",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4831
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_11_DDecirleloimport",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4841
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_12_ALesdicequenodeb",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4851
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_12_BAtiendecongusto",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4861
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_12_CAcambiodesusser",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4871
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_12_DAsistealmodulod",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4881
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_13_ALoayudariaabusc",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4891
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_13_BLollevariaalare",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4901
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_13_CPasariadelargop",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4911
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_13_DLollevariaasuca",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4921
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_14_AHacerloproducir",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4931
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_14_BDonareldineropa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4941
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_14_CDarloaunasocied",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4951
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_14_DApoyarayudaalpa",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4961
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_15_ALesugierequevea",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4971
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_15_BQuehagaloquequi",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4981
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_15_CQuecursenuevame",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 4991
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_15_DDarleapoyoecono",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5001
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_16_AObtenerexperien",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5011
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_16_BParticiparenlac",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5021
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_16_CAsistiraunretir",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5031
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_16_DVisitarunlugarq",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5041
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_17_ALepideasuhijoqu",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5051
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_17_BLesugiereasufam",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5061
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_17_CSielmuchachoyae",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5071
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_17_DLollevaauncentr",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5081
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_18_AQueempleesutiem",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5091
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_18_BQuevendaarticul",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5101
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_18_CQuepromuevajunt",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5111
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_18_DQueasistaconsus",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5121
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_19_ALeexplicalosmot",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5131
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_19_BLepideelfavorsi",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5141
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_19_CLehacecreerquee",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5151
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_19_DLesugiereasujef",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5161
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_20_ATrabajarenforma",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5171
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_20_BComoencargadode",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5181
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_20_CDedicarseaestud",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5191
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "TEST_DE_ZAVIC_20_DTrabajadorsocia",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "position": 5201
+         },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_SOMATICOS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4121
+            "position": 5211
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4131
+            "position": 5221
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DISF_SOCIAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4141
+            "position": 5231
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4151
+            "position": 5241
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4161
+            "position": 5251
          },
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ES_CASO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4171
+            "position": 5261
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_EMOCIONAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4181
+            "position": 5271
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_DESPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4191
+            "position": 5281
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_LOGROS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4201
+            "position": 5291
          },
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4211
+            "position": 5301
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4221
+            "position": 5311
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4231
+            "position": 5321
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_PSIQUICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4241
+            "position": 5331
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_SOMATICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4251
+            "position": 5341
          },
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4261
+            "position": 5351
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4271
+            "position": 5361
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_COMPASION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4281
+            "position": 5371
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_ZAPATOS_PACIENTE",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4291
+            "position": 5381
          },
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4301
+            "position": 5391
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_TOTAL_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4311
+            "position": 5401
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_ES_CASO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4321
+            "position": 5411
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SOMATIZACION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4331
+            "position": 5421
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_OBSESION_COMPULSION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4341
+            "position": 5431
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SENS_INTERPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4351
+            "position": 5441
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4361
+            "position": 5451
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ANSIEDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4371
+            "position": 5461
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_HOSTILIDAD",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4381
+            "position": 5471
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_FOBIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4391
+            "position": 5481
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PARANOIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4401
+            "position": 5491
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PSICOSIS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4411
+            "position": 5501
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ADICIONALES",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4421
+            "position": 5511
          },
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4431
+            "position": 5521
          },
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4441
+            "position": 5531
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_INDIVIDUACION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4451
+            "position": 5541
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4461
+            "position": 5551
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4471
+            "position": 5561
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_COHERENCIA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4481
+            "position": 5571
          },
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4491
+            "position": 5581
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA",
             "fieldName": "VIOLENCIA_PADECIDA_1Alguiendesufamil",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4501
+            "position": 5591
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4511
+            "position": 5601
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P2_QUIEN_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4511
+            "position": 5601
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4521
+            "position": 5611
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4531
+            "position": 5621
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4541
+            "position": 5631
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4541
+            "position": 5631
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P5_PADECIO_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4551
+            "position": 5641
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4561
+            "position": 5651
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P6_QUIEN_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4571
+            "position": 5661
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4581
+            "position": 5671
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4581
+            "position": 5671
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 4591
+            "position": 5681
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4601
+            "position": 5691
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4611
+            "position": 5701
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4621
+            "position": 5711
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4631
+            "position": 5721
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4641
+            "position": 5731
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4651
+            "position": 5741
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4661
+            "position": 5751
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4671
+            "position": 5761
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 4681
+            "position": 5771
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5781
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "COLAB_MEDICO_ENFERMERIA_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5791
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_SOCIAL_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5801
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_POLITICO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5811
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_ECONOMICO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5821
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_RELIGIOSO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5831
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_MORAL_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5841
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_LEGALIDAD_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5851
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_INDIFERENCIA_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5861
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_CORRUPTO_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5871
          }
       ],
       "multiSurveys": [
@@ -3376,6 +4208,21 @@
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "position": 280,
             "monkeyPosition": 16
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "position": 310,
+            "monkeyPosition": 17
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "position": 340,
+            "monkeyPosition": 18
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "position": 370,
+            "monkeyPosition": 19
          }
       ]
    },
@@ -3475,6 +4322,24 @@
          "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
          "description": "Cuestionario de detección de violencia detalle de violencia ejercida.",
          "instructions": "Cuestionario de detección de violencia detalle de violencia ejercida."
+      },
+      {
+         "surveyName": "Actitud hacia el aprendizaje a lo largo de la vida",
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "description": "Actitud hacia el aprendizaje a lo largo de la vida",
+         "instructions": "Actitud hacia el aprendizaje a lo largo de la vida"
+      },
+      {
+         "surveyName": "Escala de Jefferson de Actitudes Hacia la Colaboración entre Médicos y Enfermería",
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "description": "Escala de Jefferson de Actitudes Hacia la Colaboración entre Médicos y Enfermería",
+         "instructions": "Escala de Jefferson de Actitudes Hacia la Colaboración entre Médicos y Enfermería"
+      },
+      {
+         "surveyName": "Test de Zavic",
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "Test de Zavic",
+         "instructions": "Test de Zavic"
       }
    ],
    "questions": [
@@ -9920,6 +10785,1641 @@
             "subPosition": 1,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 1,
+         "fieldName": "ACTITUD_APRENDIZAJE_1Buscarrespuestaauna",
+         "subScale": "APRENDIZAJE",
+         "question": "1. Buscar respuesta a una pregunta es por sí mismo gratificante",
+         "questionShort": "1. Buscar respuesta a una preg",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 2,
+         "fieldName": "ACTITUD_APRENDIZAJE_2Elaprendizajeperman",
+         "subScale": "APRENDIZAJE",
+         "question": "2. El aprendizaje permanente es una responsabilidad profesional de todos nosotros",
+         "questionShort": "2. El aprendizaje permanente e",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 3,
+         "fieldName": "ACTITUD_APRENDIZAJE_3Disfrutoleerarticul",
+         "subScale": "APRENDIZAJE",
+         "question": "3. Disfruto leer artículos en donde asuntos de mi interés profesional son discutidos",
+         "questionShort": "3. Disfruto leer artículos en ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 4,
+         "fieldName": "ACTITUD_APRENDIZAJE_4Asistorutinariament",
+         "subScale": "APRENDIZAJE",
+         "question": "4. Asisto rutinariamente a congresos anuales convocados por organizaciones médicas profesionales",
+         "questionShort": "4. Asisto rutinariamente a con",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 5,
+         "fieldName": "ACTITUD_APRENDIZAJE_5Leorevistasdemiambi",
+         "subScale": "APRENDIZAJE",
+         "question": "5. Leo revistas de mi ámbito profesional, al menos, una vez a la semana",
+         "questionShort": "5. Leo revistas de mi ámbito p",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 6,
+         "fieldName": "ACTITUD_APRENDIZAJE_6Acostumbrobuscarenb",
+         "subScale": "APRENDIZAJE",
+         "question": "6. Acostumbro buscar en bases de datos informáticas los nuevos desarrollos en mi especialidad",
+         "questionShort": "6. Acostumbro buscar en bases ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 7,
+         "fieldName": "ACTITUD_APRENDIZAJE_7Creoquepodriaatrasa",
+         "subScale": "APRENDIZAJE",
+         "question": "7. Creo que podría atrasarme si dejo de aprender los nuevos desarrollos en mi profesión",
+         "questionShort": "7. Creo que podría atrasarme s",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 8,
+         "fieldName": "ACTITUD_APRENDIZAJE_8Unobjetivoimportant",
+         "subScale": "APRENDIZAJE",
+         "question": "8. Un objetivo importante de la universidad es que los estudiantes desarrollen habilidades de aprendizaje a lo largo de la vida",
+         "questionShort": "8. Un objetivo importante de l",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 9,
+         "fieldName": "ACTITUD_APRENDIZAJE_9Loscambiosrapidosen",
+         "subScale": "APRENDIZAJE",
+         "question": "9. Los cambios rápidos en las ciencias médicas requieren de constante actualización de conocimientos y del desarrollo de nuevas habilidades profesionales",
+         "questionShort": "9. Los cambios rápidos en las ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 10,
+         "fieldName": "ACTITUD_APRENDIZAJE_10Siempreencuentroel",
+         "subScale": "APRENDIZAJE",
+         "question": "10. Siempre encuentro el tiempo para un aprendizaje autodirigido, incluso cuando tengo una agenda ocupada con otras obligaciones profesionales y familiares",
+         "questionShort": "10. Siempre encuentro el tiemp",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 11,
+         "fieldName": "ACTITUD_APRENDIZAJE_11Reconozcominecesid",
+         "subScale": "APRENDIZAJE",
+         "question": "11. Reconozco mi necesidad de adquirir constantemente nuevos conocimientos profesionales",
+         "questionShort": "11. Reconozco mi necesidad de ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 12,
+         "fieldName": "ACTITUD_APRENDIZAJE_12Acostumbroasistira",
+         "subScale": "APRENDIZAJE",
+         "question": "12. Acostumbro asistir a programas de educación médica continua para mejorar el cuidado del paciente",
+         "questionShort": "12. Acostumbro asistir a progr",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 13,
+         "fieldName": "ACTITUD_APRENDIZAJE_13Aprovechocadaoport",
+         "subScale": "APRENDIZAJE",
+         "question": "13. Aprovecho cada oportunidad para obtener nuevos conocimientos/habilidades que son importantes en mi profesión",
+         "questionShort": "13. Aprovecho cada oportunidad",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "position": 14,
+         "fieldName": "ACTITUD_APRENDIZAJE_14Mienfoquepreferido",
+         "subScale": "APRENDIZAJE",
+         "question": "14. Mi enfoque preferido para encontrar una respuesta a una pregunta es buscar en bases de datos informáticas apropiadas",
+         "questionShort": "14. Mi enfoque preferido para ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 1,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_1Enfermeriadeberiad",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "1.Enfermería debería de ser considerada como un colaborador y colega del médico en lugar de verlo como un asistente.",
+         "questionShort": "1.Enfermería debería de ser c",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 2,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_2Enfermeriaestacali",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "2.Enfermería está calificada para valorar y responder a los aspectos psicológicos de las necesidades de los pacientes.",
+         "questionShort": "2.Enfermería está calificada ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 3,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_3Durantesuformacion",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "3.Durante su formación, estudiantes de medicina y enfermería deberían de participar en grupo de trabajo para entender mejor sus respectivos roles.",
+         "questionShort": "3.Durante su formación, estud",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 4,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_4Enfermeriadeberiad",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "4.Enfermería debería de participar en la elaboración de las normas que afectan sus condiciones de trabajo.",
+         "questionShort": "4.Enfermería debería de parti",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 5,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_5Enfermeriadeberiad",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "5.Enfermería debería de ser responsable de los cuidados que brinda a los pacientes.",
+         "questionShort": "5.Enfermería debería de ser r",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 6,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_6Existenmuchasareas",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "6.Existen muchas áreas de responsabilidad que coinciden entre médicos y enfermeros(as).",
+         "questionShort": "6.Existen muchas áreas de res",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 7,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_7Enfermeriatienehab",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "7.Enfermería tiene habilidad especial para la educación y el manejo psicológico de los pacientes.",
+         "questionShort": "7.Enfermería tiene habilidad ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 8,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_8Losmedicosdebendes",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "8.Los médicos deben de ser la autoridad dominante en todo asunto de salud.",
+         "questionShort": "8.Los médicos deben de ser la",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 9,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_9MedicosyEnfermeras",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "9.Médicos y Enfermeras(os) deberían contribuir en las decisiones sobre las altas de los pacientes",
+         "questionShort": "9.Médicos y Enfermeras(os) de",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 10,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_10Lafuncionprimaria",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "10.La función primaria de la enfermería es cumplir con las órdenes del médico.",
+         "questionShort": "10.La función primaria de la ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 11,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_11Enfermeriadeberia",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "11.Enfermería debería de involucrarse en la elaboración de la normatividad y la toma de decisiones concernientes a su trabajo en los servicios del hospital.",
+         "questionShort": "11.Enfermería debería de invo",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 12,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_12Enfermeriadeberia",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "12.Enfermería debería de ser responsable de monitorear los efectos del tratamiento médico.",
+         "questionShort": "12.Enfermería debería de ser ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 13,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_13Enfermeriadeberia",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "13.Enfermería debería de aclarar con el médico las órdenes que ellos sienten que pudiera potencialmente ir en detrimento del bienestar del paciente.",
+         "questionShort": "13.Enfermería debería de acla",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 14,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_14Losmedicosdeberia",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "14.Los médicos deberían de ser educados para establecer una relación de colaboración con enfermería.",
+         "questionShort": "14.Los médicos deberían de se",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "position": 15,
+         "fieldName": "JEFF_MEDICO_ENFERMERIA_15Relacionesinterpr",
+         "subScale": "COLAB_MEDICO_ENFERMERIA",
+         "question": "15.Relaciones interprofesionales entre médicos y enfermería deberían de incluirse en sus programas de educación.",
+         "questionShort": "15.Relaciones interprofesiona",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 1,
+         "fieldName": "TEST_DE_ZAVIC_1_AAmodificartodosl",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "1_A) A modificar todos los jardines de la ciudad.",
+         "questionShort": "1_A) A modificar todos los jar",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 2,
+         "fieldName": "TEST_DE_ZAVIC_1_BAobtenerlogrospo",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "1_B) A obtener logros por medio de la política.",
+         "questionShort": "1_B) A obtener logros por medi",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 3,
+         "fieldName": "TEST_DE_ZAVIC_1_CAprestardineroaa",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "1_C) A prestar dinero a altos intereses.",
+         "questionShort": "1_C) A prestar dinero a altos ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 4,
+         "fieldName": "TEST_DE_ZAVIC_1_DAcumplirconlasob",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "1_D) A cumplir con las obligaciones que su religión le impone",
+         "questionShort": "1_D) A cumplir con las obligac",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 5,
+         "fieldName": "TEST_DE_ZAVIC_2_ASeponeaorarconla",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "2_A) Se pone a orar con la persona accidentada",
+         "questionShort": "2_A) Se pone a orar con la per",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 6,
+         "fieldName": "TEST_DE_ZAVIC_2_BPideunaambulanci",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "2_B) Pide una ambulancia.",
+         "questionShort": "2_B) Pide una ambulancia.",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 7,
+         "fieldName": "TEST_DE_ZAVIC_2_CCuidalaspertenen",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "2_C) Cuida las pertenencias del accidentado.",
+         "questionShort": "2_C) Cuida las pertenencias de",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 8,
+         "fieldName": "TEST_DE_ZAVIC_2_DTratadedeteneral",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "2_D) Trata de detener al culpable.",
+         "questionShort": "2_D) Trata de detener al culpa",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 9,
+         "fieldName": "TEST_DE_ZAVIC_3_ALededicariatiemp",
+         "subScale": "ZAVIC_MORAL",
+         "question": "3_A) Le dedicaría tiempo extra para nivelarlo.",
+         "questionShort": "3_A) Le dedicaría tiempo extra",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 10,
+         "fieldName": "TEST_DE_ZAVIC_3_BLorechazariaamab",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "3_B) Lo rechazaría amablemente y lo invitaría a estudiar.",
+         "questionShort": "3_B) Lo rechazaría amablemente",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 11,
+         "fieldName": "TEST_DE_ZAVIC_3_CAceptariaelprese",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "3_C) Aceptaría el presente y le daría la calificación deseada por su alumno, porque usted sabe que es inteligente.",
+         "questionShort": "3_C) Aceptaría el presente y l",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 12,
+         "fieldName": "TEST_DE_ZAVIC_3_DLlamariaasuspadr",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "3_D) Llamaría a sus padres para que paguen clases particulares.",
+         "questionShort": "3_D) Llamaría a sus padres par",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 13,
+         "fieldName": "TEST_DE_ZAVIC_4_AArrancasuautomov",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "4_A) Arranca su automóvil y deja al agente de transito.",
+         "questionShort": "4_A) Arranca su automóvil y de",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 14,
+         "fieldName": "TEST_DE_ZAVIC_4_BTratadellegaraun",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "4_B) Trata de llegar a un acuerdo encaminado a disminuir la cantidad de dinero.",
+         "questionShort": "4_B) Trata de llegar a un acue",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 15,
+         "fieldName": "TEST_DE_ZAVIC_4_CPidelesealevanta",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "4_C) Pide le sea levantada la infracción pertinente.",
+         "questionShort": "4_C) Pide le sea levantada la ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 16,
+         "fieldName": "TEST_DE_ZAVIC_4_DAmenazaalagentec",
+         "subScale": "ZAVIC_MORAL",
+         "question": "4_D) Amenaza al agente con reportarlo con sus superiores.",
+         "questionShort": "4_D) Amenaza al agente con rep",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 17,
+         "fieldName": "TEST_DE_ZAVIC_5_ASeaactivoylegust",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "5_A) Sea activo y le guste reparar defectos en su hogar.",
+         "questionShort": "5_A) Sea activo y le guste rep",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 18,
+         "fieldName": "TEST_DE_ZAVIC_5_BSeintereseporser",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "5_B) Se interese por ser líder en el sindicato del cual forma parte.",
+         "questionShort": "5_B) Se interese por ser líder",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 19,
+         "fieldName": "TEST_DE_ZAVIC_5_CAsistirconfrecue",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "5_C) Asistir con frecuencia a eventos religiosos.",
+         "questionShort": "5_C) Asistir con frecuencia a ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 20,
+         "fieldName": "TEST_DE_ZAVIC_5_DLeinteresaempren",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "5_D) Le interesa emprender negocios.",
+         "questionShort": "5_D) Le interesa emprender neg",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 21,
+         "fieldName": "TEST_DE_ZAVIC_6_ATratariadeencont",
+         "subScale": "ZAVIC_MORAL",
+         "question": "6_A) Trataría de encontrar a su dueño.",
+         "questionShort": "6_A) Trataría de encontrar a s",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 22,
+         "fieldName": "TEST_DE_ZAVIC_6_BLoreportaasussup",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "6_B) Lo reporta a sus superiores y lo entrega.",
+         "questionShort": "6_B) Lo reporta a sus superior",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 23,
+         "fieldName": "TEST_DE_ZAVIC_6_CNohaceninguncome",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "6_C) No hace ningún comentario y espera a que lo busquen.",
+         "questionShort": "6_C) No hace ningún comentario",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 24,
+         "fieldName": "TEST_DE_ZAVIC_6_DLodejadondeloenc",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "6_D) Lo deja donde lo encontró.",
+         "questionShort": "6_D) Lo deja donde lo encontró",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 25,
+         "fieldName": "TEST_DE_ZAVIC_7_AAyudaralasclases",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "7_A) Ayudar a las clases necesitadas.",
+         "questionShort": "7_A) Ayudar a las clases neces",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 26,
+         "fieldName": "TEST_DE_ZAVIC_7_BAmpliarlaszonast",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "7_B) Ampliar las zonas turísticas de cinco estrellas.",
+         "questionShort": "7_B) Ampliar las zonas turísti",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 27,
+         "fieldName": "TEST_DE_ZAVIC_7_CBuscaralosmejore",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "7_C) Buscar a los mejores líderes de su partido.",
+         "questionShort": "7_C) Buscar a los mejores líde",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 28,
+         "fieldName": "TEST_DE_ZAVIC_7_DPermitirquelarel",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "7_D) Permitir que la religión sea oficial.",
+         "questionShort": "7_D) Permitir que la religión ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 29,
+         "fieldName": "TEST_DE_ZAVIC_8_AQueseacumplidoye",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "8_A) Que sea cumplido y eficiente.",
+         "questionShort": "8_A) Que sea cumplido y eficie",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 30,
+         "fieldName": "TEST_DE_ZAVIC_8_BQuebusquecualess",
+         "subScale": "ZAVIC_MORAL",
+         "question": "8_B) Que busque cuales son los errores del jefe para que demuestre que el no es perfecto.",
+         "questionShort": "8_B) Que busque cuales son los",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 31,
+         "fieldName": "TEST_DE_ZAVIC_8_CQueprometaunaman",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "8_C) Que prometa una manda a su santo de preferencia.",
+         "questionShort": "8_C) Que prometa una manda a s",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 32,
+         "fieldName": "TEST_DE_ZAVIC_8_DQueofrezcaunaexc",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "8_D) Que ofrezca una excelente comida a los dirigentes de la empresa.",
+         "questionShort": "8_D) Que ofrezca una excelente",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 33,
+         "fieldName": "TEST_DE_ZAVIC_9_ALlamariaalapolic",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "9_A) Llamaría a la policía.",
+         "questionShort": "9_A) Llamaría a la policía.",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 34,
+         "fieldName": "TEST_DE_ZAVIC_9_BLlamariaasuvecin",
+         "subScale": "ZAVIC_MORAL",
+         "question": "9_B) Llamaría a su vecino.",
+         "questionShort": "9_B) Llamaría a su vecino.",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 35,
+         "fieldName": "TEST_DE_ZAVIC_9_CPediriaalosasalt",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "9_C) Pediría a los asaltantes parte del beneficio que obtendrán en el robo, por guardar silencio.",
+         "questionShort": "9_C) Pediría a los asaltantes ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 36,
+         "fieldName": "TEST_DE_ZAVIC_9_DMejornoharianada",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "9_D) Mejor no haría nada y se metería a su casa.",
+         "questionShort": "9_D) Mejor no haría nada y se ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 37,
+         "fieldName": "TEST_DE_ZAVIC_10_APedirunaumentod",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "10_A) Pedir un aumento de sueldo.",
+         "questionShort": "10_A) Pedir un aumento de suel",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 38,
+         "fieldName": "TEST_DE_ZAVIC_10_BRecurriralsindi",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "10_B) Recurrir al sindicato para que éste le ayude.",
+         "questionShort": "10_B) Recurrir al sindicato pa",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 39,
+         "fieldName": "TEST_DE_ZAVIC_10_CQuerecurraasugu",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "10_C) Que recurra a su guía espiritual para que le diga como se le debe ayudar y su trabajo no se le haga pesado.",
+         "questionShort": "10_C) Que recurra a su guía es",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 40,
+         "fieldName": "TEST_DE_ZAVIC_10_DQuesoliciteunap",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "10_D) Que solicite una persona para que le ayude.",
+         "questionShort": "10_D) Que solicite una persona",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 41,
+         "fieldName": "TEST_DE_ZAVIC_11_AQueloconvenzade",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "11_A) Que lo convenza de acudir al seguro social para que su atención médica no le sea costosa.",
+         "questionShort": "11_A) Que lo convenza de acudi",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 42,
+         "fieldName": "TEST_DE_ZAVIC_11_BProponerlesuayu",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "11_B) Proponerle su ayuda cuando él tenga que acudir a sus citas médicas.",
+         "questionShort": "11_B) Proponerle su ayuda cuan",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 43,
+         "fieldName": "TEST_DE_ZAVIC_11_CQuecomotodoleha",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "11_C) Que como todo le ha salido mal últimamente vea a una persona para que le realice una limpia.",
+         "questionShort": "11_C) Que como todo le ha sali",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 44,
+         "fieldName": "TEST_DE_ZAVIC_11_DDecirleloimport",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "11_D) Decirle lo importante que fueron las juntas de vecinos ahora que él estuvo hospitalizado.",
+         "questionShort": "11_D) Decirle lo importante qu",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 45,
+         "fieldName": "TEST_DE_ZAVIC_12_ALesdicequenodeb",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "12_A) Les dice que no debido a que se encuentra muy ocupado en esos días",
+         "questionShort": "12_A) Les dice que no debido a",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 46,
+         "fieldName": "TEST_DE_ZAVIC_12_BAtiendecongusto",
+         "subScale": "ZAVIC_MORAL",
+         "question": "12_B) Atiende con gusto la petición de sus vecinos.",
+         "questionShort": "12_B) Atiende con gusto la pet",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 47,
+         "fieldName": "TEST_DE_ZAVIC_12_CAcambiodesusser",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "12_C) A cambio de sus servicios les solicita prestado el automóvil que no utilizarán en su viaje.",
+         "questionShort": "12_C) A cambio de sus servicio",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 48,
+         "fieldName": "TEST_DE_ZAVIC_12_DAsistealmodulod",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "12_D) Asiste al modulo de vigilancia local, para que le brinde mayor seguridad.",
+         "questionShort": "12_D) Asiste al modulo de vigi",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 49,
+         "fieldName": "TEST_DE_ZAVIC_13_ALoayudariaabusc",
+         "subScale": "ZAVIC_MORAL",
+         "question": "13_A) Lo ayudaría a buscar a su familia en la tienda",
+         "questionShort": "13_A) Lo ayudaría a buscar a s",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 50,
+         "fieldName": "TEST_DE_ZAVIC_13_BLollevariaalare",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "13_B) Lo llevaría al área de servicios generales para que ahí espere a que lo ayuden",
+         "questionShort": "13_B) Lo llevaría al área de s",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 51,
+         "fieldName": "TEST_DE_ZAVIC_13_CPasariadelargop",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "13_C) Pasaría de largo porque usted tiene prisa.",
+         "questionShort": "13_C) Pasaría de largo porque ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 52,
+         "fieldName": "TEST_DE_ZAVIC_13_DLollevariaasuca",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "13_D) Lo llevaría a su casa pero le cobra a la mamá por el tiempo que usted perdió por andarla buscando.",
+         "questionShort": "13_D) Lo llevaría a su casa pe",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 53,
+         "fieldName": "TEST_DE_ZAVIC_14_AHacerloproducir",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "14_A) Hacerlo producir para ayudar al desarrollo de la industria.",
+         "questionShort": "14_A) Hacerlo producir para ay",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 54,
+         "fieldName": "TEST_DE_ZAVIC_14_BDonareldineropa",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "14_B) Donar el dinero para la construcción de una iglesia.",
+         "questionShort": "14_B) Donar el dinero para la ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 55,
+         "fieldName": "TEST_DE_ZAVIC_14_CDarloaunasocied",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "14_C) Darlo a una sociedad para el beneficio de las familias humildes del poblado",
+         "questionShort": "14_C) Darlo a una sociedad par",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 56,
+         "fieldName": "TEST_DE_ZAVIC_14_DApoyarayudaalpa",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "14_D) Apoyar ayuda al partido político con el cual simpatiza.",
+         "questionShort": "14_D) Apoyar ayuda al partido ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 57,
+         "fieldName": "TEST_DE_ZAVIC_15_ALesugierequevea",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "15_A) Le sugiere que vea a los maestros para que les proponga que lo ayuden.",
+         "questionShort": "15_A) Le sugiere que vea a los",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 58,
+         "fieldName": "TEST_DE_ZAVIC_15_BQuehagaloquequi",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "15_B) Que haga lo que quiera pues ya está grande.",
+         "questionShort": "15_B) Que haga lo que quiera p",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 59,
+         "fieldName": "TEST_DE_ZAVIC_15_CQuecursenuevame",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "15_C) Que curse nuevamente el año para que pase las materias reprobadas.",
+         "questionShort": "15_C) Que curse nuevamente el ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 60,
+         "fieldName": "TEST_DE_ZAVIC_15_DDarleapoyoecono",
+         "subScale": "ZAVIC_MORAL",
+         "question": "15_D) Darle apoyo económico y moral para que supere este tropiezo en sus estudios.",
+         "questionShort": "15_D) Darle apoyo económico y ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 61,
+         "fieldName": "TEST_DE_ZAVIC_16_AObtenerexperien",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "16_A) Obtener experiencia en otro negocio que no sea el propio.",
+         "questionShort": "16_A) Obtener experiencia en o",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 62,
+         "fieldName": "TEST_DE_ZAVIC_16_BParticiparenlac",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "16_B) Participar en la campaña política de diputados que se va a efectuar en su localidad.",
+         "questionShort": "16_B) Participar en la campaña",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 63,
+         "fieldName": "TEST_DE_ZAVIC_16_CAsistiraunretir",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "16_C) Asistir a un retiro organizado por la iglesia.",
+         "questionShort": "16_C) Asistir a un retiro orga",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 64,
+         "fieldName": "TEST_DE_ZAVIC_16_DVisitarunlugarq",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "16_D) Visitar un lugar que no conoce, en compañía de su familia.",
+         "questionShort": "16_D) Visitar un lugar que no ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 65,
+         "fieldName": "TEST_DE_ZAVIC_17_ALepideasuhijoqu",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "17_A) Le pide a su hijo que no lo vuelva a ver.",
+         "questionShort": "17_A) Le pide a su hijo que no",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 66,
+         "fieldName": "TEST_DE_ZAVIC_17_BLesugiereasufam",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "17_B) Le sugiere a su familia que lo lleven a Centros de Integración Juvenil para que lo ayuden.",
+         "questionShort": "17_B) Le sugiere a su familia ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 67,
+         "fieldName": "TEST_DE_ZAVIC_17_CSielmuchachoyae",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "17_C) Si el muchacho ya es drogadicto le pide le obsequie un reloj que tanto le gusta a su hijo para no decírselo a sus padres.",
+         "questionShort": "17_C) Si el muchacho ya es dro",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 68,
+         "fieldName": "TEST_DE_ZAVIC_17_DLollevaauncentr",
+         "subScale": "ZAVIC_MORAL",
+         "question": "17_D) Lo lleva a un centro de rehabilitación junto con su hijo para que sienta que lo apoya y no es rechazado.",
+         "questionShort": "17_D) Lo lleva a un centro de ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 69,
+         "fieldName": "TEST_DE_ZAVIC_18_AQueempleesutiem",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "18_A) Que emplee su tiempo como catequista de la iglesia.",
+         "questionShort": "18_A) Que emplee su tiempo com",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 18,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 70,
+         "fieldName": "TEST_DE_ZAVIC_18_BQuevendaarticul",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "18_B) Que venda artículos femeninos.",
+         "questionShort": "18_B) Que venda artículos feme",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 18,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 71,
+         "fieldName": "TEST_DE_ZAVIC_18_CQuepromuevajunt",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "18_C) Que promueva juntas entre los vecinos encaminadas a resolver los problemas de la comunidad.",
+         "questionShort": "18_C) Que promueva juntas entr",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 18,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 72,
+         "fieldName": "TEST_DE_ZAVIC_18_DQueasistaconsus",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "18_D) Que asista con sus hijos a centros recreativos sí fuera posible.",
+         "questionShort": "18_D) Que asista con sus hijos",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 18,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 73,
+         "fieldName": "TEST_DE_ZAVIC_19_ALeexplicalosmot",
+         "subScale": "ZAVIC_MORAL",
+         "question": "19_A) Le explica los motivos y necesidades por las cuales requiere ese favor.",
+         "questionShort": "19_A) Le explica los motivos y",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 19,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 74,
+         "fieldName": "TEST_DE_ZAVIC_19_BLepideelfavorsi",
+         "subScale": "ZAVIC_INDIFERENCIA",
+         "question": "19_B) Le pide el favor sin mayor explicación.",
+         "questionShort": "19_B) Le pide el favor sin may",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 19,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 75,
+         "fieldName": "TEST_DE_ZAVIC_19_CLehacecreerquee",
+         "subScale": "ZAVIC_CORRUPTO",
+         "question": "19_C) Le hace creer que él será el más beneficiado al ofrecerle una retribución.",
+         "questionShort": "19_C) Le hace creer que él ser",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 19,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 76,
+         "fieldName": "TEST_DE_ZAVIC_19_DLesugiereasujef",
+         "subScale": "ZAVIC_LEGALIDAD",
+         "question": "19_D) Le sugiere a su jefe que sea él quien se lo pida y explique la necesidad.",
+         "questionShort": "19_D) Le sugiere a su jefe que",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 19,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 77,
+         "fieldName": "TEST_DE_ZAVIC_20_ATrabajarenforma",
+         "subScale": "ZAVIC_ECONOMICO",
+         "question": "20_A) Trabajar en forma independiente.",
+         "questionShort": "20_A) Trabajar en forma indepe",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 20,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 78,
+         "fieldName": "TEST_DE_ZAVIC_20_BComoencargadode",
+         "subScale": "ZAVIC_POLITICO",
+         "question": "20_B) Como encargado del departamento en el cual a usted le gusta.",
+         "questionShort": "20_B) Como encargado del depar",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 20,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 79,
+         "fieldName": "TEST_DE_ZAVIC_20_CDedicarseaestud",
+         "subScale": "ZAVIC_RELIGIOSO",
+         "question": "20_C) Dedicarse a estudios de la iglesia.",
+         "questionShort": "20_C) Dedicarse a estudios de ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 20,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "position": 80,
+         "fieldName": "TEST_DE_ZAVIC_20_DTrabajadorsocia",
+         "subScale": "ZAVIC_SOCIAL",
+         "question": "20_D) Trabajador social.",
+         "questionShort": "20_D) Trabajador social.",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 20,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
       }
    ],
 
@@ -10405,24 +12905,96 @@
          "subScales": ["VE_DETALLES_P8"],
          "position": "540"
       },
+
       {
-         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
-         "description": "VE_DETALLES_P9_EJERCIDO_AQUIEN_TOTAL",
-         "shortDescription": "VE_DETALLES_P9_EJERCIDO_AQUIEN_TOTAL",
-         "fieldName": "VE_DETALLES_P9_EJERCIDO_AQUIEN_TOTAL",
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "description": "ACTITUD_APRENDIZAJE_TOTAL",
+         "shortDescription": "ACTITUD_APRENDIZAJE_TOTAL",
+         "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["VE_DETALLES_P9"],
+         "subScales": ["APRENDIZAJE"],
          "position": "570"
       },
       {
-         "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
-         "description": "VE_DETALLES_P9_EJERCIDO_AQUIEN_LISTA",
-         "shortDescription": "VE_DETALLES_P9_EJERCIDO_AQUIEN_LISTA",
-         "fieldName": "VE_DETALLES_P9_EJERCIDO_AQUIEN_LISTA",
-         "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
-         "criteria": "== 1 : 1 : 0",
-         "subScales": ["VE_DETALLES_P9"],
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "description": "COLAB_MEDICO_ENFERMERIA_TOTAL",
+         "shortDescription": "COLAB_MEDICO_ENFERMERIA_TOTAL",
+         "fieldName": "COLAB_MEDICO_ENFERMERIA_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["COLAB_MEDICO_ENFERMERIA"],
          "position": "600"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_SOCIAL_TOTAL",
+         "shortDescription": "ZAVIC_SOCIAL_TOTAL",
+         "fieldName": "ZAVIC_SOCIAL_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_SOCIAL"],
+         "position": "630"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_POLITICO_TOTAL",
+         "shortDescription": "ZAVIC_POLITICO_TOTAL",
+         "fieldName": "ZAVIC_POLITICO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_POLITICO"],
+         "position": "660"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_ECONOMICO_TOTAL",
+         "shortDescription": "ZAVIC_ECONOMICO_TOTAL",
+         "fieldName": "ZAVIC_ECONOMICO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_ECONOMICO"],
+         "position": "690"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_RELIGIOSO_TOTAL",
+         "shortDescription": "ZAVIC_RELIGIOSO_TOTAL",
+         "fieldName": "ZAVIC_RELIGIOSO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_RELIGIOSO"],
+         "position": "720"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_MORAL_TOTAL",
+         "shortDescription": "ZAVIC_MORAL_TOTAL",
+         "fieldName": "ZAVIC_MORAL_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_MORAL"],
+         "position": "750"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_LEGALIDAD_TOTAL",
+         "shortDescription": "ZAVIC_LEGALIDAD_TOTAL",
+         "fieldName": "ZAVIC_LEGALIDAD_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_LEGALIDAD"],
+         "position": "780"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_INDIFERENCIA_TOTAL",
+         "shortDescription": "ZAVIC_INDIFERENCIA_TOTAL",
+         "fieldName": "ZAVIC_INDIFERENCIA_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_INDIFERENCIA"],
+         "position": "810"
+      },
+      {
+         "surveyShortName": "TEST_DE_ZAVIC",
+         "description": "ZAVIC_CORRUPTO_TOTAL",
+         "shortDescription": "ZAVIC_CORRUPTO_TOTAL",
+         "fieldName": "ZAVIC_CORRUPTO_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["ZAVIC_CORRUPTO"],
+         "position": "840"
       }
    ]
 }

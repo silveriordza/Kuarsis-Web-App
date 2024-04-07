@@ -15,6 +15,7 @@ const {
  
 
 const QTYPE_OPEN_ENDED_SINGLE = "OPEN_ENDED_SINGLE"
+const QTYPE_OPEN_ENDED_NUMERICAL = "OPEN_ENDED_NUMERICAL"
 const QTYPE_SINGLE_CHOICE_MENU = "SINGLE_CHOICE_MENU"
 const QTYPE_SINGLE_CHOICE_VERTICAL = "SINGLE_CHOICE_VERTICAL"
 const QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL = "SINGLE_CHOICE_VERTICAL_THREE_COL"
@@ -22,6 +23,7 @@ const QTYPE_MATRIX_RATING = "MATRIX_RATING"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL = "MULTIPLE_CHOICE_VERTICAL"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL_THREE_COL = "MULTIPLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_PRESENTATION_DESCRIPTIVE = "QTYPE_PRESENTATION_DESCRIPTIVE"
+
 
 
 
@@ -258,6 +260,17 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
             
             if( questionType===QTYPE_OPEN_ENDED_SINGLE)
             {
+                surveyQuestion.monkeyInfo.monkeyAnswers = {
+                    answerField: 'text',
+                    answerChoices: null,
+                    value: monkeyQuestion.details.position,
+                    score: null
+                }   
+            }
+            else if (questionType===QTYPE_OPEN_ENDED_NUMERICAL){
+                let monkeyAnswer = monkeyQuestion.details.answers.rows[surveyQuestion.monkeyInfo.subPosition-1]
+                surveyQuestion.question = monkeyAnswer.text
+                surveyQuestion.monkeyInfo.id = monkeyAnswer.id
                 surveyQuestion.monkeyInfo.monkeyAnswers = {
                     answerField: 'text',
                     answerChoices: null,

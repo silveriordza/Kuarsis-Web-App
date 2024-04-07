@@ -474,18 +474,6 @@ const processCalculatedFields = (
                   )
             }
          } else if (allCalculatedField.calculationType === CAL_SUM_THE_GROUP) {
-            // let groups = allCalculatedField.group
-            // groups.map(group => {
-            //    let newVal = parseInt(answers[group])
-            //    if (
-            //       typeof newVal != 'number' ||
-            //       newVal == null ||
-            //       isNaN(newVal)
-            //    ) {
-            //       newVal = 0
-            //    }
-            //    value = value + newVal
-            // })
             let subScalesTotalSum = 0
             for (const subScale of allCalculatedField.subScales) {
                subScalesTotalSum =
