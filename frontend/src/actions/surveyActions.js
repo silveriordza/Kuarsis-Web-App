@@ -13,6 +13,11 @@ import {
    SURVEY_OUTPUTS_SUCCESS,
    SURVEY_OUTPUTS_FAIL,
    SURVEY_OUTPUTS_RESET,
+   SURVEY_OUTPUTS_EXPORT_FILE_REQUEST,
+   SURVEY_OUTPUTS_EXPORT_FILE_SUCCESS,
+   SURVEY_OUTPUTS_EXPORT_FILE_FAIL,
+   SURVEY_OUTPUTS_EXPORT_FILE_RESET,
+   SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
 } from '../constants/surveyConstants'
 
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
@@ -27,7 +32,7 @@ import {
 
 import { LogThis, LoggerSettings, L0, L1, L2, L3, OFF } from '../libs/Logger'
 
-import { rowCleaner2 } from '../libs/csvProcessingLib'
+import { rowCleaner2, cleanCsvValue } from '../libs/csvProcessingLib'
 
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 
@@ -1414,6 +1419,113 @@ export const surveyDetailsAction = () => async (dispatch, getState) => {
       })
    }
 }
+
+export const surveyOutputExportDataAction =
+   superSurveyId => async (dispatch, getState) => {
+      try {
+         const log = new LoggerSettings(
+            srcFileName,
+            'surveyGetOutputValuesAction',
+         )
+         dispatch({
+            type: SURVEY_OUTPUTS_EXPORT_FILE_REQUEST,
+         })
+
+         const {
+            userLogin: { userInfo },
+         } = getState()
+
+         LogThis(log, 'ABOUT TO CALL AXIOS')
+         const config = {
+            headers: {
+               Authorization: `Bearer ${userInfo.token}`,
+            },
+         }
+         LogThis(
+            log,
+            `superSurveyId=${JSON.stringify(
+               superSurveyId,
+            )}; superSurveyId.superSurveyShortName=${
+               superSurveyId.superSurveyShortName
+            }; userInfo.token=${userInfo.token}`,
+            L3,
+         )
+         let csvData = ''
+         let addHeaders = true
+
+         for (let i = 1; i <= superSurveyId.pages; i++) {
+            let response = await axios.get(
+               BACKEND_ENDPOINT +
+                  `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${i}&keyword=${superSurveyId.keyword}`,
+               config,
+            )
+            let data = response?.data
+
+            if (data && data?.outputsInfo) {
+               let outputsInfo = data.outputsInfo
+               let outputsLayouts = outputsInfo.outputLayouts
+               let outputValues = outputsInfo.outputValues
+
+               dispatch({
+                  type: SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
+                  payload: {
+                     message: `Exportando pagine ${outputsInfo.page} de ${outputsInfo.pages}`,
+                  },
+               })
+               await new Promise(resolve => setTimeout(resolve, 1))
+
+               if (addHeaders) {
+                  let outputValueFields = ''
+                  for (const outputField of outputsLayouts) {
+                     let utf8String = cleanCsvValue(outputField.question)
+                     csvData = csvData + utf8String + ','
+                  }
+                  //csvData = rowCleaner2(csvData.slice(0, -1)) + '\n'
+                  csvData = csvData.slice(0, -1) + '\n'
+                  addHeaders = false
+
+                  //outputValue = outputValues[0]
+               }
+               for (const outputValue of outputValues) {
+                  let rowValues = ''
+                  for (const outputField of outputsLayouts) {
+                     let stringValue = outputValue[outputField.fieldName]
+                     let utf8String = cleanCsvValue(stringValue)
+                     rowValues = rowValues + utf8String + ','
+                  }
+                  //rowValues = rowCleaner2(rowValues.slice(0, -1)) + '\n'
+                  rowValues = rowValues.slice(0, -1) + '\n'
+                  csvData = csvData + rowValues
+               }
+            } else {
+               throw new Error(`No output info or output data found`)
+            }
+         }
+         dispatch({
+            type: SURVEY_OUTPUTS_EXPORT_FILE_SUCCESS,
+            payload: {
+               csvData: csvData,
+               message: `Exportacion terminada`,
+            },
+         })
+         await new Promise(resolve => setTimeout(resolve, 2000))
+         dispatch({
+            type: SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
+            payload: {
+               message: ``,
+            },
+         })
+         await new Promise(resolve => setTimeout(resolve, 1))
+      } catch (error) {
+         dispatch({
+            type: SURVEY_OUTPUTS_FAIL,
+            payload:
+               error.response && error.response.data.message
+                  ? error.response.data.message
+                  : error.message,
+         })
+      }
+   }
 
 export const surveyGetOutputValuesAction =
    superSurveyId => async (dispatch, getState) => {

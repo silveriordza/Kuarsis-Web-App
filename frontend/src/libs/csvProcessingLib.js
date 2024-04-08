@@ -112,3 +112,16 @@ export const convertSurveyJsonToCSV = (headersJson, dataJson, dataRealJson) => {
 
    return csvText
 }
+export const cleanCsvValue = csvValue => {
+   if (csvValue && csvValue != '') {
+      const encoder = new TextEncoder()
+      const utf8Array = encoder.encode(csvValue)
+      const utf8String = new TextDecoder()
+         .decode(utf8Array)
+         .replace(/,/g, ' ')
+         .replace(/:/g, '')
+      return utf8String
+   } else {
+      return ''
+   }
+}
