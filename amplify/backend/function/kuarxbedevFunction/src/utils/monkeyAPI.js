@@ -25,12 +25,10 @@ const {
    formatDate,
 } = require('../utils/Functions.js')
 
+const { MonkeyAnswer } = require('../models/surveysModel.js')
+
 const WEIGHTED_PAIRS = 'WEIGHTED_PAIRS'
 const WEIGHTED_CRITERIA = 'WEIGHTED_CRITERIA'
-
-const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
-const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
-const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
 
 const srcFileName = 'monkeyAPI.js'
 
@@ -54,11 +52,28 @@ const getMonkeyResponses = async newResponses => {
    for (let r = 0; r < newResponses.length; r++) {
       let response = newResponses[r]
 
-      let surveyResponseResult = await axios.get(
-         `https://api.surveymonkey.com/v3/surveys/${response.monkeyId}/responses/${response.respondent_id}/details`,
-         configMonkey,
-      )
-      let surveyResponse = surveyResponseResult.data
+      let surveyResponse = null
+      let monkeyAnswer = await MonkeyAnswer.findOne({
+         monkeyId: response.monkeyId,
+         respondentId: response.respondent_id,
+      })
+
+      if (monkeyAnswer) {
+         surveyResponse = monkeyAnswer.answers
+      } else {
+         let surveyResponseResult = await axios.get(
+            `https://api.surveymonkey.com/v3/surveys/${response.monkeyId}/responses/${response.respondent_id}/details`,
+            configMonkey,
+         )
+         surveyResponse = surveyResponseResult?.data
+         if (surveyResponse) {
+            monkeyAnswer = new MonkeyAnswer()
+            monkeyAnswer.respondentId = response.respondent_id
+            monkeyAnswer.monkeyId = response.monkeyId
+            monkeyAnswer.answers = surveyResponse
+            await monkeyAnswer.save()
+         }
+      }
 
       let surveyPagesMap = null
       let questionAnswersMap = null

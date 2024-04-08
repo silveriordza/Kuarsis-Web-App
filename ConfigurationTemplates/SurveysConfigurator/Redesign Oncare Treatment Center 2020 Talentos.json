@@ -3657,6 +3657,7 @@
             "showInSurveyOutputScreen": false,
             "position": 5201
          },
+
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_SOMATICOS",
@@ -12426,44 +12427,44 @@
    "calculatedFields": [
       {
          "surveyShortName": "CSG",
-         "description": "Síntomas Somáticos",
-         "shortDescription": "Somáticos",
+         "description": "CSG_SOMATICOS",
+         "shortDescription": "CSG_SOMATICOS",
          "fieldName": "CSG_SOMATICOS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CSG_SOMATICOS"],
-         "position": 10
+         "position": 1
       },
       {
          "surveyShortName": "CSG",
-         "description": "Ansiedad/insomnio",
-         "shortDescription": "Ansiedad/insomnio",
+         "description": "CSG_ANSIEDAD",
+         "shortDescription": "CSG_ANSIEDAD",
          "fieldName": "CSG_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CSG_ANSIEDAD"],
-         "position": 20
+         "position": 31
       },
       {
          "surveyShortName": "CSG",
-         "description": "Disfunción social",
-         "shortDescription": "Disfunción social",
+         "description": "CSG_DISF_SOCIAL",
+         "shortDescription": "CSG_DISF_SOCIAL",
          "fieldName": "CSG_DISF_SOCIAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CSG_DISF_SOCIAL"],
-         "position": 30
+         "position": 61
       },
       {
          "surveyShortName": "CSG",
-         "description": "Depresión severa",
-         "shortDescription": "Depresión severa",
+         "description": "CSG_DEPRESION",
+         "shortDescription": "CSG_DEPRESION",
          "fieldName": "CSG_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CSG_DEPRESION"],
-         "position": 40
+         "position": 91
       },
       {
          "surveyShortName": "CSG",
-         "description": "TOTAL CSG",
-         "shortDescription": "TOTAL CSG",
+         "description": "CSG_TOTAL",
+         "shortDescription": "CSG_TOTAL",
          "fieldName": "CSG_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12472,12 +12473,12 @@
             "CSG_DISF_SOCIAL",
             "CSG_DEPRESION"
          ],
-         "position": 50
+         "position": 121
       },
       {
          "surveyShortName": "CSG",
-         "description": "Es Caso",
-         "shortDescription": "Es Caso",
+         "description": "CSG_ES_CASO",
+         "shortDescription": "CSG_ES_CASO",
          "fieldName": "CSG_ES_CASO",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD",
          "criteria": {
@@ -12487,123 +12488,122 @@
             "resultIfTrue": 1,
             "resultIfFalse": 0
          },
-         "position": 60
+         "subScales": ["CSG_ES_CASO"],
+         "position": 151
       },
-
       {
          "surveyShortName": "BURN",
-         "description": "Agotamiento emocional",
-         "shortDescription": "Emocional",
+         "description": "BURN_EMOCIONAL",
+         "shortDescription": "BURN_EMOCIONAL",
          "fieldName": "BURN_EMOCIONAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL"],
-         "position": 10
+         "position": 181
       },
       {
          "surveyShortName": "BURN",
-         "description": "Despersonalizacion",
-         "shortDescription": "Despersonalizacion",
+         "description": "BURNOUT DESPERSONALIZACION",
+         "shortDescription": "BURNOUT DESPERSONALIZACION",
          "fieldName": "BURN_DESPERS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_DESPERS"],
-         "position": 20
+         "position": 211
       },
       {
          "surveyShortName": "BURN",
-         "description": "Logros personales",
-         "shortDescription": "Logros personales",
+         "description": "BURN_LOGROS",
+         "shortDescription": "BURN_LOGROS",
          "fieldName": "BURN_LOGROS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_LOGROS"],
-         "position": 30
+         "position": 241
       },
       {
          "surveyShortName": "BURN",
-         "description": "TOTAL BURNOUT",
-         "shortDescription": "TOTAL BURNOUT",
+         "description": "BURN_TOTAL",
+         "shortDescription": "BURN_TOTAL",
          "fieldName": "BURN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
-         "position": 40
+         "position": 271
       },
       {
          "surveyShortName": "ESTRES",
-         "description": "Cantidad total de estresores.",
-         "shortDescription": "Total estres",
+         "description": "ESTRES_TOTAL",
+         "shortDescription": "ESTRES_TOTAL",
          "fieldName": "ESTRES_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 10
+         "position": 301
       },
       {
          "surveyShortName": "ESTRES",
-         "description": "Lista de estresores.",
-         "shortDescription": "lista estres",
+         "description": "ESTRES_LISTA",
+         "shortDescription": "ESTRES_LISTA",
          "fieldName": "ESTRES_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 20
+         "position": 331
       },
       {
          "surveyShortName": "HAMILTON",
-         "description": "HAMILTON TOTAL DE ANSIEDAD PSIQUICA",
-         "shortDescription": "HAMILTON TOTAL PSIQUICA",
+         "description": "HAMILTON_TOTAL_PSIQUICA",
+         "shortDescription": "HAMILTON_TOTAL_PSIQUICA",
          "fieldName": "HAMILTON_TOTAL_PSIQUICA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_TOTAL_PSIQUICA"],
-         "position": 10
+         "position": 361
       },
       {
          "surveyShortName": "HAMILTON",
-         "description": "HAMILTON TOTAL DE ANSIEDAD SOMATICA",
-         "shortDescription": "HAMILTON TOTAL SOMATICA",
+         "description": "HAMILTON_TOTAL_SOMATICA",
+         "shortDescription": "HAMILTON_TOTAL_SOMATICA",
          "fieldName": "HAMILTON_TOTAL_SOMATICA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_TOTAL_SOMATICA"],
-         "position": 20
+         "position": 391
       },
       {
          "surveyShortName": "HAMILTON",
-         "description": "HAMILTON TOTAL DE ANSIEDAD",
-         "shortDescription": "HAMILTON TOTAL ANSIEDAD",
+         "description": "HAMILTON_TOTAL_ANSIEDAD",
+         "shortDescription": "HAMILTON_TOTAL_ANSIEDAD",
          "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_TOTAL_PSIQUICA", "HAMILTON_TOTAL_SOMATICA"],
-         "position": 30
+         "position": 421
       },
-
       {
          "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF TOMAR LA PERSPECTIVA DEL PACIENTE",
-         "shortDescription": "JEFF PACIENTE PERSPECTIVA",
+         "description": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
+         "shortDescription": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
          "fieldName": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_STATIC_PACIENTE_PERSPECTIVA"],
-         "position": 10
+         "position": 451
       },
       {
          "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF SERVIR CON COMPASION",
-         "shortDescription": "JEFF COMPASION",
+         "description": "JEFF_STATIC_COMPASION",
+         "shortDescription": "JEFF_STATIC_COMPASION",
          "fieldName": "JEFF_STATIC_COMPASION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_STATIC_COMPASION"],
-         "position": 20
+         "position": 481
       },
       {
          "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF PONERSE EN LOS ZAPATOS DEL PACIENTE",
-         "shortDescription": "JEFF ZAPATOS PACIENTE",
+         "description": "JEFF_STATIC_ZAPATOS_PACIENTE",
+         "shortDescription": "JEFF_STATIC_ZAPATOS_PACIENTE",
          "fieldName": "JEFF_STATIC_ZAPATOS_PACIENTE",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_STATIC_ZAPATOS_PACIENTE"],
-         "position": 30
+         "position": 511
       },
       {
          "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF TOTAL",
-         "shortDescription": "JEFF TOTAL",
+         "description": "JEFF_STATIC_TOTAL",
+         "shortDescription": "JEFF_STATIC_TOTAL",
          "fieldName": "JEFF_STATIC_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12611,22 +12611,21 @@
             "JEFF_STATIC_COMPASION",
             "JEFF_STATIC_ZAPATOS_PACIENTE"
          ],
-         "position": 40
+         "position": 541
       },
-
       {
          "surveyShortName": "BECK",
-         "description": "DEPRESION DE BECK TOTAL",
-         "shortDescription": "TOTAL BECK",
+         "description": "BECK_TOTAL_DEPRESION",
+         "shortDescription": "BECK_TOTAL_DEPRESION",
          "fieldName": "BECK_TOTAL_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BECK_TOTAL_DEPRESION"],
-         "position": 10
+         "position": 571
       },
       {
          "surveyShortName": "BECK",
-         "description": "CLASIFICACION BECK",
-         "shortDescription": "CLASIFICACION BECK",
+         "description": "BECK_ES_CASO",
+         "shortDescription": "BECK_ES_CASO",
          "fieldName": "BECK_ES_CASO",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD",
          "criteria": {
@@ -12636,103 +12635,103 @@
             "resultIfTrue": 1,
             "resultIfFalse": 0
          },
-         "position": 20
+         "subScales": ["BECK_ES_CASO"],
+         "position": 601
       },
-
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 SOMATIZACION",
-         "shortDescription": "SCL90 SOMATIZACION",
+         "description": "SCL90_SOMATIZACION",
+         "shortDescription": "SCL90_SOMATIZACION",
          "fieldName": "SCL90_SOMATIZACION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SOMATIZACION"],
-         "position": 10
+         "position": 631
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 OBSESION COMPULSION",
-         "shortDescription": "SCL90 OBSESION COMPULSION",
+         "description": "SCL90_OBSESION_COMPULSION",
+         "shortDescription": "SCL90_OBSESION_COMPULSION",
          "fieldName": "SCL90_OBSESION_COMPULSION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_OBSESION_COMPULSION"],
-         "position": 20
+         "position": 661
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 SENSIBILIDAD INTERPERSONAL",
-         "shortDescription": "SCL90 SENSIB INTERPERS",
+         "description": "SCL90_SENS_INTERPERS",
+         "shortDescription": "SCL90_SENS_INTERPERS",
          "fieldName": "SCL90_SENS_INTERPERS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SENS_INTERPERS"],
-         "position": 30
+         "position": 691
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 DEPRESION",
-         "shortDescription": "SCL90 DEPRESION",
+         "description": "SCL90_DEPRESION",
+         "shortDescription": "SCL90_DEPRESION",
          "fieldName": "SCL90_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_DEPRESION"],
-         "position": 40
+         "position": 721
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 ANSIEDAD",
-         "shortDescription": "SCL90 ANSIEDAD",
+         "description": "SCL90_ANSIEDAD",
+         "shortDescription": "SCL90_ANSIEDAD",
          "fieldName": "SCL90_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ANSIEDAD"],
-         "position": 50
+         "position": 751
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 HOSTILIDAD",
-         "shortDescription": "SCL90 HOSTILIDAD",
+         "description": "SCL90_HOSTILIDAD",
+         "shortDescription": "SCL90_HOSTILIDAD",
          "fieldName": "SCL90_HOSTILIDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_HOSTILIDAD"],
-         "position": 60
+         "position": 781
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 FOBIA ANSIOSA",
-         "shortDescription": "SCL90 FOBIA ANSIOSA",
+         "description": "SCL90_FOBIA",
+         "shortDescription": "SCL90_FOBIA",
          "fieldName": "SCL90_FOBIA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_FOBIA"],
-         "position": 70
+         "position": 811
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 PARANOIA",
-         "shortDescription": "SCL90 PARANOIA",
+         "description": "SCL90_PARANOIA",
+         "shortDescription": "SCL90_PARANOIA",
          "fieldName": "SCL90_PARANOIA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PARANOIA"],
-         "position": 80
+         "position": 841
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 PSICOSIS",
-         "shortDescription": "SCL90 PSYCOTISMO",
+         "description": "SCL90_PSICOSIS",
+         "shortDescription": "SCL90_PSICOSIS",
          "fieldName": "SCL90_PSICOSIS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PSICOSIS"],
-         "position": 90
+         "position": 871
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 ADICIONALES",
-         "shortDescription": "SCL90 ADICIONALES",
+         "description": "SCL90_ADICIONALES",
+         "shortDescription": "SCL90_ADICIONALES",
          "fieldName": "SCL90_ADICIONALES",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ADICIONALES"],
-         "position": 100
+         "position": 901
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90 TOTAL",
-         "shortDescription": "SCL90 TOTAL",
+         "description": "SCL90_TOTAL",
+         "shortDescription": "SCL90_TOTAL",
          "fieldName": "SCL90_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12747,57 +12746,57 @@
             "SCL90_PSICOSIS",
             "SCL90_ADICIONALES"
          ],
-         "position": 110
+         "position": 931
       },
       {
          "surveyShortName": "JEFF_HP",
-         "description": "JEFF EMPATIA MEDICA PROFESIONAL TOTAL",
+         "description": "JEFF_HP_TOTAL",
          "shortDescription": "JEFF_HP_TOTAL",
          "fieldName": "JEFF_HP_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_HP"],
-         "position": 120
+         "position": 961
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E-EFF 17 INDIVIDUACION TOTAL",
-         "shortDescription": "EFF-17 INDIVIDUACION",
+         "description": "E_EFF_17_INDIVIDUACION",
+         "shortDescription": "E_EFF_17_INDIVIDUACION",
          "fieldName": "E_EFF_17_INDIVIDUACION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["INDIVIDUACION"],
-         "position": 130
+         "position": 991
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E-EFF 17 MANTENIMIENTO DEL SISTEMA TOTAL",
-         "shortDescription": "EFF-17 MANTENIMIENTO",
+         "description": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
+         "shortDescription": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
          "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["MANTENIMIENTO_DEL_SISTEMA"],
-         "position": 140
+         "position": 1021
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E-EFF 17 CAMBIO DEL SISTEMA TOTAL",
-         "shortDescription": "EFF-17 SISTEMA",
+         "description": "E_EFF_17_CAMBIO_DEL_SISTEMA",
+         "shortDescription": "E_EFF_17_CAMBIO_DEL_SISTEMA",
          "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CAMBIO_DEL_SISTEMA"],
-         "position": 150
+         "position": 1051
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E-EFF 17 COHERENCIA TOTAL",
-         "shortDescription": "EFF-17 COHERENCIA",
+         "description": "E_EFF_17_COHERENCIA",
+         "shortDescription": "E_EFF_17_COHERENCIA",
          "fieldName": "E_EFF_17_COHERENCIA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COHERENCIA"],
-         "position": 160
+         "position": 1081
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E-EFF 17 TOTAL",
-         "shortDescription": "EFF-17 TOTAL",
+         "description": "E_EFF_17_TOTAL",
+         "shortDescription": "E_EFF_17_TOTAL",
          "fieldName": "E_EFF_17_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12806,8 +12805,9 @@
             "CAMBIO_DEL_SISTEMA",
             "COHERENCIA"
          ],
-         "position": 170
+         "position": 1111
       },
+
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
          "description": "VP_DETALLES_P2_QUIEN_TOTAL",
@@ -12815,7 +12815,7 @@
          "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P2"],
-         "position": "210"
+         "position": 30
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -12825,7 +12825,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P2"],
-         "position": "240"
+         "position": 60
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -12834,7 +12834,7 @@
          "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P3"],
-         "position": "270"
+         "position": 90
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -12844,7 +12844,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P3"],
-         "position": "300"
+         "position": 120
       },
 
       {
@@ -12854,7 +12854,7 @@
          "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P5"],
-         "position": "360"
+         "position": 180
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -12864,7 +12864,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P5"],
-         "position": "390"
+         "position": 210
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -12873,7 +12873,7 @@
          "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P6"],
-         "position": "420"
+         "position": 240
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -12883,7 +12883,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P6"],
-         "position": "450"
+         "position": 270
       },
 
       {
@@ -12893,7 +12893,7 @@
          "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VE_DETALLES_P8"],
-         "position": "510"
+         "position": 330
       },
       {
          "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -12903,7 +12903,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VE_DETALLES_P8"],
-         "position": "540"
+         "position": 360
       },
 
       {
@@ -12913,7 +12913,7 @@
          "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["APRENDIZAJE"],
-         "position": "570"
+         "position": 660
       },
       {
          "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -12922,7 +12922,7 @@
          "fieldName": "COLAB_MEDICO_ENFERMERIA_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COLAB_MEDICO_ENFERMERIA"],
-         "position": "600"
+         "position": 690
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12931,7 +12931,7 @@
          "fieldName": "ZAVIC_SOCIAL_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_SOCIAL"],
-         "position": "630"
+         "position": 720
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12940,7 +12940,7 @@
          "fieldName": "ZAVIC_POLITICO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_POLITICO"],
-         "position": "660"
+         "position": 750
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12949,7 +12949,7 @@
          "fieldName": "ZAVIC_ECONOMICO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_ECONOMICO"],
-         "position": "690"
+         "position": 780
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12958,7 +12958,7 @@
          "fieldName": "ZAVIC_RELIGIOSO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_RELIGIOSO"],
-         "position": "720"
+         "position": 810
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12967,7 +12967,7 @@
          "fieldName": "ZAVIC_MORAL_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_MORAL"],
-         "position": "750"
+         "position": 840
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12976,7 +12976,7 @@
          "fieldName": "ZAVIC_LEGALIDAD_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_LEGALIDAD"],
-         "position": "780"
+         "position": 870
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12985,7 +12985,7 @@
          "fieldName": "ZAVIC_INDIFERENCIA_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_INDIFERENCIA"],
-         "position": "810"
+         "position": 900
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -12994,7 +12994,7 @@
          "fieldName": "ZAVIC_CORRUPTO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_CORRUPTO"],
-         "position": "840"
+         "position": 930
       }
    ]
 }

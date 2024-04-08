@@ -110,9 +110,16 @@ const createSuperSurvey = asyncHandler(async (req, res) => {
    const log = new LoggerSettings(srcFileName, functionName)
    const superSurveyConfig = req.body
    let ownerId = req.user._id
+   const updateDynamicTableInput = req.query?.updateDynamicTable || ''
+   const updateDynamicTable =
+      updateDynamicTableInput.toLocaleLowerCase() === 'yes' ? true : false
 
    const templateManager = new SurveyProcessManager()
-   templateManager.activateTemplateSaver(superSurveyConfig, ownerId)
+   templateManager.activateTemplateSaver(
+      superSurveyConfig,
+      ownerId,
+      updateDynamicTable,
+   )
    const superSurveyTemplate = await templateManager.saveTemplate()
 
    console.log('about to respond')
@@ -2477,8 +2484,8 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          let field = null
          field = fieldsMap.get(outputField.fieldName)
          if (field.isCalculated) {
-            outputField.question = field.fieldName
-            outputField.questionShort = field.fieldName
+            outputField.question = field.description
+            outputField.questionShort = field.shortDescription
          } else {
             outputField.question = field.question
             outputField.questionShort = field.questionShort
