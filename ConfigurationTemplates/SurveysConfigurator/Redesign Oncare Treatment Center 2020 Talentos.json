@@ -3701,92 +3701,93 @@
             "position": 5261
          },
          {
-            "surveyShortName": "BURN",
-            "fieldName": "BURN_EMOCIONAL",
+            "surveyShortName": "FIAD-15",
+            "fieldName": "FIAD-15_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5271
          },
          {
-            "surveyShortName": "BURN",
-            "fieldName": "BURN_DESPERS",
+            "surveyShortName": "FIAD-15",
+            "fieldName": "FIAD-15 RESULTADO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5281
          },
          {
             "surveyShortName": "BURN",
-            "fieldName": "BURN_LOGROS",
+            "fieldName": "BURN_EMOCIONAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5291
          },
          {
             "surveyShortName": "BURN",
-            "fieldName": "BURN_TOTAL",
+            "fieldName": "BURN_DESPERS",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5301
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_LOGROS",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5311
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_TOTAL",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5321
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5311
+            "position": 5331
          },
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5321
-         },
-         {
-            "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_TOTAL_PSIQUICA",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
-            "position": 5331
-         },
-         {
-            "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_TOTAL_SOMATICA",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
             "position": 5341
          },
          {
             "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
+            "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5351
          },
          {
-            "surveyShortName": "JEFF_STATIC",
-            "fieldName": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_ANSIEDAD_SOMATICA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5361
          },
          {
-            "surveyShortName": "JEFF_STATIC",
-            "fieldName": "JEFF_STATIC_COMPASION",
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_ANSIEDAD_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5371
          },
          {
-            "surveyShortName": "JEFF_STATIC",
-            "fieldName": "JEFF_STATIC_ZAPATOS_PACIENTE",
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_ANSIEDAD_RESULTADO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5381
          },
+
          {
             "surveyShortName": "JEFF_STATIC",
-            "fieldName": "JEFF_STATIC_TOTAL",
+            "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5391
@@ -3800,7 +3801,7 @@
          },
          {
             "surveyShortName": "BECK",
-            "fieldName": "BECK_ES_CASO",
+            "fieldName": "BECK_ES_CASO_DEPRESION",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5411
@@ -3884,7 +3885,7 @@
          },
          {
             "surveyShortName": "JEFF_HP",
-            "fieldName": "JEFF_HP_TOTAL",
+            "fieldName": "JEFF_HP_EMPATIA_PROFESIONALES_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5531
@@ -3943,210 +3944,210 @@
             "fieldName": "VP_DETALLES_P2_QUIEN_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5601
+            "position": 5611
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5611
+            "position": 5621
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5621
+            "position": 5631
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5631
+            "position": 5641
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5631
+            "position": 5651
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P5_PADECIO_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5641
+            "position": 5661
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5651
+            "position": 5671
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P6_QUIEN_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5661
+            "position": 5681
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5671
+            "position": 5691
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5671
+            "position": 5701
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5681
+            "position": 5711
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5691
+            "position": 5721
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5701
+            "position": 5731
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5711
+            "position": 5741
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5721
+            "position": 5751
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5731
+            "position": 5761
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5741
+            "position": 5771
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5751
+            "position": 5781
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5761
+            "position": 5791
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5771
+            "position": 5801
          },
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5781
-         },
-         {
-            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
-            "fieldName": "COLAB_MEDICO_ENFERMERIA_TOTAL",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
-            "position": 5791
-         },
-         {
-            "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_SOCIAL_TOTAL",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
-            "position": 5801
-         },
-         {
-            "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_POLITICO_TOTAL",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
             "position": 5811
          },
          {
-            "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_ECONOMICO_TOTAL",
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERIA_TOTAL",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5821
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_RELIGIOSO_TOTAL",
+            "fieldName": "ZAVIC_INTERES_SOCIAL_PORCIENTO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5831
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_MORAL_TOTAL",
+            "fieldName": "ZAVIC_INTERES_POLITICO_PORCIENTO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5841
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_LEGALIDAD_TOTAL",
+            "fieldName": "ZAVIC_INTERES_ECONOMICO_PORCIENTO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5851
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_INDIFERENCIA_TOTAL",
+            "fieldName": "ZAVIC_INTERES_RELIGIOSO_PORCIENTO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5861
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
-            "fieldName": "ZAVIC_CORRUPTO_TOTAL",
+            "fieldName": "ZAVIC_VALORES_MORAL_PORCIENTO",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5871
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_VALORES_LEGALIDAD_PORCIENTO",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5881
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_VALORES_INDIFERENCIA_PORCIENTO",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5891
+         },
+         {
+            "surveyShortName": "TEST_DE_ZAVIC",
+            "fieldName": "ZAVIC_VALORES_CORRUPTO_PORCIENTO",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "position": 5901
          }
       ],
       "multiSurveys": [
@@ -5162,7 +5163,7 @@
          "question": "3.Soy una persona prudente que actúa y responde en forma apropiada.",
          "questionShort": "3.Soy una persona prudente qu",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
+         "weights": { "5": 0, "4": 1, "3": 2, "2": 3, "1": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 3,
@@ -5207,7 +5208,7 @@
          "question": "6.Soy una persona muy estable.",
          "questionShort": "6.Soy una persona muy estable",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
+         "weights": { "5": 0, "4": 1, "3": 2, "2": 3, "1": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 6,
@@ -6283,7 +6284,7 @@
          "surveyShortName": "HAMILTON",
          "position": 1,
          "fieldName": "HAMILTON_1_Preocupacionesantici",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Preocupaciones, anticipación de lo peor, anticipación miedosa, irritabilidad.",
          "questionShort": "Preocupaciones, anticipación d",
          "weightType": "WEIGHTED_PAIRS",
@@ -6298,7 +6299,7 @@
          "surveyShortName": "HAMILTON",
          "position": 2,
          "fieldName": "HAMILTON_2_Sensaciondetensionfa",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Sensación de tensión, fatigabilidad.",
          "questionShort": "Sensación de tensión, fatigabi",
          "weightType": "WEIGHTED_PAIRS",
@@ -6313,7 +6314,7 @@
          "surveyShortName": "HAMILTON",
          "position": 3,
          "fieldName": "HAMILTON_3_Temoresdelaobscurida",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Temores de la obscuridad, de extraños, de estar solo, de animales, de tráfico, de multitudes.",
          "questionShort": "Temores de la obscuridad, de e",
          "weightType": "WEIGHTED_PAIRS",
@@ -6328,7 +6329,7 @@
          "surveyShortName": "HAMILTON",
          "position": 4,
          "fieldName": "HAMILTON_4_Dificultadparaconcil",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Dificultad para conciliar el sueño, sueño interrumpido (roto), sueño insatisfactorio, fatiga de levantarse, sueños, pesadillas, terrores nocturnos.",
          "questionShort": "Dificultad para conciliar el s",
          "weightType": "WEIGHTED_PAIRS",
@@ -6343,7 +6344,7 @@
          "surveyShortName": "HAMILTON",
          "position": 5,
          "fieldName": "HAMILTON_5_Dificultadenconcentr",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Dificultad en concentrarse, memoria pobre.",
          "questionShort": "Dificultad en concentrarse, me",
          "weightType": "WEIGHTED_PAIRS",
@@ -6358,7 +6359,7 @@
          "surveyShortName": "HAMILTON",
          "position": 6,
          "fieldName": "HAMILTON_6_Perdidadeinteresause",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Pérdida de interés, ausencia de placer en diversiones (hobbies), depresión, despertar temprano, variación diurna del afecto.",
          "questionShort": "Pérdida de interés, ausencia d",
          "weightType": "WEIGHTED_PAIRS",
@@ -6373,7 +6374,7 @@
          "surveyShortName": "HAMILTON",
          "position": 7,
          "fieldName": "HAMILTON_7_Dolorespunzadastorce",
-         "subScale": "HAMILTON_TOTAL_SOMATICA",
+         "subScale": "HAMILTON_ANSIEDAD_SOMATICA",
          "question": "Dolores, punzadas, torceduras, rigidez, sacudidas micológicas, bruxismo, voz inestable, aumento del tono muscular, tinnitus, visión borrosa, oleadas de calor y de frío, sensación de debilidad, sensación de punzadas.",
          "questionShort": "Dolores, punzadas, torceduras,",
          "weightType": "WEIGHTED_PAIRS",
@@ -6388,7 +6389,7 @@
          "surveyShortName": "HAMILTON",
          "position": 8,
          "fieldName": "HAMILTON_8_Taquicardiapalpitaci",
-         "subScale": "HAMILTON_TOTAL_SOMATICA",
+         "subScale": "HAMILTON_ANSIEDAD_SOMATICA",
          "question": "Taquicardia, palpitaciones, dolor pectoral, palpitación de vasos, sensación de desmayo.",
          "questionShort": "Taquicardia, palpitaciones, do",
          "weightType": "WEIGHTED_PAIRS",
@@ -6403,7 +6404,7 @@
          "surveyShortName": "HAMILTON",
          "position": 9,
          "fieldName": "HAMILTON_9_Presionconstrictorae",
-         "subScale": "HAMILTON_TOTAL_SOMATICA",
+         "subScale": "HAMILTON_ANSIEDAD_SOMATICA",
          "question": "Presión constrictora en el pecho, sensación de ahogo, suspiros, disnea.",
          "questionShort": "Presión constrictora en el pec",
          "weightType": "WEIGHTED_PAIRS",
@@ -6418,7 +6419,7 @@
          "surveyShortName": "HAMILTON",
          "position": 10,
          "fieldName": "HAMILTON_10_Dificultadparatragar",
-         "subScale": "HAMILTON_TOTAL_SOMATICA",
+         "subScale": "HAMILTON_ANSIEDAD_SOMATICA",
          "question": "Dificultad para tragar, flatulencia, dolor abdominal, sensación de quemadura, saciedad abdominal, náuseas, vómito, borborigmos, diarrea, pérdida de peso, estreñimiento.",
          "questionShort": "Dificultad para tragar, flatul",
          "weightType": "WEIGHTED_PAIRS",
@@ -6433,7 +6434,7 @@
          "surveyShortName": "HAMILTON",
          "position": 11,
          "fieldName": "HAMILTON_11_Frecuenciadeorinarur",
-         "subScale": "HAMILTON_TOTAL_SOMATICA",
+         "subScale": "HAMILTON_ANSIEDAD_SOMATICA",
          "question": "Frecuencia de orinar, urgencia de orinar, amenorrea, menorragia, desarrollo de frigidez, eyaculación precoz, pérdida de apetito sexual (libido), impotencia.",
          "questionShort": "Frecuencia de orinar, urgencia",
          "weightType": "WEIGHTED_PAIRS",
@@ -6448,7 +6449,7 @@
          "surveyShortName": "HAMILTON",
          "position": 12,
          "fieldName": "HAMILTON_12_Bocasecarubortendenc",
-         "subScale": "HAMILTON_TOTAL_SOMATICA",
+         "subScale": "HAMILTON_ANSIEDAD_SOMATICA",
          "question": "Boca seca, rubor, tendencia a la sudoración, vértigo, cefalea tensional, jalarse los pelos.",
          "questionShort": "Boca seca, rubor, tendencia a ",
          "weightType": "WEIGHTED_PAIRS",
@@ -6463,7 +6464,7 @@
          "surveyShortName": "HAMILTON",
          "position": 13,
          "fieldName": "HAMILTON_13_Conductaanteentrevis",
-         "subScale": "HAMILTON_TOTAL_PSIQUICA",
+         "subScale": "HAMILTON_ANSIEDAD_PSIQUICA",
          "question": "Conducta ante entrevistas:Impaciencia, inquietud o caminando de un lado a otro, temblor de manos, entrecejo arrugado, expresiones de tensión, suspiros o respiración rápida, palidez facial.",
          "questionShort": "Conducta ante entrevistas:Impa",
          "weightType": "WEIGHTED_PAIRS",
@@ -9122,7 +9123,7 @@
          "question": "1. Mi comprensión de cómo mi paciente y sus familiares sienten no influye en mi tratamiento médico o quirúrgico.",
          "questionShort": "1. Mi comprensión de cómo mi p",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -9152,7 +9153,7 @@
          "question": "3. Es difícil para mí ver las cosas desde la perspectiva de mis pacientes.",
          "questionShort": "3. Es difícil para mí ver las ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 3,
@@ -9197,7 +9198,7 @@
          "question": "6. Porque la gente es diferente, es difícil para mí ver las cosas desde la perspectiva de mi paciente.",
          "questionShort": "6. Porque la gente es diferent",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 6,
@@ -9212,7 +9213,7 @@
          "question": "7. Trato de no poner atención a las emociones de mis pacientes al tomar la historia clínica.",
          "questionShort": "7. Trato de no poner atención ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 7,
@@ -9227,7 +9228,7 @@
          "question": "8. Atender las experiencias personales de mis pacientes no influye en los resultados del tratamiento.",
          "questionShort": "8. Atender las experiencias pe",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 8,
@@ -9272,7 +9273,7 @@
          "question": "11. Las enfermedades de mis pacientes solo pueden ser curadas con tratamiento médico o quirúrgico; por lo tanto los lazos emocionales con mis pacientes no tienen una influencia significativa sobre el resultado médico o quirúrgico.",
          "questionShort": "11. Las enfermedades de mis pa",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 11,
@@ -9287,7 +9288,7 @@
          "question": "12. Preguntarles a los pacientes que está sucediendo en sus vidas personales no es útil en el entendimiento de sus quejas físicas.",
          "questionShort": "12. Preguntarles a los pacient",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 12,
@@ -9317,7 +9318,7 @@
          "question": "14. Creo que la emoción no tiene lugar en el tratamiento de la enfermedad médica.",
          "questionShort": "14. Creo que la emoción no tie",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 14,
@@ -9377,7 +9378,7 @@
          "question": "18. No me permito a mí mismo ser influenciado por las intensas relaciones entre mis pacientes y los miembros de su familia.",
          "questionShort": "18. No me permito a mí mismo s",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 18,
@@ -9392,7 +9393,7 @@
          "question": "19. No disfruto leer literatura no médica o de arte.",
          "questionShort": "19. No disfruto leer literatur",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2, "1": 1 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 19,
@@ -11050,7 +11051,7 @@
          "question": "4.Enfermería debería de participar en la elaboración de las normas que afectan sus condiciones de trabajo.",
          "questionShort": "4.Enfermería debería de parti",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 4,
@@ -11065,7 +11066,7 @@
          "question": "5.Enfermería debería de ser responsable de los cuidados que brinda a los pacientes.",
          "questionShort": "5.Enfermería debería de ser r",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 5,
@@ -11110,7 +11111,7 @@
          "question": "8.Los médicos deben de ser la autoridad dominante en todo asunto de salud.",
          "questionShort": "8.Los médicos deben de ser la",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "1": 4, "2": 3, "3": 2, "4": 1 },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 8,
@@ -12423,7 +12424,6 @@
          }
       }
    ],
-
    "calculatedFields": [
       {
          "surveyShortName": "CSG",
@@ -12463,8 +12463,8 @@
       },
       {
          "surveyShortName": "CSG",
-         "description": "CSG_TOTAL",
-         "shortDescription": "CSG_TOTAL",
+         "description": "CSG_TOTAL_MAX_28",
+         "shortDescription": "CSG_TOTAL_MAX_28",
          "fieldName": "CSG_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12492,49 +12492,76 @@
          "position": 151
       },
       {
-         "surveyShortName": "BURN",
-         "description": "BURN_EMOCIONAL",
-         "shortDescription": "BURN_EMOCIONAL",
-         "fieldName": "BURN_EMOCIONAL",
+         "surveyShortName": "FIAD-15",
+         "description": "FIAD-15_TOTAL_MAX_60",
+         "shortDescription": "FIAD-15_TOTAL_MAX_60",
+         "fieldName": "FIAD-15_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["BURN_EMOCIONAL"],
+         "subScales": ["FIAD-15"],
          "position": 181
       },
       {
-         "surveyShortName": "BURN",
-         "description": "BURNOUT DESPERSONALIZACION",
-         "shortDescription": "BURNOUT DESPERSONALIZACION",
-         "fieldName": "BURN_DESPERS",
-         "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["BURN_DESPERS"],
+         "surveyShortName": "FIAD-15",
+         "description": "FIAD-15 RESULTADO",
+         "shortDescription": "FIAD-15 RESULTADO",
+         "fieldName": "FIAD-15 RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "FIAD-15_TOTAL",
+            "ranges": [
+               { "min": 0, "max": 6, "resultIfTrue": "Nivel Funcional" },
+               { "min": 7, "max": 11, "resultIfTrue": "Nivel Alto" },
+               { "min": 12, "max": 26, "resultIfTrue": "Nivel Intermedio" },
+               { "min": 27, "max": 1000, "resultIfTrue": "Nivel Limitrofe" }
+            ]
+         },
+         "subScales": ["FIAD-15_RESULT"],
          "position": 211
       },
       {
          "surveyShortName": "BURN",
-         "description": "BURN_LOGROS",
-         "shortDescription": "BURN_LOGROS",
-         "fieldName": "BURN_LOGROS",
+         "description": "BURN_EMOCIONAL_MAX_42",
+         "shortDescription": "BURN_EMOCIONAL_MAX_42",
+         "fieldName": "BURN_EMOCIONAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["BURN_LOGROS"],
+         "subScales": ["BURN_EMOCIONAL"],
          "position": 241
       },
       {
          "surveyShortName": "BURN",
-         "description": "BURN_TOTAL",
-         "shortDescription": "BURN_TOTAL",
-         "fieldName": "BURN_TOTAL",
+         "description": "BURN_DESPERS_MAX_48",
+         "shortDescription": "BURN_DESPERS_MAX_48",
+         "fieldName": "BURN_DESPERS",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
+         "subScales": ["BURN_DESPERS"],
          "position": 271
       },
       {
+         "surveyShortName": "BURN",
+         "description": "BURN_LOGROS_MAX_30",
+         "shortDescription": "BURN_LOGROS_MAX_30",
+         "fieldName": "BURN_LOGROS",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_LOGROS"],
+         "position": 301
+      },
+      {
+         "surveyShortName": "BURN",
+         "description": "BURN_TOTAL_MAX_120",
+         "shortDescription": "BURN_TOTAL_MAX_120",
+         "fieldName": "BURN_TOTAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
+         "position": 331
+      },
+      {
          "surveyShortName": "ESTRES",
-         "description": "ESTRES_TOTAL",
-         "shortDescription": "ESTRES_TOTAL",
+         "description": "ESTRES_TOTAL_MAX_40",
+         "shortDescription": "ESTRES_TOTAL_MAX_40",
          "fieldName": "ESTRES_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 301
+         "position": 361
       },
       {
          "surveyShortName": "ESTRES",
@@ -12544,67 +12571,62 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 331
-      },
-      {
-         "surveyShortName": "HAMILTON",
-         "description": "HAMILTON_TOTAL_PSIQUICA",
-         "shortDescription": "HAMILTON_TOTAL_PSIQUICA",
-         "fieldName": "HAMILTON_TOTAL_PSIQUICA",
-         "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["HAMILTON_TOTAL_PSIQUICA"],
-         "position": 361
-      },
-      {
-         "surveyShortName": "HAMILTON",
-         "description": "HAMILTON_TOTAL_SOMATICA",
-         "shortDescription": "HAMILTON_TOTAL_SOMATICA",
-         "fieldName": "HAMILTON_TOTAL_SOMATICA",
-         "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["HAMILTON_TOTAL_SOMATICA"],
          "position": 391
       },
       {
          "surveyShortName": "HAMILTON",
-         "description": "HAMILTON_TOTAL_ANSIEDAD",
-         "shortDescription": "HAMILTON_TOTAL_ANSIEDAD",
-         "fieldName": "HAMILTON_TOTAL_ANSIEDAD",
+         "description": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
+         "shortDescription": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
+         "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["HAMILTON_TOTAL_PSIQUICA", "HAMILTON_TOTAL_SOMATICA"],
+         "subScales": ["HAMILTON_ANSIEDAD_PSIQUICA"],
          "position": 421
       },
       {
-         "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
-         "shortDescription": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
-         "fieldName": "JEFF_STATIC_PACIENTE_PERSPECTIVA",
+         "surveyShortName": "HAMILTON",
+         "description": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
+         "shortDescription": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
+         "fieldName": "HAMILTON_ANSIEDAD_SOMATICA",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["JEFF_STATIC_PACIENTE_PERSPECTIVA"],
+         "subScales": ["HAMILTON_ANSIEDAD_SOMATICA"],
          "position": 451
       },
       {
-         "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF_STATIC_COMPASION",
-         "shortDescription": "JEFF_STATIC_COMPASION",
-         "fieldName": "JEFF_STATIC_COMPASION",
+         "surveyShortName": "HAMILTON",
+         "description": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
+         "shortDescription": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
+         "fieldName": "HAMILTON_ANSIEDAD_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["JEFF_STATIC_COMPASION"],
+         "subScales": [
+            "HAMILTON_ANSIEDAD_PSIQUICA",
+            "HAMILTON_ANSIEDAD_SOMATICA"
+         ],
          "position": 481
       },
       {
-         "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF_STATIC_ZAPATOS_PACIENTE",
-         "shortDescription": "JEFF_STATIC_ZAPATOS_PACIENTE",
-         "fieldName": "JEFF_STATIC_ZAPATOS_PACIENTE",
-         "calculationType": "CAL_SUM_THE_GROUP",
-         "subScales": ["JEFF_STATIC_ZAPATOS_PACIENTE"],
+         "surveyShortName": "HAMILTON",
+         "description": "HAMILTON_ANSIEDAD_RESULTADO",
+         "shortDescription": "HAMILTON_ANSIEDAD_RESULTADO",
+         "fieldName": "HAMILTON_ANSIEDAD_RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "HAMILTON_ANSIEDAD_TOTAL",
+            "ranges": [
+               { "min": 0, "max": 0, "resultIfTrue": "Sin Ansiedad" },
+               { "min": 1, "max": 17, "resultIfTrue": "Ansiedad Leve" },
+               { "min": 18, "max": 24, "resultIfTrue": "Ansiedad Moderada" },
+               { "min": 25, "max": 30, "resultIfTrue": "Ansiedad Severa" }
+            ]
+         },
+         "subScales": ["HAMILTON_ANSIEDAD_TOTAL_MAX_48"],
          "position": 511
       },
+
       {
          "surveyShortName": "JEFF_STATIC",
-         "description": "JEFF_STATIC_TOTAL",
-         "shortDescription": "JEFF_STATIC_TOTAL",
-         "fieldName": "JEFF_STATIC_TOTAL",
+         "description": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+         "shortDescription": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+         "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
             "JEFF_STATIC_PACIENTE_PERSPECTIVA",
@@ -12615,8 +12637,8 @@
       },
       {
          "surveyShortName": "BECK",
-         "description": "BECK_TOTAL_DEPRESION",
-         "shortDescription": "BECK_TOTAL_DEPRESION",
+         "description": "BECK_TOTAL_DEPRESION_MAX_63",
+         "shortDescription": "BECK_TOTAL_DEPRESION_MAX_63",
          "fieldName": "BECK_TOTAL_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BECK_TOTAL_DEPRESION"],
@@ -12624,24 +12646,35 @@
       },
       {
          "surveyShortName": "BECK",
-         "description": "BECK_ES_CASO",
-         "shortDescription": "BECK_ES_CASO",
-         "fieldName": "BECK_ES_CASO",
-         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD",
+         "description": "BECK_ES_CASO_RESULTADO",
+         "shortDescription": "BECK_ES_CASO_RESULTADO",
+         "fieldName": "BECK_ES_CASO_DEPRESION",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
          "criteria": {
-            "fieldNameValue": ["BECK_TOTAL_DEPRESION"],
-            "operator": ">",
-            "value": 16,
-            "resultIfTrue": 1,
-            "resultIfFalse": 0
+            "fieldNameValue": "BECK_TOTAL_DEPRESION",
+            "ranges": [
+               { "min": 0, "max": 7, "resultIfTrue": "Sin Depresion" },
+               { "min": 8, "max": 13, "resultIfTrue": "Depresion Ligera" },
+               { "min": 14, "max": 18, "resultIfTrue": "Depresion Moderada" },
+               {
+                  "min": 19,
+                  "max": 22,
+                  "resultIfTrue": "Depresion Severa - requiere ayuda"
+               },
+               {
+                  "min": 23,
+                  "max": 1000,
+                  "resultIfTrue": "Depresion Muy Severa - requiere ayuda"
+               }
+            ]
          },
          "subScales": ["BECK_ES_CASO"],
          "position": 601
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_SOMATIZACION",
-         "shortDescription": "SCL90_SOMATIZACION",
+         "description": "SCL90_SOMATIZACION_MAX_48",
+         "shortDescription": "SCL90_SOMATIZACION_MAX_48",
          "fieldName": "SCL90_SOMATIZACION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SOMATIZACION"],
@@ -12649,8 +12682,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_OBSESION_COMPULSION",
-         "shortDescription": "SCL90_OBSESION_COMPULSION",
+         "description": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
+         "shortDescription": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
          "fieldName": "SCL90_OBSESION_COMPULSION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_OBSESION_COMPULSION"],
@@ -12658,8 +12691,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_SENS_INTERPERS",
-         "shortDescription": "SCL90_SENS_INTERPERS",
+         "description": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
+         "shortDescription": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
          "fieldName": "SCL90_SENS_INTERPERS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SENS_INTERPERS"],
@@ -12667,8 +12700,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_DEPRESION",
-         "shortDescription": "SCL90_DEPRESION",
+         "description": "SCL90_DEPRESION_MAX_52",
+         "shortDescription": "SCL90_DEPRESION_MAX_52",
          "fieldName": "SCL90_DEPRESION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_DEPRESION"],
@@ -12676,8 +12709,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_ANSIEDAD",
-         "shortDescription": "SCL90_ANSIEDAD",
+         "description": "SCL90_ANSIEDAD_MAX_40",
+         "shortDescription": "SCL90_ANSIEDAD_MAX_40",
          "fieldName": "SCL90_ANSIEDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ANSIEDAD"],
@@ -12685,8 +12718,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_HOSTILIDAD",
-         "shortDescription": "SCL90_HOSTILIDAD",
+         "description": "SCL90_HOSTILIDAD_MAX_24",
+         "shortDescription": "SCL90_HOSTILIDAD_MAX_24",
          "fieldName": "SCL90_HOSTILIDAD",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_HOSTILIDAD"],
@@ -12694,8 +12727,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_FOBIA",
-         "shortDescription": "SCL90_FOBIA",
+         "description": "SCL90_FOBIA_MAX_28",
+         "shortDescription": "SCL90_FOBIA_MAX_28",
          "fieldName": "SCL90_FOBIA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_FOBIA"],
@@ -12703,8 +12736,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_PARANOIA",
-         "shortDescription": "SCL90_PARANOIA",
+         "description": "SCL90_PARANOIA_MAX_24",
+         "shortDescription": "SCL90_PARANOIA_MAX_24",
          "fieldName": "SCL90_PARANOIA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PARANOIA"],
@@ -12712,8 +12745,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_PSICOSIS",
-         "shortDescription": "SCL90_PSICOSIS",
+         "description": "SCL90_PSICOTISMO_MAX_40",
+         "shortDescription": "SCL90_PSICOTISMO_MAX_40",
          "fieldName": "SCL90_PSICOSIS",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PSICOSIS"],
@@ -12721,8 +12754,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_ADICIONALES",
-         "shortDescription": "SCL90_ADICIONALES",
+         "description": "SCL90_ADICIONALES_MAX_28",
+         "shortDescription": "SCL90_ADICIONALES_MAX_28",
          "fieldName": "SCL90_ADICIONALES",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ADICIONALES"],
@@ -12730,8 +12763,8 @@
       },
       {
          "surveyShortName": "SCL90",
-         "description": "SCL90_TOTAL",
-         "shortDescription": "SCL90_TOTAL",
+         "description": "SCL90_TOTAL_MAX_360",
+         "shortDescription": "SCL90_TOTAL_MAX_360",
          "fieldName": "SCL90_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12750,17 +12783,17 @@
       },
       {
          "surveyShortName": "JEFF_HP",
-         "description": "JEFF_HP_TOTAL",
-         "shortDescription": "JEFF_HP_TOTAL",
-         "fieldName": "JEFF_HP_TOTAL",
+         "description": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
+         "shortDescription": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
+         "fieldName": "JEFF_HP_EMPATIA_PROFESIONALES_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_HP"],
          "position": 961
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E_EFF_17_INDIVIDUACION",
-         "shortDescription": "E_EFF_17_INDIVIDUACION",
+         "description": "E_EFF_17_INDIVIDUACION_MAX_12",
+         "shortDescription": "E_EFF_17_INDIVIDUACION_MAX_12",
          "fieldName": "E_EFF_17_INDIVIDUACION",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["INDIVIDUACION"],
@@ -12768,8 +12801,8 @@
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
-         "shortDescription": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
+         "description": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
+         "shortDescription": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
          "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["MANTENIMIENTO_DEL_SISTEMA"],
@@ -12777,8 +12810,8 @@
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E_EFF_17_CAMBIO_DEL_SISTEMA",
-         "shortDescription": "E_EFF_17_CAMBIO_DEL_SISTEMA",
+         "description": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
+         "shortDescription": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
          "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CAMBIO_DEL_SISTEMA"],
@@ -12786,8 +12819,8 @@
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E_EFF_17_COHERENCIA",
-         "shortDescription": "E_EFF_17_COHERENCIA",
+         "description": "E_EFF_17_COHERENCIA_MAX_6",
+         "shortDescription": "E_EFF_17_COHERENCIA_MAX_6",
          "fieldName": "E_EFF_17_COHERENCIA",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COHERENCIA"],
@@ -12795,8 +12828,8 @@
       },
       {
          "surveyShortName": "E_EFF_17",
-         "description": "E_EFF_17_TOTAL",
-         "shortDescription": "E_EFF_17_TOTAL",
+         "description": "E_EFF_17_TOTAL_51",
+         "shortDescription": "E_EFF_17_TOTAL_51",
          "fieldName": "E_EFF_17_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
@@ -12810,191 +12843,191 @@
 
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
-         "description": "VP_DETALLES_P2_QUIEN_TOTAL",
-         "shortDescription": "VP_DETALLES_P2_QUIEN_TOTAL",
+         "description": "VIOLENCIA total de roles/quienes que han padecido violencia",
+         "shortDescription": "VIOLENCIA total de roles/quienes que han padecido violencia",
          "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P2"],
-         "position": 30
+         "position": 1171
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
-         "description": "VP_DETALLES_P2_QUIEN_LISTA",
-         "shortDescription": "VP_DETALLES_P2_QUIEN_LISTA",
+         "description": "VIOLENCIA lista de roles/quienes han padecido violencia",
+         "shortDescription": "VIOLENCIA lista de roles/quienes han padecido violencia",
          "fieldName": "VP_DETALLES_P2_QUIEN_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P2"],
-         "position": 60
+         "position": 1201
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
-         "description": "VP_DETALLES_P3_TIPO_TOTAL",
-         "shortDescription": "VP_DETALLES_P3_TIPO_TOTAL",
+         "description": "VIOLENCIA total tipos violencia que el padecieron",
+         "shortDescription": "VIOLENCIA total tipos violencia que el padecieron",
          "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P3"],
-         "position": 90
+         "position": 1231
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
-         "description": "VP_DETALLES_P3_TIPO_LISTA",
-         "shortDescription": "VP_DETALLES_P3_TIPO_LISTA",
+         "description": "VIOLENCIA lista de tipos de violencia que padeceiron",
+         "shortDescription": "VIOLENCIA lista de tipos de violencia que padeceiron",
          "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P3"],
-         "position": 120
+         "position": 1261
       },
 
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
-         "description": "VP_TIPOS_P5_PADECIO_TOTAL",
-         "shortDescription": "VP_TIPOS_P5_PADECIO_TOTAL",
+         "description": "VIOLENCIA total de tipos de violencia que padeció",
+         "shortDescription": "VIOLENCIA total de tipos de violencia que padeció",
          "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P5"],
-         "position": 180
+         "position": 1321
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
-         "description": "VP_TIPOS_P5_PADECIO_LISTA",
-         "shortDescription": "VP_TIPOS_P5_PADECIO_LISTA",
+         "description": "VIOLENCIA lista de tipos de violencia que padeció",
+         "shortDescription": "VIOLENCIA lista de tipos de violencia que padeció",
          "fieldName": "VP_TIPOS_P5_PADECIO_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P5"],
-         "position": 210
+         "position": 1351
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
-         "description": "VP_TIPOS_P6_QUIEN_TOTAL",
-         "shortDescription": "VP_TIPOS_P6_QUIEN_TOTAL",
+         "description": "VIOLENCIA total de roles/quienes le hicieron padecer violencia",
+         "shortDescription": "VIOLENCIA total de roles/quienes le hicieron padecer violencia",
          "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P6"],
-         "position": 240
+         "position": 1381
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
-         "description": "VP_TIPOS_P6_QUIEN_LISTA",
-         "shortDescription": "VP_TIPOS_P6_QUIEN_LISTA",
+         "description": "VIOLENCIA lista de roles/quienes le hicieron padecer violencia",
+         "shortDescription": "VIOLENCIA lista de roles/quienes le hicieron padecer violencia",
          "fieldName": "VP_TIPOS_P6_QUIEN_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P6"],
-         "position": 270
+         "position": 1411
       },
 
       {
          "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
-         "description": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
-         "shortDescription": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
+         "description": "VIOLENCIA total de roles a quienes ha maltratado",
+         "shortDescription": "VIOLENCIA total de roles a quienes ha maltratado",
          "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VE_DETALLES_P8"],
-         "position": 330
+         "position": 1471
       },
       {
          "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
-         "description": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
-         "shortDescription": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
+         "description": "VIOLENCIA lista de a roles a quienes ha maltratado",
+         "shortDescription": "VIOLENCIA lista de a roles a quienes ha maltratado",
          "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VE_DETALLES_P8"],
-         "position": 360
+         "position": 1501
       },
 
       {
          "surveyShortName": "ACTITUD_APRENDIZAJE",
-         "description": "ACTITUD_APRENDIZAJE_TOTAL",
-         "shortDescription": "ACTITUD_APRENDIZAJE_TOTAL",
+         "description": "ACTITUD APRENDIZAJE EN LA VIDA MAX 56",
+         "shortDescription": "ACTITUD APRENDIZAJE EN LA VIDA MAX 56",
          "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["APRENDIZAJE"],
-         "position": 660
+         "position": 1801
       },
       {
          "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
-         "description": "COLAB_MEDICO_ENFERMERIA_TOTAL",
-         "shortDescription": "COLAB_MEDICO_ENFERMERIA_TOTAL",
-         "fieldName": "COLAB_MEDICO_ENFERMERIA_TOTAL",
+         "description": "JEFF COLABORACION MEDICO ENFERMERIA MAX 60",
+         "shortDescription": "JEFF COLABORACION MEDICO ENFERMERIA MAX 60",
+         "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERIA_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COLAB_MEDICO_ENFERMERIA"],
-         "position": 690
+         "position": 1831
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_SOCIAL_TOTAL",
-         "shortDescription": "ZAVIC_SOCIAL_TOTAL",
-         "fieldName": "ZAVIC_SOCIAL_TOTAL",
+         "description": "ZAVIC PORCIENTO DE INTERES SOCIAL",
+         "shortDescription": "ZAVIC PORCIENTO DE INTERES SOCIAL",
+         "fieldName": "ZAVIC_INTERES_SOCIAL_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_SOCIAL"],
-         "position": 720
+         "position": 1861
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_POLITICO_TOTAL",
-         "shortDescription": "ZAVIC_POLITICO_TOTAL",
-         "fieldName": "ZAVIC_POLITICO_TOTAL",
+         "description": "ZAVIC PORCIENTO DE INTERES POLITICO",
+         "shortDescription": "ZAVIC PORCIENTO DE INTERES POLITICO",
+         "fieldName": "ZAVIC_INTERES_POLITICO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_POLITICO"],
-         "position": 750
+         "position": 1891
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_ECONOMICO_TOTAL",
-         "shortDescription": "ZAVIC_ECONOMICO_TOTAL",
-         "fieldName": "ZAVIC_ECONOMICO_TOTAL",
+         "description": "ZAVIC PORCIENTO DE INTERES ECONOMICO",
+         "shortDescription": "ZAVIC PORCIENTO DE INTERES ECONOMICO",
+         "fieldName": "ZAVIC_INTERES_ECONOMICO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_ECONOMICO"],
-         "position": 780
+         "position": 1921
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_RELIGIOSO_TOTAL",
-         "shortDescription": "ZAVIC_RELIGIOSO_TOTAL",
-         "fieldName": "ZAVIC_RELIGIOSO_TOTAL",
+         "description": "ZAVIC PORCIENTO DE INTERES RELIGOSO",
+         "shortDescription": "ZAVIC PORCIENTO DE INTERES RELIGOSO",
+         "fieldName": "ZAVIC_INTERES_RELIGIOSO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_RELIGIOSO"],
-         "position": 810
+         "position": 1951
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_MORAL_TOTAL",
-         "shortDescription": "ZAVIC_MORAL_TOTAL",
-         "fieldName": "ZAVIC_MORAL_TOTAL",
+         "description": "ZAVIC PORCENTAJE DE VALOR MORAL",
+         "shortDescription": "ZAVIC PORCENTAJE DE VALOR MORAL",
+         "fieldName": "ZAVIC_VALORES_MORAL_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_MORAL"],
-         "position": 840
+         "position": 1981
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_LEGALIDAD_TOTAL",
-         "shortDescription": "ZAVIC_LEGALIDAD_TOTAL",
-         "fieldName": "ZAVIC_LEGALIDAD_TOTAL",
+         "description": "ZAVIC PORCENTAJE DE VALOR LEGALIDAD",
+         "shortDescription": "ZAVIC PORCENTAJE DE VALOR LEGALIDAD",
+         "fieldName": "ZAVIC_VALORES_LEGALIDAD_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_LEGALIDAD"],
-         "position": 870
+         "position": 2011
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_INDIFERENCIA_TOTAL",
-         "shortDescription": "ZAVIC_INDIFERENCIA_TOTAL",
-         "fieldName": "ZAVIC_INDIFERENCIA_TOTAL",
+         "description": "ZAVIC PORCENTAJE DE VALOR INDIFERENCIA",
+         "shortDescription": "ZAVIC PORCENTAJE DE VALOR INDIFERENCIA",
+         "fieldName": "ZAVIC_VALORES_INDIFERENCIA_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_INDIFERENCIA"],
-         "position": 900
+         "position": 2041
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
-         "description": "ZAVIC_CORRUPTO_TOTAL",
-         "shortDescription": "ZAVIC_CORRUPTO_TOTAL",
-         "fieldName": "ZAVIC_CORRUPTO_TOTAL",
+         "description": "ZAVIC PORCENTAJE DE VALOR CORRUPTO",
+         "shortDescription": "ZAVIC PORCENTAJE DE VALOR CORRUPTO",
+         "fieldName": "ZAVIC_VALORES_CORRUPTO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_CORRUPTO"],
-         "position": 930
+         "position": 2071
       }
    ]
 }

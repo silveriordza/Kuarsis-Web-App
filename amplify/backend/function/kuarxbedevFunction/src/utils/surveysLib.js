@@ -37,6 +37,8 @@ const srcFileName = 'surveysLib.js'
 const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
 const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
 const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
+const CAL_CRITERIA_ON_OTHER_FIELD_RANGES = 'CAL_CRITERIA_ON_OTHER_FIELD_RANGES'
+const CAL_PERCENT_THE_GROUP = 'CAL_PERCENT_THE_GROUP'
 
 const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
    const log = new LoggerSettings(srcFileName, 'buildOutputHeaders')
@@ -390,7 +392,69 @@ const processCalculatedFields = (
          currentCalculatedField = fieldsAnswersMap.get(
             allCalculatedField.fieldName,
          )
-         if (
+
+         if (allCalculatedField.calculationType === CAL_PERCENT_THE_GROUP) {
+            let subScalesTotalSum = 0
+            for (const subScale of allCalculatedField.subScales) {
+               subScalesTotalSum =
+                  subScalesTotalSum +
+                  subscaleToFieldsMap
+                     .get(subScale)
+                     .reduce((sumTotal, currentFieldAnswer) => {
+                        return sumTotal + currentFieldAnswer.weightedResponse
+                     }, 0)
+            }
+            currentCalculatedField.calculatedValue = subScalesTotalSum / 100
+         } else if (
+            allCalculatedField.calculationType ===
+            CAL_CRITERIA_ON_OTHER_FIELD_RANGES
+         ) {
+            let criteria = allCalculatedField.criteria
+            LogThis(
+               log,
+               `Criteria in Question: criteria=${JSON.stringify(
+                  criteria,
+                  null,
+                  2,
+               )}`,
+               L3,
+            )
+            let fieldNameValue = fieldsAnswersMap.get(criteria.fieldNameValue)
+
+            LogThis(
+               log,
+               `fieldNameValue1=${JSON.stringify(fieldNameValue, null, 2)}`,
+               L3,
+            )
+            let calValue = {}
+            if (fieldNameValue.isCalculatedField) {
+               calValue.value = fieldNameValue.calculatedValue
+            } else {
+               calValue.value = fieldNameValue.weightedResponse
+            }
+            let rangeFound = fieldsAnswersMap
+            for (const range of criteria.ranges) {
+               if (calValue.value >= range.min && calValue.value <= range.max) {
+                  currentCalculatedField.calculatedValue = range.resultIfTrue
+                  LogThis(
+                     log,
+                     `Range found, field: ${criteria.fieldNameValue} value=${calValue.value} range=${range.resultIfTrue}`,
+                     L3,
+                  )
+                  rangeFound = true
+                  break
+               }
+            }
+            if (!rangeFound) {
+               LogThis(
+                  log,
+                  `Somethign is wrong, range not found for: ${criteria.fieldNameValue} value=${calValue.value}`,
+                  L3,
+               )
+               currentCalculatedField.calculatedValue =
+                  'Error: rango no encontrado'
+            }
+         } else if (
             allCalculatedField.calculationType === CAL_CRITERIA_ON_OTHER_FIELD
          ) {
             let criteria = allCalculatedField.criteria
