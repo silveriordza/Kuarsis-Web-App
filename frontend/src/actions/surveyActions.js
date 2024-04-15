@@ -1469,15 +1469,20 @@ export const surveyOutputExportDataAction =
                dispatch({
                   type: SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
                   payload: {
-                     message: `Exportando pagine ${outputsInfo.page} de ${outputsInfo.pages}`,
+                     message: `Exportando página ${outputsInfo.page} de ${outputsInfo.pages}`,
                   },
                })
                await new Promise(resolve => setTimeout(resolve, 1))
 
                if (addHeaders) {
                   let outputValueFields = ''
+                  let utf8String = null
                   for (const outputField of outputsLayouts) {
-                     let utf8String = cleanCsvValue(outputField.question)
+                     if (superSurveyId.exportFieldNames) {
+                        utf8String = cleanCsvValue(outputField.fieldName)
+                     } else {
+                        utf8String = cleanCsvValue(outputField.question)
+                     }
                      csvData = csvData + utf8String + ','
                   }
                   //csvData = rowCleaner2(csvData.slice(0, -1)) + '\n'

@@ -323,6 +323,7 @@ const SurveysOutputData = ({ match, history }) => {
                   superSurveyShortName:
                      selectedSurveySuperior.superSurveyShortName,
                   pages: surveyOutputsInfo.pages,
+                  exportFieldNames: true,
                   keyword: searchKeyword,
                }),
             )
