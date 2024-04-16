@@ -3688,7 +3688,7 @@
          },
          {
             "surveyShortName": "CSG",
-            "fieldName": "CSG_TOTAL",
+            "fieldName": "CSG_TOTAL_MAX_28",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5251
@@ -3702,7 +3702,7 @@
          },
          {
             "surveyShortName": "FIAD-15",
-            "fieldName": "FIAD-15_TOTAL",
+            "fieldName": "FIAD-15_TOTAL_MAX_60",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5271
@@ -3716,35 +3716,35 @@
          },
          {
             "surveyShortName": "BURN",
-            "fieldName": "BURN_EMOCIONAL",
+            "fieldName": "BURN_EMOCIONAL_MAX_42",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5291
          },
          {
             "surveyShortName": "BURN",
-            "fieldName": "BURN_DESPERS",
+            "fieldName": "BURN_DESPERS_MAX_48",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5301
          },
          {
             "surveyShortName": "BURN",
-            "fieldName": "BURN_LOGROS",
+            "fieldName": "BURN_LOGROS_MAX_30",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5311
          },
          {
             "surveyShortName": "BURN",
-            "fieldName": "BURN_TOTAL",
+            "fieldName": "BURN_TOTAL_MAX_120",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5321
          },
          {
             "surveyShortName": "ESTRES",
-            "fieldName": "ESTRES_TOTAL",
+            "fieldName": "ESTRES_TOTAL_MAX_40",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5331
@@ -3758,21 +3758,21 @@
          },
          {
             "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA",
+            "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5351
          },
          {
             "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_ANSIEDAD_SOMATICA",
+            "fieldName": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5361
          },
          {
             "surveyShortName": "HAMILTON",
-            "fieldName": "HAMILTON_ANSIEDAD_TOTAL",
+            "fieldName": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5371
@@ -3787,14 +3787,14 @@
 
          {
             "surveyShortName": "JEFF_STATIC",
-            "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL",
+            "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5391
          },
          {
             "surveyShortName": "BECK",
-            "fieldName": "BECK_TOTAL_DEPRESION",
+            "fieldName": "BECK_TOTAL_DEPRESION_MAX_63",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5401
@@ -3808,119 +3808,119 @@
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_SOMATIZACION",
+            "fieldName": "SCL90_SOMATIZACION_MAX_48",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5421
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_OBSESION_COMPULSION",
+            "fieldName": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5431
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_SENS_INTERPERS",
+            "fieldName": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5441
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_DEPRESION",
+            "fieldName": "SCL90_DEPRESION_MAX_52",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5451
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_ANSIEDAD",
+            "fieldName": "SCL90_ANSIEDAD_MAX_40",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5461
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_HOSTILIDAD",
+            "fieldName": "SCL90_HOSTILIDAD_MAX_24",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5471
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_FOBIA",
+            "fieldName": "SCL90_FOBIA_MAX_28",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5481
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_PARANOIA",
+            "fieldName": "SCL90_PARANOIA_MAX_24",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5491
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_PSICOSIS",
+            "fieldName": "SCL90_PSICOTISMO_MAX_40",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5501
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_ADICIONALES",
+            "fieldName": "SCL90_ADICIONALES_MAX_28",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5511
          },
          {
             "surveyShortName": "SCL90",
-            "fieldName": "SCL90_TOTAL",
+            "fieldName": "SCL90_TOTAL_MAX_360",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5521
          },
          {
             "surveyShortName": "JEFF_HP",
-            "fieldName": "JEFF_HP_EMPATIA_PROFESIONALES_TOTAL",
+            "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5531
          },
          {
             "surveyShortName": "E_EFF_17",
-            "fieldName": "E_EFF_17_INDIVIDUACION",
+            "fieldName": "E_EFF_17_INDIVIDUACION_MAX_12",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5541
          },
          {
             "surveyShortName": "E_EFF_17",
-            "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
+            "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5551
          },
          {
             "surveyShortName": "E_EFF_17",
-            "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
+            "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5561
          },
          {
             "surveyShortName": "E_EFF_17",
-            "fieldName": "E_EFF_17_COHERENCIA",
+            "fieldName": "E_EFF_17_COHERENCIA_MAX_6",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5571
          },
          {
             "surveyShortName": "E_EFF_17",
-            "fieldName": "E_EFF_17_TOTAL",
+            "fieldName": "E_EFF_17_TOTAL_51",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5581
@@ -12465,7 +12465,7 @@
          "surveyShortName": "CSG",
          "description": "CSG_TOTAL_MAX_28",
          "shortDescription": "CSG_TOTAL_MAX_28",
-         "fieldName": "CSG_TOTAL",
+         "fieldName": "CSG_TOTAL_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
             "CSG_SOMATICOS",
@@ -12482,7 +12482,7 @@
          "fieldName": "CSG_ES_CASO",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD",
          "criteria": {
-            "fieldNameValue": ["CSG_TOTAL"],
+            "fieldNameValue": ["CSG_TOTAL_MAX_28"],
             "operator": ">",
             "value": 3,
             "resultIfTrue": 1,
@@ -12495,7 +12495,7 @@
          "surveyShortName": "FIAD-15",
          "description": "FIAD-15_TOTAL_MAX_60",
          "shortDescription": "FIAD-15_TOTAL_MAX_60",
-         "fieldName": "FIAD-15_TOTAL",
+         "fieldName": "FIAD-15_TOTAL_MAX_60",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["FIAD-15"],
          "position": 181
@@ -12507,7 +12507,7 @@
          "fieldName": "FIAD-15 RESULTADO",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
          "criteria": {
-            "fieldNameValue": "FIAD-15_TOTAL",
+            "fieldNameValue": "FIAD-15_TOTAL_MAX_60",
             "ranges": [
                { "min": 0, "max": 6, "resultIfTrue": "Nivel Funcional" },
                { "min": 7, "max": 11, "resultIfTrue": "Nivel Alto" },
@@ -12522,7 +12522,7 @@
          "surveyShortName": "BURN",
          "description": "BURN_EMOCIONAL_MAX_42",
          "shortDescription": "BURN_EMOCIONAL_MAX_42",
-         "fieldName": "BURN_EMOCIONAL",
+         "fieldName": "BURN_EMOCIONAL_MAX_42",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL"],
          "position": 241
@@ -12531,7 +12531,7 @@
          "surveyShortName": "BURN",
          "description": "BURN_DESPERS_MAX_48",
          "shortDescription": "BURN_DESPERS_MAX_48",
-         "fieldName": "BURN_DESPERS",
+         "fieldName": "BURN_DESPERS_MAX_48",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_DESPERS"],
          "position": 271
@@ -12540,7 +12540,7 @@
          "surveyShortName": "BURN",
          "description": "BURN_LOGROS_MAX_30",
          "shortDescription": "BURN_LOGROS_MAX_30",
-         "fieldName": "BURN_LOGROS",
+         "fieldName": "BURN_LOGROS_MAX_30",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_LOGROS"],
          "position": 301
@@ -12549,7 +12549,7 @@
          "surveyShortName": "BURN",
          "description": "BURN_TOTAL_MAX_120",
          "shortDescription": "BURN_TOTAL_MAX_120",
-         "fieldName": "BURN_TOTAL",
+         "fieldName": "BURN_TOTAL_MAX_120",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
          "position": 331
@@ -12558,7 +12558,7 @@
          "surveyShortName": "ESTRES",
          "description": "ESTRES_TOTAL_MAX_40",
          "shortDescription": "ESTRES_TOTAL_MAX_40",
-         "fieldName": "ESTRES_TOTAL",
+         "fieldName": "ESTRES_TOTAL_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ESTRES_TOTAL"],
          "position": 361
@@ -12577,7 +12577,7 @@
          "surveyShortName": "HAMILTON",
          "description": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
          "shortDescription": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
-         "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA",
+         "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_ANSIEDAD_PSIQUICA"],
          "position": 421
@@ -12586,7 +12586,7 @@
          "surveyShortName": "HAMILTON",
          "description": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
          "shortDescription": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
-         "fieldName": "HAMILTON_ANSIEDAD_SOMATICA",
+         "fieldName": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_ANSIEDAD_SOMATICA"],
          "position": 451
@@ -12595,7 +12595,7 @@
          "surveyShortName": "HAMILTON",
          "description": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
          "shortDescription": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
-         "fieldName": "HAMILTON_ANSIEDAD_TOTAL",
+         "fieldName": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
             "HAMILTON_ANSIEDAD_PSIQUICA",
@@ -12610,7 +12610,7 @@
          "fieldName": "HAMILTON_ANSIEDAD_RESULTADO",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
          "criteria": {
-            "fieldNameValue": "HAMILTON_ANSIEDAD_TOTAL",
+            "fieldNameValue": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
             "ranges": [
                { "min": 0, "max": 0, "resultIfTrue": "Sin Ansiedad" },
                { "min": 1, "max": 17, "resultIfTrue": "Ansiedad Leve" },
@@ -12626,7 +12626,7 @@
          "surveyShortName": "JEFF_STATIC",
          "description": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
          "shortDescription": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
-         "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL",
+         "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
             "JEFF_STATIC_PACIENTE_PERSPECTIVA",
@@ -12639,7 +12639,7 @@
          "surveyShortName": "BECK",
          "description": "BECK_TOTAL_DEPRESION_MAX_63",
          "shortDescription": "BECK_TOTAL_DEPRESION_MAX_63",
-         "fieldName": "BECK_TOTAL_DEPRESION",
+         "fieldName": "BECK_TOTAL_DEPRESION_MAX_63",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BECK_TOTAL_DEPRESION"],
          "position": 571
@@ -12651,7 +12651,7 @@
          "fieldName": "BECK_ES_CASO_DEPRESION",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
          "criteria": {
-            "fieldNameValue": "BECK_TOTAL_DEPRESION",
+            "fieldNameValue": "BECK_TOTAL_DEPRESION_MAX_63",
             "ranges": [
                { "min": 0, "max": 7, "resultIfTrue": "Sin Depresion" },
                { "min": 8, "max": 13, "resultIfTrue": "Depresion Ligera" },
@@ -12675,7 +12675,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_SOMATIZACION_MAX_48",
          "shortDescription": "SCL90_SOMATIZACION_MAX_48",
-         "fieldName": "SCL90_SOMATIZACION",
+         "fieldName": "SCL90_SOMATIZACION_MAX_48",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SOMATIZACION"],
          "position": 631
@@ -12684,7 +12684,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
          "shortDescription": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
-         "fieldName": "SCL90_OBSESION_COMPULSION",
+         "fieldName": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_OBSESION_COMPULSION"],
          "position": 661
@@ -12693,7 +12693,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
          "shortDescription": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
-         "fieldName": "SCL90_SENS_INTERPERS",
+         "fieldName": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SENS_INTERPERS"],
          "position": 691
@@ -12702,7 +12702,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_DEPRESION_MAX_52",
          "shortDescription": "SCL90_DEPRESION_MAX_52",
-         "fieldName": "SCL90_DEPRESION",
+         "fieldName": "SCL90_DEPRESION_MAX_52",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_DEPRESION"],
          "position": 721
@@ -12711,7 +12711,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_ANSIEDAD_MAX_40",
          "shortDescription": "SCL90_ANSIEDAD_MAX_40",
-         "fieldName": "SCL90_ANSIEDAD",
+         "fieldName": "SCL90_ANSIEDAD_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ANSIEDAD"],
          "position": 751
@@ -12720,7 +12720,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_HOSTILIDAD_MAX_24",
          "shortDescription": "SCL90_HOSTILIDAD_MAX_24",
-         "fieldName": "SCL90_HOSTILIDAD",
+         "fieldName": "SCL90_HOSTILIDAD_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_HOSTILIDAD"],
          "position": 781
@@ -12729,7 +12729,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_FOBIA_MAX_28",
          "shortDescription": "SCL90_FOBIA_MAX_28",
-         "fieldName": "SCL90_FOBIA",
+         "fieldName": "SCL90_FOBIA_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_FOBIA"],
          "position": 811
@@ -12738,7 +12738,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_PARANOIA_MAX_24",
          "shortDescription": "SCL90_PARANOIA_MAX_24",
-         "fieldName": "SCL90_PARANOIA",
+         "fieldName": "SCL90_PARANOIA_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PARANOIA"],
          "position": 841
@@ -12747,7 +12747,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_PSICOTISMO_MAX_40",
          "shortDescription": "SCL90_PSICOTISMO_MAX_40",
-         "fieldName": "SCL90_PSICOSIS",
+         "fieldName": "SCL90_PSICOTISMO_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PSICOSIS"],
          "position": 871
@@ -12756,7 +12756,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_ADICIONALES_MAX_28",
          "shortDescription": "SCL90_ADICIONALES_MAX_28",
-         "fieldName": "SCL90_ADICIONALES",
+         "fieldName": "SCL90_ADICIONALES_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ADICIONALES"],
          "position": 901
@@ -12765,7 +12765,7 @@
          "surveyShortName": "SCL90",
          "description": "SCL90_TOTAL_MAX_360",
          "shortDescription": "SCL90_TOTAL_MAX_360",
-         "fieldName": "SCL90_TOTAL",
+         "fieldName": "SCL90_TOTAL_MAX_360",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
             "SCL90_SOMATIZACION",
@@ -12785,7 +12785,7 @@
          "surveyShortName": "JEFF_HP",
          "description": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
          "shortDescription": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
-         "fieldName": "JEFF_HP_EMPATIA_PROFESIONALES_TOTAL",
+         "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_HP"],
          "position": 961
@@ -12794,7 +12794,7 @@
          "surveyShortName": "E_EFF_17",
          "description": "E_EFF_17_INDIVIDUACION_MAX_12",
          "shortDescription": "E_EFF_17_INDIVIDUACION_MAX_12",
-         "fieldName": "E_EFF_17_INDIVIDUACION",
+         "fieldName": "E_EFF_17_INDIVIDUACION_MAX_12",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["INDIVIDUACION"],
          "position": 991
@@ -12803,7 +12803,7 @@
          "surveyShortName": "E_EFF_17",
          "description": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
          "shortDescription": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
-         "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA",
+         "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["MANTENIMIENTO_DEL_SISTEMA"],
          "position": 1021
@@ -12812,7 +12812,7 @@
          "surveyShortName": "E_EFF_17",
          "description": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
          "shortDescription": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
-         "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA",
+         "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CAMBIO_DEL_SISTEMA"],
          "position": 1051
@@ -12821,7 +12821,7 @@
          "surveyShortName": "E_EFF_17",
          "description": "E_EFF_17_COHERENCIA_MAX_6",
          "shortDescription": "E_EFF_17_COHERENCIA_MAX_6",
-         "fieldName": "E_EFF_17_COHERENCIA",
+         "fieldName": "E_EFF_17_COHERENCIA_MAX_6",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COHERENCIA"],
          "position": 1081
@@ -12830,7 +12830,7 @@
          "surveyShortName": "E_EFF_17",
          "description": "E_EFF_17_TOTAL_51",
          "shortDescription": "E_EFF_17_TOTAL_51",
-         "fieldName": "E_EFF_17_TOTAL",
+         "fieldName": "E_EFF_17_TOTAL_51",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": [
             "INDIVIDUACION",
