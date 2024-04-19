@@ -58,14 +58,16 @@ const sourceFile = "SurveyProcessManager.js"
        this.questions = null
        this.calculatedFields = null
        this.outputs = null
+       this.updateDynamicTable = null
     }
 
-    activateTemplateSaver(surveyAllTemplates, owner){
+    activateTemplateSaver(surveyAllTemplates, owner, updateDynamicTable=true){
       HasDataException(surveyAllTemplates,`surveyTemplate is empty`, this.log)
       HasDataException(owner, `owner is empty`, this.log)
       this.owner = owner
       //surveyTemplate.owner = owner
       this.surveyTemplate = surveyAllTemplates
+      this.updateDynamicTable = updateDynamicTable
     }
 
     async loadTemplate(superSurveyShortName){
@@ -131,54 +133,6 @@ const sourceFile = "SurveyProcessManager.js"
       this.logNew.setFunctionName("integrateSurveyWithMonkey")
       
       await this.loadTemplate(superSurveyShortName) 
-
-     
-      //return this.superSurveyConfig
-
-
-      //  const surveyTemplate = this.superSurveyConfig
-      //  let superSurveyConfig = this.superSurveyConfig
-      //  //const owner = this.owner
-      //  const superSurveyElements = this.superSurveyElements
-
-
-      //   const superSurveyConf = superSurveyElements.superSurvey.getConfigs()
-      //   const multiSurveyConf = surveyTemplate?.multiSurveys
-      //   const surveysConf = surveyTemplate?.surveys
-      //   const questionsConf = surveyTemplate?.surveys.map( 
-      //    survey => survey.questions.map(field => {
-      //      field.surveyPosition = survey.position 
-      //      field.surveyShortName = survey.surveyShortName
-      //      return field
-      //     }
-      //  ))
-      //   const calculatedFieldsConf = surveyTemplate?.surveys.map( 
-      //     survey => survey.calculatedFields.map(field => {
-      //       field.surveyPosition = survey.position 
-      //       field.surveyShortName = survey.surveyShortName
-      //       return field
-      //      }
-      //   ))
-        //const monkeyManager = new MonkeyManager()
-
-        //const mondoDbManager = new MongoDBManager()
-
-      //   this.logNew.HasDataMultipeEx("superSurveyConfig,multiSurvey,surveys,questions,calculatedFields",superSurveyConf,multiSurveyConf,surveysConf,questionsConf,calculatedFieldsConf)
-//TODO Aqui me quede, sigue create la tabla donde se guardara la encuesta instanciada e integrada con suvery monkey.
-
-      //   const result = await SurveySuperior.deleteOne({
-      //    superSurveyShortName: superSurveyConf.superSurveyShortName,
-      //    })
-   
-      //    MongoDBManager.IsDeletedEx(result, `Error deleting SurveySuperior`, log)
-      //    // await SurveySuperior.deleteMany({})
-      //    // await Survey.deleteMany({})
-      //    // await SurveyQuestion.deleteMany({})
-      //    // await SurveyMulti.deleteMany({})
-      //    // await SurveyCalculatedField.deleteMany({})
-      //    // await SurveySuperiorOutputLayout.deleteMany({})
-   
-      //    //Search in the MonkeyConfigs collection the config corresponding to this SuperSurvey config from the template. The Survey Monkey config must have already been created/updated using the path surveys/surveymonkey/:id where the id is the Survey Monkey Id for this survey in Survey Monkey, make sure to run that one first.
          
          let superSurveyConf = this.superSurveyConfig.configsCombo[0]
          const monkeyConfigs =
@@ -224,7 +178,7 @@ const sourceFile = "SurveyProcessManager.js"
       surveySuperiorResult.calculatedFieldsResult=calculatedFieldsResult
 
       const outputLayouts = new SurveyOutputManager ('SurveySuperiorOutputLayout', 'fieldName')
-      const outputLayoutsResult = await outputLayouts.save(superSurveyConfig.surveySuperiors.outputLayout,"surveySuperiorId", surveySuperiorResult)
+      const outputLayoutsResult = await outputLayouts.save(superSurveyConfig.surveySuperiors.outputLayout,"surveySuperiorId", surveySuperiorResult, this.updateDynamicTable)
       this.outputLayouts = outputLayouts
       surveySuperiorResult.outputLayoutsResult=outputLayoutsResult
 

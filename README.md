@@ -35,6 +35,33 @@ Modificator name: Silverio Rodriguez Alcorta
 Description: Promoted tagkuarxisBeSurveySystemDEV-v1.0.0.5 from Dev to QA as tagkuarxisBeSurveySystemQA-v1.0.0.5 as is.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.7.0
+Git Feature Dev branch: kuarxisBeSurveySystemDEV-v1.0.7.0
+Version date: 4/19/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Added all remaining surveys and calculations.
+2.- Included code to handle criteria for test descriptive results based on another field total number.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.6.1
+Git Feature Dev branch: tagkuarxisBeSurveySystemDEV-v1.0.6.1
+Version date: 4/01/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Full redesign for the survey templates processing.
+2.- Full redesign for the survey monkey integration.
+3.- Full redesign for the survey monkey answers processing.
+4.- Full redesign for the survey output generation.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.5.1
+Version date: 2/25/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Fixed defect: columns in surveyoutput screen showing in disorder, fixed it in surveyController superSurveyGetOutputValues function, added a sort action by the sequence fieldname into the await SurveySuperiorOutputLayout.find, this fixed the column order displayed in the screen. The weird thing here was that it was working before, but somehow this defect reappeared in DEV and also in QA environments of Oncare.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.0.5
 Version date: 1/13/24
 Modificator name: Silverio Rodriguez Alcorta

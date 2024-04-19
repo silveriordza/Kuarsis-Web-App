@@ -25,7 +25,7 @@ class SurveyOutputManager extends SurveyTemplateManager {
       )
    }
 
-   async save(configs, linkField, linkValue) {
+   async save(configs, linkField, linkValue, updateDynamicTable = true) {
       this.superSurveyShortName = linkValue[0].superSurveyShortName
       this.superSurveyId = linkValue[0]._id
       const collectionSaved = await super.save(
@@ -33,7 +33,12 @@ class SurveyOutputManager extends SurveyTemplateManager {
          linkField,
          this.superSurveyId,
       )
-      const dynamicTableCreated = await this.createDynamicTableFromTemplate()
+
+      let dynamicTableCreated = false
+      if (updateDynamicTable) {
+         dynamicTableCreated = await this.createDynamicTableFromTemplate()
+      }
+
       return {
          results: {
             colectionSaved: collectionSaved,

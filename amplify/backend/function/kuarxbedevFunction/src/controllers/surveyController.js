@@ -110,9 +110,16 @@ const createSuperSurvey = asyncHandler(async (req, res) => {
    const log = new LoggerSettings(srcFileName, functionName)
    const superSurveyConfig = req.body
    let ownerId = req.user._id
+   const updateDynamicTableInput = req.query?.updateDynamicTable || ''
+   const updateDynamicTable =
+      updateDynamicTableInput.toLocaleLowerCase() === 'yes' ? true : false
 
    const templateManager = new SurveyProcessManager()
-   templateManager.activateTemplateSaver(superSurveyConfig, ownerId)
+   templateManager.activateTemplateSaver(
+      superSurveyConfig,
+      ownerId,
+      updateDynamicTable,
+   )
    const superSurveyTemplate = await templateManager.saveTemplate()
 
    console.log('about to respond')
@@ -2477,8 +2484,8 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          let field = null
          field = fieldsMap.get(outputField.fieldName)
          if (field.isCalculated) {
-            outputField.question = field.fieldName
-            outputField.questionShort = field.fieldName
+            outputField.question = field.description
+            outputField.questionShort = field.shortDescription
          } else {
             outputField.question = field.question
             outputField.questionShort = field.questionShort
@@ -2587,8 +2594,8 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
 
       // findAsync;
 
-      x = x + 1
-      LogThis(log, `outputValues=${JSON.stringify(outputValuesFound)}`, L3)
+      // x = x + 1
+      // LogThis(log, `outputValues=${JSON.stringify(outputValuesFound)}`, L3)
       LogThis(
          log,
          `page=${page}; count=${count}; pages=${Math.ceil(count / pageSize)}`,
@@ -3335,7 +3342,9 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                      question.monkeyInfo.type === 'SINGLE_CHOICE_VERTICAL' ||
                      question.monkeyInfo.type === 'SINGLE_CHOICE_MENU' ||
                      question.monkeyInfo.type ===
-                        'MULTIPLE_CHOICE_VERTICAL_THREE_COL')
+                        'MULTIPLE_CHOICE_VERTICAL_THREE_COL' ||
+                     question.monkeyInfo.type ===
+                        'SINGLE_CHOICE_VERTICAL_THREE_COL')
                ) {
                   for (const [key, monkeyPageAnswer] of monkeyPageAnswers) {
                      LogThis(
@@ -3351,12 +3360,15 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                         choice_id = monkeyPageAnswer.choice_id
                      }
                      answer =
-                        question.monkeyInfo.monkeyAnswers.answerChoices.find(
+                        question?.monkeyInfo?.monkeyAnswers?.answerChoices?.find(
                            choice => choice.id === choice_id,
                         )
                      if (answer) {
                         answer = monkeyPageAnswer
                         break
+                     } else {
+                        answer = null
+                        //break
                      }
                   }
                } else {

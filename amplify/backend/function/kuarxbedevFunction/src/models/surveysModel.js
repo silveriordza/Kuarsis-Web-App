@@ -13,7 +13,7 @@ const surveyQuestionModel = mongoose.Schema(
          ref: 'Survey',
       },
       position: { type: Number, required: true },
-      fieldName: { type: String, required: true },
+      fieldName: { type: String, required: true, unique: true },
       //subScale was added and it will hold the subScale group for calculatedFields group sums or actions. All questions belonging to the same subscale, will have the same subScale value, which will be then referenced in the calculatedFields group property as a single subscale, or multiple subscales part of the same group.
       subScale: { type: String, required: true },
       question: { type: String, required: true },
@@ -268,6 +268,20 @@ const SurveyMonkeyIntegrated = mongoose.model(
    surveyMonkeyIntegratedModel,
 )
 
+const monkeyAnswerModel = mongoose.Schema(
+   {
+      ////changed name from monkeyId to monkeyId
+      //monkeyId: { type: String, required: true },
+      monkeyId: { type: String, required: true },
+      respondentId: { type: String, required: true, unique: true },
+      answers: { type: mongoose.Schema.Types.Mixed, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+const MonkeyAnswer = mongoose.model('MonkeyAnswer', monkeyAnswerModel)
+
 //changed  name from monkeyNewResponseModel to monkeyNewResponseModel
 //const monkeyNewResponseModel = mongoose.Schema(
 const monkeyNewResponseModel = mongoose.Schema(
@@ -315,4 +329,5 @@ module.exports = {
    MonkeyNewResponse,
    SuperSurveyMonkey,
    SurveyMonkeyIntegrated,
+   MonkeyAnswer,
 }

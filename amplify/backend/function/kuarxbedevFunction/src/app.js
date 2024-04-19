@@ -26,6 +26,20 @@ const { Parameters } = await (new aws.SSM())
 
 Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
 */
+/*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["MONGO_URI","JWT_SECRET","PAYPAL_CLIENT_ID","KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY","KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY","KUARSIS_SURVEY_MONKEY_TOKEN","KUARSIS_SURVEY_MONKEY_WEBHOOKS_TOKEN","KUARSIS_SURVEY_MONKEY_APIKEY"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
 /**
  * Use the following code to retrieve configured secrets from SSM:
  *
@@ -303,7 +317,7 @@ var fs = require('fs')
 // declare a new express app
 var app = express()
 
-app.use(express.json({ limit: '300kb' }))
+app.use(express.json({ limit: '1000kb' }))
 
 // THIS IS MORGAN FUNCTIONALITY to log in the HTTP requests in the console only when we are in development environment
 if (process.env.NODE_ENV === 'development') {

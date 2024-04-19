@@ -101,7 +101,9 @@ const addPropertyMatchingValueInArray = (
             matchingValue[matchingField].toLowerCase()
          )
       })
+      //if (idFound) {
       object[fieldNameToAdd] = idFound[externalIdField]
+      //}
    })
 }
 
