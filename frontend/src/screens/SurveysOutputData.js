@@ -26,6 +26,7 @@ import {
    surveyProcessAnswersAtClientAction,
    surveyDetailsAction,
    surveyGetOutputValuesAction,
+   surveyOutputExportDataAction,
 } from '../actions/surveyActions'
 //import { surveysConfigurations } from "../surveysConfigurations";
 import { LogThis, LoggerSettings, L1, L2, L3, L0 } from '../libs/Logger'
@@ -59,20 +60,13 @@ const SurveysOutputData = ({ match, history }) => {
    const [searchKeyword, setsearchKeyword] = useState(keyword)
    const [surveySelected, setsurveySelected] = useState(surveySelectedParam)
 
+   const [dispatchExport, setdispatchExport] = useState(false)
+   const [exportStatusMessage, setexportStatusMessage] = useState('')
+
    const userLogin = useSelector(state => state.userLogin)
    const { userInfo } = userLogin
    const typingTimer = useRef(null)
-   // const surveyProcessAnswers = useSelector(
-   //   (state) => state.surveyProcessAnswers
-   // );
-   // const {
-   //   loading: surveyLoading,
-   //   error: surveyError,
-   //   success: surveySuccess,
-   //   survey: surveyData,
-   //   surveyStatusMessage: surveyMessage,
-   //   surveyStatusRow: surveyRow,
-   // } = surveyProcessAnswers;
+
    const surveyDetails = useSelector(state => state.surveyDetails)
 
    const {
@@ -83,6 +77,17 @@ const SurveysOutputData = ({ match, history }) => {
    } = surveyDetails
 
    const surveyOutputs = useSelector(state => state.surveyOutputs)
+
+   const surveyOutputsExportData = useSelector(
+      state => state.surveyOutputsExportData,
+   )
+   const {
+      loading: exportLoading,
+      error: exportError,
+      success: exportSuccess,
+      csvData: exportCsvData,
+      message: exportMessage,
+   } = surveyOutputsExportData
 
    const { loading, error, success, surveyOutputsInfo } = surveyOutputs
 
@@ -240,6 +245,10 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
+   const exportDataFile = outputData => {
+      setdispatchExport(true)
+   }
+
    useEffect(() => {
       LogThis(
          log,
@@ -250,19 +259,6 @@ const SurveysOutputData = ({ match, history }) => {
          LogThis(log, `No userInfo available`, L3)
          history.push('/sign-in')
       } else {
-         // LogThis(
-         //   log,
-         //   `useEffect newSelectedSurveySuperior=${newSelectedSurveySuperior}, loading=${loading}`,
-         //   L3
-         // );
-         // if (newSelectedSurveySuperior && !loading) {
-         //   LogThis(
-         //     log,
-         //     `about to call surveyOutput selectedSurveySuperior=${JSON.stringify(
-         //       selectedSurveySuperior
-         //     )}`,
-         //     L3
-         //   );
          if (newSelectedSurveySuperior && !loading && selectedSurveySuperior) {
             LogThis(log, `About to dispatch surveyGetOutputValuesAction`, L3)
             LogThis(
@@ -310,6 +306,50 @@ const SurveysOutputData = ({ match, history }) => {
          }
       }
    }, [dispatch, surveyDetailsDispatched])
+
+   useEffect(() => {
+      LogThis(log, `UseEffect export data`, L3)
+      if (!userInfo) {
+         LogThis(log, `No userInfo available`, L3)
+         history.push('/sign-in')
+      } else {
+         LogThis(log, `else of surveyOutputExportDataAction dispatch`, L3)
+         if (dispatchExport) {
+            LogThis(log, `About to dispatch surveyOutputExportDataAction`, L3)
+            setdispatchExport(false)
+            dispatch(
+               surveyOutputExportDataAction({
+                  surveySuperiorId: selectedSurveySuperior._id,
+                  superSurveyShortName:
+                     selectedSurveySuperior.superSurveyShortName,
+                  pages: surveyOutputsInfo.pages,
+                  exportFieldNames: false,
+                  keyword: searchKeyword,
+               }),
+            )
+         }
+      }
+   }, [dispatch, dispatchExport])
+
+   useEffect(() => {
+      LogThis(log, `UseEffect cycle ReporteRespuestas.csv`, L3)
+      if (
+         !exportLoading &&
+         exportSuccess &&
+         exportCsvData &&
+         exportCsvData != ''
+      ) {
+         LogThis(log, `UseEffect about to save ReporteRespuestas.csv`, L3)
+         saveStringAsCSV(exportCsvData, 'ReporteRespuestas.csv')
+         setdispatchExport(false)
+      }
+   }, [dispatch, exportLoading, exportSuccess, exportCsvData])
+
+   useEffect(() => {
+      LogThis(log, `UseEffect cycle setexportStatusMessage`, L3)
+
+      setexportStatusMessage(exportMessage)
+   }, [dispatch, exportMessage])
 
    useEffect(() => {
       LogThis(log, `UseEffect details`, L3)
@@ -398,6 +438,17 @@ const SurveysOutputData = ({ match, history }) => {
                         ></Form.Control>
                      </Form.Group>
                      <br />
+                     <Button
+                        variant="light"
+                        size="sm"
+                        // className="btn-mg"
+                        onClick={() => exportDataFile(surveyOutputsInfo)}
+                     >
+                        <i className="fas fa-save fa-2x"></i> Exportar
+                     </Button>
+                     <span> </span>
+                     <Form.Label>{exportStatusMessage}</Form.Label>
+                     <br />
                      <br />
                      <Table
                         striped
@@ -435,6 +486,9 @@ const SurveysOutputData = ({ match, history }) => {
                                           .decode(utf8Array)
                                           .replace(/,/g, ' ')
                                           .replace(/:/g, '')
+                                       console.log(
+                                          `${layout.fieldName}:pos${layout.position}`,
+                                       )
                                        return (
                                           <th
                                              key={keyVal}
@@ -456,7 +510,7 @@ const SurveysOutputData = ({ match, history }) => {
                               keys.shift()
                               let outputField = null
                               let outputValueData = null
-                              console.log(`outputValue._id=${outputValue._id}`)
+                              //console.log(`outputValue._id=${outputValue._id}`)
                               return (
                                  <tr key={outputValue._id}>
                                     <td>
@@ -470,50 +524,60 @@ const SurveysOutputData = ({ match, history }) => {
                                           <i className="fas fa-tasks"></i>
                                        </Button>
                                     </td>
-                                    {keys.map(key => {
-                                       outputField =
-                                          surveyOutputsInfo.outputLayouts.find(
-                                             x => {
-                                                return x.fieldName == key
-                                             },
-                                          )
-                                       if (
-                                          outputField.showInSurveyOutputScreen
-                                       ) {
-                                          switch (outputField.fieldName) {
-                                             case 'INFO_3':
-                                                outputValueData = formatDate(
-                                                   outputValue[key],
+                                    {surveyOutputsInfo.outputLayouts.map(
+                                       outputField => {
+                                          // outputField =
+                                          //    surveyOutputsInfo.outputLayouts.find(
+                                          //       x => {
+                                          //          return x.fieldName == key
+                                          //       },
+                                          //    )
+                                          let key = null
+                                          key = outputField.fieldName
+                                          if (
+                                             outputField.showInSurveyOutputScreen
+                                          ) {
+                                             switch (outputField.fieldName) {
+                                                case 'INFO_3':
+                                                   outputValueData = formatDate(
+                                                      outputValue[key],
+                                                   )
+                                                   break
+                                                case 'INFO_4':
+                                                   outputValueData = formatDate(
+                                                      outputValue[key],
+                                                   )
+                                                   break
+                                                default:
+                                                   outputValueData =
+                                                      outputValue[key]
+                                             }
+
+                                             let encoder = new TextEncoder()
+                                             let utf8Array =
+                                                encoder.encode(outputValueData)
+                                             let utf8String =
+                                                new TextDecoder().decode(
+                                                   utf8Array,
                                                 )
-                                                break
-                                             case 'INFO_4':
-                                                outputValueData = formatDate(
-                                                   outputValue[key],
-                                                )
-                                                break
-                                             default:
-                                                outputValueData =
-                                                   outputValue[key]
+                                             console.log(
+                                                `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
+                                             )
+                                             return (
+                                                <td
+                                                   key={key}
+                                                   style={{
+                                                      whiteSpace: 'nowrap',
+                                                   }}
+                                                >
+                                                   {utf8String}
+                                                </td>
+                                             )
+                                          } else {
+                                             return
                                           }
-
-                                          let encoder = new TextEncoder()
-                                          let utf8Array =
-                                             encoder.encode(outputValueData)
-                                          let utf8String =
-                                             new TextDecoder().decode(utf8Array)
-
-                                          return (
-                                             <td
-                                                key={key}
-                                                style={{ whiteSpace: 'nowrap' }}
-                                             >
-                                                {utf8String}
-                                             </td>
-                                          )
-                                       } else {
-                                          return
-                                       }
-                                    })}
+                                       },
+                                    )}
                                  </tr>
                               )
                            })}

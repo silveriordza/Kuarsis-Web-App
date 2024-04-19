@@ -6,11 +6,12 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: tagkuarxisFeSurveySystemQA-v1.0.6.1
-Git parent tag: tagkuarxisFeSurveySystemDEV-v1.0.6.1
-Version date: 4/01/24
+Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.7.0
+Version date: 4/19/24
 Modificator name: Silverio Rodriguez Alcorta
-Description: Promoted tagkuarxisFeSurveySystemDEV-v1.0.6.1 from Dev to QA as tagkuarxisFeSurveySystemQA-v1.0.6.1 as is.
+ENHANCEMENTS:
+1.- Added functionality in the SurveyOutputScreen to export the data of a selected survey in the list of surveys, it will export it as a CSV file with the columns names displayed vertically and values on the side.
+2.- Added fucntionality to export all the data in the survey list into a CSV file.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.6.1
