@@ -1477,12 +1477,19 @@ export const surveyOutputExportDataAction =
                if (addHeaders) {
                   let outputValueFields = ''
                   let utf8String = null
+                  let utf8SurveyShortName = null
+                  let surveyShortNameCsvHeader = null
                   for (const outputField of outputsLayouts) {
                      if (superSurveyId.exportFieldNames) {
                         utf8String = cleanCsvValue(outputField.fieldName)
                      } else {
                         utf8String = cleanCsvValue(outputField.question)
+                        utf8SurveyShortName = cleanCsvValue(
+                           outputField.surveyShortName,
+                        )
+                        utf8String = utf8SurveyShortName + '_' + utf8String
                      }
+
                      csvData = csvData + utf8String + ','
                   }
                   //csvData = rowCleaner2(csvData.slice(0, -1)) + '\n'

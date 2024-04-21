@@ -11,13 +11,14 @@ import FormData from 'form-data'
 import React, { useState, useEffect, useRef } from 'react'
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
-import { Form, Button, Table } from 'react-bootstrap'
+import { Form, Button, Table, Col, Row, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import FormContainer from '../components/FormContainer'
+//import FormContainer from '../components/FormContainer'
 import PaginateGeneric from '../components/PaginateGeneric'
 import { saveStringAsCSV } from '../libs/csvProcessingLib'
+import ExcelExport from 'react-data-export'
 
 //import _ from "lodash";
 
@@ -45,6 +46,97 @@ import { SURVEY_OUTPUTS_RESET } from '../constants/surveyConstants'
 const SurveysOutputData = ({ match, history }) => {
    const srcFileName = 'SurveysOutputData'
    const log = new LoggerSettings(srcFileName, 'SurveysOutputData')
+   const ExcelFile = ExcelExport.ExcelFile
+   const ExcelSheet = ExcelExport.ExcelFile.ExcelSheet
+   const multiDataSet = [
+      {
+         columns: [
+            { title: 'Headings', width: { wpx: 80 } }, //pixels width
+            { title: 'Text Style', width: { wch: 40 } }, //char width
+            { title: 'Colors', width: { wpx: 90 } },
+         ],
+         data: [
+            [
+               { value: 'H1', style: { font: { sz: '24', bold: true } } },
+               { value: 'Bold', style: { font: { bold: true } } },
+               {
+                  value: 'Red',
+                  style: {
+                     fill: {
+                        patternType: 'solid',
+                        fgColor: { rgb: 'FFFF0000' },
+                     },
+                  },
+               },
+            ],
+            [
+               { value: 'H2', style: { font: { sz: '18', bold: true } } },
+               { value: 'underline', style: { font: { underline: true } } },
+               {
+                  value: 'Blue',
+                  style: {
+                     fill: {
+                        patternType: 'solid',
+                        fgColor: { rgb: 'FF0000FF' },
+                     },
+                  },
+               },
+            ],
+            [
+               { value: 'H3', style: { font: { sz: '14', bold: true } } },
+               { value: 'italic', style: { font: { italic: true } } },
+               {
+                  value: 'Green',
+                  style: {
+                     fill: {
+                        patternType: 'solid',
+                        fgColor: { rgb: 'FF00FF00' },
+                     },
+                  },
+               },
+            ],
+            [
+               { value: 'H4', style: { font: { sz: '12', bold: true } } },
+               { value: 'strike', style: { font: { strike: true } } },
+               {
+                  value: 'Orange',
+                  style: {
+                     fill: {
+                        patternType: 'solid',
+                        fgColor: { rgb: 'FFF86B00' },
+                     },
+                  },
+               },
+            ],
+            [
+               { value: 'H5', style: { font: { sz: '10.5', bold: true } } },
+               { value: 'outline', style: { font: { outline: true } } },
+               {
+                  value: 'Yellow',
+                  style: {
+                     fill: {
+                        patternType: 'solid',
+                        fgColor: { rgb: 'FFFFFF00' },
+                     },
+                  },
+               },
+            ],
+            [
+               { value: 'H6', style: { font: { sz: '7.5', bold: true } } },
+               { value: 'shadow', style: { font: { shadow: true } } },
+               {
+                  value: 'Light Blue',
+                  style: {
+                     fill: {
+                        patternType: 'solid',
+                        fgColor: { rgb: 'FFCCEEFF' },
+                     },
+                  },
+               },
+            ],
+         ],
+      },
+   ]
 
    const keyword = match.params.keyword || ''
    const pageNumber = match.params.pageNumber || 1
@@ -62,6 +154,9 @@ const SurveysOutputData = ({ match, history }) => {
 
    const [dispatchExport, setdispatchExport] = useState(false)
    const [exportStatusMessage, setexportStatusMessage] = useState('')
+
+   const [exportFields, setexportFields] = useState(true)
+   const [startExcelDownload, setstartExcelDownload] = useState(false)
 
    const userLogin = useSelector(state => state.userLogin)
    const { userInfo } = userLogin
@@ -245,8 +340,14 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
-   const exportDataFile = outputData => {
+   const exportDataFile = (outputData, exportFields) => {
       setdispatchExport(true)
+      setexportFields(exportFields)
+   }
+
+   const exportDataExcelFile = (outputData, exportFields) => {
+      setdispatchExport(true)
+      setexportFields(exportFields)
    }
 
    useEffect(() => {
@@ -273,6 +374,8 @@ const SurveysOutputData = ({ match, history }) => {
                      selectedSurveySuperior.superSurveyShortName,
                   pageNumber: selectedPageNumber,
                   keyword: searchKeyword,
+                  /*startDate: new Date(2024, 4, 18, 0, 0, 0, 0),
+                  endDate: new Date(2024, 4, 19, 0, 0, 0, 0),*/
                }),
             )
             setnewSelectedSurveySuperior(false)
@@ -323,7 +426,7 @@ const SurveysOutputData = ({ match, history }) => {
                   superSurveyShortName:
                      selectedSurveySuperior.superSurveyShortName,
                   pages: surveyOutputsInfo.pages,
-                  exportFieldNames: false,
+                  exportFieldNames: exportFields,
                   keyword: searchKeyword,
                }),
             )
@@ -340,7 +443,8 @@ const SurveysOutputData = ({ match, history }) => {
          exportCsvData != ''
       ) {
          LogThis(log, `UseEffect about to save ReporteRespuestas.csv`, L3)
-         saveStringAsCSV(exportCsvData, 'ReporteRespuestas.csv')
+         //saveStringAsCSV(exportCsvData, 'ReporteRespuestas.csv')
+         setstartExcelDownload(true)
          setdispatchExport(false)
       }
    }, [dispatch, exportLoading, exportSuccess, exportCsvData])
@@ -362,14 +466,13 @@ const SurveysOutputData = ({ match, history }) => {
             `Details dispatched surveyDetailsDispatched=${surveyDetailsDispatched}`,
             L3,
          )
-         if (surveySelected > -1) {
+         if (surveySelected > -1 && surveyDetailsInfo?.surveySuperiors) {
             reselectSurveyAfterPagination(surveySelected)
          }
       }
-   }, [dispatch, surveySelected])
+   }, [dispatch, surveySelected, surveyDetailsInfo])
 
    useEffect(() => {
-      // Perform cleanup operations when the component is unmounted
       return () => {
          setsurveySelected(-1)
          setselectedSurveySuperior(null)
@@ -380,221 +483,281 @@ const SurveysOutputData = ({ match, history }) => {
    }, [])
 
    return (
-      <>
-         <FormContainer>
-            {LogThis(log, `Rendering`)}
-            {(loading || surveyDetailLoading) && <Loader />}
-            {error && <Message variant="danger">{error.message}</Message>}
-
-            <h1>Seleccione la encuesta para ver los resultados</h1>
+      <Container fluid>
+         {LogThis(log, `Rendering`)}
+         {(loading || surveyDetailLoading) && <Loader />}
+         {error && <Message variant="danger">{error.message}</Message>}
+         <div>
             {!surveyDetailLoading &&
                surveyDetailSuccess &&
                surveyDetailsInfo &&
                surveyDetailsInfo.surveySuperiors && (
-                  <>
-                     <Form.Control
-                        as="select"
-                        value={selectedSurveySuperior ?? ''}
-                        onChange={handleSelectSurveySuperior}
-                     >
-                        <option key={50000} value={'NoSurveySelected'}>
-                           {' '}
-                           Seleccionar...
-                        </option>
-                        {/* <option value="">
-                  {" "}
-                  {surveyDetailsInfo.surveySuperiors[0].surveyName}
-                </option> */}
-                        {surveyDetailsInfo.surveySuperiors.map(
-                           (element, index) => {
-                              return (
-                                 <option key={index} value={element}>
-                                    {element.surveyName}
-                                 </option>
-                              )
-                           },
-                        )}
-                     </Form.Control>
-                  </>
+                  <Container style={{ marginTop: '1%' }}>
+                     <Row>
+                        <Col lg="auto">
+                           <h5>Seleccione la encuesta</h5>
+                           <Form.Control
+                              as="select"
+                              value={selectedSurveySuperior ?? ''}
+                              onChange={handleSelectSurveySuperior}
+                           >
+                              <option key={50000} value={'NoSurveySelected'}>
+                                 {' '}
+                                 Seleccionar...
+                              </option>
+                              {surveyDetailsInfo.surveySuperiors.map(
+                                 (element, index) => {
+                                    return (
+                                       <option key={index} value={element}>
+                                          {element.surveyName}
+                                       </option>
+                                    )
+                                 },
+                              )}
+                           </Form.Control>
+                        </Col>
+                     </Row>
+                  </Container>
                )}
-         </FormContainer>
-         <br />
-         <br />
-         <br />
+         </div>
+
          {!loading &&
             success &&
             surveyOutputsInfo &&
             surveyOutputsInfo.outputLayouts &&
             surveyOutputsInfo.outputValues && (
                <>
-                  <div className={'survey-outputs'}>
-                     <Form.Group controlId="textControl">
-                        <Form.Label>Búsqueda por texto:</Form.Label>
-                        <Form.Control
-                           type="text"
-                           placeholder="Buscar..."
-                           value={searchKeyword}
-                           onChange={handleSearchText}
-                        ></Form.Control>
-                     </Form.Group>
-                     <br />
-                     <Button
-                        variant="light"
-                        size="sm"
-                        // className="btn-mg"
-                        onClick={() => exportDataFile(surveyOutputsInfo)}
-                     >
-                        <i className="fas fa-save fa-2x"></i> Exportar
-                     </Button>
-                     <span> </span>
-                     <Form.Label>{exportStatusMessage}</Form.Label>
-                     <br />
-                     <br />
-                     <Table
-                        striped
-                        bordered
-                        hover
-                        responsive
-                        className="table-sm"
-                     >
-                        <thead>
-                           <tr>
-                              {/* {console.log(
-                    `Rendering outputLayouts=${JSON.stringify(
-                      surveyOutputsInfo
-                    )}`
-                  )} */}
-                              <th></th>
-                              {surveyOutputsInfo.outputLayouts.map(
-                                 (layout, keyVal) => {
-                                    // console.log(
-                                    //   `dipslaying headers: layout=${JSON.stringify(
-                                    //     layout
-                                    //   )}; layout.showInSurveyOutputScreen = ${
-                                    //     layout.showInSurveyOutputScreen
-                                    //   }`
-                                    // );
-                                    if (layout.showInSurveyOutputScreen) {
-                                       // console.log(
-                                       //   `returning field layout.fieldName=${layout.fieldName}`
-                                       // );
-                                       let encoder = new TextEncoder()
-                                       let utf8Array = encoder.encode(
-                                          layout.questionShort,
-                                       )
-                                       let utf8String = new TextDecoder()
-                                          .decode(utf8Array)
-                                          .replace(/,/g, ' ')
-                                          .replace(/:/g, '')
-                                       console.log(
-                                          `${layout.fieldName}:pos${layout.position}`,
-                                       )
-                                       return (
-                                          <th
-                                             key={keyVal}
-                                             style={{ whiteSpace: 'nowrap' }}
-                                          >
-                                             {utf8String}
-                                          </th>
-                                       )
-                                    } else {
-                                       return
-                                    }
-                                 },
-                              )}
-                           </tr>
-                        </thead>
-                        <tbody>
-                           {surveyOutputsInfo.outputValues.map(outputValue => {
-                              const keys = Object.keys(outputValue)
-                              keys.shift()
-                              let outputField = null
-                              let outputValueData = null
-                              //console.log(`outputValue._id=${outputValue._id}`)
-                              return (
-                                 <tr key={outputValue._id}>
-                                    <td>
-                                       <Button
-                                          variant="dark"
-                                          className="btn-sm"
-                                          onClick={() =>
-                                             GenerateOutputFile(outputValue._id)
-                                          }
-                                       >
-                                          <i className="fas fa-tasks"></i>
-                                       </Button>
-                                    </td>
-                                    {surveyOutputsInfo.outputLayouts.map(
-                                       outputField => {
-                                          // outputField =
-                                          //    surveyOutputsInfo.outputLayouts.find(
-                                          //       x => {
-                                          //          return x.fieldName == key
-                                          //       },
-                                          //    )
-                                          let key = null
-                                          key = outputField.fieldName
-                                          if (
-                                             outputField.showInSurveyOutputScreen
-                                          ) {
-                                             switch (outputField.fieldName) {
-                                                case 'INFO_3':
-                                                   outputValueData = formatDate(
-                                                      outputValue[key],
-                                                   )
-                                                   break
-                                                case 'INFO_4':
-                                                   outputValueData = formatDate(
-                                                      outputValue[key],
-                                                   )
-                                                   break
-                                                default:
-                                                   outputValueData =
-                                                      outputValue[key]
-                                             }
+                  <div>
+                     <Container fluid>
+                        <Form.Group controlId="textControl">
+                           <Form.Label style={{ marginTop: '1%' }}>
+                              Búsqueda por texto:
+                           </Form.Label>
+                           <Form.Control
+                              type="text"
+                              placeholder="Buscar..."
+                              value={searchKeyword}
+                              onChange={handleSearchText}
+                           ></Form.Control>
+                        </Form.Group>
+                        <br />
+                        <Row>
+                           <Col lg="auto">
+                              <Button
+                                 variant="light"
+                                 size="sm"
+                                 // className="btn-mg"
+                                 onClick={() =>
+                                    exportDataFile(surveyOutputsInfo, false)
+                                 }
+                              >
+                                 <i className="fas fa-save fa-2x"></i> Exportar
+                                 Preguntas
+                              </Button>
+                           </Col>
+                           <Col lg="auto">
+                              <Button
+                                 variant="light"
+                                 size="sm"
+                                 // className="btn-mg"
+                                 onClick={() =>
+                                    exportDataFile(surveyOutputsInfo, true)
+                                 }
+                              >
+                                 <i className="fas fa-save fa-2x"></i> Exportar
+                                 Campos
+                              </Button>
+                           </Col>
+                           <Col>
+                              <Button
+                                 variant="light"
+                                 size="sm"
+                                 // className="btn-mg"
+                                 onClick={() =>
+                                    exportDataExcelFile(surveyOutputsInfo, true)
+                                 }
+                              >
+                                 <i className="fas fa-save fa-2x"></i> Exportar
+                                 Excel
+                              </Button>
 
-                                             let encoder = new TextEncoder()
-                                             let utf8Array =
-                                                encoder.encode(outputValueData)
-                                             let utf8String =
-                                                new TextDecoder().decode(
-                                                   utf8Array,
+                              {startExcelDownload && (
+                                 <ExcelFile
+                                    filename="ResultadosEncuestas"
+                                    hideElement={true}
+                                    element={<span />}
+                                 >
+                                    <ExcelSheet
+                                       dataSet={multiDataSet}
+                                       name="ResultadosEncuestas"
+                                    />
+                                 </ExcelFile>
+                              )}
+                              {startExcelDownload &&
+                                 setstartExcelDownload(false)}
+                           </Col>
+                           <Col md="auto">
+                              <Form.Label>{exportStatusMessage}</Form.Label>
+                           </Col>
+                        </Row>
+                     </Container>
+                  </div>
+                  <div>
+                     <Container fluid="xxl">
+                        <Row>
+                           <Col>
+                              <Table
+                                 striped
+                                 bordered
+                                 hover
+                                 responsive
+                                 className="table-sm"
+                              >
+                                 <thead>
+                                    <tr>
+                                       <th></th>
+                                       {surveyOutputsInfo.outputLayouts.map(
+                                          (layout, keyVal) => {
+                                             if (
+                                                layout.showInSurveyOutputScreen
+                                             ) {
+                                                let encoder = new TextEncoder()
+                                                let utf8Array = encoder.encode(
+                                                   layout.questionShort,
                                                 )
-                                             console.log(
-                                                `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
-                                             )
-                                             return (
-                                                <td
-                                                   key={key}
-                                                   style={{
-                                                      whiteSpace: 'nowrap',
-                                                   }}
-                                                >
-                                                   {utf8String}
+                                                let utf8String =
+                                                   new TextDecoder()
+                                                      .decode(utf8Array)
+                                                      .replace(/,/g, ' ')
+                                                      .replace(/:/g, '')
+                                                console.log(
+                                                   `${layout.fieldName}:pos${layout.position}`,
+                                                )
+                                                return (
+                                                   <th
+                                                      key={keyVal}
+                                                      style={{
+                                                         whiteSpace: 'nowrap',
+                                                      }}
+                                                   >
+                                                      {utf8String}
+                                                   </th>
+                                                )
+                                             } else {
+                                                return
+                                             }
+                                          },
+                                       )}
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {surveyOutputsInfo.outputValues.map(
+                                       outputValue => {
+                                          const keys = Object.keys(outputValue)
+                                          keys.shift()
+                                          let outputValueData = null
+                                          return (
+                                             <tr key={outputValue._id}>
+                                                <td>
+                                                   <Button
+                                                      variant="dark"
+                                                      className="btn-sm"
+                                                      onClick={() =>
+                                                         GenerateOutputFile(
+                                                            outputValue._id,
+                                                         )
+                                                      }
+                                                   >
+                                                      <i className="fas fa-tasks"></i>
+                                                   </Button>
                                                 </td>
-                                             )
-                                          } else {
-                                             return
-                                          }
+                                                {surveyOutputsInfo.outputLayouts.map(
+                                                   outputField => {
+                                                      let key = null
+                                                      key =
+                                                         outputField.fieldName
+                                                      if (
+                                                         outputField.showInSurveyOutputScreen
+                                                      ) {
+                                                         switch (
+                                                            outputField.fieldName
+                                                         ) {
+                                                            case 'INFO_3':
+                                                               outputValueData =
+                                                                  formatDate(
+                                                                     outputValue[
+                                                                        key
+                                                                     ],
+                                                                  )
+                                                               break
+                                                            case 'INFO_4':
+                                                               outputValueData =
+                                                                  formatDate(
+                                                                     outputValue[
+                                                                        key
+                                                                     ],
+                                                                  )
+                                                               break
+                                                            default:
+                                                               outputValueData =
+                                                                  outputValue[
+                                                                     key
+                                                                  ]
+                                                         }
+
+                                                         let encoder =
+                                                            new TextEncoder()
+                                                         let utf8Array =
+                                                            encoder.encode(
+                                                               outputValueData,
+                                                            )
+                                                         let utf8String =
+                                                            new TextDecoder().decode(
+                                                               utf8Array,
+                                                            )
+                                                         console.log(
+                                                            `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
+                                                         )
+                                                         return (
+                                                            <td
+                                                               key={key}
+                                                               style={{
+                                                                  whiteSpace:
+                                                                     'nowrap',
+                                                               }}
+                                                            >
+                                                               {utf8String}
+                                                            </td>
+                                                         )
+                                                      } else {
+                                                         return
+                                                      }
+                                                   },
+                                                )}
+                                             </tr>
+                                          )
                                        },
                                     )}
-                                 </tr>
-                              )
-                           })}
-                        </tbody>
-                     </Table>
-
-                     <PaginateGeneric
-                        onClick={handlePageChange}
-                        selectedSurveyIndex={surveySelected}
-                        pages={surveyOutputsInfo.pages}
-                        page={pageNumber}
-                        keyword={searchKeyword ? searchKeyword : ''}
-                     />
+                                 </tbody>
+                              </Table>
+                           </Col>
+                        </Row>
+                        <Row>
+                           <Col>
+                              <PaginateGeneric
+                                 onClick={handlePageChange}
+                                 selectedSurveyIndex={surveySelected}
+                                 pages={surveyOutputsInfo.pages}
+                                 page={pageNumber}
+                                 keyword={searchKeyword ? searchKeyword : ''}
+                              />
+                           </Col>
+                        </Row>
+                     </Container>
                   </div>
                </>
             )}
-      </>
+      </Container>
    )
 }
 
