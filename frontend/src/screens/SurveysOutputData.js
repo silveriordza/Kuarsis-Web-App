@@ -18,7 +18,28 @@ import Loader from '../components/Loader'
 //import FormContainer from '../components/FormContainer'
 import PaginateGeneric from '../components/PaginateGeneric'
 import { saveStringAsCSV } from '../libs/csvProcessingLib'
-import ExcelExport from 'react-data-export'
+//import ExcelExport from 'react-data-export'
+import {
+   ColumnDirective,
+   ColumnsDirective,
+   Filter,
+   GridComponent,
+   Group,
+   ExcelExport,
+   ColumnChooser,
+} from '@syncfusion/ej2-react-grids'
+import {
+   Inject,
+   Page,
+   Sort,
+   Toolbar,
+   Resize,
+} from '@syncfusion/ej2-react-grids'
+import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns'
+
+//import { data } from '../constants/datasource'
+
+import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars'
 
 //import _ from "lodash";
 
@@ -46,97 +67,177 @@ import { SURVEY_OUTPUTS_RESET } from '../constants/surveyConstants'
 const SurveysOutputData = ({ match, history }) => {
    const srcFileName = 'SurveysOutputData'
    const log = new LoggerSettings(srcFileName, 'SurveysOutputData')
-   const ExcelFile = ExcelExport.ExcelFile
-   const ExcelSheet = ExcelExport.ExcelFile.ExcelSheet
-   const multiDataSet = [
-      {
-         columns: [
-            { title: 'Headings', width: { wpx: 80 } }, //pixels width
-            { title: 'Text Style', width: { wch: 40 } }, //char width
-            { title: 'Colors', width: { wpx: 90 } },
+   // const ExcelFile = ExcelExport.ExcelFile
+   // const ExcelSheet = ExcelExport.ExcelFile.ExcelSheet
+   // const multiDataSet = [
+   //    {
+   //       columns: [
+   //          { title: 'Headings', width: { wpx: 80 } }, //pixels width
+   //          { title: 'Text Style', width: { wch: 40 } }, //char width
+   //          { title: 'Colors', width: { wpx: 90 } },
+   //       ],
+   //       data: [
+   //          [
+   //             { value: 'H1', style: { font: { sz: '24', bold: true } } },
+   //             { value: 'Bold', style: { font: { bold: true } } },
+   //             {
+   //                value: 'Red',
+   //                style: {
+   //                   fill: {
+   //                      patternType: 'solid',
+   //                      fgColor: { rgb: 'FFFF0000' },
+   //                   },
+   //                },
+   //             },
+   //          ],
+   //          [
+   //             { value: 'H2', style: { font: { sz: '18', bold: true } } },
+   //             { value: 'underline', style: { font: { underline: true } } },
+   //             {
+   //                value: 'Blue',
+   //                style: {
+   //                   fill: {
+   //                      patternType: 'solid',
+   //                      fgColor: { rgb: 'FF0000FF' },
+   //                   },
+   //                },
+   //             },
+   //          ],
+   //          [
+   //             { value: 'H3', style: { font: { sz: '14', bold: true } } },
+   //             { value: 'italic', style: { font: { italic: true } } },
+   //             {
+   //                value: 'Green',
+   //                style: {
+   //                   fill: {
+   //                      patternType: 'solid',
+   //                      fgColor: { rgb: 'FF00FF00' },
+   //                   },
+   //                },
+   //             },
+   //          ],
+   //          [
+   //             { value: 'H4', style: { font: { sz: '12', bold: true } } },
+   //             { value: 'strike', style: { font: { strike: true } } },
+   //             {
+   //                value: 'Orange',
+   //                style: {
+   //                   fill: {
+   //                      patternType: 'solid',
+   //                      fgColor: { rgb: 'FFF86B00' },
+   //                   },
+   //                },
+   //             },
+   //          ],
+   //          [
+   //             { value: 'H5', style: { font: { sz: '10.5', bold: true } } },
+   //             { value: 'outline', style: { font: { outline: true } } },
+   //             {
+   //                value: 'Yellow',
+   //                style: {
+   //                   fill: {
+   //                      patternType: 'solid',
+   //                      fgColor: { rgb: 'FFFFFF00' },
+   //                   },
+   //                },
+   //             },
+   //          ],
+   //          [
+   //             { value: 'H6', style: { font: { sz: '7.5', bold: true } } },
+   //             { value: 'shadow', style: { font: { shadow: true } } },
+   //             {
+   //                value: 'Light Blue',
+   //                style: {
+   //                   fill: {
+   //                      patternType: 'solid',
+   //                      fgColor: { rgb: 'FFCCEEFF' },
+   //                   },
+   //                },
+   //             },
+   //          ],
+   //       ],
+   //    },
+   // ]
+
+   let grid
+   let dropDown
+   const dropDownData = [
+      { text: 'CurrentPage', value: 'CurrentPage' },
+      { text: 'AllPages', value: 'AllPages' },
+   ]
+
+   const pageSettings = { pageSize: 10 }
+   const sortSettings = {
+      columns: [],
+   }
+   const filterSettings = {
+      type: 'Excel',
+      operators: {
+         stringOperator: [
+            { value: 'startsWith', text: 'Starts With' },
+            { value: 'endsWith', text: 'Ends With' },
+            { value: 'contains', text: 'Contains' },
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
          ],
-         data: [
-            [
-               { value: 'H1', style: { font: { sz: '24', bold: true } } },
-               { value: 'Bold', style: { font: { bold: true } } },
-               {
-                  value: 'Red',
-                  style: {
-                     fill: {
-                        patternType: 'solid',
-                        fgColor: { rgb: 'FFFF0000' },
-                     },
-                  },
-               },
-            ],
-            [
-               { value: 'H2', style: { font: { sz: '18', bold: true } } },
-               { value: 'underline', style: { font: { underline: true } } },
-               {
-                  value: 'Blue',
-                  style: {
-                     fill: {
-                        patternType: 'solid',
-                        fgColor: { rgb: 'FF0000FF' },
-                     },
-                  },
-               },
-            ],
-            [
-               { value: 'H3', style: { font: { sz: '14', bold: true } } },
-               { value: 'italic', style: { font: { italic: true } } },
-               {
-                  value: 'Green',
-                  style: {
-                     fill: {
-                        patternType: 'solid',
-                        fgColor: { rgb: 'FF00FF00' },
-                     },
-                  },
-               },
-            ],
-            [
-               { value: 'H4', style: { font: { sz: '12', bold: true } } },
-               { value: 'strike', style: { font: { strike: true } } },
-               {
-                  value: 'Orange',
-                  style: {
-                     fill: {
-                        patternType: 'solid',
-                        fgColor: { rgb: 'FFF86B00' },
-                     },
-                  },
-               },
-            ],
-            [
-               { value: 'H5', style: { font: { sz: '10.5', bold: true } } },
-               { value: 'outline', style: { font: { outline: true } } },
-               {
-                  value: 'Yellow',
-                  style: {
-                     fill: {
-                        patternType: 'solid',
-                        fgColor: { rgb: 'FFFFFF00' },
-                     },
-                  },
-               },
-            ],
-            [
-               { value: 'H6', style: { font: { sz: '7.5', bold: true } } },
-               { value: 'shadow', style: { font: { shadow: true } } },
-               {
-                  value: 'Light Blue',
-                  style: {
-                     fill: {
-                        patternType: 'solid',
-                        fgColor: { rgb: 'FFCCEEFF' },
-                     },
-                  },
-               },
-            ],
+         numberOperator: [
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
+            { value: 'greaterThan', text: 'Greater Than' },
+            { value: 'lessThan', text: 'Less Than' },
+         ],
+         dateOperator: [
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
+            { value: 'greaterThan', text: 'After' },
+            { value: 'lessThan', text: 'Before' },
+         ],
+         booleanOperator: [
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
          ],
       },
-   ]
+   }
+   const groupSettings = { columns: [] }
+   const toolbarOptions = ['ExcelExport', 'ColumnChooser']
+
+   const toolbarClick = args => {
+      if (grid && args.item.id === 'Grid_excelexport') {
+         // 'Grid_pdfexport' -> Grid component id + _ + toolbar item name
+         const exportProperties = {
+            exportType: dropDown.value,
+         }
+         grid.excelExport(exportProperties)
+      }
+   }
+
+   const dataBound = () => {
+      if (grid) {
+         grid.autoFitColumns()
+      }
+   }
+   /* DateRagePickerComponent constants */
+   const dateRangeEndCalc = new Date()
+
+   const dateRangeEndMonth = dateRangeEndCalc.getMonth()
+
+   let targetMonth = dateRangeEndMonth - 5
+
+   const dateRangeStartCalc = new Date()
+
+   dateRangeStartCalc.setMonth(targetMonth)
+
+   const [dateRangeStart, setdateRangeStart] = useState(dateRangeStartCalc)
+   const [dateRangeEnd, setdateRangeEnd] = useState(dateRangeEndCalc)
+
+   const [selectedDates, setSelectedDates] = useState(null)
+
+   const handleDateRangeChange = args => {
+      setdateRangeStart(args.value[0])
+      setdateRangeEnd(args.value[1])
+      setSelectedDates(args.value)
+      setnewSelectedSurveySuperior(true)
+   }
 
    const keyword = match.params.keyword || ''
    const pageNumber = match.params.pageNumber || 1
@@ -157,6 +258,8 @@ const SurveysOutputData = ({ match, history }) => {
 
    const [exportFields, setexportFields] = useState(true)
    const [startExcelDownload, setstartExcelDownload] = useState(false)
+
+   const [gridDataSourceArray, setgridDataSourceArray] = useState([])
 
    const userLogin = useSelector(state => state.userLogin)
    const { userInfo } = userLogin
@@ -287,7 +390,7 @@ const SurveysOutputData = ({ match, history }) => {
    const GenerateOutputFile = outputId => {
       let outputText = null
       const outputValue = surveyOutputsInfo.outputValues.find(
-         output => output._id === outputId,
+         output => output.INFO_1 === outputId,
       )
       if (outputValue) {
          const keys = Object.keys(outputValue)
@@ -349,6 +452,19 @@ const SurveysOutputData = ({ match, history }) => {
       setdispatchExport(true)
       setexportFields(exportFields)
    }
+   const generateOutputFileTemplate = props => {
+      let inputValue = props[props.column.field]
+
+      return (
+         <Button
+            variant="dark"
+            className="btn-sm"
+            onClick={() => GenerateOutputFile(inputValue)}
+         >
+            <i className="fas fa-tasks"></i>
+         </Button>
+      )
+   }
 
    useEffect(() => {
       LogThis(
@@ -374,8 +490,8 @@ const SurveysOutputData = ({ match, history }) => {
                      selectedSurveySuperior.superSurveyShortName,
                   pageNumber: selectedPageNumber,
                   keyword: searchKeyword,
-                  /*startDate: new Date(2024, 4, 18, 0, 0, 0, 0),
-                  endDate: new Date(2024, 4, 19, 0, 0, 0, 0),*/
+                  dateRangeStart: dateRangeStart,
+                  dateRangeEnd: dateRangeEnd,
                }),
             )
             setnewSelectedSurveySuperior(false)
@@ -388,6 +504,9 @@ const SurveysOutputData = ({ match, history }) => {
       //loading,
       selectedSurveySuperior,
       selectedPageNumber,
+      dateRangeStart,
+      dateRangeEnd,
+
       //selectedPageNumber,
    ])
 
@@ -443,7 +562,7 @@ const SurveysOutputData = ({ match, history }) => {
          exportCsvData != ''
       ) {
          LogThis(log, `UseEffect about to save ReporteRespuestas.csv`, L3)
-         //saveStringAsCSV(exportCsvData, 'ReporteRespuestas.csv')
+         saveStringAsCSV(exportCsvData, 'ReporteRespuestas.csv')
          setstartExcelDownload(true)
          setdispatchExport(false)
       }
@@ -471,6 +590,68 @@ const SurveysOutputData = ({ match, history }) => {
          }
       }
    }, [dispatch, surveySelected, surveyDetailsInfo])
+
+   useEffect(() => {
+      LogThis(log, `useEffect OutputInfo for DataGrid`, L3)
+      if (
+         surveyOutputsInfo &&
+         surveyOutputsInfo.outputValues &&
+         surveyOutputsInfo.outputLayouts
+      ) {
+         let gridDataSourceArrayLocal = []
+         surveyOutputsInfo.outputValues.map(outputValue => {
+            // const keys = Object.keys(outputValue)
+            // keys.shift()
+            let outputValueData = null
+            let gridDataSourceObject = {}
+            surveyOutputsInfo.outputLayouts.map(outputField => {
+               let key = null
+               key = outputField.fieldName
+               // if (
+               //    outputField.showInSurveyOutputScreen
+               // ) {
+               let isDate = false
+               switch (outputField.fieldName) {
+                  case 'INFO_3':
+                     outputValueData = formatDate(outputValue[key])
+                     isDate = true
+                     break
+                  case 'INFO_4':
+                     outputValueData = formatDate(outputValue[key])
+                     isDate = true
+                     break
+                  default:
+                     outputValueData = outputValue[key]
+               }
+               if (isDate) {
+                  gridDataSourceObject[key] = new Date(outputValue[key])
+               } else {
+                  let encoder = new TextEncoder()
+                  let utf8Array = encoder.encode(outputValueData ?? '')
+                  let utf8String = new TextDecoder().decode(utf8Array)
+                  console.log(
+                     `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
+                  )
+
+                  gridDataSourceObject[key] = utf8String
+               }
+
+               // } else {
+               //    return
+               // }
+            })
+            gridDataSourceArrayLocal.push(gridDataSourceObject)
+         })
+         setgridDataSourceArray(gridDataSourceArrayLocal)
+      } else {
+         setgridDataSourceArray([])
+      }
+   }, [surveyOutputsInfo])
+
+   useEffect(() => {
+      let x
+      x = x + 1
+   }, [dateRangeStart, dateRangeEnd])
 
    useEffect(() => {
       return () => {
@@ -539,6 +720,30 @@ const SurveysOutputData = ({ match, history }) => {
                               value={searchKeyword}
                               onChange={handleSearchText}
                            ></Form.Control>
+                           <Form.Label style={{ marginTop: '1%' }}>
+                              Rango de Fechas:
+                           </Form.Label>
+                           <Form.Label
+                              style={{ marginTop: '1%', marginLeft: '2%' }}
+                           >
+                              <DateRangePickerComponent
+                                 id="daterangepicker"
+                                 placeholder="Select a range"
+                                 startDate={dateRangeStart}
+                                 endDate={dateRangeEnd}
+                                 change={handleDateRangeChange}
+                                 //width="25%"
+                              />
+                              {/* {selectedDates && (
+                                 <div>
+                                    Selected Start Date:{' '}
+                                    {selectedDates[0].toDateString()}
+                                    <br />
+                                    Selected End Date:{' '}
+                                    {selectedDates[1].toDateString()}
+                                 </div>
+                              )} */}
+                           </Form.Label>
                         </Form.Group>
                         <br />
                         <Row>
@@ -568,7 +773,7 @@ const SurveysOutputData = ({ match, history }) => {
                                  Campos
                               </Button>
                            </Col>
-                           <Col>
+                           {/* <Col>
                               <Button
                                  variant="light"
                                  size="sm"
@@ -595,7 +800,7 @@ const SurveysOutputData = ({ match, history }) => {
                               )}
                               {startExcelDownload &&
                                  setstartExcelDownload(false)}
-                           </Col>
+                           </Col> */}
                            <Col md="auto">
                               <Form.Label>{exportStatusMessage}</Form.Label>
                            </Col>
@@ -603,7 +808,7 @@ const SurveysOutputData = ({ match, history }) => {
                      </Container>
                   </div>
                   <div>
-                     <Container fluid="xxl">
+                     {/* <Container fluid="xxl">
                         <Row>
                            <Col>
                               <Table
@@ -753,6 +958,118 @@ const SurveysOutputData = ({ match, history }) => {
                               />
                            </Col>
                         </Row>
+                     </Container> */}
+                     <Container fluid>
+                        {/* <label> Change export type: </label>
+                        <DropDownListComponent
+                           ref={d => (dropDown = d)}
+                           index={0}
+                           width={170}
+                           dataSource={dropDownData}
+                        ></DropDownListComponent> */}
+                        <GridComponent
+                           //style={{ width: '100%' }}
+                           id="Grid"
+                           dataSource={gridDataSourceArray}
+                           allowPaging={true}
+                           pageSettings={pageSettings}
+                           allowFiltering={true}
+                           filterSettings={filterSettings}
+                           // allowGrouping={true}
+                           // groupSettings={groupSettings}
+                           allowSorting={true}
+                           allowMultiSorting={true}
+                           sortSettings={sortSettings}
+                           allowResizing={true}
+                           // //width={1500}
+                           toolbarClick={toolbarClick}
+                           toolbar={toolbarOptions}
+                           allowExcelExport={true}
+                           showColumnChooser={true}
+                           ref={g => (grid = g)}
+                           // height="100%"
+                           dataBound={dataBound}
+                        >
+                           <ColumnsDirective>
+                              <ColumnDirective
+                                 field="INFO_1"
+                                 width="100"
+                                 template={generateOutputFileTemplate}
+                              />
+                              {surveyOutputsInfo.outputLayouts.map(
+                                 (layout, keyVal) => {
+                                    //layout.showInSurveyOutputScreen
+
+                                    let encoder = new TextEncoder()
+                                    let utf8Array = encoder.encode(
+                                       layout.fieldName,
+                                    )
+                                    let utf8String = new TextDecoder()
+                                       .decode(utf8Array)
+                                       .replace(/,/g, ' ')
+                                       .replace(/:/g, '')
+                                    console.log(
+                                       `${layout.fieldName}:pos${layout.position}`,
+                                    )
+                                    if (
+                                       layout.fieldName === 'INFO_3' ||
+                                       layout.fieldName === 'INFO_4'
+                                    ) {
+                                       return (
+                                          <ColumnDirective
+                                             //key={keyVal}
+                                             field={utf8String}
+                                             //width="150"
+                                             visible={
+                                                layout.showInSurveyOutputScreen
+                                             }
+                                             format="yMd"
+                                             type="date"
+                                          />
+                                       )
+                                    } else {
+                                       return (
+                                          <ColumnDirective
+                                             //key={keyVal}
+                                             field={utf8String}
+                                             width="150"
+                                             visible={
+                                                layout.showInSurveyOutputScreen
+                                             }
+                                             type={
+                                                surveyOutputsInfo &&
+                                                surveyOutputsInfo.outputValues &&
+                                                surveyOutputsInfo.outputValues &&
+                                                surveyOutputsInfo.outputValues
+                                                   .count > 0 &&
+                                                isNaN(
+                                                   surveyOutputsInfo
+                                                      .outputValues[0][
+                                                      layout.fieldName
+                                                   ],
+                                                )
+                                                   ? 'string'
+                                                   : 'number'
+                                             }
+                                          />
+                                       )
+                                    }
+                                 },
+                              )}
+                           </ColumnsDirective>
+                           <Inject
+                              services={[
+                                 Page,
+                                 Sort,
+                                 Filter,
+                                 Resize,
+                                 // Group,
+                                 Toolbar,
+                                 ExcelExport,
+                                 ColumnChooser,
+                              ]}
+                           />
+                        </GridComponent>
                      </Container>
                   </div>
                </>

@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@syncfusion/ej2-base": "^25.1.35",
+    "@syncfusion/ej2-react-calendars": "^25.1.40",
+    "@syncfusion/ej2-react-dropdowns": "^25.1.40",
+    "@syncfusion/ej2-react-grids": "^25.1.40",
     "@syncfusion/ej2-react-schedule": "^22.1.36",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",

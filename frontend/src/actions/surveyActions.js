@@ -1569,9 +1569,12 @@ export const surveyGetOutputValuesAction =
             }; userInfo.token=${userInfo.token}`,
             L3,
          )
+         const dateRangeStartISO = superSurveyId.dateRangeStart.toISOString()
+         const dateRangeEndISO = superSurveyId.dateRangeEnd.toISOString()
+
          const { data } = await axios.get(
             BACKEND_ENDPOINT +
-               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
+               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}&dateRangeStart=${dateRangeStartISO}&dateRangeEnd=${dateRangeEndISO}`,
             config,
          )
 
