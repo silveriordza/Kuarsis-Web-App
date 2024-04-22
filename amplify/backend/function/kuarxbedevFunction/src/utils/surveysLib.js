@@ -252,7 +252,8 @@ const surveySaveOutputRedesignedHelper = async (
          switch (column) {
             case 'INFO_3':
                if (isFromWebhook) {
-                  doc[column] = formatDate(answer)
+                  //doc[column] = formatDate(answer)
+                  doc[column] = answer.toISOString()
                } else {
                   dateTimeParts = answer.split(/[\s/:\-]/)
                   dateValue = new Date(

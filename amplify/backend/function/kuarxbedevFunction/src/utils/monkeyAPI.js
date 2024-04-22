@@ -83,7 +83,7 @@ const getMonkeyResponses = async newResponses => {
 
       questionAnswersMap.set('INFO_1', surveyResponse.id)
       questionAnswersMap.set('INFO_2', surveyResponse.collector_id)
-      questionAnswersMap.set('INFO_3', surveyResponse.date_created)
+      questionAnswersMap.set('INFO_3', new Date(surveyResponse.date_created))
       questionAnswersMap.set('INFO_4', surveyResponse.date_modified)
       questionAnswersMap.set('INFO_5', surveyResponse.ip_address)
       questionAnswersMap.set('INFO_6', surveyResponse.email_address)

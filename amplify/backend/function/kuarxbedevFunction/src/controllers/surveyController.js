@@ -2265,7 +2265,7 @@ const surveySaveOutputHelper = async (
                         dateTimeParts[3], // Hours
                         dateTimeParts[4], // Minutes)
                      )
-                     doc[column] = dateValue
+                     doc[column] = dateValue.toISOString()
                   }
                   break
                case 'INFO_4':
@@ -2431,11 +2431,17 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
        */
-      const pageSize = 10
+      const pageSize = 100
       const superSurveyId = req.params.id
       const superSurveyShortName = req.query.superSurveyShortName
       const page = Number(req.query.pageNumber) || 1
       const keyword = req.query.keyword
+      const dateRangeStartString = req.query.dateRangeStart
+      const dateRangeEndString = req.query.dateRangeEnd
+
+      const dateRangeStart = new Date(dateRangeStartString)
+      const dateRangeEnd = new Date(dateRangeEndString)
+
       //const regex = new RegExp(keyword, "i");
       const conditions = []
       let condition = {}
@@ -2505,8 +2511,13 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          //const condition = {};
          outputLayouts.forEach(field => {
             if (field.showInSurveyOutputScreen) {
-               condition[field.fieldName] = { $regex: new RegExp(keyword, 'i') }
-               conditions.push(condition)
+               if (field.fieldName != 'INFO_3') {
+                  condition[field.fieldName] = {
+                     $regex: new RegExp(keyword, 'i'),
+                  }
+
+                  conditions.push(condition)
+               }
                condition = {}
             }
          })
@@ -2536,14 +2547,23 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       //   })
       //   .exec();
       const count = await surveyOutputCollectionFound.countDocuments({
-         $or: conditions,
+         //$or: conditions,
+         INFO_3: {
+            $gte: dateRangeStart,
+            $lte: dateRangeEnd,
+         },
       })
 
       const outputValuesFound = await surveyOutputCollectionFound
          .find(
             {
-               $or: conditions,
+               // $or: conditions,
+               INFO_3: {
+                  $gte: dateRangeStart,
+                  $lte: dateRangeEnd,
+               },
             },
+
             '-__v',
          )
          .sort({ INFO_1: -1 })
