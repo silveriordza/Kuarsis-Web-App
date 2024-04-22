@@ -166,7 +166,7 @@ const SurveysOutputData = ({ match, history }) => {
       { text: 'AllPages', value: 'AllPages' },
    ]
 
-   const pageSettings = { pageSize: 10 }
+   const pageSettings = { pageSize: 100 }
    const sortSettings = {
       columns: [],
    }
@@ -960,13 +960,13 @@ const SurveysOutputData = ({ match, history }) => {
                         </Row>
                      </Container> */}
                      <Container fluid>
-                        {/* <label> Change export type: </label>
+                        <label> Change export type: </label>
                         <DropDownListComponent
                            ref={d => (dropDown = d)}
                            index={0}
                            width={170}
                            dataSource={dropDownData}
-                        ></DropDownListComponent> */}
+                        ></DropDownListComponent>
                         <GridComponent
                            //style={{ width: '100%' }}
                            id="Grid"
@@ -975,8 +975,8 @@ const SurveysOutputData = ({ match, history }) => {
                            pageSettings={pageSettings}
                            allowFiltering={true}
                            filterSettings={filterSettings}
-                           // allowGrouping={true}
-                           // groupSettings={groupSettings}
+                           allowGrouping={true}
+                           groupSettings={groupSettings}
                            allowSorting={true}
                            allowMultiSorting={true}
                            sortSettings={sortSettings}
@@ -1063,7 +1063,7 @@ const SurveysOutputData = ({ match, history }) => {
                                  Sort,
                                  Filter,
                                  Resize,
-                                 // Group,
+                                 Group,
                                  Toolbar,
                                  ExcelExport,
                                  ColumnChooser,

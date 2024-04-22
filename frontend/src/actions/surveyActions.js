@@ -1572,19 +1572,42 @@ export const surveyGetOutputValuesAction =
          const dateRangeStartISO = superSurveyId.dateRangeStart.toISOString()
          const dateRangeEndISO = superSurveyId.dateRangeEnd.toISOString()
 
-         const { data } = await axios.get(
-            BACKEND_ENDPOINT +
-               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}&dateRangeStart=${dateRangeStartISO}&dateRangeEnd=${dateRangeEndISO}`,
-            config,
+         // let response = await axios.get(
+         //    BACKEND_ENDPOINT +
+         //       `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}&dateRangeStart=${dateRangeStartISO}&dateRangeEnd=${dateRangeEndISO}`,
+         //    config,
+         // )
+         // let data = response.data
+         let outputValuesFinal = []
+         let pages = 1
+         let response = null
+         for (let i = 1; i <= pages; i++) {
+            response = await axios.get(
+               BACKEND_ENDPOINT +
+                  `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${i}&keyword=${superSurveyId.keyword}&dateRangeStart=${dateRangeStartISO}&dateRangeEnd=${dateRangeEndISO}`,
+               config,
+            )
+            let outputValuesCurrent = response?.data?.outputsInfo?.outputValues
+
+            if (!outputValuesCurrent) {
+               break
+            }
+            pages = response?.data?.outputsInfo?.pages
+            outputValuesFinal = outputValuesFinal.concat(outputValuesCurrent)
+         }
+         response.data.outputsInfo.outputValues = outputValuesFinal
+
+         LogThis(
+            log,
+            `dataOutputValues=${JSON.stringify(response.data, null, 2)}`,
+            L3,
          )
 
-         LogThis(log, `dataOutputValues=${JSON.stringify(data, null, 2)}`, L3)
-
-         if (data && data.outputsInfo) {
+         if (response.data && response.data.outputsInfo) {
             //LogThis(log, `data=${JSON.stringify(data)}`, L0);
             dispatch({
                type: SURVEY_OUTPUTS_SUCCESS,
-               payload: data.outputsInfo,
+               payload: response.data.outputsInfo,
             })
          } else {
             throw new Error(`No output info or output data found`)
