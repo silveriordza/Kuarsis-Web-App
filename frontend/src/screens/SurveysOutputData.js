@@ -11,7 +11,16 @@ import FormData from 'form-data'
 import React, { useState, useEffect, useRef } from 'react'
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
-import { Form, Button, Table, Col, Row, Container } from 'react-bootstrap'
+import {
+   Form,
+   Button,
+   Table,
+   Col,
+   Row,
+   Container,
+   FloatingLabel,
+} from 'react-bootstrap'
+//import { FloatingLabel } from 'react-bootstrap/FloatingLabel'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -19,6 +28,12 @@ import Loader from '../components/Loader'
 import PaginateGeneric from '../components/PaginateGeneric'
 import { saveStringAsCSV } from '../libs/csvProcessingLib'
 //import ExcelExport from 'react-data-export'
+import {
+   L10n,
+   loadCldr,
+   setCulture,
+   setCurrencyCode,
+} from '@syncfusion/ej2-base'
 import {
    ColumnDirective,
    ColumnsDirective,
@@ -36,6 +51,9 @@ import {
    Resize,
 } from '@syncfusion/ej2-react-grids'
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns'
+
+import spanishLocalization from '../constants/esLocale.json'
+import esgregorian from '../constants/es-gregorian.json'
 
 //import { data } from '../constants/datasource'
 
@@ -63,6 +81,9 @@ import {
    unzipFileFromSubfolder,
 } from '../libs/Functions'
 import { SURVEY_OUTPUTS_RESET } from '../constants/surveyConstants'
+
+L10n.load(spanishLocalization)
+//loadCldr(esgregorian)
 
 const SurveysOutputData = ({ match, history }) => {
    const srcFileName = 'SurveysOutputData'
@@ -158,6 +179,7 @@ const SurveysOutputData = ({ match, history }) => {
    //       ],
    //    },
    // ]
+   setCulture('es')
 
    let grid
    let dropDown
@@ -673,18 +695,32 @@ const SurveysOutputData = ({ match, history }) => {
                surveyDetailSuccess &&
                surveyDetailsInfo &&
                surveyDetailsInfo.surveySuperiors && (
-                  <Container style={{ marginTop: '1%' }}>
-                     <Row>
-                        <Col lg="auto">
-                           <h5>Seleccione la encuesta</h5>
+                  <Container
+                     // style={{
+                     //    marginTop: '1%',
+                     //    height: '1000px',
+                     //    backgroundColor: 'red',
+                     // }}
+                     fluid
+                  >
+                     <Row
+                        className="mb-1"
+                        // style={{ backgroundColor: 'yellow', height: '50px' }}
+                     >
+                        <Col
+                           // style={{ backgroundColor: 'blue', height: '200%' }}
+                           lg={3}
+                        >
+                           {/* <h5>Seleccione la encuesta</h5> */}
                            <Form.Control
                               as="select"
                               value={selectedSurveySuperior ?? ''}
                               onChange={handleSelectSurveySuperior}
+                              // style={{ backgroundColor: 'orange' }}
                            >
                               <option key={50000} value={'NoSurveySelected'}>
                                  {' '}
-                                 Seleccionar...
+                                 Seleccionar encuesta...
                               </option>
                               {surveyDetailsInfo.surveySuperiors.map(
                                  (element, index) => {
@@ -696,6 +732,115 @@ const SurveysOutputData = ({ match, history }) => {
                                  },
                               )}
                            </Form.Control>
+                        </Col>
+                        <Col
+                           lg={2}
+                           //className="h-1"
+                           // style={{
+                           //    height: '1px',
+                           //    padding: '1px',
+                           //    border: '1px',
+                           // }}
+                           // style={{ backgroundColor: 'brown', height: '10%' }}
+                        >
+                           {/* <Form> */}
+                           {/* <FloatingLabel
+                              controlId="flabel"
+                              label="Texto a buscar..."
+                              //className="mb-1"
+                              // style={{
+                              //    height: '1px',
+                              //    padding: '1px',
+                              //    border: '1px',
+                              // }}
+                              style={{
+                                 backgroundColor: 'yellow',
+                                 height: '1px',
+                                 padding: '1px',
+                                 lineHeight: 0.1,
+                              }}
+                           > */}
+                           <Form.Control
+                              type="text"
+                              placeholder="Texto a buscar..."
+                              value={searchKeyword}
+                              onChange={handleSearchText}
+                              //className="p-1"
+                              // style={{
+                              //    height: '1px',
+                              //    padding: '1px',
+                              //    border: '1px',
+                              // }}
+                              // style={{
+                              //    backgroundColor: 'green',
+                              //    height: '20px',
+                              //    padding: '5px',
+                              //    lineHeight: 0.1,
+                              // }}
+                           ></Form.Control>
+                           {/* </FloatingLabel> */}
+                           {/* <FloatingLabel
+                              controlId="floatingInput"
+                              label="Email address"
+                              className="mb-3"
+                           >
+                              <Form.Control
+                                 type="email"
+                                 placeholder="name@example.com"
+                              />
+                           </FloatingLabel>
+                           <FloatingLabel
+                              controlId="floatingPassword"
+                              label="Password"
+                           >
+                              <Form.Control
+                                 type="password"
+                                 placeholder="Password"
+                              />
+                           </FloatingLabel> */}
+                           {/* <Form.Group controlId="textControl">
+                              <Form.Label style={{ marginTop: '1%' }}>
+                                 Búsqueda por texto:
+                              </Form.Label>
+                              <Form.Control
+                                 type="text"
+                                 placeholder="Buscar..."
+                                 value={searchKeyword}
+                                 onChange={handleSearchText}
+                              ></Form.Control>
+                           </Form.Group> */}
+                           {/* </Form> */}
+                        </Col>
+                        <Col
+                           lg={2}
+                           // style={{ backgroundColor: 'green', height: '100%' }}
+                        >
+                           {/* <Form.Group> */}
+                           {/* <Form.Label style={{ marginTop: '1%' }}>
+                                 Rango de Fechas:
+                              </Form.Label> */}
+                           {/* <Form.Label
+                                 style={{
+                                    marginTop: '1%',
+                                    marginLeft: '2%',
+                                 }}
+                              > */}
+                           <DateRangePickerComponent
+                              id="daterangepicker"
+                              placeholder="Select a range"
+                              startDate={dateRangeStart}
+                              endDate={dateRangeEnd}
+                              change={handleDateRangeChange}
+                              // style={{
+                              //    backgroundColor: 'black',
+                              //    height: '100%',
+                              // }}
+                              //className="w-10"
+                              className="w-auto"
+                              locale="es"
+                           />
+                           {/* </Form.Label>
+                           </Form.Group> */}
                         </Col>
                      </Row>
                   </Container>
@@ -710,42 +855,48 @@ const SurveysOutputData = ({ match, history }) => {
                <>
                   <div>
                      <Container fluid>
-                        <Form.Group controlId="textControl">
-                           <Form.Label style={{ marginTop: '1%' }}>
-                              Búsqueda por texto:
-                           </Form.Label>
-                           <Form.Control
-                              type="text"
-                              placeholder="Buscar..."
-                              value={searchKeyword}
-                              onChange={handleSearchText}
-                           ></Form.Control>
-                           <Form.Label style={{ marginTop: '1%' }}>
-                              Rango de Fechas:
-                           </Form.Label>
-                           <Form.Label
-                              style={{ marginTop: '1%', marginLeft: '2%' }}
-                           >
-                              <DateRangePickerComponent
-                                 id="daterangepicker"
-                                 placeholder="Select a range"
-                                 startDate={dateRangeStart}
-                                 endDate={dateRangeEnd}
-                                 change={handleDateRangeChange}
-                                 //width="25%"
-                              />
-                              {/* {selectedDates && (
-                                 <div>
-                                    Selected Start Date:{' '}
-                                    {selectedDates[0].toDateString()}
-                                    <br />
-                                    Selected End Date:{' '}
-                                    {selectedDates[1].toDateString()}
-                                 </div>
-                              )} */}
-                           </Form.Label>
-                        </Form.Group>
-                        <br />
+                        <Row>
+                           <Form>
+                              <Row>
+                                 {/* <Col>
+                                    <Form.Group controlId="textControl">
+                                       <Form.Label style={{ marginTop: '1%' }}>
+                                          Búsqueda por texto:
+                                       </Form.Label>
+                                       <Form.Control
+                                          type="text"
+                                          placeholder="Buscar..."
+                                          value={searchKeyword}
+                                          onChange={handleSearchText}
+                                       ></Form.Control>
+                                    </Form.Group>
+                                 </Col>
+                                 <Col>
+                                    <Form.Group>
+                                       <Form.Label style={{ marginTop: '1%' }}>
+                                          Rango de Fechas:
+                                       </Form.Label>
+                                       <Form.Label
+                                          style={{
+                                             marginTop: '1%',
+                                             marginLeft: '2%',
+                                          }}
+                                       >
+                                          <DateRangePickerComponent
+                                             id="daterangepicker"
+                                             placeholder="Select a range"
+                                             startDate={dateRangeStart}
+                                             endDate={dateRangeEnd}
+                                             change={handleDateRangeChange}
+                                             //width="25%"
+                                          />                                          
+                                       </Form.Label>
+                                    </Form.Group>
+                                 </Col> */}
+                              </Row>
+                           </Form>
+                        </Row>
+                        {/* <br /> */}
                         <Row>
                            <Col lg="auto">
                               <Button
