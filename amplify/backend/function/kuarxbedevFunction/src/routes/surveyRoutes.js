@@ -34,6 +34,7 @@ let {
    protect,
    admin,
    protectMonkeyWebhook,
+   hasAccess,
 } = require('../middleware/authMiddleware.js')
 //const { LoggerSettings } = require("../utils/Logger.js");
 
@@ -44,7 +45,7 @@ router
    .route('/:id/outputs')
    .post(protect, admin, superSurveySaveOutput)
    .delete(protect, admin, superSurveyDeleteOutputValues)
-   .get(protect, admin, superSurveyGetOutputValues)
+   .get(protect, hasAccess, superSurveyGetOutputValues)
 
 router
    .route('/:id/respondentidsinfo')
@@ -108,7 +109,7 @@ router.route('/surveymonkey/updateresponses/:id').put(monkeyUpdateResponses2)
 
 router
    .route('/')
-   .get(protect, admin, superSurveyGetList)
+   .get(protect, hasAccess, superSurveyGetList)
    .post(protect, admin, createSuperSurvey)
 
 module.exports = router

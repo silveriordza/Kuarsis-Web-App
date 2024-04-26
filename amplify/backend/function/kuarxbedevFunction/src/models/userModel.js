@@ -21,6 +21,11 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    hasSurveyOutputAccess: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     email: {
       type: String,
       required: true,
@@ -50,6 +55,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    
   },
   {
     timestamps: true,

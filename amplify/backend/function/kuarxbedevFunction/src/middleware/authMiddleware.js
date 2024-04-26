@@ -52,6 +52,15 @@ const admin = (req, res, next) => {
    }
 }
 
+const hasAccess = (req, res, next) => {
+   if (req.user && req.user.hasSurveyOutputAccess) {
+      next()
+   } else {
+      res.status(401)
+      throw new Error('Not authorized to access this function')
+   }
+}
+
 const protectMonkeyWebhook = asyncHandler(async (req, res, next) => {
    const log = new LoggerSettings(srcFile, 'protectMonkeyWebhook')
    LogThis(log, `START`, L3)
@@ -121,4 +130,4 @@ const protectMonkeyWebhook = asyncHandler(async (req, res, next) => {
    }
 })
 
-module.exports = { protect, admin, protectMonkeyWebhook }
+module.exports = { protect, admin, protectMonkeyWebhook, hasAccess }
