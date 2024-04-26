@@ -19,6 +19,7 @@ import {
    Row,
    Container,
    FloatingLabel,
+   ProgressBar,
 } from 'react-bootstrap'
 //import { FloatingLabel } from 'react-bootstrap/FloatingLabel'
 import { useDispatch, useSelector } from 'react-redux'
@@ -41,6 +42,7 @@ import {
    GridComponent,
    Group,
    ExcelExport,
+   PdfExport,
    ColumnChooser,
 } from '@syncfusion/ej2-react-grids'
 import {
@@ -54,6 +56,16 @@ import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns'
 
 import spanishLocalization from '../constants/esLocale.json'
 import esgregorian from '../constants/es-gregorian.json'
+import {
+   ChartComponent,
+   SeriesCollectionDirective,
+   SeriesDirective,
+   Legend,
+   Category,
+   Tooltip,
+   DataLabel,
+   BarSeries,
+} from '@syncfusion/ej2-react-charts'
 
 //import { data } from '../constants/datasource'
 
@@ -184,8 +196,8 @@ const SurveysOutputData = ({ match, history }) => {
    let grid
    let dropDown
    const dropDownData = [
-      { text: 'CurrentPage', value: 'CurrentPage' },
-      { text: 'AllPages', value: 'AllPages' },
+      { text: 'Sólo página actual', value: 'CurrentPage' },
+      { text: 'Todas las páginas', value: 'AllPages' },
    ]
 
    const pageSettings = { pageSize: 100 }
@@ -221,7 +233,7 @@ const SurveysOutputData = ({ match, history }) => {
       },
    }
    const groupSettings = { columns: [] }
-   const toolbarOptions = ['ExcelExport', 'ColumnChooser']
+   const toolbarOptions = ['ExcelExport', 'PdfExport', 'ColumnChooser']
 
    const toolbarClick = args => {
       if (grid && args.item.id === 'Grid_excelexport') {
@@ -230,6 +242,8 @@ const SurveysOutputData = ({ match, history }) => {
             exportType: dropDown.value,
          }
          grid.excelExport(exportProperties)
+      } else if (grid && args.item.id === 'Grid_pdfexport') {
+         grid.pdfExport()
       }
    }
 
@@ -251,6 +265,67 @@ const SurveysOutputData = ({ match, history }) => {
 
    const [dateRangeStart, setdateRangeStart] = useState(dateRangeStartCalc)
    const [dateRangeEnd, setdateRangeEnd] = useState(dateRangeEndCalc)
+   const data = [{ y: 25, x: '' }]
+
+   const data2 = [
+      { id: 1, name: 'John', percentage: 75 },
+      { id: 2, name: 'Jane', percentage: 50 },
+      { id: 3, name: 'Doe', percentage: 90 },
+   ]
+   const primaryxAxis = {
+      valueType: 'Category',
+   }
+   const primaryyAxis = {
+      title: 'Percentage (%)',
+      minimum: 0,
+      maximum: 100,
+      edgeLabelPlacement: 'Shift',
+      labelFormat: '{value}%',
+   }
+   const percentageBarTemplate = props => {
+      // const primaryxAxis = {
+      //    valueType: 'Category',
+      // }
+      // const primaryyAxis = {
+      //    minimum: 0,
+      //    maximum: 100,
+      //    edgeLabelPlacement: 'Shift',
+      //    labelFormat: '{value}%',
+      // }
+      // let data = [{ y: props.SCL90_TOTAL_MAX_360 / 360, x: '' }]
+      // return (
+      //    //<div style={{ height: '500px' }}>
+      //    <ChartComponent
+      //       id="charts"
+      //       primaryXAxis={primaryxAxis}
+      //       primaryYAxis={primaryyAxis}
+      //       // width="650"
+      //       height="50"
+      //    >
+      //       <Inject
+      //          services={[BarSeries, Legend, Tooltip, DataLabel, Category]}
+      //       />
+      //       <SeriesCollectionDirective width="200">
+      //          <SeriesDirective
+      //             dataSource={data}
+      //             xName="x"
+      //             yName="y"
+      //             type="Bar"
+      //          ></SeriesDirective>
+      //       </SeriesCollectionDirective>
+      //    </ChartComponent>
+      //    //</div>
+      // )
+      let valuePercent = (parseInt(props.SCL90_TOTAL_MAX_360) / 360) * 100
+
+      return (
+         <ProgressBar
+            now={valuePercent}
+            label={`${valuePercent}%`}
+            variant="success"
+         />
+      )
+   }
 
    const [selectedDates, setSelectedDates] = useState(null)
 
@@ -1111,13 +1186,73 @@ const SurveysOutputData = ({ match, history }) => {
                         </Row>
                      </Container> */}
                      <Container fluid>
-                        <label> Change export type: </label>
-                        <DropDownListComponent
-                           ref={d => (dropDown = d)}
-                           index={0}
-                           width={170}
-                           dataSource={dropDownData}
-                        ></DropDownListComponent>
+                        {/* <GridComponent dataSource={data2} width="400">
+                           <ColumnsDirective>
+                              <ColumnDirective
+                                 field="id"
+                                 headerText="ID"
+                                 width="100"
+                              />
+                              <ColumnDirective
+                                 field="name"
+                                 headerText="Name"
+                                 width="100"
+                              />
+                              <ColumnDirective
+                                 field="percentage"
+                                 headerText="Numeric Percentage"
+                                 width="100"
+                                 //template={percentageBarTemplate}
+                              />
+                              <ColumnDirective
+                                 field="percentage"
+                                 headerText="Percentage"
+                                 width="100"
+                                 template={percentageBarTemplate}
+                              />
+                           </ColumnsDirective>
+                           <Inject services={[]} />
+                        </GridComponent>
+                        <ChartComponent
+                           id="charts2"
+                           primaryXAxis={primaryxAxis}
+                           primaryYAxis={primaryyAxis}
+                           title="SCL-90 (%) OF TOTAL"
+                           height="150"
+                        >
+                           <Inject
+                              services={[
+                                 BarSeries,
+                                 Legend,
+                                 Tooltip,
+                                 DataLabel,
+                                 Category,
+                              ]}
+                           />
+                           <SeriesCollectionDirective>
+                              <SeriesDirective
+                                 dataSource={data}
+                                 xName="x"
+                                 yName="y"
+                                 name="SCL90"
+                                 type="Bar"
+                              ></SeriesDirective>
+                           </SeriesCollectionDirective>
+                        </ChartComponent> */}
+
+                        <div className="mb-3">
+                           <Form.Label className="mr-3">
+                              {' '}
+                              Tipo de exportación:{' '}
+                           </Form.Label>
+                           <DropDownListComponent
+                              Class
+                              ref={d => (dropDown = d)}
+                              index={0}
+                              width={170}
+                              dataSource={dropDownData}
+                           ></DropDownListComponent>
+                        </div>
                         <GridComponent
                            //style={{ width: '100%' }}
                            id="Grid"
@@ -1136,12 +1271,27 @@ const SurveysOutputData = ({ match, history }) => {
                            toolbarClick={toolbarClick}
                            toolbar={toolbarOptions}
                            allowExcelExport={true}
+                           allowPdfExport={true}
                            showColumnChooser={true}
                            ref={g => (grid = g)}
                            // height="100%"
                            dataBound={dataBound}
                         >
                            <ColumnsDirective>
+                              <ColumnDirective
+                                 field="SCL90_TOTAL_MAX_360"
+                                 headerText="SCL90 TOTAL %"
+                                 //width="100"
+                                 type="number"
+                                 template={percentageBarTemplate}
+                              />
+                              <ColumnDirective
+                                 field="SCL90_TOTAL_MAX_360"
+                                 headerText="SCL90_TOTAL_NUMERIC"
+                                 width="100"
+                                 type="number"
+                                 //template={percentageBarTemplate}
+                              />
                               <ColumnDirective
                                  field="INFO_1"
                                  width="100"
@@ -1217,6 +1367,7 @@ const SurveysOutputData = ({ match, history }) => {
                                  Group,
                                  Toolbar,
                                  ExcelExport,
+                                 PdfExport,
                                  ColumnChooser,
                               ]}
                            />
