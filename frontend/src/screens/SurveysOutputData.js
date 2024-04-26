@@ -28,7 +28,6 @@ import Loader from '../components/Loader'
 //import FormContainer from '../components/FormContainer'
 import PaginateGeneric from '../components/PaginateGeneric'
 import { saveStringAsCSV } from '../libs/csvProcessingLib'
-//import ExcelExport from 'react-data-export'
 import {
    L10n,
    loadCldr,
@@ -94,103 +93,47 @@ import {
 } from '../libs/Functions'
 import { SURVEY_OUTPUTS_RESET } from '../constants/surveyConstants'
 
+import ReactExport from 'react-data-export'
+
 L10n.load(spanishLocalization)
 //loadCldr(esgregorian)
 
 const SurveysOutputData = ({ match, history }) => {
    const srcFileName = 'SurveysOutputData'
    const log = new LoggerSettings(srcFileName, 'SurveysOutputData')
-   // const ExcelFile = ExcelExport.ExcelFile
-   // const ExcelSheet = ExcelExport.ExcelFile.ExcelSheet
-   // const multiDataSet = [
-   //    {
-   //       columns: [
-   //          { title: 'Headings', width: { wpx: 80 } }, //pixels width
-   //          { title: 'Text Style', width: { wch: 40 } }, //char width
-   //          { title: 'Colors', width: { wpx: 90 } },
-   //       ],
-   //       data: [
-   //          [
-   //             { value: 'H1', style: { font: { sz: '24', bold: true } } },
-   //             { value: 'Bold', style: { font: { bold: true } } },
-   //             {
-   //                value: 'Red',
-   //                style: {
-   //                   fill: {
-   //                      patternType: 'solid',
-   //                      fgColor: { rgb: 'FFFF0000' },
-   //                   },
-   //                },
-   //             },
-   //          ],
-   //          [
-   //             { value: 'H2', style: { font: { sz: '18', bold: true } } },
-   //             { value: 'underline', style: { font: { underline: true } } },
-   //             {
-   //                value: 'Blue',
-   //                style: {
-   //                   fill: {
-   //                      patternType: 'solid',
-   //                      fgColor: { rgb: 'FF0000FF' },
-   //                   },
-   //                },
-   //             },
-   //          ],
-   //          [
-   //             { value: 'H3', style: { font: { sz: '14', bold: true } } },
-   //             { value: 'italic', style: { font: { italic: true } } },
-   //             {
-   //                value: 'Green',
-   //                style: {
-   //                   fill: {
-   //                      patternType: 'solid',
-   //                      fgColor: { rgb: 'FF00FF00' },
-   //                   },
-   //                },
-   //             },
-   //          ],
-   //          [
-   //             { value: 'H4', style: { font: { sz: '12', bold: true } } },
-   //             { value: 'strike', style: { font: { strike: true } } },
-   //             {
-   //                value: 'Orange',
-   //                style: {
-   //                   fill: {
-   //                      patternType: 'solid',
-   //                      fgColor: { rgb: 'FFF86B00' },
-   //                   },
-   //                },
-   //             },
-   //          ],
-   //          [
-   //             { value: 'H5', style: { font: { sz: '10.5', bold: true } } },
-   //             { value: 'outline', style: { font: { outline: true } } },
-   //             {
-   //                value: 'Yellow',
-   //                style: {
-   //                   fill: {
-   //                      patternType: 'solid',
-   //                      fgColor: { rgb: 'FFFFFF00' },
-   //                   },
-   //                },
-   //             },
-   //          ],
-   //          [
-   //             { value: 'H6', style: { font: { sz: '7.5', bold: true } } },
-   //             { value: 'shadow', style: { font: { shadow: true } } },
-   //             {
-   //                value: 'Light Blue',
-   //                style: {
-   //                   fill: {
-   //                      patternType: 'solid',
-   //                      fgColor: { rgb: 'FFCCEEFF' },
-   //                   },
-   //                },
-   //             },
-   //          ],
-   //       ],
-   //    },
-   // ]
+   const ExcelFile = ReactExport.ExcelFile
+   const ExcelSheet = ReactExport.ExcelFile.ExcelSheet
+   const multiDataSet = [
+      {
+         columns: [
+            //   {title: "Name", width: {wch: 20}},//pixels width
+            //   {title: "Text Style", width: {wch: 20}},//char width
+            //   {title: "Colors", width: {wch: 20}},
+         ],
+         data: [
+            //   [
+            //       {value: 1},
+            //       {value: "Bold"},
+            //       {value: "Red"},
+            //   ],
+            //   [
+            //       {value: 2598},
+            //       {value: "underline"},
+            //       {value: "Blue"},
+            //   ],
+            //   [
+            //       {value: 3},
+            //       {value: "italic"},
+            //       {value: "Green"},
+            //   ],
+            //   [
+            //     {value: 1295},
+            //     {value: "italic"},
+            //     {value: "Green"},
+            // ]
+         ],
+      },
+   ]
    setCulture('es')
 
    let grid
@@ -404,13 +347,13 @@ const SurveysOutputData = ({ match, history }) => {
          })
          setsurveySelected(-1)
          setselectedSurveySuperior(null)
-         history.push('/admin/surveyoutput')
+         history.push('/surveyoutput')
       } else {
          const selectedSurvey =
             surveyDetailsInfo.surveySuperiors[e.target.selectedIndex - 1]
          setsurveySelected(e.target.selectedIndex - 1)
          history.push(
-            `/admin/surveyoutput/survey/${
+            `/surveyoutput/survey/${
                e.target.selectedIndex - 1
             }/page/${selectedPageNumber}`,
          )
@@ -982,7 +925,7 @@ const SurveysOutputData = ({ match, history }) => {
                                     exportDataFile(surveyOutputsInfo, false)
                                  }
                               >
-                                 <i className="fas fa-save fa-2x"></i> Exportar
+                                 <i className="fas fa-save fa-2x"></i> CSV
                                  Preguntas
                               </Button>
                            </Col>
@@ -995,9 +938,29 @@ const SurveysOutputData = ({ match, history }) => {
                                     exportDataFile(surveyOutputsInfo, true)
                                  }
                               >
-                                 <i className="fas fa-save fa-2x"></i> Exportar
+                                 <i className="fas fa-save fa-2x"></i> CSV
                                  Campos
                               </Button>
+                           </Col>
+                           <Col lg="auto">
+                              <ExcelFile
+                                 element={
+                                    <Button
+                                       variant="light"
+                                       size="sm"
+                                       // className="btn-mg"
+                                       onClick={() => exportDataFile(true)}
+                                    >
+                                       <i className="fas fa-save fa-2x"></i>{' '}
+                                       Exportar Preguntas
+                                    </Button>
+                                 }
+                              >
+                                 <ExcelSheet
+                                    dataSet={multiDataSet}
+                                    name="Organization"
+                                 />
+                              </ExcelFile>
                            </Col>
                            {/* <Col>
                               <Button

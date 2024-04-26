@@ -12,6 +12,8 @@ import {
    KUARSIS_BANNER_MAIN_LOGO,
 } from '../constants/enviromentConstants'
 
+import { ENTITLEMENT_SURVEY_OUTPUTS } from '../constants/entitlementsConstants'
+
 const Header = ({ history }) => {
    const dispatch = useDispatch()
    const userLogin = useSelector(state => state.userLogin)
@@ -114,6 +116,13 @@ const Header = ({ history }) => {
                                  Perfil de usuario
                               </NavDropdown.Item>
                            </LinkContainer>
+                           {userInfo && userInfo.hasSurveyOutputAccess && (
+                              <LinkContainer to="/surveyoutput">
+                                 <NavDropdown.Item>
+                                    Survey outputs
+                                 </NavDropdown.Item>
+                              </LinkContainer>
+                           )}
                            <NavDropdown.Item onClick={logoutHandler}>
                               Logout
                            </NavDropdown.Item>
@@ -143,11 +152,6 @@ const Header = ({ history }) => {
                   <LinkContainer to="/admin/orderlist">
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   </LinkContainer> */}
-                           <LinkContainer to="/admin/surveyoutput">
-                              <NavDropdown.Item>
-                                 Survey outputs
-                              </NavDropdown.Item>
-                           </LinkContainer>
                         </NavDropdown>
                      )}
                      {/* <LinkContainer to="/cart">

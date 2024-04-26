@@ -92,23 +92,23 @@ const App = () => {
                   />
 
                   {/* <Route
-              path="/admin/surveyoutput/survey/:surveySelected/keyword/:keyword/page/:pageNumber"
+              path="/survey/:surveySelected/keyword/:keyword/page/:pageNumber"
               component={SurveysOutputData}
               exact
             /> */}
                   <Route
-                     path="/admin/surveyoutput"
+                     path="/surveyoutput"
                      component={SurveysOutputData}
                      exact
                   />
                   <Route
-                     path="/admin/surveyoutput/survey/:surveySelected/page/:pageNumber"
+                     path="/surveyoutput/survey/:surveySelected/page/:pageNumber"
                      component={SurveysOutputData}
                      exact
                   />
 
                   <Route
-                     path="/admin/surveyoutput/detail"
+                     path="/surveyoutput/detail"
                      component={SurveySingleResponseDetail}
                      exact
                   />
