@@ -2436,11 +2436,8 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       const superSurveyShortName = req.query.superSurveyShortName
       const page = Number(req.query.pageNumber) || 1
       const keyword = req.query.keyword
-      const dateRangeStartString = req.query.dateRangeStart
-      const dateRangeEndString = req.query.dateRangeEnd
-
-      const dateRangeStart = new Date(dateRangeStartString)
-      const dateRangeEnd = new Date(dateRangeEndString)
+      const dateRangeStartString = req.query.dateRangeStart || null
+      const dateRangeEndString = req.query.dateRangeEnd || null
 
       //const regex = new RegExp(keyword, "i");
       const conditions = []
@@ -2546,26 +2543,28 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       //     ],
       //   })
       //   .exec();
-      const count = await surveyOutputCollectionFound.countDocuments({
-         //$or: conditions,
-         INFO_3: {
-            $gte: dateRangeStart,
-            $lte: dateRangeEnd,
-         },
-      })
-
-      const outputValuesFound = await surveyOutputCollectionFound
-         .find(
+      let dateRangeStart = null
+      let dateRangeEnd = null
+      let conditionsObject = { $or: conditions }
+      if (dateRangeStartString && dateRangeEndString) {
+         dateRangeStart = new Date(dateRangeStartString)
+         dateRangeEnd = new Date(dateRangeEndString)
+         conditionsObject.$and = [
             {
-               // $or: conditions,
                INFO_3: {
                   $gte: dateRangeStart,
                   $lte: dateRangeEnd,
                },
             },
+         ]
+      }
 
-            '-__v',
-         )
+      const count = await surveyOutputCollectionFound.countDocuments(
+         conditionsObject,
+      )
+
+      const outputValuesFound = await surveyOutputCollectionFound
+         .find(conditionsObject, '-__v')
          .sort({ INFO_1: -1 })
          .limit(pageSize)
          .skip(pageSize * (page - 1))
