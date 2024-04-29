@@ -12,6 +12,7 @@
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_1",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 1
@@ -19,6 +20,7 @@
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_2",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 11
@@ -26,6 +28,7 @@
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_3",
+            "dataType": "Date",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 21
@@ -33,6 +36,7 @@
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_4",
+            "dataType": "Date",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 31
@@ -40,6 +44,7 @@
          {
             "surveyShortName": "INFO",
             "fieldName": "INFO_5",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 41
@@ -48,6 +53,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_1_Nombre",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 51
@@ -55,6 +61,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_2_Edad",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 61
@@ -62,6 +69,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_3_Nacimiento",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 71
@@ -69,6 +77,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_4_Sexo",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 81
@@ -76,6 +85,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_5_Civil",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 91
@@ -83,6 +93,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_6_Estado",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 101
@@ -90,6 +101,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_7_OtroPais",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 111
@@ -97,6 +109,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_8_Municipio",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 121
@@ -104,6 +117,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_9_Transporte",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 131
@@ -111,6 +125,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_10_DistanciaTrabajo",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 141
@@ -118,6 +133,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_11_GradoEstudios",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 151
@@ -125,6 +141,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_12_Ocupacion",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 161
@@ -132,6 +149,7 @@
          {
             "surveyShortName": "Datos",
             "fieldName": "Datos_13_AreaOcupacion",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 171
@@ -139,6 +157,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_1_A1Sehasentidoperfect",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 181
@@ -146,6 +165,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_2_Otro(especifique)",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 191
@@ -153,6 +173,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_3_A2Hasentidolanecesid",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 201
@@ -160,6 +181,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_4_Otro(especifique)",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 211
@@ -167,6 +189,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_5_A3Sehasentidoagotado",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 221
@@ -174,6 +197,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_6_A4Sehasentidoenfermo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 231
@@ -181,6 +205,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_7_A5Hatenidodoloresdec",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 241
@@ -188,6 +213,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_8_A6Hasentidotensionop",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 251
@@ -195,6 +221,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_9_A7Hatenidorafagasdec",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 261
@@ -202,6 +229,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_10_B1Hatenidodificultad",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 271
@@ -209,6 +237,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_11_B2Hatenidodificultad",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 281
@@ -216,6 +245,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_12_B3Sehasentidoconstan",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 291
@@ -223,6 +253,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_13_B4Sehasentidoirritab",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 301
@@ -230,6 +261,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_14_B5Sehasentidoasustad",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 311
@@ -237,6 +269,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_15_B6Hatenidolasensacio",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 321
@@ -244,6 +277,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_16_B7Sehasentidonervios",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 331
@@ -251,6 +285,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_17_C1Selashaingeniadopa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 341
@@ -258,6 +293,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_18_C2Setardamastiempoen",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 351
@@ -265,6 +301,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_19_C3Engeneralsienteque",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 361
@@ -272,6 +309,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_20_C4Sehasentidosatisfe",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 371
@@ -279,6 +317,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_21_C5Sehasentidoutilypa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 381
@@ -286,6 +325,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_22_C6Sehasentidocapazde",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 391
@@ -293,6 +333,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_23_C7Sehasentidocapazde",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 401
@@ -300,6 +341,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_24_D1Sehasentidocomouna",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 411
@@ -307,6 +349,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_25_D2Hasentidoquelavida",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 421
@@ -314,6 +357,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_26_D3Hasentidoquenovale",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 431
@@ -321,6 +365,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_27_D4Hapensadoenlaposib",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 441
@@ -328,6 +373,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_28_D5Sehasentidoincapaz",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 451
@@ -335,6 +381,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_29_D6Hasentidoganasdees",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 461
@@ -342,6 +389,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_30_D7Lehavenidoalamente",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 471
@@ -349,6 +397,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_1_1Cuandoconfrontopro",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 481
@@ -356,6 +405,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_2_2Aunquemedoycuentaq",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 491
@@ -363,6 +413,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_3_3Soyunapersonaprude",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 501
@@ -370,6 +421,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_4_4Cuandolossentimien",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 511
@@ -377,6 +429,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_5_5Cuandomeencolerizo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 521
@@ -384,6 +437,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_6_6Soyunapersonamuyes",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 531
@@ -391,6 +445,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_7_7Poractuarprecipita",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 541
@@ -398,6 +453,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_8_8Dadoqueactuocomopi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 551
@@ -405,6 +461,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_9_9Odioquelagentemedi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 561
@@ -412,6 +469,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_10_10Soyunapersonaines",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 571
@@ -419,6 +477,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_11_11Aunquetengocierta",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 581
@@ -426,6 +485,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_12_12Soytanimprudenteq",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 591
@@ -433,6 +493,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_13_13Siactuaratodoelti",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 601
@@ -440,6 +501,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_14_14Aunquetratodecont",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 611
@@ -447,6 +509,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_15_15Cuandomeenredoenl",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 621
@@ -454,6 +517,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_1Mesientoemocionalme",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 631
@@ -461,6 +525,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_2Cuandoterminomijorn",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 641
@@ -468,6 +533,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_3Cuandomelevantoporl",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 651
@@ -475,6 +541,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_4Sientoquepuedoenten",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 661
@@ -482,6 +549,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_5Sientoqueestoytrata",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 671
@@ -489,6 +557,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_6Sientoquetrabajarto",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 681
@@ -496,6 +565,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_7Sientoquetratoconmu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 691
@@ -503,6 +573,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_8Sientoquemitrabajom",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 701
@@ -510,6 +581,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_9Sientoqueestoyinflu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 711
@@ -517,6 +589,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_10Sientoquemehehecho",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 721
@@ -524,6 +597,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_11Mepreocupaqueestet",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 731
@@ -531,6 +605,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_12Mesientoconmuchaen",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 741
@@ -538,6 +613,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_13Mesientofrustradoe",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 751
@@ -545,6 +621,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_14Sientoqueestoydema",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 761
@@ -552,6 +629,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_15Sientoquerealmente",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 771
@@ -559,6 +637,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_16Sientoquetrabajare",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 781
@@ -566,6 +645,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_17Sientoquepuedocrea",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 791
@@ -573,6 +653,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_18Mesientoestimadode",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 801
@@ -580,6 +661,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_19Creoqueconsigomuch",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 811
@@ -587,6 +669,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_20Mesientocomosiestu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 821
@@ -594,6 +677,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_21Sientoqueenmitraba",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 831
@@ -601,6 +685,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_22Meparecequelospaci",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 841
@@ -608,6 +693,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_1Muertedelconyuge",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 851
@@ -615,6 +701,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_2Descensoenelroloest",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 861
@@ -622,6 +709,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_3Separacionmatrimoni",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 871
@@ -629,6 +717,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_4Muertedeunserquerid",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 881
@@ -636,6 +725,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_5Perdidadeltrabajo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 891
@@ -643,6 +733,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_6Padecerunaenfermeda",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 901
@@ -650,6 +741,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_7Quiebraenelestadofi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 911
@@ -657,6 +749,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_8Haberpadecidounasal",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 921
@@ -664,6 +757,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_9Problemassexuales(i",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 931
@@ -671,6 +765,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_10Serabandonadoporla",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 941
@@ -678,6 +773,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_11Jubilacion",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 951
@@ -685,6 +781,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_12Problemasjudiciale",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 961
@@ -692,6 +789,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_13Menopausia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 971
@@ -699,6 +797,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_14Deudas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 981
@@ -706,6 +805,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_15Enfermedaddeunfami",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 991
@@ -713,6 +813,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_16Trabajarenhorarios",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1001
@@ -720,6 +821,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_17Reconciliacionmari",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1011
@@ -727,6 +829,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_18Embarazo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1021
@@ -734,6 +837,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_19Nacimiento",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1031
@@ -741,6 +845,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_20Inseguridadenelbar",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1041
@@ -748,6 +853,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_21Cambiodeestadofina",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1051
@@ -755,6 +861,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_22Fuertesdiscusiones",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1061
@@ -762,6 +869,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_23Conflictosconyugal",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1071
@@ -769,6 +877,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_24Trastornosdelsueno",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1081
@@ -776,6 +885,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_25Cambiosenlastareas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1091
@@ -783,6 +893,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_26Muertedeunamigooam",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1101
@@ -790,6 +901,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_27Abandonodelhogarpo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1111
@@ -797,6 +909,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_28Granlogropersonal",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1121
@@ -804,6 +917,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_29Vivirenmediourbano",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1131
@@ -811,6 +925,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_30Trabajarmasde12hor",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1141
@@ -818,6 +933,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_31Conyugeterminaocom",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1151
@@ -825,6 +941,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_32Problemasconeljefe",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1161
@@ -832,6 +949,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_33Haberabandonadopra",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1171
@@ -839,6 +957,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_34Viajesprolongados(",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1181
@@ -846,6 +965,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_35Mudanzas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1191
@@ -853,6 +973,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_36Conducirunautoenla",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1201
@@ -860,6 +981,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_37Cambiosenloshabito",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1211
@@ -867,6 +989,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_38Cambiodecarreraoco",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1221
@@ -874,6 +997,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_39Vacaciones",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1231
@@ -881,6 +1005,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_40Fiestasdefindeano",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1241
@@ -888,6 +1013,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_1_Preocupacionesantici",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1251
@@ -895,6 +1021,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_2_Sensaciondetensionfa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1261
@@ -902,6 +1029,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_3_Temoresdelaobscurida",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1271
@@ -909,6 +1037,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_4_Dificultadparaconcil",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1281
@@ -916,6 +1045,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_5_Dificultadenconcentr",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1291
@@ -923,6 +1053,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_6_Perdidadeinteresause",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1301
@@ -930,6 +1061,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_7_Dolorespunzadastorce",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1311
@@ -937,6 +1069,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_8_Taquicardiapalpitaci",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1321
@@ -944,6 +1077,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_9_Presionconstrictorae",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1331
@@ -951,6 +1085,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_10_Dificultadparatragar",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1341
@@ -958,6 +1093,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_11_Frecuenciadeorinarur",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1351
@@ -965,6 +1101,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_12_Bocasecarubortendenc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1361
@@ -972,6 +1109,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_13_Conductaanteentrevis",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1371
@@ -979,6 +1117,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_1Losprofesionalesdel",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1381
@@ -986,6 +1125,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_2Durantesueducaciont",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1391
@@ -993,6 +1133,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_3Todoslosprofesional",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1401
@@ -1000,6 +1141,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_4Losprofesionalesdel",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1411
@@ -1007,6 +1149,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_5Debidoaladiferencia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1421
@@ -1014,6 +1157,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_6Todoslosprofesional",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1431
@@ -1021,6 +1165,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_7Todoslosprofesional",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1441
@@ -1028,6 +1173,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_8Lafuncionprimariade",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1451
@@ -1035,6 +1181,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_9Losprofesionalesdel",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1461
@@ -1042,6 +1189,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_10Todoslosprofesiona",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1471
@@ -1049,6 +1197,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_11Losprofesionalesde",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1481
@@ -1056,6 +1205,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_12Lasinstitucionesac",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1491
@@ -1063,6 +1213,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_13Paracontribuiralme",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1501
@@ -1070,6 +1221,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_14Losprofesionalesde",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1511
@@ -1077,6 +1229,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_15Laeducacioninterdi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1521
@@ -1084,6 +1237,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_16Eltrabajoenequipoe",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1531
@@ -1091,6 +1245,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_17Lapracticacolabora",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1541
@@ -1098,6 +1253,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_18Loserroresmedicoss",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1551
@@ -1105,6 +1261,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_19Lacolaboracioninte",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1561
@@ -1112,6 +1269,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_STATIC_20Lasatisfaccioncone",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1571
@@ -1119,6 +1277,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_1_Nomesientotriste",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1581
@@ -1126,6 +1285,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_2_Mesientotriste",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1591
@@ -1133,6 +1293,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_3_Mesientotristecontin",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1601
@@ -1140,6 +1301,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_4_Mesientotantristeota",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1611
@@ -1147,6 +1309,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_5_Nomesientoespecialmentede",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1621
@@ -1154,6 +1317,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_6_Mesientodesanimadore",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1631
@@ -1161,6 +1325,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_7_Sientoquenotengoquee",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1641
@@ -1168,6 +1333,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_8_Sientoqueelfuturoesd",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1651
@@ -1175,6 +1341,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_9_Nomesientofracasado",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1661
@@ -1182,6 +1349,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_10_Creoquehefracasadoma",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1671
@@ -1189,6 +1357,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_11_Cuandomirohaciaatras",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1681
@@ -1196,6 +1365,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_12_Mesientounapersonato",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1691
@@ -1203,6 +1373,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_13_Lascosasmesatisfacen",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1701
@@ -1210,6 +1381,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_14_Nodisfrutodelascosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1711
@@ -1217,6 +1389,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_15_Yanoobtengounasatisf",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1721
@@ -1224,6 +1397,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_16_Estoyinsatisfechooab",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1731
@@ -1231,6 +1405,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_17_Nomesientoespecialme",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1741
@@ -1238,6 +1413,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_18_Mesientoculpableenba",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1751
@@ -1245,6 +1421,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_19_Mesientoculpableenla",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1761
@@ -1252,6 +1429,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_20_Mesientoculpablecons",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1771
@@ -1259,6 +1437,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_21_Nocreoqueestesiendoc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1781
@@ -1266,6 +1445,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_22_Mesientocomosifuesea",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1791
@@ -1273,6 +1453,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_23_Esperosercastigado",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1801
@@ -1280,6 +1461,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_24_Sientoqueestoysiendo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1811
@@ -1287,6 +1469,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_25_Noestoydecepcionadod",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1821
@@ -1294,6 +1477,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_26_Estoydecepcionadodem",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1831
@@ -1301,6 +1485,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_27_MedavergÃ¼enzademimi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1841
@@ -1308,6 +1493,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_28_Medetesto",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1851
@@ -1315,6 +1501,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_29_Nomeconsideropeorque",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1861
@@ -1322,6 +1509,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_30_Meautocriticopormisd",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1871
@@ -1329,6 +1517,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_31_Continuamentemeculpo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1881
@@ -1336,6 +1525,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_32_Meculpoportodolomalo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1891
@@ -1343,6 +1533,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_33_Notengoningunpensami",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1901
@@ -1350,6 +1541,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_34_Avecespiensoensuicid",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1911
@@ -1357,6 +1549,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_35_Deseariasuicidarme",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1921
@@ -1364,6 +1557,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_36_Mesuicidariasituvies",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1931
@@ -1371,6 +1565,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_37_Nolloromasdeloquesol",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1941
@@ -1378,6 +1573,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_38_Ahoralloromasqueante",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1951
@@ -1385,6 +1581,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_39_Llorocontinuamente",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1961
@@ -1392,6 +1589,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_40_Anteseracapazdellora",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1971
@@ -1399,6 +1597,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_41_Noestoymasirritadode",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1981
@@ -1406,6 +1605,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_42_Memolestooirritomasf",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 1991
@@ -1413,6 +1613,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_43_Mesientoirritadocont",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2001
@@ -1420,6 +1621,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_44_Nomeirritoabsolutame",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2011
@@ -1427,6 +1629,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_45_12",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2021
@@ -1434,6 +1637,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_46_13",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2031
@@ -1441,6 +1645,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_47_14",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2041
@@ -1448,6 +1653,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_48_15",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2051
@@ -1455,6 +1661,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_49_16",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2061
@@ -1462,6 +1669,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_50_17",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2071
@@ -1469,6 +1677,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_51_18",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2081
@@ -1476,6 +1685,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_52_19",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2091
@@ -1483,6 +1693,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_53_20",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2101
@@ -1490,6 +1701,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_54_21",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2111
@@ -1497,6 +1709,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_1Doloresdecabeza",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2121
@@ -1504,6 +1717,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_2Nerviosismooagitaci",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2131
@@ -1511,6 +1725,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_3Pensamientospalabra",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2141
@@ -1518,6 +1733,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_4Sensacionesdedesmay",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2151
@@ -1525,6 +1741,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_5Perdidadedeseoodepl",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2161
@@ -1532,6 +1749,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_6Verlagentedemaneran",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2171
@@ -1539,6 +1757,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_7Laideadequeotrapers",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2181
@@ -1546,6 +1765,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_8Laimpresiondequelam",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2191
@@ -1553,6 +1773,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_9Ladificultadpararec",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2201
@@ -1560,6 +1781,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_10Preocupacionacerca",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2211
@@ -1567,6 +1789,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_11Sentirsefacilmente",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2221
@@ -1574,6 +1797,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_12Doloresenelcorazon",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2231
@@ -1581,6 +1805,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_13Sentirmiedodeloses",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2241
@@ -1588,6 +1813,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_14Sentirsebajodeener",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2251
@@ -1595,6 +1821,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_15Pensamientossuicid",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2261
@@ -1602,6 +1829,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_16Oirvocesqueotraspe",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2271
@@ -1609,6 +1837,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_17Temblores",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2281
@@ -1616,6 +1845,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_18Laideadequeunonose",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2291
@@ -1623,6 +1853,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_19Faltadeapetito",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2301
@@ -1630,6 +1861,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_20Llorarfacilmente",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2311
@@ -1637,6 +1869,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_21Timidezoincomodida",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2321
@@ -1644,6 +1877,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_22Lasensaciondeestar",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2331
@@ -1651,6 +1885,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_23Asustarmederepente",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2341
@@ -1658,6 +1893,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_24Arrebatosdecolerao",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2351
@@ -1665,6 +1901,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_25Miedoasalirdecasas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2361
@@ -1672,6 +1909,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_26Culparseasimismode",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2371
@@ -1679,6 +1917,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_27Doloresenlaparteba",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2381
@@ -1686,6 +1925,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_28Sentirseincapazdeh",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2391
@@ -1693,6 +1933,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_29Sentirsesolo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2401
@@ -1700,6 +1941,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_30Sentirsetriste",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2411
@@ -1707,6 +1949,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_31Preocuparsedemasia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2421
@@ -1714,6 +1957,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_32Nosentirinterespor",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2431
@@ -1721,6 +1965,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_33Sentirsetemeroso",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2441
@@ -1728,6 +1973,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_34Serdemasiadosensib",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2451
@@ -1735,6 +1981,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_35Laimpresiondequelo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2461
@@ -1742,6 +1989,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_36Lasensaciondequelo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2471
@@ -1749,6 +1997,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_37Laimpresiondequeot",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2481
@@ -1756,6 +2005,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_38Tenerquehacerlasco",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2491
@@ -1763,6 +2013,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_39Quesucorazonpalpit",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2501
@@ -1770,6 +2021,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_40Nauseasomalestaren",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2511
@@ -1777,6 +2029,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_41Sentirseinferioral",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2521
@@ -1784,6 +2037,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_42Doloresmusculares",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2531
@@ -1791,6 +2045,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_43Sensaciondequelaso",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2541
@@ -1798,6 +2053,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_44Dificultadparaconc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2551
@@ -1805,6 +2061,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_45Tenerquecomprobaru",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2561
@@ -1812,6 +2069,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_46Dificultadentomard",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2571
@@ -1819,6 +2077,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_47Sentirtemordeviaja",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2581
@@ -1826,6 +2085,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_48Ahogoodificultades",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2591
@@ -1833,6 +2093,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_49Escalofriossentirc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2601
@@ -1840,6 +2101,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_50Tenerqueevitarcier",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2611
@@ -1847,6 +2109,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_51Queselequedelament",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2621
@@ -1854,6 +2117,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_52Entumecimientouhor",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2631
@@ -1861,6 +2125,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_53Sentirunnudoenlaga",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2641
@@ -1868,6 +2133,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_54Sentirsedesesperan",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2651
@@ -1875,6 +2141,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_55Tenerdificultadesp",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2661
@@ -1882,6 +2149,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_56Sentirsedebilenalg",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2671
@@ -1889,6 +2157,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_57Sentirsetensooconl",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2681
@@ -1896,6 +2165,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_58Pesadezenlosbrazos",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2691
@@ -1903,6 +2173,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_59Ideassobrelamuerte",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2701
@@ -1910,6 +2181,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_60Elcomerdemasiado",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2711
@@ -1917,6 +2189,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_61Sentirseincomodocu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2721
@@ -1924,6 +2197,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_62Tenerpensamientosq",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2731
@@ -1931,6 +2205,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_63Sentirelimpulsodep",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2741
@@ -1938,6 +2213,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_64Despertarsedemadru",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2751
@@ -1945,6 +2221,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_65Impulsosatenerqueh",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2761
@@ -1952,6 +2229,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_66Suenoinquietoopert",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2771
@@ -1959,6 +2237,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_67Tenerganasderomper",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2781
@@ -1966,6 +2245,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_68Tenerideasocreenci",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2791
@@ -1973,6 +2253,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_69Sentirsemuycohibid",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2801
@@ -1980,6 +2261,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_70Sentirseincomodoen",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2811
@@ -1987,6 +2269,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_71Sentirquetodorequi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2821
@@ -1994,6 +2277,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_72Ataquesdeterroropa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2831
@@ -2001,6 +2285,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_73Sentirseincomodoco",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2841
@@ -2008,6 +2293,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_74Tenerdiscusionesfr",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2851
@@ -2015,6 +2301,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_75Sentirsenerviosocu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2861
@@ -2022,6 +2309,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_76Elqueotrosnolereco",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2871
@@ -2029,6 +2317,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_77Sentirsesoloaunque",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2881
@@ -2036,6 +2325,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_78Sentirsetaninquiet",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2891
@@ -2043,6 +2333,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_79Lasensaciondeserin",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2901
@@ -2050,6 +2341,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_80Presentimientodequ",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2911
@@ -2057,6 +2349,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_81Gritarotirarcosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2921
@@ -2064,6 +2357,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_82Tenermiedodedesmay",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2931
@@ -2071,6 +2365,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_83Laimpresiondequela",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2941
@@ -2078,6 +2373,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_84Tenerpensamientoss",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2951
@@ -2085,6 +2381,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_85Lasideadequedeberi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2961
@@ -2092,6 +2389,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_86Pensamientosoimage",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2971
@@ -2099,6 +2397,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_87Laideadequealgoser",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2981
@@ -2106,6 +2405,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_88Sentirsesiempredis",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 2991
@@ -2113,6 +2413,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_89Sentimientodeculpa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3001
@@ -2120,6 +2421,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_90Laideadealgoandama",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3011
@@ -2127,6 +2429,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_1Micomprensiondecomo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3021
@@ -2134,6 +2437,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_2Mispacientessesient",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3031
@@ -2141,6 +2445,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_3Esdificilparamiverl",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3041
@@ -2148,6 +2453,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_4Consideroqueelenten",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3051
@@ -2155,6 +2461,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_5Tengounbuensentidod",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3061
@@ -2162,6 +2469,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_6Porquelagenteesdife",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3071
@@ -2169,6 +2477,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_7Tratodenoponeratenc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3081
@@ -2176,6 +2485,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_8Atenderlasexperienc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3091
@@ -2183,6 +2493,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_9Tratodeimaginarmeam",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3101
@@ -2190,6 +2501,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_10Mispacientesvalora",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3111
@@ -2197,6 +2509,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_11Lasenfermedadesdem",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3121
@@ -2204,6 +2517,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_12Preguntarlesalospa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3131
@@ -2211,6 +2525,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_13Tratodeatenderloqu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3141
@@ -2218,6 +2533,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_14Creoquelaemocionno",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3151
@@ -2225,6 +2541,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_15Laempatiaesunahabi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3161
@@ -2232,6 +2549,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_16Uncomponenteimport",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3171
@@ -2239,6 +2557,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_17Tratodepensarcomom",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3181
@@ -2246,6 +2565,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_18Nomepermitoamimism",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3191
@@ -2253,6 +2573,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_19Nodisfrutoleerlite",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3201
@@ -2260,6 +2581,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JEFF_HP_20Creoquelaempatiaes",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3211
@@ -2267,6 +2589,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_1",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3221
@@ -2274,6 +2597,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_2",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3231
@@ -2281,6 +2605,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_3",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3241
@@ -2288,6 +2613,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_4",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3251
@@ -2295,6 +2621,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_5",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3261
@@ -2302,6 +2629,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_6",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3271
@@ -2309,6 +2637,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_6Otro",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3281
@@ -2316,6 +2645,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_7",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3291
@@ -2323,6 +2653,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_8",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3301
@@ -2330,6 +2661,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_9",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3311
@@ -2337,6 +2669,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_10",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3321
@@ -2344,6 +2677,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_11",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3331
@@ -2351,6 +2685,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_12",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3341
@@ -2358,6 +2693,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_13",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3351
@@ -2365,6 +2701,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_14",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3361
@@ -2372,6 +2709,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_15",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3371
@@ -2379,6 +2717,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_16",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3381
@@ -2386,6 +2725,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_17",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3391
@@ -2393,6 +2733,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA",
             "fieldName": "VIOLENCIA_PADECIDA_1Alguiendesufamil",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 3401
@@ -2400,6 +2741,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_1Yomismo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3411
@@ -2407,6 +2749,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_2Hermanoa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3421
@@ -2414,6 +2757,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_3Padre",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3431
@@ -2421,6 +2765,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Abuelo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3441
@@ -2428,6 +2773,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_5Madre",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3451
@@ -2435,6 +2781,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_6Abuela",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3461
@@ -2442,6 +2789,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_7Tiosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3471
@@ -2449,6 +2797,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_8Primosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3481
@@ -2456,6 +2805,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_9Amigo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3491
@@ -2463,6 +2813,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_10Amiga",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3501
@@ -2470,6 +2821,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_11Pareja",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3511
@@ -2477,6 +2829,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_12Hijo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3521
@@ -2484,6 +2837,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_13Hija",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3531
@@ -2491,6 +2845,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_1Fisica",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3541
@@ -2498,6 +2853,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_2Psicologica",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3551
@@ -2505,6 +2861,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_3Emocional",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3561
@@ -2512,6 +2869,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Sexual",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3571
@@ -2519,6 +2877,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_5Social",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3581
@@ -2526,6 +2885,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_6Patrimonial",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3591
@@ -2533,6 +2893,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_7Fisicaporomision",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3601
@@ -2540,6 +2901,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 3611
@@ -2547,6 +2909,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_1Fisica",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3621
@@ -2554,6 +2917,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_2Psicologica",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3631
@@ -2561,6 +2925,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_3Emocional",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3641
@@ -2568,6 +2933,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_4Sexual",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3651
@@ -2575,6 +2941,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_5Social",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3661
@@ -2582,6 +2949,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_6Patrimonial",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3671
@@ -2589,6 +2957,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Fisicaporomision",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3681
@@ -2596,6 +2965,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_1Yomismo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3691
@@ -2603,6 +2973,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_2Hermanoa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3701
@@ -2610,6 +2981,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_3Padre",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3711
@@ -2617,6 +2989,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_4Abuelo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3721
@@ -2624,6 +2997,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_5Madre",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3731
@@ -2631,6 +3005,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_6Abuela",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3741
@@ -2638,6 +3013,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Tiosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3751
@@ -2645,6 +3021,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_8Primosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3761
@@ -2652,6 +3029,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_9Amigo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3771
@@ -2659,6 +3037,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_10Amiga",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3781
@@ -2666,6 +3045,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_11Pareja",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3791
@@ -2673,6 +3053,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_12Hijo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3801
@@ -2680,6 +3061,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_13Hija",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3811
@@ -2687,6 +3069,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 3821
@@ -2694,6 +3077,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_1Fisica",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3831
@@ -2701,6 +3085,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_2Psicologica",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3841
@@ -2708,6 +3093,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_3Emocional",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3851
@@ -2715,6 +3101,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_4Sexual",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3861
@@ -2722,6 +3109,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_5Social",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3871
@@ -2729,6 +3117,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_6Patrimonial",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3881
@@ -2736,6 +3125,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_7Fisicaporomision",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3891
@@ -2743,6 +3133,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_1Yomismo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3901
@@ -2750,6 +3141,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_2Hermanoa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3911
@@ -2757,6 +3149,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_3Padre",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3921
@@ -2764,6 +3157,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_4Abuelo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3931
@@ -2771,6 +3165,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_5Madre",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3941
@@ -2778,6 +3173,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_6Abuela",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3951
@@ -2785,6 +3181,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_7Tiosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3961
@@ -2792,6 +3189,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_8Primosas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3971
@@ -2799,6 +3197,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_9Amigo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3981
@@ -2806,6 +3205,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Amiga",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 3991
@@ -2813,6 +3213,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Pareja",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4001
@@ -2820,6 +3221,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Hijo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4011
@@ -2827,6 +3229,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Hija",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4021
@@ -2834,6 +3237,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4031
@@ -2841,6 +3245,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4041
@@ -2848,6 +3253,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4051
@@ -2855,6 +3261,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4061
@@ -2862,6 +3269,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4071
@@ -2869,6 +3277,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4081
@@ -2876,6 +3285,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4091
@@ -2883,6 +3293,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4101
@@ -2890,6 +3301,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
             "position": 4111
@@ -2897,6 +3309,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_1Buscarrespuestaauna",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4121
@@ -2904,6 +3317,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_2Elaprendizajeperman",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4131
@@ -2911,6 +3325,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_3Disfrutoleerarticul",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4141
@@ -2918,6 +3333,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_4Asistorutinariament",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4151
@@ -2925,6 +3341,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_5Leorevistasdemiambi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4161
@@ -2932,6 +3349,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_6Acostumbrobuscarenb",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4171
@@ -2939,6 +3357,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_7Creoquepodriaatrasa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4181
@@ -2946,6 +3365,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_8Unobjetivoimportant",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4191
@@ -2953,6 +3373,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_9Loscambiosrapidosen",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4201
@@ -2960,6 +3381,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_10Siempreencuentroel",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4211
@@ -2967,6 +3389,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_11Reconozcominecesid",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4221
@@ -2974,6 +3397,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_12Acostumbroasistira",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4231
@@ -2981,6 +3405,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_13Aprovechocadaoport",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4241
@@ -2988,6 +3413,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_14Mienfoquepreferido",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4251
@@ -2995,6 +3421,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_1Enfermeriadeberiad",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4261
@@ -3002,6 +3429,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_2Enfermeriaestacali",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4271
@@ -3009,6 +3437,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_3Durantesuformacion",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4281
@@ -3016,6 +3445,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_4Enfermeriadeberiad",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4291
@@ -3023,6 +3453,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_5Enfermeriadeberiad",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4301
@@ -3030,6 +3461,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_6Existenmuchasareas",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4311
@@ -3037,6 +3469,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_7Enfermeriatienehab",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4321
@@ -3044,6 +3477,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_8Losmedicosdebendes",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4331
@@ -3051,6 +3485,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_9MedicosyEnfermeras",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4341
@@ -3058,6 +3493,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_10Lafuncionprimaria",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4351
@@ -3065,6 +3501,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_11Enfermeriadeberia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4361
@@ -3072,6 +3509,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_12Enfermeriadeberia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4371
@@ -3079,6 +3517,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_13Enfermeriadeberia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4381
@@ -3086,6 +3525,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_14Losmedicosdeberia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4391
@@ -3093,6 +3533,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_MEDICO_ENFERMERIA_15Relacionesinterpr",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4401
@@ -3100,6 +3541,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_1_AAmodificartodosl",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4411
@@ -3107,6 +3549,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_1_BAobtenerlogrospo",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4421
@@ -3114,6 +3557,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_1_CAprestardineroaa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4431
@@ -3121,6 +3565,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_1_DAcumplirconlasob",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4441
@@ -3128,6 +3573,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_2_ASeponeaorarconla",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4451
@@ -3135,6 +3581,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_2_BPideunaambulanci",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4461
@@ -3142,6 +3589,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_2_CCuidalaspertenen",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4471
@@ -3149,6 +3597,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_2_DTratadedeteneral",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4481
@@ -3156,6 +3605,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_3_ALededicariatiemp",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4491
@@ -3163,6 +3613,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_3_BLorechazariaamab",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4501
@@ -3170,6 +3621,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_3_CAceptariaelprese",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4511
@@ -3177,6 +3629,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_3_DLlamariaasuspadr",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4521
@@ -3184,6 +3637,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_4_AArrancasuautomov",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4531
@@ -3191,6 +3645,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_4_BTratadellegaraun",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4541
@@ -3198,6 +3653,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_4_CPidelesealevanta",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4551
@@ -3205,6 +3661,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_4_DAmenazaalagentec",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4561
@@ -3212,6 +3669,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_5_ASeaactivoylegust",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4571
@@ -3219,6 +3677,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_5_BSeintereseporser",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4581
@@ -3226,6 +3685,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_5_CAsistirconfrecue",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4591
@@ -3233,6 +3693,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_5_DLeinteresaempren",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4601
@@ -3240,6 +3701,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_6_ATratariadeencont",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4611
@@ -3247,6 +3709,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_6_BLoreportaasussup",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4621
@@ -3254,6 +3717,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_6_CNohaceninguncome",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4631
@@ -3261,6 +3725,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_6_DLodejadondeloenc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4641
@@ -3268,6 +3733,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_7_AAyudaralasclases",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4651
@@ -3275,6 +3741,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_7_BAmpliarlaszonast",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4661
@@ -3282,6 +3749,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_7_CBuscaralosmejore",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4671
@@ -3289,6 +3757,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_7_DPermitirquelarel",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4681
@@ -3296,6 +3765,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_8_AQueseacumplidoye",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4691
@@ -3303,6 +3773,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_8_BQuebusquecualess",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4701
@@ -3310,6 +3781,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_8_CQueprometaunaman",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4711
@@ -3317,6 +3789,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_8_DQueofrezcaunaexc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4721
@@ -3324,6 +3797,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_9_ALlamariaalapolic",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4731
@@ -3331,6 +3805,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_9_BLlamariaasuvecin",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4741
@@ -3338,6 +3813,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_9_CPediriaalosasalt",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4751
@@ -3345,6 +3821,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_9_DMejornoharianada",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4761
@@ -3352,6 +3829,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_10_APedirunaumentod",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4771
@@ -3359,6 +3837,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_10_BRecurriralsindi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4781
@@ -3366,6 +3845,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_10_CQuerecurraasugu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4791
@@ -3373,6 +3853,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_10_DQuesoliciteunap",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4801
@@ -3380,6 +3861,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_11_AQueloconvenzade",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4811
@@ -3387,6 +3869,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_11_BProponerlesuayu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4821
@@ -3394,6 +3877,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_11_CQuecomotodoleha",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4831
@@ -3401,6 +3885,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_11_DDecirleloimport",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4841
@@ -3408,6 +3893,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_12_ALesdicequenodeb",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4851
@@ -3415,6 +3901,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_12_BAtiendecongusto",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4861
@@ -3422,6 +3909,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_12_CAcambiodesusser",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4871
@@ -3429,6 +3917,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_12_DAsistealmodulod",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4881
@@ -3436,6 +3925,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_13_ALoayudariaabusc",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4891
@@ -3443,6 +3933,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_13_BLollevariaalare",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4901
@@ -3450,6 +3941,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_13_CPasariadelargop",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4911
@@ -3457,6 +3949,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_13_DLollevariaasuca",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4921
@@ -3464,6 +3957,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_14_AHacerloproducir",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4931
@@ -3471,6 +3965,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_14_BDonareldineropa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4941
@@ -3478,6 +3973,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_14_CDarloaunasocied",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4951
@@ -3485,6 +3981,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_14_DApoyarayudaalpa",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4961
@@ -3492,6 +3989,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_15_ALesugierequevea",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4971
@@ -3499,6 +3997,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_15_BQuehagaloquequi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4981
@@ -3506,6 +4005,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_15_CQuecursenuevame",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 4991
@@ -3513,6 +4013,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_15_DDarleapoyoecono",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5001
@@ -3520,6 +4021,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_16_AObtenerexperien",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5011
@@ -3527,6 +4029,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_16_BParticiparenlac",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5021
@@ -3534,6 +4037,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_16_CAsistiraunretir",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5031
@@ -3541,6 +4045,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_16_DVisitarunlugarq",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5041
@@ -3548,6 +4053,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_17_ALepideasuhijoqu",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5051
@@ -3555,6 +4061,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_17_BLesugiereasufam",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5061
@@ -3562,6 +4069,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_17_CSielmuchachoyae",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5071
@@ -3569,6 +4077,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_17_DLollevaauncentr",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5081
@@ -3576,6 +4085,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_18_AQueempleesutiem",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5091
@@ -3583,6 +4093,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_18_BQuevendaarticul",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5101
@@ -3590,6 +4101,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_18_CQuepromuevajunt",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5111
@@ -3597,6 +4109,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_18_DQueasistaconsus",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5121
@@ -3604,6 +4117,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_19_ALeexplicalosmot",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5131
@@ -3611,6 +4125,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_19_BLepideelfavorsi",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5141
@@ -3618,6 +4133,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_19_CLehacecreerquee",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5151
@@ -3625,6 +4141,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_19_DLesugiereasujef",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5161
@@ -3632,6 +4149,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_20_ATrabajarenforma",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5171
@@ -3639,6 +4157,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_20_BComoencargadode",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5181
@@ -3646,6 +4165,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_20_CDedicarseaestud",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5191
@@ -3653,6 +4173,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "TEST_DE_ZAVIC_20_DTrabajadorsocia",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "position": 5201
@@ -3661,6 +4182,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_SOMATICOS",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5211
@@ -3668,6 +4190,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ANSIEDAD",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5221
@@ -3675,6 +4198,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DISF_SOCIAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5231
@@ -3682,6 +4206,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_DEPRESION",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5241
@@ -3689,6 +4214,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_TOTAL_MAX_28",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5251
@@ -3696,6 +4222,7 @@
          {
             "surveyShortName": "CSG",
             "fieldName": "CSG_ES_CASO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5261
@@ -3703,6 +4230,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15_TOTAL_MAX_60",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5271
@@ -3710,6 +4238,7 @@
          {
             "surveyShortName": "FIAD-15",
             "fieldName": "FIAD-15 RESULTADO",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5281
@@ -3717,6 +4246,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_EMOCIONAL_MAX_42",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5291
@@ -3724,6 +4254,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_DESPERS_MAX_48",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5301
@@ -3731,6 +4262,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_LOGROS_MAX_30",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5311
@@ -3738,6 +4270,7 @@
          {
             "surveyShortName": "BURN",
             "fieldName": "BURN_TOTAL_MAX_120",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5321
@@ -3745,6 +4278,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_TOTAL_MAX_40",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5331
@@ -3752,6 +4286,7 @@
          {
             "surveyShortName": "ESTRES",
             "fieldName": "ESTRES_LISTA",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5341
@@ -3759,6 +4294,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5351
@@ -3766,6 +4302,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5361
@@ -3773,6 +4310,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5371
@@ -3780,6 +4318,7 @@
          {
             "surveyShortName": "HAMILTON",
             "fieldName": "HAMILTON_ANSIEDAD_RESULTADO",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5381
@@ -3788,6 +4327,7 @@
          {
             "surveyShortName": "JEFF_STATIC",
             "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5391
@@ -3795,6 +4335,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_TOTAL_DEPRESION_MAX_63",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5401
@@ -3802,6 +4343,7 @@
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_ES_CASO_DEPRESION",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5411
@@ -3809,6 +4351,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SOMATIZACION_MAX_48",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5421
@@ -3816,6 +4359,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5431
@@ -3823,6 +4367,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5441
@@ -3830,6 +4375,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_DEPRESION_MAX_52",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5451
@@ -3837,6 +4383,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ANSIEDAD_MAX_40",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5461
@@ -3844,6 +4391,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_HOSTILIDAD_MAX_24",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5471
@@ -3851,6 +4399,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_FOBIA_MAX_28",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5481
@@ -3858,6 +4407,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PARANOIA_MAX_24",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5491
@@ -3865,6 +4415,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_PSICOTISMO_MAX_40",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5501
@@ -3872,6 +4423,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_ADICIONALES_MAX_28",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5511
@@ -3879,6 +4431,7 @@
          {
             "surveyShortName": "SCL90",
             "fieldName": "SCL90_TOTAL_MAX_360",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5521
@@ -3886,6 +4439,7 @@
          {
             "surveyShortName": "JEFF_HP",
             "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5531
@@ -3893,6 +4447,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_INDIVIDUACION_MAX_12",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5541
@@ -3900,6 +4455,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5551
@@ -3907,6 +4463,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5561
@@ -3914,6 +4471,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_COHERENCIA_MAX_6",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5571
@@ -3921,6 +4479,7 @@
          {
             "surveyShortName": "E_EFF_17",
             "fieldName": "E_EFF_17_TOTAL_51",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5581
@@ -3928,6 +4487,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA",
             "fieldName": "VIOLENCIA_PADECIDA_1Alguiendesufamil",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5591
@@ -3935,6 +4495,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5601
@@ -3942,6 +4503,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P2_QUIEN_LISTA",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5611
@@ -3949,6 +4511,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5621
@@ -3956,6 +4519,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5631
@@ -3963,6 +4527,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "fieldName": "VIOLENCIA_PADECIDA_DETALLES_4Ustedsientequehas",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5641
@@ -3970,6 +4535,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5651
@@ -3977,6 +4543,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P5_PADECIO_LISTA",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5661
@@ -3984,6 +4551,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5671
@@ -3991,6 +4559,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VP_TIPOS_P6_QUIEN_LISTA",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5681
@@ -3998,6 +4567,7 @@
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "fieldName": "VIOLENCIA_PADECIDA_TIPOS_7Ustedsientequeham",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5691
@@ -4005,6 +4575,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5701
@@ -4012,6 +4583,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_LISTA",
+            "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5711
@@ -4019,6 +4591,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_10Vivesupadre",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5721
@@ -4026,6 +4599,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_11Vivesumadre",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5731
@@ -4033,6 +4607,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_12Suspadresestanse",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5741
@@ -4040,6 +4615,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_13Queedadteniacu",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5751
@@ -4047,6 +4623,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_14Sifalleciosupadr",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5761
@@ -4054,6 +4631,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_15Sifalleciosumadr",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5771
@@ -4061,6 +4639,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_16Actividadesdesup",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5781
@@ -4068,6 +4647,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_17Actividadesdesum",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5791
@@ -4075,6 +4655,7 @@
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "fieldName": "VIOLENCIA_EJERCIDA_DETALLES_18Enlomejordesucon",
+            "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "position": 5801
@@ -4082,6 +4663,7 @@
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5811
@@ -4089,6 +4671,7 @@
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERIA_TOTAL",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5821
@@ -4096,6 +4679,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_INTERES_SOCIAL_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5831
@@ -4103,6 +4687,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_INTERES_POLITICO_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5841
@@ -4110,6 +4695,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_INTERES_ECONOMICO_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5851
@@ -4117,6 +4703,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_INTERES_RELIGIOSO_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5861
@@ -4124,6 +4711,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_VALORES_MORAL_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5871
@@ -4131,6 +4719,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_VALORES_LEGALIDAD_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5881
@@ -4138,6 +4727,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_VALORES_INDIFERENCIA_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5891
@@ -4145,6 +4735,7 @@
          {
             "surveyShortName": "TEST_DE_ZAVIC",
             "fieldName": "ZAVIC_VALORES_CORRUPTO_PORCIENTO",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "position": 5901

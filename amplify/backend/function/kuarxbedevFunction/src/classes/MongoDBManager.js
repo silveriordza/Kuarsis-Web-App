@@ -1,7 +1,10 @@
 /** @format */
 
 const { j } = require('../utils/Logger')
-const { saveDynamicModelToDB } = require('../utils/mongoDbHelper')
+const {
+   saveDynamicModelToDB,
+   convertDataTypeToMongoSchemaDataType,
+} = require('../utils/mongoDbHelper')
 const { LogManager, L3 } = require('./LogManager')
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
@@ -116,15 +119,8 @@ class MongoDBManager {
             `output Layout Field column=${JSON.stringify(column)}`,
             L3,
          )
-         if (column.fieldName === 'INFO_3') {
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
-         }
-         // if (column.fieldName === 'CSG_1_A1Sehasentidoperfect') {
-         //    surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Number
-         // }
-         else {
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
-         }
+         surveyOutputColumns[column.fieldName] =
+            convertDataTypeToMongoSchemaDataType(column.dataType)
       })
 
       const surveyOutputCollectionSchema = new mongoose.Schema(

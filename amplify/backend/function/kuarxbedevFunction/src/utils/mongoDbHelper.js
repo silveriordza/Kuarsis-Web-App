@@ -4,10 +4,29 @@ const mongoose = require('mongoose')
 //const Schema = mongoose.Schema;
 const { DynamicCollection } = require('../models/dynamicCollectionModel.js')
 
+const {} = require('..')
+
 let { LogThis, LoggerSettings, L0, L1, L2, L3 } = require('../utils/Logger.js')
 const srcFileName = 'mongoDbHelper.js'
 
 const dynamicModelsMap = {}
+
+const convertDataTypeToMongoSchemaDataType = dataType => {
+   switch (dataType) {
+      case 'Date':
+         return mongoose.Schema.Types.Date
+      case 'String':
+         return mongoose.Schema.Types.String
+      case 'Integer':
+         return mongoose.Schema.Types.Number
+      case 'Number':
+         return mongoose.Schema.Types.Number
+      default:
+         throw Error(
+            `Invalid output field dataType in fieldName ${column.fieldName} dataType:${column.dataType}`,
+         )
+   }
+}
 
 const getDynamicCollectionObject = async surveyShortName => {
    const surveyOutputCollectionName =
@@ -34,10 +53,7 @@ const convertSchemaDefinitionToString = modelSchema => {
    log.functionName = 'convertSchemaDefinitionToString'
    LogThis(log, `START modelSchema=${JSON.stringify(modelSchema)}`, L3)
    const schemaDefinitionAsString = Object.fromEntries(
-      Object.entries(modelSchema).map(([key, type]) => [
-         key,
-         key === 'INFO_3' ? 'Date' : 'String',
-      ]),
+      Object.entries(modelSchema).map(([key, type]) => [key, type.schemaName]),
    )
    LogThis(
       log,
@@ -145,14 +161,18 @@ const loadDynamicModelsFromDB = async () => {
          let schemaObject = {}
          for (let i = 0; i < schemaKeys.length; i++) {
             let schemaType = null
-            switch (schemaParsed[schemaKeys[i]]) {
-               case 'Date':
-                  schemaType = { type: mongoose.Schema.Types.Date }
-                  break
-               default:
-                  schemaType = { type: mongoose.Schema.Types.String }
+            // switch (schemaParsed[schemaKeys[i]]) {
+            //    case 'Date':
+            //       schemaType = { type: mongoose.Schema.Types.Date }
+            //       break
+            //    default:
+            //       schemaType = { type: mongoose.Schema.Types.String }
+            // }
+            schemaType = {
+               type: convertDataTypeToMongoSchemaDataType(
+                  schemaParsed[schemaKeys[i]],
+               ),
             }
-
             schemaObject[schemaKeys[i]] = schemaType
             // LogThis(
             //   log,
@@ -266,6 +286,7 @@ const loadOneDynamicModelFromDB = async modelName => {
 module.exports = {
    getDynamicCollectionObject,
    convertSchemaDefinitionToString,
+   convertDataTypeToMongoSchemaDataType,
    saveDynamicModelToDB,
    loadDynamicModelsFromDB,
    loadOneDynamicModelFromDB,

@@ -80,6 +80,7 @@ let {
    saveDynamicModelToDB,
    loadOneDynamicModelFromDB,
    dynamicModelsMap,
+   convertDataTypeToMongoSchemaDataType,
 } = require('../utils/mongoDbHelper.js')
 const srcFileName = 'surveyController.js'
 
@@ -688,7 +689,7 @@ const createSurveys = asyncHandler(async (req, res) => {
          surveySuperiorId: createdSurveySuperior._id,
          surveyShortName: outputLayout.surveyShortName,
          fieldName: outputLayout.fieldName,
-         //outputAsReal: outputLayout.outputAsReal,
+         outputAsReal: outputLayout.outputAsReal,
          dataType: outputLayout.dataType,
          showInSurveyOutputScreenScreen: outputLayout.showInSurveyOutputScreen,
          position: outputLayout.position,
@@ -736,16 +737,20 @@ const createSurveys = asyncHandler(async (req, res) => {
 
    outputLayoutFields.forEach(column => {
       LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3)
-      switch (column.fieldName) {
-         case 'INFO_3':
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
-            break
-         case 'INFO_4':
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
-            break
-         default:
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
-      }
+
+      surveyOutputColumns[column.fieldName] =
+         convertDataTypeToMongoSchemaDataType(column.dataType)
+
+      // switch (column.dataType) {
+      //    case 'INFO_3':
+      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
+      //       break
+      //    case 'INFO_4':
+      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
+      //       break
+      //    default:
+      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
+      // }
    })
    LogThis(
       log,
@@ -2509,7 +2514,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          //const condition = {};
          outputLayouts.forEach(field => {
             if (field.showInSurveyOutputScreen) {
-               if (field.fieldName != 'INFO_3') {
+               if (field.dataType != 'Date') {
                   condition[field.fieldName] = {
                      $regex: new RegExp(keyword, 'i'),
                   }
