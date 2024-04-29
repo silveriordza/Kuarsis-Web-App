@@ -688,7 +688,8 @@ const createSurveys = asyncHandler(async (req, res) => {
          surveySuperiorId: createdSurveySuperior._id,
          surveyShortName: outputLayout.surveyShortName,
          fieldName: outputLayout.fieldName,
-         outputAsReal: outputLayout.outputAsReal,
+         //outputAsReal: outputLayout.outputAsReal,
+         dataType: outputLayout.dataType,
          showInSurveyOutputScreenScreen: outputLayout.showInSurveyOutputScreen,
          position: outputLayout.position,
       })
