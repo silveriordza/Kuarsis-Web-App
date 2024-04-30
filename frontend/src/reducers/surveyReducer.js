@@ -51,7 +51,7 @@ export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
 }
 
 export const surveyOutputsExportDataReducer = (
-   state = { csvData: {} },
+   state = { exportedData: {} },
    action,
 ) => {
    switch (action.type) {
@@ -66,14 +66,14 @@ export const surveyOutputsExportDataReducer = (
          return {
             loading: false,
             success: true,
-            csvData: action.payload.csvData,
+            exportedData: action.payload.exportedData,
             message: action.payload.message,
          }
 
       case SURVEY_OUTPUTS_EXPORT_FILE_FAIL:
          return { loading: false, success: false, error: action.payload }
       case SURVEY_OUTPUTS_EXPORT_FILE_RESET:
-         return { csvData: {} }
+         return { exportedData: {} }
       default:
          return state
    }

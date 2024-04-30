@@ -23,6 +23,17 @@ import {
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
 //import { SURVEY_MONKEY_TOKEN } from "../constants/secretConstants";
 
+//import { DataExporter } from '../classes/DataExporter'
+import {
+   DATA_EXPORTER_TYPE_CSV,
+   DataExporterCSV,
+} from '../classes/DataExporterCSV'
+
+import {
+   DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT,
+   DataExporterExcelReactDataExport,
+} from '../classes/DataExporterExcelReactDataExport'
+
 import {
    zipFile,
    unzipFile,
@@ -1450,10 +1461,21 @@ export const surveyOutputExportDataAction =
             }; userInfo.token=${userInfo.token}`,
             L3,
          )
-         let csvData = ''
+         let exportedData = ''
          let addHeaders = true
-
-         for (let i = 1; i <= superSurveyId.pages; i++) {
+         let maxPages = 1 //superSurveyId.pages
+         const exportType = superSurveyId.exportType
+         let dataExporterObject = null
+         if (exportType === DATA_EXPORTER_TYPE_CSV) {
+            dataExporterObject = new DataExporterCSV(
+               superSurveyId.exportFieldNames,
+            )
+         } else if (exportType === DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT) {
+            dataExporterObject = new DataExporterExcelReactDataExport(
+               superSurveyId.exportFieldNames,
+            )
+         }
+         for (let i = 1; i <= maxPages; i++) {
             let response = await axios.get(
                BACKEND_ENDPOINT +
                   `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${i}&keyword=${superSurveyId.keyword}`,
@@ -1465,7 +1487,7 @@ export const surveyOutputExportDataAction =
                let outputsInfo = data.outputsInfo
                let outputsLayouts = outputsInfo.outputLayouts
                let outputValues = outputsInfo.outputValues
-
+               maxPages = outputsInfo.pages
                dispatch({
                   type: SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
                   payload: {
@@ -1474,49 +1496,13 @@ export const surveyOutputExportDataAction =
                })
                await new Promise(resolve => setTimeout(resolve, 1))
 
-               if (addHeaders) {
-                  let outputValueFields = ''
-                  let utf8String = null
-                  let utf8SurveyShortName = null
-                  let surveyShortNameCsvHeader = null
-                  for (const outputField of outputsLayouts) {
-                     if (superSurveyId.exportFieldNames) {
-                        utf8String = cleanCsvValue(outputField.fieldName)
-                     } else {
-                        utf8String = cleanCsvValue(outputField.question)
-                        utf8SurveyShortName = cleanCsvValue(
-                           outputField.surveyShortName,
-                        )
-                        utf8String = utf8SurveyShortName + '_' + utf8String
-                     }
-
-                     csvData = csvData + utf8String + ','
-                  }
-                  //csvData = rowCleaner2(csvData.slice(0, -1)) + '\n'
-                  csvData = csvData.slice(0, -1) + '\n'
-                  addHeaders = false
-
-                  //outputValue = outputValues[0]
-               }
-               for (const outputValue of outputValues) {
-                  let rowValues = ''
-                  for (const outputField of outputsLayouts) {
-                     let stringValue = outputValue[outputField.fieldName]
-                     let utf8String = cleanCsvValue(stringValue)
-                     rowValues = rowValues + utf8String + ','
-                  }
-                  //rowValues = rowCleaner2(rowValues.slice(0, -1)) + '\n'
-                  rowValues = rowValues.slice(0, -1) + '\n'
-                  csvData = csvData + rowValues
-               }
-            } else {
-               throw new Error(`No output info or output data found`)
+               dataExporterObject.addMultipleData(data)
             }
          }
          dispatch({
             type: SURVEY_OUTPUTS_EXPORT_FILE_SUCCESS,
             payload: {
-               csvData: csvData,
+               exportedData: dataExporterObject.getData(),
                message: `Exportacion terminada`,
             },
          })

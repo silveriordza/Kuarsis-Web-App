@@ -8,7 +8,7 @@ import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 import FormData from 'form-data'
 
 //import fs from "fs";
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
 import {
@@ -71,6 +71,7 @@ import {
 import { DateRangePickerComponent } from '@syncfusion/ej2-react-calendars'
 
 //import _ from "lodash";
+import debounce from 'lodash/debounce'
 
 import {
    surveyProcessAnswersAction,
@@ -95,45 +96,91 @@ import { SURVEY_OUTPUTS_RESET } from '../constants/surveyConstants'
 
 import ReactExport from 'react-data-export'
 
+import { DATA_EXPORTER_TYPE_CSV } from '../classes/DataExporterCSV'
+import {
+   DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT,
+   DataExporterExcelReactDataExport,
+} from '../classes/DataExporterExcelReactDataExport'
+
 L10n.load(spanishLocalization)
 //loadCldr(esgregorian)
 
 const SurveysOutputData = ({ match, history }) => {
    const srcFileName = 'SurveysOutputData'
    const log = new LoggerSettings(srcFileName, 'SurveysOutputData')
+
+   //EXCEL SECTION START: VARIABLES PROPERTIES EVENTS AND FUNCTIONS
    const ExcelFile = ReactExport.ExcelFile
    const ExcelSheet = ReactExport.ExcelFile.ExcelSheet
-   const multiDataSet = [
+   const excelMultiDataSet = [
       {
          columns: [
-            //   {title: "Name", width: {wch: 20}},//pixels width
-            //   {title: "Text Style", width: {wch: 20}},//char width
-            //   {title: "Colors", width: {wch: 20}},
+            // { title: 'Name', width: { wch: 20 } }, //pixels width
          ],
          data: [
-            //   [
-            //       {value: 1},
-            //       {value: "Bold"},
-            //       {value: "Red"},
-            //   ],
-            //   [
-            //       {value: 2598},
-            //       {value: "underline"},
-            //       {value: "Blue"},
-            //   ],
-            //   [
-            //       {value: 3},
-            //       {value: "italic"},
-            //       {value: "Green"},
-            //   ],
-            //   [
-            //     {value: 1295},
-            //     {value: "italic"},
-            //     {value: "Green"},
-            // ]
+            // [{ value: 1 }, { value: 'Bold' }, { value: 'Red' }],
          ],
+         // columns: [
+         //    { title: 'Name', width: { wch: 20 } }, //pixels width
+         //    { title: 'Text Style', width: { wch: 20 } }, //char width
+         //    { title: 'Colors', width: { wch: 20 } },
+         // ],
+         // data: [
+         //    [{ value: 1 }, { value: 'Bold' }, { value: 'Red' }],
+         //    [{ value: 2598 }, { value: 'underline' }, { value: 'Blue' }],
+         //    [{ value: 3 }, { value: 'italic' }, { value: 'Green' }],
+         //    [{ value: 1295 }, { value: 'italic' }, { value: 'Green' }],
+         // ],
       },
    ]
+
+   const [excelExportMultiDataState, setexcelExportMultiDataState] = useState([
+      { columns: [], data: [] },
+   ])
+
+   const [excelExportarTriggered, setexcelExportarTriggered] = useState(false)
+
+   const exportDataFileTrigger = exportPreguntas => {
+      let colValues = []
+      excelMultiDataSet[0].data = []
+      if (exportFields) {
+         excelMultiDataSet[0].columns[0].title = 'Campos'
+         //excelMultiDataSet[0].data[1][1].value = "Valor Campo 1"
+         colValues = []
+         colValues.push({ value: 20000 })
+         colValues.push({ value: '20001' })
+         colValues.push({ value: 'SOME OTHER CAMPO VALUE' })
+         excelMultiDataSet[0].data.push(colValues)
+      } else {
+         excelMultiDataSet[0].columns[0].title = 'Preguntas'
+         //excelMultiDataSet[0].data[1][1].value = "Valor Pregunta 1"
+         colValues = []
+         colValues.push({ value: 10000 })
+         colValues.push({ value: '10001' })
+         colValues.push({ value: 'SOME OTHER PREGUNTA VALUE' })
+         excelMultiDataSet[0].data.push(colValues)
+      }
+      setexcelExportarTriggered(true)
+      setexportFields(exportPreguntas)
+      setexcelExportMultiDataState(excelMultiDataSet)
+   }
+
+   const excelExportarPreguntasButton = useRef(null)
+   const excelExportarCamposButton = useRef(null)
+
+   useEffect(() => {
+      //const triggerButton = document.getElementById("exportar_preguntas")
+      if (excelExportarTriggered) {
+         if (exportFields) {
+            excelExportarPreguntasButton.current.click()
+         } else {
+            excelExportarCamposButton.current.click()
+         }
+         setexcelExportarTriggered(false)
+      }
+   }, [excelExportMultiDataState, excelExportarTriggered])
+
+   //EXCEL SECTION END: VARIABLES PROPERTIES EVENTS AND FUNCTIONS
    setCulture('es')
 
    let grid
@@ -179,11 +226,12 @@ const SurveysOutputData = ({ match, history }) => {
    const toolbarOptions = ['ExcelExport', 'PdfExport', 'ColumnChooser']
 
    const toolbarClick = args => {
+      const exportProperties = 'AllPages'
       if (grid && args.item.id === 'Grid_excelexport') {
          // 'Grid_pdfexport' -> Grid component id + _ + toolbar item name
-         const exportProperties = {
-            exportType: dropDown.value,
-         }
+         // const exportProperties = {
+         //    exportType: dropDown.value,
+         // }
          grid.excelExport(exportProperties)
       } else if (grid && args.item.id === 'Grid_pdfexport') {
          grid.pdfExport()
@@ -200,7 +248,7 @@ const SurveysOutputData = ({ match, history }) => {
 
    const dateRangeEndMonth = dateRangeEndCalc.getMonth()
 
-   let targetMonth = dateRangeEndMonth - 5
+   let targetMonth = dateRangeEndMonth - 1
 
    const dateRangeStartCalc = new Date()
 
@@ -272,12 +320,38 @@ const SurveysOutputData = ({ match, history }) => {
 
    const [selectedDates, setSelectedDates] = useState(null)
 
-   const handleDateRangeChange = args => {
-      setdateRangeStart(args.value[0])
-      setdateRangeEnd(args.value[1])
-      setSelectedDates(args.value)
-      setnewSelectedSurveySuperior(true)
+   function formatDate(dateIn) {
+      let date = new Date(dateIn)
+      const month = String(date.getMonth() + 1).padStart(2, '0') // Month (0-indexed)
+      const day = String(date.getDate()).padStart(2, '0') // Day
+      const year = date.getFullYear() // Year
+
+      return `${month}/${day}/${year}`
    }
+   /**
+    * Using debounce from lodash here to to prevent the event to be triggered multiple times due to unwanted reasons.
+    * Also using the React useCallback to set this handleDateRangeChange event handler as a Callback, this prevents the handler to be invoked multiple times due to the dateRangePickerComponent being recreated when re-rendering multiple times due to unwanted reasons.
+    */
+   const handleDateRangeChange = useCallback(
+      debounce(args => {
+         if (
+            args &&
+            args?.value &&
+            (args.value[0] ?? false) &&
+            (args.value[1] ?? false) &&
+            (formatDate(dateRangeStart) != formatDate(args.value[0]) ||
+               formatDate(dateRangeEnd) != formatDate(args.value[1]))
+         ) {
+            setdateRangeStart(args.value[0])
+            setdateRangeEnd(args.value[1])
+            setSelectedDates(args.value)
+            setnewSelectedSurveySuperior(true)
+         }
+         let x = 0
+         x = x + 1
+      }, 300),
+      [],
+   )
 
    const keyword = match.params.keyword || ''
    const pageNumber = match.params.pageNumber || 1
@@ -296,8 +370,11 @@ const SurveysOutputData = ({ match, history }) => {
    const [dispatchExport, setdispatchExport] = useState(false)
    const [exportStatusMessage, setexportStatusMessage] = useState('')
 
+   const [triggerNewSearch, settriggerNewSearch] = useState(false)
+
    const [exportFields, setexportFields] = useState(true)
-   const [startExcelDownload, setstartExcelDownload] = useState(false)
+   const [exportType, setexportType] = useState('')
+   const exportAllowedRef = useRef(true)
 
    const [gridDataSourceArray, setgridDataSourceArray] = useState([])
 
@@ -323,7 +400,7 @@ const SurveysOutputData = ({ match, history }) => {
       loading: exportLoading,
       error: exportError,
       success: exportSuccess,
-      csvData: exportCsvData,
+      exportedData: exportexportedData,
       message: exportMessage,
    } = surveyOutputsExportData
 
@@ -400,20 +477,20 @@ const SurveysOutputData = ({ match, history }) => {
 
       if (!typingTimer.current)
          typingTimer.current = setTimeout(() => {
-            LogThis(log, `timer executed`, L3)
+            LogThis(log, `timer executed`, L0)
             setnewSelectedSurveySuperior(true)
             setselectedPageNumber(1)
          }, 1000)
       else {
          clearTimeout(typingTimer.current)
          typingTimer.current = setTimeout(() => {
-            LogThis(log, `timer executed`, L3)
+            LogThis(log, `timer executed`, L0)
             setnewSelectedSurveySuperior(true)
             setselectedPageNumber(1)
          }, 1000)
       }
       setsearchKeyword(e.target.value)
-      LogThis(log, `START text=${e.target.value}`, L3)
+      LogThis(log, `START text=${e.target.value}`, L0)
    }
 
    const handlePageChange = e => {
@@ -483,15 +560,19 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
-   const exportDataFile = (outputData, exportFields) => {
-      setdispatchExport(true)
-      setexportFields(exportFields)
+   const exportDataFile = (exportFieldsLocal, exportTypeLocal) => {
+      if (exportAllowedRef.current) {
+         exportAllowedRef.current = false
+         setdispatchExport(true)
+         setexportFields(exportFieldsLocal)
+         setexportType(exportTypeLocal)
+      }
    }
 
-   const exportDataExcelFile = (outputData, exportFields) => {
-      setdispatchExport(true)
-      setexportFields(exportFields)
-   }
+   // const exportDataExcelFile = (outputData, exportFields) => {
+   //    setdispatchExport(true)
+   //    setexportFields(exportFields)
+   // }
    const generateOutputFileTemplate = props => {
       let inputValue = props[props.column.field]
 
@@ -534,6 +615,7 @@ const SurveysOutputData = ({ match, history }) => {
                   dateRangeEnd: dateRangeEnd,
                }),
             )
+
             setnewSelectedSurveySuperior(false)
          }
       }
@@ -541,6 +623,7 @@ const SurveysOutputData = ({ match, history }) => {
       dispatch,
       //userInfo,
       newSelectedSurveySuperior,
+      triggerNewSearch,
       //loading,
       selectedSurveySuperior,
       selectedPageNumber,
@@ -586,6 +669,7 @@ const SurveysOutputData = ({ match, history }) => {
                      selectedSurveySuperior.superSurveyShortName,
                   pages: surveyOutputsInfo.pages,
                   exportFieldNames: exportFields,
+                  exportType: exportType,
                   keyword: searchKeyword,
                }),
             )
@@ -598,15 +682,27 @@ const SurveysOutputData = ({ match, history }) => {
       if (
          !exportLoading &&
          exportSuccess &&
-         exportCsvData &&
-         exportCsvData != ''
+         exportexportedData &&
+         exportexportedData != ''
       ) {
          LogThis(log, `UseEffect about to save ReporteRespuestas.csv`, L3)
-         saveStringAsCSV(exportCsvData, 'ReporteRespuestas.csv')
-         setstartExcelDownload(true)
+         switch (exportType) {
+            case DATA_EXPORTER_TYPE_CSV:
+               saveStringAsCSV(exportexportedData, 'ReporteRespuestas.csv')
+               break
+            case DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT:
+               setexcelExportarTriggered(true)
+               setexcelExportMultiDataState(exportexportedData)
+               break
+            default:
+               throw Error('Invalid export type')
+         }
+
+         //setstartExcelDownload(true)
+         exportAllowedRef.current = true
          setdispatchExport(false)
       }
-   }, [dispatch, exportLoading, exportSuccess, exportCsvData])
+   }, [dispatch, exportLoading, exportSuccess, exportexportedData])
 
    useEffect(() => {
       LogThis(log, `UseEffect cycle setexportStatusMessage`, L3)
@@ -666,14 +762,14 @@ const SurveysOutputData = ({ match, history }) => {
                if (isDate) {
                   gridDataSourceObject[key] = new Date(outputValue[key])
                } else {
-                  let encoder = new TextEncoder()
-                  let utf8Array = encoder.encode(outputValueData ?? '')
-                  let utf8String = new TextDecoder().decode(utf8Array)
-                  console.log(
-                     `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
-                  )
+                  // let encoder = new TextEncoder()
+                  // let utf8Array = encoder.encode(outputValueData ?? '')
+                  // let utf8String = new TextDecoder().decode(utf8Array)
+                  // console.log(
+                  //    `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
+                  // )
 
-                  gridDataSourceObject[key] = utf8String
+                  gridDataSourceObject[key] = outputValue[key]
                }
 
                // } else {
@@ -778,24 +874,30 @@ const SurveysOutputData = ({ match, history }) => {
                                  lineHeight: 0.1,
                               }}
                            > */}
-                           <Form.Control
-                              type="text"
-                              placeholder="Texto a buscar..."
-                              value={searchKeyword}
-                              onChange={handleSearchText}
-                              //className="p-1"
-                              // style={{
-                              //    height: '1px',
-                              //    padding: '1px',
-                              //    border: '1px',
-                              // }}
-                              // style={{
-                              //    backgroundColor: 'green',
-                              //    height: '20px',
-                              //    padding: '5px',
-                              //    lineHeight: 0.1,
-                              // }}
-                           ></Form.Control>
+                           {!loading &&
+                              success &&
+                              surveyOutputsInfo &&
+                              surveyOutputsInfo.outputLayouts &&
+                              surveyOutputsInfo.outputValues && (
+                                 <Form.Control
+                                    type="text"
+                                    placeholder="Texto a buscar..."
+                                    value={searchKeyword}
+                                    onChange={handleSearchText}
+                                    //className="p-1"
+                                    // style={{
+                                    //    height: '1px',
+                                    //    padding: '1px',
+                                    //    border: '1px',
+                                    // }}
+                                    // style={{
+                                    //    backgroundColor: 'green',
+                                    //    height: '20px',
+                                    //    padding: '5px',
+                                    //    lineHeight: 0.1,
+                                    // }}
+                                 ></Form.Control>
+                              )}
                            {/* </FloatingLabel> */}
                            {/* <FloatingLabel
                               controlId="floatingInput"
@@ -829,37 +931,25 @@ const SurveysOutputData = ({ match, history }) => {
                            </Form.Group> */}
                            {/* </Form> */}
                         </Col>
-                        <Col
-                           lg={2}
-                           // style={{ backgroundColor: 'green', height: '100%' }}
-                        >
-                           {/* <Form.Group> */}
-                           {/* <Form.Label style={{ marginTop: '1%' }}>
-                                 Rango de Fechas:
-                              </Form.Label> */}
-                           {/* <Form.Label
-                                 style={{
-                                    marginTop: '1%',
-                                    marginLeft: '2%',
-                                 }}
-                              > */}
-                           <DateRangePickerComponent
-                              id="daterangepicker"
-                              placeholder="Select a range"
-                              startDate={dateRangeStart}
-                              endDate={dateRangeEnd}
-                              change={handleDateRangeChange}
-                              // style={{
-                              //    backgroundColor: 'black',
-                              //    height: '100%',
-                              // }}
-                              //className="w-10"
-                              className="w-auto"
-                              locale="es"
-                           />
+                        <Col lg={2}>
+                           {!loading &&
+                              success &&
+                              surveyOutputsInfo &&
+                              surveyOutputsInfo.outputLayouts &&
+                              surveyOutputsInfo.outputValues && (
+                                 <DateRangePickerComponent
+                                    id="daterangepicker"
+                                    placeholder="Select a range"
+                                    startDate={dateRangeStart}
+                                    endDate={dateRangeEnd}
+                                    change={handleDateRangeChange}
+                                    locale="es"
+                                 />
+                              )}
                            {/* </Form.Label>
                            </Form.Group> */}
                         </Col>
+                        {/* </div> */}
                      </Row>
                   </Container>
                )}
@@ -917,12 +1007,87 @@ const SurveysOutputData = ({ match, history }) => {
                         {/* <br /> */}
                         <Row>
                            <Col lg="auto">
+                              <div>
+                                 <ExcelFile
+                                    filename="DatosEncuestas"
+                                    element={
+                                       <Button
+                                          ref={excelExportarPreguntasButton}
+                                          variant="light"
+                                          size="sm"
+                                          style={{ display: 'none' }}
+                                       >
+                                          <i className="fas fa-save fa-2x"></i>{' '}
+                                          Exportar Preguntas
+                                       </Button>
+                                    }
+                                 >
+                                    <ExcelSheet
+                                       dataSet={excelExportMultiDataState}
+                                       name="Datos"
+                                    />
+                                 </ExcelFile>
+                                 <ExcelFile
+                                    filename="DatosEncuestas"
+                                    element={
+                                       <Button
+                                          ref={excelExportarCamposButton}
+                                          variant="light"
+                                          size="sm"
+                                          style={{ display: 'none' }}
+                                       >
+                                          <i className="fas fa-save fa-2x"></i>{' '}
+                                          Exportar Campos
+                                       </Button>
+                                    }
+                                 >
+                                    <ExcelSheet
+                                       dataSet={excelExportMultiDataState}
+                                       name="Datos"
+                                    />
+                                 </ExcelFile>
+                                 <Button
+                                    variant="light"
+                                    size="sm"
+                                    // className="btn-mg"
+                                    // onClick={() => exportDataFileTrigger(true)}
+                                    onClick={() =>
+                                       exportDataFile(
+                                          false,
+                                          DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT,
+                                       )
+                                    }
+                                 >
+                                    <i className="fas fa-save fa-2x"></i> Excel
+                                    Preguntas
+                                 </Button>
+
+                                 <Button
+                                    variant="light"
+                                    size="sm"
+                                    // className="btn-mg"
+                                    onClick={() =>
+                                       exportDataFile(
+                                          true,
+                                          DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT,
+                                       )
+                                    }
+                                 >
+                                    <i className="fas fa-save fa-2x"></i>Excel
+                                    Campos
+                                 </Button>
+                              </div>
+                           </Col>
+                           <Col lg="auto">
                               <Button
                                  variant="light"
                                  size="sm"
                                  // className="btn-mg"
                                  onClick={() =>
-                                    exportDataFile(surveyOutputsInfo, false)
+                                    exportDataFile(
+                                       false,
+                                       DATA_EXPORTER_TYPE_CSV,
+                                    )
                                  }
                               >
                                  <i className="fas fa-save fa-2x"></i> CSV
@@ -935,33 +1100,14 @@ const SurveysOutputData = ({ match, history }) => {
                                  size="sm"
                                  // className="btn-mg"
                                  onClick={() =>
-                                    exportDataFile(surveyOutputsInfo, true)
+                                    exportDataFile(true, DATA_EXPORTER_TYPE_CSV)
                                  }
                               >
                                  <i className="fas fa-save fa-2x"></i> CSV
                                  Campos
                               </Button>
                            </Col>
-                           <Col lg="auto">
-                              <ExcelFile
-                                 element={
-                                    <Button
-                                       variant="light"
-                                       size="sm"
-                                       // className="btn-mg"
-                                       onClick={() => exportDataFile(true)}
-                                    >
-                                       <i className="fas fa-save fa-2x"></i>{' '}
-                                       Exportar Preguntas
-                                    </Button>
-                                 }
-                              >
-                                 <ExcelSheet
-                                    dataSet={multiDataSet}
-                                    name="Organization"
-                                 />
-                              </ExcelFile>
-                           </Col>
+
                            {/* <Col>
                               <Button
                                  variant="light"
@@ -982,7 +1128,7 @@ const SurveysOutputData = ({ match, history }) => {
                                     element={<span />}
                                  >
                                     <ExcelSheet
-                                       dataSet={multiDataSet}
+                                       dataSet={excelMultiDataSource}
                                        name="ResultadosEncuestas"
                                     />
                                  </ExcelFile>
@@ -1203,7 +1349,7 @@ const SurveysOutputData = ({ match, history }) => {
                            </SeriesCollectionDirective>
                         </ChartComponent> */}
 
-                        <div className="mb-3">
+                        {/* <div className="mb-3">
                            <Form.Label className="mr-3">
                               {' '}
                               Tipo de exportación:{' '}
@@ -1215,7 +1361,7 @@ const SurveysOutputData = ({ match, history }) => {
                               width={170}
                               dataSource={dropDownData}
                            ></DropDownListComponent>
-                        </div>
+                        </div> */}
                         <GridComponent
                            //style={{ width: '100%' }}
                            id="Grid"
@@ -1241,7 +1387,7 @@ const SurveysOutputData = ({ match, history }) => {
                            dataBound={dataBound}
                         >
                            <ColumnsDirective>
-                              <ColumnDirective
+                              {/* <ColumnDirective
                                  field="SCL90_TOTAL_MAX_360"
                                  headerText="SCL90 TOTAL %"
                                  //width="100"
@@ -1254,10 +1400,11 @@ const SurveysOutputData = ({ match, history }) => {
                                  width="100"
                                  type="number"
                                  //template={percentageBarTemplate}
-                              />
+                              /> */}
                               <ColumnDirective
                                  field="INFO_1"
                                  width="100"
+                                 type="number"
                                  template={generateOutputFileTemplate}
                               />
                               {surveyOutputsInfo.outputLayouts.map(
@@ -1272,51 +1419,51 @@ const SurveysOutputData = ({ match, history }) => {
                                        .decode(utf8Array)
                                        .replace(/,/g, ' ')
                                        .replace(/:/g, '')
-                                    console.log(
-                                       `${layout.fieldName}:pos${layout.position}`,
-                                    )
-                                    if (
-                                       layout.fieldName === 'INFO_3' ||
-                                       layout.fieldName === 'INFO_4'
-                                    ) {
-                                       return (
-                                          <ColumnDirective
-                                             //key={keyVal}
-                                             field={utf8String}
-                                             //width="150"
-                                             visible={
-                                                layout.showInSurveyOutputScreen
-                                             }
-                                             format="yMd"
-                                             type="date"
-                                          />
-                                       )
-                                    } else {
-                                       return (
-                                          <ColumnDirective
-                                             //key={keyVal}
-                                             field={utf8String}
-                                             width="150"
-                                             visible={
-                                                layout.showInSurveyOutputScreen
-                                             }
-                                             type={
-                                                surveyOutputsInfo &&
-                                                surveyOutputsInfo.outputValues &&
-                                                surveyOutputsInfo.outputValues &&
-                                                surveyOutputsInfo.outputValues
-                                                   .count > 0 &&
-                                                isNaN(
-                                                   surveyOutputsInfo
-                                                      .outputValues[0][
-                                                      layout.fieldName
-                                                   ],
-                                                )
-                                                   ? 'string'
-                                                   : 'number'
-                                             }
-                                          />
-                                       )
+                                    // console.log(
+                                    //    `${layout.fieldName}:pos${layout.position}`,
+                                    // )
+                                    switch (layout.dataType) {
+                                       case 'Date':
+                                          return (
+                                             <ColumnDirective
+                                                //key={keyVal}
+                                                field={utf8String}
+                                                //width="150"
+                                                visible={
+                                                   layout.showInSurveyOutputScreen
+                                                }
+                                                format="yMd"
+                                                type="datetime"
+                                             />
+                                          )
+                                       case 'Integer':
+                                          return (
+                                             <ColumnDirective
+                                                //key={keyVal}
+                                                field={utf8String}
+                                                width="150"
+                                                visible={
+                                                   layout.showInSurveyOutputScreen
+                                                }
+                                                type="number"
+                                             />
+                                          )
+                                       case 'String':
+                                          return (
+                                             <ColumnDirective
+                                                //key={keyVal}
+                                                field={utf8String}
+                                                width="150"
+                                                visible={
+                                                   layout.showInSurveyOutputScreen
+                                                }
+                                                type="string"
+                                             />
+                                          )
+                                       default:
+                                          throw Error(
+                                             `Invalid dataType for field ${utf8String}`,
+                                          )
                                     }
                                  },
                               )}

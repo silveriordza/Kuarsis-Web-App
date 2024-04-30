@@ -8,7 +8,8 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { registerLicense } from '@syncfusion/ej2-base';
 
-registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCekx0TXxbf1x0ZFRGallTTnVaUiweQnxTdEFjXX1fcXRQRGNZVkN+Xw== ')
+registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtceXZVQ2JdVkBwXUY=')
+
 
 ReactDOM.render(
   <Provider store={store}>
