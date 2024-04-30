@@ -63,9 +63,35 @@ export class DataExporterExcelReactDataExport extends DataExporter {
       for (const outputValue of outputValues) {
          let rowValues = []
          for (const outputField of outputsLayouts) {
-            let stringValue = outputValue[outputField.fieldName]
-            let utf8String = cleanCsvValue(stringValue)
-            rowValues = this.addFieldValueToRow(rowValues, utf8String)
+            //let stringValue = outputValue[outputField.fieldName]
+            //let utf8String = cleanCsvValue(stringValue)
+            //rowValues = this.addFieldValueToRow(rowValues, utf8String)
+            let value = null
+            switch (outputField.dataType) {
+               case 'Date':
+                  value = outputValue[outputField.fieldName] ?? ''
+                  break
+               case 'String':
+                  value = cleanCsvValue(
+                     outputValue[outputField.fieldName] ?? '',
+                  )
+                  break
+               case 'Integer':
+                  let cleanValue = cleanCsvValue(
+                     outputValue[outputField.fieldName],
+                  )
+                  if (cleanValue == '' || isNaN(cleanValue)) {
+                     value = 0
+                  } else {
+                     value = parseInt(cleanValue)
+                  }
+                  break
+               default:
+                  throw Error(
+                     `Invalid data type in DataExporterExcelReactDataExport field=${outputField.fieldName} data type=${outputField.dataType}`,
+                  )
+            }
+            rowValues = this.addFieldValueToRow(rowValues, value)
          }
          //rowValues = rowValues.slice(0, -1) + '\n'
          this.addRow(rowValues)

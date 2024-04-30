@@ -140,30 +140,30 @@ const SurveysOutputData = ({ match, history }) => {
 
    const [excelExportarTriggered, setexcelExportarTriggered] = useState(false)
 
-   const exportDataFileTrigger = exportPreguntas => {
-      let colValues = []
-      excelMultiDataSet[0].data = []
-      if (exportFields) {
-         excelMultiDataSet[0].columns[0].title = 'Campos'
-         //excelMultiDataSet[0].data[1][1].value = "Valor Campo 1"
-         colValues = []
-         colValues.push({ value: 20000 })
-         colValues.push({ value: '20001' })
-         colValues.push({ value: 'SOME OTHER CAMPO VALUE' })
-         excelMultiDataSet[0].data.push(colValues)
-      } else {
-         excelMultiDataSet[0].columns[0].title = 'Preguntas'
-         //excelMultiDataSet[0].data[1][1].value = "Valor Pregunta 1"
-         colValues = []
-         colValues.push({ value: 10000 })
-         colValues.push({ value: '10001' })
-         colValues.push({ value: 'SOME OTHER PREGUNTA VALUE' })
-         excelMultiDataSet[0].data.push(colValues)
-      }
-      setexcelExportarTriggered(true)
-      setexportFields(exportPreguntas)
-      setexcelExportMultiDataState(excelMultiDataSet)
-   }
+   // const exportDataFileTrigger = exportPreguntas => {
+   //    let colValues = []
+   //    excelMultiDataSet[0].data = []
+   //    if (exportFields) {
+   //       excelMultiDataSet[0].columns[0].title = 'Campos'
+   //       //excelMultiDataSet[0].data[1][1].value = "Valor Campo 1"
+   //       colValues = []
+   //       colValues.push({ value: 20000 })
+   //       colValues.push({ value: '20001' })
+   //       colValues.push({ value: 'SOME OTHER CAMPO VALUE' })
+   //       excelMultiDataSet[0].data.push(colValues)
+   //    } else {
+   //       excelMultiDataSet[0].columns[0].title = 'Preguntas'
+   //       //excelMultiDataSet[0].data[1][1].value = "Valor Pregunta 1"
+   //       colValues = []
+   //       colValues.push({ value: 10000 })
+   //       colValues.push({ value: '10001' })
+   //       colValues.push({ value: 'SOME OTHER PREGUNTA VALUE' })
+   //       excelMultiDataSet[0].data.push(colValues)
+   //    }
+   //    setexcelExportarTriggered(true)
+   //    setexportFields(exportPreguntas)
+   //    setexcelExportMultiDataState(excelMultiDataSet)
+   // }
 
    const excelExportarPreguntasButton = useRef(null)
    const excelExportarCamposButton = useRef(null)
