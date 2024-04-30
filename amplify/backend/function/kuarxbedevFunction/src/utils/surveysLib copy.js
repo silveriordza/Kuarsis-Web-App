@@ -31,6 +31,7 @@ const {
 } = require('../utils/Functions.js')
 
 let { loadOneDynamicModelFromDB } = require('../utils/mongoDbHelper.js')
+const { underline } = require('colors/index.js')
 
 const srcFileName = 'surveysLib.js'
 
@@ -270,7 +271,7 @@ const surveySaveOutputRedesignedHelper = async (
                break
             case 'INFO_4':
                if (isFromWebhook) {
-                  doc[column] = formatDate(answer)
+                  doc[column] = answer.toISOString()
                } else {
                   dateTimeParts = answer.split(/[\s/:\-]/)
                   dateValue = new Date(
@@ -291,13 +292,20 @@ const surveySaveOutputRedesignedHelper = async (
                   case 'Integer':
                      doc[column] = answer ?? 0
                      break
+                  case 'Number':
+                     doc[column] = answer ?? 0
+                     break
                   default:
-                     LogThis(
-                        log,
-                        `Invalid data type for field ${row.fieldName}, type=${row.dataType}`,
-                        L0,
-                     )
-                     throw Error(`Invalid data type for field ${row.fieldName}`)
+                  // {
+                  //    LogThis(
+                  //       log,
+                  //       `Invalid data type ${row.dataType} for field ${row.fieldName}`,
+                  //       L0,
+                  //    )
+                  //    throw Error(
+                  //       `Invalid data type ${row.dataType} for field ${row.fieldName}`,
+                  //    )
+                  // }
                }
             }
          }

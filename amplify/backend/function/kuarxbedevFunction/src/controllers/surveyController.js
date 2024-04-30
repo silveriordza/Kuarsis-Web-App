@@ -2512,20 +2512,37 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          //fields = Object.keys(outputLayouts[0]);
          //LogThis(log, `fields=${JSON.stringify(fields)}`, L3);
          //const condition = {};
-         outputLayouts.forEach(field => {
-            if (field.showInSurveyOutputScreen) {
-               if (field.dataType != 'Date') {
-                  condition[field.fieldName] = {
-                     $regex: new RegExp(keyword, 'i'),
+         if (keyword != '') {
+            outputLayouts.forEach(field => {
+               if (field.showInSurveyOutputScreen) {
+                  if (field.dataType == 'String') {
+                     condition[field.fieldName] = {
+                        $regex: new RegExp(keyword.toString(), 'i'),
+                     }
+                     conditions.push(condition)
+                  } else if (!isNaN(keyword)) {
+                     switch (field.dataType) {
+                        case 'Integer':
+                           condition[field.fieldName] = parseInt(keyword ?? 0)
+                           conditions.push(condition)
+                           break
+                        case 'Float':
+                           condition[field.fieldName] = parseFloat(keyword ?? 0)
+                           conditions.push(condition)
+                           break
+                        default:
+                     }
                   }
-
-                  conditions.push(condition)
+                  condition = {}
                }
-               condition = {}
-            }
-         })
+            })
+         }
 
          //conditions.push(condition);
+      }
+      let conditionsObject = {}
+      if (conditions && conditions.length > 0) {
+         conditionsObject = { $or: conditions }
       }
 
       LogThis(log, `conditions=${JSON.stringify(conditions, null, 1)}`, L3)
@@ -2551,7 +2568,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       //   .exec();
       let dateRangeStart = null
       let dateRangeEnd = null
-      let conditionsObject = { $or: conditions }
+
       if (dateRangeStartString && dateRangeEndString) {
          dateRangeStart = new Date(dateRangeStartString)
          dateRangeEnd = new Date(dateRangeEndString)
