@@ -13240,18 +13240,18 @@
          "criteria": {
             "fieldNameValue": "BECK_TOTAL_DEPRESION_MAX_63",
             "ranges": [
-               { "min": 0, "max": 7, "resultIfTrue": "Sin Depresion" },
-               { "min": 8, "max": 13, "resultIfTrue": "Depresion Ligera" },
-               { "min": 14, "max": 18, "resultIfTrue": "Depresion Moderada" },
+               { "min": 0, "max": 7, "resultIfTrue": "Sin Depresión" },
+               { "min": 8, "max": 13, "resultIfTrue": "Depresión Ligera" },
+               { "min": 14, "max": 18, "resultIfTrue": "Depresión Moderada" },
                {
                   "min": 19,
                   "max": 22,
-                  "resultIfTrue": "Depresion Severa - requiere ayuda"
+                  "resultIfTrue": "Depresión Severa - requiere ayuda"
                },
                {
                   "min": 23,
                   "max": 1000,
-                  "resultIfTrue": "Depresion Muy Severa - requiere ayuda"
+                  "resultIfTrue": "Depresión Muy Severa - requiere ayuda"
                }
             ]
          },
@@ -13458,8 +13458,8 @@
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
-         "description": "VIOLENCIA lista de tipos de violencia que padeceiron",
-         "shortDescription": "VIOLENCIA lista de tipos de violencia que padeceiron",
+         "description": "VIOLENCIA lista de tipos de violencia que padecieron",
+         "shortDescription": "VIOLENCIA lista de tipos de violencia que padecieron",
          "fieldName": "VP_DETALLES_P3_TIPO_LISTA",
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
