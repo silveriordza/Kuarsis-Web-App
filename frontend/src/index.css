@@ -14,12 +14,12 @@
 @import '../node_modules/@syncfusion/ej2-react-grids/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-react-calendars/styles/material.css';
 
-body > div:nth-child(2) {
+/* body > div:nth-child(2) {
    display: none;
 }
 body > div:last-child {
    display: none;
-}
+} */
 
 html {
    font-size: 16px;
@@ -587,4 +587,11 @@ canvas {
 }
 #daterangepicker {
    width: '50px' !important;
+}
+
+.tooltip-inner {
+   background-color: #423f3f86; /* Change background color */
+   color: #fff; /* Change text color */
+   border-radius: 4px; /* Add border radius */
+   font-size: 14px; /* Change font size */
 }

@@ -19,6 +19,8 @@ import {
    Row,
    Container,
    FloatingLabel,
+   OverlayTrigger,
+   Tooltip,
    ProgressBar,
 } from 'react-bootstrap'
 //import { FloatingLabel } from 'react-bootstrap/FloatingLabel'
@@ -43,6 +45,11 @@ import {
    ExcelExport,
    PdfExport,
    ColumnChooser,
+   Aggregate,
+   AggregateColumnsDirective,
+   AggregateDirective,
+   AggregatesDirective,
+   AggregateColumnDirective,
 } from '@syncfusion/ej2-react-grids'
 import {
    Inject,
@@ -61,7 +68,7 @@ import {
    SeriesDirective,
    Legend,
    Category,
-   Tooltip,
+   //Tooltip,
    DataLabel,
    BarSeries,
 } from '@syncfusion/ej2-react-charts'
@@ -190,12 +197,29 @@ const SurveysOutputData = ({ match, history }) => {
       { text: 'Todas las páginas', value: 'AllPages' },
    ]
 
-   const pageSettings = { pageSize: 100 }
+   const aggregateAverageCaptionTemplate = props => {
+      let value = parseFloat(props.Average).toFixed(0)
+
+      return <span>Prom: {value}</span>
+   }
+   const aggregateMinCaptionTemplate = props => {
+      return <span>Min: {props.Min}</span>
+   }
+   const aggregateMaxCaptionTemplate = props => {
+      return <span>Máx: {props.Max}</span>
+   }
+
+   const [showMaxTooltip, setshowMaxTooltip] = useState(false)
+   const [gridPageRowsQuantityText, setgridPageRowsQuantityText] = useState(10)
+   //const pageSettings = { pageSize: 100 }
+   const [pageSettings, setpageSettings] = useState({ pageSize: 10 })
+
    const sortSettings = {
       columns: [],
    }
    const filterSettings = {
       type: 'Excel',
+      ignoreAccent: true,
       operators: {
          stringOperator: [
             { value: 'startsWith', text: 'Starts With' },
@@ -232,10 +256,15 @@ const SurveysOutputData = ({ match, history }) => {
          // const exportProperties = {
          //    exportType: dropDown.value,
          // }
+         grid.showSpinner()
          grid.excelExport(exportProperties)
-      } else if (grid && args.item.id === 'Grid_pdfexport') {
-         grid.pdfExport()
       }
+      // else if (grid && args.item.id === 'Grid_pdfexport') {
+      //    grid.pdfExport()
+      // }
+   }
+   const excelExportComplete = () => {
+      grid.hideSpinner()
    }
 
    const dataBound = () => {
@@ -365,6 +394,7 @@ const SurveysOutputData = ({ match, history }) => {
    const [surveyDetailsDispatched, setsurveyDetailsDispatched] = useState(false)
 
    const [searchKeyword, setsearchKeyword] = useState(keyword)
+
    const [surveySelected, setsurveySelected] = useState(surveySelectedParam)
 
    const [dispatchExport, setdispatchExport] = useState(false)
@@ -434,15 +464,6 @@ const SurveysOutputData = ({ match, history }) => {
                e.target.selectedIndex - 1
             }/page/${selectedPageNumber}`,
          )
-         // LogThis(
-         //   log,
-         //   `selectedSurvey=${JSON.stringify(selectedSurvey)}; index=${
-         //     e.target.selectedIndex - 1
-         //   }; surveyDetailsInfo=${JSON.stringify(surveyDetailsInfo)}`,
-         //   L1
-         // );
-         // setselectedSurveySuperior(selectedSurvey);
-         // setnewSelectedSurveySuperior(true);
       }
    }
 
@@ -473,7 +494,6 @@ const SurveysOutputData = ({ match, history }) => {
    // }, 2000);
    const handleSearchText = async e => {
       log.functionName = 'handleSearchText'
-      //debouncedKeywordSearch(e.target.value);
 
       if (!typingTimer.current)
          typingTimer.current = setTimeout(() => {
@@ -490,6 +510,30 @@ const SurveysOutputData = ({ match, history }) => {
          }, 1000)
       }
       setsearchKeyword(e.target.value)
+      LogThis(log, `START text=${e.target.value}`, L0)
+   }
+
+   const integerValueClearance = textValue => {}
+
+   const handlegridPageRowsQuantityText = async e => {
+      log.functionName = 'handlegridPageRowsQuantityText'
+
+      setgridPageRowsQuantityText(e.target.value)
+
+      if (!typingTimer.current)
+         typingTimer.current = setTimeout(() => {
+            LogThis(log, `timer executed`, L0)
+            let localPageSettings = { pageSize: parseInt(e.target.value) }
+            setpageSettings(localPageSettings)
+         }, 1000)
+      else {
+         clearTimeout(typingTimer.current)
+         typingTimer.current = setTimeout(() => {
+            LogThis(log, `timer executed`, L0)
+            let localPageSettings = { pageSize: parseInt(e.target.value) }
+            setpageSettings(localPageSettings)
+         }, 1000)
+      }
       LogThis(log, `START text=${e.target.value}`, L0)
    }
 
@@ -569,10 +613,6 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
-   // const exportDataExcelFile = (outputData, exportFields) => {
-   //    setdispatchExport(true)
-   //    setexportFields(exportFields)
-   // }
    const generateOutputFileTemplate = props => {
       let inputValue = props[props.column.field]
 
@@ -621,16 +661,12 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }, [
       dispatch,
-      //userInfo,
       newSelectedSurveySuperior,
       triggerNewSearch,
-      //loading,
       selectedSurveySuperior,
       selectedPageNumber,
       dateRangeStart,
       dateRangeEnd,
-
-      //selectedPageNumber,
    ])
 
    useEffect(() => {
@@ -736,16 +772,12 @@ const SurveysOutputData = ({ match, history }) => {
       ) {
          let gridDataSourceArrayLocal = []
          surveyOutputsInfo.outputValues.map(outputValue => {
-            // const keys = Object.keys(outputValue)
-            // keys.shift()
             let outputValueData = null
             let gridDataSourceObject = {}
             surveyOutputsInfo.outputLayouts.map(outputField => {
                let key = null
                key = outputField.fieldName
-               // if (
-               //    outputField.showInSurveyOutputScreen
-               // ) {
+
                let isDate = false
                switch (outputField.fieldName) {
                   case 'INFO_3':
@@ -762,19 +794,8 @@ const SurveysOutputData = ({ match, history }) => {
                if (isDate) {
                   gridDataSourceObject[key] = new Date(outputValue[key])
                } else {
-                  // let encoder = new TextEncoder()
-                  // let utf8Array = encoder.encode(outputValueData ?? '')
-                  // let utf8String = new TextDecoder().decode(utf8Array)
-                  // console.log(
-                  //    `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
-                  // )
-
                   gridDataSourceObject[key] = outputValue[key]
                }
-
-               // } else {
-               //    return
-               // }
             })
             gridDataSourceArrayLocal.push(gridDataSourceObject)
          })
@@ -809,28 +830,13 @@ const SurveysOutputData = ({ match, history }) => {
                surveyDetailSuccess &&
                surveyDetailsInfo &&
                surveyDetailsInfo.surveySuperiors && (
-                  <Container
-                     // style={{
-                     //    marginTop: '1%',
-                     //    height: '1000px',
-                     //    backgroundColor: 'red',
-                     // }}
-                     fluid
-                  >
-                     <Row
-                        className="mb-1"
-                        // style={{ backgroundColor: 'yellow', height: '50px' }}
-                     >
-                        <Col
-                           // style={{ backgroundColor: 'blue', height: '200%' }}
-                           lg={3}
-                        >
-                           {/* <h5>Seleccione la encuesta</h5> */}
+                  <Container fluid>
+                     <Row className="mb-1">
+                        <Col lg={3}>
                            <Form.Control
                               as="select"
                               value={selectedSurveySuperior ?? ''}
                               onChange={handleSelectSurveySuperior}
-                              // style={{ backgroundColor: 'orange' }}
                            >
                               <option key={50000} value={'NoSurveySelected'}>
                                  {' '}
@@ -847,33 +853,7 @@ const SurveysOutputData = ({ match, history }) => {
                               )}
                            </Form.Control>
                         </Col>
-                        <Col
-                           lg={2}
-                           //className="h-1"
-                           // style={{
-                           //    height: '1px',
-                           //    padding: '1px',
-                           //    border: '1px',
-                           // }}
-                           // style={{ backgroundColor: 'brown', height: '10%' }}
-                        >
-                           {/* <Form> */}
-                           {/* <FloatingLabel
-                              controlId="flabel"
-                              label="Texto a buscar..."
-                              //className="mb-1"
-                              // style={{
-                              //    height: '1px',
-                              //    padding: '1px',
-                              //    border: '1px',
-                              // }}
-                              style={{
-                                 backgroundColor: 'yellow',
-                                 height: '1px',
-                                 padding: '1px',
-                                 lineHeight: 0.1,
-                              }}
-                           > */}
+                        <Col lg={2}>
                            {!loading &&
                               success &&
                               surveyOutputsInfo &&
@@ -884,18 +864,6 @@ const SurveysOutputData = ({ match, history }) => {
                                     placeholder="Texto a buscar..."
                                     value={searchKeyword}
                                     onChange={handleSearchText}
-                                    //className="p-1"
-                                    // style={{
-                                    //    height: '1px',
-                                    //    padding: '1px',
-                                    //    border: '1px',
-                                    // }}
-                                    // style={{
-                                    //    backgroundColor: 'green',
-                                    //    height: '20px',
-                                    //    padding: '5px',
-                                    //    lineHeight: 0.1,
-                                    // }}
                                  ></Form.Control>
                               )}
                            {/* </FloatingLabel> */}
@@ -931,25 +899,61 @@ const SurveysOutputData = ({ match, history }) => {
                            </Form.Group> */}
                            {/* </Form> */}
                         </Col>
-                        <Col lg={2}>
-                           {!loading &&
-                              success &&
-                              surveyOutputsInfo &&
-                              surveyOutputsInfo.outputLayouts &&
-                              surveyOutputsInfo.outputValues && (
-                                 <DateRangePickerComponent
-                                    id="daterangepicker"
-                                    placeholder="Select a range"
-                                    startDate={dateRangeStart}
-                                    endDate={dateRangeEnd}
-                                    change={handleDateRangeChange}
-                                    locale="es"
-                                 />
-                              )}
-                           {/* </Form.Label>
-                           </Form.Group> */}
-                        </Col>
-                        {/* </div> */}
+
+                        {!loading &&
+                           success &&
+                           surveyOutputsInfo &&
+                           surveyOutputsInfo.outputLayouts &&
+                           surveyOutputsInfo.outputValues && (
+                              <>
+                                 <Col lg={2}>
+                                    <DateRangePickerComponent
+                                       id="daterangepicker"
+                                       placeholder="Select a range"
+                                       startDate={dateRangeStart}
+                                       endDate={dateRangeEnd}
+                                       change={handleDateRangeChange}
+                                       locale="es"
+                                    />
+                                 </Col>
+                                 <Col lg={1}>
+                                    <OverlayTrigger
+                                       placement="top"
+                                       delay={{ show: 50, hide: 50 }}
+                                       show={showMaxTooltip}
+                                       transition={true}
+                                       onToggle={show => {
+                                          if (show) {
+                                             setTimeout(() => {
+                                                setshowMaxTooltip(false)
+                                             }, 2000)
+                                          }
+                                       }}
+                                       overlay={
+                                          <Tooltip id="tooltip-top">
+                                             Máximo número de encuestas por
+                                             página.
+                                          </Tooltip>
+                                       }
+                                    >
+                                       <div
+                                          onMouseEnter={() => {
+                                             setshowMaxTooltip(true)
+                                          }}
+                                       >
+                                          <Form.Control
+                                             type="number"
+                                             placeholder="10"
+                                             value={gridPageRowsQuantityText}
+                                             onChange={
+                                                handlegridPageRowsQuantityText
+                                             }
+                                          ></Form.Control>
+                                       </div>
+                                    </OverlayTrigger>
+                                 </Col>
+                              </>
+                           )}
                      </Row>
                   </Container>
                )}
@@ -963,48 +967,6 @@ const SurveysOutputData = ({ match, history }) => {
                <>
                   <div>
                      <Container fluid>
-                        <Row>
-                           <Form>
-                              <Row>
-                                 {/* <Col>
-                                    <Form.Group controlId="textControl">
-                                       <Form.Label style={{ marginTop: '1%' }}>
-                                          Búsqueda por texto:
-                                       </Form.Label>
-                                       <Form.Control
-                                          type="text"
-                                          placeholder="Buscar..."
-                                          value={searchKeyword}
-                                          onChange={handleSearchText}
-                                       ></Form.Control>
-                                    </Form.Group>
-                                 </Col>
-                                 <Col>
-                                    <Form.Group>
-                                       <Form.Label style={{ marginTop: '1%' }}>
-                                          Rango de Fechas:
-                                       </Form.Label>
-                                       <Form.Label
-                                          style={{
-                                             marginTop: '1%',
-                                             marginLeft: '2%',
-                                          }}
-                                       >
-                                          <DateRangePickerComponent
-                                             id="daterangepicker"
-                                             placeholder="Select a range"
-                                             startDate={dateRangeStart}
-                                             endDate={dateRangeEnd}
-                                             change={handleDateRangeChange}
-                                             //width="25%"
-                                          />                                          
-                                       </Form.Label>
-                                    </Form.Group>
-                                 </Col> */}
-                              </Row>
-                           </Form>
-                        </Row>
-                        {/* <br /> */}
                         <Row>
                            <Col lg="auto">
                               <div>
@@ -1107,35 +1069,6 @@ const SurveysOutputData = ({ match, history }) => {
                                  Campos
                               </Button>
                            </Col>
-
-                           {/* <Col>
-                              <Button
-                                 variant="light"
-                                 size="sm"
-                                 // className="btn-mg"
-                                 onClick={() =>
-                                    exportDataExcelFile(surveyOutputsInfo, true)
-                                 }
-                              >
-                                 <i className="fas fa-save fa-2x"></i> Exportar
-                                 Excel
-                              </Button>
-
-                              {startExcelDownload && (
-                                 <ExcelFile
-                                    filename="ResultadosEncuestas"
-                                    hideElement={true}
-                                    element={<span />}
-                                 >
-                                    <ExcelSheet
-                                       dataSet={excelMultiDataSource}
-                                       name="ResultadosEncuestas"
-                                    />
-                                 </ExcelFile>
-                              )}
-                              {startExcelDownload &&
-                                 setstartExcelDownload(false)}
-                           </Col> */}
                            <Col md="auto">
                               <Form.Label>{exportStatusMessage}</Form.Label>
                            </Col>
@@ -1143,225 +1076,7 @@ const SurveysOutputData = ({ match, history }) => {
                      </Container>
                   </div>
                   <div>
-                     {/* <Container fluid="xxl">
-                        <Row>
-                           <Col>
-                              <Table
-                                 striped
-                                 bordered
-                                 hover
-                                 responsive
-                                 className="table-sm"
-                              >
-                                 <thead>
-                                    <tr>
-                                       <th></th>
-                                       {surveyOutputsInfo.outputLayouts.map(
-                                          (layout, keyVal) => {
-                                             if (
-                                                layout.showInSurveyOutputScreen
-                                             ) {
-                                                let encoder = new TextEncoder()
-                                                let utf8Array = encoder.encode(
-                                                   layout.questionShort,
-                                                )
-                                                let utf8String =
-                                                   new TextDecoder()
-                                                      .decode(utf8Array)
-                                                      .replace(/,/g, ' ')
-                                                      .replace(/:/g, '')
-                                                console.log(
-                                                   `${layout.fieldName}:pos${layout.position}`,
-                                                )
-                                                return (
-                                                   <th
-                                                      key={keyVal}
-                                                      style={{
-                                                         whiteSpace: 'nowrap',
-                                                      }}
-                                                   >
-                                                      {utf8String}
-                                                   </th>
-                                                )
-                                             } else {
-                                                return
-                                             }
-                                          },
-                                       )}
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    {surveyOutputsInfo.outputValues.map(
-                                       outputValue => {
-                                          const keys = Object.keys(outputValue)
-                                          keys.shift()
-                                          let outputValueData = null
-                                          return (
-                                             <tr key={outputValue._id}>
-                                                <td>
-                                                   <Button
-                                                      variant="dark"
-                                                      className="btn-sm"
-                                                      onClick={() =>
-                                                         GenerateOutputFile(
-                                                            outputValue._id,
-                                                         )
-                                                      }
-                                                   >
-                                                      <i className="fas fa-tasks"></i>
-                                                   </Button>
-                                                </td>
-                                                {surveyOutputsInfo.outputLayouts.map(
-                                                   outputField => {
-                                                      let key = null
-                                                      key =
-                                                         outputField.fieldName
-                                                      if (
-                                                         outputField.showInSurveyOutputScreen
-                                                      ) {
-                                                         switch (
-                                                            outputField.fieldName
-                                                         ) {
-                                                            case 'INFO_3':
-                                                               outputValueData =
-                                                                  formatDate(
-                                                                     outputValue[
-                                                                        key
-                                                                     ],
-                                                                  )
-                                                               break
-                                                            case 'INFO_4':
-                                                               outputValueData =
-                                                                  formatDate(
-                                                                     outputValue[
-                                                                        key
-                                                                     ],
-                                                                  )
-                                                               break
-                                                            default:
-                                                               outputValueData =
-                                                                  outputValue[
-                                                                     key
-                                                                  ]
-                                                         }
-
-                                                         let encoder =
-                                                            new TextEncoder()
-                                                         let utf8Array =
-                                                            encoder.encode(
-                                                               outputValueData,
-                                                            )
-                                                         let utf8String =
-                                                            new TextDecoder().decode(
-                                                               utf8Array,
-                                                            )
-                                                         console.log(
-                                                            `${outputField.fieldName}:ov${outputValueData}:txt${utf8String}:pos${outputField.position}`,
-                                                         )
-                                                         return (
-                                                            <td
-                                                               key={key}
-                                                               style={{
-                                                                  whiteSpace:
-                                                                     'nowrap',
-                                                               }}
-                                                            >
-                                                               {utf8String}
-                                                            </td>
-                                                         )
-                                                      } else {
-                                                         return
-                                                      }
-                                                   },
-                                                )}
-                                             </tr>
-                                          )
-                                       },
-                                    )}
-                                 </tbody>
-                              </Table>
-                           </Col>
-                        </Row>
-                        <Row>
-                           <Col>
-                              <PaginateGeneric
-                                 onClick={handlePageChange}
-                                 selectedSurveyIndex={surveySelected}
-                                 pages={surveyOutputsInfo.pages}
-                                 page={pageNumber}
-                                 keyword={searchKeyword ? searchKeyword : ''}
-                              />
-                           </Col>
-                        </Row>
-                     </Container> */}
                      <Container fluid>
-                        {/* <GridComponent dataSource={data2} width="400">
-                           <ColumnsDirective>
-                              <ColumnDirective
-                                 field="id"
-                                 headerText="ID"
-                                 width="100"
-                              />
-                              <ColumnDirective
-                                 field="name"
-                                 headerText="Name"
-                                 width="100"
-                              />
-                              <ColumnDirective
-                                 field="percentage"
-                                 headerText="Numeric Percentage"
-                                 width="100"
-                                 //template={percentageBarTemplate}
-                              />
-                              <ColumnDirective
-                                 field="percentage"
-                                 headerText="Percentage"
-                                 width="100"
-                                 template={percentageBarTemplate}
-                              />
-                           </ColumnsDirective>
-                           <Inject services={[]} />
-                        </GridComponent>
-                        <ChartComponent
-                           id="charts2"
-                           primaryXAxis={primaryxAxis}
-                           primaryYAxis={primaryyAxis}
-                           title="SCL-90 (%) OF TOTAL"
-                           height="150"
-                        >
-                           <Inject
-                              services={[
-                                 BarSeries,
-                                 Legend,
-                                 Tooltip,
-                                 DataLabel,
-                                 Category,
-                              ]}
-                           />
-                           <SeriesCollectionDirective>
-                              <SeriesDirective
-                                 dataSource={data}
-                                 xName="x"
-                                 yName="y"
-                                 name="SCL90"
-                                 type="Bar"
-                              ></SeriesDirective>
-                           </SeriesCollectionDirective>
-                        </ChartComponent> */}
-
-                        {/* <div className="mb-3">
-                           <Form.Label className="mr-3">
-                              {' '}
-                              Tipo de exportación:{' '}
-                           </Form.Label>
-                           <DropDownListComponent
-                              Class
-                              ref={d => (dropDown = d)}
-                              index={0}
-                              width={170}
-                              dataSource={dropDownData}
-                           ></DropDownListComponent>
-                        </div> */}
                         <GridComponent
                            //style={{ width: '100%' }}
                            id="Grid"
@@ -1377,10 +1092,11 @@ const SurveysOutputData = ({ match, history }) => {
                            sortSettings={sortSettings}
                            allowResizing={true}
                            // //width={1500}
+                           excelExportComplete={excelExportComplete}
                            toolbarClick={toolbarClick}
                            toolbar={toolbarOptions}
                            allowExcelExport={true}
-                           allowPdfExport={true}
+                           // allowPdfExport={true}
                            showColumnChooser={true}
                            ref={g => (grid = g)}
                            // height="100%"
@@ -1403,6 +1119,7 @@ const SurveysOutputData = ({ match, history }) => {
                               /> */}
                               <ColumnDirective
                                  field="INFO_1"
+                                 headerText=""
                                  width="100"
                                  type="number"
                                  template={generateOutputFileTemplate}
@@ -1468,6 +1185,93 @@ const SurveysOutputData = ({ match, history }) => {
                                  },
                               )}
                            </ColumnsDirective>
+                           <AggregatesDirective>
+                              <AggregateDirective>
+                                 <AggregateColumnsDirective>
+                                    {surveyOutputsInfo.outputLayouts.map(
+                                       (layout, keyVal) => {
+                                          let encoder = new TextEncoder()
+                                          let utf8Array = encoder.encode(
+                                             layout.fieldName,
+                                          )
+                                          let utf8String = new TextDecoder()
+                                             .decode(utf8Array)
+                                             .replace(/,/g, ' ')
+                                             .replace(/:/g, '')
+                                          if (layout.dataType === 'Integer') {
+                                             return (
+                                                <AggregateColumnDirective
+                                                   field={utf8String}
+                                                   type="Average"
+                                                   footerTemplate={
+                                                      aggregateAverageCaptionTemplate
+                                                   }
+                                                />
+                                             )
+                                          }
+                                       },
+                                    )}
+                                 </AggregateColumnsDirective>
+                              </AggregateDirective>
+                              <AggregateDirective>
+                                 <AggregateColumnsDirective>
+                                    {surveyOutputsInfo.outputLayouts.map(
+                                       (layout, keyVal) => {
+                                          //layout.showInSurveyOutputScreen
+
+                                          let encoder = new TextEncoder()
+                                          let utf8Array = encoder.encode(
+                                             layout.fieldName,
+                                          )
+                                          let utf8String = new TextDecoder()
+                                             .decode(utf8Array)
+                                             .replace(/,/g, ' ')
+                                             .replace(/:/g, '')
+                                          if (layout.dataType === 'Integer') {
+                                             return (
+                                                <AggregateColumnDirective
+                                                   field={utf8String}
+                                                   type="Max"
+                                                   footerTemplate={
+                                                      aggregateMaxCaptionTemplate
+                                                   }
+                                                />
+                                             )
+                                          }
+                                       },
+                                    )}
+                                 </AggregateColumnsDirective>
+                              </AggregateDirective>
+                              <AggregateDirective>
+                                 <AggregateColumnsDirective>
+                                    {surveyOutputsInfo.outputLayouts.map(
+                                       (layout, keyVal) => {
+                                          //layout.showInSurveyOutputScreen
+
+                                          let encoder = new TextEncoder()
+                                          let utf8Array = encoder.encode(
+                                             layout.fieldName,
+                                          )
+                                          let utf8String = new TextDecoder()
+                                             .decode(utf8Array)
+                                             .replace(/,/g, ' ')
+                                             .replace(/:/g, '')
+                                          if (layout.dataType === 'Integer') {
+                                             return (
+                                                <AggregateColumnDirective
+                                                   field={utf8String}
+                                                   type="Min"
+                                                   footerTemplate={
+                                                      aggregateMinCaptionTemplate
+                                                   }
+                                                />
+                                             )
+                                          }
+                                       },
+                                    )}
+                                 </AggregateColumnsDirective>
+                              </AggregateDirective>
+                           </AggregatesDirective>
                            <Inject
                               services={[
                                  Page,
@@ -1477,8 +1281,9 @@ const SurveysOutputData = ({ match, history }) => {
                                  Group,
                                  Toolbar,
                                  ExcelExport,
-                                 PdfExport,
+                                 // PdfExport,
                                  ColumnChooser,
+                                 Aggregate,
                               ]}
                            />
                         </GridComponent>

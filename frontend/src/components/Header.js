@@ -98,13 +98,18 @@ const Header = ({ history }) => {
                            <NavDropdown.Item>Contact us</NavDropdown.Item>
                         </LinkContainer>
                      </NavDropdown>
-                     {/* <LinkContainer to="/">
-                <Nav.Link>Photos</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/show3d">
-                <Nav.Link>3D Show</Nav.Link>
-              </LinkContainer> */}
                   </Nav>
+
+                  {userInfo && userInfo.hasSurveyOutputAccess && (
+                     <Nav>
+                        <Nav.Item>
+                           <Nav.Link as={Link} to="/surveyoutput">
+                              Encuestas
+                           </Nav.Link>
+                        </Nav.Item>
+                     </Nav>
+                  )}
+
                   <Nav className="me-auto">
                      {userInfo ? (
                         <NavDropdown
@@ -116,13 +121,7 @@ const Header = ({ history }) => {
                                  Perfil de usuario
                               </NavDropdown.Item>
                            </LinkContainer>
-                           {userInfo && userInfo.hasSurveyOutputAccess && (
-                              <LinkContainer to="/surveyoutput">
-                                 <NavDropdown.Item>
-                                    Survey outputs
-                                 </NavDropdown.Item>
-                              </LinkContainer>
-                           )}
+
                            <NavDropdown.Item onClick={logoutHandler}>
                               Logout
                            </NavDropdown.Item>
