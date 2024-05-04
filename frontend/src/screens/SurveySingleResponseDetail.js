@@ -1,5 +1,6 @@
 /** @format */
 
+import html2Canvas from 'html2canvas'
 import React, { useState, useEffect, useRef } from 'react'
 import {
    GridComponent,
@@ -9,6 +10,8 @@ import {
 } from '@syncfusion/ej2-react-grids'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
+
+import PercentageBar from '../components/PercentageBar/PercentageBar'
 
 import { Button } from 'react-bootstrap'
 
@@ -65,7 +68,7 @@ const SurveySingleResponseDetail = () => {
    const [excelExportarTriggered, setexcelExportarTriggered] = useState(false)
    const data = [
       { id: 1, name: 'John', percentage: 75 },
-      { id: 2, name: 'Jane', percentage: 50 },
+      { id: 2, name: 'Jane', percentage: 10 },
       { id: 3, name: 'Doe', percentage: 90 },
    ]
    const exportDataFileTrigger = exportPreguntas => {
@@ -123,7 +126,7 @@ const SurveySingleResponseDetail = () => {
             value={props.percentage}
             showProgressValue={true}
             style={{ color: 'white', fontWeight: 'bold' }}
-            progressColor="green"
+            progressColor="orange"
             animation={{
                enable: false,
                duration: 2000,
@@ -134,6 +137,97 @@ const SurveySingleResponseDetail = () => {
    }
    const excelExportarPreguntasButton = useRef(null)
    const excelExportarCamposButton = useRef(null)
+
+   const exportToWord = (element, filename = '') => {
+      var preHtml =
+         "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>"
+      var postHtml = '</body></html>'
+      var html = preHtml + document.getElementById(element).innerHTML + postHtml
+
+      var blob = new Blob(['\ufeff', html], {
+         type: 'application/msword',
+      })
+
+      // Specify link url
+      var url =
+         'data:application/vnd.ms-word;charset=utf-8,' +
+         encodeURIComponent(html)
+
+      // Specify file name
+      filename = filename ? filename + '.doc' : 'document.doc'
+
+      // Create download link element
+      var downloadLink = document.createElement('a')
+
+      document.body.appendChild(downloadLink)
+
+      if (navigator.msSaveOrOpenBlob) {
+         navigator.msSaveOrOpenBlob(blob, filename)
+      } else {
+         // Create a link to the file
+         downloadLink.href = url
+
+         // Setting the file name
+         downloadLink.download = filename
+
+         //triggering the function
+         downloadLink.click()
+      }
+
+      document.body.removeChild(downloadLink)
+   }
+   const barChartImageRef = useRef(null)
+   const gridComponentRef = useRef(null)
+   const exportHTMLImageToWord = (element, filename = '') => {
+      const elementRef = element.current
+
+      html2Canvas(elementRef).then(canvas => {
+         const dataUrl = canvas.toDataURL()
+         const img = new Image()
+         img.src = dataUrl
+         const imgHtml = img.outerHTML
+         //document.body.appendChild(img)
+         //barChartElement.appendChild(img)
+
+         var preHtml =
+            "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>"
+         var postHtml = '</body></html>'
+         //var html = preHtml + document.getElementById(element).innerHTML + postHtml
+         var html = preHtml + imgHtml + elementRef.outerHTML + postHtml
+
+         var blob = new Blob(['\ufeff', html], {
+            type: 'application/msword',
+         })
+
+         // Specify link url
+         var url =
+            'data:application/vnd.ms-word;charset=utf-8,' +
+            encodeURIComponent(html)
+
+         // Specify file name
+         filename = filename ? filename + '.doc' : 'document.doc'
+
+         // Create download link element
+         var downloadLink = document.createElement('a')
+
+         document.body.appendChild(downloadLink)
+
+         if (navigator.msSaveOrOpenBlob) {
+            navigator.msSaveOrOpenBlob(blob, filename)
+         } else {
+            // Create a link to the file
+            downloadLink.href = url
+
+            // Setting the file name
+            downloadLink.download = filename
+
+            //triggering the function
+            downloadLink.click()
+         }
+
+         document.body.removeChild(downloadLink)
+      })
+   }
 
    useEffect(() => {
       //const triggerButton = document.getElementById("exportar_preguntas")
@@ -196,32 +290,58 @@ const SurveySingleResponseDetail = () => {
             >
                <i className="fas fa-save fa-2x"></i> Bajar Campos Excel
             </Button>
+            <Button
+               variant="light"
+               size="sm"
+               onClick={() => exportToWord('exportContent', 'Respuestas.docx')}
+            >
+               <i className="fas fa-save fa-2x"></i> Bajar Word
+            </Button>
+            <Button
+               variant="light"
+               size="sm"
+               onClick={() =>
+                  exportHTMLImageToWord(gridComponentRef, 'exportContent.docx')
+               }
+            >
+               <i className="fas fa-save fa-2x"></i> Bajar HTML a Word
+            </Button>
          </div>
 
-         <GridComponent dataSource={data}>
-            <ColumnsDirective>
-               <ColumnDirective field="id" headerText="ID" width="10" />
-               <ColumnDirective field="name" headerText="Name" width="10" />
-               <ColumnDirective
-                  field="percentage"
-                  headerText="Percentage"
-                  width="10"
-                  template={renderProgressBarTemplate}
-               />
-               <ColumnDirective
-                  field="percentage"
-                  headerText="Percentage"
-                  width="10"
-                  template={renderSyncProgressBarTemplate}
-               />
-               <ColumnDirective
-                  field="percentage"
-                  headerText="Percentage"
-                  width="100"
-               />
-            </ColumnsDirective>
-            <Inject services={[]} />
-         </GridComponent>
+         <div ref={gridComponentRef} id="exportContent">
+            <GridComponent dataSource={data} width={500}>
+               <ColumnsDirective>
+                  <ColumnDirective field="id" headerText="ID" width={50} />
+                  <ColumnDirective field="name" headerText="Name" width={100} />
+                  <ColumnDirective
+                     field="percentage"
+                     headerText="Percentage"
+                     width={100}
+                     template={renderProgressBarTemplate}
+                  />
+                  <ColumnDirective
+                     field="percentage"
+                     headerText="Percentage"
+                     width={100}
+                     template={renderSyncProgressBarTemplate}
+                  />
+                  <ColumnDirective
+                     field="percentage"
+                     headerText="Percentage"
+                     width={100}
+                  />
+               </ColumnsDirective>
+               <Inject services={[]} />
+            </GridComponent>
+         </div>
+         <div class="kuarxisProgressColumn">
+            {/* <div class="progress2-bar">
+               <div class="background2-bar"></div>
+               <div class="progress2" style={{ width: '5%' }}></div>
+               <div class="progress2-text">5%</div>
+            </div> */}
+            <PercentageBar percent={90} />
+         </div>
       </section>
    )
 }

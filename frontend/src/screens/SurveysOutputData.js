@@ -9,6 +9,9 @@ import FormData from 'form-data'
 
 //import fs from "fs";
 import React, { useState, useEffect, useRef, useCallback } from 'react'
+
+import PercentageBar from '../components/PercentageBar/PercentageBar'
+
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
 import {
@@ -336,14 +339,18 @@ const SurveysOutputData = ({ match, history }) => {
       //    </ChartComponent>
       //    //</div>
       // )
-      let valuePercent = (parseInt(props.SCL90_TOTAL_MAX_360) / 360) * 100
+      let valuePercent = (
+         (parseInt(props.SCL90_TOTAL_MAX_360) / 360) *
+         100
+      ).toFixed(0)
 
       return (
-         <ProgressBar
-            now={valuePercent}
-            label={`${valuePercent}%`}
-            variant="success"
-         />
+         <PercentageBar percent={valuePercent} />
+         // <ProgressBar
+         //    now={valuePercent}
+         //    label={valuePercent <= 4 ? '' : `${valuePercent}%`}
+         //    variant="success"
+         // />
       )
    }
 
@@ -1103,10 +1110,10 @@ const SurveysOutputData = ({ match, history }) => {
                            dataBound={dataBound}
                         >
                            <ColumnsDirective>
-                              {/* <ColumnDirective
+                              <ColumnDirective
                                  field="SCL90_TOTAL_MAX_360"
                                  headerText="SCL90 TOTAL %"
-                                 //width="100"
+                                 width="10"
                                  type="number"
                                  template={percentageBarTemplate}
                               />
@@ -1116,7 +1123,7 @@ const SurveysOutputData = ({ match, history }) => {
                                  width="100"
                                  type="number"
                                  //template={percentageBarTemplate}
-                              /> */}
+                              />
                               <ColumnDirective
                                  field="INFO_1"
                                  headerText=""
@@ -1126,8 +1133,6 @@ const SurveysOutputData = ({ match, history }) => {
                               />
                               {surveyOutputsInfo.outputLayouts.map(
                                  (layout, keyVal) => {
-                                    //layout.showInSurveyOutputScreen
-
                                     let encoder = new TextEncoder()
                                     let utf8Array = encoder.encode(
                                        layout.fieldName,
@@ -1136,9 +1141,6 @@ const SurveysOutputData = ({ match, history }) => {
                                        .decode(utf8Array)
                                        .replace(/,/g, ' ')
                                        .replace(/:/g, '')
-                                    // console.log(
-                                    //    `${layout.fieldName}:pos${layout.position}`,
-                                    // )
                                     switch (layout.dataType) {
                                        case 'Date':
                                           return (
