@@ -29,6 +29,7 @@ import SurveysOutputData from './screens/SurveysOutputData'
 import dotenv from 'dotenv'
 import Show3DScreen from './screens/Show3DScreen'
 import SurveySingleResponseDetail from './screens/SurveySingleResponseDetail'
+import PrototypesExperiments from './screens/PrototypesExperiments'
 
 //https://dev.d2zqth0d2er18d.amplifyapp.com
 const App = () => {
@@ -110,6 +111,11 @@ const App = () => {
                   <Route
                      path="/surveyoutput/detail"
                      component={SurveySingleResponseDetail}
+                     exact
+                  />
+                  <Route
+                     path="/experiments"
+                     component={PrototypesExperiments}
                      exact
                   />
 

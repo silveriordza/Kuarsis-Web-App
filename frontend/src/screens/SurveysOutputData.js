@@ -1110,7 +1110,7 @@ const SurveysOutputData = ({ match, history }) => {
                            dataBound={dataBound}
                         >
                            <ColumnsDirective>
-                              <ColumnDirective
+                              {/* <ColumnDirective
                                  field="SCL90_TOTAL_MAX_360"
                                  headerText="SCL90 TOTAL %"
                                  width="10"
@@ -1123,7 +1123,7 @@ const SurveysOutputData = ({ match, history }) => {
                                  width="100"
                                  type="number"
                                  //template={percentageBarTemplate}
-                              />
+                              /> */}
                               <ColumnDirective
                                  field="INFO_1"
                                  headerText=""
