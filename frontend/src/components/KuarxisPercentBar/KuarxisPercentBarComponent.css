@@ -1,4 +1,4 @@
-.kuarxisProgressBar {
+.kuarxisProgressBackgroundBar {
   position: relative;
   width: 100%;
   height: 20px;
@@ -7,17 +7,7 @@
   overflow: hidden;
 }
 
-.kuarxisProgressBackgroundBar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ccc; /* Set background color for the background bar */
-  border-radius: 200px;
-}
-
-.kuarxisProgress {
+.kuarxisProgressBar {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,7 +17,7 @@
   left: 0;
 }
 
-.kuarxisProgressText {
+.kuarxisProgressBarText {
   position: absolute;
   top: 50%;
   left: 50%;

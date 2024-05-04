@@ -11,7 +11,7 @@ import {
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
 
-import PercentageBar from '../components/PercentageBar/PercentageBar'
+import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
 import { Button } from 'react-bootstrap'
 
@@ -340,7 +340,7 @@ const SurveySingleResponseDetail = () => {
                <div class="progress2" style={{ width: '5%' }}></div>
                <div class="progress2-text">5%</div>
             </div> */}
-            <PercentageBar percent={90} />
+            <KuarxisPercentBarComponent percent={90} />
          </div>
       </section>
    )

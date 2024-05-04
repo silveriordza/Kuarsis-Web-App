@@ -15,7 +15,7 @@
 @import '../node_modules/@syncfusion/ej2-react-calendars/styles/material.css';
 
 /*Kuarxis styles*/
-@import '../src/components/PercentageBar/PercentageBar.css';
+@import '../src/components/KuarxisPercentBar/KuarxisPercentBarComponent.css';
 /* body > div:nth-child(2) {
    display: none;
 }
@@ -601,4 +601,16 @@ canvas {
    margin-top: 1%;
    width: 5%;
    border-radius: 200px;
+}
+
+/* .kuarxisPercentColumn {
+   width: 100%;
+} */
+
+/* .e-headercell {
+   width: 98%;
+} */
+
+.kuarxisControl {
+   margin-top: 1%;
 }

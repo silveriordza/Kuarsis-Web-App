@@ -11,7 +11,20 @@ import {
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
 
-import PercentageBar from '../components/PercentageBar/PercentageBar'
+import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
+
+import { saveAs } from 'file-saver'
+
+import {
+   Document,
+   Packer,
+   Paragraph,
+   Table,
+   TableRow,
+   TableCell,
+   Media,
+   TextRun,
+} from 'docx'
 
 import { Button } from 'react-bootstrap'
 
@@ -143,7 +156,7 @@ const PrototypesExperiments = () => {
       )
    }
    const renderKuarxisProgressBarTemplate = props => {
-      return <PercentageBar percent={props.percentage} />
+      return <KuarxisPercentBarComponent percent={props.percentage} />
    }
 
    const excelExportarPreguntasButton = useRef(null)
@@ -239,6 +252,96 @@ const PrototypesExperiments = () => {
          document.body.removeChild(downloadLink)
       })
    }
+
+   //START DOCX Generate and Save Word Document functions.
+   // const convertHtmlElementToImage = async element => {
+   //    const elementRef = element.current
+   //    let img = null
+   //    const canvas = await html2Canvas(elementRef)
+
+   //    const dataUrl = canvas.toDataURL()
+   //    img = new Image()
+   //    img.src = dataUrl
+   //    return img
+   // }
+
+   const generateWordDocumentDocx = async (element, filename) => {
+      const doc = new Document()
+
+      // Add paragraphs with text and formatting
+      const paragraph1 = new Paragraph({
+         children: [
+            new TextRun({ text: 'This is a paragraph with ', bold: true }),
+            new TextRun('plain text.'),
+         ],
+      })
+      doc.addParagraph(paragraph1)
+
+      // Add a table with text
+      const table = new Table({
+         rows: [
+            new TableRow({
+               children: [
+                  new TableCell({ children: [new Paragraph('Row 1, Cell 1')] }),
+                  new TableCell({ children: [new Paragraph('Row 1, Cell 2')] }),
+               ],
+            }),
+            new TableRow({
+               children: [
+                  new TableCell({ children: [new Paragraph('Row 2, Cell 1')] }),
+                  new TableCell({ children: [new Paragraph('Row 2, Cell 2')] }),
+               ],
+            }),
+         ],
+      })
+      doc.addTable(table)
+
+      // Set the image from Image object
+      const elementRef = element.current
+      //let img = null
+      const canvas = await html2Canvas(elementRef)
+
+      // const dataUrl = canvas.toDataURL()
+      // img = new Image()
+      // img.src = dataUrl
+
+      const image = Media.addImage(doc, canvas.toBuffer('image/png'))
+      doc.addImage(image)
+      downloadDocument(doc, filename)
+      //this.downloadDocument(doc)
+
+      //const img = new Image()
+      // img.onload = async () => {
+      //    const imageBuffer = await getImageBuffer(img)
+      //    const image = Media.addImage(doc, imageBuffer)
+      //    doc.addImage(image)
+      //    this.downloadDocument(doc)
+      // }
+      // img.src = canvas.toDataURL() // Assuming canvas is an HTMLCanvasElement
+   }
+
+   // const getImageBuffer = async img => {
+
+   //    const canvas = document.createElement('canvas')
+   //    canvas.width = img.width
+   //    canvas.height = img.height
+   //    const ctx = canvas.getContext('2d')
+   //    ctx.drawImage(img, 0, 0)
+   //    return canvas.toBuffer('image/png')
+   // }
+
+   const downloadDocument = async (doc, filename) => {
+      try {
+         const buffer = await Packer.toBuffer(doc)
+         const blob = new Blob([buffer], {
+            type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+         })
+         saveAs(blob, filename)
+      } catch (error) {
+         console.error('Error generating document: ', error)
+      }
+   }
+   //END DOCX Generate and Save Word Document functions.
 
    useEffect(() => {
       //const triggerButton = document.getElementById("exportar_preguntas")
@@ -352,12 +455,17 @@ const PrototypesExperiments = () => {
             </GridComponent>
          </div>
          <div class="kuarxisProgressColumn">
-            {/* <div class="progress2-bar">
-               <div class="background2-bar"></div>
-               <div class="progress2" style={{ width: '5%' }}></div>
-               <div class="progress2-text">5%</div>
-            </div> */}
-            <PercentageBar percent={90} />
+            <KuarxisPercentBarComponent percent={90} />
+         </div>
+         <div class="kuarxisControl">
+            <button
+               onClick={generateWordDocumentDocx(
+                  gridComponentRef,
+                  'DocXEncuestas.docx',
+               )}
+            >
+               Generate Word with DOCX and Save
+            </button>
          </div>
       </section>
    )

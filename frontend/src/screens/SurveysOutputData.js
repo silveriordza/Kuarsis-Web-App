@@ -10,7 +10,7 @@ import FormData from 'form-data'
 //import fs from "fs";
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 
-import PercentageBar from '../components/PercentageBar/PercentageBar'
+import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
@@ -305,7 +305,7 @@ const SurveysOutputData = ({ match, history }) => {
       edgeLabelPlacement: 'Shift',
       labelFormat: '{value}%',
    }
-   const percentageBarTemplate = props => {
+   const KuarxisPercentBarComponentTemplate = props => {
       // const primaryxAxis = {
       //    valueType: 'Category',
       // }
@@ -345,7 +345,11 @@ const SurveysOutputData = ({ match, history }) => {
       ).toFixed(0)
 
       return (
-         <PercentageBar percent={valuePercent} />
+         <KuarxisPercentBarComponent
+            percent={valuePercent}
+            color={'red'}
+            // barWidth={'10%'}
+         />
          // <ProgressBar
          //    now={valuePercent}
          //    label={valuePercent <= 4 ? '' : `${valuePercent}%`}
@@ -1110,20 +1114,23 @@ const SurveysOutputData = ({ match, history }) => {
                            dataBound={dataBound}
                         >
                            <ColumnsDirective>
-                              {/* <ColumnDirective
+                              <ColumnDirective
+                                 id="kuarxisPercentColumn"
                                  field="SCL90_TOTAL_MAX_360"
-                                 headerText="SCL90 TOTAL %"
-                                 width="10"
-                                 type="number"
-                                 template={percentageBarTemplate}
+                                 headerText="SCL90%"
+                                 //style={{ width: '100px' }}
+                                 width="50"
+                                 className="kuarxisPercentColumn"
+                                 template={KuarxisPercentBarComponentTemplate}
                               />
+
                               <ColumnDirective
                                  field="SCL90_TOTAL_MAX_360"
                                  headerText="SCL90_TOTAL_NUMERIC"
                                  width="100"
                                  type="number"
-                                 //template={percentageBarTemplate}
-                              /> */}
+                                 //template={KuarxisPercentBarComponentTemplate}
+                              />
                               <ColumnDirective
                                  field="INFO_1"
                                  headerText=""
