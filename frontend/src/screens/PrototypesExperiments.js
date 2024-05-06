@@ -2,6 +2,40 @@
 
 import html2Canvas from 'html2canvas'
 import React, { useState, useEffect, useRef } from 'react'
+
+import {
+   DocumentEditorComponent,
+   DocumentEditorContainerComponent,
+   Print,
+   SfdtExport,
+   WordExport,
+   TextExport,
+   Selection,
+   Search,
+   Editor,
+   ImageResizer,
+   EditorHistory,
+   ContextMenu,
+   OptionsPane,
+   HyperlinkDialog,
+   TableDialog,
+   BookmarkDialog,
+   TableOfContentsDialog,
+   PageSetupDialog,
+   StyleDialog,
+   ListDialog,
+   ParagraphDialog,
+   BulletsAndNumberingDialog,
+   FontDialog,
+   TablePropertiesDialog,
+   BordersAndShadingDialog,
+   TableOptionsDialog,
+   CellOptionsDialog,
+   StylesDialog,
+   Toolbar,
+   SectionBreakType,
+} from '@syncfusion/ej2-react-documenteditor'
+
 import {
    GridComponent,
    ColumnsDirective,
@@ -14,17 +48,6 @@ import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
 import { saveAs } from 'file-saver'
-
-import {
-   Document,
-   Packer,
-   Paragraph,
-   Table,
-   TableRow,
-   TableCell,
-   Media,
-   TextRun,
-} from 'docx'
 
 import { Button } from 'react-bootstrap'
 
@@ -252,96 +275,167 @@ const PrototypesExperiments = () => {
          document.body.removeChild(downloadLink)
       })
    }
+   //START SYNCFUSION DOCUMENT EDITOR FUNCTIONS
+   //DocumentEditorContainerComponent.Inject(Toolbar)
+   // tslint:disable:max-line-length
+   //var documentEditorContainer = useRef(null)
+   let documentEditorContainer = null
+   const save = () => {
+      //Download the document in Docx format.
+      documentEditorContainer.documentEditor.save('sample', 'Docx')
+   }
+   DocumentEditorContainerComponent.Inject(Toolbar)
 
-   //START DOCX Generate and Save Word Document functions.
-   // const convertHtmlElementToImage = async element => {
-   //    const elementRef = element.current
-   //    let img = null
-   //    const canvas = await html2Canvas(elementRef)
+   function onCreated() {
+      //const elementRef = element.current
+      //moveCursortToFirstCell()
+      html2Canvas(gridComponentRef.current).then(canvas => {
+         const dataUrl = canvas.toDataURL()
 
-   //    const dataUrl = canvas.toDataURL()
-   //    img = new Image()
-   //    img.src = dataUrl
-   //    return img
-   // }
+         // To insert the image at table first cell
+         documentEditorContainer.documentEditor.editor.insertImage(
+            dataUrl,
+            1500,
+            250,
+         )
+         //documentEditorContainer.documentEditor.editor.insertText('\n')
+         //moveCursorToNextLine()
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
 
-   const generateWordDocumentDocx = async (element, filename) => {
-      const doc = new Document()
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
+         // To insert the table in cursor position
+         documentEditorContainer.documentEditor.editor.insertTable(2, 2)
 
-      // Add paragraphs with text and formatting
-      const paragraph1 = new Paragraph({
-         children: [
-            new TextRun({ text: 'This is a paragraph with ', bold: true }),
-            new TextRun('plain text.'),
-         ],
+         // To insert text in cursor position
+         documentEditorContainer.documentEditor.editor.insertText('C11')
+         // To move the cursor to next cell
+         moveCursorToNextCell()
+         // To insert text in cursor position
+         documentEditorContainer.documentEditor.editor.insertText('C12')
+
+         // To move the cursor to next row
+         moveCursorToNextRow()
+         // To insert text in cursor position
+         documentEditorContainer.documentEditor.editor.insertText('C21')
+         // To move the cursor to next cell
+         moveCursorToNextCell()
+         // To insert text in cursor position
+         documentEditorContainer.documentEditor.editor.insertText('C22')
       })
-      doc.addParagraph(paragraph1)
-
-      // Add a table with text
-      const table = new Table({
-         rows: [
-            new TableRow({
-               children: [
-                  new TableCell({ children: [new Paragraph('Row 1, Cell 1')] }),
-                  new TableCell({ children: [new Paragraph('Row 1, Cell 2')] }),
-               ],
-            }),
-            new TableRow({
-               children: [
-                  new TableCell({ children: [new Paragraph('Row 2, Cell 1')] }),
-                  new TableCell({ children: [new Paragraph('Row 2, Cell 2')] }),
-               ],
-            }),
-         ],
-      })
-      doc.addTable(table)
-
-      // Set the image from Image object
-      const elementRef = element.current
-      //let img = null
-      const canvas = await html2Canvas(elementRef)
-
-      // const dataUrl = canvas.toDataURL()
-      // img = new Image()
-      // img.src = dataUrl
-
-      const image = Media.addImage(doc, canvas.toBuffer('image/png'))
-      doc.addImage(image)
-      downloadDocument(doc, filename)
-      //this.downloadDocument(doc)
-
-      //const img = new Image()
-      // img.onload = async () => {
-      //    const imageBuffer = await getImageBuffer(img)
-      //    const image = Media.addImage(doc, imageBuffer)
-      //    doc.addImage(image)
-      //    this.downloadDocument(doc)
-      // }
-      // img.src = canvas.toDataURL() // Assuming canvas is an HTMLCanvasElement
    }
 
-   // const getImageBuffer = async img => {
-
-   //    const canvas = document.createElement('canvas')
-   //    canvas.width = img.width
-   //    canvas.height = img.height
-   //    const ctx = canvas.getContext('2d')
-   //    ctx.drawImage(img, 0, 0)
-   //    return canvas.toBuffer('image/png')
-   // }
-
-   const downloadDocument = async (doc, filename) => {
-      try {
-         const buffer = await Packer.toBuffer(doc)
-         const blob = new Blob([buffer], {
-            type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-         })
-         saveAs(blob, filename)
-      } catch (error) {
-         console.error('Error generating document: ', error)
-      }
+   function moveCursortToFirstCell() {
+      // To get current selection start offset
+      var startOffset =
+         documentEditorContainer.documentEditor.selection.startOffset
+      // Increasing cell index to consider next cell
+      var startOffsetArray = startOffset.split(';')
+      startOffsetArray[2] = '0'
+      startOffsetArray[3] = '0'
+      // Changing start offset
+      startOffset = startOffsetArray.join(';')
+      // Navigating selection using select method
+      documentEditorContainer.documentEditor.selection.select(
+         startOffset,
+         startOffset,
+      )
    }
-   //END DOCX Generate and Save Word Document functions.
+
+   function moveCursorToNextLine() {
+      // To get current selection start offset
+      var startOffset =
+         documentEditorContainer.documentEditor.selection.startOffset
+      // Increasing cell index to consider next cell
+      documentEditorContainer.documentEditor.selection.moveToNextLine()
+
+      startOffset = documentEditorContainer.documentEditor.selection.startOffset
+
+      var startOffsetArray = startOffset.split(';')
+      startOffsetArray[1] = '1'
+      startOffsetArray[2] = `${parseInt(startOffsetArray[2]) + 1}`
+      // startOffsetArray[3] = '0'
+      // // Changing start offset
+      startOffset = startOffsetArray.join(';')
+      // Navigating selection using select method
+      documentEditorContainer.documentEditor.selection.select(
+         startOffset,
+         startOffset,
+      )
+   }
+
+   function moveCursorToNextCell() {
+      // To get current selection start offset
+      var startOffset =
+         documentEditorContainer.documentEditor.selection.startOffset
+      // Increasing cell index to consider next cell
+      var startOffsetArray = startOffset.split(';')
+      startOffsetArray[3] = parseInt(startOffsetArray[3]) + 1
+      // Changing start offset
+      startOffset = startOffsetArray.join(';')
+      // Navigating selection using select method
+      documentEditorContainer.documentEditor.selection.select(
+         startOffset,
+         startOffset,
+      )
+   }
+
+   function moveCursorToNextRow() {
+      // To get current selection start offset
+      var startOffset =
+         documentEditorContainer.documentEditor.selection.startOffset
+      // Increasing row index to consider next row
+      var startOffsetArray = startOffset.split(';')
+      startOffsetArray[2] = parseInt(startOffsetArray[2]) + 1
+      // Going back to first cell
+      startOffsetArray[3] = 0
+      // Changing start offset
+      startOffset = startOffsetArray.join(';')
+      // Navigating selection using select method
+      documentEditorContainer.documentEditor.selection.select(
+         startOffset,
+         startOffset,
+      )
+   }
+   // DocumentEditorComponent.Inject(
+   //    // Print,
+   //    // SfdtExport,
+   //    WordExport,
+   //    // TextExport,
+   //    // Selection,
+   //    // Search,
+   //    Editor,
+   //    // ImageResizer,
+   //    // EditorHistory,
+   //    // ContextMenu,
+   //    // OptionsPane,
+   //    // HyperlinkDialog,
+   //    // TableDialog,
+   //    // BookmarkDialog,
+   //    // TableOfContentsDialog,
+   //    // PageSetupDialog,
+   //    // StyleDialog,
+   //    // ListDialog,
+   //    // ParagraphDialog,
+   //    // BulletsAndNumberingDialog,
+   //    FontDialog,
+   //    // TablePropertiesDialog,
+   //    // BordersAndShadingDialog,
+   //    // TableOptionsDialog,
+   //    // CellOptionsDialog,
+   //    // StylesDialog,
+   //    Toolbar,
+   // )
+   //END SYNCFUSION DOCUMENT EDITOR FUNCTIONS
 
    useEffect(() => {
       //const triggerButton = document.getElementById("exportar_preguntas")
@@ -423,7 +517,7 @@ const PrototypesExperiments = () => {
          </div>
 
          <div ref={gridComponentRef} id="exportContent">
-            <GridComponent dataSource={data} width={500}>
+            <GridComponent dataSource={data} width={900}>
                <ColumnsDirective>
                   <ColumnDirective field="id" headerText="ID" width={50} />
                   <ColumnDirective field="name" headerText="Name" width={100} />
@@ -458,14 +552,53 @@ const PrototypesExperiments = () => {
             <KuarxisPercentBarComponent percent={90} />
          </div>
          <div class="kuarxisControl">
-            <button
-               onClick={generateWordDocumentDocx(
-                  gridComponentRef,
-                  'DocXEncuestas.docx',
-               )}
-            >
-               Generate Word with DOCX and Save
-            </button>
+            <Button variant="light" size="sm" onClick={() => save()}>
+               <i className="fas fa-save fa-2x"></i> Exportar a Word
+            </Button>
+            <DocumentEditorContainerComponent
+               id="container"
+               height={'1500'}
+               width={'2000'}
+               serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+               enableToolbar={true}
+               //ref={documentEditorContainer}
+               ref={scope => {
+                  documentEditorContainer = scope
+               }}
+               created={onCreated}
+            />
+            {/* <DocumentEditorComponent
+               id="container"
+               height={'590px'}
+               width={'1500px'}
+               serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+               isReadOnly={false}
+               // enablePrint={true}
+               enableSelection={true}
+               enableEditor={true}
+               // enableEditorHistory={true}
+               // enableContextMenu={true}
+               // enableSearch={true}
+               // enableOptionsPane={true}
+               // enableBookmarkDialog={true}
+               // enableBordersAndShadingDialog={true}
+               enableFontDialog={true}
+               // enableTableDialog={true}
+               // enableParagraphDialog={true}
+               // enableHyperlinkDialog={true}
+               // enableImageResizer={true}
+               // enableListDialog={true}
+               // enablePageSetupDialog={true}
+               // // enableSfdtExport={true}
+               // enableStyleDialog={true}
+               // enableTableOfContentsDialog={true}
+               // enableTableOptionsDialog={true}
+               // enableTablePropertiesDialog={true}
+               // enableTextExport={true}
+               enableWordExport={true}
+               enableToolbar={true}
+               ref={documentEditorContainer}
+            /> */}
          </div>
       </section>
    )
