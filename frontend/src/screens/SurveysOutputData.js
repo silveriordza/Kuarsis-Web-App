@@ -9,6 +9,7 @@ import FormData from 'form-data'
 
 //import fs from "fs";
 import React, { useState, useEffect, useRef, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
@@ -102,7 +103,10 @@ import {
    autoDownloadTextAsFileOnClientBrowser,
    unzipFileFromSubfolder,
 } from '../libs/Functions'
-import { SURVEY_OUTPUTS_RESET } from '../constants/surveyConstants'
+import {
+   SURVEY_OUTPUTS_RESET,
+   SURVEY_OUTPUT_SINGLE_SUCCESS,
+} from '../constants/surveyConstants'
 
 import ReactExport from 'react-data-export'
 
@@ -305,56 +309,88 @@ const SurveysOutputData = ({ match, history }) => {
       edgeLabelPlacement: 'Shift',
       labelFormat: '{value}%',
    }
-   const KuarxisPercentBarComponentTemplate = props => {
-      // const primaryxAxis = {
-      //    valueType: 'Category',
-      // }
-      // const primaryyAxis = {
-      //    minimum: 0,
-      //    maximum: 100,
-      //    edgeLabelPlacement: 'Shift',
-      //    labelFormat: '{value}%',
-      // }
-      // let data = [{ y: props.SCL90_TOTAL_MAX_360 / 360, x: '' }]
-      // return (
-      //    //<div style={{ height: '500px' }}>
-      //    <ChartComponent
-      //       id="charts"
-      //       primaryXAxis={primaryxAxis}
-      //       primaryYAxis={primaryyAxis}
-      //       // width="650"
-      //       height="50"
-      //    >
-      //       <Inject
-      //          services={[BarSeries, Legend, Tooltip, DataLabel, Category]}
-      //       />
-      //       <SeriesCollectionDirective width="200">
-      //          <SeriesDirective
-      //             dataSource={data}
-      //             xName="x"
-      //             yName="y"
-      //             type="Bar"
-      //          ></SeriesDirective>
-      //       </SeriesCollectionDirective>
-      //    </ChartComponent>
-      //    //</div>
-      // )
-      let valuePercent = (
-         (parseInt(props.SCL90_TOTAL_MAX_360) / 360) *
-         100
-      ).toFixed(0)
+
+   const prepareDisplayBasedOnType = (fieldName, layout, width, type) => {
+      // <ColumnDirective
+      //    //key={keyVal}
+      //    field={utf8String}
+      //    width="150"
+      //    visible={
+      //       layout.showInSurveyOutputScreen
+      //    }
+      //    type="number"
+      // />
+      switch (layout.displayType.type) {
+         case 'asIs':
+            return (
+               <ColumnDirective
+                  //key={keyVal}
+                  field={fieldName}
+                  width={width}
+                  visible={layout.showInSurveyOutputScreen}
+                  type={type}
+               />
+            )
+         case 'percentBarWithCriterias':
+            return (
+               <ColumnDirective
+                  field={fieldName}
+                  headerText={`${layout.displayType.header}`}
+                  visible={layout.showInSurveyOutputScreen}
+                  template={props =>
+                     KuarxisPercentBarComponentTemplate(props, layout)
+                  }
+               />
+            )
+      }
+   }
+
+   const KuarxisPercentBarComponentTemplate = (props, layout) => {
+      let value = props[layout.fieldName]
+
+      if (isNaN(value)) {
+         LogThis(
+            log,
+            `Error: value is not numeric for ${layout.fieldName} value=${value}`,
+            L3,
+         )
+         throw Error(
+            `At function KuarxisPercentBarComponentTemplate, the value for field ${layout.fieldName} is not numeric`,
+         )
+      }
+
+      let styleCriteriaFound = false
+      let style = null
+      value = (value * 100).toFixed(0)
+      for (const styleCriteria of layout.displayType.styleCriterias) {
+         if (value >= styleCriteria.min && value <= styleCriteria.max) {
+            style = styleCriteria.style
+            LogThis(
+               log,
+               `styleCriteria found, field: ${styleCriteria.fieldNameValue} value=${value} styleCriteria=${styleCriteria.style}`,
+               L3,
+            )
+            styleCriteriaFound = true
+            break
+         }
+      }
+      if (!styleCriteriaFound) {
+         LogThis(
+            log,
+            `Somethign is wrong, styleCriteria not found for: ${layout.fieldName} value=${value}`,
+            L3,
+         )
+         throw Error(
+            `Somethign is wrong, styleCriteria not found for: ${layout.fieldName} value=${value}`,
+         )
+      }
 
       return (
          <KuarxisPercentBarComponent
-            percent={valuePercent}
-            color={'red'}
+            percent={value}
+            color={style}
             // barWidth={'10%'}
          />
-         // <ProgressBar
-         //    now={valuePercent}
-         //    label={valuePercent <= 4 ? '' : `${valuePercent}%`}
-         //    variant="success"
-         // />
       )
    }
 
@@ -524,8 +560,6 @@ const SurveysOutputData = ({ match, history }) => {
       LogThis(log, `START text=${e.target.value}`, L0)
    }
 
-   const integerValueClearance = textValue => {}
-
    const handlegridPageRowsQuantityText = async e => {
       log.functionName = 'handlegridPageRowsQuantityText'
 
@@ -559,6 +593,15 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }
 
+   const handleOutputDetailLinkClick = (e, respondentId) => {
+      // e.preventDefault()
+      dispatch({
+         type: SURVEY_OUTPUT_SINGLE_SUCCESS,
+         payload: surveyOutputsInfo,
+      })
+      // history.push(`/surveyoutput/detail/${respondentId}`)
+   }
+
    const GenerateOutputFile = outputId => {
       let outputText = null
       const outputValue = surveyOutputsInfo.outputValues.find(
@@ -574,12 +617,21 @@ const SurveysOutputData = ({ match, history }) => {
                return x.fieldName == key
             })
             if (outputField.showInSurveyOutputScreen) {
-               switch (outputField.fieldName) {
-                  case 'INFO_3':
+               switch (outputField.dataType) {
+                  case 'Date':
                      outputValueData = formatDate(outputValue[key])
                      break
-                  case 'INFO_4':
-                     outputValueData = formatDate(outputValue[key])
+                  case 'Float':
+                     if (
+                        outputField.displayType.type ==
+                        'percentBarWithCriterias'
+                     ) {
+                        outputValueData = `${(outputValue[key] * 100).toFixed(
+                           0,
+                        )}%`
+                     } else {
+                        outputValueData = outputValue[key]
+                     }
                      break
                   default:
                      outputValueData = outputValue[key]
@@ -1115,25 +1167,8 @@ const SurveysOutputData = ({ match, history }) => {
                         >
                            <ColumnsDirective>
                               <ColumnDirective
-                                 id="kuarxisPercentColumn"
-                                 field="SCL90_TOTAL_MAX_360"
-                                 headerText="SCL90%"
-                                 //style={{ width: '100px' }}
-                                 width="50"
-                                 className="kuarxisPercentColumn"
-                                 template={KuarxisPercentBarComponentTemplate}
-                              />
-
-                              <ColumnDirective
-                                 field="SCL90_TOTAL_MAX_360"
-                                 headerText="SCL90_TOTAL_NUMERIC"
-                                 width="100"
-                                 type="number"
-                                 //template={KuarxisPercentBarComponentTemplate}
-                              />
-                              <ColumnDirective
                                  field="INFO_1"
-                                 headerText=""
+                                 headerText="CSV"
                                  width="100"
                                  type="number"
                                  template={generateOutputFileTemplate}
@@ -1148,11 +1183,12 @@ const SurveysOutputData = ({ match, history }) => {
                                        .decode(utf8Array)
                                        .replace(/,/g, ' ')
                                        .replace(/:/g, '')
+
                                     switch (layout.dataType) {
                                        case 'Date':
                                           return (
                                              <ColumnDirective
-                                                //key={keyVal}
+                                                key={keyVal}
                                                 field={utf8String}
                                                 //width="150"
                                                 visible={
@@ -1165,7 +1201,7 @@ const SurveysOutputData = ({ match, history }) => {
                                        case 'Integer':
                                           return (
                                              <ColumnDirective
-                                                //key={keyVal}
+                                                key={keyVal}
                                                 field={utf8String}
                                                 width="150"
                                                 visible={
@@ -1174,10 +1210,53 @@ const SurveysOutputData = ({ match, history }) => {
                                                 type="number"
                                              />
                                           )
-                                       case 'String':
+                                       case 'Float':
                                           return (
+                                             // <ColumnDirective
+                                             //    //key={keyVal}
+                                             //    field={utf8String}
+                                             //    width="150"
+                                             //    visible={
+                                             //       layout.showInSurveyOutputScreen
+                                             //    }
+                                             //    type="number"
+                                             // />
+                                             prepareDisplayBasedOnType(
+                                                utf8String,
+                                                layout,
+                                                '150',
+                                                'number',
+                                             )
+                                          )
+
+                                       case 'String':
+                                          return utf8String === 'INFO_1' ? (
                                              <ColumnDirective
-                                                //key={keyVal}
+                                                key={keyVal}
+                                                field={utf8String}
+                                                width="150"
+                                                visible={
+                                                   layout.showInSurveyOutputScreen
+                                                }
+                                                template={props => {
+                                                   return (
+                                                      <Link
+                                                         to={`/surveyoutput/detail/${props.INFO_1}`}
+                                                         onClick={e =>
+                                                            handleOutputDetailLinkClick(
+                                                               e,
+                                                               props.INFO_1,
+                                                            )
+                                                         }
+                                                      >
+                                                         {props.INFO_1}
+                                                      </Link>
+                                                   )
+                                                }}
+                                             />
+                                          ) : (
+                                             <ColumnDirective
+                                                key={keyVal}
                                                 field={utf8String}
                                                 width="150"
                                                 visible={
@@ -1210,6 +1289,7 @@ const SurveysOutputData = ({ match, history }) => {
                                           if (layout.dataType === 'Integer') {
                                              return (
                                                 <AggregateColumnDirective
+                                                   key={keyVal}
                                                    field={utf8String}
                                                    type="Average"
                                                    footerTemplate={
@@ -1239,6 +1319,7 @@ const SurveysOutputData = ({ match, history }) => {
                                           if (layout.dataType === 'Integer') {
                                              return (
                                                 <AggregateColumnDirective
+                                                   key={keyVal}
                                                    field={utf8String}
                                                    type="Max"
                                                    footerTemplate={
@@ -1268,6 +1349,7 @@ const SurveysOutputData = ({ match, history }) => {
                                           if (layout.dataType === 'Integer') {
                                              return (
                                                 <AggregateColumnDirective
+                                                   key={keyVal}
                                                    field={utf8String}
                                                    type="Min"
                                                    footerTemplate={

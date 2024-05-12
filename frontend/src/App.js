@@ -28,7 +28,7 @@ import SurveysOutputData from './screens/SurveysOutputData'
 
 import dotenv from 'dotenv'
 import Show3DScreen from './screens/Show3DScreen'
-import SurveySingleResponseDetail from './screens/SurveySingleResponseDetail'
+import SurveyOutputSingleData from './screens/SurveyOutputSingleData'
 import PrototypesExperiments from './screens/PrototypesExperiments'
 
 //https://dev.d2zqth0d2er18d.amplifyapp.com
@@ -109,8 +109,8 @@ const App = () => {
                   />
 
                   <Route
-                     path="/surveyoutput/detail"
-                     component={SurveySingleResponseDetail}
+                     path="/surveyoutput/detail/:repondentId"
+                     component={SurveyOutputSingleData}
                      exact
                   />
                   <Route

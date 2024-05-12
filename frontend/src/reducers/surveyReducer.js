@@ -21,6 +21,8 @@ import {
    SURVEY_OUTPUTS_EXPORT_FILE_FAIL,
    SURVEY_OUTPUTS_EXPORT_FILE_RESET,
    SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
+   SURVEY_OUTPUT_SINGLE_RESET,
+   SURVEY_OUTPUT_SINGLE_SUCCESS,
 } from '../constants/surveyConstants'
 
 export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
@@ -120,6 +122,22 @@ export const surveyOutputsReducer = (
          return { loading: false, error: action.payload }
       case SURVEY_OUTPUTS_RESET:
          return { surveyOutputsInfo: {} }
+      default:
+         return state
+   }
+}
+
+export const surveyOutputSingleReducer = (
+   state = { surveyOutputSingleInfo: {} },
+   action,
+) => {
+   switch (action.type) {
+      case SURVEY_OUTPUT_SINGLE_SUCCESS:
+         return {
+            surveyOutputSingleInfo: action.payload,
+         }
+      case SURVEY_OUTPUT_SINGLE_RESET:
+         return { surveyOutputSingleInfo: {} }
       default:
          return state
    }

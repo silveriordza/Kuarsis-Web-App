@@ -608,14 +608,20 @@ canvas {
    border-radius: 200px;
 }
 
-/* .kuarxisPercentColumn {
-   width: 100%;
-} */
-
-/* .e-headercell {
-   width: 98%;
-} */
-
 .kuarxisControl {
    margin-top: 1%;
+}
+
+.wordTable {
+   border-collapse: collapse;
+}
+
+#exportContent {
+   width: 35%;
+   border: none;
+}
+
+.textWrap {
+   display: inline-block; /* or block */
+   word-wrap: break-word;
 }

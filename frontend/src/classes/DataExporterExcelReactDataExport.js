@@ -67,6 +67,7 @@ export class DataExporterExcelReactDataExport extends DataExporter {
             //let utf8String = cleanCsvValue(stringValue)
             //rowValues = this.addFieldValueToRow(rowValues, utf8String)
             let value = null
+            let cleanValue = null
             switch (outputField.dataType) {
                case 'Date':
                   value = outputValue[outputField.fieldName] ?? ''
@@ -77,13 +78,19 @@ export class DataExporterExcelReactDataExport extends DataExporter {
                   )
                   break
                case 'Integer':
-                  let cleanValue = cleanCsvValue(
-                     outputValue[outputField.fieldName],
-                  )
+                  cleanValue = cleanCsvValue(outputValue[outputField.fieldName])
                   if (cleanValue == '' || isNaN(cleanValue)) {
                      value = 0
                   } else {
                      value = parseInt(cleanValue)
+                  }
+                  break
+               case 'Float':
+                  cleanValue = cleanCsvValue(outputValue[outputField.fieldName])
+                  if (cleanValue == '' || isNaN(cleanValue)) {
+                     value = 0.0
+                  } else {
+                     value = parseFloat(cleanValue)
                   }
                   break
                default:

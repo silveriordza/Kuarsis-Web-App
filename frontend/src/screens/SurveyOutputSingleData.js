@@ -1,37 +1,16 @@
 /** @format */
 
 import html2Canvas from 'html2canvas'
+import { LogThis, LoggerSettings, L1, L2, L3, L0 } from '../libs/Logger'
 import React, { useState, useEffect, useRef } from 'react'
+import { formatDate } from '../libs/Functions'
+
+import { Link, useHistory } from 'react-router-dom'
+
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
-   DocumentEditorComponent,
    DocumentEditorContainerComponent,
-   Print,
-   SfdtExport,
-   WordExport,
-   TextExport,
-   Selection,
-   Search,
-   Editor,
-   ImageResizer,
-   EditorHistory,
-   ContextMenu,
-   OptionsPane,
-   HyperlinkDialog,
-   TableDialog,
-   BookmarkDialog,
-   TableOfContentsDialog,
-   PageSetupDialog,
-   StyleDialog,
-   ListDialog,
-   ParagraphDialog,
-   BulletsAndNumberingDialog,
-   FontDialog,
-   TablePropertiesDialog,
-   BordersAndShadingDialog,
-   TableOptionsDialog,
-   CellOptionsDialog,
-   StylesDialog,
    Toolbar,
    SectionBreakType,
 } from '@syncfusion/ej2-react-documenteditor'
@@ -46,6 +25,8 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
 
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
+
+import { calculateStyleCriteria } from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
 import { saveAs } from 'file-saver'
 
@@ -94,7 +75,71 @@ const exportDataFile = exportPreguntas => {
    }
 }
 
-const PrototypesExperiments = () => {
+const SurveyOutputSingleData = props => {
+   const srcFileName = 'SurveyOutputSingleData'
+   const log = new LoggerSettings(srcFileName, 'SurveyOutputSingleData')
+
+   const { repondentId } = props.match.params
+   const surveyOutputSingle = useSelector(state => state.surveyOutputSingle)
+   const { surveyOutputSingleInfo } = surveyOutputSingle
+   const [gridDataSourceArray, setgridDataSourceArray] = useState([])
+
+   const history = useHistory()
+
+   const goBackHandler = () => {
+      history.goBack()
+   }
+
+   useEffect(() => {
+      LogThis(log, `useEffect OutputInfo for DataGrid Single Output`, L3)
+      if (
+         surveyOutputSingleInfo &&
+         surveyOutputSingleInfo.outputValues &&
+         surveyOutputSingleInfo.outputLayouts
+      ) {
+         let gridDataSourceArrayLocal = []
+         const outputValue = surveyOutputSingleInfo.outputValues.find(
+            output => output.INFO_1 === repondentId,
+         )
+
+         let outputValueData = null
+         let gridDataSourceObject = null
+         const fieldNameKey = 'fieldName'
+         const valueKey = 'value'
+         surveyOutputSingleInfo.outputLayouts.map(outputField => {
+            gridDataSourceObject = null
+            if (
+               // outputField.displayType?.displayInScreens?.find(
+               //    screen => screen === 'SingleOutputScreen',
+               // )
+               outputField.showInSurveyOutputScreen
+            ) {
+               gridDataSourceObject = {}
+               let key = null
+               key = outputField.fieldName
+               let isDate = false
+               switch (outputField.dataType) {
+                  case 'Date':
+                     outputValueData = formatDate(outputValue[key])
+                     isDate = true
+                     break
+                  default:
+                     outputValueData = outputValue[key]
+               }
+
+               gridDataSourceObject[fieldNameKey] = key
+               gridDataSourceObject[valueKey] = outputValueData
+            }
+            if (gridDataSourceObject) {
+               gridDataSourceArrayLocal.push(gridDataSourceObject)
+            }
+         })
+         setgridDataSourceArray(gridDataSourceArrayLocal)
+      } else {
+         setgridDataSourceArray([])
+      }
+   }, [surveyOutputSingleInfo])
+
    const [excelExportMultiDataState, setexcelExportMultiDataState] = useState([
       { columns: [], data: [] },
    ])
@@ -102,84 +147,31 @@ const PrototypesExperiments = () => {
    const [exportFields, setexportFields] = useState(false)
 
    const [excelExportarTriggered, setexcelExportarTriggered] = useState(false)
-   const data = [
-      { id: 1, name: 'John', percentage: 75 },
-      { id: 2, name: 'Jane', percentage: 10 },
-      { id: 3, name: 'Jane', percentage: 20 },
-      { id: 4, name: 'Jane', percentage: 25 },
-      { id: 5, name: 'Jane', percentage: 30 },
-      { id: 6, name: 'Jane', percentage: 35 },
-      { id: 7, name: 'Jane', percentage: 40 },
-      { id: 8, name: 'Jane', percentage: 45 },
-      { id: 9, name: 'Jane', percentage: 50 },
-      { id: 10, name: 'Doe', percentage: 100 },
-   ]
-   const exportDataFileTrigger = exportPreguntas => {
-      let colValues = []
-      excelMultiDataSet[0].data = []
-      if (exportPreguntas) {
-         excelMultiDataSet[0].columns[0].title = 'Preguntas'
-         //excelMultiDataSet[0].data[1][1].value = "Valor Pregunta 1"
-         colValues = []
-         colValues.push({ value: 10000 })
-         colValues.push({ value: '10001' })
-         colValues.push({ value: 'SOME OTHER PREGUNTA VALUE' })
-         excelMultiDataSet[0].data.push(colValues)
-      } else {
-         excelMultiDataSet[0].columns[0].title = 'Campos'
-         //excelMultiDataSet[0].data[1][1].value = "Valor Campo 1"
-         colValues = []
-         colValues.push({ value: 20000 })
-         colValues.push({ value: '20001' })
-         colValues.push({ value: 'SOME OTHER CAMPO VALUE' })
-         excelMultiDataSet[0].data.push(colValues)
-      }
-      setexcelExportarTriggered(true)
-      setexportFields(exportPreguntas)
-      setexcelExportMultiDataState(excelMultiDataSet)
-   }
 
-   const renderProgressBarTemplate = props => {
-      return (
-         // <div style={{ width: '100%', height: '100%', backgroundColor: '#f5f5f5', borderRadius: '2px' }}>
-         //     <div style={{ width: `${props.percentage}%`, height: '100%', backgroundColor: '#007bff', borderRadius: '2px' }}></div>
-         //     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white' }}>{props.percentage}%</div>
-         // </div>
-         <ProgressBar
-            now={props.percentage}
-            label={`${props.percentage}%`}
-            variant="warning"
-         />
-      )
-   }
-
-   const renderSyncProgressBarTemplate = props => {
-      return (
-         // <div style={{ width: '100%', height: '100%', backgroundColor: '#f5f5f5', borderRadius: '2px' }}>
-         //     <div style={{ width: `${props.percentage}%`, height: '100%', backgroundColor: '#007bff', borderRadius: '2px' }}></div>
-         //     <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white' }}>{props.percentage}%</div>
-         // </div>
-         <ProgressBarComponent
-            id="linear"
-            type="Linear"
-            width="100"
-            height="20"
-            trackThickness={24}
-            progressThickness={24}
-            value={props.percentage}
-            showProgressValue={true}
-            style={{ color: 'white', fontWeight: 'bold' }}
-            progressColor="orange"
-            animation={{
-               enable: false,
-               duration: 2000,
-               delay: 0,
-            }}
-         ></ProgressBarComponent>
-      )
-   }
    const renderKuarxisProgressBarTemplate = props => {
-      return <KuarxisPercentBarComponent percent={props.percentage} />
+      if (!props) {
+         return
+      }
+      let fieldLayout = surveyOutputSingleInfo.outputLayouts.find(
+         field => field.fieldName === props['fieldName'],
+      )
+      switch (fieldLayout.displayType.type) {
+         case 'percentBarWithCriterias':
+            const style = calculateStyleCriteria(
+               props.value,
+               fieldLayout.displayType.styleCriterias,
+            )
+            const value = (props.value * 100).toFixed(0)
+            return (
+               <KuarxisPercentBarComponent
+                  percent={value}
+                  color={style}
+                  barWidth={'10%'}
+               />
+            )
+         default:
+            return <span>{props.value}</span>
+      }
    }
 
    const excelExportarPreguntasButton = useRef(null)
@@ -223,7 +215,6 @@ const PrototypesExperiments = () => {
 
       document.body.removeChild(downloadLink)
    }
-   const barChartImageRef = useRef(null)
    const gridComponentRef = useRef(null)
    const exportHTMLImageToWord = (element, filename = '') => {
       const elementRef = element.current
@@ -314,7 +305,7 @@ const PrototypesExperiments = () => {
          documentEditorContainer.documentEditor.editor.insertImage(
             dataUrl,
             600,
-            250,
+            2000,
          )
          //documentEditorContainer.documentEditor.editor.insertText('\n')
          //moveCursorToNextLine()
@@ -424,36 +415,6 @@ const PrototypesExperiments = () => {
          startOffset,
       )
    }
-   // DocumentEditorComponent.Inject(
-   //    // Print,
-   //    // SfdtExport,
-   //    WordExport,
-   //    // TextExport,
-   //    // Selection,
-   //    // Search,
-   //    Editor,
-   //    // ImageResizer,
-   //    // EditorHistory,
-   //    // ContextMenu,
-   //    // OptionsPane,
-   //    // HyperlinkDialog,
-   //    // TableDialog,
-   //    // BookmarkDialog,
-   //    // TableOfContentsDialog,
-   //    // PageSetupDialog,
-   //    // StyleDialog,
-   //    // ListDialog,
-   //    // ParagraphDialog,
-   //    // BulletsAndNumberingDialog,
-   //    FontDialog,
-   //    // TablePropertiesDialog,
-   //    // BordersAndShadingDialog,
-   //    // TableOptionsDialog,
-   //    // CellOptionsDialog,
-   //    // StylesDialog,
-   //    Toolbar,
-   // )
-   //END SYNCFUSION DOCUMENT EDITOR FUNCTIONS
 
    useEffect(() => {
       //const triggerButton = document.getElementById("exportar_preguntas")
@@ -469,9 +430,12 @@ const PrototypesExperiments = () => {
 
    return (
       <section>
-         <h1>Hola Survey Single Response Detail</h1>
+         <Link className="btn btn-light my-3" onClick={() => history.goBack()}>
+            Go Back
+         </Link>
+         <h1>Resultados de la Encuesta</h1>
          <div>
-            <ExcelFile
+            {/* <ExcelFile
                element={
                   <Button
                      ref={excelExportarPreguntasButton}
@@ -531,43 +495,36 @@ const PrototypesExperiments = () => {
                }
             >
                <i className="fas fa-save fa-2x"></i> Bajar HTML a Word
-            </Button>
+            </Button> */}
          </div>
 
          <div ref={gridComponentRef} id="exportContent">
-            <GridComponent dataSource={data} width={900}>
-               <ColumnsDirective>
-                  <ColumnDirective field="id" headerText="ID" width={50} />
-                  <ColumnDirective field="name" headerText="Name" width={100} />
-                  <ColumnDirective
-                     field="percentage"
-                     headerText="Percentage"
-                     width={100}
-                     template={renderProgressBarTemplate}
-                  />
-                  <ColumnDirective
-                     field="percentage"
-                     headerText="Percentage"
-                     width={100}
-                     template={renderSyncProgressBarTemplate}
-                  />
-                  <ColumnDirective
-                     field="percentage"
-                     headerText="Percentage"
-                     width={100}
-                     template={renderKuarxisProgressBarTemplate}
-                  />
-                  <ColumnDirective
-                     field="percentage"
-                     headerText="Percentage"
-                     width={100}
-                  />
-               </ColumnsDirective>
-               <Inject services={[]} />
-            </GridComponent>
-         </div>
-         <div class="kuarxisProgressColumn">
-            <KuarxisPercentBarComponent percent={90} />
+            {gridDataSourceArray && gridDataSourceArray.length > 0 && (
+               <GridComponent
+                  dataSource={gridDataSourceArray}
+                  allowTextWrap={true}
+                  width={900}
+               >
+                  <ColumnsDirective>
+                     <ColumnDirective
+                        key={1}
+                        field="fieldName"
+                        headerText="Tipo de resultado"
+                        width={50}
+                     />
+                     <ColumnDirective
+                        key={2}
+                        field="value"
+                        headerText="Datos/Resultado"
+                        width={100}
+                        template={props =>
+                           renderKuarxisProgressBarTemplate(props)
+                        }
+                     />
+                  </ColumnsDirective>
+                  <Inject services={[]} />
+               </GridComponent>
+            )}
          </div>
          <div class="kuarxisControl">
             <Button variant="light" size="sm" onClick={() => save()}>
@@ -586,42 +543,9 @@ const PrototypesExperiments = () => {
                }}
                created={onCreated}
             />
-
-            {/* <DocumentEditorComponent
-               id="container"
-               height={'590px'}
-               width={'1500px'}
-               serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
-               isReadOnly={false}
-               // enablePrint={true}
-               enableSelection={true}
-               enableEditor={true}
-               // enableEditorHistory={true}
-               // enableContextMenu={true}
-               // enableSearch={true}
-               // enableOptionsPane={true}
-               // enableBookmarkDialog={true}
-               // enableBordersAndShadingDialog={true}
-               enableFontDialog={true}
-               // enableTableDialog={true}
-               // enableParagraphDialog={true}
-               // enableHyperlinkDialog={true}
-               // enableImageResizer={true}
-               // enableListDialog={true}
-               // enablePageSetupDialog={true}
-               // // enableSfdtExport={true}
-               // enableStyleDialog={true}
-               // enableTableOfContentsDialog={true}
-               // enableTableOptionsDialog={true}
-               // enableTablePropertiesDialog={true}
-               // enableTextExport={true}
-               enableWordExport={true}
-               enableToolbar={true}
-               ref={documentEditorContainer}
-            /> */}
          </div>
       </section>
    )
 }
 
-export default PrototypesExperiments
+export default SurveyOutputSingleData
