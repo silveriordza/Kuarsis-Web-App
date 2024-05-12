@@ -15,6 +15,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 1
          },
          {
@@ -23,6 +24,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 11
          },
          {
@@ -31,6 +33,7 @@
             "dataType": "Date",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 21
          },
          {
@@ -39,6 +42,7 @@
             "dataType": "Date",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 31
          },
          {
@@ -47,6 +51,7 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 41
          },
 
@@ -56,6 +61,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 51
          },
          {
@@ -64,6 +70,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 61
          },
          {
@@ -72,6 +79,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 71
          },
          {
@@ -80,6 +88,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 81
          },
          {
@@ -88,6 +97,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 91
          },
          {
@@ -96,6 +106,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 101
          },
          {
@@ -104,6 +115,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 111
          },
          {
@@ -112,6 +124,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 121
          },
          {
@@ -120,6 +133,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 131
          },
          {
@@ -128,6 +142,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 141
          },
          {
@@ -136,6 +151,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 151
          },
          {
@@ -144,6 +160,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 161
          },
          {
@@ -152,6 +169,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 171
          },
          {
@@ -160,6 +178,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 181
          },
          {
@@ -168,6 +187,7 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 191
          },
          {
@@ -176,6 +196,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 201
          },
          {
@@ -184,6 +205,7 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 211
          },
          {
@@ -192,6 +214,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 221
          },
          {
@@ -200,6 +223,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 231
          },
          {
@@ -208,6 +232,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 241
          },
          {
@@ -216,6 +241,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 251
          },
          {
@@ -224,6 +250,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 261
          },
          {
@@ -232,6 +259,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 271
          },
          {
@@ -240,6 +268,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 281
          },
          {
@@ -248,6 +277,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 291
          },
          {
@@ -256,6 +286,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 301
          },
          {
@@ -264,6 +295,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 311
          },
          {
@@ -272,6 +304,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 321
          },
          {
@@ -280,6 +313,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 331
          },
          {
@@ -288,6 +322,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 341
          },
          {
@@ -296,6 +331,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 351
          },
          {
@@ -304,6 +340,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 361
          },
          {
@@ -312,6 +349,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 371
          },
          {
@@ -320,6 +358,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 381
          },
          {
@@ -328,6 +367,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 391
          },
          {
@@ -336,6 +376,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 401
          },
          {
@@ -344,6 +385,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 411
          },
          {
@@ -352,6 +394,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 421
          },
          {
@@ -360,6 +403,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 431
          },
          {
@@ -368,6 +412,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 441
          },
          {
@@ -376,6 +421,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 451
          },
          {
@@ -384,6 +430,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 461
          },
          {
@@ -392,6 +439,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 471
          },
          {
@@ -400,6 +448,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 481
          },
          {
@@ -408,6 +457,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 491
          },
          {
@@ -416,6 +466,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 501
          },
          {
@@ -424,6 +475,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 511
          },
          {
@@ -432,6 +484,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 521
          },
          {
@@ -440,6 +493,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 531
          },
          {
@@ -448,6 +502,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 541
          },
          {
@@ -456,6 +511,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 551
          },
          {
@@ -464,6 +520,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 561
          },
          {
@@ -472,6 +529,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 571
          },
          {
@@ -480,6 +538,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 581
          },
          {
@@ -488,6 +547,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 591
          },
          {
@@ -496,6 +556,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 601
          },
          {
@@ -504,6 +565,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 611
          },
          {
@@ -512,6 +574,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 621
          },
          {
@@ -520,6 +583,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 631
          },
          {
@@ -528,6 +592,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 641
          },
          {
@@ -536,6 +601,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 651
          },
          {
@@ -544,6 +610,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 661
          },
          {
@@ -552,6 +619,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 671
          },
          {
@@ -560,6 +628,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 681
          },
          {
@@ -568,6 +637,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 691
          },
          {
@@ -576,6 +646,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 701
          },
          {
@@ -584,6 +655,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 711
          },
          {
@@ -592,6 +664,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 721
          },
          {
@@ -600,6 +673,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 731
          },
          {
@@ -608,6 +682,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 741
          },
          {
@@ -616,6 +691,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 751
          },
          {
@@ -624,6 +700,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 761
          },
          {
@@ -632,6 +709,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 771
          },
          {
@@ -640,6 +718,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 781
          },
          {
@@ -648,6 +727,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 791
          },
          {
@@ -656,6 +736,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 801
          },
          {
@@ -664,6 +745,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 811
          },
          {
@@ -672,6 +754,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 821
          },
          {
@@ -680,6 +763,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 831
          },
          {
@@ -688,6 +772,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 841
          },
          {
@@ -696,6 +781,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 851
          },
          {
@@ -704,6 +790,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 861
          },
          {
@@ -712,6 +799,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 871
          },
          {
@@ -720,6 +808,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 881
          },
          {
@@ -728,6 +817,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 891
          },
          {
@@ -736,6 +826,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 901
          },
          {
@@ -744,6 +835,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 911
          },
          {
@@ -752,6 +844,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 921
          },
          {
@@ -760,6 +853,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 931
          },
          {
@@ -768,6 +862,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 941
          },
          {
@@ -776,6 +871,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 951
          },
          {
@@ -784,6 +880,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 961
          },
          {
@@ -792,6 +889,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 971
          },
          {
@@ -800,6 +898,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 981
          },
          {
@@ -808,6 +907,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 991
          },
          {
@@ -816,6 +916,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1001
          },
          {
@@ -824,6 +925,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1011
          },
          {
@@ -832,6 +934,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1021
          },
          {
@@ -840,6 +943,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1031
          },
          {
@@ -848,6 +952,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1041
          },
          {
@@ -856,6 +961,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1051
          },
          {
@@ -864,6 +970,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1061
          },
          {
@@ -872,6 +979,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1071
          },
          {
@@ -880,6 +988,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1081
          },
          {
@@ -888,6 +997,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1091
          },
          {
@@ -896,6 +1006,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1101
          },
          {
@@ -904,6 +1015,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1111
          },
          {
@@ -912,6 +1024,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1121
          },
          {
@@ -920,6 +1033,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1131
          },
          {
@@ -928,6 +1042,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1141
          },
          {
@@ -936,6 +1051,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1151
          },
          {
@@ -944,6 +1060,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1161
          },
          {
@@ -952,6 +1069,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1171
          },
          {
@@ -960,6 +1078,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1181
          },
          {
@@ -968,6 +1087,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1191
          },
          {
@@ -976,6 +1096,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1201
          },
          {
@@ -984,6 +1105,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1211
          },
          {
@@ -992,6 +1114,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1221
          },
          {
@@ -1000,6 +1123,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1231
          },
          {
@@ -1008,6 +1132,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1241
          },
          {
@@ -1016,6 +1141,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1251
          },
          {
@@ -1024,6 +1150,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1261
          },
          {
@@ -1032,6 +1159,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1271
          },
          {
@@ -1040,6 +1168,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1281
          },
          {
@@ -1048,6 +1177,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1291
          },
          {
@@ -1056,6 +1186,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1301
          },
          {
@@ -1064,6 +1195,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1311
          },
          {
@@ -1072,6 +1204,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1321
          },
          {
@@ -1080,6 +1213,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1331
          },
          {
@@ -1088,6 +1222,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1341
          },
          {
@@ -1096,6 +1231,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1351
          },
          {
@@ -1104,6 +1240,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1361
          },
          {
@@ -1112,6 +1249,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1371
          },
          {
@@ -1120,6 +1258,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1381
          },
          {
@@ -1128,6 +1267,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1391
          },
          {
@@ -1136,6 +1276,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1401
          },
          {
@@ -1144,6 +1285,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1411
          },
          {
@@ -1152,6 +1294,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1421
          },
          {
@@ -1160,6 +1303,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1431
          },
          {
@@ -1168,6 +1312,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1441
          },
          {
@@ -1176,6 +1321,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1451
          },
          {
@@ -1184,6 +1330,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1461
          },
          {
@@ -1192,6 +1339,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1471
          },
          {
@@ -1200,6 +1348,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1481
          },
          {
@@ -1208,6 +1357,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1491
          },
          {
@@ -1216,6 +1366,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1501
          },
          {
@@ -1224,6 +1375,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1511
          },
          {
@@ -1232,6 +1384,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1521
          },
          {
@@ -1240,6 +1393,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1531
          },
          {
@@ -1248,6 +1402,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1541
          },
          {
@@ -1256,6 +1411,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1551
          },
          {
@@ -1264,6 +1420,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1561
          },
          {
@@ -1272,6 +1429,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1571
          },
          {
@@ -1280,6 +1438,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1581
          },
          {
@@ -1288,6 +1447,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1591
          },
          {
@@ -1296,6 +1456,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1601
          },
          {
@@ -1304,6 +1465,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1611
          },
          {
@@ -1312,6 +1474,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1621
          },
          {
@@ -1320,6 +1483,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1631
          },
          {
@@ -1328,6 +1492,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1641
          },
          {
@@ -1336,6 +1501,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1651
          },
          {
@@ -1344,6 +1510,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1661
          },
          {
@@ -1352,6 +1519,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1671
          },
          {
@@ -1360,6 +1528,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1681
          },
          {
@@ -1368,6 +1537,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1691
          },
          {
@@ -1376,6 +1546,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1701
          },
          {
@@ -1384,6 +1555,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1711
          },
          {
@@ -1392,6 +1564,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1721
          },
          {
@@ -1400,6 +1573,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1731
          },
          {
@@ -1408,6 +1582,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1741
          },
          {
@@ -1416,6 +1591,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1751
          },
          {
@@ -1424,6 +1600,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1761
          },
          {
@@ -1432,6 +1609,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1771
          },
          {
@@ -1440,6 +1618,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1781
          },
          {
@@ -1448,6 +1627,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1791
          },
          {
@@ -1456,6 +1636,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1801
          },
          {
@@ -1464,6 +1645,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1811
          },
          {
@@ -1472,6 +1654,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1821
          },
          {
@@ -1480,6 +1663,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1831
          },
          {
@@ -1488,6 +1672,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1841
          },
          {
@@ -1496,6 +1681,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1851
          },
          {
@@ -1504,6 +1690,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1861
          },
          {
@@ -1512,6 +1699,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1871
          },
          {
@@ -1520,6 +1708,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1881
          },
          {
@@ -1528,6 +1717,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1891
          },
          {
@@ -1536,6 +1726,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1901
          },
          {
@@ -1544,6 +1735,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1911
          },
          {
@@ -1552,6 +1744,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1921
          },
          {
@@ -1560,6 +1753,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1931
          },
          {
@@ -1568,6 +1762,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1941
          },
          {
@@ -1576,6 +1771,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1951
          },
          {
@@ -1584,6 +1780,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1961
          },
          {
@@ -1592,6 +1789,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1971
          },
          {
@@ -1600,6 +1798,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1981
          },
          {
@@ -1608,6 +1807,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 1991
          },
          {
@@ -1616,6 +1816,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2001
          },
          {
@@ -1624,6 +1825,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2011
          },
          {
@@ -1632,6 +1834,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2021
          },
          {
@@ -1640,6 +1843,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2031
          },
          {
@@ -1648,6 +1852,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2041
          },
          {
@@ -1656,6 +1861,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2051
          },
          {
@@ -1664,6 +1870,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2061
          },
          {
@@ -1672,6 +1879,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2071
          },
          {
@@ -1680,6 +1888,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2081
          },
          {
@@ -1688,6 +1897,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2091
          },
          {
@@ -1696,6 +1906,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2101
          },
          {
@@ -1704,6 +1915,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2111
          },
          {
@@ -1712,6 +1924,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2121
          },
          {
@@ -1720,6 +1933,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2131
          },
          {
@@ -1728,6 +1942,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2141
          },
          {
@@ -1736,6 +1951,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2151
          },
          {
@@ -1744,6 +1960,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2161
          },
          {
@@ -1752,6 +1969,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2171
          },
          {
@@ -1760,6 +1978,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2181
          },
          {
@@ -1768,6 +1987,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2191
          },
          {
@@ -1776,6 +1996,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2201
          },
          {
@@ -1784,6 +2005,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2211
          },
          {
@@ -1792,6 +2014,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2221
          },
          {
@@ -1800,6 +2023,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2231
          },
          {
@@ -1808,6 +2032,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2241
          },
          {
@@ -1816,6 +2041,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2251
          },
          {
@@ -1824,6 +2050,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2261
          },
          {
@@ -1832,6 +2059,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2271
          },
          {
@@ -1840,6 +2068,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2281
          },
          {
@@ -1848,6 +2077,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2291
          },
          {
@@ -1856,6 +2086,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2301
          },
          {
@@ -1864,6 +2095,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2311
          },
          {
@@ -1872,6 +2104,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2321
          },
          {
@@ -1880,6 +2113,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2331
          },
          {
@@ -1888,6 +2122,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2341
          },
          {
@@ -1896,6 +2131,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2351
          },
          {
@@ -1904,6 +2140,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2361
          },
          {
@@ -1912,6 +2149,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2371
          },
          {
@@ -1920,6 +2158,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2381
          },
          {
@@ -1928,6 +2167,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2391
          },
          {
@@ -1936,6 +2176,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2401
          },
          {
@@ -1944,6 +2185,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2411
          },
          {
@@ -1952,6 +2194,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2421
          },
          {
@@ -1960,6 +2203,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2431
          },
          {
@@ -1968,6 +2212,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2441
          },
          {
@@ -1976,6 +2221,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2451
          },
          {
@@ -1984,6 +2230,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2461
          },
          {
@@ -1992,6 +2239,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2471
          },
          {
@@ -2000,6 +2248,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2481
          },
          {
@@ -2008,6 +2257,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2491
          },
          {
@@ -2016,6 +2266,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2501
          },
          {
@@ -2024,6 +2275,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2511
          },
          {
@@ -2032,6 +2284,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2521
          },
          {
@@ -2040,6 +2293,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2531
          },
          {
@@ -2048,6 +2302,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2541
          },
          {
@@ -2056,6 +2311,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2551
          },
          {
@@ -2064,6 +2320,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2561
          },
          {
@@ -2072,6 +2329,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2571
          },
          {
@@ -2080,6 +2338,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2581
          },
          {
@@ -2088,6 +2347,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2591
          },
          {
@@ -2096,6 +2356,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2601
          },
          {
@@ -2104,6 +2365,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2611
          },
          {
@@ -2112,6 +2374,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2621
          },
          {
@@ -2120,6 +2383,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2631
          },
          {
@@ -2128,6 +2392,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2641
          },
          {
@@ -2136,6 +2401,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2651
          },
          {
@@ -2144,6 +2410,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2661
          },
          {
@@ -2152,6 +2419,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2671
          },
          {
@@ -2160,6 +2428,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2681
          },
          {
@@ -2168,6 +2437,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2691
          },
          {
@@ -2176,6 +2446,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2701
          },
          {
@@ -2184,6 +2455,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2711
          },
          {
@@ -2192,6 +2464,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2721
          },
          {
@@ -2200,6 +2473,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2731
          },
          {
@@ -2208,6 +2482,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2741
          },
          {
@@ -2216,6 +2491,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2751
          },
          {
@@ -2224,6 +2500,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2761
          },
          {
@@ -2232,6 +2509,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2771
          },
          {
@@ -2240,6 +2518,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2781
          },
          {
@@ -2248,6 +2527,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2791
          },
          {
@@ -2256,6 +2536,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2801
          },
          {
@@ -2264,6 +2545,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2811
          },
          {
@@ -2272,6 +2554,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2821
          },
          {
@@ -2280,6 +2563,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2831
          },
          {
@@ -2288,6 +2572,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2841
          },
          {
@@ -2296,6 +2581,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2851
          },
          {
@@ -2304,6 +2590,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2861
          },
          {
@@ -2312,6 +2599,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2871
          },
          {
@@ -2320,6 +2608,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2881
          },
          {
@@ -2328,6 +2617,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2891
          },
          {
@@ -2336,6 +2626,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2901
          },
          {
@@ -2344,6 +2635,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2911
          },
          {
@@ -2352,6 +2644,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2921
          },
          {
@@ -2360,6 +2653,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2931
          },
          {
@@ -2368,6 +2662,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2941
          },
          {
@@ -2376,6 +2671,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2951
          },
          {
@@ -2384,6 +2680,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2961
          },
          {
@@ -2392,6 +2689,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2971
          },
          {
@@ -2400,6 +2698,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2981
          },
          {
@@ -2408,6 +2707,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 2991
          },
          {
@@ -2416,6 +2716,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3001
          },
          {
@@ -2424,6 +2725,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3011
          },
          {
@@ -2432,6 +2734,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3021
          },
          {
@@ -2440,6 +2743,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3031
          },
          {
@@ -2448,6 +2752,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3041
          },
          {
@@ -2456,6 +2761,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3051
          },
          {
@@ -2464,6 +2770,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3061
          },
          {
@@ -2472,6 +2779,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3071
          },
          {
@@ -2480,6 +2788,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3081
          },
          {
@@ -2488,6 +2797,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3091
          },
          {
@@ -2496,6 +2806,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3101
          },
          {
@@ -2504,6 +2815,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3111
          },
          {
@@ -2512,6 +2824,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3121
          },
          {
@@ -2520,6 +2833,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3131
          },
          {
@@ -2528,6 +2842,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3141
          },
          {
@@ -2536,6 +2851,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3151
          },
          {
@@ -2544,6 +2860,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3161
          },
          {
@@ -2552,6 +2869,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3171
          },
          {
@@ -2560,6 +2878,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3181
          },
          {
@@ -2568,6 +2887,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3191
          },
          {
@@ -2576,6 +2896,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3201
          },
          {
@@ -2584,6 +2905,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3211
          },
          {
@@ -2592,6 +2914,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3221
          },
          {
@@ -2600,6 +2923,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3231
          },
          {
@@ -2608,6 +2932,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3241
          },
          {
@@ -2616,6 +2941,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3251
          },
          {
@@ -2624,6 +2950,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3261
          },
          {
@@ -2632,6 +2959,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3271
          },
          {
@@ -2640,6 +2968,7 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3281
          },
          {
@@ -2648,6 +2977,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3291
          },
          {
@@ -2656,6 +2986,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3301
          },
          {
@@ -2664,6 +2995,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3311
          },
          {
@@ -2672,6 +3004,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3321
          },
          {
@@ -2680,6 +3013,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3331
          },
          {
@@ -2688,6 +3022,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3341
          },
          {
@@ -2696,6 +3031,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3351
          },
          {
@@ -2704,6 +3040,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3361
          },
          {
@@ -2712,6 +3049,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3371
          },
          {
@@ -2720,6 +3058,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3381
          },
          {
@@ -2728,6 +3067,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3391
          },
          {
@@ -2736,6 +3076,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3401
          },
          {
@@ -2744,6 +3085,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3411
          },
          {
@@ -2752,6 +3094,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3421
          },
          {
@@ -2760,6 +3103,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3431
          },
          {
@@ -2768,6 +3112,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3441
          },
          {
@@ -2776,6 +3121,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3451
          },
          {
@@ -2784,6 +3130,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3461
          },
          {
@@ -2792,6 +3139,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3471
          },
          {
@@ -2800,6 +3148,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3481
          },
          {
@@ -2808,6 +3157,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3491
          },
          {
@@ -2816,6 +3166,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3501
          },
          {
@@ -2824,6 +3175,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3511
          },
          {
@@ -2832,6 +3184,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3521
          },
          {
@@ -2840,6 +3193,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3531
          },
          {
@@ -2848,6 +3202,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3541
          },
          {
@@ -2856,6 +3211,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3551
          },
          {
@@ -2864,6 +3220,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3561
          },
          {
@@ -2872,6 +3229,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3571
          },
          {
@@ -2880,6 +3238,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3581
          },
          {
@@ -2888,6 +3247,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3591
          },
          {
@@ -2896,6 +3256,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3601
          },
          {
@@ -2904,6 +3265,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3611
          },
          {
@@ -2912,6 +3274,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3621
          },
          {
@@ -2920,6 +3283,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3631
          },
          {
@@ -2928,6 +3292,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3641
          },
          {
@@ -2936,6 +3301,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3651
          },
          {
@@ -2944,6 +3310,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3661
          },
          {
@@ -2952,6 +3319,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3671
          },
          {
@@ -2960,6 +3328,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3681
          },
          {
@@ -2968,6 +3337,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3691
          },
          {
@@ -2976,6 +3346,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3701
          },
          {
@@ -2984,6 +3355,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3711
          },
          {
@@ -2992,6 +3364,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3721
          },
          {
@@ -3000,6 +3373,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3731
          },
          {
@@ -3008,6 +3382,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3741
          },
          {
@@ -3016,6 +3391,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3751
          },
          {
@@ -3024,6 +3400,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3761
          },
          {
@@ -3032,6 +3409,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3771
          },
          {
@@ -3040,6 +3418,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3781
          },
          {
@@ -3048,6 +3427,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3791
          },
          {
@@ -3056,6 +3436,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3801
          },
          {
@@ -3064,6 +3445,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3811
          },
          {
@@ -3072,6 +3454,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3821
          },
          {
@@ -3080,6 +3463,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3831
          },
          {
@@ -3088,6 +3472,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3841
          },
          {
@@ -3096,6 +3481,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3851
          },
          {
@@ -3104,6 +3490,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3861
          },
          {
@@ -3112,6 +3499,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3871
          },
          {
@@ -3120,6 +3508,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3881
          },
          {
@@ -3128,6 +3517,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3891
          },
          {
@@ -3136,6 +3526,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3901
          },
          {
@@ -3144,6 +3535,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3911
          },
          {
@@ -3152,6 +3544,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3921
          },
          {
@@ -3160,6 +3553,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3931
          },
          {
@@ -3168,6 +3562,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3941
          },
          {
@@ -3176,6 +3571,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3951
          },
          {
@@ -3184,6 +3580,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3961
          },
          {
@@ -3192,6 +3589,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3971
          },
          {
@@ -3200,6 +3598,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3981
          },
          {
@@ -3208,6 +3607,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 3991
          },
          {
@@ -3216,6 +3616,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4001
          },
          {
@@ -3224,6 +3625,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4011
          },
          {
@@ -3232,6 +3634,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4021
          },
          {
@@ -3240,6 +3643,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4031
          },
          {
@@ -3248,6 +3652,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4041
          },
          {
@@ -3256,6 +3661,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4051
          },
          {
@@ -3264,6 +3670,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4061
          },
          {
@@ -3272,6 +3679,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4071
          },
          {
@@ -3280,6 +3688,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4081
          },
          {
@@ -3288,6 +3697,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4091
          },
          {
@@ -3296,6 +3706,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4101
          },
          {
@@ -3304,6 +3715,7 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4111
          },
          {
@@ -3312,6 +3724,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4121
          },
          {
@@ -3320,6 +3733,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4131
          },
          {
@@ -3328,6 +3742,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4141
          },
          {
@@ -3336,6 +3751,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4151
          },
          {
@@ -3344,6 +3760,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4161
          },
          {
@@ -3352,6 +3769,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4171
          },
          {
@@ -3360,6 +3778,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4181
          },
          {
@@ -3368,6 +3787,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4191
          },
          {
@@ -3376,6 +3796,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4201
          },
          {
@@ -3384,6 +3805,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4211
          },
          {
@@ -3392,6 +3814,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4221
          },
          {
@@ -3400,6 +3823,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4231
          },
          {
@@ -3408,6 +3832,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4241
          },
          {
@@ -3416,6 +3841,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4251
          },
          {
@@ -3424,6 +3850,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4261
          },
          {
@@ -3432,6 +3859,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4271
          },
          {
@@ -3440,6 +3868,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4281
          },
          {
@@ -3448,6 +3877,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4291
          },
          {
@@ -3456,6 +3886,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4301
          },
          {
@@ -3464,6 +3895,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4311
          },
          {
@@ -3472,6 +3904,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4321
          },
          {
@@ -3480,6 +3913,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4331
          },
          {
@@ -3488,6 +3922,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4341
          },
          {
@@ -3496,6 +3931,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4351
          },
          {
@@ -3504,6 +3940,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4361
          },
          {
@@ -3512,6 +3949,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4371
          },
          {
@@ -3520,6 +3958,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4381
          },
          {
@@ -3528,6 +3967,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4391
          },
          {
@@ -3536,6 +3976,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4401
          },
          {
@@ -3544,6 +3985,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4411
          },
          {
@@ -3552,6 +3994,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4421
          },
          {
@@ -3560,6 +4003,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4431
          },
          {
@@ -3568,6 +4012,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4441
          },
          {
@@ -3576,6 +4021,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4451
          },
          {
@@ -3584,6 +4030,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4461
          },
          {
@@ -3592,6 +4039,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4471
          },
          {
@@ -3600,6 +4048,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4481
          },
          {
@@ -3608,6 +4057,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4491
          },
          {
@@ -3616,6 +4066,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4501
          },
          {
@@ -3624,6 +4075,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4511
          },
          {
@@ -3632,6 +4084,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4521
          },
          {
@@ -3640,6 +4093,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4531
          },
          {
@@ -3648,6 +4102,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4541
          },
          {
@@ -3656,6 +4111,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4551
          },
          {
@@ -3664,6 +4120,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4561
          },
          {
@@ -3672,6 +4129,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4571
          },
          {
@@ -3680,6 +4138,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4581
          },
          {
@@ -3688,6 +4147,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4591
          },
          {
@@ -3696,6 +4156,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4601
          },
          {
@@ -3704,6 +4165,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4611
          },
          {
@@ -3712,6 +4174,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4621
          },
          {
@@ -3720,6 +4183,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4631
          },
          {
@@ -3728,6 +4192,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4641
          },
          {
@@ -3736,6 +4201,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4651
          },
          {
@@ -3744,6 +4210,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4661
          },
          {
@@ -3752,6 +4219,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4671
          },
          {
@@ -3760,6 +4228,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4681
          },
          {
@@ -3768,6 +4237,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4691
          },
          {
@@ -3776,6 +4246,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4701
          },
          {
@@ -3784,6 +4255,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4711
          },
          {
@@ -3792,6 +4264,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4721
          },
          {
@@ -3800,6 +4273,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4731
          },
          {
@@ -3808,6 +4282,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4741
          },
          {
@@ -3816,6 +4291,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4751
          },
          {
@@ -3824,6 +4300,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4761
          },
          {
@@ -3832,6 +4309,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4771
          },
          {
@@ -3840,6 +4318,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4781
          },
          {
@@ -3848,6 +4327,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4791
          },
          {
@@ -3856,6 +4336,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4801
          },
          {
@@ -3864,6 +4345,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4811
          },
          {
@@ -3872,6 +4354,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4821
          },
          {
@@ -3880,6 +4363,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4831
          },
          {
@@ -3888,6 +4372,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4841
          },
          {
@@ -3896,6 +4381,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4851
          },
          {
@@ -3904,6 +4390,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4861
          },
          {
@@ -3912,6 +4399,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4871
          },
          {
@@ -3920,6 +4408,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4881
          },
          {
@@ -3928,6 +4417,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4891
          },
          {
@@ -3936,6 +4426,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4901
          },
          {
@@ -3944,6 +4435,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4911
          },
          {
@@ -3952,6 +4444,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4921
          },
          {
@@ -3960,6 +4453,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4931
          },
          {
@@ -3968,6 +4462,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4941
          },
          {
@@ -3976,6 +4471,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4951
          },
          {
@@ -3984,6 +4480,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4961
          },
          {
@@ -3992,6 +4489,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4971
          },
          {
@@ -4000,6 +4498,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4981
          },
          {
@@ -4008,6 +4507,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 4991
          },
          {
@@ -4016,6 +4516,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5001
          },
          {
@@ -4024,6 +4525,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5011
          },
          {
@@ -4032,6 +4534,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5021
          },
          {
@@ -4040,6 +4543,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5031
          },
          {
@@ -4048,6 +4552,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5041
          },
          {
@@ -4056,6 +4561,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5051
          },
          {
@@ -4064,6 +4570,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5061
          },
          {
@@ -4072,6 +4579,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5071
          },
          {
@@ -4080,6 +4588,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5081
          },
          {
@@ -4088,6 +4597,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5091
          },
          {
@@ -4096,6 +4606,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5101
          },
          {
@@ -4104,6 +4615,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5111
          },
          {
@@ -4112,6 +4624,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5121
          },
          {
@@ -4120,6 +4633,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5131
          },
          {
@@ -4128,6 +4642,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5141
          },
          {
@@ -4136,6 +4651,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5151
          },
          {
@@ -4144,6 +4660,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5161
          },
          {
@@ -4152,6 +4669,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5171
          },
          {
@@ -4160,6 +4678,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5181
          },
          {
@@ -4168,6 +4687,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5191
          },
          {
@@ -4176,6 +4696,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
             "position": 5201
          },
 
@@ -4185,6 +4706,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 5211
          },
          {
@@ -4193,6 +4715,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 5221
          },
          {
@@ -4201,6 +4724,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 5231
          },
          {
@@ -4209,6 +4733,7 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 5241
          },
          {
@@ -4217,7 +4742,25 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
             "position": 5251
+         },
+         {
+            "surveyShortName": "CSG",
+            "fieldName": "CSG_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "CSG%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [
+                  { "min": 0, "max": 10, "style": "green" },
+                  { "min": 11, "max": 28, "style": "red" }
+               ]
+            },
+            "position": 5261
          },
          {
             "surveyShortName": "CSG",
@@ -4225,7 +4768,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5261
+            "displayType": { "type": "asIs" },
+            "position": 5271
          },
          {
             "surveyShortName": "FIAD-15",
@@ -4233,7 +4777,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5271
+            "displayType": { "type": "asIs" },
+            "position": 5281
          },
          {
             "surveyShortName": "FIAD-15",
@@ -4241,7 +4786,27 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5281
+            "displayType": { "type": "asIs" },
+            "position": 5291
+         },
+         {
+            "surveyShortName": "FIAD-15",
+            "fieldName": "FIAD-15_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "FIAD%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [
+                  { "min": 0, "max": 11, "style": "green" },
+                  { "min": 12, "max": 18, "style": "green" },
+                  { "min": 19, "max": 43, "style": "orange" },
+                  { "min": 44, "max": 100, "style": "red" }
+               ]
+            },
+            "position": 5301
          },
          {
             "surveyShortName": "BURN",
@@ -4249,7 +4814,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5291
+            "displayType": { "type": "asIs" },
+            "position": 5311
          },
          {
             "surveyShortName": "BURN",
@@ -4257,7 +4823,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5301
+            "displayType": { "type": "asIs" },
+            "position": 5321
          },
          {
             "surveyShortName": "BURN",
@@ -4265,7 +4832,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5311
+            "displayType": { "type": "asIs" },
+            "position": 5331
          },
          {
             "surveyShortName": "BURN",
@@ -4273,7 +4841,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5321
+            "displayType": { "type": "asIs" },
+            "position": 5341
+         },
+         {
+            "surveyShortName": "BURN",
+            "fieldName": "BURN_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "BURN%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5351
          },
          {
             "surveyShortName": "ESTRES",
@@ -4281,7 +4864,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5331
+            "displayType": { "type": "asIs" },
+            "position": 5361
+         },
+         {
+            "surveyShortName": "ESTRES",
+            "fieldName": "ESTRES_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "ESTRES%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5371
          },
          {
             "surveyShortName": "ESTRES",
@@ -4289,7 +4887,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5341
+            "displayType": { "type": "asIs" },
+            "position": 5381
          },
          {
             "surveyShortName": "HAMILTON",
@@ -4297,7 +4896,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5351
+            "displayType": { "type": "asIs" },
+            "position": 5391
          },
          {
             "surveyShortName": "HAMILTON",
@@ -4305,7 +4905,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5361
+            "displayType": { "type": "asIs" },
+            "position": 5401
          },
          {
             "surveyShortName": "HAMILTON",
@@ -4313,7 +4914,27 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5371
+            "displayType": { "type": "asIs" },
+            "position": 5411
+         },
+         {
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "HAMILTON%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [
+                  { "min": 0, "max": 0, "style": "green" },
+                  { "min": 2, "max": 33, "style": "green" },
+                  { "min": 34, "max": 46, "style": "orange" },
+                  { "min": 47, "max": 100, "style": "red" }
+               ]
+            },
+            "position": 5421
          },
          {
             "surveyShortName": "HAMILTON",
@@ -4321,7 +4942,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5381
+            "displayType": { "type": "asIs" },
+            "position": 5431
          },
 
          {
@@ -4330,7 +4952,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5391
+            "displayType": { "type": "asIs" },
+            "position": 5441
+         },
+         {
+            "surveyShortName": "JEFF_STATIC",
+            "fieldName": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "COLAB%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5451
          },
          {
             "surveyShortName": "BECK",
@@ -4338,7 +4975,28 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5401
+            "displayType": { "type": "asIs" },
+            "position": 5461
+         },
+         {
+            "surveyShortName": "BECK",
+            "fieldName": "BECK_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "BECK%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [
+                  { "min": 0, "max": 11, "style": "green" },
+                  { "min": 12, "max": 21, "style": "green" },
+                  { "min": 22, "max": 29, "style": "orange" },
+                  { "min": 30, "max": 35, "style": "red" },
+                  { "min": 36, "max": 100, "style": "red" }
+               ]
+            },
+            "position": 5471
          },
          {
             "surveyShortName": "BECK",
@@ -4346,7 +5004,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5411
+            "displayType": { "type": "asIs" },
+            "position": 5481
          },
          {
             "surveyShortName": "SCL90",
@@ -4354,7 +5013,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5421
+            "displayType": { "type": "asIs" },
+            "position": 5491
          },
          {
             "surveyShortName": "SCL90",
@@ -4362,7 +5022,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5431
+            "displayType": { "type": "asIs" },
+            "position": 5501
          },
          {
             "surveyShortName": "SCL90",
@@ -4370,7 +5031,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5441
+            "displayType": { "type": "asIs" },
+            "position": 5511
          },
          {
             "surveyShortName": "SCL90",
@@ -4378,7 +5040,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5451
+            "displayType": { "type": "asIs" },
+            "position": 5521
          },
          {
             "surveyShortName": "SCL90",
@@ -4386,7 +5049,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5461
+            "displayType": { "type": "asIs" },
+            "position": 5531
          },
          {
             "surveyShortName": "SCL90",
@@ -4394,7 +5058,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5471
+            "displayType": { "type": "asIs" },
+            "position": 5541
          },
          {
             "surveyShortName": "SCL90",
@@ -4402,7 +5067,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5481
+            "displayType": { "type": "asIs" },
+            "position": 5551
          },
          {
             "surveyShortName": "SCL90",
@@ -4410,7 +5076,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5491
+            "displayType": { "type": "asIs" },
+            "position": 5561
          },
          {
             "surveyShortName": "SCL90",
@@ -4418,7 +5085,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5501
+            "displayType": { "type": "asIs" },
+            "position": 5571
          },
          {
             "surveyShortName": "SCL90",
@@ -4426,7 +5094,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5511
+            "displayType": { "type": "asIs" },
+            "position": 5581
          },
          {
             "surveyShortName": "SCL90",
@@ -4434,7 +5103,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5521
+            "displayType": { "type": "asIs" },
+            "position": 5591
+         },
+         {
+            "surveyShortName": "SCL90",
+            "fieldName": "SCL90_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "SCL90%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5601
          },
          {
             "surveyShortName": "JEFF_HP",
@@ -4442,7 +5126,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5531
+            "displayType": { "type": "asIs" },
+            "position": 5611
+         },
+         {
+            "surveyShortName": "JEFF_HP",
+            "fieldName": "JSPE-HP_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "JeffHp%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5621
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -4450,7 +5149,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5541
+            "displayType": { "type": "asIs" },
+            "position": 5631
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -4458,7 +5158,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5551
+            "displayType": { "type": "asIs" },
+            "position": 5641
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -4466,7 +5167,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5561
+            "displayType": { "type": "asIs" },
+            "position": 5651
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -4474,7 +5176,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5571
+            "displayType": { "type": "asIs" },
+            "position": 5661
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -4482,7 +5185,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5581
+            "displayType": { "type": "asIs" },
+            "position": 5671
+         },
+         {
+            "surveyShortName": "E_EFF_17",
+            "fieldName": "E_EFF_17_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "EFF%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5681
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA",
@@ -4490,7 +5208,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5591
+            "displayType": { "type": "asIs" },
+            "position": 5691
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -4498,7 +5217,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5601
+            "displayType": { "type": "asIs" },
+            "position": 5701
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -4506,7 +5226,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5611
+            "displayType": { "type": "asIs" },
+            "position": 5711
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -4514,7 +5235,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5621
+            "displayType": { "type": "asIs" },
+            "position": 5721
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -4522,7 +5244,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5631
+            "displayType": { "type": "asIs" },
+            "position": 5731
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -4530,7 +5253,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5641
+            "displayType": { "type": "asIs" },
+            "position": 5741
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -4538,7 +5262,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5651
+            "displayType": { "type": "asIs" },
+            "position": 5751
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -4546,7 +5271,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5661
+            "displayType": { "type": "asIs" },
+            "position": 5761
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -4554,7 +5280,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5671
+            "displayType": { "type": "asIs" },
+            "position": 5771
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -4562,7 +5289,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5681
+            "displayType": { "type": "asIs" },
+            "position": 5781
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -4570,7 +5298,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5691
+            "displayType": { "type": "asIs" },
+            "position": 5791
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4578,7 +5307,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5701
+            "displayType": { "type": "asIs" },
+            "position": 5801
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4586,7 +5316,8 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5711
+            "displayType": { "type": "asIs" },
+            "position": 5811
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4594,7 +5325,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5721
+            "displayType": { "type": "asIs" },
+            "position": 5821
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4602,7 +5334,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5731
+            "displayType": { "type": "asIs" },
+            "position": 5831
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4610,7 +5343,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5741
+            "displayType": { "type": "asIs" },
+            "position": 5841
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4618,7 +5352,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5751
+            "displayType": { "type": "asIs" },
+            "position": 5851
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4626,7 +5361,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5761
+            "displayType": { "type": "asIs" },
+            "position": 5861
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4634,7 +5370,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5771
+            "displayType": { "type": "asIs" },
+            "position": 5871
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4642,7 +5379,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5781
+            "displayType": { "type": "asIs" },
+            "position": 5881
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4650,7 +5388,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5791
+            "displayType": { "type": "asIs" },
+            "position": 5891
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -4658,7 +5397,8 @@
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
-            "position": 5801
+            "displayType": { "type": "asIs" },
+            "position": 5901
          },
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
@@ -4666,7 +5406,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5811
+            "displayType": { "type": "asIs" },
+            "position": 5911
+         },
+         {
+            "surveyShortName": "ACTITUD_APRENDIZAJE",
+            "fieldName": "ACTITUD_APRENDIZAJE_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "Aprendizaje%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5921
          },
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -4674,7 +5429,22 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5821
+            "displayType": { "type": "asIs" },
+            "position": 5931
+         },
+         {
+            "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+            "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERICA_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "ColabEnfermeria%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 5941
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4682,7 +5452,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5831
+            "displayType": { "type": "asIs" },
+            "position": 5951
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4690,7 +5461,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5841
+            "displayType": { "type": "asIs" },
+            "position": 5961
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4698,7 +5470,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5851
+            "displayType": { "type": "asIs" },
+            "position": 5971
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4706,7 +5479,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5861
+            "displayType": { "type": "asIs" },
+            "position": 5981
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4714,7 +5488,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5871
+            "displayType": { "type": "asIs" },
+            "position": 5991
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4722,7 +5497,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5881
+            "displayType": { "type": "asIs" },
+            "position": 6001
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4730,7 +5506,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5891
+            "displayType": { "type": "asIs" },
+            "position": 6011
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -4738,7 +5515,8 @@
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "position": 5901
+            "displayType": { "type": "asIs" },
+            "position": 6021
          }
       ],
       "multiSurveys": [
@@ -13068,6 +13846,16 @@
       },
       {
          "surveyShortName": "CSG",
+         "description": "CSG_PERCENT_OF_MAX",
+         "shortDescription": "CSG_PERCENT_OF_MAX",
+         "fieldName": "CSG_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "CSG_TOTAL_MAX_28", "max": 28 },
+         "subScales": ["CSG_PERCENT_MAX"],
+         "position": 151
+      },
+      {
+         "surveyShortName": "CSG",
          "description": "CSG_ES_CASO",
          "shortDescription": "CSG_ES_CASO",
          "fieldName": "CSG_ES_CASO",
@@ -13080,7 +13868,7 @@
             "resultIfFalse": 0
          },
          "subScales": ["CSG_ES_CASO"],
-         "position": 151
+         "position": 181
       },
       {
          "surveyShortName": "FIAD-15",
@@ -13089,7 +13877,7 @@
          "fieldName": "FIAD-15_TOTAL_MAX_60",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["FIAD-15"],
-         "position": 181
+         "position": 211
       },
       {
          "surveyShortName": "FIAD-15",
@@ -13107,7 +13895,17 @@
             ]
          },
          "subScales": ["FIAD-15_RESULT"],
-         "position": 211
+         "position": 241
+      },
+      {
+         "surveyShortName": "FIAD-15",
+         "description": "FIAD-15_PERCENT_OF_MAX",
+         "shortDescription": "FIAD-15_PERCENT_OF_MAX",
+         "fieldName": "FIAD-15_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "FIAD-15_TOTAL_MAX_60", "max": 60 },
+         "subScales": ["FIAD-15_PERCENT_MAX"],
+         "position": 271
       },
       {
          "surveyShortName": "BURN",
@@ -13116,7 +13914,7 @@
          "fieldName": "BURN_EMOCIONAL_MAX_42",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL"],
-         "position": 241
+         "position": 301
       },
       {
          "surveyShortName": "BURN",
@@ -13125,7 +13923,7 @@
          "fieldName": "BURN_DESPERS_MAX_48",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_DESPERS"],
-         "position": 271
+         "position": 331
       },
       {
          "surveyShortName": "BURN",
@@ -13134,7 +13932,7 @@
          "fieldName": "BURN_LOGROS_MAX_30",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_LOGROS"],
-         "position": 301
+         "position": 361
       },
       {
          "surveyShortName": "BURN",
@@ -13143,7 +13941,17 @@
          "fieldName": "BURN_TOTAL_MAX_120",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
-         "position": 331
+         "position": 391
+      },
+      {
+         "surveyShortName": "BURN",
+         "description": "BURN_PERCENT_OF_MAX",
+         "shortDescription": "BURN_PERCENT_OF_MAX",
+         "fieldName": "BURN_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "BURN_TOTAL_MAX_120", "max": 120 },
+         "subScales": ["BURN_PERCENT_MAX"],
+         "position": 421
       },
       {
          "surveyShortName": "ESTRES",
@@ -13152,7 +13960,17 @@
          "fieldName": "ESTRES_TOTAL_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 361
+         "position": 451
+      },
+      {
+         "surveyShortName": "ESTRES",
+         "description": "ESTRES_PERCENT_OF_MAX",
+         "shortDescription": "ESTRES_PERCENT_OF_MAX",
+         "fieldName": "ESTRES_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "ESTRES_TOTAL_MAX_40", "max": 40 },
+         "subScales": ["ESTRES_PERCENT_MAX"],
+         "position": 481
       },
       {
          "surveyShortName": "ESTRES",
@@ -13162,7 +13980,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 391
+         "position": 511
       },
       {
          "surveyShortName": "HAMILTON",
@@ -13171,7 +13989,7 @@
          "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_ANSIEDAD_PSIQUICA"],
-         "position": 421
+         "position": 541
       },
       {
          "surveyShortName": "HAMILTON",
@@ -13180,7 +13998,7 @@
          "fieldName": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_ANSIEDAD_SOMATICA"],
-         "position": 451
+         "position": 571
       },
       {
          "surveyShortName": "HAMILTON",
@@ -13192,7 +14010,20 @@
             "HAMILTON_ANSIEDAD_PSIQUICA",
             "HAMILTON_ANSIEDAD_SOMATICA"
          ],
-         "position": 481
+         "position": 601
+      },
+      {
+         "surveyShortName": "HAMILTON",
+         "description": "HAMILTON_PERCENT_OF_MAX",
+         "shortDescription": "HAMILTON_PERCENT_OF_MAX",
+         "fieldName": "HAMILTON_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "HAMILTON_ANSIEDAD_TOTAL_MAX_52",
+            "max": 52
+         },
+         "subScales": ["HAMILTON_PERCENT"],
+         "position": 631
       },
       {
          "surveyShortName": "HAMILTON",
@@ -13206,11 +14037,11 @@
                { "min": 0, "max": 0, "resultIfTrue": "Sin Ansiedad" },
                { "min": 1, "max": 17, "resultIfTrue": "Ansiedad Leve" },
                { "min": 18, "max": 24, "resultIfTrue": "Ansiedad Moderada" },
-               { "min": 25, "max": 30, "resultIfTrue": "Ansiedad Severa" }
+               { "min": 25, "max": 52, "resultIfTrue": "Ansiedad Severa" }
             ]
          },
          "subScales": ["HAMILTON_ANSIEDAD_TOTAL_MAX_48"],
-         "position": 511
+         "position": 661
       },
 
       {
@@ -13220,7 +14051,20 @@
          "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_STATIC"],
-         "position": 541
+         "position": 691
+      },
+      {
+         "surveyShortName": "JEFF_STATIC",
+         "description": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "shortDescription": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "fieldName": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+            "max": 140
+         },
+         "subScales": ["JEFF_PERCENT"],
+         "position": 721
       },
       {
          "surveyShortName": "BECK",
@@ -13229,7 +14073,20 @@
          "fieldName": "BECK_TOTAL_DEPRESION_MAX_63",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BECK_TOTAL_DEPRESION"],
-         "position": 571
+         "position": 751
+      },
+      {
+         "surveyShortName": "BECK",
+         "description": "BECK_PERCENT_OF_MAX",
+         "shortDescription": "BECK_PERCENT_OF_MAX",
+         "fieldName": "BECK_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "BECK_TOTAL_DEPRESION_MAX_63",
+            "max": 63
+         },
+         "subScales": ["BECK_PERCENT"],
+         "position": 781
       },
       {
          "surveyShortName": "BECK",
@@ -13256,7 +14113,7 @@
             ]
          },
          "subScales": ["BECK_ES_CASO"],
-         "position": 601
+         "position": 811
       },
       {
          "surveyShortName": "SCL90",
@@ -13265,7 +14122,7 @@
          "fieldName": "SCL90_SOMATIZACION_MAX_48",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SOMATIZACION"],
-         "position": 631
+         "position": 841
       },
       {
          "surveyShortName": "SCL90",
@@ -13274,7 +14131,7 @@
          "fieldName": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_OBSESION_COMPULSION"],
-         "position": 661
+         "position": 871
       },
       {
          "surveyShortName": "SCL90",
@@ -13283,7 +14140,7 @@
          "fieldName": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SENS_INTERPERS"],
-         "position": 691
+         "position": 901
       },
       {
          "surveyShortName": "SCL90",
@@ -13292,7 +14149,7 @@
          "fieldName": "SCL90_DEPRESION_MAX_52",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_DEPRESION"],
-         "position": 721
+         "position": 931
       },
       {
          "surveyShortName": "SCL90",
@@ -13301,7 +14158,7 @@
          "fieldName": "SCL90_ANSIEDAD_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ANSIEDAD"],
-         "position": 751
+         "position": 961
       },
       {
          "surveyShortName": "SCL90",
@@ -13310,7 +14167,7 @@
          "fieldName": "SCL90_HOSTILIDAD_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_HOSTILIDAD"],
-         "position": 781
+         "position": 991
       },
       {
          "surveyShortName": "SCL90",
@@ -13319,7 +14176,7 @@
          "fieldName": "SCL90_FOBIA_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_FOBIA"],
-         "position": 811
+         "position": 1021
       },
       {
          "surveyShortName": "SCL90",
@@ -13328,7 +14185,7 @@
          "fieldName": "SCL90_PARANOIA_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PARANOIA"],
-         "position": 841
+         "position": 1051
       },
       {
          "surveyShortName": "SCL90",
@@ -13337,7 +14194,7 @@
          "fieldName": "SCL90_PSICOTISMO_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PSICOSIS"],
-         "position": 871
+         "position": 1081
       },
       {
          "surveyShortName": "SCL90",
@@ -13346,7 +14203,7 @@
          "fieldName": "SCL90_ADICIONALES_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ADICIONALES"],
-         "position": 901
+         "position": 1111
       },
       {
          "surveyShortName": "SCL90",
@@ -13366,7 +14223,17 @@
             "SCL90_PSICOSIS",
             "SCL90_ADICIONALES"
          ],
-         "position": 931
+         "position": 1141
+      },
+      {
+         "surveyShortName": "SCL90",
+         "description": "SCL90_PERCENT_OF_MAX",
+         "shortDescription": "SCL90_PERCENT_OF_MAX",
+         "fieldName": "SCL90_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "SCL90_TOTAL_MAX_360", "max": 360 },
+         "subScales": ["SCL90_PERCENT"],
+         "position": 1171
       },
       {
          "surveyShortName": "JEFF_HP",
@@ -13375,7 +14242,20 @@
          "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_HP"],
-         "position": 961
+         "position": 1201
+      },
+      {
+         "surveyShortName": "JEFF_HP",
+         "description": "JSPE-HP_PERCENT_OF_MAX",
+         "shortDescription": "JSPE-HP_PERCENT_OF_MAX",
+         "fieldName": "JSPE-HP_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
+            "max": 140
+         },
+         "subScales": ["SCL90_PERCENT"],
+         "position": 1231
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -13384,7 +14264,7 @@
          "fieldName": "E_EFF_17_INDIVIDUACION_MAX_12",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["INDIVIDUACION"],
-         "position": 991
+         "position": 1261
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -13393,7 +14273,7 @@
          "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["MANTENIMIENTO_DEL_SISTEMA"],
-         "position": 1021
+         "position": 1291
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -13402,7 +14282,7 @@
          "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CAMBIO_DEL_SISTEMA"],
-         "position": 1051
+         "position": 1321
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -13411,7 +14291,7 @@
          "fieldName": "E_EFF_17_COHERENCIA_MAX_6",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COHERENCIA"],
-         "position": 1081
+         "position": 1351
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -13425,7 +14305,17 @@
             "CAMBIO_DEL_SISTEMA",
             "COHERENCIA"
          ],
-         "position": 1111
+         "position": 1381
+      },
+      {
+         "surveyShortName": "E_EFF_17",
+         "description": "E_EFF_17_PERCENT_OF_MAX",
+         "shortDescription": "E_EFF_17_PERCENT_OF_MAX",
+         "fieldName": "E_EFF_17_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "E_EFF_17_TOTAL_51", "max": 51 },
+         "subScales": ["SCL90_PERCENT"],
+         "position": 1411
       },
 
       {
@@ -13435,7 +14325,7 @@
          "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P2"],
-         "position": 1171
+         "position": 1471
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -13445,7 +14335,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P2"],
-         "position": 1201
+         "position": 1501
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -13454,7 +14344,7 @@
          "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P3"],
-         "position": 1231
+         "position": 1531
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -13464,7 +14354,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P3"],
-         "position": 1261
+         "position": 1561
       },
 
       {
@@ -13474,7 +14364,7 @@
          "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P5"],
-         "position": 1321
+         "position": 1621
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -13484,7 +14374,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P5"],
-         "position": 1351
+         "position": 1651
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -13493,7 +14383,7 @@
          "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P6"],
-         "position": 1381
+         "position": 1681
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -13503,7 +14393,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P6"],
-         "position": 1411
+         "position": 1711
       },
 
       {
@@ -13513,7 +14403,7 @@
          "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VE_DETALLES_P8"],
-         "position": 1471
+         "position": 1771
       },
       {
          "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -13523,7 +14413,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VE_DETALLES_P8"],
-         "position": 1501
+         "position": 1801
       },
 
       {
@@ -13533,7 +14423,20 @@
          "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["APRENDIZAJE"],
-         "position": 1801
+         "position": 2101
+      },
+      {
+         "surveyShortName": "ACTITUD_APRENDIZAJE",
+         "description": "ACTITUD_APRENDIZAJE_PERCENT_OF_MAX",
+         "shortDescription": "ACTITUD_APRENDIZAJE_PERCENT_OF_MAX",
+         "fieldName": "ACTITUD_APRENDIZAJE_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "ACTITUD_APRENDIZAJE_TOTAL",
+            "max": 56
+         },
+         "subScales": ["ACTITUD_APRENDIZAJE_PERCENT"],
+         "position": 2131
       },
       {
          "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -13542,7 +14445,20 @@
          "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERIA_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COLAB_MEDICO_ENFERMERIA"],
-         "position": 1831
+         "position": 2161
+      },
+      {
+         "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
+         "description": "JEFF_COLABORACION_MEDICO_ENFERMERICA_PERCENT_OF_MAX",
+         "shortDescription": "JEFF_COLABORACION_MEDICO_ENFERMERICA_PERCENT_OF_MAX",
+         "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERICA_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "JEFF_COLABORACION_MEDICO_ENFERMERIA_TOTAL",
+            "max": 60
+         },
+         "subScales": ["COLAB_MEDICO_ENFERMERA_PERCENT"],
+         "position": 2191
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13551,7 +14467,7 @@
          "fieldName": "ZAVIC_INTERES_SOCIAL_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_SOCIAL"],
-         "position": 1861
+         "position": 2221
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13560,7 +14476,7 @@
          "fieldName": "ZAVIC_INTERES_POLITICO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_POLITICO"],
-         "position": 1891
+         "position": 2251
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13569,7 +14485,7 @@
          "fieldName": "ZAVIC_INTERES_ECONOMICO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_ECONOMICO"],
-         "position": 1921
+         "position": 2281
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13578,7 +14494,7 @@
          "fieldName": "ZAVIC_INTERES_RELIGIOSO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_RELIGIOSO"],
-         "position": 1951
+         "position": 2311
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13587,7 +14503,7 @@
          "fieldName": "ZAVIC_VALORES_MORAL_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_MORAL"],
-         "position": 1981
+         "position": 2341
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13596,7 +14512,7 @@
          "fieldName": "ZAVIC_VALORES_LEGALIDAD_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_LEGALIDAD"],
-         "position": 2011
+         "position": 2371
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13605,7 +14521,7 @@
          "fieldName": "ZAVIC_VALORES_INDIFERENCIA_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_INDIFERENCIA"],
-         "position": 2041
+         "position": 2401
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -13614,7 +14530,7 @@
          "fieldName": "ZAVIC_VALORES_CORRUPTO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_CORRUPTO"],
-         "position": 2071
+         "position": 2431
       }
    ]
 }

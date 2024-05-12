@@ -21,6 +21,8 @@ const convertDataTypeToMongoSchemaDataType = dataType => {
          return mongoose.Schema.Types.Number
       case 'Number':
          return mongoose.Schema.Types.Number
+      case 'Float':
+         return mongoose.Schema.Types.Number
       default:
          throw Error(
             `Invalid output field dataType in fieldName ${column.fieldName} dataType:${column.dataType}`,

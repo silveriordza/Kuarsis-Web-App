@@ -38,6 +38,7 @@ const CAL_CONCAT_GROUP_BASED_ON_CRITERIA = 'CAL_CONCAT_GROUP_BASED_ON_CRITERIA'
 const CAL_SUM_THE_GROUP = 'CAL_SUM_THE_GROUP'
 const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
 const CAL_CRITERIA_ON_OTHER_FIELD_RANGES = 'CAL_CRITERIA_ON_OTHER_FIELD_RANGES'
+const CAL_PERCENT_OF_NUMBER = 'CAL_PERCENT_OF_NUMBER'
 const CAL_PERCENT_THE_GROUP = 'CAL_PERCENT_THE_GROUP'
 
 const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
@@ -291,6 +292,9 @@ const surveySaveOutputRedesignedHelper = async (
                   case 'Integer':
                      doc[column] = answer ?? 0
                      break
+                  case 'Float':
+                     doc[column] = answer ?? 0.0
+                     break
                   default:
                      LogThis(
                         log,
@@ -398,13 +402,6 @@ const processCalculatedFields = (
    const log = new LoggerSettings(srcFileName, 'processCalculatedFields')
 
    try {
-      // for (let a = 0; a < allCalculatedFields.length; a++) {
-      //    LogThis(
-      //       log,
-      //       `row=${row}; allCalculatedFields[a]._id=${allCalculatedFields[a].fieldName}`,
-      //       L3,
-      //    )
-      //let allCalculatedField = allCalculatedFields[a]
       for (const allCalculatedField of survey.calculatedFields) {
          LogThis(
             log,
@@ -480,6 +477,20 @@ const processCalculatedFields = (
                   'Error: rango no encontrado'
             }
          } else if (
+            allCalculatedField.calculationType === CAL_PERCENT_OF_NUMBER
+         ) {
+            let criteria = allCalculatedField.criteria
+
+            let fieldNameValue = fieldsAnswersMap.get(criteria.fieldNameValue)
+
+            let calValue = 0
+            if (fieldNameValue.isCalculatedField) {
+               calValue = fieldNameValue.calculatedValue
+            } else {
+               calValue = fieldNameValue.weightedResponse
+            }
+            currentCalculatedField.calculatedValue = calValue / criteria.max
+         } else if (
             allCalculatedField.calculationType === CAL_CRITERIA_ON_OTHER_FIELD
          ) {
             let criteria = allCalculatedField.criteria
@@ -492,11 +503,6 @@ const processCalculatedFields = (
                )}`,
                L3,
             )
-
-            // let fieldNameValue = allCalculatedFields.find(calField => {
-            //    LogThis(log, `calField=${JSON.stringify(calField, null, 2)}`, L3)
-            //    return calField.fieldName == criteria.fieldNameValue[0]
-            // })
             let fieldNameValue = fieldsAnswersMap.get(
                criteria.fieldNameValue[0],
             )
@@ -506,10 +512,7 @@ const processCalculatedFields = (
                `fieldNameValue1=${JSON.stringify(fieldNameValue, null, 2)}`,
                L3,
             )
-            //let position = fieldNameValue.position
-            // let calValue = calculatedValues.find(
-            //    value => value.col == position && value.row == row,
-            // )
+
             let calValue = {}
             if (fieldNameValue.isCalculatedField) {
                calValue.value = fieldNameValue.calculatedValue
@@ -598,24 +601,6 @@ const processCalculatedFields = (
                         value,
                      ) == 1
                   ) {
-                     // LogThis(
-                     //    log,
-                     //    `groups=${groups}; group=${group}; calField=${allCalculatedField.fieldName};`,
-                     //    L3,
-                     // )
-                     // let questionSelected = allSurveyQuestions.find(
-                     //    q => q.superSurveyCol == group + 1,
-                     // )
-                     // LogThis(
-                     //    log,
-                     //    `groups=${groups}; group=${group + 1}; calField=${
-                     //       allCalculatedField.fieldName
-                     //    }; questionSelected.questionShort=${questionSelected.question.replace(
-                     //       /,/g,
-                     //       ';',
-                     //    )}`,
-                     //    L3,
-                     // )
                      calculatedValue =
                         calculatedValue + subScaleFieldAnswer.realValue + '; '
                   }
@@ -636,23 +621,6 @@ const processCalculatedFields = (
                )}`,
             )
          }
-         // LogThis(
-         //    log,
-         //    `Pushing value: calculatedFieldId=${
-         //       allCalculatedFields[a]._id
-         //    }; row=${row};col=${a + 1}; value=${value};`,
-         //    L3,
-         // )
-
-         // calculatedValues.push({
-         //    calculatedFieldId: allCalculatedFields[a]._id,
-         //    respondentId: respondentId,
-         //    row: row,
-         //    col: a + 1,
-         //    value: value,
-         // })
-         //csv = csv + value.toString() + ",";
-         //}
          LogThis(
             log,
             `FINISHED CALCULATION FOR calculatedField = ${
