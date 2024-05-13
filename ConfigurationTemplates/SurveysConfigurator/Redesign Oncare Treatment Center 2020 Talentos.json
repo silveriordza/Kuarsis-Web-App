@@ -4756,8 +4756,8 @@
                "header": "CSG%",
                "type": "percentBarWithCriterias",
                "styleCriterias": [
-                  { "min": 0, "max": 10, "style": "green" },
-                  { "min": 11, "max": 28, "style": "red" }
+                  { "min": 0, "max": 11, "style": "green" },
+                  { "min": 12, "max": 28, "style": "red" }
                ]
             },
             "position": 5261
