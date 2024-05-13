@@ -23,6 +23,11 @@ import {
    SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
    SURVEY_OUTPUT_SINGLE_RESET,
    SURVEY_OUTPUT_SINGLE_SUCCESS,
+   SURVEY_OUTPUT_SINGLE_REQUEST,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_RESET,
 } from '../constants/surveyConstants'
 
 export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
@@ -128,16 +133,56 @@ export const surveyOutputsReducer = (
 }
 
 export const surveyOutputSingleReducer = (
-   state = { surveyOutputSingleInfo: {} },
+   state = {
+      surveyOutputSingleInfo: {},
+      surveySelected: 0,
+      selectedPageNumber: 1,
+   },
    action,
 ) => {
    switch (action.type) {
+      case SURVEY_OUTPUT_SINGLE_REQUEST:
+         return {
+            loading: true,
+            success: false,
+         }
+
       case SURVEY_OUTPUT_SINGLE_SUCCESS:
          return {
-            surveyOutputSingleInfo: action.payload,
+            loading: false,
+            success: true,
+            surveyOutputSingleInfo: action.payload.surveyOutputsInfo,
+            surveySelected: action.payload.surveySelected,
+            selectedPageNumber: action.payload.selectedPageNumber,
          }
       case SURVEY_OUTPUT_SINGLE_RESET:
-         return { surveyOutputSingleInfo: {} }
+         return {}
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST:
+         return {
+            ...state,
+            exportWordInProgress: true,
+            exportWordSuccess: false,
+         }
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS:
+         return {
+            ...state,
+            exportWordInProgress: false,
+            exportWordSuccess: true,
+         }
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED:
+         return {
+            ...state,
+            exportWordInProgress: false,
+            exportWordSuccess: false,
+            error: action.payload,
+         }
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_RESET:
+         return {
+            ...state,
+            exportWordInProgress: null,
+            exportWordSuccess: null,
+            error: null,
+         }
       default:
          return state
    }

@@ -24,6 +24,8 @@ import {
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
 
+import { surveyExportHtml2WordAction } from '../actions/surveyActions'
+
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
 import { calculateStyleCriteria } from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
@@ -78,16 +80,27 @@ const exportDataFile = exportPreguntas => {
 const SurveyOutputSingleData = props => {
    const srcFileName = 'SurveyOutputSingleData'
    const log = new LoggerSettings(srcFileName, 'SurveyOutputSingleData')
-
-   const { repondentId } = props.match.params
+   const dispatch = useDispatch()
+   const { respondentId } = props.match.params
    const surveyOutputSingle = useSelector(state => state.surveyOutputSingle)
-   const { surveyOutputSingleInfo } = surveyOutputSingle
+   const { surveyOutputSingleInfo, surveySelected, selectedPageNumber } =
+      surveyOutputSingle
    const [gridDataSourceArray, setgridDataSourceArray] = useState([])
+
+   const [gridLoadedCompleted, setgridLoadedCompleted] = useState(false)
+
+   const handleGridLoadCompleted = e => {
+      setgridLoadedCompleted(true)
+   }
 
    const history = useHistory()
 
-   const goBackHandler = () => {
-      history.goBack()
+   const goBackHandler = e => {
+      e.preventDefault()
+      //history.goBack()
+      history.push(
+         `/surveyoutput/survey/${surveySelected}/page/${selectedPageNumber}`,
+      )
    }
 
    useEffect(() => {
@@ -99,7 +112,7 @@ const SurveyOutputSingleData = props => {
       ) {
          let gridDataSourceArrayLocal = []
          const outputValue = surveyOutputSingleInfo.outputValues.find(
-            output => output.INFO_1 === repondentId,
+            output => output.INFO_1 === respondentId,
          )
 
          let outputValueData = null
@@ -148,13 +161,30 @@ const SurveyOutputSingleData = props => {
 
    const [excelExportarTriggered, setexcelExportarTriggered] = useState(false)
 
+   const resultsReferences = useRef(new Map())
+
+   const addRef = (key, elementRef) => {
+      resultsReferences.current.set(key, elementRef)
+   }
+
+   const handleExportHTMLImageToWord = () => {
+      dispatch(
+         surveyExportHtml2WordAction({
+            resultsReferences: resultsReferences,
+            respondentId: respondentId,
+            wordFileName: 'PerfilEncuestado',
+            surveyOutputSingleInfo: surveyOutputSingleInfo,
+         }),
+      )
+   }
+
    const renderKuarxisProgressBarTemplate = props => {
-      if (!props) {
-         return
-      }
       let fieldLayout = surveyOutputSingleInfo.outputLayouts.find(
          field => field.fieldName === props['fieldName'],
       )
+
+      let fieldReferenceKey = null
+
       switch (fieldLayout.displayType.type) {
          case 'percentBarWithCriterias':
             const style = calculateStyleCriteria(
@@ -162,15 +192,36 @@ const SurveyOutputSingleData = props => {
                fieldLayout.displayType.styleCriterias,
             )
             const value = (props.value * 100).toFixed(0)
+            fieldReferenceKey = `${props['fieldName']}_percentBar`
             return (
                <KuarxisPercentBarComponent
+                  id={`${props['fieldName']}_percentBar`}
+                  // ref={elementRef =>
+                  //    resultsReferences.current.set(
+                  //       fieldReferenceKey,
+                  //       elementRef,
+                  //    )
+                  // }
                   percent={value}
                   color={style}
-                  barWidth={'10%'}
+                  barWidth={'30%'}
                />
             )
          default:
-            return <span>{props.value}</span>
+            fieldReferenceKey = props['fieldName']
+            return (
+               <span
+                  id={fieldReferenceKey}
+                  // ref={elementRef =>
+                  //    resultsReferences.current.set(
+                  //       fieldReferenceKey,
+                  //       elementRef,
+                  //    )
+                  // }
+               >
+                  {props.value}
+               </span>
+            )
       }
    }
 
@@ -215,75 +266,7 @@ const SurveyOutputSingleData = props => {
 
       document.body.removeChild(downloadLink)
    }
-   const gridComponentRef = useRef(null)
-   const exportHTMLImageToWord = (element, filename = '') => {
-      const elementRef = element.current
 
-      html2Canvas(elementRef).then(canvas => {
-         const dataUrl = canvas.toDataURL()
-         const img = new Image()
-         img.src = dataUrl
-         const imgHtml = img.outerHTML
-         //document.body.appendChild(img)
-         //barChartElement.appendChild(img)
-
-         var preHtml =
-            "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title> <style> #customers {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;} #customers td, #customers th {border: 1px solid #ddd;  padding: 8px;} #customers tr:nth-child(even){background-color:#f2f2f2;} #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #04AA6D;  color: white;}</style></head><body>"
-         var postHtml = '</body></html>'
-         //var html = preHtml + document.getElementById(element).innerHTML + postHtml
-         var tableHtml = ''
-
-         tableHtml =
-            '<table id="customers"><tr ><th >H1</th><th >H2</th><th >H3</th></tr>'
-         tableHtml =
-            tableHtml + '<tr><td >R1V1</td ><td >R1V2</td><td >R1V3</td></tr>'
-         tableHtml =
-            tableHtml + '<tr><td >R2V1</td><td >R2V2</td><td >R2V3</td></tr>'
-         tableHtml =
-            tableHtml + '<tr><td >R3V1</td><td >R3V2</td><td >R3V3</td></tr>'
-         tableHtml = tableHtml + '</table>'
-
-         var html =
-            preHtml +
-            "<div style='width:50px'>" +
-            imgHtml +
-            '</div>' +
-            tableHtml +
-            postHtml
-
-         var blob = new Blob(['\ufeff', html], {
-            type: 'application/msword',
-         })
-
-         // Specify link url
-         var url =
-            'data:application/vnd.ms-word;charset=utf-8,' +
-            encodeURIComponent(html)
-
-         // Specify file name
-         filename = filename ? filename + '.doc' : 'document.doc'
-
-         // Create download link element
-         var downloadLink = document.createElement('a')
-
-         document.body.appendChild(downloadLink)
-
-         if (navigator.msSaveOrOpenBlob) {
-            navigator.msSaveOrOpenBlob(blob, filename)
-         } else {
-            // Create a link to the file
-            downloadLink.href = url
-
-            // Setting the file name
-            downloadLink.download = filename
-
-            //triggering the function
-            downloadLink.click()
-         }
-
-         document.body.removeChild(downloadLink)
-      })
-   }
    //START SYNCFUSION DOCUMENT EDITOR FUNCTIONS
    //DocumentEditorContainerComponent.Inject(Toolbar)
    // tslint:disable:max-line-length
@@ -298,49 +281,112 @@ const SurveyOutputSingleData = props => {
    function onCreated() {
       //const elementRef = element.current
       //moveCursortToFirstCell()
-      html2Canvas(gridComponentRef.current).then(canvas => {
-         const dataUrl = canvas.toDataURL()
 
+      //html2Canvas(gridComponentRef.current).then(canvas => {
+      // const dataUrl = canvas.toDataURL()
+
+      // // To insert the image at table first cell
+      // documentEditorContainer.documentEditor.editor.insertImage(
+      //    dataUrl,
+      //    600,
+      //    2000,
+      // )
+      //documentEditorContainer.documentEditor.editor.insertText('\n')
+      //moveCursorToNextLine()
+      // documentEditorContainer.documentEditor.editor.insertSectionBreak(
+      //    SectionBreakType.Continuous,
+      // )
+
+      // documentEditorContainer.documentEditor.editor.insertSectionBreak(
+      //    SectionBreakType.Continuous,
+      // )
+      // documentEditorContainer.documentEditor.editor.insertSectionBreak(
+      //    SectionBreakType.Continuous,
+      // )
+      // documentEditorContainer.documentEditor.editor.insertSectionBreak(
+      //    SectionBreakType.Continuous,
+      // )
+      // To insert the table in cursor position
+      documentEditorContainer.documentEditor.editor.insertTable(
+         gridDataSourceArray.length + 1,
+         2,
+      )
+      // To insert text in cursor position
+      documentEditorContainer.documentEditor.editor.insertText('Tipo Resultado')
+      // To move the cursor to next cell
+      moveCursorToNextCell()
+      // To insert text in cursor position
+      documentEditorContainer.documentEditor.editor.insertText(
+         'Datos/Resultado',
+      )
+      // To move the cursor to next row
+
+      for (const row of gridDataSourceArray) {
+         // To insert text in cursor position
+         moveCursorToNextRow()
+         let columna = row['fieldName']
+         documentEditorContainer.documentEditor.editor.insertText(columna)
+         // To move the cursor to next cell
+         moveCursorToNextCell()
+         let value = row['value']
+         // To insert text in cursor position
+         documentEditorContainer.documentEditor.editor.insertText(
+            value.toString(),
+         )
+      }
+
+      // const percentBar = gridDataSourceArray.find(
+      //    data => data.fieldName === 'JEFF_COLAB_INTERPERS_PERCENT_OF_MAX',
+      // )
+
+      const element = document.getElementById(
+         'JEFF_COLAB_INTERPERS_PERCENT_OF_MAX_percentBar',
+      )
+
+      html2Canvas(element).then(canvas => {
+         const dataUrl = canvas.toDataURL()
+         const img = new Image()
+         img.src = dataUrl
+         //const imgHtml = img.outerHTML
+         moveCursorToNextLine()
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
+
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
+         documentEditorContainer.documentEditor.editor.insertSectionBreak(
+            SectionBreakType.Continuous,
+         )
          // To insert the image at table first cell
          documentEditorContainer.documentEditor.editor.insertImage(
-            dataUrl,
-            600,
-            2000,
+            //dataUrl,
+            img,
+            200,
+            20,
          )
-         //documentEditorContainer.documentEditor.editor.insertText('\n')
-         //moveCursorToNextLine()
-         documentEditorContainer.documentEditor.editor.insertSectionBreak(
-            SectionBreakType.Continuous,
-         )
-
-         documentEditorContainer.documentEditor.editor.insertSectionBreak(
-            SectionBreakType.Continuous,
-         )
-         documentEditorContainer.documentEditor.editor.insertSectionBreak(
-            SectionBreakType.Continuous,
-         )
-         documentEditorContainer.documentEditor.editor.insertSectionBreak(
-            SectionBreakType.Continuous,
-         )
-         // To insert the table in cursor position
-         documentEditorContainer.documentEditor.editor.insertTable(2, 2)
-
-         // To insert text in cursor position
-         documentEditorContainer.documentEditor.editor.insertText('C11')
-         // To move the cursor to next cell
-         moveCursorToNextCell()
-         // To insert text in cursor position
-         documentEditorContainer.documentEditor.editor.insertText('C12')
-
-         // To move the cursor to next row
-         moveCursorToNextRow()
-         // To insert text in cursor position
-         documentEditorContainer.documentEditor.editor.insertText('C21')
-         // To move the cursor to next cell
-         moveCursorToNextCell()
-         // To insert text in cursor position
-         documentEditorContainer.documentEditor.editor.insertText('C22')
       })
+
+      // // To insert text in cursor position
+      // documentEditorContainer.documentEditor.editor.insertText('C11')
+      // // To move the cursor to next cell
+      // moveCursorToNextCell()
+      // // To insert text in cursor position
+      // documentEditorContainer.documentEditor.editor.insertText('C12')
+
+      // // To move the cursor to next row
+      // moveCursorToNextRow()
+      // // To insert text in cursor position
+      // documentEditorContainer.documentEditor.editor.insertText('C21')
+      // // To move the cursor to next cell
+      // moveCursorToNextCell()
+      // // To insert text in cursor position
+      // documentEditorContainer.documentEditor.editor.insertText('C22')
+      // //})
    }
 
    function moveCursortToFirstCell() {
@@ -430,11 +476,19 @@ const SurveyOutputSingleData = props => {
 
    return (
       <section>
-         <Link className="btn btn-light my-3" onClick={() => history.goBack()}>
+         <Link to="/" className="btn btn-light my-3" onClick={goBackHandler}>
             Go Back
          </Link>
-         <h1>Resultados de la Encuesta</h1>
+         <h3>Perfil del encuestado</h3>
+
          <div>
+            <Button
+               variant="light"
+               size="sm"
+               onClick={() => handleExportHTMLImageToWord()}
+            >
+               <i className="fas fa-save fa-2x"></i> Exportar a Word
+            </Button>
             {/* <ExcelFile
                element={
                   <Button
@@ -498,12 +552,13 @@ const SurveyOutputSingleData = props => {
             </Button> */}
          </div>
 
-         <div ref={gridComponentRef} id="exportContent">
+         <div id="exportContent">
             {gridDataSourceArray && gridDataSourceArray.length > 0 && (
                <GridComponent
                   dataSource={gridDataSourceArray}
                   allowTextWrap={true}
                   width={900}
+                  dataBound={handleGridLoadCompleted}
                >
                   <ColumnsDirective>
                      <ColumnDirective
@@ -526,24 +581,26 @@ const SurveyOutputSingleData = props => {
                </GridComponent>
             )}
          </div>
-         <div class="kuarxisControl">
-            <Button variant="light" size="sm" onClick={() => save()}>
-               <i className="fas fa-save fa-2x"></i> Exportar a Word
-            </Button>
+         {/* {gridLoadedCompleted && (
+            <div className="kuarxisControl">
+               <Button variant="light" size="sm" onClick={() => save()}>
+                  <i className="fas fa-save fa-2x"></i> Exportar a Word
+               </Button>
 
-            <DocumentEditorContainerComponent
-               id="container"
-               height={'1500'}
-               width={'2000'}
-               serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
-               enableToolbar={true}
-               //ref={documentEditorContainer}
-               ref={scope => {
-                  documentEditorContainer = scope
-               }}
-               created={onCreated}
-            />
-         </div>
+               <DocumentEditorContainerComponent
+                  id="container"
+                  height={'1500'}
+                  width={'2000'}
+                  serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
+                  enableToolbar={true}
+                  //ref={documentEditorContainer}
+                  ref={scope => {
+                     documentEditorContainer = scope
+                  }}
+                  created={onCreated}
+               />
+            </div>
+         )} */}
       </section>
    )
 }

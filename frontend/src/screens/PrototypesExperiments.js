@@ -2,6 +2,7 @@
 
 import html2Canvas from 'html2canvas'
 import React, { useState, useEffect, useRef } from 'react'
+import ReactDOMServer from 'react-dom/server'
 
 import {
    DocumentEditorComponent,
@@ -223,75 +224,87 @@ const PrototypesExperiments = () => {
 
       document.body.removeChild(downloadLink)
    }
-   const barChartImageRef = useRef(null)
+   //const barChartImageRef = useRef(null)
    const gridComponentRef = useRef(null)
-   const exportHTMLImageToWord = (element, filename = '') => {
-      const elementRef = element.current
+   const exportHTMLImageToWord = async (element, filename = '') => {
+      //const elementRef = element.current
+      const myPercentBar = document.getElementById('myPercentBar')
+      const canvas = await html2Canvas(myPercentBar) //.then(canvas => {
 
-      html2Canvas(elementRef).then(canvas => {
-         const dataUrl = canvas.toDataURL()
-         const img = new Image()
-         img.src = dataUrl
-         const imgHtml = img.outerHTML
-         //document.body.appendChild(img)
-         //barChartElement.appendChild(img)
+      const dataUrl = canvas.toDataURL()
+      const img = new Image()
+      img.src = dataUrl
+      const imgHtml = img.outerHTML
+      //document.body.appendChild(img)
+      //barChartElement.appendChild(img)
 
-         var preHtml =
-            "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title> <style> #customers {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;} #customers td, #customers th {border: 1px solid #ddd;  padding: 8px;} #customers tr:nth-child(even){background-color:#f2f2f2;} #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #04AA6D;  color: white;}</style></head><body>"
-         var postHtml = '</body></html>'
-         //var html = preHtml + document.getElementById(element).innerHTML + postHtml
-         var tableHtml = ''
+      var preHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+         <head>
+         <meta charset='utf-8'>
+         <title>Export HTML To Doc</title>
+         <style> 
+         #customers 
+         {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;} 
+         #customers td, #customers th {border: 1px solid #ddd;  padding: 8px;} 
+         #customers tr:nth-child(even){background-color:#f2f2f2;} 
+         #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #04AA6D;  color: white;} 
+         .kuarxisProgressBackgroundBar { 
+            position: relative; 
+            width: 100%;
+            height: 20px;
+            border-radius: 200px;
+            background-color: #ccc;
+            overflow: hidden;
+         } .kuarxisProgressBar {position: absolute;top: 0;left: 0;height: 100%;background-color: #06a00b;border-radius: 200px;left: 0;} .kuarxisProgressBarText {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: white;border-radius: 200px;}</style></head><body>`
+      var postHtml = '</body></html>'
+      //var html = preHtml + document.getElementById(element).innerHTML + postHtml
+      var tableHtml = ''
 
-         tableHtml =
-            '<table id="customers"><tr ><th >H1</th><th >H2</th><th >H3</th></tr>'
-         tableHtml =
-            tableHtml + '<tr><td >R1V1</td ><td >R1V2</td><td >R1V3</td></tr>'
-         tableHtml =
-            tableHtml + '<tr><td >R2V1</td><td >R2V2</td><td >R2V3</td></tr>'
-         tableHtml =
-            tableHtml + '<tr><td >R3V1</td><td >R3V2</td><td >R3V3</td></tr>'
-         tableHtml = tableHtml + '</table>'
+      tableHtml =
+         '<table id="customers"><tr ><th >Titulo</th><th >Datos/Resultado</th></tr>'
+      const percentBarHTML = ReactDOMServer.renderToString(
+         <KuarxisPercentBarComponent percent=".75" />,
+      )
 
-         var html =
-            preHtml +
-            "<div style='width:50px'>" +
-            imgHtml +
-            '</div>' +
-            tableHtml +
-            postHtml
+      //tableHtml = tableHtml + '<tr><td >R1V1</td ><td>' + imgHtml + '</td></tr>'
+      tableHtml =
+         tableHtml + '<tr><td >R1V1</td ><td>' + percentBarHTML + '</td></tr>'
+      tableHtml = tableHtml + '</table>'
 
-         var blob = new Blob(['\ufeff', html], {
-            type: 'application/msword',
-         })
+      var html = `${preHtml} ${tableHtml} ${postHtml}`
 
-         // Specify link url
-         var url =
-            'data:application/vnd.ms-word;charset=utf-8,' +
-            encodeURIComponent(html)
-
-         // Specify file name
-         filename = filename ? filename + '.doc' : 'document.doc'
-
-         // Create download link element
-         var downloadLink = document.createElement('a')
-
-         document.body.appendChild(downloadLink)
-
-         if (navigator.msSaveOrOpenBlob) {
-            navigator.msSaveOrOpenBlob(blob, filename)
-         } else {
-            // Create a link to the file
-            downloadLink.href = url
-
-            // Setting the file name
-            downloadLink.download = filename
-
-            //triggering the function
-            downloadLink.click()
-         }
-
-         document.body.removeChild(downloadLink)
+      var blob = new Blob(['\ufeff', html], {
+         type: 'application/msword',
       })
+
+      // Specify link url
+      var url =
+         'data:application/vnd.ms-word;charset=utf-8,' +
+         encodeURIComponent(html)
+
+      // Specify file name
+      filename = filename ? filename + '.doc' : 'document.doc'
+
+      // Create download link element
+      var downloadLink = document.createElement('a')
+
+      document.body.appendChild(downloadLink)
+
+      if (navigator.msSaveOrOpenBlob) {
+         navigator.msSaveOrOpenBlob(blob, filename)
+      } else {
+         // Create a link to the file
+         downloadLink.href = url
+
+         // Setting the file name
+         downloadLink.download = filename
+
+         //triggering the function
+         downloadLink.click()
+      }
+
+      document.body.removeChild(downloadLink)
+      //})
    }
    //START SYNCFUSION DOCUMENT EDITOR FUNCTIONS
    //DocumentEditorContainerComponent.Inject(Toolbar)
@@ -566,7 +579,7 @@ const PrototypesExperiments = () => {
                <Inject services={[]} />
             </GridComponent>
          </div>
-         <div class="kuarxisProgressColumn">
+         <div id="myPercentBar" class="kuarxisProgressColumn">
             <KuarxisPercentBarComponent percent={90} />
          </div>
          <div class="kuarxisControl">

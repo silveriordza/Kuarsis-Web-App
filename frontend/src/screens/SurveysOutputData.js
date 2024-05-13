@@ -310,7 +310,13 @@ const SurveysOutputData = ({ match, history }) => {
       labelFormat: '{value}%',
    }
 
-   const prepareDisplayBasedOnType = (fieldName, layout, width, type) => {
+   const prepareDisplayBasedOnType = (
+      keyVal,
+      fieldName,
+      layout,
+      width,
+      type,
+   ) => {
       // <ColumnDirective
       //    //key={keyVal}
       //    field={utf8String}
@@ -324,7 +330,7 @@ const SurveysOutputData = ({ match, history }) => {
          case 'asIs':
             return (
                <ColumnDirective
-                  //key={keyVal}
+                  key={keyVal}
                   field={fieldName}
                   width={width}
                   visible={layout.showInSurveyOutputScreen}
@@ -334,6 +340,7 @@ const SurveysOutputData = ({ match, history }) => {
          case 'percentBarWithCriterias':
             return (
                <ColumnDirective
+                  key={keyVal}
                   field={fieldName}
                   headerText={`${layout.displayType.header}`}
                   visible={layout.showInSurveyOutputScreen}
@@ -594,12 +601,16 @@ const SurveysOutputData = ({ match, history }) => {
    }
 
    const handleOutputDetailLinkClick = (e, respondentId) => {
-      // e.preventDefault()
+      e.preventDefault()
       dispatch({
          type: SURVEY_OUTPUT_SINGLE_SUCCESS,
-         payload: surveyOutputsInfo,
+         payload: {
+            surveyOutputsInfo: surveyOutputsInfo,
+            surveySelected: surveySelected,
+            selectedPageNumber: selectedPageNumber,
+         },
       })
-      // history.push(`/surveyoutput/detail/${respondentId}`)
+      history.push(`/surveyoutput/detail/${respondentId}`)
    }
 
    const GenerateOutputFile = outputId => {
@@ -1222,6 +1233,7 @@ const SurveysOutputData = ({ match, history }) => {
                                              //    type="number"
                                              // />
                                              prepareDisplayBasedOnType(
+                                                keyVal,
                                                 utf8String,
                                                 layout,
                                                 '150',
@@ -1241,7 +1253,7 @@ const SurveysOutputData = ({ match, history }) => {
                                                 template={props => {
                                                    return (
                                                       <Link
-                                                         to={`/surveyoutput/detail/${props.INFO_1}`}
+                                                         to="/surveyoutput/detail"
                                                          onClick={e =>
                                                             handleOutputDetailLinkClick(
                                                                e,

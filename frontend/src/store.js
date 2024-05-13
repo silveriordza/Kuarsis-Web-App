@@ -109,4 +109,9 @@ const store = createStore(
    composeWithDevTools(applyMiddleware(...middleware)), //This parameter allows Redux to connect to the Redux Devtools to see the state in a Chrome browser
 )
 
+// // Subscribe to Redux store updates and save state to local storage
+// store.subscribe(() => {
+//    localStorage.setItem('userInfo', JSON.stringify(store.getState()));
+//  });
+
 export default store

@@ -1,4 +1,5 @@
 /** @format */
+import html2Canvas from 'html2canvas'
 
 import {
    SURVEY_PROCESS_ANSWERS_REQUEST,
@@ -18,6 +19,9 @@ import {
    SURVEY_OUTPUTS_EXPORT_FILE_FAIL,
    SURVEY_OUTPUTS_EXPORT_FILE_RESET,
    SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
 } from '../constants/surveyConstants'
 
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
@@ -1601,6 +1605,137 @@ export const surveyGetOutputValuesAction =
       } catch (error) {
          dispatch({
             type: SURVEY_OUTPUTS_FAIL,
+            payload:
+               error.response && error.response.data.message
+                  ? error.response.data.message
+                  : error.message,
+         })
+      }
+   }
+
+export const surveyExportHtml2WordAction =
+   ({
+      resultsReferences,
+      respondentId,
+      wordFileName,
+      surveyOutputSingleInfo,
+   }) =>
+   async (dispatch, getState) => {
+      try {
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
+         })
+
+         if (
+            surveyOutputSingleInfo &&
+            surveyOutputSingleInfo.outputValues &&
+            surveyOutputSingleInfo.outputLayouts
+         ) {
+            const outputValue = surveyOutputSingleInfo.outputValues.find(
+               output => output.INFO_1 === respondentId,
+            )
+            var preHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+            <head>
+            <meta charset='utf-8'>
+            <title>Export HTML To Doc</title>
+            <style> 
+            #customers {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;} 
+         #customers td, #customers th {border: 1px solid #ddd;  padding: 8px; font-size: 10px} 
+         #customers tr:nth-child(even){background-color:#f2f2f2;} 
+         #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #04AA6D;  color: white;} .kuarxisProgressBackgroundBar {color: green; font-size: 25px; position: relative; width: 100%; height: 20px; border-radius: 200px; background-color: #ccc; overflow: hidden; } .kuarxisProgressBar {color: black; font-size: 25px; position: absolute; top: 0; left: 0; height: 100%; background-color: #06a00b; border-radius: 200px; } .kuarxisProgressBarText {font-size: 25px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: orange; border-radius: 200px; }
+            </style>
+            </head>
+            <body>`
+            var postHtml = '</body></html>'
+            //var html = preHtml + document.getElementById(element).innerHTML + postHtml
+            var tableHtml =
+               '<table id="customers"><tr><th>Tipo de resultado</th><th>Datos/Resultados</th></tr>'
+
+            for (const outputField of surveyOutputSingleInfo.outputLayouts) {
+               if (outputField.showInSurveyOutputScreen) {
+                  switch (outputField.displayType.type) {
+                     case 'percentBarWithCriterias':
+                        //GET THE IMAGE FROM THE REFERENCE
+                        let keyFieldRef = null
+                        keyFieldRef = `${outputField.fieldName}_percentBar`
+                        // let reference =
+                        //    resultsReferences.current.get(keyFieldRef)
+                        let reference = document.getElementById(keyFieldRef)
+                        if (!reference) {
+                           break
+                        }
+                        // const canvas = await html2Canvas(
+                        //    resultsReferences.current.get(keyFieldRef),
+                        // )
+                        const canvas = await html2Canvas(reference)
+
+                        const dataUrl = canvas.toDataURL()
+                        const img = new Image()
+                        img.src = dataUrl
+                        const imgHtml = img.outerHTML
+                        tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${imgHtml}</td></tr>`
+
+                        break
+                     default:
+                        //JUST DISPLAY THE TEXT
+                        let key = null
+                        key = outputField.fieldName
+                        let isDate = false
+                        let outputValueData = null
+                        // switch (outputField.dataType) {
+                        //    case 'Date':
+                        //       outputValueData = formatDate(outputValue[key])
+                        //       isDate = true
+                        //       break
+                        //    default:
+                        outputValueData = outputValue[key]
+                        // }
+                        tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${outputValueData}</td></tr>`
+                  }
+               }
+            }
+            tableHtml = tableHtml + '</table>'
+
+            var html = `${preHtml} ${tableHtml} ${postHtml}`
+
+            var blob = new Blob(['\ufeff', html], {
+               type: 'application/msword',
+            })
+
+            // Specify link url
+            var url =
+               'data:application/vnd.ms-word;charset=utf-8,' +
+               encodeURIComponent(html)
+
+            // Specify file name
+            wordFileName = wordFileName ? wordFileName + '.doc' : 'document.doc'
+
+            // Create download link element
+            var downloadLink = document.createElement('a')
+
+            document.body.appendChild(downloadLink)
+
+            if (navigator.msSaveOrOpenBlob) {
+               navigator.msSaveOrOpenBlob(blob, wordFileName)
+            } else {
+               // Create a link to the file
+               downloadLink.href = url
+
+               // Setting the file name
+               downloadLink.download = wordFileName
+
+               //triggering the function
+               downloadLink.click()
+            }
+
+            document.body.removeChild(downloadLink)
+         }
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
+         })
+      } catch (error) {
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
             payload:
                error.response && error.response.data.message
                   ? error.response.data.message

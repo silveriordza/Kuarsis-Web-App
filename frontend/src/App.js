@@ -109,7 +109,7 @@ const App = () => {
                   />
 
                   <Route
-                     path="/surveyoutput/detail/:repondentId"
+                     path="/surveyoutput/detail/:respondentId"
                      component={SurveyOutputSingleData}
                      exact
                   />
