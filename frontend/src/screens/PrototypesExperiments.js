@@ -3,6 +3,21 @@
 import html2Canvas from 'html2canvas'
 import React, { useState, useEffect, useRef } from 'react'
 import ReactDOMServer from 'react-dom/server'
+import {
+   ChartComponent,
+   SeriesCollectionDirective,
+   SeriesDirective,
+   Legend,
+   Category,
+   StackingBarSeries,
+   Tooltip,
+   DataLabel,
+   ILoadedEventArgs,
+   ChartTheme,
+   Highlight,
+} from '@syncfusion/ej2-react-charts'
+
+import { Browser } from '@syncfusion/ej2-base'
 
 import {
    DocumentEditorComponent,
@@ -95,7 +110,74 @@ const exportDataFile = exportPreguntas => {
    }
 }
 
+// export let dataStackedBar = [
+//    { x: 'Jan', y: 6, y1: 6, y2: 1 },
+//    { x: 'Feb', y: 8, y1: 8, y2: 1.5 },
+//    { x: 'Mar', y: 12, y1: 11, y2: 2 },
+//    { x: 'Apr', y: 15, y1: 16, y2: 2.5 },
+//    { x: 'May', y: 20, y1: 21, y2: 3 },
+//    { x: 'Jun', y: 24, y1: 25, y2: 3.5 },
+// ]
+const SAMPLE_CSS = `
+.stacked-progress {
+   width: 100%;
+   height: 20px; /* Set height of the progress bar */
+   background-color: #ccc; /* Set background color of the progress bar container */
+   border-radius: 10px; /* Set border radius to create rounded corners */
+   overflow: hidden; /* Ensure overflow is hidden */
+}
+
+.progress-bar {
+   height: 100%;
+   float: left; /* Float the progress bars to stack them horizontally */
+   border-radius: 10px; /* Set border radius to create rounded corners */
+}
+
+.progress-bar1 {
+   background-color: #ff5733; /* Set background color for the first progress bar */
+}
+
+.progress-bar2 {
+   background-color: #ffcc33; /* Set background color for the second progress bar */
+}
+
+.progress-bar3 {
+   background-color: #33ccff; /* Set background color for the third progress bar */
+}
+
+.progress-bar4 {
+   background-color: #33ff57; /* Set background color for the fourth progress bar */
+} 
+`
+
 const PrototypesExperiments = () => {
+   // START PROTOTYPING THE 100% STACKED BAR
+   // let dataStackedBar = [
+   //    { x: 'Valores', y: 20, y1: 25, y2:30, y3: 25 },
+   //    { x: 'Intereses', y: 25, y1: 30, y2: 25, y3: 20 },
+   // ]
+
+   let dataStackedBar = [{ x: 'Valores', y: 20, y1: 25, y2: 30, y3: 25 }]
+   const SAMPLE_CSS = `
+    .control-fluid {
+        padding: 0px !important;
+    }`
+   const onChartLoad = args => {
+      let chart = document.getElementById('charts')
+      chart.setAttribute('title', '')
+   }
+   const load = args => {
+      let selectedTheme = window.location.hash.split('/')[1]
+      selectedTheme = selectedTheme ? selectedTheme : 'Material'
+      args.chart.theme = (
+         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
+      )
+         .replace(/-dark/i, 'Dark')
+         .replace(/contrast/i, 'Contrast')
+   }
+
+   // END PROTOTYPING THE 100% STACKED BAR
+
    const [excelExportMultiDataState, setexcelExportMultiDataState] = useState([
       { columns: [], data: [] },
    ])
@@ -181,6 +263,160 @@ const PrototypesExperiments = () => {
    }
    const renderKuarxisProgressBarTemplate = props => {
       return <KuarxisPercentBarComponent percent={props.percentage} />
+   }
+
+   const [tooltipText, setTooltipText] = useState('')
+   const handleMouseOver = (event, tooltip) => {
+      const widthPercentage = event.target.style.width
+      setTooltipText(`${tooltip}: ${widthPercentage}`) // Update tooltip text state
+   }
+
+   // Function to handle mouseout event
+   const handleMouseOut = () => {
+      setTooltipText('') // Clear tooltip text state
+   }
+
+   const renderKuarxisStacked100BarTemplate = props => {
+      return (
+         <div className="stackProgressContainer">
+            <div className="stacked-progress">
+               <div
+                  className="progress-bar progress-bar1"
+                  style={{ width: '4%' }}
+                  // data-tooltip="Religion"
+                  onMouseOver={e => handleMouseOver(e, 'Religion')}
+                  onMouseOut={handleMouseOut}
+               >
+                  <span className="stackedProgrssBarText">10%</span>
+               </div>
+
+               <div
+                  className="progress-bar progress-bar2"
+                  style={{ width: '4%' }}
+                  // data-tooltip="Politics"
+                  onMouseOver={e => handleMouseOver(e, 'Politics')}
+                  onMouseOut={handleMouseOut}
+               >
+                  <span className="stackedProgrssBarText">40%</span>
+               </div>
+               <div
+                  className="progress-bar progress-bar3"
+                  style={{ width: '10%' }}
+                  // data-tooltip="Intelligence"
+                  onMouseOver={e => handleMouseOver(e, 'Intelligence')}
+                  onMouseOut={handleMouseOut}
+               >
+                  <span className="stackedProgrssBarText">10%</span>
+               </div>
+               <div
+                  className="progress-bar progress-bar4"
+                  style={{ width: '40%' }}
+                  // data-tooltip="Mathematics"
+                  onMouseOver={e => handleMouseOver(e, 'Mathematics')}
+                  onMouseOut={handleMouseOut}
+               >
+                  <span className="stackedProgrssBarText">40%</span>
+               </div>
+            </div>
+            <div className="label">
+               <span className="color-square color1"></span> Religion
+               <span className="color-square color2"></span> Politics
+               <span className="color-square color3"></span> Intelligence
+               <span className="color-square color4"></span> Mathematics
+            </div>
+            {tooltipText && <div className="tooltip">{tooltipText}</div>}
+         </div>
+      )
+   }
+   const renderSyncfusionStacked100BarTemplate = props => {
+      return (
+         // <div style={{ width: '100%', height: '100%' }}>
+         <div>
+            {/* <style>{SAMPLE_CSS}</style> */}
+            <div className="control-section">
+               <ChartComponent
+                  //id="charts"
+                  style={{ textAlign: 'center', fontSize: '10px' }}
+                  legendSettings={{ enableHighlight: true }}
+                  primaryXAxis={{
+                     valueType: 'Category',
+                     majorGridLines: { width: 0 },
+                     majorTickLines: { width: 0 },
+                  }}
+                  primaryYAxis={{
+                     edgeLabelPlacement: 'Shift',
+                     //title: 'Sales (In Percentage)',
+                     majorTickLines: { width: 0 },
+                     lineStyle: { width: 0 },
+                  }}
+                  width={Browser.isDevice ? '100%' : '75%'}
+                  height={'35%'}
+                  chartArea={{ border: { width: 0 } }}
+                  //load={load.bind(this)}
+                  //title="Sales Comparison"
+                  //loaded={onChartLoad.bind(this)}
+                  tooltip={{
+                     enable: true,
+                     format:
+                        '${point.x} : <b>${point.y} (${point.percentage}%)</b>',
+                  }}
+               >
+                  <Inject
+                     services={[
+                        StackingBarSeries,
+                        Legend,
+                        Tooltip,
+                        DataLabel,
+                        Category,
+                        Highlight,
+                     ]}
+                  />
+                  <SeriesCollectionDirective>
+                     <SeriesDirective
+                        dataSource={dataStackedBar}
+                        xName="x"
+                        yName="y"
+                        name="Apple"
+                        fill="#48B757"
+                        border={{ width: 1, color: 'white' }}
+                        columnWidth={0.6}
+                        type="StackingBar100"
+                     />
+                     <SeriesDirective
+                        dataSource={dataStackedBar}
+                        xName="x"
+                        yName="y1"
+                        name="Orange"
+                        fill="#4871B7"
+                        border={{ width: 1, color: 'white' }}
+                        columnWidth={0.6}
+                        type="StackingBar100"
+                     />
+                     <SeriesDirective
+                        dataSource={dataStackedBar}
+                        xName="x"
+                        yName="y2"
+                        name="Wastage"
+                        fill="#B748A8"
+                        border={{ width: 1, color: 'white' }}
+                        columnWidth={0.6}
+                        type="StackingBar100"
+                     />
+                     <SeriesDirective
+                        dataSource={dataStackedBar}
+                        xName="x"
+                        yName="y3"
+                        name="FriendlyName"
+                        fill="#B78E48"
+                        border={{ width: 1, color: 'white' }}
+                        columnWidth={0.6}
+                        type="StackingBar100"
+                     />
+                  </SeriesCollectionDirective>
+               </ChartComponent>
+            </div>
+         </div>
+      )
    }
 
    const excelExportarPreguntasButton = useRef(null)
@@ -484,6 +720,129 @@ const PrototypesExperiments = () => {
       <section>
          <h1>Hola Survey Single Response Detail</h1>
          <div>
+            {/* <div className="control-pane">
+               <style>{SAMPLE_CSS}</style>
+               <div className="control-section">
+                  <ChartComponent
+                     id="charts"
+                     style={{ textAlign: 'center' }}
+                     legendSettings={{ enableHighlight: true }}
+                     primaryXAxis={{
+                        valueType: 'Category',
+                        majorGridLines: { width: 0 },
+                        majorTickLines: { width: 0 },
+                     }}
+                     primaryYAxis={{
+                        edgeLabelPlacement: 'Shift',
+                        title: 'Sales (In Percentage)',
+                        majorTickLines: { width: 0 },
+                        lineStyle: { width: 0 },
+                     }}
+                     width={Browser.isDevice ? '100%' : '75%'}
+                     chartArea={{ border: { width: 0 } }}
+                     load={load.bind(this)}
+                     title="Sales Comparison"
+                     loaded={onChartLoad.bind(this)}
+                     tooltip={{
+                        enable: true,
+                        format:
+                           '${point.x} : <b>${point.y} (${point.percentage}%)</b>',
+                     }}
+                  >
+                     <Inject
+                        services={[
+                           StackingBarSeries,
+                           Legend,
+                           Tooltip,
+                           DataLabel,
+                           Category,
+                           Highlight,
+                        ]}
+                     />
+                     <SeriesCollectionDirective>
+                        <SeriesDirective
+                           dataSource={dataStackedBar}
+                           xName="x"
+                           yName="y"
+                           name="Apple"
+                           fill="#48B757"
+                           border={{ width: 1, color: 'white' }}
+                           columnWidth={0.6}
+                           type="StackingBar100"
+                        />
+                        <SeriesDirective
+                           dataSource={dataStackedBar}
+                           xName="x"
+                           yName="y1"
+                           name="Orange"
+                           fill="#4871B7"
+                           border={{ width: 1, color: 'white' }}
+                           columnWidth={0.6}
+                           type="StackingBar100"
+                        />
+                        <SeriesDirective
+                           dataSource={dataStackedBar}
+                           xName="x"
+                           yName="y2"
+                           name="Wastage"
+                           fill="#B748A8"
+                           border={{ width: 1, color: 'white' }}
+                           columnWidth={0.6}
+                           type="StackingBar100"
+                        />
+                        <SeriesDirective
+                           dataSource={dataStackedBar}
+                           xName="x"
+                           yName="y3"
+                           name="FriendlyName"
+                           fill="#B78E48"
+                           border={{ width: 1, color: 'white' }}
+                           columnWidth={0.6}
+                           type="StackingBar100"
+                        />
+                     </SeriesCollectionDirective>
+                  </ChartComponent>
+               </div>
+            </div> */}
+            {/* <div className="stackProgressContainer">
+               <div className="stacked-progress">
+                  <div
+                     className="progress-bar progress-bar1"
+                     style={{ width: '4%' }}
+                  >
+                     <span className="stackedProgrssBarText">10%</span>
+                  </div>
+
+                  <div
+                     className="progress-bar progress-bar2"
+                     style={{ width: '4%' }}
+                  >
+                     <span className="stackedProgrssBarText">40%</span>
+                  </div>
+                  <div
+                     className="progress-bar progress-bar3"
+                     style={{ width: '10%' }}
+                  >
+                     <span className="stackedProgrssBarText">10%</span>
+                  </div>
+                  <div
+                     className="progress-bar progress-bar4"
+                     style={{ width: '40%' }}
+                  >
+                     <span className="stackedProgrssBarText">40%</span>
+                  </div>
+               </div>
+               <div className="label">
+                  <span className="color-square color1"></span> Religion
+                  <span className="color-square color2"></span> Politics
+                  <span className="color-square color3"></span> Intelligence
+                  <span className="color-square color4"></span> Mathematics
+               </div>
+            </div> */}
+            {renderKuarxisStacked100BarTemplate()}
+         </div>
+
+         <div>
             <ExcelFile
                element={
                   <Button
@@ -548,7 +907,7 @@ const PrototypesExperiments = () => {
          </div>
 
          <div ref={gridComponentRef} id="exportContent">
-            <GridComponent dataSource={data} width={900}>
+            <GridComponent dataSource={data} width={1300}>
                <ColumnsDirective>
                   <ColumnDirective field="id" headerText="ID" width={50} />
                   <ColumnDirective field="name" headerText="Name" width={100} />
@@ -574,6 +933,12 @@ const PrototypesExperiments = () => {
                      field="percentage"
                      headerText="Percentage"
                      width={100}
+                  />
+                  <ColumnDirective
+                     field="percentage"
+                     headerText="StackedBarPrototype"
+                     width={400}
+                     template={renderKuarxisStacked100BarTemplate}
                   />
                </ColumnsDirective>
                <Inject services={[]} />

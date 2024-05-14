@@ -626,3 +626,96 @@ canvas {
    display: inline-block; /* or block */
    word-wrap: break-word;
 }
+
+.stackProgressContainer {
+   width: 50%;
+   height: 60px;
+}
+
+.stacked-progress {
+   position: relative;
+   width: 100%;
+   height: 30%; /* Set height of the progress bar */
+   background-color: #f2f2f2; /* Set background color of the progress bar container */
+   border-radius: 10px; /* Set border radius to create rounded corners */
+   overflow: hidden; /* Ensure overflow is hidden */
+}
+
+.progress-bar {
+   position: relative;
+   height: 100%;
+   float: left; /* Float the progress bars to stack them horizontally */
+   /*border-radius: 10px; /* Set border radius to create rounded corners */
+   overflow: visible;
+}
+
+.progress-bar1 {
+   background-color: #ff5733; /* Set background color for the first progress bar */
+}
+
+.progress-bar2 {
+   background-color: #ffcc33; /* Set background color for the second progress bar */
+}
+
+.progress-bar3 {
+   background-color: #33ccff; /* Set background color for the third progress bar */
+}
+
+.progress-bar4 {
+   background-color: #33ff57; /* Set background color for the fourth progress bar */
+}
+
+.label {
+   position: relative;
+   width: 100%;
+   text-align: center;
+   padding: 5px 0;
+   font-size: 0.8vw;
+}
+
+.color-square {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   margin-right: 0;
+   margin-left: 10px;
+   border-radius: 2px;
+}
+
+.color1 {
+   background-color: #ff5733; /* Religion color */
+}
+
+.color2 {
+   background-color: #ffcc33; /* Politics color */
+}
+
+.color3 {
+   background-color: #33ccff; /* Intelligence color */
+}
+
+.color4 {
+   background-color: #33ff57; /* Mathematics color */
+}
+
+.stackedProgrssBarText {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   border-radius: 200px;
+   overflow: visible;
+   z-index: 1000;
+   font-size: 0.7vw;
+}
+
+.tooltip {
+   position: absolute;
+   background-color: rgba(0, 0, 0, 0.7);
+   color: white;
+   padding: 5px;
+   border-radius: 5px;
+   pointer-events: none; /* Ensure the tooltip doesn't interfere with mouse events */
+   display: none; /* Initially hide the tooltip */
+}

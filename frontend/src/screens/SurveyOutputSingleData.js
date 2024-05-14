@@ -8,6 +8,7 @@ import { formatDate } from '../libs/Functions'
 import { Link, useHistory } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { SURVEY_OUTPUT_SINGLE_SUCCESS } from '../constants/surveyConstants'
 
 import {
    DocumentEditorContainerComponent,
@@ -152,6 +153,67 @@ const SurveyOutputSingleData = props => {
          setgridDataSourceArray([])
       }
    }, [surveyOutputSingleInfo])
+
+   useEffect(() => {
+      const surveyOutputSingleInfoStored = JSON.parse(
+         localStorage.getItem('surveyOutputSingleData'),
+      )
+
+      if (
+         surveyOutputSingleInfoStored &&
+         (!surveyOutputSingleInfo || !surveySelected || !selectedPageNumber)
+      ) {
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_SUCCESS,
+            payload: {
+               surveyOutputsInfo:
+                  surveyOutputSingleInfoStored.surveyOutputsInfo,
+               surveySelected: surveyOutputSingleInfoStored.surveySelected,
+               selectedPageNumber:
+                  surveyOutputSingleInfoStored.selectedPageNumber,
+            },
+         })
+      }
+
+      const saveStateToLocalStorage = () => {
+         // Save state to LocalStorage
+         if (
+            surveyOutputSingleInfo &&
+            Object.keys(surveyOutputSingleInfo) > 0 &&
+            surveySelected !== undefined &&
+            surveySelected !== null &&
+            selectedPageNumber !== undefined &&
+            selectedPageNumber !== null
+         ) {
+            localStorage.setItem(
+               'surveyOutputSingleData',
+               JSON.stringify({
+                  surveyOutputsInfo: surveyOutputSingleInfo,
+                  surveySelected: surveySelected,
+                  selectedPageNumber: selectedPageNumber,
+               }),
+            )
+         }
+      }
+      // Add event listener for beforeunload eventhttp://localhost:3000/
+      const handleBeforeUnload = event => {
+         // Save state to LocalStorage
+         saveStateToLocalStorage()
+
+         // Cancel the event to prevent the default browser behavior
+         event.preventDefault()
+
+         // Chrome requires the returnValue property to be set
+         event.returnValue = 'Refrescando pagina, dar click para continuar.'
+      }
+
+      window.addEventListener('beforeunload', handleBeforeUnload)
+      // Cleanup function
+      return () => {
+         // Remove event listener when component unmounts
+         window.removeEventListener('beforeunload', handleBeforeUnload)
+      }
+   }, [])
 
    const [excelExportMultiDataState, setexcelExportMultiDataState] = useState([
       { columns: [], data: [] },
