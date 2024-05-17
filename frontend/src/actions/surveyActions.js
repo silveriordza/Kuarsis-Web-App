@@ -1,5 +1,5 @@
 /** @format */
-import html2Canvas from 'html2canvas'
+import { convertHtmlElementToImage } from '../libs/imagesLib'
 
 import {
    SURVEY_PROCESS_ANSWERS_REQUEST,
@@ -1615,7 +1615,7 @@ export const surveyGetOutputValuesAction =
 
 export const surveyExportHtml2WordAction =
    ({
-      resultsReferences,
+      //resultsReferences,
       respondentId,
       wordFileName,
       surveyOutputSingleInfo,
@@ -1655,41 +1655,51 @@ export const surveyExportHtml2WordAction =
                if (outputField.showInSurveyOutputScreen) {
                   switch (outputField.displayType.type) {
                      case 'percentBarWithCriterias':
-                        //GET THE IMAGE FROM THE REFERENCE
-                        let keyFieldRef = null
-                        keyFieldRef = `${outputField.fieldName}_percentBar`
-                        // let reference =
-                        //    resultsReferences.current.get(keyFieldRef)
-                        let reference = document.getElementById(keyFieldRef)
-                        if (!reference) {
-                           break
+                        {
+                           //GET THE IMAGE FROM THE REFERENCE
+                           let keyFieldRef = null
+                           keyFieldRef = `${outputField.fieldName}_percentBar`
+
+                           const img = await convertHtmlElementToImage(
+                              keyFieldRef,
+                           )
+                           //img.src = dataUrl
+                           if (img === null) {
+                              throw Error(
+                                 `Error: cannot find HTML element ${keyFieldRef} to conver to Image while exporting to word`,
+                              )
+                           }
+
+                           const imgHtml = img.outerHTML
+                           tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${imgHtml}</td></tr>`
                         }
-                        // const canvas = await html2Canvas(
-                        //    resultsReferences.current.get(keyFieldRef),
-                        // )
-                        const canvas = await html2Canvas(reference)
+                        break
+                     case 'rangesSemaphore':
+                        {
+                           //GET THE IMAGE FROM THE REFERENCE
+                           let keyFieldRef = null
+                           keyFieldRef = `${outputField.fieldName}_rangeSemaphore`
 
-                        const dataUrl = canvas.toDataURL()
-                        const img = new Image()
-                        img.src = dataUrl
-                        const imgHtml = img.outerHTML
-                        tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${imgHtml}</td></tr>`
+                           const img = await convertHtmlElementToImage(
+                              keyFieldRef,
+                           )
+                           //img.src = dataUrl
+                           if (img === null) {
+                              throw Error(
+                                 `Error: cannot find HTML element ${keyFieldRef} to conver to Image while exporting to word`,
+                              )
+                           }
 
+                           const imgHtml = img.outerHTML
+                           tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${imgHtml}</td></tr>`
+                        }
                         break
                      default:
                         //JUST DISPLAY THE TEXT
                         let key = null
                         key = outputField.fieldName
-                        let isDate = false
                         let outputValueData = null
-                        // switch (outputField.dataType) {
-                        //    case 'Date':
-                        //       outputValueData = formatDate(outputValue[key])
-                        //       isDate = true
-                        //       break
-                        //    default:
                         outputValueData = outputValue[key]
-                        // }
                         tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${outputValueData}</td></tr>`
                   }
                }

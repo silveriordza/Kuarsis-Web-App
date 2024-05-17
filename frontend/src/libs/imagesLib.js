@@ -1,3 +1,5 @@
+import html2Canvas from 'html2canvas'
+
 export const convert = ({ file, width, height, type, watermarkText }) => {
   console.log(3)
   return new Promise((resolve, reject) => {
@@ -51,3 +53,20 @@ export const convert = ({ file, width, height, type, watermarkText }) => {
     }
   })
 }
+
+export const convertHtmlElementToImage = async (elementId) => {
+  let reference = document.getElementById(elementId)
+  if (!reference) {
+     return null
+  }
+
+  const canvas = await html2Canvas(reference)
+  
+  const dataUrl = canvas.toDataURL()
+  const img = new Image()
+  img.src = dataUrl
+  return img
+  
+}
+
+

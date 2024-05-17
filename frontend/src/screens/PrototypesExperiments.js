@@ -276,13 +276,21 @@ const PrototypesExperiments = () => {
       setTooltipText('') // Clear tooltip text state
    }
 
+   const renderKuarxisRangesSemaphore = props => {
+      return (
+         <div className="kuarxisSemaphoreContainer">
+            <span className="kuarxisRangeSemaphore"> </span>
+         </div>
+      )
+   }
+
    const renderKuarxisStacked100BarTemplate = props => {
       return (
          <div className="stackProgressContainer">
             <div className="stacked-progress">
                <div
                   className="progress-bar progress-bar1"
-                  style={{ width: '4%' }}
+                  style={{ width: '10%' }}
                   // data-tooltip="Religion"
                   onMouseOver={e => handleMouseOver(e, 'Religion')}
                   onMouseOut={handleMouseOut}
@@ -292,7 +300,7 @@ const PrototypesExperiments = () => {
 
                <div
                   className="progress-bar progress-bar2"
-                  style={{ width: '4%' }}
+                  style={{ width: '40%' }}
                   // data-tooltip="Politics"
                   onMouseOver={e => handleMouseOver(e, 'Politics')}
                   onMouseOut={handleMouseOut}
@@ -839,7 +847,14 @@ const PrototypesExperiments = () => {
                   <span className="color-square color4"></span> Mathematics
                </div>
             </div> */}
-            {renderKuarxisStacked100BarTemplate()}
+            <div style={{ width: '20%' }}>
+               <div className="kuarxisSemaphoreContainer">
+                  <span className="kuarxisRangeSemaphore"> </span>
+               </div>
+            </div>
+            <div style={{ marginTop: '50px' }}>
+               {renderKuarxisStacked100BarTemplate()}
+            </div>
          </div>
 
          <div>
@@ -939,6 +954,12 @@ const PrototypesExperiments = () => {
                      headerText="StackedBarPrototype"
                      width={400}
                      template={renderKuarxisStacked100BarTemplate}
+                  />
+                  <ColumnDirective
+                     field="percentage"
+                     headerText="Ranges Semaphore"
+                     width={200}
+                     template={renderKuarxisRangesSemaphore}
                   />
                </ColumnsDirective>
                <Inject services={[]} />

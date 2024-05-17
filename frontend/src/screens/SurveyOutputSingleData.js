@@ -36,6 +36,8 @@ import { saveAs } from 'file-saver'
 import { Button } from 'react-bootstrap'
 
 import ReactExport from 'react-data-export'
+import KuarxisRangeSemaphore from '../components/KuarxisPercentBar/KuarxisRangeSemaphore'
+//import { textAlign } from 'html2canvas/dist/types/css/property-descriptors/text-align'
 const ExcelFile = ReactExport.ExcelFile
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn
@@ -223,16 +225,16 @@ const SurveyOutputSingleData = props => {
 
    const [excelExportarTriggered, setexcelExportarTriggered] = useState(false)
 
-   const resultsReferences = useRef(new Map())
+   //const resultsReferences = useRef(new Map())
 
-   const addRef = (key, elementRef) => {
-      resultsReferences.current.set(key, elementRef)
-   }
+   // const addRef = (key, elementRef) => {
+   //    resultsReferences.current.set(key, elementRef)
+   // }
 
    const handleExportHTMLImageToWord = () => {
       dispatch(
          surveyExportHtml2WordAction({
-            resultsReferences: resultsReferences,
+            //resultsReferences: resultsReferences,
             respondentId: respondentId,
             wordFileName: 'PerfilEncuestado',
             surveyOutputSingleInfo: surveyOutputSingleInfo,
@@ -244,16 +246,17 @@ const SurveyOutputSingleData = props => {
       let fieldLayout = surveyOutputSingleInfo.outputLayouts.find(
          field => field.fieldName === props['fieldName'],
       )
-
+      let style = null
+      let value = null
       let fieldReferenceKey = null
 
       switch (fieldLayout.displayType.type) {
          case 'percentBarWithCriterias':
-            const style = calculateStyleCriteria(
+            style = calculateStyleCriteria(
                props.value,
                fieldLayout.displayType.styleCriterias,
             )
-            const value = (props.value * 100).toFixed(0)
+            value = (props.value * 100).toFixed(0)
             fieldReferenceKey = `${props['fieldName']}_percentBar`
             return (
                <KuarxisPercentBarComponent
@@ -267,6 +270,20 @@ const SurveyOutputSingleData = props => {
                   percent={value}
                   color={style}
                   barWidth={'30%'}
+               />
+            )
+         case 'rangesSemaphore':
+            fieldReferenceKey = `${props['fieldName']}_rangeSemaphore`
+            value = props.value
+            return (
+               <KuarxisRangeSemaphore
+                  id={fieldReferenceKey}
+                  value={value}
+                  styleCriterias={fieldLayout.displayType.styleCriterias}
+                  containerStyle={{
+                     justifyContent: 'flex-start',
+                     width: '30px',
+                  }}
                />
             )
          default:

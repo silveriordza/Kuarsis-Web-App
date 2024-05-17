@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom'
 
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
 
+import KuarxisRangeSemaphore from '../components/KuarxisPercentBar/KuarxisRangeSemaphore'
+
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
 import {
@@ -317,15 +319,6 @@ const SurveysOutputData = ({ match, history }) => {
       width,
       type,
    ) => {
-      // <ColumnDirective
-      //    //key={keyVal}
-      //    field={utf8String}
-      //    width="150"
-      //    visible={
-      //       layout.showInSurveyOutputScreen
-      //    }
-      //    type="number"
-      // />
       switch (layout.displayType.type) {
          case 'asIs':
             return (
@@ -349,7 +342,29 @@ const SurveysOutputData = ({ match, history }) => {
                   }
                />
             )
+         case 'rangesSemaphore':
+            return (
+               <ColumnDirective
+                  key={keyVal}
+                  field={fieldName}
+                  headerText={`${layout.displayType.header}`}
+                  visible={layout.showInSurveyOutputScreen}
+                  template={props =>
+                     KuarxisRangesSemaphoreTemplate(props, layout)
+                  }
+               />
+            )
       }
+   }
+
+   const KuarxisRangesSemaphoreTemplate = (props, layout) => {
+      let value = props[layout.fieldName]
+      return (
+         <KuarxisRangeSemaphore
+            value={value}
+            styleCriterias={layout.displayType.styleCriterias}
+         />
+      )
    }
 
    const KuarxisPercentBarComponentTemplate = (props, layout) => {
@@ -1211,15 +1226,22 @@ const SurveysOutputData = ({ match, history }) => {
                                           )
                                        case 'Integer':
                                           return (
-                                             <ColumnDirective
-                                                key={keyVal}
-                                                field={utf8String}
-                                                width="150"
-                                                visible={
-                                                   layout.showInSurveyOutputScreen
-                                                }
-                                                type="number"
-                                             />
+                                             // <ColumnDirective
+                                             //    key={keyVal}
+                                             //    field={utf8String}
+                                             //    width="150"
+                                             //    visible={
+                                             //       layout.showInSurveyOutputScreen
+                                             //    }
+                                             //    type="number"
+                                             // />
+                                             prepareDisplayBasedOnType(
+                                                keyVal,
+                                                utf8String,
+                                                layout,
+                                                '150',
+                                                'number',
+                                             )
                                           )
                                        case 'Float':
                                           return (
