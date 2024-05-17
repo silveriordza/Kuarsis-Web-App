@@ -40,6 +40,7 @@ const CAL_CRITERIA_ON_OTHER_FIELD = 'CAL_CRITERIA_ON_OTHER_FIELD'
 const CAL_CRITERIA_ON_OTHER_FIELD_RANGES = 'CAL_CRITERIA_ON_OTHER_FIELD_RANGES'
 const CAL_PERCENT_OF_NUMBER = 'CAL_PERCENT_OF_NUMBER'
 const CAL_PERCENT_THE_GROUP = 'CAL_PERCENT_THE_GROUP'
+const CAL_COPY_VALUE = 'CAL_COPY_VALUE'
 
 const buildOutputHeaders = (fields, calculatedfields, outputLayout) => {
    const log = new LoggerSettings(srcFileName, 'buildOutputHeaders')
@@ -415,7 +416,16 @@ const processCalculatedFields = (
             allCalculatedField.fieldName,
          )
 
-         if (allCalculatedField.calculationType === CAL_PERCENT_THE_GROUP) {
+         if (allCalculatedField.calculationType === CAL_COPY_VALUE) {
+            let criteria = allCalculatedField.criteria
+            let fieldNameValue = fieldsAnswersMap.get(criteria.fieldNameValue)
+            currentCalculatedField.calculatedValue =
+               fieldNameValue.isCalculatedField
+                  ? fieldNameValue.calculatedValue
+                  : fieldNameValue.value
+         } else if (
+            allCalculatedField.calculationType === CAL_PERCENT_THE_GROUP
+         ) {
             let subScalesTotalSum = 0
             for (const subScale of allCalculatedField.subScales) {
                subScalesTotalSum =

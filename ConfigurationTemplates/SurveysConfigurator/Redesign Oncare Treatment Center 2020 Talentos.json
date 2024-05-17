@@ -4747,17 +4747,17 @@
          },
          {
             "surveyShortName": "CSG",
-            "fieldName": "CSG_PERCENT_OF_MAX",
-            "dataType": "Float",
+            "fieldName": "CSG_RANGE_SEMAPHORE",
+            "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
-               "header": "CSG%",
-               "type": "percentBarWithCriterias",
+               "header": "CSG Color",
+               "type": "rangesSemaphore",
                "styleCriterias": [
-                  { "min": 0, "max": 11, "style": "green" },
-                  { "min": 12, "max": 28, "style": "red" }
+                  { "min": 0, "max": 3, "style": "green" },
+                  { "min": 4, "max": 100, "style": "red" }
                ]
             },
             "position": 5261
@@ -4794,19 +4794,38 @@
             "fieldName": "FIAD-15_PERCENT_OF_MAX",
             "dataType": "Float",
             "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
+            "showInSurveyOutputScreen": false,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
                "header": "FIAD%",
                "type": "percentBarWithCriterias",
                "styleCriterias": [
                   { "min": 0, "max": 11, "style": "green" },
-                  { "min": 12, "max": 18, "style": "green" },
-                  { "min": 19, "max": 43, "style": "orange" },
-                  { "min": 44, "max": 100, "style": "red" }
+                  { "min": 11, "max": 18, "style": "green" },
+                  { "min": 18, "max": 43, "style": "orange" },
+                  { "min": 43, "max": 100, "style": "red" }
                ]
             },
             "position": 5301
+         },
+         {
+            "surveyShortName": "FIAD-15",
+            "fieldName": "FIAD-15_SEMAPHORE",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "FIAD",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 6, "style": "green" },
+                  { "min": 7, "max": 11, "style": "green" },
+                  { "min": 12, "max": 26, "style": "orange" },
+                  { "min": 27, "max": 1000, "style": "red" }
+               ]
+            },
+            "position": 5311
          },
          {
             "surveyShortName": "BURN",
@@ -4922,19 +4941,38 @@
             "fieldName": "HAMILTON_PERCENT_OF_MAX",
             "dataType": "Float",
             "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
+            "showInSurveyOutputScreen": false,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
                "header": "HAMILTON%",
                "type": "percentBarWithCriterias",
                "styleCriterias": [
                   { "min": 0, "max": 0, "style": "green" },
-                  { "min": 2, "max": 33, "style": "green" },
-                  { "min": 34, "max": 46, "style": "orange" },
-                  { "min": 47, "max": 100, "style": "red" }
+                  { "min": 0, "max": 33, "style": "green" },
+                  { "min": 33, "max": 46, "style": "orange" },
+                  { "min": 46, "max": 100, "style": "red" }
                ]
             },
             "position": 5421
+         },
+         {
+            "surveyShortName": "HAMILTON",
+            "fieldName": "HAMILTON_SEMAPHORE",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "HAMILTON",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 0, "style": "green" },
+                  { "min": 1, "max": 17, "style": "green" },
+                  { "min": 18, "max": 24, "style": "orange" },
+                  { "min": 25, "max": 52, "style": "red" }
+               ]
+            },
+            "position": 5431
          },
          {
             "surveyShortName": "HAMILTON",
@@ -4943,7 +4981,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5431
+            "position": 5441
          },
 
          {
@@ -4953,7 +4991,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5441
+            "position": 5451
          },
          {
             "surveyShortName": "JEFF_STATIC",
@@ -4967,7 +5005,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 5451
+            "position": 5461
          },
          {
             "surveyShortName": "BECK",
@@ -4976,27 +5014,47 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5461
+            "position": 5471
          },
          {
             "surveyShortName": "BECK",
             "fieldName": "BECK_PERCENT_OF_MAX",
             "dataType": "Float",
             "outputAsReal": false,
-            "showInSurveyOutputScreen": true,
+            "showInSurveyOutputScreen": false,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
                "header": "BECK%",
                "type": "percentBarWithCriterias",
                "styleCriterias": [
                   { "min": 0, "max": 11, "style": "green" },
-                  { "min": 12, "max": 21, "style": "green" },
-                  { "min": 22, "max": 29, "style": "orange" },
-                  { "min": 30, "max": 35, "style": "red" },
-                  { "min": 36, "max": 100, "style": "red" }
+                  { "min": 11, "max": 21, "style": "green" },
+                  { "min": 21, "max": 29, "style": "orange" },
+                  { "min": 29, "max": 35, "style": "red" },
+                  { "min": 35, "max": 100, "style": "red" }
                ]
             },
-            "position": 5471
+            "position": 5481
+         },
+         {
+            "surveyShortName": "BECK",
+            "fieldName": "BECK_SEMAPHORE",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "BECK",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 7, "style": "green" },
+                  { "min": 8, "max": 13, "style": "green" },
+                  { "min": 14, "max": 18, "style": "orange" },
+                  { "min": 19, "max": 22, "style": "red" },
+                  { "min": 23, "max": 1000, "style": "red" }
+               ]
+            },
+            "position": 5491
          },
          {
             "surveyShortName": "BECK",
@@ -5005,7 +5063,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5481
+            "position": 5501
          },
          {
             "surveyShortName": "SCL90",
@@ -5014,7 +5072,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5491
+            "position": 5511
          },
          {
             "surveyShortName": "SCL90",
@@ -5023,7 +5081,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5501
+            "position": 5521
          },
          {
             "surveyShortName": "SCL90",
@@ -5032,7 +5090,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5511
+            "position": 5531
          },
          {
             "surveyShortName": "SCL90",
@@ -5041,7 +5099,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5521
+            "position": 5541
          },
          {
             "surveyShortName": "SCL90",
@@ -5050,7 +5108,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5531
+            "position": 5551
          },
          {
             "surveyShortName": "SCL90",
@@ -5059,7 +5117,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5541
+            "position": 5561
          },
          {
             "surveyShortName": "SCL90",
@@ -5068,7 +5126,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5551
+            "position": 5571
          },
          {
             "surveyShortName": "SCL90",
@@ -5077,7 +5135,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5561
+            "position": 5581
          },
          {
             "surveyShortName": "SCL90",
@@ -5086,7 +5144,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5571
+            "position": 5591
          },
          {
             "surveyShortName": "SCL90",
@@ -5095,7 +5153,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5581
+            "position": 5601
          },
          {
             "surveyShortName": "SCL90",
@@ -5104,7 +5162,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5591
+            "position": 5611
          },
          {
             "surveyShortName": "SCL90",
@@ -5118,7 +5176,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 5601
+            "position": 5621
          },
          {
             "surveyShortName": "JEFF_HP",
@@ -5127,7 +5185,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5611
+            "position": 5631
          },
          {
             "surveyShortName": "JEFF_HP",
@@ -5141,7 +5199,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 5621
+            "position": 5641
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -5150,7 +5208,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5631
+            "position": 5651
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -5159,7 +5217,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5641
+            "position": 5661
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -5168,7 +5226,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5651
+            "position": 5671
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -5177,7 +5235,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5661
+            "position": 5681
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -5186,7 +5244,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5671
+            "position": 5691
          },
          {
             "surveyShortName": "E_EFF_17",
@@ -5200,7 +5258,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 5681
+            "position": 5701
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA",
@@ -5209,7 +5267,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5691
+            "position": 5711
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -5218,7 +5276,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5701
+            "position": 5721
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -5227,7 +5285,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5711
+            "position": 5731
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -5236,7 +5294,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5721
+            "position": 5741
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -5245,7 +5303,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5731
+            "position": 5751
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -5254,7 +5312,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5741
+            "position": 5761
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -5263,7 +5321,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5751
+            "position": 5771
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -5272,7 +5330,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5761
+            "position": 5781
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -5281,7 +5339,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5771
+            "position": 5791
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -5290,7 +5348,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5781
+            "position": 5801
          },
          {
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -5299,7 +5357,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5791
+            "position": 5811
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5308,7 +5366,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5801
+            "position": 5821
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5317,7 +5375,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5811
+            "position": 5831
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5326,7 +5384,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5821
+            "position": 5841
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5335,7 +5393,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5831
+            "position": 5851
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5344,7 +5402,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5841
+            "position": 5861
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5353,7 +5411,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5851
+            "position": 5871
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5362,7 +5420,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5861
+            "position": 5881
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5371,7 +5429,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5871
+            "position": 5891
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5380,7 +5438,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5881
+            "position": 5901
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5389,7 +5447,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5891
+            "position": 5911
          },
          {
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -5398,7 +5456,7 @@
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5901
+            "position": 5921
          },
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
@@ -5407,7 +5465,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5911
+            "position": 5931
          },
          {
             "surveyShortName": "ACTITUD_APRENDIZAJE",
@@ -5421,7 +5479,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 5921
+            "position": 5941
          },
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -5430,7 +5488,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5931
+            "position": 5951
          },
          {
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -5444,7 +5502,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 5941
+            "position": 5961
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5453,7 +5511,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5951
+            "position": 5971
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5462,7 +5520,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5961
+            "position": 5981
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5471,7 +5529,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5971
+            "position": 5991
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5480,7 +5538,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5981
+            "position": 6001
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5489,7 +5547,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 5991
+            "position": 6011
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5498,7 +5556,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 6001
+            "position": 6021
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5507,7 +5565,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 6011
+            "position": 6031
          },
          {
             "surveyShortName": "TEST_DE_ZAVIC",
@@ -5516,7 +5574,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 6021
+            "position": 6041
          }
       ],
       "multiSurveys": [
@@ -13846,12 +13904,12 @@
       },
       {
          "surveyShortName": "CSG",
-         "description": "CSG_PERCENT_OF_MAX",
-         "shortDescription": "CSG_PERCENT_OF_MAX",
-         "fieldName": "CSG_PERCENT_OF_MAX",
-         "calculationType": "CAL_PERCENT_OF_NUMBER",
-         "criteria": { "fieldNameValue": "CSG_TOTAL_MAX_28", "max": 28 },
-         "subScales": ["CSG_PERCENT_MAX"],
+         "description": "CSG_RANGE_SEMAPHORE",
+         "shortDescription": "CSG_RANGE_SEMAPHORE",
+         "fieldName": "CSG_RANGE_SEMAPHORE",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "CSG_TOTAL_MAX_28" },
+         "subScales": ["CSG_RANGE_SEMAPHORE"],
          "position": 151
       },
       {
@@ -13908,13 +13966,23 @@
          "position": 271
       },
       {
+         "surveyShortName": "FIAD-15",
+         "description": "FIAD-15_SEMAPHORE",
+         "shortDescription": "FIAD-15_SEMAPHORE",
+         "fieldName": "FIAD-15_SEMAPHORE",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "FIAD-15_TOTAL_MAX_60" },
+         "subScales": ["FIAD-15_RANGE_SEMAPHORE"],
+         "position": 301
+      },
+      {
          "surveyShortName": "BURN",
          "description": "BURN_EMOCIONAL_MAX_42",
          "shortDescription": "BURN_EMOCIONAL_MAX_42",
          "fieldName": "BURN_EMOCIONAL_MAX_42",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL"],
-         "position": 301
+         "position": 331
       },
       {
          "surveyShortName": "BURN",
@@ -13923,7 +13991,7 @@
          "fieldName": "BURN_DESPERS_MAX_48",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_DESPERS"],
-         "position": 331
+         "position": 361
       },
       {
          "surveyShortName": "BURN",
@@ -13932,7 +14000,7 @@
          "fieldName": "BURN_LOGROS_MAX_30",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_LOGROS"],
-         "position": 361
+         "position": 391
       },
       {
          "surveyShortName": "BURN",
@@ -13941,7 +14009,7 @@
          "fieldName": "BURN_TOTAL_MAX_120",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
-         "position": 391
+         "position": 421
       },
       {
          "surveyShortName": "BURN",
@@ -13951,7 +14019,7 @@
          "calculationType": "CAL_PERCENT_OF_NUMBER",
          "criteria": { "fieldNameValue": "BURN_TOTAL_MAX_120", "max": 120 },
          "subScales": ["BURN_PERCENT_MAX"],
-         "position": 421
+         "position": 451
       },
       {
          "surveyShortName": "ESTRES",
@@ -13960,7 +14028,7 @@
          "fieldName": "ESTRES_TOTAL_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 451
+         "position": 481
       },
       {
          "surveyShortName": "ESTRES",
@@ -13970,7 +14038,7 @@
          "calculationType": "CAL_PERCENT_OF_NUMBER",
          "criteria": { "fieldNameValue": "ESTRES_TOTAL_MAX_40", "max": 40 },
          "subScales": ["ESTRES_PERCENT_MAX"],
-         "position": 481
+         "position": 511
       },
       {
          "surveyShortName": "ESTRES",
@@ -13980,7 +14048,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["ESTRES_TOTAL"],
-         "position": 511
+         "position": 541
       },
       {
          "surveyShortName": "HAMILTON",
@@ -13989,7 +14057,7 @@
          "fieldName": "HAMILTON_ANSIEDAD_PSIQUICA_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_ANSIEDAD_PSIQUICA"],
-         "position": 541
+         "position": 571
       },
       {
          "surveyShortName": "HAMILTON",
@@ -13998,7 +14066,7 @@
          "fieldName": "HAMILTON_ANSIEDAD_SOMATICA_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["HAMILTON_ANSIEDAD_SOMATICA"],
-         "position": 571
+         "position": 601
       },
       {
          "surveyShortName": "HAMILTON",
@@ -14010,7 +14078,7 @@
             "HAMILTON_ANSIEDAD_PSIQUICA",
             "HAMILTON_ANSIEDAD_SOMATICA"
          ],
-         "position": 601
+         "position": 631
       },
       {
          "surveyShortName": "HAMILTON",
@@ -14023,7 +14091,17 @@
             "max": 52
          },
          "subScales": ["HAMILTON_PERCENT"],
-         "position": 631
+         "position": 661
+      },
+      {
+         "surveyShortName": "HAMILTON",
+         "description": "HAMILTON_SEMAPHORE",
+         "shortDescription": "HAMILTON_SEMAPHORE",
+         "fieldName": "HAMILTON_SEMAPHORE",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "HAMILTON_ANSIEDAD_TOTAL_MAX_52" },
+         "subScales": ["HAMILTON_SEMAPHORE"],
+         "position": 691
       },
       {
          "surveyShortName": "HAMILTON",
@@ -14041,7 +14119,7 @@
             ]
          },
          "subScales": ["HAMILTON_ANSIEDAD_TOTAL_MAX_48"],
-         "position": 661
+         "position": 721
       },
 
       {
@@ -14051,7 +14129,7 @@
          "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_STATIC"],
-         "position": 691
+         "position": 751
       },
       {
          "surveyShortName": "JEFF_STATIC",
@@ -14064,7 +14142,7 @@
             "max": 140
          },
          "subScales": ["JEFF_PERCENT"],
-         "position": 721
+         "position": 781
       },
       {
          "surveyShortName": "BECK",
@@ -14073,7 +14151,7 @@
          "fieldName": "BECK_TOTAL_DEPRESION_MAX_63",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["BECK_TOTAL_DEPRESION"],
-         "position": 751
+         "position": 811
       },
       {
          "surveyShortName": "BECK",
@@ -14086,7 +14164,17 @@
             "max": 63
          },
          "subScales": ["BECK_PERCENT"],
-         "position": 781
+         "position": 841
+      },
+      {
+         "surveyShortName": "BECK",
+         "description": "BECK_SEMAPHORE",
+         "shortDescription": "BECK_SEMAPHORE",
+         "fieldName": "BECK_SEMAPHORE",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "BECK_TOTAL_DEPRESION_MAX_63" },
+         "subScales": ["BECK_SEMAPHORE"],
+         "position": 871
       },
       {
          "surveyShortName": "BECK",
@@ -14113,7 +14201,7 @@
             ]
          },
          "subScales": ["BECK_ES_CASO"],
-         "position": 811
+         "position": 901
       },
       {
          "surveyShortName": "SCL90",
@@ -14122,7 +14210,7 @@
          "fieldName": "SCL90_SOMATIZACION_MAX_48",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SOMATIZACION"],
-         "position": 841
+         "position": 931
       },
       {
          "surveyShortName": "SCL90",
@@ -14131,7 +14219,7 @@
          "fieldName": "SCL90_DESORDEN_OBSESIVO_COMPULSUVO_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_OBSESION_COMPULSION"],
-         "position": 871
+         "position": 961
       },
       {
          "surveyShortName": "SCL90",
@@ -14140,7 +14228,7 @@
          "fieldName": "SCL90_SENSIBILIDAD_INTERPERSONAL_MAX_36",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_SENS_INTERPERS"],
-         "position": 901
+         "position": 991
       },
       {
          "surveyShortName": "SCL90",
@@ -14149,7 +14237,7 @@
          "fieldName": "SCL90_DEPRESION_MAX_52",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_DEPRESION"],
-         "position": 931
+         "position": 1021
       },
       {
          "surveyShortName": "SCL90",
@@ -14158,7 +14246,7 @@
          "fieldName": "SCL90_ANSIEDAD_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ANSIEDAD"],
-         "position": 961
+         "position": 1051
       },
       {
          "surveyShortName": "SCL90",
@@ -14167,7 +14255,7 @@
          "fieldName": "SCL90_HOSTILIDAD_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_HOSTILIDAD"],
-         "position": 991
+         "position": 1081
       },
       {
          "surveyShortName": "SCL90",
@@ -14176,7 +14264,7 @@
          "fieldName": "SCL90_FOBIA_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_FOBIA"],
-         "position": 1021
+         "position": 1111
       },
       {
          "surveyShortName": "SCL90",
@@ -14185,7 +14273,7 @@
          "fieldName": "SCL90_PARANOIA_MAX_24",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PARANOIA"],
-         "position": 1051
+         "position": 1141
       },
       {
          "surveyShortName": "SCL90",
@@ -14194,7 +14282,7 @@
          "fieldName": "SCL90_PSICOTISMO_MAX_40",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_PSICOSIS"],
-         "position": 1081
+         "position": 1171
       },
       {
          "surveyShortName": "SCL90",
@@ -14203,7 +14291,7 @@
          "fieldName": "SCL90_ADICIONALES_MAX_28",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["SCL90_ADICIONALES"],
-         "position": 1111
+         "position": 1201
       },
       {
          "surveyShortName": "SCL90",
@@ -14223,7 +14311,7 @@
             "SCL90_PSICOSIS",
             "SCL90_ADICIONALES"
          ],
-         "position": 1141
+         "position": 1231
       },
       {
          "surveyShortName": "SCL90",
@@ -14233,7 +14321,7 @@
          "calculationType": "CAL_PERCENT_OF_NUMBER",
          "criteria": { "fieldNameValue": "SCL90_TOTAL_MAX_360", "max": 360 },
          "subScales": ["SCL90_PERCENT"],
-         "position": 1171
+         "position": 1261
       },
       {
          "surveyShortName": "JEFF_HP",
@@ -14242,7 +14330,7 @@
          "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_HP"],
-         "position": 1201
+         "position": 1291
       },
       {
          "surveyShortName": "JEFF_HP",
@@ -14255,7 +14343,7 @@
             "max": 140
          },
          "subScales": ["SCL90_PERCENT"],
-         "position": 1231
+         "position": 1321
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -14264,7 +14352,7 @@
          "fieldName": "E_EFF_17_INDIVIDUACION_MAX_12",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["INDIVIDUACION"],
-         "position": 1261
+         "position": 1351
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -14273,7 +14361,7 @@
          "fieldName": "E_EFF_17_MANTENIMIENTO_DEL_SISTEMA_MAX_21",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["MANTENIMIENTO_DEL_SISTEMA"],
-         "position": 1291
+         "position": 1381
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -14282,7 +14370,7 @@
          "fieldName": "E_EFF_17_CAMBIO_DEL_SISTEMA_MAX_12",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["CAMBIO_DEL_SISTEMA"],
-         "position": 1321
+         "position": 1411
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -14291,7 +14379,7 @@
          "fieldName": "E_EFF_17_COHERENCIA_MAX_6",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COHERENCIA"],
-         "position": 1351
+         "position": 1441
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -14305,7 +14393,7 @@
             "CAMBIO_DEL_SISTEMA",
             "COHERENCIA"
          ],
-         "position": 1381
+         "position": 1471
       },
       {
          "surveyShortName": "E_EFF_17",
@@ -14315,7 +14403,7 @@
          "calculationType": "CAL_PERCENT_OF_NUMBER",
          "criteria": { "fieldNameValue": "E_EFF_17_TOTAL_51", "max": 51 },
          "subScales": ["SCL90_PERCENT"],
-         "position": 1411
+         "position": 1501
       },
 
       {
@@ -14325,7 +14413,7 @@
          "fieldName": "VP_DETALLES_P2_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P2"],
-         "position": 1471
+         "position": 1561
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -14335,7 +14423,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P2"],
-         "position": 1501
+         "position": 1591
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -14344,7 +14432,7 @@
          "fieldName": "VP_DETALLES_P3_TIPO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_DETALLES_P3"],
-         "position": 1531
+         "position": 1621
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
@@ -14354,7 +14442,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_DETALLES_P3"],
-         "position": 1561
+         "position": 1651
       },
 
       {
@@ -14364,7 +14452,7 @@
          "fieldName": "VP_TIPOS_P5_PADECIO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P5"],
-         "position": 1621
+         "position": 1711
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -14374,7 +14462,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P5"],
-         "position": 1651
+         "position": 1741
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -14383,7 +14471,7 @@
          "fieldName": "VP_TIPOS_P6_QUIEN_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VP_TIPOS_P6"],
-         "position": 1681
+         "position": 1771
       },
       {
          "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
@@ -14393,7 +14481,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VP_TIPOS_P6"],
-         "position": 1711
+         "position": 1801
       },
 
       {
@@ -14403,7 +14491,7 @@
          "fieldName": "VE_DETALLES_P8_TIPO_EJERCIDO_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["VE_DETALLES_P8"],
-         "position": 1771
+         "position": 1861
       },
       {
          "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
@@ -14413,7 +14501,7 @@
          "calculationType": "CAL_CONCAT_GROUP_BASED_ON_CRITERIA",
          "criteria": "== 1 : 1 : 0",
          "subScales": ["VE_DETALLES_P8"],
-         "position": 1801
+         "position": 1891
       },
 
       {
@@ -14423,7 +14511,7 @@
          "fieldName": "ACTITUD_APRENDIZAJE_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["APRENDIZAJE"],
-         "position": 2101
+         "position": 2191
       },
       {
          "surveyShortName": "ACTITUD_APRENDIZAJE",
@@ -14436,7 +14524,7 @@
             "max": 56
          },
          "subScales": ["ACTITUD_APRENDIZAJE_PERCENT"],
-         "position": 2131
+         "position": 2221
       },
       {
          "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -14445,7 +14533,7 @@
          "fieldName": "JEFF_COLABORACION_MEDICO_ENFERMERIA_TOTAL",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["COLAB_MEDICO_ENFERMERIA"],
-         "position": 2161
+         "position": 2251
       },
       {
          "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
@@ -14458,7 +14546,7 @@
             "max": 60
          },
          "subScales": ["COLAB_MEDICO_ENFERMERA_PERCENT"],
-         "position": 2191
+         "position": 2281
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14467,7 +14555,7 @@
          "fieldName": "ZAVIC_INTERES_SOCIAL_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_SOCIAL"],
-         "position": 2221
+         "position": 2311
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14476,7 +14564,7 @@
          "fieldName": "ZAVIC_INTERES_POLITICO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_POLITICO"],
-         "position": 2251
+         "position": 2341
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14485,7 +14573,7 @@
          "fieldName": "ZAVIC_INTERES_ECONOMICO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_ECONOMICO"],
-         "position": 2281
+         "position": 2371
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14494,7 +14582,7 @@
          "fieldName": "ZAVIC_INTERES_RELIGIOSO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_RELIGIOSO"],
-         "position": 2311
+         "position": 2401
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14503,7 +14591,7 @@
          "fieldName": "ZAVIC_VALORES_MORAL_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_MORAL"],
-         "position": 2341
+         "position": 2431
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14512,7 +14600,7 @@
          "fieldName": "ZAVIC_VALORES_LEGALIDAD_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_LEGALIDAD"],
-         "position": 2371
+         "position": 2461
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14521,7 +14609,7 @@
          "fieldName": "ZAVIC_VALORES_INDIFERENCIA_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_INDIFERENCIA"],
-         "position": 2401
+         "position": 2491
       },
       {
          "surveyShortName": "TEST_DE_ZAVIC",
@@ -14530,7 +14618,7 @@
          "fieldName": "ZAVIC_VALORES_CORRUPTO_PORCIENTO",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["ZAVIC_CORRUPTO"],
-         "position": 2431
+         "position": 2521
       }
    ]
 }
