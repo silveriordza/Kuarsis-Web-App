@@ -19,6 +19,9 @@
 
 @import '../node_modules/@syncfusion/ej2-documenteditor/styles/material.css';
 
+/*Needed by Syncfusion Dahsboard React layout */
+@import '../node_modules/@syncfusion/ej2-react-layouts/styles/material.css';
+
 /*Kuarxis styles*/
 @import '../src/components/KuarxisPercentBar/KuarxisPercentBarComponent.css';
 /* body > div:nth-child(2) {
@@ -722,3 +725,68 @@ canvas {
    display: inline-block;
    border-radius: 5px;
 } */
+
+/*Below styles are for the Syncfusion React Dashboard component coded in the KuarxisDashboardLayout.js*/
+.e-dashboardlayout.e-control
+   .e-custom
+   .e-panel
+   .e-panel-container
+   .e-panel-header {
+   color: #754131;
+   background-color: #c9e2f7;
+}
+
+.e-panel-header {
+   text-align: center;
+   padding: 10px;
+}
+.e-panel-content {
+   text-align: center;
+   margin-top: 10px;
+}
+.income-container {
+   font-size: x-large;
+   color: #17a00e;
+   margin-top: 14px;
+   padding-left: 14px;
+}
+.expense-container {
+   color: #ca765a;
+   font-size: x-large;
+   margin-top: 14px;
+   padding-left: 15px;
+}
+.balance-container {
+   font-size: x-large;
+   color: #17a00e;
+   margin-top: 0px;
+   padding: 15px;
+}
+.transaction-container {
+   color: #ca765a;
+   font-size: x-large;
+   margin-top: 0px;
+   padding: 15px;
+}
+.category-icon {
+   float: left;
+   background-repeat: no-repeat;
+   background-position-x: center;
+   background-size: 100%;
+   height: 30px;
+   width: 30px;
+   display: inline-block;
+   margin-right: 10px;
+}
+.category-text {
+   float: left;
+}
+
+.space-top {
+   margin: 1%;
+}
+
+.chart-small {
+   width: '50%';
+   height: '50%';
+}

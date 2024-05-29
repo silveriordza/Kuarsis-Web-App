@@ -16,8 +16,8 @@ import ServiceDetailScreen from './screens/ServiceDetailScreen'
 import CartScreen from './screens/CartScreen'
 import ShippingScreen from './screens/ShippingScreen'
 import PaymentScreen from './screens/PaymentScreen'
-import OrderScreen from './screens/OrderScreen'
-import OrderDetailScreen from './screens/OrderDetailScreen'
+//import OrderScreen from './screens/OrderScreen'
+//import OrderDetailScreen from './screens/OrderDetailScreen'
 import ProductListAdminScreen from './screens/ProductListAdminScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import UserListScreen from './screens/UserListScreen'
@@ -26,14 +26,15 @@ import OrderListScreen from './screens/OrderListScreen'
 import UploadSurveyAnswers from './screens/UploadSurveyAnswers'
 import SurveysOutputData from './screens/SurveysOutputData'
 
-import dotenv from 'dotenv'
+//import dotenv from 'dotenv'
 import Show3DScreen from './screens/Show3DScreen'
 import SurveyOutputSingleData from './screens/SurveyOutputSingleData'
 import PrototypesExperiments from './screens/PrototypesExperiments'
+import SurveyOutputDashboard from './screens/SurveyOutputDashboard'
 
 //https://dev.d2zqth0d2er18d.amplifyapp.com
 const App = () => {
-   dotenv.config()
+   //.config()
    return (
       <>
          <Router>
@@ -114,6 +115,11 @@ const App = () => {
                      exact
                   />
                   <Route
+                     path="/surveyoutput/dashboard"
+                     component={SurveyOutputDashboard}
+                     exact
+                  />
+                  <Route
                      path="/experiments"
                      component={PrototypesExperiments}
                      exact
@@ -121,11 +127,11 @@ const App = () => {
 
                   <Route path="/cart/:id?" component={CartScreen} />
                   {/* <Route path='/bookappointment/:id' component={BookAppointmentScreen} /> */}
-                  <Route path="/order" component={OrderScreen} />
-                  <Route
+                  {/* <Route path="/order" component={OrderScreen} /> */}
+                  {/* <Route
                      path="/orderdetail/:id"
                      component={OrderDetailScreen}
-                  />
+                  /> */}
                   <Route path="/shipping" component={ShippingScreen} />
                   <Route path="/payment" component={PaymentScreen} />
                   <Route path="/" component={BusinessInformationScreen} exact />

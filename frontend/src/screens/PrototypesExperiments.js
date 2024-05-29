@@ -17,6 +17,12 @@ import {
    Highlight,
 } from '@syncfusion/ej2-react-charts'
 
+import {
+   DashboardLayoutComponent,
+   PanelDirective,
+   PanelsDirective,
+} from '@syncfusion/ej2-react-layouts'
+
 import { Browser } from '@syncfusion/ej2-base'
 
 import {
@@ -62,6 +68,8 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import { ProgressBarComponent } from '@syncfusion/ej2-react-progressbar'
 
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
+
+import KuarxisDashboardLayoutPrototype from '../components/KuarxisDashboardLayoutPrototype'
 
 import { saveAs } from 'file-saver'
 
@@ -726,6 +734,25 @@ const PrototypesExperiments = () => {
 
    return (
       <section>
+         <h1>Kuarxis Dashboard Layout Prototype</h1>
+         <div>
+            <KuarxisDashboardLayoutPrototype></KuarxisDashboardLayoutPrototype>
+         </div>
+         {/* <div>
+            <DashboardLayoutComponent columns={1}>
+               <PanelsDirective>
+                  <PanelDirective
+                     header="<div>Income</div>"
+                     content={card1}
+                     col={0}
+                     row={0}
+                     // sizeX={2}
+                     // sizeY={1}
+                  ></PanelDirective>
+               </PanelsDirective>
+            </DashboardLayoutComponent>
+         </div> */}
+
          <h1>Hola Survey Single Response Detail</h1>
          <div>
             {/* <div className="control-pane">
@@ -847,7 +874,7 @@ const PrototypesExperiments = () => {
                   <span className="color-square color4"></span> Mathematics
                </div>
             </div> */}
-            <div style={{ width: '20%' }}>
+            {/* <div style={{ width: '20%' }}>
                <div className="kuarxisSemaphoreContainer">
                   <span className="kuarxisRangeSemaphore"> </span>
                </div>
@@ -984,7 +1011,7 @@ const PrototypesExperiments = () => {
                   documentEditorContainer = scope
                }}
                created={onCreated}
-            />
+            /> */}
 
             {/* <DocumentEditorComponent
                id="container"

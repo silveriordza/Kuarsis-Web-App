@@ -9,7 +9,10 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { registerLicense } from '@syncfusion/ej2-base';
 
-registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtceXZVQ2JdVkBwXUY=')
+registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXpccXZVQ2hcVEx+XEs=') 
+
+//registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtceXZVQ2JdVkBwXUY=')
+//registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXpccXVcQmddVkR+WkU=')
 const container = document.getElementById('root')
 const root = ReactDOMClient.createRoot(container);
 // Initial render: Render an element to the root.

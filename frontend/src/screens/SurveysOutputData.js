@@ -15,6 +15,8 @@ import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisP
 
 import KuarxisRangeSemaphore from '../components/KuarxisPercentBar/KuarxisRangeSemaphore'
 
+import KuarxisDashboardLayout from '../components/KuarxisDashboardLayout'
+
 //import csv from "csv-parser"; // Import the csv-parser library
 // import { Link } from 'react-router-dom'
 import {
@@ -48,8 +50,11 @@ import {
    Filter,
    GridComponent,
    Group,
+   LazyLoadGroup,
+   InfiniteScroll,
    ExcelExport,
-   PdfExport,
+   //Data,
+   //PdfExport,
    ColumnChooser,
    Aggregate,
    AggregateColumnsDirective,
@@ -120,6 +125,17 @@ import {
 
 L10n.load(spanishLocalization)
 //loadCldr(esgregorian)
+
+// const oldGenerateQuery = Data.prototype.generateQuery
+// Data.prototype.generateQuery = function () {
+//    const query = oldGenerateQuery.call(this, true)
+//    // Check if 'pageQuery' is available in the prototype chain
+//    if (Data.prototype.hasOwnProperty('pageQuery')) {
+//       const pageQueryFn = Data.prototype['pageQuery']
+//       pageQueryFn.call(this, query)
+//    }
+//    return query
+// }
 
 const SurveysOutputData = ({ match, history }) => {
    const srcFileName = 'SurveysOutputData'
@@ -200,11 +216,11 @@ const SurveysOutputData = ({ match, history }) => {
    setCulture('es')
 
    let grid
-   let dropDown
-   const dropDownData = [
-      { text: 'Sólo página actual', value: 'CurrentPage' },
-      { text: 'Todas las páginas', value: 'AllPages' },
-   ]
+   // let dropDown
+   // const dropDownData = [
+   //    { text: 'Sólo página actual', value: 'CurrentPage' },
+   //    { text: 'Todas las páginas', value: 'AllPages' },
+   // ]
 
    const aggregateAverageCaptionTemplate = props => {
       let value = parseFloat(props.Average).toFixed(0)
@@ -255,8 +271,14 @@ const SurveysOutputData = ({ match, history }) => {
          ],
       },
    }
-   const groupSettings = { columns: [] }
-   const toolbarOptions = ['ExcelExport', 'PdfExport', 'ColumnChooser']
+   const groupSettings = {
+      //columns: ['FIAD-15 RESULTADO'],
+      disablePageWiseAggregates: false,
+      enableLazyLoading: true,
+      captionTemplate:
+         '<span class="groupItems"> ${headerText} - ${key} : ${count} encuestados </span>',
+   }
+   const toolbarOptions = ['ExcelExport', 'ColumnChooser']
 
    const toolbarClick = args => {
       const exportProperties = 'AllPages'
@@ -275,11 +297,16 @@ const SurveysOutputData = ({ match, history }) => {
    const excelExportComplete = () => {
       grid.hideSpinner()
    }
-
+   let initial = true
    const dataBound = () => {
       if (grid) {
          grid.autoFitColumns()
       }
+
+      // if (grid && initial === true) {
+      //    grid.groupModule.collapseAll()
+      //    initial = false
+      // }
    }
    /* DateRagePickerComponent constants */
    const dateRangeEndCalc = new Date()
@@ -628,6 +655,19 @@ const SurveysOutputData = ({ match, history }) => {
       history.push(`/surveyoutput/detail/${respondentId}`)
    }
 
+   const handleOutputDashboardLinkClick = e => {
+      e.preventDefault()
+      dispatch({
+         type: SURVEY_OUTPUT_SINGLE_SUCCESS,
+         payload: {
+            surveyOutputsInfo: surveyOutputsInfo,
+            surveySelected: surveySelected,
+            selectedPageNumber: selectedPageNumber,
+         },
+      })
+      history.push(`/surveyoutput/dashboard`)
+   }
+
    const GenerateOutputFile = outputId => {
       let outputText = null
       const outputValue = surveyOutputsInfo.outputValues.find(
@@ -955,38 +995,6 @@ const SurveysOutputData = ({ match, history }) => {
                                     onChange={handleSearchText}
                                  ></Form.Control>
                               )}
-                           {/* </FloatingLabel> */}
-                           {/* <FloatingLabel
-                              controlId="floatingInput"
-                              label="Email address"
-                              className="mb-3"
-                           >
-                              <Form.Control
-                                 type="email"
-                                 placeholder="name@example.com"
-                              />
-                           </FloatingLabel>
-                           <FloatingLabel
-                              controlId="floatingPassword"
-                              label="Password"
-                           >
-                              <Form.Control
-                                 type="password"
-                                 placeholder="Password"
-                              />
-                           </FloatingLabel> */}
-                           {/* <Form.Group controlId="textControl">
-                              <Form.Label style={{ marginTop: '1%' }}>
-                                 Búsqueda por texto:
-                              </Form.Label>
-                              <Form.Control
-                                 type="text"
-                                 placeholder="Buscar..."
-                                 value={searchKeyword}
-                                 onChange={handleSearchText}
-                              ></Form.Control>
-                           </Form.Group> */}
-                           {/* </Form> */}
                         </Col>
 
                         {!loading &&
@@ -1149,7 +1157,6 @@ const SurveysOutputData = ({ match, history }) => {
                               <Button
                                  variant="light"
                                  size="sm"
-                                 // className="btn-mg"
                                  onClick={() =>
                                     exportDataFile(true, DATA_EXPORTER_TYPE_CSV)
                                  }
@@ -1158,13 +1165,26 @@ const SurveysOutputData = ({ match, history }) => {
                                  Campos
                               </Button>
                            </Col>
+
+                           <Col lg="auto">
+                              <Button
+                                 variant="light"
+                                 size="sm"
+                                 onClick={e =>
+                                    handleOutputDashboardLinkClick(e)
+                                 }
+                              >
+                                 <i className="fas fa-table fa-2x"></i> Panel de
+                                 gráficas
+                              </Button>
+                           </Col>
                            <Col md="auto">
                               <Form.Label>{exportStatusMessage}</Form.Label>
                            </Col>
                         </Row>
                      </Container>
                   </div>
-                  <div>
+                  {/* <div>
                      <Container fluid>
                         <GridComponent
                            //style={{ width: '100%' }}
@@ -1187,6 +1207,7 @@ const SurveysOutputData = ({ match, history }) => {
                            allowExcelExport={true}
                            // allowPdfExport={true}
                            showColumnChooser={true}
+                           // enableInfiniteScrolling={true}
                            ref={g => (grid = g)}
                            // height="100%"
                            dataBound={dataBound}
@@ -1225,42 +1246,20 @@ const SurveysOutputData = ({ match, history }) => {
                                              />
                                           )
                                        case 'Integer':
-                                          return (
-                                             // <ColumnDirective
-                                             //    key={keyVal}
-                                             //    field={utf8String}
-                                             //    width="150"
-                                             //    visible={
-                                             //       layout.showInSurveyOutputScreen
-                                             //    }
-                                             //    type="number"
-                                             // />
-                                             prepareDisplayBasedOnType(
-                                                keyVal,
-                                                utf8String,
-                                                layout,
-                                                '150',
-                                                'number',
-                                             )
+                                          return prepareDisplayBasedOnType(
+                                             keyVal,
+                                             utf8String,
+                                             layout,
+                                             '150',
+                                             'number',
                                           )
                                        case 'Float':
-                                          return (
-                                             // <ColumnDirective
-                                             //    //key={keyVal}
-                                             //    field={utf8String}
-                                             //    width="150"
-                                             //    visible={
-                                             //       layout.showInSurveyOutputScreen
-                                             //    }
-                                             //    type="number"
-                                             // />
-                                             prepareDisplayBasedOnType(
-                                                keyVal,
-                                                utf8String,
-                                                layout,
-                                                '150',
-                                                'number',
-                                             )
+                                          return prepareDisplayBasedOnType(
+                                             keyVal,
+                                             utf8String,
+                                             layout,
+                                             '150',
+                                             'number',
                                           )
 
                                        case 'String':
@@ -1408,12 +1407,14 @@ const SurveysOutputData = ({ match, history }) => {
                                  ExcelExport,
                                  // PdfExport,
                                  ColumnChooser,
+                                 LazyLoadGroup,
+                                 //InfiniteScroll,
                                  Aggregate,
                               ]}
                            />
                         </GridComponent>
                      </Container>
-                  </div>
+                  </div> */}
                </>
             )}
       </Container>
