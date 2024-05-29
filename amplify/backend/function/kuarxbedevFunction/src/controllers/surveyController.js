@@ -4791,6 +4791,26 @@ const monkeyUpdateResponses2 = asyncHandler(async (req, res) => {
    }
 })
 
+const getReportRDLC = asyncHandler(async (req, res) => {
+   try {
+      const surveyShortName = req.params.id
+      // const returnValue = await monkeyUpdateResponses2Helper(surveyShortName)
+
+      res.header('Content-Type', 'application/json; charset=utf-8')
+      res.status(200).json({
+         csvLayout: returnValue.csvLayout,
+         rowValue: returnValue.rowValue,
+         rowReal: returnValue.rowReal,
+         rowScore: returnValue.rowScore,
+         monkeyConfigs: returnValue.monkeyConfigs,
+         monkeyResponses: returnValue.monkeyResponses,
+      })
+   } catch (error) {
+      res.status(404).json({ message: 'Error monkeyUpdateResponses2' })
+      throw error
+   }
+})
+
 module.exports = {
    superSurveyUploadAnswers,
    createSuperSurvey,
@@ -4810,4 +4830,5 @@ module.exports = {
    bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
    //monkeyUpdateResponses,
    monkeyUpdateResponses2,
+   getReportRDLC,
 }

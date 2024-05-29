@@ -29,6 +29,7 @@ let {
    bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
    //monkeyUpdateResponses,
    monkeyUpdateResponses2,
+   getReportRDLC,
 } = require('../controllers/surveyController.js')
 let {
    protect,
@@ -67,6 +68,8 @@ router
    .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
 
 router.route('/surveymonkey/test').get(protect, admin, testMonkey)
+//report
+router.route('/reportrdlc').get(getReportRDLC)
 
 router
    .route('/surveymonkey/webhookcreatedevent')
