@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap'
 
 //import { outputData } from '../constants/surveyOutputsDataStatic'
 
@@ -90,16 +91,35 @@ const KuarxisDashboardLayout = data => {
          surveyShortName: 'FIAD_15',
          seriesField: 'FIAD-15 RESULTADO',
          calculationType: 'countSeries',
+         seriesStyles: {
+            'Nivel Funcional': '#0cc50c',
+            'Nivel Alto': '#008000',
+            'Nivel Intermedio': '#ffa500',
+            'Nivel Limitrofe': '#ff0000',
+         },
       },
       {
          surveyShortName: 'BECK',
          seriesField: 'BECK_ES_CASO_DEPRESION',
          calculationType: 'countSeries',
+         seriesStyles: {
+            'Sin Depresión': '#0cc50c',
+            'Depresión Ligera': '#008000',
+            'Depresión Moderada': '#ffa500',
+            'Depresión Severa - requiere ayuda': '#ff0000',
+            'Depresión Muy Severa - requiere ayuda': '#ff0000',
+         },
       },
       {
          surveyShortName: 'HAMILTON',
          seriesField: 'HAMILTON_ANSIEDAD_RESULTADO',
          calculationType: 'countSeries',
+         seriesStyles: {
+            'Sin Ansiedad': '#0cc50c',
+            'Ansiedad Leve': '#008000',
+            'Ansiedad Moderada': '#ffa500',
+            'Ansiedad Severa': '#ff0000',
+         },
       },
    ]
 
@@ -125,6 +145,7 @@ const KuarxisDashboardLayout = data => {
          pieAggregatedDataArray = Object.keys(pieFinalAggregatedValues).map(
             key => ({
                xNameSeries: key,
+               xNameSeriesColor: pieDefinition.seriesStyles[key],
                yNameValues: pieFinalAggregatedValues[key],
             }),
          )
@@ -143,65 +164,61 @@ const KuarxisDashboardLayout = data => {
    }
    function kuarxisPayChart(surveyShortName) {
       return (
-         <div
-            style={{
-               width: '100%',
-               height: '90%',
-               position: 'relative',
-               top: '0',
-               left: '0',
-            }}
+         // <div
+         // // style={{
+         // //    width: '100%',
+         // //    height: '100%',
+         // //    position: 'relative',
+         // //    top: '0',
+         // //    left: '0',
+         // // }}
+         // >
+         <AccumulationChartComponent
+            id={`${surveyShortName}_kuarxisPieChart`}
+            pointClick={args => pointClickFilter(args, surveyShortName)}
+            legendSettings={legendSettings}
+            enableSmartLabels={true}
+            tooltip={{ enable: true, duration: 500 }}
+            width="100%"
+            height="100%"
          >
-            <AccumulationChartComponent
-               id={`${surveyShortName}_kuarxisPieChart`}
-               pointClick={args => pointClickFilter(args, surveyShortName)}
-               legendSettings={legendSettings}
-               enableSmartLabels={true}
-               tooltip={{ enable: true }}
-               // centerLabel={{
-               //    text: 'Results',
-               //    hoverTextFormat: '${point.x} ${point.y}',
-               //    textStyle: {
-               //       fontWeight: '100',
-               //       size: '10px',
-               //       color: 'grey',
-               //       fontFamily: 'Roboto',
-               //       fontStyle: 'Italic',
-               //    },
-               // }}
-            >
-               <Inject
-                  services={[
-                     //AccumulationLegend,
-                     PieSeries,
-                     AccumulationTooltip,
-                     AccumulationDataLabel,
-                  ]}
-               />
-               <AccumulationSeriesCollectionDirective>
-                  <AccumulationSeriesDirective
-                     dataSource={dashboardData.get(surveyShortName)}
-                     //xName="text"
-                     xName="xNameSeries"
-                     yName="yNameValues"
-                     radius="100%"
-                     // center={{ x: '30%', y: '50%' }}
-                     startAngle={0}
-                     endAngle={360}
-                     innerRadius="65%"
-                     legendShape="Rectangle"
-                     dataLabel={{
-                        visible: false,
-                        name: 'x',
-                        position: 'Outside',
-                        font: {
-                           size: '10px',
-                        },
-                     }}
-                  ></AccumulationSeriesDirective>
-               </AccumulationSeriesCollectionDirective>
-            </AccumulationChartComponent>
-         </div>
+            <Inject
+               services={[
+                  //AccumulationLegend,
+                  PieSeries,
+                  AccumulationTooltip,
+                  AccumulationDataLabel,
+               ]}
+            />
+            <AccumulationSeriesCollectionDirective>
+               <AccumulationSeriesDirective
+                  dataSource={dashboardData.get(surveyShortName)}
+                  //xName="text"
+                  xName="xNameSeries"
+                  yName="yNameValues"
+                  radius="80%"
+                  pointColorMapping="xNameSeriesColor"
+                  // center={{ x: '50%', y: '30%' }}
+                  explode={true}
+                  explodeOffset="10%"
+                  //explodeIndex={0}
+                  explodeAll={true}
+                  startAngle={0}
+                  endAngle={360}
+                  innerRadius="0%"
+                  legendShape="Rectangle"
+                  dataLabel={{
+                     visible: false,
+                     name: 'x',
+                     position: 'Outside',
+                     font: {
+                        size: '10px',
+                     },
+                  }}
+               ></AccumulationSeriesDirective>
+            </AccumulationSeriesCollectionDirective>
+         </AccumulationChartComponent>
+         // </div>
       )
    }
 
@@ -382,7 +399,7 @@ const KuarxisDashboardLayout = data => {
       if (!pie) {
          throw Error(`Pie Definition not found while filtering pointClick`)
       }
-      const dataSourceFilteredLocal = dataSource.filter(
+      const dataSourceFilteredLocal = dataSourceFiltered.filter(
          d => d[pie.seriesField] === args.point.x,
       )
       setdataSourceFiltered(dataSourceFilteredLocal)
@@ -518,17 +535,27 @@ const KuarxisDashboardLayout = data => {
          </GridComponent>
       )
    }
+
    //END PROTOTYPING DATA FOR REACT DASHBOARD LAYOUT SAMPLE
+   const resetFilters = () => {
+      setdataSourceFiltered(dataSource)
+      aggregateData(dataSource)
+   }
 
    return (
       <div>
+         <div>
+            <Button variant="light" size="sm" onClick={resetFilters}>
+               <i class="fas fa-undo-alt fa-2x"></i> Reiniciar Filtros
+            </Button>
+         </div>
          {dashboardData && dataSource && (
             <DashboardLayoutComponent
-               columns={10}
+               columns={8}
                cellSpacing={[10, 10]}
                allowFloating={true}
                //mediaQuery="max-width:700px"
-               cellAspectRatio={1}
+               //cellAspectRatio={1}
             >
                <PanelsDirective>
                   <PanelDirective
@@ -539,7 +566,7 @@ const KuarxisDashboardLayout = data => {
                      col={0}
                      row={0}
                      sizeX={2}
-                     sizeY={0}
+                     sizeY={2}
                   ></PanelDirective>
                   <PanelDirective
                      header="<div>Beck Depresion</div>"
@@ -548,7 +575,7 @@ const KuarxisDashboardLayout = data => {
                      col={2}
                      row={0}
                      sizeX={2}
-                     sizeY={0}
+                     sizeY={2}
                   ></PanelDirective>
                   <PanelDirective
                      header="<div>Hamilton Ansiedad</div>"
@@ -557,7 +584,7 @@ const KuarxisDashboardLayout = data => {
                      col={4}
                      row={0}
                      sizeX={2}
-                     sizeY={0}
+                     sizeY={2}
                   ></PanelDirective>
                   {/* <PanelDirective
                   header="<div>Recent Transactions</div>"

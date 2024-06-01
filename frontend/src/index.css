@@ -727,24 +727,28 @@ canvas {
 } */
 
 /*Below styles are for the Syncfusion React Dashboard component coded in the KuarxisDashboardLayout.js*/
-.e-dashboardlayout.e-control
+/* .e-dashboardlayout.e-control
    .e-custom
    .e-panel
    .e-panel-container
    .e-panel-header {
    color: #754131;
    background-color: #c9e2f7;
-}
+} */
 
 .e-panel-header {
    text-align: center;
    padding: 10px;
 }
-.e-panel-content {
+/* .e-panel-content {
    text-align: center;
-   margin-top: 10px;
-}
-.income-container {
+   margin-top: 30px;
+} */
+
+/* #BECK_kuarxisPieChart_svg {
+   height: 100%;
+} */
+/* .income-container {
    font-size: x-large;
    color: #17a00e;
    margin-top: 14px;
@@ -780,7 +784,7 @@ canvas {
 }
 .category-text {
    float: left;
-}
+} */
 
 .space-top {
    margin: 1%;

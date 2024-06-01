@@ -2,6 +2,15 @@
 import { convertHtmlElementToImage } from '../libs/imagesLib'
 
 import {
+   kuarxisBrowserCacheDB,
+   createTable,
+   putRecord,
+   getRecord,
+   clearTable,
+   requestPersistentStorage,
+} from '../libs/KuarxisBrowserCacheLib'
+
+import {
    SURVEY_PROCESS_ANSWERS_REQUEST,
    SURVEY_PROCESS_ANSWERS_SUCCESS,
    SURVEY_PROCESS_ANSWERS_FAIL,
@@ -22,6 +31,8 @@ import {
    SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
    SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
    SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
+   SURVEY_OUTPUT_SINGLE_CACHE_TABLE,
+   SURVEY_OUTPUT_SINGLE_SUCCESS,
 } from '../constants/surveyConstants'
 
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
@@ -1610,6 +1621,89 @@ export const surveyGetOutputValuesAction =
                   ? error.response.data.message
                   : error.message,
          })
+      }
+   }
+
+export const surveyPersistData =
+   ({ surveyOutputSingle }) =>
+   async (dispatch, getState) => {
+      const log = new LoggerSettings(srcFileName, 'surveyPersistData')
+
+      try {
+         const unloadHappened =
+            localStorage.getItem('surveyOutputDashboardUnloadHappened') ===
+            'true'
+               ? true
+               : false
+         if (unloadHappened) {
+            //const surveyOutputSingleInfoStoredFunc = async () => {
+            const dashboardCacheTable = {
+               SURVEY_OUTPUT_SINGLE_CACHE_TABLE: 'id, SurveyOutputDashboard',
+            }
+
+            createTable(dashboardCacheTable)
+
+            const surveyOutputSingleInfoStoredArray = await getRecord(
+               SURVEY_OUTPUT_SINGLE_CACHE_TABLE,
+            )
+            localStorage.setItem('surveyOutputDashboardUnloadHappened', false)
+
+            let surveyOutputSingleInfoStored
+            // if (
+            //    surveyOutputSingleInfoStoredArray &&
+            //    surveyOutputSingleInfoStoredArray.length > 0
+            // ) {
+            surveyOutputSingleInfoStored =
+               surveyOutputSingleInfoStoredArray[0].SurveyOutputDashboard
+            dispatch({
+               type: SURVEY_OUTPUT_SINGLE_SUCCESS,
+               payload: {
+                  surveyOutputsInfo:
+                     surveyOutputSingleInfoStored.surveyOutputsInfo,
+                  surveySelected: surveyOutputSingleInfoStored.surveySelected,
+                  selectedPageNumber:
+                     surveyOutputSingleInfoStored.selectedPageNumber,
+               },
+            })
+            // }
+
+            // }
+            // }
+            // surveyOutputSingleInfoStoredFunc()
+         } else {
+            const dashboardCacheTable = {
+               SURVEY_OUTPUT_SINGLE_CACHE_TABLE: 'id, SurveyOutputDashboard',
+            }
+            //await requestPersistentStorage()
+
+            createTable(dashboardCacheTable)
+
+            const surveyOutputInfoCached = {
+               surveyOutputsInfo: surveyOutputSingle.surveyOutputSingleInfo,
+               surveySelected: surveyOutputSingle.surveySelected,
+               selectedPageNumber: surveyOutputSingle.selectedPageNumber,
+            }
+
+            const putObject = {
+               id: 1,
+               SurveyOutputDashboard: surveyOutputInfoCached,
+            }
+
+            // const putRecordLocal = async () =>
+            await putRecord(SURVEY_OUTPUT_SINGLE_CACHE_TABLE, putObject)
+            LogThis(log, `putRecord into Dexie succeeded`, L3)
+            //putRecordLocal()
+         }
+      } catch (error) {
+         // dispatch({
+         //    type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
+         //    payload:
+         //       error.response && error.response.data.message
+         //          ? error.response.data.message
+         //          : error.message,
+         // })
+         LogThis(log, `putRecord fatal error in Dexie`, L3)
+         throw error
       }
    }
 

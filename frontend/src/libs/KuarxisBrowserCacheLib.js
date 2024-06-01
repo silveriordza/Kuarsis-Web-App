@@ -8,22 +8,26 @@ export const kuarxisBrowserCacheDB = new Dexie(
    KUARXIS_BROWSER_CACHE_DEXIE_DB_NAME,
 )
 
-kuarxisBrowserCacheDB.open().catch(error => {
-   console.error('Failed to open the database:', error)
-})
+// kuarxisBrowserCacheDB.open().catch(error => {
+//    console.error('Failed to open the database:', error)
+// })
 
 let x
 x = x + 1
 
 export const createTable = tableDefinition => {
-   if (
-      !kuarxisBrowserCacheDB.tables.find(table =>
-         Object.keys(tableDefinition).includes(table.name),
-      )
-   ) {
-      kuarxisBrowserCacheDB.version(1).stores(tableDefinition)
-      let x
-      x = x + 1
+   try {
+      if (
+         !kuarxisBrowserCacheDB.tables.find(table =>
+            Object.keys(tableDefinition).includes(table.name),
+         )
+      ) {
+         kuarxisBrowserCacheDB.version(1).stores(tableDefinition)
+         let x
+         x = x + 1
+      }
+   } catch (error) {
+      throw error
    }
 }
 
@@ -63,3 +67,41 @@ export const clearTable = async tableInUse => {
       throw error
    }
 }
+
+export const requestPersistentStorage = async () => {
+   if (navigator.storage && navigator.storage.persist) {
+      const isPersisted = await navigator.storage.persisted()
+      if (isPersisted) {
+         console.log('Storage is already persistent')
+      } else {
+         const result = await navigator.storage.persist()
+         if (result) {
+            console.log('Storage has been successfully set to persistent')
+         } else {
+            console.log('Storage persistence request was denied')
+         }
+      }
+   } else {
+      console.log('Persistent storage is not supported by this browser')
+   }
+}
+
+// // Request persistent storage on DOM load
+// document.addEventListener('DOMContentLoaded', async (event) => {
+//    console.log('DOM fully loaded and parsed');
+
+//    // Ensure the database is open
+//    try {
+//        await kuarxisBrowserCacheDB.open();
+//        console.log('Database opened successfully');
+//    } catch (error) {
+//        console.error('Failed to open the database:', error);
+//    }
+
+//    // Request persistent storage
+//    await requestPersistentStorage();
+
+//    // Add and retrieve data for testing (example)
+//    await addData();
+//    await retrieveData();
+// });

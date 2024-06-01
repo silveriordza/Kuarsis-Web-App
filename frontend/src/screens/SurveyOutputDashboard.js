@@ -2,14 +2,15 @@
 
 import html2Canvas from 'html2canvas'
 //import KuarxisBrowserCache from '../classes/KuarxisBrowserCache'
+import { surveyPersistData } from '../actions/surveyActions'
 
-import {
-   kuarxisBrowserCacheDB,
-   createTable,
-   putRecord,
-   getRecord,
-   clearTable,
-} from '../libs/KuarxisBrowserCacheLib'
+// import {
+//    kuarxisBrowserCacheDB,
+//    createTable,
+//    putRecord,
+//    getRecord,
+//    clearTable,
+// } from '../libs/KuarxisBrowserCacheLib'
 
 import { LogThis, LoggerSettings, L1, L2, L3, L0 } from '../libs/Logger'
 import React, { useState, useEffect, useRef } from 'react'
@@ -171,133 +172,32 @@ const SurveyOutputDashboard = props => {
    // }, [surveyOutputSingleInfo])
 
    useEffect(() => {
-      const unloadHappened =
-         localStorage.getItem('surveyOutputDashboardUnloadHappened') === 'true'
-            ? true
-            : false
+      dispatch(
+         surveyPersistData({
+            surveyOutputSingle: surveyOutputSingle,
+         }),
+      )
 
-      if (
-         // !surveyOutputSingleInfo ||
-         // Object.keys(surveyOutputSingleInfo).length == 0 ||
-         // surveySelected === undefined ||
-         // surveySelected === null ||
-         // selectedPageNumber === undefined ||
-         // selectedPageNumber === null
-         unloadHappened
-      ) {
-         // const surveyOutputSingleInfoStored = JSON.parse(
-         //    localStorage.getItem('SurveyOutputDashboard'),
-         // )
-
-         const surveyOutputSingleInfoStoredFunc = async () => {
-            const surveyOutputSingleInfoStoredArray = await getRecord(
-               SURVEY_OUTPUT_SINGLE_CACHE_TABLE,
-            )
-            localStorage.setItem('surveyOutputDashboardUnloadHappened', false)
-            // if (
-            //    surveyOutputSingleInfoStored
-            //    // &&
-            //    // (!surveyOutputSingleInfo || !surveySelected || !selectedPageNumber)
-            // ) {
-            let surveyOutputSingleInfoStored
-            if (
-               surveyOutputSingleInfoStored &&
-               surveyOutputSingleInfoStored.length > 0
-            ) {
-               surveyOutputSingleInfoStored =
-                  surveyOutputSingleInfoStoredArray[0].SurveyOutputDashboard
-               dispatch({
-                  type: SURVEY_OUTPUT_SINGLE_SUCCESS,
-                  payload: {
-                     surveyOutputsInfo:
-                        surveyOutputSingleInfoStored.surveyOutputsInfo,
-                     surveySelected:
-                        surveyOutputSingleInfoStored.surveySelected,
-                     selectedPageNumber:
-                        surveyOutputSingleInfoStored.selectedPageNumber,
-                  },
-               })
-            }
-
-            // }
-         }
-         surveyOutputSingleInfoStoredFunc()
-      } else {
-         // const cacheDatabase = new KuarxisBrowserCache(
-         //    SURVEY_OUTPUT_SINGLE_CACHE_TABLE,
-         // )
-
-         const dashboardCacheTable = {
-            SURVEY_OUTPUT_SINGLE_CACHE_TABLE: 'id, SurveyOutputDashboard',
-         }
-
-         createTable(dashboardCacheTable)
-
-         const surveyOutputInfoCached = {
-            surveyOutputsInfo: surveyOutputSingleInfo,
-            surveySelected: surveySelected,
-            selectedPageNumber: selectedPageNumber,
-         }
-
-         const putObject = {
-            id: 1,
-            SurveyOutputDashboard: surveyOutputInfoCached,
-         }
-
-         const putRecordLocal = async () =>
-            await putRecord(SURVEY_OUTPUT_SINGLE_CACHE_TABLE, putObject)
-         putRecordLocal()
-      }
-
-      // const saveStateToLocalStorage = () => {
-      // if (
-      //    surveyOutputSingleInfo &&
-      //    Object.keys(surveyOutputSingleInfo).length > 0 &&
-      //    surveySelected !== undefined &&
-      //    surveySelected !== null &&
-      //    selectedPageNumber !== undefined &&
-      //    selectedPageNumber !== null
-      // ) {
-      // const surveyOutputsString = JSON.stringify({
-      //    surveyOutputsInfo: surveyOutputSingleInfo,
-      //    surveySelected: surveySelected,
-      //    selectedPageNumber: selectedPageNumber,
-      // })
-
-      // const surveyOutputStringLenght = surveyOutputsString.length
-
-      // LogThis(
-      //    log,
-      //    `surveyOutputStringLenght=${surveyOutputStringLenght} surveyOutputsStringify=${surveyOutputsString}`,
-      // )
-
-      // localStorage.setItem('surveyOutputDashboardUnloadHappened', true)
-      // const putObject = {
-      //    SurveyOutputDashboard: surveyOutputsString,
-      // }
-
-      // await cacheDatabase.putRecord(putObject)
-      // }
-      // }
       // Add event listener for beforeunload eventhttp://localhost:3000/
       const handleBeforeUnload = async event => {
-         // Save state to LocalStorage
-         //await saveStateToLocalStorage()
          localStorage.setItem('surveyOutputDashboardUnloadHappened', true)
          // Cancel the event to prevent the default browser behavior
-         event.preventDefault()
+         //event.preventDefault()
 
          // Chrome requires the returnValue property to be set
-         event.returnValue = 'Refrescando pagina, dar click para continuar.'
+         //event.returnValue = 'Refrescando pagina, dar click para continuar.'
       }
 
       window.addEventListener('beforeunload', handleBeforeUnload)
       // Cleanup function
       return () => {
          // Remove event listener when component unmounts
+         localStorage.setItem('surveyOutputDashboardUnloadHappened', false)
          window.removeEventListener('beforeunload', handleBeforeUnload)
       }
    }, [])
+
+   useEffect(() => {}, [surveyOutputSingleInfo])
 
    // const [excelExportMultiDataState, setexcelExportMultiDataState] = useState([
    //    { columns: [], data: [] },
