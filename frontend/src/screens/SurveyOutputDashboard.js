@@ -537,13 +537,14 @@ const SurveyOutputDashboard = props => {
 
    return (
       <section>
-         <Link to="/" className="btn btn-light my-3" onClick={goBackHandler}>
+         {/* <Link to="/" className="btn btn-light my-3" onClick={goBackHandler}>
             Go Back
-         </Link>
+         </Link> */}
          {surveyOutputSingleInfo && surveyOutputSingleInfo.outputValues && (
             <div className="space-top">
                <KuarxisDashboardLayout
                   data={surveyOutputSingleInfo}
+                  goBackHandler={goBackHandler}
                ></KuarxisDashboardLayout>
             </div>
          )}

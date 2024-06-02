@@ -1,19 +1,32 @@
 import React from 'react'
 import { LogThis, LoggerSettings, L1, L2, L3, L0} from '../../libs/Logger'
 
+
+export const KuarxisRangesSemaphoreTemplate = (props, layout) => {
+   let value = props[layout.fieldName]
+   return (
+      <KuarxisRangeSemaphore
+         value={value}
+         styleCriterias={layout.displayType.styleCriterias}
+      />
+   )
+}
+
+
 const KuarxisRangeSemaphore = ( {id="", value=0, styleCriterias, containerStyle={}} ) => {
   
   const srcFileName = 'KuarxisRangeSemaphore'
   const log = new LoggerSettings(srcFileName, 'KuarxisRangeSemaphore')
-  
+  LogThis(log, `Entering`, L3)
+
   if (isNaN(value)) {
    LogThis(
       log,
-      `Error: value is not numeric for ${styleCriterias.header} value=${value}`,
+      `Error: value is not numeric value=${value}`,
       L3,
    )
    throw Error(
-      `At function KuarxisPercentBarComponentTemplate, the value for field ${styleCriterias.header} is not numeric`,
+      `At function KuarxisPercentBarComponentTemplate, the value for ${JSON.stringify(styleCriterias)} is not numeric`,
    )
 }
 
@@ -36,7 +49,7 @@ if(!styleCriterias){
         style = styleCriteria.style
         LogThis(
            log,
-           `styleCriteria found, field: ${styleCriteria.header} value=${value} styleCriteria=${styleCriteria.style}`,
+           `styleCriteria found, ${JSON.stringify(styleCriteria)} value=${value} styleCriteria=${styleCriteria.style}`,
            L3,
         )
         styleCriteriaFound = true
@@ -46,15 +59,18 @@ if(!styleCriterias){
   if (!styleCriteriaFound) {
      LogThis(
         log,
-        `Somethign is wrong, styleCriteria not found for: ${styleCriterias.header} value=${value}`,
+        `Somethign is wrong, styleCriteria not found for: ${JSON.stringify(styleCriterias)} value=${value}`,
         L3,
      )
      throw Error(
-        `Somethign is wrong, styleCriteria not found for: ${styleCriterias.header} value=${value}`,
+        `Somethign is wrong, styleCriteria not found for:  ${JSON.stringify(styleCriterias)} value=${value}`,
      )
   }
   
   const styleDynamic = {backgroundColor: style}
+  
+  LogThis(log, `Returning the semaphore`)
+
      return (
       <div id={id} className="kuarxisSemaphoreContainer" style={containerStyle}>
       <span className="kuarxisRangeSemaphore" style={styleDynamic}> </span>

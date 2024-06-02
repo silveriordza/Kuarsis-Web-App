@@ -1,7 +1,29 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap'
+import React, { useEffect, useState, useRef } from 'react'
+import { Button, Container, Form } from 'react-bootstrap'
+import Loader from '../components/Loader'
+import { KuarxisPercentBarComponentTemplate } from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
+
+import { KuarxisRangesSemaphoreTemplate } from '../components/KuarxisPercentBar/KuarxisRangeSemaphore'
+
+import {
+   ColumnDirective,
+   ColumnsDirective,
+   Filter,
+   GridComponent,
+   Group,
+   LazyLoadGroup,
+   ExcelExport,
+   ColumnChooser,
+} from '@syncfusion/ej2-react-grids'
+import {
+   Inject,
+   Page,
+   Sort,
+   Toolbar,
+   Resize,
+} from '@syncfusion/ej2-react-grids'
 
 //import { outputData } from '../constants/surveyOutputsDataStatic'
 
@@ -10,11 +32,6 @@ import {
    PanelDirective,
    PanelsDirective,
 } from '@syncfusion/ej2-react-layouts'
-import {
-   ColumnDirective,
-   ColumnsDirective,
-   GridComponent,
-} from '@syncfusion/ej2-react-grids'
 import {
    AccumulationChartComponent,
    AccumulationSeriesCollectionDirective,
@@ -28,10 +45,9 @@ import {
    SeriesCollectionDirective,
    SeriesDirective,
    SplineAreaSeries,
-   Inject,
 } from '@syncfusion/ej2-react-charts'
 
-const KuarxisDashboardLayout = data => {
+const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
    //START PROTOTYPING DATA FOR REACT DASHBOARD LAYOUT SAMPLE
 
    let incomeExpenseData = [
@@ -57,11 +73,134 @@ const KuarxisDashboardLayout = data => {
       { x: 'Clothing', text: '5.92%', y: 2255 },
       { x: 'Others', text: '12.73%', y: 4844 },
    ]
+
+   const [dataInput, setdataInput] = useState(data)
+
    const [dataSource, setdataSource] = useState()
 
    const [dashboardData, setdashBoardData] = useState()
 
    const [dataSourceFiltered, setdataSourceFiltered] = useState()
+
+   let grid
+
+   const pageSettings = { pageSize: 10 }
+
+   const sortSettings = {
+      columns: [],
+   }
+
+   const filterSettings = {
+      type: 'Excel',
+      ignoreAccent: true,
+      operators: {
+         stringOperator: [
+            { value: 'startsWith', text: 'Starts With' },
+            { value: 'endsWith', text: 'Ends With' },
+            { value: 'contains', text: 'Contains' },
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
+         ],
+         numberOperator: [
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
+            { value: 'greaterThan', text: 'Greater Than' },
+            { value: 'lessThan', text: 'Less Than' },
+         ],
+         dateOperator: [
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
+            { value: 'greaterThan', text: 'After' },
+            { value: 'lessThan', text: 'Before' },
+         ],
+         booleanOperator: [
+            { value: 'equal', text: 'Equal' },
+            { value: 'notEqual', text: 'Not Equal' },
+         ],
+      },
+   }
+
+   const groupSettings = {
+      //columns: ['FIAD-15 RESULTADO'],
+      disablePageWiseAggregates: false,
+      enableLazyLoading: true,
+      captionTemplate:
+         '<span class="groupItems"> ${headerText} - ${key} : ${count} encuestados </span>',
+   }
+   const toolbarOptions = ['ExcelExport', 'ColumnChooser']
+
+   const toolbarClick = args => {
+      const exportProperties = 'AllPages'
+      if (grid && args.item.id === 'Grid_excelexport') {
+         // 'Grid_pdfexport' -> Grid component id + _ + toolbar item name
+         // const exportProperties = {
+         //    exportType: dropDown.value,
+         // }
+         grid.showSpinner()
+         grid.excelExport(exportProperties)
+      }
+      // else if (grid && args.item.id === 'Grid_pdfexport') {
+      //    grid.pdfExport()
+      // }
+   }
+   const excelExportComplete = () => {
+      grid.hideSpinner()
+   }
+   let initial = true
+   const dataBound = () => {
+      // if (grid) {
+      //    grid.autoFitColumns()
+      // }
+      // if (grid && initial === true) {
+      //    grid.groupModule.collapseAll()
+      //    initial = false
+      // }
+   }
+
+   const prepareDisplayBasedOnType = (
+      keyVal,
+      fieldName,
+      layout,
+      width,
+      type,
+   ) => {
+      switch (layout.displayType.type) {
+         case 'asIs':
+            return (
+               <ColumnDirective
+                  key={keyVal}
+                  field={fieldName}
+                  width={width}
+                  visible={layout.showInSurveyOutputScreen}
+                  type={type}
+               />
+            )
+         case 'percentBarWithCriterias':
+            return (
+               <ColumnDirective
+                  key={keyVal}
+                  field={fieldName}
+                  headerText={`${layout.displayType.header}`}
+                  visible={layout.showInSurveyOutputScreen}
+                  template={props =>
+                     KuarxisPercentBarComponentTemplate(props, layout)
+                  }
+               />
+            )
+         case 'rangesSemaphore':
+            return (
+               <ColumnDirective
+                  key={keyVal}
+                  field={fieldName}
+                  headerText={`${layout.displayType.header}`}
+                  visible={layout.showInSurveyOutputScreen}
+                  template={props =>
+                     KuarxisRangesSemaphoreTemplate(props, layout)
+                  }
+               />
+            )
+      }
+   }
 
    const kuarxisPieData = [
       {
@@ -162,6 +301,13 @@ const KuarxisDashboardLayout = data => {
    const legendSettings = {
       visible: false,
    }
+
+   const numberChartsLoading = useRef(3)
+
+   const onChartLoaded = () => {
+      numberChartsLoading.current = numberChartsLoading.current - 1
+      //setnumberChartsLoading(chartsLoading)
+   }
    function kuarxisPayChart(surveyShortName) {
       return (
          // <div
@@ -181,6 +327,7 @@ const KuarxisDashboardLayout = data => {
             tooltip={{ enable: true, duration: 500 }}
             width="100%"
             height="100%"
+            loaded={onChartLoaded}
          >
             <Inject
                services={[
@@ -223,9 +370,9 @@ const KuarxisDashboardLayout = data => {
    }
 
    useEffect(() => {
-      setdataSource(data.data.outputValues)
-      setdataSourceFiltered(data.data.outputValues)
-      aggregateData(data.data.outputValues)
+      setdataSource(data.outputValues)
+      setdataSourceFiltered(data.outputValues)
+      aggregateData(data.outputValues)
    }, [])
 
    //const [outputData, setOutputData] = useState(outputData)
@@ -498,41 +645,104 @@ const KuarxisDashboardLayout = data => {
    }
    function colGrid() {
       return (
-         <GridComponent dataSource={transactionData}>
-            <ColumnsDirective>
-               <ColumnDirective
-                  field="transactoinId"
-                  headerText="Transaction ID"
-                  width={120}
-                  textAlign="Center"
-               />
-               <ColumnDirective
-                  field="category"
-                  headerText="Category"
-                  width={120}
-                  template={categoryTemplate}
-               ></ColumnDirective>
-               <ColumnDirective
-                  field="paymentMode"
-                  headerText="PaymentMode"
-                  width={160}
-                  textAlign="Center"
-               />
-               <ColumnDirective
-                  field="description"
-                  headerText="Description"
-                  width={160}
-                  textAlign="Center"
-               />
-               <ColumnDirective
-                  field="amount"
-                  headerText="Amount"
-                  width={160}
-                  textAlign="Center"
-                  template={amountTemplate}
-               ></ColumnDirective>
-            </ColumnsDirective>
-         </GridComponent>
+         <div>
+            <Container fluid>
+               <GridComponent
+                  //style={{ width: '100%' }}
+                  id="Grid"
+                  dataSource={dataSourceFiltered}
+                  allowPaging={true}
+                  pageSettings={pageSettings}
+                  allowFiltering={true}
+                  filterSettings={filterSettings}
+                  allowGrouping={true}
+                  groupSettings={groupSettings}
+                  allowSorting={true}
+                  allowMultiSorting={true}
+                  sortSettings={sortSettings}
+                  allowResizing={true}
+                  toolbarClick={toolbarClick}
+                  toolbar={toolbarOptions}
+                  allowExcelExport={true}
+                  excelExportComplete={excelExportComplete}
+                  // allowPdfExport={true}
+                  showColumnChooser={true}
+                  // enableInfiniteScrolling={true}
+                  ref={g => (grid = g)}
+                  // height="100%"
+                  dataBound={dataBound}
+               >
+                  <ColumnsDirective>
+                     {dataInput.outputLayouts.map((layout, keyVal) => {
+                        let encoder = new TextEncoder()
+                        let utf8Array = encoder.encode(layout.fieldName)
+                        let utf8String = new TextDecoder()
+                           .decode(utf8Array)
+                           .replace(/,/g, ' ')
+                           .replace(/:/g, '')
+
+                        switch (layout.dataType) {
+                           case 'Date':
+                              return (
+                                 <ColumnDirective
+                                    key={keyVal}
+                                    field={utf8String}
+                                    //width="150"
+                                    visible={layout.showInSurveyOutputScreen}
+                                    format="yMd"
+                                    type="datetime"
+                                 />
+                              )
+                           case 'Integer':
+                              return prepareDisplayBasedOnType(
+                                 keyVal,
+                                 utf8String,
+                                 layout,
+                                 '150',
+                                 'number',
+                              )
+                           case 'Float':
+                              return prepareDisplayBasedOnType(
+                                 keyVal,
+                                 utf8String,
+                                 layout,
+                                 '150',
+                                 'number',
+                              )
+
+                           case 'String':
+                              return (
+                                 <ColumnDirective
+                                    key={keyVal}
+                                    field={utf8String}
+                                    width="150"
+                                    visible={layout.showInSurveyOutputScreen}
+                                    type="string"
+                                 />
+                              )
+                           default:
+                              throw Error(
+                                 `Invalid dataType for field ${utf8String}`,
+                              )
+                        }
+                     })}
+                  </ColumnsDirective>
+                  <Inject
+                     services={[
+                        Page,
+                        Sort,
+                        Filter,
+                        Resize,
+                        Group,
+                        Toolbar,
+                        ExcelExport,
+                        ColumnChooser,
+                        LazyLoadGroup,
+                     ]}
+                  />
+               </GridComponent>
+            </Container>
+         </div>
       )
    }
 
@@ -544,11 +754,19 @@ const KuarxisDashboardLayout = data => {
 
    return (
       <div>
+         {/* {numberChartsLoading.current > 0 && <Loader />} */}
          <div>
             <Button variant="light" size="sm" onClick={resetFilters}>
                <i class="fas fa-undo-alt fa-2x"></i> Reiniciar Filtros
             </Button>
+            <Button variant="light" size="sm" onClick={goBackHandler}>
+               <i class="fas fa-step-backward fa-2x"></i> Regresar a Datos
+            </Button>
+            {/* <Button variant="light" size="sm" onClick={goBackHandler}>
+               {`loadingStatusMessgae`}
+            </Button> */}
          </div>
+
          {dashboardData && dataSource && (
             <DashboardLayoutComponent
                columns={8}
@@ -565,35 +783,35 @@ const KuarxisDashboardLayout = data => {
                      //content="<div>Fiad-15 Content</div>"
                      col={0}
                      row={0}
-                     sizeX={2}
-                     sizeY={2}
+                     sizeX={1}
+                     sizeY={1}
                   ></PanelDirective>
                   <PanelDirective
                      header="<div>Beck Depresion</div>"
                      content={() => kuarxisPayChart('BECK')}
                      //content="<div>BECK Content</div>"
-                     col={2}
+                     col={1}
                      row={0}
-                     sizeX={2}
-                     sizeY={2}
+                     sizeX={1}
+                     sizeY={1}
                   ></PanelDirective>
                   <PanelDirective
                      header="<div>Hamilton Ansiedad</div>"
                      content={() => kuarxisPayChart('HAMILTON')}
                      //content="<div>BECK Content</div>"
-                     col={4}
+                     col={2}
                      row={0}
-                     sizeX={2}
-                     sizeY={2}
+                     sizeX={1}
+                     sizeY={1}
                   ></PanelDirective>
-                  {/* <PanelDirective
-                  header="<div>Recent Transactions</div>"
-                  content={colGrid}
-                  col={0}
-                  row={4}
-                  sizeX={8}
-                  sizeY={3}
-               ></PanelDirective> */}
+                  <PanelDirective
+                     header="<div>Resultados de encuestas</div>"
+                     content={colGrid}
+                     col={0}
+                     row={1}
+                     sizeX={8}
+                     sizeY={3}
+                  ></PanelDirective>
                   {/* <PanelDirective
                   header="<div>Income</div>"
                   //content="<div>Hola</div>"
@@ -689,6 +907,7 @@ const KuarxisDashboardLayout = data => {
                </PanelsDirective>
             </DashboardLayoutComponent>
          )}
+         {/* <div className="space-top">{colGrid()}</div> */}
       </div>
    )
 }

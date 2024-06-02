@@ -7,6 +7,12 @@ import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 
 import FormData from 'form-data'
 
+// import {
+//    setSpinner,
+//    createSpinner,
+//    showSpinner,
+// } from '@syncfusion/ej2-react-popups'
+
 //import fs from "fs";
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
@@ -101,6 +107,8 @@ import {
 //import { surveysConfigurations } from "../surveysConfigurations";
 import { LogThis, LoggerSettings, L1, L2, L3, L0 } from '../libs/Logger'
 
+import { LogManager, OFF } from '../classes/LogManager'
+
 import { formatDate } from '../libs/Functions'
 import {
    zipFile,
@@ -136,9 +144,10 @@ L10n.load(spanishLocalization)
 //    }
 //    return query
 // }
+const srcFileName = 'SurveysOutputData'
+const newLogger = new LogManager(srcFileName, 'SurveysOutputData')
 
 const SurveysOutputData = ({ match, history }) => {
-   const srcFileName = 'SurveysOutputData'
    const log = new LoggerSettings(srcFileName, 'SurveysOutputData')
 
    //EXCEL SECTION START: VARIABLES PROPERTIES EVENTS AND FUNCTIONS
@@ -235,9 +244,21 @@ const SurveysOutputData = ({ match, history }) => {
    }
 
    const [showMaxTooltip, setshowMaxTooltip] = useState(false)
-   const [gridPageRowsQuantityText, setgridPageRowsQuantityText] = useState(10)
+
+   const storedgridPageRowsQuantityText = localStorage.getItem(
+      'surveyOutputData_gridPageRowsQuantityText',
+   )
+
+   const initialRowQuantity = storedgridPageRowsQuantityText ?? '10'
+
+   const [gridPageRowsQuantityText, setgridPageRowsQuantityText] =
+      useState(initialRowQuantity)
    //const pageSettings = { pageSize: 100 }
-   const [pageSettings, setpageSettings] = useState({ pageSize: 10 })
+   const [pageSettings, setpageSettings] = useState({
+      pageSize: parseInt(initialRowQuantity),
+   })
+
+   const [gridLoading, setgridLoading] = useState(false)
 
    const sortSettings = {
       columns: [],
@@ -298,26 +319,62 @@ const SurveysOutputData = ({ match, history }) => {
       grid.hideSpinner()
    }
    let initial = true
+
    const dataBound = () => {
       if (grid) {
-         grid.autoFitColumns()
+         //grid.autoFitColumns()
+         //setgridLoading(false)
       }
-
+      // else {
+      //    setgridLoading(false)
+      // }
       // if (grid && initial === true) {
       //    grid.groupModule.collapseAll()
       //    initial = false
       // }
    }
+   //const [showSpinner, setshowSpinner] = useState(false)
+
+   const dataStateChange = () => {
+      setgridLoading(false)
+   }
+
+   const gridLoadCompletedHandler = () => {
+      const localLog = new LogManager(srcFileName, 'gridLoadCompletedHandler')
+      localLog.LogThis(`Entering`)
+      setgridLoading(true)
+   }
+
+   const gridCreatedHandler = () => {
+      const localLog = new LogManager(srcFileName, 'gridCreatedHandler')
+      localLog.LogThis(`Entering`)
+
+      setgridLoading(false)
+   }
    /* DateRagePickerComponent constants */
-   const dateRangeEndCalc = new Date()
+   const stringdateRangeStart = localStorage.getItem(
+      'surveyOutputData_dateRangeStart',
+   )
+   const stringdateRangeEnd = localStorage.getItem(
+      'surveyOutputData_dateRangeEnd',
+   )
 
-   const dateRangeEndMonth = dateRangeEndCalc.getMonth()
+   let dateRangeEndCalc = null
+   if (stringdateRangeEnd) {
+      dateRangeEndCalc = new Date(stringdateRangeEnd)
+   } else {
+      dateRangeEndCalc = new Date()
+   }
 
-   let targetMonth = dateRangeEndMonth - 1
-
-   const dateRangeStartCalc = new Date()
-
-   dateRangeStartCalc.setMonth(targetMonth)
+   let dateRangeStartCalc = null
+   if (stringdateRangeEnd) {
+      dateRangeStartCalc = new Date(stringdateRangeStart)
+   } else {
+      dateRangeStartCalc = new Date()
+      const dateRangeEndMonth = dateRangeEndCalc.getMonth()
+      let targetMonth = dateRangeEndMonth - 1
+      dateRangeStartCalc.setMonth(targetMonth)
+   }
 
    const [dateRangeStart, setdateRangeStart] = useState(dateRangeStartCalc)
    const [dateRangeEnd, setdateRangeEnd] = useState(dateRangeEndCalc)
@@ -346,6 +403,8 @@ const SurveysOutputData = ({ match, history }) => {
       width,
       type,
    ) => {
+      const localLog = new LogManager(srcFileName, 'prepareDisplayBasedOnType')
+      localLog.LogThis(`Entering`)
       switch (layout.displayType.type) {
          case 'asIs':
             return (
@@ -353,11 +412,13 @@ const SurveysOutputData = ({ match, history }) => {
                   key={keyVal}
                   field={fieldName}
                   width={width}
+                  clipMode="EllipsisWithTooltip"
                   visible={layout.showInSurveyOutputScreen}
                   type={type}
                />
             )
          case 'percentBarWithCriterias':
+            localLog.LogThis(`Calling percentBarWithCriterias`)
             return (
                <ColumnDirective
                   key={keyVal}
@@ -370,6 +431,7 @@ const SurveysOutputData = ({ match, history }) => {
                />
             )
          case 'rangesSemaphore':
+            localLog.LogThis(`Calling KuarxisRangesSemaphoreTemplate`)
             return (
                <ColumnDirective
                   key={keyVal}
@@ -385,7 +447,13 @@ const SurveysOutputData = ({ match, history }) => {
    }
 
    const KuarxisRangesSemaphoreTemplate = (props, layout) => {
+      const localLog = new LogManager(
+         srcFileName,
+         'KuarxisRangesSemaphoreTemplate',
+      )
+      localLog.LogThis(`Entering`)
       let value = props[layout.fieldName]
+      localLog.LogThis(`Calling KuarxisRangeSemaphore`)
       return (
          <KuarxisRangeSemaphore
             value={value}
@@ -396,10 +464,14 @@ const SurveysOutputData = ({ match, history }) => {
 
    const KuarxisPercentBarComponentTemplate = (props, layout) => {
       let value = props[layout.fieldName]
+      const localLog = new LogManager(
+         srcFileName,
+         'KuarxisPercentBarComponentTemplate',
+      )
+      localLog.LogThis(`Entering`)
 
       if (isNaN(value)) {
-         LogThis(
-            log,
+         localLog.LogThis(
             `Error: value is not numeric for ${layout.fieldName} value=${value}`,
             L3,
          )
@@ -414,9 +486,8 @@ const SurveysOutputData = ({ match, history }) => {
       for (const styleCriteria of layout.displayType.styleCriterias) {
          if (value >= styleCriteria.min && value <= styleCriteria.max) {
             style = styleCriteria.style
-            LogThis(
-               log,
-               `styleCriteria found, field: ${styleCriteria.fieldNameValue} value=${value} styleCriteria=${styleCriteria.style}`,
+            localLog.LogThis(
+               `styleCriteria found, field: ${layout.fieldName} value=${value} styleCriteria=${styleCriteria.style}`,
                L3,
             )
             styleCriteriaFound = true
@@ -424,8 +495,7 @@ const SurveysOutputData = ({ match, history }) => {
          }
       }
       if (!styleCriteriaFound) {
-         LogThis(
-            log,
+         localLog.LogThis(
             `Somethign is wrong, styleCriteria not found for: ${layout.fieldName} value=${value}`,
             L3,
          )
@@ -433,7 +503,7 @@ const SurveysOutputData = ({ match, history }) => {
             `Somethign is wrong, styleCriteria not found for: ${layout.fieldName} value=${value}`,
          )
       }
-
+      localLog.LogThis(`Returning`)
       return (
          <KuarxisPercentBarComponent
             percent={value}
@@ -469,6 +539,14 @@ const SurveysOutputData = ({ match, history }) => {
          ) {
             setdateRangeStart(args.value[0])
             setdateRangeEnd(args.value[1])
+            localStorage.setItem(
+               'surveyOutputData_dateRangeStart',
+               args.value[0].toString(),
+            )
+            localStorage.setItem(
+               'surveyOutputData_dateRangeEnd',
+               args.value[1].toString(),
+            )
             setSelectedDates(args.value)
             setnewSelectedSurveySuperior(true)
          }
@@ -478,7 +556,7 @@ const SurveysOutputData = ({ match, history }) => {
       [],
    )
 
-   const keyword = match.params.keyword || ''
+   let keyword = match.params.keyword || ''
    const pageNumber = match.params.pageNumber || 1
    const surveySelectedParam = match.params.surveySelected || -1
 
@@ -488,6 +566,11 @@ const SurveysOutputData = ({ match, history }) => {
    const [newSelectedSurveySuperior, setnewSelectedSurveySuperior] =
       useState(false)
    const [surveyDetailsDispatched, setsurveyDetailsDispatched] = useState(false)
+
+   keyword =
+      keyword != ''
+         ? keyword
+         : localStorage.getItem(`surveyOutputData_searchKeyword`) ?? ''
 
    const [searchKeyword, setsearchKeyword] = useState(keyword)
 
@@ -590,12 +673,17 @@ const SurveysOutputData = ({ match, history }) => {
    // }, 2000);
    const handleSearchText = async e => {
       log.functionName = 'handleSearchText'
+      setsearchKeyword(e.target.value)
 
       if (!typingTimer.current)
          typingTimer.current = setTimeout(() => {
             LogThis(log, `timer executed`, L0)
             setnewSelectedSurveySuperior(true)
             setselectedPageNumber(1)
+            localStorage.setItem(
+               `surveyOutputData_searchKeyword`,
+               e.target.value,
+            )
          }, 1000)
       else {
          clearTimeout(typingTimer.current)
@@ -603,9 +691,13 @@ const SurveysOutputData = ({ match, history }) => {
             LogThis(log, `timer executed`, L0)
             setnewSelectedSurveySuperior(true)
             setselectedPageNumber(1)
+            localStorage.setItem(
+               `surveyOutputData_searchKeyword`,
+               e.target.value,
+            )
          }, 1000)
       }
-      setsearchKeyword(e.target.value)
+
       LogThis(log, `START text=${e.target.value}`, L0)
    }
 
@@ -617,16 +709,36 @@ const SurveysOutputData = ({ match, history }) => {
       if (!typingTimer.current)
          typingTimer.current = setTimeout(() => {
             LogThis(log, `timer executed`, L0)
-            let localPageSettings = { pageSize: parseInt(e.target.value) }
+            let rowsNumberString =
+               e.target.value === null ||
+               e.target.value === undefined ||
+               e.target.value === ''
+                  ? '1'
+                  : e.target.value
+            let localPageSettings = { pageSize: parseInt(rowsNumberString) }
             setpageSettings(localPageSettings)
-         }, 1000)
+            localStorage.setItem(
+               `surveyOutputData_gridPageRowsQuantityText`,
+               rowsNumberString,
+            )
+         }, 3000)
       else {
          clearTimeout(typingTimer.current)
          typingTimer.current = setTimeout(() => {
             LogThis(log, `timer executed`, L0)
-            let localPageSettings = { pageSize: parseInt(e.target.value) }
+            let rowsNumberString =
+               e.target.value === null ||
+               e.target.value === undefined ||
+               e.target.value === ''
+                  ? '1'
+                  : e.target.value
+            let localPageSettings = { pageSize: parseInt(rowsNumberString) }
             setpageSettings(localPageSettings)
-         }, 1000)
+            localStorage.setItem(
+               `surveyOutputData_gridPageRowsQuantityText`,
+               rowsNumberString,
+            )
+         }, 3000)
       }
       LogThis(log, `START text=${e.target.value}`, L0)
    }
@@ -669,6 +781,9 @@ const SurveysOutputData = ({ match, history }) => {
    }
 
    const GenerateOutputFile = outputId => {
+      const localLog = new LogManager(srcFileName, 'GenerateOutputFile')
+
+      localLog.LogThis(`Entering`)
       let outputText = null
       const outputValue = surveyOutputsInfo.outputValues.find(
          output => output.INFO_1 === outputId,
@@ -729,7 +844,7 @@ const SurveysOutputData = ({ match, history }) => {
             }
          })
          saveStringAsCSV(outputText, `OutputReport_${outputValue.INFO_1}.txt`)
-         console.log(`outputText=${outputText}`)
+         //console.log(`outputText=${outputText}`)
       }
    }
 
@@ -744,7 +859,8 @@ const SurveysOutputData = ({ match, history }) => {
 
    const generateOutputFileTemplate = props => {
       let inputValue = props[props.column.field]
-
+      const localLog = new LogManager(srcFileName, 'generateOutputFileTemplate')
+      localLog.LogThis(`Entered`, L3)
       return (
          <Button
             variant="dark"
@@ -932,6 +1048,7 @@ const SurveysOutputData = ({ match, history }) => {
       } else {
          setgridDataSourceArray([])
       }
+      LogThis(log, `useEffect OutputInfo for DataGrid ENDED`, L3)
    }, [surveyOutputsInfo])
 
    useEffect(() => {
@@ -940,9 +1057,34 @@ const SurveysOutputData = ({ match, history }) => {
    }, [dateRangeStart, dateRangeEnd])
 
    useEffect(() => {
+      // setdateRangeStart(
+      //    new Date(
+      //       JSON.parse(localStorage.getItem('surveyOutputData_dateRangeStart')),
+      //    ) ?? dateRangeStart,
+      // )
+      // setdateRangeEnd(
+      //    new Date(
+      //       JSON.parse(localStorage.getItem('surveyOutputData_dateRangeEnd')),
+      //    ) ?? dateRangeEnd,
+      // )
+      // setgridPageRowsQuantityText(
+      //    JSON.parse(
+      //       localStorage.getItem('surveyOutputData_gridPageRowsQuantityText') ??
+      //          gridPageRowsQuantityText,
+      //    ),
+      // )
+      // localStorage.setItem('surveyOutputData_dateRangeEnd', JSON.stringify(dateRangeEnd))
+      // localStorage.setItem('surveyOutputData_gridPageRowsQuantityText', JSON.stringify(gridPageRowsQuantityText))
+
       return () => {
          setsurveySelected(-1)
          setselectedSurveySuperior(null)
+
+         // localStorage.setItem(
+         //    'surveyOutputData_gridPageRowsQuantityText',
+         //    gridPageRowsQuantityText,
+         // )
+
          dispatch({
             type: SURVEY_OUTPUTS_RESET,
          })
@@ -951,8 +1093,8 @@ const SurveysOutputData = ({ match, history }) => {
 
    return (
       <Container fluid>
-         {LogThis(log, `Rendering`)}
-         {(loading || surveyDetailLoading) && <Loader />}
+         {/* {console.log(`Rendering`)} */}
+         {(loading || surveyDetailLoading || gridLoading) && <Loader />}
          {error && <Message variant="danger">{error.message}</Message>}
          <div>
             {!surveyDetailLoading &&
@@ -1184,237 +1326,278 @@ const SurveysOutputData = ({ match, history }) => {
                         </Row>
                      </Container>
                   </div>
-                  {/* <div>
-                     <Container fluid>
-                        <GridComponent
-                           //style={{ width: '100%' }}
-                           id="Grid"
-                           dataSource={gridDataSourceArray}
-                           allowPaging={true}
-                           pageSettings={pageSettings}
-                           allowFiltering={true}
-                           filterSettings={filterSettings}
-                           allowGrouping={true}
-                           groupSettings={groupSettings}
-                           allowSorting={true}
-                           allowMultiSorting={true}
-                           sortSettings={sortSettings}
-                           allowResizing={true}
-                           // //width={1500}
-                           excelExportComplete={excelExportComplete}
-                           toolbarClick={toolbarClick}
-                           toolbar={toolbarOptions}
-                           allowExcelExport={true}
-                           // allowPdfExport={true}
-                           showColumnChooser={true}
-                           // enableInfiniteScrolling={true}
-                           ref={g => (grid = g)}
-                           // height="100%"
-                           dataBound={dataBound}
-                        >
-                           <ColumnsDirective>
-                              <ColumnDirective
-                                 field="INFO_1"
-                                 headerText="CSV"
-                                 width="100"
-                                 type="number"
-                                 template={generateOutputFileTemplate}
+                  {gridDataSourceArray && gridDataSourceArray.length > 0 && (
+                     <div>
+                        <Container fluid>
+                           <GridComponent
+                              //style={{ width: '100%' }}
+                              id="Grid"
+                              dataSource={gridDataSourceArray}
+                              allowPaging={true}
+                              pageSettings={pageSettings}
+                              allowFiltering={true}
+                              filterSettings={filterSettings}
+                              allowGrouping={true}
+                              groupSettings={groupSettings}
+                              allowSorting={true}
+                              allowMultiSorting={true}
+                              sortSettings={sortSettings}
+                              allowResizing={true}
+                              // //width={1500}
+                              excelExportComplete={excelExportComplete}
+                              toolbarClick={toolbarClick}
+                              toolbar={toolbarOptions}
+                              allowExcelExport={true}
+                              // allowPdfExport={true}
+                              showColumnChooser={true}
+                              // enableInfiniteScrolling={true}
+                              ref={g => (grid = g)}
+                              height={(
+                                 50 * parseInt(gridPageRowsQuantityText)
+                              ).toString()}
+                              created={gridCreatedHandler}
+                              dataBound={dataBound}
+                              // dataStateChange={dataStateChange}
+                              load={gridLoadCompletedHandler}
+                           >
+                              <ColumnsDirective>
+                                 <ColumnDirective
+                                    field="INFO_1"
+                                    headerText="CSV"
+                                    width="100"
+                                    type="number"
+                                    template={generateOutputFileTemplate}
+                                 />
+                                 {/* {console.log(
+                                    `Started Adding Columns in Render of GridComponents`,
+                                 )} */}
+                                 {surveyOutputsInfo.outputLayouts.map(
+                                    (layout, keyVal) => {
+                                       let encoder = new TextEncoder()
+                                       let utf8Array = encoder.encode(
+                                          layout.fieldName,
+                                       )
+                                       let utf8String = new TextDecoder()
+                                          .decode(utf8Array)
+                                          .replace(/,/g, ' ')
+                                          .replace(/:/g, '')
+
+                                       switch (layout.dataType) {
+                                          case 'Date':
+                                             newLogger.LogThis(
+                                                `Adding date column`,
+                                             )
+                                             return (
+                                                <ColumnDirective
+                                                   key={keyVal}
+                                                   field={utf8String}
+                                                   width="250"
+                                                   visible={
+                                                      layout.showInSurveyOutputScreen
+                                                   }
+                                                   format="yMd"
+                                                   type="datetime"
+                                                />
+                                             )
+                                          case 'Integer':
+                                             newLogger.LogThis(
+                                                `Adding base on type Integer column`,
+                                             )
+                                             return prepareDisplayBasedOnType(
+                                                keyVal,
+                                                utf8String,
+                                                layout,
+                                                '250',
+                                                'number',
+                                             )
+                                          case 'Float':
+                                             newLogger.LogThis(
+                                                `Adding base on type Integer column`,
+                                             )
+                                             return prepareDisplayBasedOnType(
+                                                keyVal,
+                                                utf8String,
+                                                layout,
+                                                '250',
+                                                'number',
+                                             )
+
+                                          case 'String':
+                                             newLogger.LogThis(
+                                                `Adding string column`,
+                                             )
+                                             return utf8String === 'INFO_1' ? (
+                                                <ColumnDirective
+                                                   key={keyVal}
+                                                   field={utf8String}
+                                                   width="250"
+                                                   visible={
+                                                      layout.showInSurveyOutputScreen
+                                                   }
+                                                   clipMode="EllipsisWithTooltip"
+                                                   template={props => {
+                                                      newLogger.LogThis(
+                                                         `Adding template for info1 link`,
+                                                      )
+                                                      return (
+                                                         <Link
+                                                            to="/surveyoutput/detail"
+                                                            onClick={e =>
+                                                               handleOutputDetailLinkClick(
+                                                                  e,
+                                                                  props.INFO_1,
+                                                               )
+                                                            }
+                                                         >
+                                                            {props.INFO_1}
+                                                         </Link>
+                                                      )
+                                                   }}
+                                                />
+                                             ) : (
+                                                <ColumnDirective
+                                                   key={keyVal}
+                                                   field={utf8String}
+                                                   width="250"
+                                                   visible={
+                                                      layout.showInSurveyOutputScreen
+                                                   }
+                                                   clipMode="EllipsisWithTooltip"
+                                                   type="string"
+                                                />
+                                             )
+                                          default:
+                                             throw Error(
+                                                `Invalid dataType for field ${utf8String}`,
+                                             )
+                                       }
+                                    },
+                                 )}
+                              </ColumnsDirective>
+                              <AggregatesDirective>
+                                 <AggregateDirective>
+                                    <AggregateColumnsDirective>
+                                       {surveyOutputsInfo.outputLayouts.map(
+                                          (layout, keyVal) => {
+                                             newLogger.LogThis(
+                                                `Adding aggregate average captions`,
+                                             )
+                                             let encoder = new TextEncoder()
+                                             let utf8Array = encoder.encode(
+                                                layout.fieldName,
+                                             )
+                                             let utf8String = new TextDecoder()
+                                                .decode(utf8Array)
+                                                .replace(/,/g, ' ')
+                                                .replace(/:/g, '')
+                                             if (
+                                                layout.dataType === 'Integer'
+                                             ) {
+                                                return (
+                                                   <AggregateColumnDirective
+                                                      key={keyVal}
+                                                      field={utf8String}
+                                                      type="Average"
+                                                      footerTemplate={
+                                                         aggregateAverageCaptionTemplate
+                                                      }
+                                                   />
+                                                )
+                                             }
+                                          },
+                                       )}
+                                    </AggregateColumnsDirective>
+                                 </AggregateDirective>
+                                 <AggregateDirective>
+                                    <AggregateColumnsDirective>
+                                       {surveyOutputsInfo.outputLayouts.map(
+                                          (layout, keyVal) => {
+                                             //layout.showInSurveyOutputScreen
+                                             newLogger.LogThis(
+                                                `Adding aggregate Max captions`,
+                                             )
+                                             let encoder = new TextEncoder()
+                                             let utf8Array = encoder.encode(
+                                                layout.fieldName,
+                                             )
+                                             let utf8String = new TextDecoder()
+                                                .decode(utf8Array)
+                                                .replace(/,/g, ' ')
+                                                .replace(/:/g, '')
+                                             if (
+                                                layout.dataType === 'Integer'
+                                             ) {
+                                                return (
+                                                   <AggregateColumnDirective
+                                                      key={keyVal}
+                                                      field={utf8String}
+                                                      type="Max"
+                                                      footerTemplate={
+                                                         aggregateMaxCaptionTemplate
+                                                      }
+                                                   />
+                                                )
+                                             }
+                                          },
+                                       )}
+                                    </AggregateColumnsDirective>
+                                 </AggregateDirective>
+                                 <AggregateDirective>
+                                    <AggregateColumnsDirective>
+                                       {surveyOutputsInfo.outputLayouts.map(
+                                          (layout, keyVal) => {
+                                             //layout.showInSurveyOutputScreen
+                                             newLogger.LogThis(
+                                                `Adding aggregate Min captions`,
+                                             )
+                                             let encoder = new TextEncoder()
+                                             let utf8Array = encoder.encode(
+                                                layout.fieldName,
+                                             )
+                                             let utf8String = new TextDecoder()
+                                                .decode(utf8Array)
+                                                .replace(/,/g, ' ')
+                                                .replace(/:/g, '')
+                                             if (
+                                                layout.dataType === 'Integer'
+                                             ) {
+                                                return (
+                                                   <AggregateColumnDirective
+                                                      key={keyVal}
+                                                      field={utf8String}
+                                                      type="Min"
+                                                      footerTemplate={
+                                                         aggregateMinCaptionTemplate
+                                                      }
+                                                   />
+                                                )
+                                             }
+                                          },
+                                       )}
+                                    </AggregateColumnsDirective>
+                                 </AggregateDirective>
+                              </AggregatesDirective>
+                              <Inject
+                                 services={[
+                                    Page,
+                                    Sort,
+                                    Filter,
+                                    Resize,
+                                    Group,
+                                    Toolbar,
+                                    ExcelExport,
+                                    // PdfExport,
+                                    ColumnChooser,
+                                    LazyLoadGroup,
+                                    //InfiniteScroll,
+                                    Aggregate,
+                                 ]}
                               />
-                              {surveyOutputsInfo.outputLayouts.map(
-                                 (layout, keyVal) => {
-                                    let encoder = new TextEncoder()
-                                    let utf8Array = encoder.encode(
-                                       layout.fieldName,
-                                    )
-                                    let utf8String = new TextDecoder()
-                                       .decode(utf8Array)
-                                       .replace(/,/g, ' ')
-                                       .replace(/:/g, '')
-
-                                    switch (layout.dataType) {
-                                       case 'Date':
-                                          return (
-                                             <ColumnDirective
-                                                key={keyVal}
-                                                field={utf8String}
-                                                //width="150"
-                                                visible={
-                                                   layout.showInSurveyOutputScreen
-                                                }
-                                                format="yMd"
-                                                type="datetime"
-                                             />
-                                          )
-                                       case 'Integer':
-                                          return prepareDisplayBasedOnType(
-                                             keyVal,
-                                             utf8String,
-                                             layout,
-                                             '150',
-                                             'number',
-                                          )
-                                       case 'Float':
-                                          return prepareDisplayBasedOnType(
-                                             keyVal,
-                                             utf8String,
-                                             layout,
-                                             '150',
-                                             'number',
-                                          )
-
-                                       case 'String':
-                                          return utf8String === 'INFO_1' ? (
-                                             <ColumnDirective
-                                                key={keyVal}
-                                                field={utf8String}
-                                                width="150"
-                                                visible={
-                                                   layout.showInSurveyOutputScreen
-                                                }
-                                                template={props => {
-                                                   return (
-                                                      <Link
-                                                         to="/surveyoutput/detail"
-                                                         onClick={e =>
-                                                            handleOutputDetailLinkClick(
-                                                               e,
-                                                               props.INFO_1,
-                                                            )
-                                                         }
-                                                      >
-                                                         {props.INFO_1}
-                                                      </Link>
-                                                   )
-                                                }}
-                                             />
-                                          ) : (
-                                             <ColumnDirective
-                                                key={keyVal}
-                                                field={utf8String}
-                                                width="150"
-                                                visible={
-                                                   layout.showInSurveyOutputScreen
-                                                }
-                                                type="string"
-                                             />
-                                          )
-                                       default:
-                                          throw Error(
-                                             `Invalid dataType for field ${utf8String}`,
-                                          )
-                                    }
-                                 },
-                              )}
-                           </ColumnsDirective>
-                           <AggregatesDirective>
-                              <AggregateDirective>
-                                 <AggregateColumnsDirective>
-                                    {surveyOutputsInfo.outputLayouts.map(
-                                       (layout, keyVal) => {
-                                          let encoder = new TextEncoder()
-                                          let utf8Array = encoder.encode(
-                                             layout.fieldName,
-                                          )
-                                          let utf8String = new TextDecoder()
-                                             .decode(utf8Array)
-                                             .replace(/,/g, ' ')
-                                             .replace(/:/g, '')
-                                          if (layout.dataType === 'Integer') {
-                                             return (
-                                                <AggregateColumnDirective
-                                                   key={keyVal}
-                                                   field={utf8String}
-                                                   type="Average"
-                                                   footerTemplate={
-                                                      aggregateAverageCaptionTemplate
-                                                   }
-                                                />
-                                             )
-                                          }
-                                       },
-                                    )}
-                                 </AggregateColumnsDirective>
-                              </AggregateDirective>
-                              <AggregateDirective>
-                                 <AggregateColumnsDirective>
-                                    {surveyOutputsInfo.outputLayouts.map(
-                                       (layout, keyVal) => {
-                                          //layout.showInSurveyOutputScreen
-
-                                          let encoder = new TextEncoder()
-                                          let utf8Array = encoder.encode(
-                                             layout.fieldName,
-                                          )
-                                          let utf8String = new TextDecoder()
-                                             .decode(utf8Array)
-                                             .replace(/,/g, ' ')
-                                             .replace(/:/g, '')
-                                          if (layout.dataType === 'Integer') {
-                                             return (
-                                                <AggregateColumnDirective
-                                                   key={keyVal}
-                                                   field={utf8String}
-                                                   type="Max"
-                                                   footerTemplate={
-                                                      aggregateMaxCaptionTemplate
-                                                   }
-                                                />
-                                             )
-                                          }
-                                       },
-                                    )}
-                                 </AggregateColumnsDirective>
-                              </AggregateDirective>
-                              <AggregateDirective>
-                                 <AggregateColumnsDirective>
-                                    {surveyOutputsInfo.outputLayouts.map(
-                                       (layout, keyVal) => {
-                                          //layout.showInSurveyOutputScreen
-
-                                          let encoder = new TextEncoder()
-                                          let utf8Array = encoder.encode(
-                                             layout.fieldName,
-                                          )
-                                          let utf8String = new TextDecoder()
-                                             .decode(utf8Array)
-                                             .replace(/,/g, ' ')
-                                             .replace(/:/g, '')
-                                          if (layout.dataType === 'Integer') {
-                                             return (
-                                                <AggregateColumnDirective
-                                                   key={keyVal}
-                                                   field={utf8String}
-                                                   type="Min"
-                                                   footerTemplate={
-                                                      aggregateMinCaptionTemplate
-                                                   }
-                                                />
-                                             )
-                                          }
-                                       },
-                                    )}
-                                 </AggregateColumnsDirective>
-                              </AggregateDirective>
-                           </AggregatesDirective>
-                           <Inject
-                              services={[
-                                 Page,
-                                 Sort,
-                                 Filter,
-                                 Resize,
-                                 Group,
-                                 Toolbar,
-                                 ExcelExport,
-                                 // PdfExport,
-                                 ColumnChooser,
-                                 LazyLoadGroup,
-                                 //InfiniteScroll,
-                                 Aggregate,
-                              ]}
-                           />
-                        </GridComponent>
-                     </Container>
-                  </div> */}
+                           </GridComponent>
+                        </Container>
+                     </div>
+                  )}
+                  {/* <div>{console.log(`RENDER ENDED`)}</div> */}
                </>
             )}
       </Container>
