@@ -760,7 +760,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
                <i class="fas fa-undo-alt fa-2x"></i> Reiniciar Filtros
             </Button>
             <Button variant="light" size="sm" onClick={goBackHandler}>
-               <i class="fas fa-step-backward fa-2x"></i> Regresar a Datos
+               <i class="fas fa-step-backward fa-2x"></i> Regresar a Encuestas
             </Button>
             {/* <Button variant="light" size="sm" onClick={goBackHandler}>
                {`loadingStatusMessgae`}
