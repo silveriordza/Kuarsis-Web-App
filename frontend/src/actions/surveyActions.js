@@ -1736,7 +1736,7 @@ export const surveyExportHtml2WordAction =
             #customers {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;} 
          #customers td, #customers th {border: 1px solid #ddd;  padding: 8px; font-size: 10px} 
          #customers tr:nth-child(even){background-color:#f2f2f2;} 
-         #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #04AA6D;  color: white;} .kuarxisProgressBackgroundBar {color: green; font-size: 25px; position: relative; width: 100%; height: 20px; border-radius: 200px; background-color: #ccc; overflow: hidden; } .kuarxisProgressBar {color: black; font-size: 25px; position: absolute; top: 0; left: 0; height: 100%; background-color: #06a00b; border-radius: 200px; } .kuarxisProgressBarText {font-size: 25px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: orange; border-radius: 200px; }
+         #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #343a40;  color: white;} .kuarxisProgressBackgroundBar {color: green; font-size: 25px; position: relative; width: 100%; height: 20px; border-radius: 200px; background-color: #ccc; overflow: hidden; } .kuarxisProgressBar {color: black; font-size: 25px; position: absolute; top: 0; left: 0; height: 100%; background-color: #06a00b; border-radius: 200px; } .kuarxisProgressBarText {font-size: 25px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: orange; border-radius: 200px; }
             </style>
             </head>
             <body>`

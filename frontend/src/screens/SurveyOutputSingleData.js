@@ -10,6 +10,9 @@ import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { SURVEY_OUTPUT_SINGLE_SUCCESS } from '../constants/surveyConstants'
 
+import Loader from '../components/Loader'
+import Message from '../components/Message'
+
 import {
    DocumentEditorContainerComponent,
    Toolbar,
@@ -33,7 +36,7 @@ import { calculateStyleCriteria } from '../components/KuarxisPercentBar/KuarxisP
 
 import { saveAs } from 'file-saver'
 
-import { Button } from 'react-bootstrap'
+import { Button, Row, Container } from 'react-bootstrap'
 
 import ReactExport from 'react-data-export'
 import KuarxisRangeSemaphore from '../components/KuarxisPercentBar/KuarxisRangeSemaphore'
@@ -86,15 +89,21 @@ const SurveyOutputSingleData = props => {
    const dispatch = useDispatch()
    const { respondentId } = props.match.params
    const surveyOutputSingle = useSelector(state => state.surveyOutputSingle)
-   const { surveyOutputSingleInfo, surveySelected, selectedPageNumber } =
-      surveyOutputSingle
+   const {
+      surveyOutputSingleInfo,
+      surveySelected,
+      selectedPageNumber,
+      exportWordInProgress,
+      error,
+      exportWordSuccess,
+   } = surveyOutputSingle
    const [gridDataSourceArray, setgridDataSourceArray] = useState([])
 
-   const [gridLoadedCompleted, setgridLoadedCompleted] = useState(false)
+   //const [gridLoadedCompleted, setgridLoadedCompleted] = useState(false)
 
-   const handleGridLoadCompleted = e => {
-      setgridLoadedCompleted(true)
-   }
+   // const handleGridLoadCompleted = e => {
+   //    setgridLoadedCompleted(true)
+   // }
 
    const history = useHistory()
 
@@ -554,13 +563,16 @@ const SurveyOutputSingleData = props => {
    }, [excelExportMultiDataState, excelExportarTriggered])
 
    return (
-      <section>
-         <Link to="/" className="btn btn-light my-3" onClick={goBackHandler}>
-            Go Back
-         </Link>
-         <h3>Perfil del encuestado</h3>
+      <Container fluid>
+         {/* <Row>
+               <Col> */}
 
-         <div>
+         {exportWordInProgress && <Loader />}
+         {exportWordInProgress == false &&
+            exportWordSuccess == false &&
+            error && <Message variant="danger">{error.message}</Message>}
+
+         <Container fuild>
             <Button
                variant="light"
                size="sm"
@@ -568,119 +580,43 @@ const SurveyOutputSingleData = props => {
             >
                <i className="fas fa-save fa-2x"></i> Exportar a Word
             </Button>
-            {/* <ExcelFile
-               element={
-                  <Button
-                     ref={excelExportarPreguntasButton}
-                     variant="light"
-                     size="sm"
-                     style={{ display: 'none' }}
+            {/* </Col>
+               <Col> */}
+            <Button variant="light" size="sm" onClick={goBackHandler}>
+               <i class="fas fa-step-backward fa-2x"></i> Regresar a Encuestas
+            </Button>
+
+            <div id="exportContent">
+               {gridDataSourceArray && gridDataSourceArray.length > 0 && (
+                  <GridComponent
+                     dataSource={gridDataSourceArray}
+                     allowTextWrap={true}
+                     width={900}
+                     //dataBound={handleGridLoadCompleted}
                   >
-                     <i className="fas fa-save fa-2x"></i> Exportar Preguntas
-                  </Button>
-               }
-            >
-               <ExcelSheet dataSet={excelExportMultiDataState} name="Kuarxis" />
-            </ExcelFile>
-            <ExcelFile
-               element={
-                  <Button
-                     ref={excelExportarCamposButton}
-                     variant="light"
-                     size="sm"
-                     style={{ display: 'none' }}
-                  >
-                     <i className="fas fa-save fa-2x"></i> Exportar Campos
-                  </Button>
-               }
-            >
-               <ExcelSheet dataSet={excelExportMultiDataState} name="Kuarxis" />
-            </ExcelFile>
-            <Button
-               variant="light"
-               size="sm"
-               // className="btn-mg"
-               onClick={() => exportDataFileTrigger(true)}
-            >
-               <i className="fas fa-save fa-2x"></i> Bajar Preguntas Excel
-            </Button>
-
-            <Button
-               variant="light"
-               size="sm"
-               // className="btn-mg"
-               onClick={() => exportDataFileTrigger(false)}
-            >
-               <i className="fas fa-save fa-2x"></i> Bajar Campos Excel
-            </Button>
-            <Button
-               variant="light"
-               size="sm"
-               onClick={() => exportToWord('exportContent', 'Respuestas.docx')}
-            >
-               <i className="fas fa-save fa-2x"></i> Bajar Word
-            </Button>
-            <Button
-               variant="light"
-               size="sm"
-               onClick={() =>
-                  exportHTMLImageToWord(gridComponentRef, 'exportContent.docx')
-               }
-            >
-               <i className="fas fa-save fa-2x"></i> Bajar HTML a Word
-            </Button> */}
-         </div>
-
-         <div id="exportContent">
-            {gridDataSourceArray && gridDataSourceArray.length > 0 && (
-               <GridComponent
-                  dataSource={gridDataSourceArray}
-                  allowTextWrap={true}
-                  width={900}
-                  dataBound={handleGridLoadCompleted}
-               >
-                  <ColumnsDirective>
-                     <ColumnDirective
-                        key={1}
-                        field="fieldName"
-                        headerText="Tipo de resultado"
-                        width={50}
-                     />
-                     <ColumnDirective
-                        key={2}
-                        field="value"
-                        headerText="Datos/Resultado"
-                        width={100}
-                        template={props =>
-                           renderKuarxisProgressBarTemplate(props)
-                        }
-                     />
-                  </ColumnsDirective>
-                  <Inject services={[]} />
-               </GridComponent>
-            )}
-         </div>
-         {/* {gridLoadedCompleted && (
-            <div className="kuarxisControl">
-               <Button variant="light" size="sm" onClick={() => save()}>
-                  <i className="fas fa-save fa-2x"></i> Exportar a Word
-               </Button>
-
-               <DocumentEditorContainerComponent
-                  id="container"
-                  height={'1500'}
-                  width={'2000'}
-                  serviceUrl="https://ej2services.syncfusion.com/production/web-services/api/documenteditor/"
-                  enableToolbar={true}
-                  //ref={documentEditorContainer}
-                  ref={scope => {
-                     documentEditorContainer = scope
-                  }}
-                  created={onCreated}
-               />
+                     <ColumnsDirective>
+                        <ColumnDirective
+                           key={1}
+                           field="fieldName"
+                           headerText="Tipo de resultado"
+                           width={50}
+                        />
+                        <ColumnDirective
+                           key={2}
+                           field="value"
+                           headerText="Datos/Resultado"
+                           width={100}
+                           template={props =>
+                              renderKuarxisProgressBarTemplate(props)
+                           }
+                        />
+                     </ColumnsDirective>
+                     <Inject services={[]} />
+                  </GridComponent>
+               )}
             </div>
-         )} */}
-      </section>
+         </Container>
+      </Container>
    )
 }
 
