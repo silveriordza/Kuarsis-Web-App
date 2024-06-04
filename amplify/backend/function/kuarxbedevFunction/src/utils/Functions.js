@@ -88,14 +88,14 @@ const addPropertyMatchingValueInArray = (
    console.log(`start again`)
    objectsList.forEach(object => {
       let idFound = matchingValueArray.find(matchingValue => {
-         console.log(
-            `${object[matchingField]}; ${matchingValue[matchingField]} ;${
-               object['fieldName']
-            }; condition: ${
-               object[matchingField].toLowerCase() ===
-               matchingValue[matchingField].toLowerCase()
-            }`,
-         )
+         // console.log(
+         //    `${object[matchingField]}; ${matchingValue[matchingField]} ;${
+         //       object['fieldName']
+         //    }; condition: ${
+         //       object[matchingField].toLowerCase() ===
+         //       matchingValue[matchingField].toLowerCase()
+         //    }`,
+         // )
          return (
             object[matchingField].toLowerCase() ===
             matchingValue[matchingField].toLowerCase()

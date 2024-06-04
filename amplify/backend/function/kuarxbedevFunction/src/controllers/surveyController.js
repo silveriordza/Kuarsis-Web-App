@@ -80,6 +80,7 @@ let {
    saveDynamicModelToDB,
    loadOneDynamicModelFromDB,
    dynamicModelsMap,
+   convertDataTypeToMongoSchemaDataType,
 } = require('../utils/mongoDbHelper.js')
 const srcFileName = 'surveyController.js'
 
@@ -689,6 +690,7 @@ const createSurveys = asyncHandler(async (req, res) => {
          surveyShortName: outputLayout.surveyShortName,
          fieldName: outputLayout.fieldName,
          outputAsReal: outputLayout.outputAsReal,
+         dataType: outputLayout.dataType,
          showInSurveyOutputScreenScreen: outputLayout.showInSurveyOutputScreen,
          position: outputLayout.position,
       })
@@ -735,16 +737,20 @@ const createSurveys = asyncHandler(async (req, res) => {
 
    outputLayoutFields.forEach(column => {
       LogThis(log, `output Layout Field column=${JSON.stringify(column)}`, L3)
-      switch (column.fieldName) {
-         case 'INFO_3':
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
-            break
-         case 'INFO_4':
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
-            break
-         default:
-            surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
-      }
+
+      surveyOutputColumns[column.fieldName] =
+         convertDataTypeToMongoSchemaDataType(column.dataType)
+
+      // switch (column.dataType) {
+      //    case 'INFO_3':
+      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
+      //       break
+      //    case 'INFO_4':
+      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.Date
+      //       break
+      //    default:
+      //       surveyOutputColumns[column.fieldName] = mongoose.Schema.Types.String
+      // }
    })
    LogThis(
       log,
@@ -2265,7 +2271,7 @@ const surveySaveOutputHelper = async (
                         dateTimeParts[3], // Hours
                         dateTimeParts[4], // Minutes)
                      )
-                     doc[column] = dateValue
+                     doc[column] = dateValue.toISOString()
                   }
                   break
                case 'INFO_4':
@@ -2431,11 +2437,14 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
        */
-      const pageSize = 10
+      const pageSize = 100
       const superSurveyId = req.params.id
       const superSurveyShortName = req.query.superSurveyShortName
       const page = Number(req.query.pageNumber) || 1
       const keyword = req.query.keyword
+      const dateRangeStartString = req.query.dateRangeStart || null
+      const dateRangeEndString = req.query.dateRangeEnd || null
+
       //const regex = new RegExp(keyword, "i");
       const conditions = []
       let condition = {}
@@ -2503,15 +2512,37 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
          //fields = Object.keys(outputLayouts[0]);
          //LogThis(log, `fields=${JSON.stringify(fields)}`, L3);
          //const condition = {};
-         outputLayouts.forEach(field => {
-            if (field.showInSurveyOutputScreen) {
-               condition[field.fieldName] = { $regex: new RegExp(keyword, 'i') }
-               conditions.push(condition)
-               condition = {}
-            }
-         })
+         if (keyword != '') {
+            outputLayouts.forEach(field => {
+               if (field.showInSurveyOutputScreen) {
+                  if (field.dataType == 'String') {
+                     condition[field.fieldName] = {
+                        $regex: new RegExp(keyword.toString(), 'i'),
+                     }
+                     conditions.push(condition)
+                  } else if (!isNaN(keyword)) {
+                     switch (field.dataType) {
+                        case 'Integer':
+                           condition[field.fieldName] = parseInt(keyword ?? 0)
+                           conditions.push(condition)
+                           break
+                        case 'Float':
+                           condition[field.fieldName] = parseFloat(keyword ?? 0)
+                           conditions.push(condition)
+                           break
+                        default:
+                     }
+                  }
+                  condition = {}
+               }
+            })
+         }
 
          //conditions.push(condition);
+      }
+      let conditionsObject = {}
+      if (conditions && conditions.length > 0) {
+         conditionsObject = { $or: conditions }
       }
 
       LogThis(log, `conditions=${JSON.stringify(conditions, null, 1)}`, L3)
@@ -2535,17 +2566,28 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
       //     ],
       //   })
       //   .exec();
-      const count = await surveyOutputCollectionFound.countDocuments({
-         $or: conditions,
-      })
+      let dateRangeStart = null
+      let dateRangeEnd = null
+
+      if (dateRangeStartString && dateRangeEndString) {
+         dateRangeStart = new Date(dateRangeStartString)
+         dateRangeEnd = new Date(dateRangeEndString)
+         conditionsObject.$and = [
+            {
+               INFO_3: {
+                  $gte: dateRangeStart,
+                  $lte: dateRangeEnd,
+               },
+            },
+         ]
+      }
+
+      const count = await surveyOutputCollectionFound.countDocuments(
+         conditionsObject,
+      )
 
       const outputValuesFound = await surveyOutputCollectionFound
-         .find(
-            {
-               $or: conditions,
-            },
-            '-__v',
-         )
+         .find(conditionsObject, '-__v')
          .sort({ INFO_1: -1 })
          .limit(pageSize)
          .skip(pageSize * (page - 1))
@@ -4749,6 +4791,26 @@ const monkeyUpdateResponses2 = asyncHandler(async (req, res) => {
    }
 })
 
+const getReportRDLC = asyncHandler(async (req, res) => {
+   try {
+      const surveyShortName = req.params.id
+      // const returnValue = await monkeyUpdateResponses2Helper(surveyShortName)
+
+      res.header('Content-Type', 'application/json; charset=utf-8')
+      res.status(200).json({
+         csvLayout: returnValue.csvLayout,
+         rowValue: returnValue.rowValue,
+         rowReal: returnValue.rowReal,
+         rowScore: returnValue.rowScore,
+         monkeyConfigs: returnValue.monkeyConfigs,
+         monkeyResponses: returnValue.monkeyResponses,
+      })
+   } catch (error) {
+      res.status(404).json({ message: 'Error monkeyUpdateResponses2' })
+      throw error
+   }
+})
+
 module.exports = {
    superSurveyUploadAnswers,
    createSuperSurvey,
@@ -4768,4 +4830,5 @@ module.exports = {
    bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
    //monkeyUpdateResponses,
    monkeyUpdateResponses2,
+   getReportRDLC,
 }

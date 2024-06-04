@@ -44,7 +44,7 @@ LogThis  (logMessage, level = L3)  {
                  this.logSettings.fileName ?? 'NA',
                  this.logSettings.functionName ?? 'NA',
                  logMessage,
-              )
+              ) 
       }
    }
 }

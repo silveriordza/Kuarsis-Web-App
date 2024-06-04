@@ -12,28 +12,30 @@ const router = express.Router()
 let {
    superSurveyUploadAnswers,
    createSuperSurvey,
-   superSurveyTests,
+   //superSurveyTests,
    getSuperSurveyConfigs,
    superSurveyGetList,
    superSurveySaveOutput,
    superSurveyDeleteOutputValues,
    superSurveyGetOutputValues,
    superSurveyGetRespondentIds,
-   superSurveyUpdateOutput,
+   // superSurveyUpdateOutput,
    updateMonkeyConfigs,
    superSurveyCreateConfigIntegratedWithMonkey,
    testMonkey,
    monkeyWebhookCreatedEvent,
-   monkeyWebhookCompletedEventTalentos2020,
+   // monkeyWebhookCompletedEventTalentos2020,
    monkeyWebhookCompletedEventTalentosRedesign2020,
    bulkMonkeyWebhookCompletedEventTalentosRedesign2020,
-   monkeyUpdateResponses,
+   //monkeyUpdateResponses,
    monkeyUpdateResponses2,
+   getReportRDLC,
 } = require('../controllers/surveyController.js')
 let {
    protect,
    admin,
    protectMonkeyWebhook,
+   hasAccess,
 } = require('../middleware/authMiddleware.js')
 //const { LoggerSettings } = require("../utils/Logger.js");
 
@@ -44,7 +46,7 @@ router
    .route('/:id/outputs')
    .post(protect, admin, superSurveySaveOutput)
    .delete(protect, admin, superSurveyDeleteOutputValues)
-   .get(protect, admin, superSurveyGetOutputValues)
+   .get(protect, hasAccess, superSurveyGetOutputValues)
 
 router
    .route('/:id/respondentidsinfo')
@@ -66,6 +68,8 @@ router
    .post(protect, admin, superSurveyCreateConfigIntegratedWithMonkey)
 
 router.route('/surveymonkey/test').get(protect, admin, testMonkey)
+//report
+router.route('/reportrdlc').get(getReportRDLC)
 
 router
    .route('/surveymonkey/webhookcreatedevent')
@@ -108,7 +112,7 @@ router.route('/surveymonkey/updateresponses/:id').put(monkeyUpdateResponses2)
 
 router
    .route('/')
-   .get(protect, admin, superSurveyGetList)
+   .get(protect, hasAccess, superSurveyGetList)
    .post(protect, admin, createSuperSurvey)
 
 module.exports = router

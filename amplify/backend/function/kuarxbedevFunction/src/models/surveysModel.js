@@ -18,7 +18,6 @@ const surveyQuestionModel = mongoose.Schema(
       subScale: { type: String, required: true },
       question: { type: String, required: true },
       questionShort: { type: String, required: true },
-
       weightType: { type: String, required: true },
       weights: { type: mongoose.Schema.Types.Mixed },
       monkeyInfo: {
@@ -105,6 +104,12 @@ const surveySuperiorOutputLayoutModel = mongoose.Schema(
       },
       surveyShortName: { type: String, required: true },
       fieldName: { type: String, required: true },
+      dataType: { type: String, required: true, default: 'String' },
+      displayType: {
+         type: mongoose.Schema.Types.Mixed,
+         required: true,
+         default: { type: 'asIs' },
+      },
       outputAsReal: { type: Boolean, required: true },
       showInSurveyOutputScreen: { type: Boolean, require: true },
       position: { type: Number, required: true },
