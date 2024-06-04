@@ -6,6 +6,20 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.0
+Version date: 6/2/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Added functionality in the SurveyOutputData screen to export to Word, and export data to Excel.
+2.- Added functionality to show percent bars in the gridComponent.
+3.- Added functionality to show a semaphore (green, yellow, red) indicator for those survey results that are normal, moderate or severe syntoms.
+4.- Added functionality to show pieChart for the whole group of surveys answered, for FIAD-15, Beck and Hamilton.
+5.- Added functionality to filter the gridComponent when the user clicks in one of the segments on the pie charts.
+6.- Added functionality to persist the data using Dexie and indexeddb in Chrome to store user settings and filters to the user don't have to retype the filter everytime it goes away and comes back to a page.
+7.- Improved performance of the dataGrid render by removing the autoFitColumns feature since it is really slow.
+8.- Added functionality to adjust automatically the scroll height of the gridComponent based on the number of rows (Page Size) selected by the user.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.7.0
 Version date: 4/19/24
 Modificator name: Silverio Rodriguez Alcorta

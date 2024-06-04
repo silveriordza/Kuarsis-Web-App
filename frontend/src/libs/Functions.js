@@ -222,3 +222,22 @@ export const formatDate = inputDate => {
 
    return `${year}-${month}-${day} ${hours}:${minutes}`
 }
+
+export const convertTo24HourFormat = date => {
+   // Options for 24-hour format
+   const options = {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+   }
+
+   // Get the time in 24-hour format
+   const time24hr = date.toLocaleTimeString('en-US', options)
+
+   // Get milliseconds separately
+   const milliseconds = date.getMilliseconds().toString().padStart(3, '0')
+
+   // Combine the time and milliseconds
+   return `${time24hr}.${milliseconds}`
+}

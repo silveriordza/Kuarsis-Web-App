@@ -1,4 +1,14 @@
 /** @format */
+import { convertHtmlElementToImage } from '../libs/imagesLib'
+
+import {
+   kuarxisBrowserCacheDB,
+   createTable,
+   putRecord,
+   getRecord,
+   clearTable,
+   requestPersistentStorage,
+} from '../libs/KuarxisBrowserCacheLib'
 
 import {
    SURVEY_PROCESS_ANSWERS_REQUEST,
@@ -18,10 +28,26 @@ import {
    SURVEY_OUTPUTS_EXPORT_FILE_FAIL,
    SURVEY_OUTPUTS_EXPORT_FILE_RESET,
    SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
+   SURVEY_OUTPUT_SINGLE_CACHE_TABLE,
+   SURVEY_OUTPUT_SINGLE_SUCCESS,
 } from '../constants/surveyConstants'
 
 import { KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE } from '../constants/enviromentConstants'
 //import { SURVEY_MONKEY_TOKEN } from "../constants/secretConstants";
+
+//import { DataExporter } from '../classes/DataExporter'
+import {
+   DATA_EXPORTER_TYPE_CSV,
+   DataExporterCSV,
+} from '../classes/DataExporterCSV'
+
+import {
+   DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT,
+   DataExporterExcelReactDataExport,
+} from '../classes/DataExporterExcelReactDataExport'
 
 import {
    zipFile,
@@ -1450,10 +1476,21 @@ export const surveyOutputExportDataAction =
             }; userInfo.token=${userInfo.token}`,
             L3,
          )
-         let csvData = ''
+         let exportedData = ''
          let addHeaders = true
-
-         for (let i = 1; i <= superSurveyId.pages; i++) {
+         let maxPages = 1 //superSurveyId.pages
+         const exportType = superSurveyId.exportType
+         let dataExporterObject = null
+         if (exportType === DATA_EXPORTER_TYPE_CSV) {
+            dataExporterObject = new DataExporterCSV(
+               superSurveyId.exportFieldNames,
+            )
+         } else if (exportType === DATA_EXPORTER_TYPE_EXCEL_REACT_DATA_EXPORT) {
+            dataExporterObject = new DataExporterExcelReactDataExport(
+               superSurveyId.exportFieldNames,
+            )
+         }
+         for (let i = 1; i <= maxPages; i++) {
             let response = await axios.get(
                BACKEND_ENDPOINT +
                   `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${i}&keyword=${superSurveyId.keyword}`,
@@ -1465,7 +1502,7 @@ export const surveyOutputExportDataAction =
                let outputsInfo = data.outputsInfo
                let outputsLayouts = outputsInfo.outputLayouts
                let outputValues = outputsInfo.outputValues
-
+               maxPages = outputsInfo.pages
                dispatch({
                   type: SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
                   payload: {
@@ -1474,42 +1511,13 @@ export const surveyOutputExportDataAction =
                })
                await new Promise(resolve => setTimeout(resolve, 1))
 
-               if (addHeaders) {
-                  let outputValueFields = ''
-                  let utf8String = null
-                  for (const outputField of outputsLayouts) {
-                     if (superSurveyId.exportFieldNames) {
-                        utf8String = cleanCsvValue(outputField.fieldName)
-                     } else {
-                        utf8String = cleanCsvValue(outputField.question)
-                     }
-                     csvData = csvData + utf8String + ','
-                  }
-                  //csvData = rowCleaner2(csvData.slice(0, -1)) + '\n'
-                  csvData = csvData.slice(0, -1) + '\n'
-                  addHeaders = false
-
-                  //outputValue = outputValues[0]
-               }
-               for (const outputValue of outputValues) {
-                  let rowValues = ''
-                  for (const outputField of outputsLayouts) {
-                     let stringValue = outputValue[outputField.fieldName]
-                     let utf8String = cleanCsvValue(stringValue)
-                     rowValues = rowValues + utf8String + ','
-                  }
-                  //rowValues = rowCleaner2(rowValues.slice(0, -1)) + '\n'
-                  rowValues = rowValues.slice(0, -1) + '\n'
-                  csvData = csvData + rowValues
-               }
-            } else {
-               throw new Error(`No output info or output data found`)
+               dataExporterObject.addMultipleData(data)
             }
          }
          dispatch({
             type: SURVEY_OUTPUTS_EXPORT_FILE_SUCCESS,
             payload: {
-               csvData: csvData,
+               exportedData: dataExporterObject.getData(),
                message: `Exportacion terminada`,
             },
          })
@@ -1562,19 +1570,45 @@ export const surveyGetOutputValuesAction =
             }; userInfo.token=${userInfo.token}`,
             L3,
          )
-         const { data } = await axios.get(
-            BACKEND_ENDPOINT +
-               `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}`,
-            config,
+         const dateRangeStartISO = superSurveyId.dateRangeStart.toISOString()
+         const dateRangeEndISO = superSurveyId.dateRangeEnd.toISOString()
+
+         // let response = await axios.get(
+         //    BACKEND_ENDPOINT +
+         //       `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${superSurveyId.pageNumber}&keyword=${superSurveyId.keyword}&dateRangeStart=${dateRangeStartISO}&dateRangeEnd=${dateRangeEndISO}`,
+         //    config,
+         // )
+         // let data = response.data
+         let outputValuesFinal = []
+         let pages = 1
+         let response = null
+         for (let i = 1; i <= pages; i++) {
+            response = await axios.get(
+               BACKEND_ENDPOINT +
+                  `/surveys/${superSurveyId.surveySuperiorId}/outputs?superSurveyShortName=${superSurveyId.superSurveyShortName}&pageNumber=${i}&keyword=${superSurveyId.keyword}&dateRangeStart=${dateRangeStartISO}&dateRangeEnd=${dateRangeEndISO}`,
+               config,
+            )
+            let outputValuesCurrent = response?.data?.outputsInfo?.outputValues
+
+            if (!outputValuesCurrent) {
+               break
+            }
+            pages = response?.data?.outputsInfo?.pages
+            outputValuesFinal = outputValuesFinal.concat(outputValuesCurrent)
+         }
+         response.data.outputsInfo.outputValues = outputValuesFinal
+
+         LogThis(
+            log,
+            `dataOutputValues=${JSON.stringify(response.data, null, 2)}`,
+            L3,
          )
 
-         LogThis(log, `dataOutputValues=${JSON.stringify(data, null, 2)}`, L3)
-
-         if (data && data.outputsInfo) {
+         if (response.data && response.data.outputsInfo) {
             //LogThis(log, `data=${JSON.stringify(data)}`, L0);
             dispatch({
                type: SURVEY_OUTPUTS_SUCCESS,
-               payload: data.outputsInfo,
+               payload: response.data.outputsInfo,
             })
          } else {
             throw new Error(`No output info or output data found`)
@@ -1582,6 +1616,230 @@ export const surveyGetOutputValuesAction =
       } catch (error) {
          dispatch({
             type: SURVEY_OUTPUTS_FAIL,
+            payload:
+               error.response && error.response.data.message
+                  ? error.response.data.message
+                  : error.message,
+         })
+      }
+   }
+
+export const surveyPersistData =
+   ({ surveyOutputSingle }) =>
+   async (dispatch, getState) => {
+      const log = new LoggerSettings(srcFileName, 'surveyPersistData')
+
+      try {
+         const unloadHappened =
+            localStorage.getItem('surveyOutputDashboardUnloadHappened') ===
+            'true'
+               ? true
+               : false
+         if (unloadHappened) {
+            //const surveyOutputSingleInfoStoredFunc = async () => {
+            const dashboardCacheTable = {
+               SURVEY_OUTPUT_SINGLE_CACHE_TABLE: 'id, SurveyOutputDashboard',
+            }
+
+            createTable(dashboardCacheTable)
+
+            const surveyOutputSingleInfoStoredArray = await getRecord(
+               SURVEY_OUTPUT_SINGLE_CACHE_TABLE,
+            )
+            localStorage.setItem('surveyOutputDashboardUnloadHappened', false)
+
+            let surveyOutputSingleInfoStored
+            // if (
+            //    surveyOutputSingleInfoStoredArray &&
+            //    surveyOutputSingleInfoStoredArray.length > 0
+            // ) {
+            surveyOutputSingleInfoStored =
+               surveyOutputSingleInfoStoredArray[0].SurveyOutputDashboard
+            dispatch({
+               type: SURVEY_OUTPUT_SINGLE_SUCCESS,
+               payload: {
+                  surveyOutputsInfo:
+                     surveyOutputSingleInfoStored.surveyOutputsInfo,
+                  surveySelected: surveyOutputSingleInfoStored.surveySelected,
+                  selectedPageNumber:
+                     surveyOutputSingleInfoStored.selectedPageNumber,
+               },
+            })
+            // }
+
+            // }
+            // }
+            // surveyOutputSingleInfoStoredFunc()
+         } else {
+            const dashboardCacheTable = {
+               SURVEY_OUTPUT_SINGLE_CACHE_TABLE: 'id, SurveyOutputDashboard',
+            }
+            //await requestPersistentStorage()
+
+            createTable(dashboardCacheTable)
+
+            const surveyOutputInfoCached = {
+               surveyOutputsInfo: surveyOutputSingle.surveyOutputSingleInfo,
+               surveySelected: surveyOutputSingle.surveySelected,
+               selectedPageNumber: surveyOutputSingle.selectedPageNumber,
+            }
+
+            const putObject = {
+               id: 1,
+               SurveyOutputDashboard: surveyOutputInfoCached,
+            }
+
+            // const putRecordLocal = async () =>
+            await putRecord(SURVEY_OUTPUT_SINGLE_CACHE_TABLE, putObject)
+            LogThis(log, `putRecord into Dexie succeeded`, L3)
+            //putRecordLocal()
+         }
+      } catch (error) {
+         // dispatch({
+         //    type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
+         //    payload:
+         //       error.response && error.response.data.message
+         //          ? error.response.data.message
+         //          : error.message,
+         // })
+         LogThis(log, `putRecord fatal error in Dexie`, L3)
+         throw error
+      }
+   }
+
+export const surveyExportHtml2WordAction =
+   ({
+      //resultsReferences,
+      respondentId,
+      wordFileName,
+      surveyOutputSingleInfo,
+   }) =>
+   async (dispatch, getState) => {
+      try {
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
+         })
+
+         if (
+            surveyOutputSingleInfo &&
+            surveyOutputSingleInfo.outputValues &&
+            surveyOutputSingleInfo.outputLayouts
+         ) {
+            const outputValue = surveyOutputSingleInfo.outputValues.find(
+               output => output.INFO_1 === respondentId,
+            )
+            var preHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+            <head>
+            <meta charset='utf-8'>
+            <title>Export HTML To Doc</title>
+            <style> 
+            #customers {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 100%;} 
+         #customers td, #customers th {border: 1px solid #ddd;  padding: 8px; font-size: 10px} 
+         #customers tr:nth-child(even){background-color:#f2f2f2;} 
+         #customers th {  padding-top: 12px;  padding-bottom: 12px;  text-align: left;  background-color: #343a40;  color: white;} .kuarxisProgressBackgroundBar {color: green; font-size: 25px; position: relative; width: 100%; height: 20px; border-radius: 200px; background-color: #ccc; overflow: hidden; } .kuarxisProgressBar {color: black; font-size: 25px; position: absolute; top: 0; left: 0; height: 100%; background-color: #06a00b; border-radius: 200px; } .kuarxisProgressBarText {font-size: 25px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: orange; border-radius: 200px; }
+            </style>
+            </head>
+            <body>`
+            var postHtml = '</body></html>'
+            //var html = preHtml + document.getElementById(element).innerHTML + postHtml
+            var tableHtml =
+               '<table id="customers"><tr><th>Tipo de resultado</th><th>Datos/Resultados</th></tr>'
+
+            for (const outputField of surveyOutputSingleInfo.outputLayouts) {
+               if (outputField.showInSurveyOutputScreen) {
+                  switch (outputField.displayType.type) {
+                     case 'percentBarWithCriterias':
+                        {
+                           //GET THE IMAGE FROM THE REFERENCE
+                           let keyFieldRef = null
+                           keyFieldRef = `${outputField.fieldName}_percentBar`
+
+                           const img = await convertHtmlElementToImage(
+                              keyFieldRef,
+                           )
+                           //img.src = dataUrl
+                           if (img === null) {
+                              throw Error(
+                                 `Error: cannot find HTML element ${keyFieldRef} to conver to Image while exporting to word`,
+                              )
+                           }
+
+                           const imgHtml = img.outerHTML
+                           tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${imgHtml}</td></tr>`
+                        }
+                        break
+                     case 'rangesSemaphore':
+                        {
+                           //GET THE IMAGE FROM THE REFERENCE
+                           let keyFieldRef = null
+                           keyFieldRef = `${outputField.fieldName}_rangeSemaphore`
+
+                           const img = await convertHtmlElementToImage(
+                              keyFieldRef,
+                           )
+                           //img.src = dataUrl
+                           if (img === null) {
+                              throw Error(
+                                 `Error: cannot find HTML element ${keyFieldRef} to conver to Image while exporting to word`,
+                              )
+                           }
+
+                           const imgHtml = img.outerHTML
+                           tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${imgHtml}</td></tr>`
+                        }
+                        break
+                     default:
+                        //JUST DISPLAY THE TEXT
+                        let key = null
+                        key = outputField.fieldName
+                        let outputValueData = null
+                        outputValueData = outputValue[key]
+                        tableHtml = `${tableHtml}<tr><td>${outputField.fieldName}</td ><td>${outputValueData}</td></tr>`
+                  }
+               }
+            }
+            tableHtml = tableHtml + '</table>'
+
+            var html = `${preHtml} ${tableHtml} ${postHtml}`
+
+            var blob = new Blob(['\ufeff', html], {
+               type: 'application/msword',
+            })
+
+            // Specify link url
+            var url =
+               'data:application/vnd.ms-word;charset=utf-8,' +
+               encodeURIComponent(html)
+
+            // Specify file name
+            wordFileName = wordFileName ? wordFileName + '.doc' : 'document.doc'
+
+            // Create download link element
+            var downloadLink = document.createElement('a')
+
+            document.body.appendChild(downloadLink)
+
+            if (navigator.msSaveOrOpenBlob) {
+               navigator.msSaveOrOpenBlob(blob, wordFileName)
+            } else {
+               // Create a link to the file
+               downloadLink.href = url
+
+               // Setting the file name
+               downloadLink.download = wordFileName
+
+               //triggering the function
+               downloadLink.click()
+            }
+
+            document.body.removeChild(downloadLink)
+         }
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
+         })
+      } catch (error) {
+         dispatch({
+            type: SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
             payload:
                error.response && error.response.data.message
                   ? error.response.data.message

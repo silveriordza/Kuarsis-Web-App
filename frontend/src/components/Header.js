@@ -12,6 +12,8 @@ import {
    KUARSIS_BANNER_MAIN_LOGO,
 } from '../constants/enviromentConstants'
 
+import { ENTITLEMENT_SURVEY_OUTPUTS } from '../constants/entitlementsConstants'
+
 const Header = ({ history }) => {
    const dispatch = useDispatch()
    const userLogin = useSelector(state => state.userLogin)
@@ -96,13 +98,18 @@ const Header = ({ history }) => {
                            <NavDropdown.Item>Contact us</NavDropdown.Item>
                         </LinkContainer>
                      </NavDropdown>
-                     {/* <LinkContainer to="/">
-                <Nav.Link>Photos</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/show3d">
-                <Nav.Link>3D Show</Nav.Link>
-              </LinkContainer> */}
                   </Nav>
+
+                  {userInfo && userInfo.hasSurveyOutputAccess && (
+                     <Nav>
+                        <Nav.Item>
+                           <Nav.Link as={Link} to="/surveyoutput">
+                              Encuestas
+                           </Nav.Link>
+                        </Nav.Item>
+                     </Nav>
+                  )}
+
                   <Nav className="me-auto">
                      {userInfo ? (
                         <NavDropdown
@@ -114,6 +121,7 @@ const Header = ({ history }) => {
                                  Perfil de usuario
                               </NavDropdown.Item>
                            </LinkContainer>
+
                            <NavDropdown.Item onClick={logoutHandler}>
                               Logout
                            </NavDropdown.Item>
@@ -143,11 +151,6 @@ const Header = ({ history }) => {
                   <LinkContainer to="/admin/orderlist">
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   </LinkContainer> */}
-                           <LinkContainer to="/admin/surveyoutput">
-                              <NavDropdown.Item>
-                                 Survey outputs
-                              </NavDropdown.Item>
-                           </LinkContainer>
                         </NavDropdown>
                      )}
                      {/* <LinkContainer to="/cart">

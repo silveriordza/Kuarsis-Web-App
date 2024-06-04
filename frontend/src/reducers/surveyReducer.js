@@ -21,6 +21,13 @@ import {
    SURVEY_OUTPUTS_EXPORT_FILE_FAIL,
    SURVEY_OUTPUTS_EXPORT_FILE_RESET,
    SURVEY_OUTPUTS_EXPORT_FILE_STATUS,
+   SURVEY_OUTPUT_SINGLE_RESET,
+   SURVEY_OUTPUT_SINGLE_SUCCESS,
+   SURVEY_OUTPUT_SINGLE_REQUEST,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED,
+   SURVEY_OUTPUT_SINGLE_EXPORTWORD_RESET,
 } from '../constants/surveyConstants'
 
 export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
@@ -51,7 +58,7 @@ export const surveyProcessAnswersReducer = (state = { survey: {} }, action) => {
 }
 
 export const surveyOutputsExportDataReducer = (
-   state = { csvData: {} },
+   state = { exportedData: {} },
    action,
 ) => {
    switch (action.type) {
@@ -66,14 +73,14 @@ export const surveyOutputsExportDataReducer = (
          return {
             loading: false,
             success: true,
-            csvData: action.payload.csvData,
+            exportedData: action.payload.exportedData,
             message: action.payload.message,
          }
 
       case SURVEY_OUTPUTS_EXPORT_FILE_FAIL:
          return { loading: false, success: false, error: action.payload }
       case SURVEY_OUTPUTS_EXPORT_FILE_RESET:
-         return { csvData: {} }
+         return { exportedData: {} }
       default:
          return state
    }
@@ -120,6 +127,62 @@ export const surveyOutputsReducer = (
          return { loading: false, error: action.payload }
       case SURVEY_OUTPUTS_RESET:
          return { surveyOutputsInfo: {} }
+      default:
+         return state
+   }
+}
+
+export const surveyOutputSingleReducer = (
+   state = {
+      surveyOutputSingleInfo: {},
+      surveySelected: 0,
+      selectedPageNumber: 1,
+   },
+   action,
+) => {
+   switch (action.type) {
+      case SURVEY_OUTPUT_SINGLE_REQUEST:
+         return {
+            loading: true,
+            success: false,
+         }
+
+      case SURVEY_OUTPUT_SINGLE_SUCCESS:
+         return {
+            loading: false,
+            success: true,
+            surveyOutputSingleInfo: action.payload.surveyOutputsInfo,
+            surveySelected: action.payload.surveySelected,
+            selectedPageNumber: action.payload.selectedPageNumber,
+         }
+      case SURVEY_OUTPUT_SINGLE_RESET:
+         return {}
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_REQUEST:
+         return {
+            ...state,
+            exportWordInProgress: true,
+            exportWordSuccess: false,
+         }
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_SUCCESS:
+         return {
+            ...state,
+            exportWordInProgress: false,
+            exportWordSuccess: true,
+         }
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_FAILED:
+         return {
+            ...state,
+            exportWordInProgress: false,
+            exportWordSuccess: false,
+            error: action.payload,
+         }
+      case SURVEY_OUTPUT_SINGLE_EXPORTWORD_RESET:
+         return {
+            ...state,
+            exportWordInProgress: null,
+            exportWordSuccess: null,
+            error: null,
+         }
       default:
          return state
    }

@@ -17,7 +17,7 @@ const L1 = 1
 const L2 = 2
 const L3 = 3
 
-const local_debug_level = L0
+const local_debug_level = OFF
 const dev_debug_level = L0
 const red_debug_level = L0
 const qa_debug_level = L1
@@ -127,3 +127,7 @@ export const KUARSIS_BANNER_MAIN_LOGO = V_KUARSIS_BANNER_MAIN_LOGO
 export const KUARSIS_PUBLIC_BUCKET_URL = V_KUARSIS_PUBLIC_BUCKET_URL
 export const KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE =
    V_KUARSIS_DB_SURVEY_ANSWERS_BATCH_SIZE
+
+//KUARXIS BROWSER CACHE CONSTANTS (FOR DEXIE PACKAGE)
+export const KUARXIS_BROWSER_CACHE_DEXIE_DB_NAME =
+   'KUARXIS_SURVEY_SYTEM_DATABASE'
