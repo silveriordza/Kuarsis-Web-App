@@ -82,7 +82,7 @@ switch (ENVIRONMENT) {
    case ONCARE_QA:
       //CONSTANTS FOR ONCAREQA.KUARXIS.COM (DEV) ENVIRONMENT
       V_LOG_LEVEL = qa_debug_level
-      V_CURRENT_VERSION = `v1.0.6.1-2024-04-01-20:45`
+      V_CURRENT_VERSION = `v1.0.8.0-2024-06-03-21:35`
       V_BACKEND_ENDPOINT =
          'https://gnhlcq59x6.execute-api.us-east-1.amazonaws.com/oncrebeqa'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncareqa.kuarxis.com/images'
