@@ -50,6 +50,31 @@ Modificator name: Silverio Rodriguez Alcorta
 Description: Promoted tagkuarxisBeSurveySystemDEV-v1.0.0.5 from Dev to QA as tagkuarxisBeSurveySystemQA-v1.0.0.5 as is.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.8.1 -> tagkuarxisBeSurveySystemQA-v1.0.8.1
+Version date: 6/9/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Added React memo to the DataGrid component in SurveyOuputsScreen to memoize the DataGrid component, this in order to fix performance issue when user typing a new search keyword or changing the page setting was causing slow performance, user was not even able to see the text he typed or the page number he typed because the DataGrid was re-rendering the whole grid on every letter the user typed causing long delay between the user typing the letter, grid rendering and then React showing the letter the user typed took about 5 to 6 seconds, which was a bad user experience. This was fixed by creating a new component called KuarxisDataGrid and memoizing it using the memo feature of React, then on the memo comparison there is an isReRender flag which will be always false meaning do not render and is also checking if the page setting changed, this will cause the KuarxisDataGrid component not to render when the user is changing the search keyword or if the user has not changed the page setting, given that the other props like SurveyOutputsInfo and the gridDataSourceArray will change only when the timer of the keyword Search or the timer of the page setting has triggered, the KuarxisDataGrid component will render only when those props change, it will not render of the keyword Search or the page Setting has not triggered the timer to commit the changes yet. This fixed the performance issue.
+
+NOTES:
+No changes to back end were needed in this version, only front end changes.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Dev Tag: tagkuarxisBeSurveySystemQA-v1.0.8.0 and tagkuarxisBeSurveySystemDEV-v1.0.8.0
+Version date: 6/02/24
+Modificator name: Silverio Rodriguez Alcorta
+Description: Promoted tagkuarxisBeSurveySystemDEV-v1.0.8.1 from Dev to QA as tagkuarxisBeSurveySystemQA-v1.0.8.0 as is.
+ENHANCEMENTS:
+1.- Added functionality in the SurveyOutputData screen to export to Word, and export data to Excel.
+2.- Added functionality to show percent bars in the gridComponent.
+3.- Added functionality to show a semaphore (green, yellow, red) indicator for those survey results that are normal, moderate or severe syntoms.
+4.- Added functionality to show pieChart for the whole group of surveys answered, for FIAD-15, Beck and Hamilton.
+5.- Added functionality to filter the gridComponent when the user clicks in one of the segments on the pie charts.
+6.- Added functionality to persist the data using Dexie and indexeddb in Chrome to store user settings and filters to the user don't have to retype the filter everytime it goes away and comes back to a page.
+7.- Improved performance of the dataGrid render by removing the autoFitColumns feature since it is really slow.
+8.- Added functionality to adjust automatically the scroll height of the gridComponent based on the number of rows (Page Size) selected by the user.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Dev Tag: tagkuarxisBeSurveySystemDEV-v1.0.7.0
 Git Feature Dev branch: kuarxisBeSurveySystemDEV-v1.0.7.0
 Version date: 4/19/24
