@@ -1,9 +1,19 @@
 <!-- @format -->
 
-Kuarxis Web App is the code for the official website of Kuarxis Companies.
+Kuarxis Web App is the code for the Kuarxis Survey System
 Author: Silverio Rodriguez Alcorta
 Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
-Version Description: ArtPixan WebPage child of Kuarxis Companies, focused on selling Art throu ArtPixan webpage. Pixan means spirit in Mayan language.
+Version Description: Kuarxys Survey System WebPage child of ArtPixan WebPage, focused on analyzing results of Survey Monkey surveys.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.1 -> tagkuarxisFeSurveySystemQA-v1.0.8.1
+Version date: 6/9/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Added React memo to the DataGrid component in SurveyOuputsScreen to memoize the DataGrid component, this in order to fix performance issue when user typing a new search keyword or changing the page setting was causing slow performance, user was not even able to see the text he typed or the page number he typed because the DataGrid was re-rendering the whole grid on every letter the user typed causing long delay between the user typing the letter, grid rendering and then React showing the letter the user typed took about 5 to 6 seconds, which was a bad user experience. This was fixed by creating a new component called KuarxisDataGrid and memoizing it using the memo feature of React, then on the memo comparison there is an isReRender flag which will be always false meaning do not render and is also checking if the page setting changed, this will cause the KuarxisDataGrid component not to render when the user is changing the search keyword or if the user has not changed the page setting, given that the other props like SurveyOutputsInfo and the gridDataSourceArray will change only when the timer of the keyword Search or the timer of the page setting has triggered, the KuarxisDataGrid component will render only when those props change, it will not render of the keyword Search or the page Setting has not triggered the timer to commit the changes yet. This fixed the performance issue.
+
+NOTES:
+No changes to back end were needed in this version, only front end changes.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.0 and tagkuarxisFeSurveySystemQA-v1.0.8.0
