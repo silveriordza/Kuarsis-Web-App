@@ -7,7 +7,7 @@ const ONCARE_RED = 'ONCARE_RED'
 const ONCARE_QA = 'ONCARE_QA'
 const ARTPIXANDEV = 'ARTPIXANDEV'
 const ARTPIXANPROD = 'ARTPIXANPROD'
-const ENVIRONMENT = ONCARE_LOCAL
+const ENVIRONMENT = ONCARE_QA
 
 // LOCALHOST DEV VARIABLES
 
@@ -20,8 +20,9 @@ const L3 = 3
 const local_debug_level = OFF
 const dev_debug_level = L0
 const red_debug_level = L0
-const qa_debug_level = L1
+const qa_debug_level = L0
 const artpixanprod_debug_level = OFF
+const LOCAL_CURRENT_VERSION = `v1.0.8.1-2024-06-09-13:31`
 
 let V_LOG_LEVEL = null
 let V_CURRENT_VERSION = null
@@ -37,7 +38,7 @@ switch (ENVIRONMENT) {
    case LOCAL:
       //CONSTANTS FOR LOCAL DEVELOPMENT ENVIRONMENT
       V_LOG_LEVEL = local_debug_level
-      V_CURRENT_VERSION = `v1.0.0.7-2023-08-27-01:59`
+      V_CURRENT_VERSION = LOCAL_CURRENT_VERSION
       V_BACKEND_ENDPOINT = 'http://localhost:5000'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'http://localhost:3000/images'
       V_KUARSIS_BANNER_MAIN_LOGO = '/ArtPixanLogo256px.png'
@@ -48,7 +49,7 @@ switch (ENVIRONMENT) {
    case ONCARE_LOCAL:
       //CONSTANTS FOR LOCAL DEVELOPMENT ENVIRONMENT
       V_LOG_LEVEL = local_debug_level
-      V_CURRENT_VERSION = `v1.0.0.4-2023-12-24-13:11`
+      V_CURRENT_VERSION = LOCAL_CURRENT_VERSION
       V_BACKEND_ENDPOINT = 'http://localhost:5000'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'http://localhost:3000/images'
       V_KUARSIS_BANNER_MAIN_LOGO = '/OnCareLogo256px.png'
@@ -59,7 +60,7 @@ switch (ENVIRONMENT) {
       //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
       V_LOG_LEVEL = dev_debug_level
-      V_CURRENT_VERSION = `v1.0.6.1-2024-03-31-21:46`
+      V_CURRENT_VERSION = LOCAL_CURRENT_VERSION
       V_BACKEND_ENDPOINT =
          'https://liklebz726.execute-api.us-east-1.amazonaws.com/oncrebedev'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncaredev.kuarxis.com/images'
@@ -71,7 +72,7 @@ switch (ENVIRONMENT) {
       //CONSTANTS FOR ONCAREDEV.KUARXIS.COM (DEV) ENVIRONMENT
 
       V_LOG_LEVEL = red_debug_level
-      V_CURRENT_VERSION = `v1.0.0.4-2024-01-04-22:12`
+      V_CURRENT_VERSION = LOCAL_CURRENT_VERSION
       V_BACKEND_ENDPOINT =
          'https://qfainlabh5.execute-api.us-east-1.amazonaws.com/oncrebered'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncarered.kuarxis.com/images'
@@ -82,7 +83,7 @@ switch (ENVIRONMENT) {
    case ONCARE_QA:
       //CONSTANTS FOR ONCAREQA.KUARXIS.COM (DEV) ENVIRONMENT
       V_LOG_LEVEL = qa_debug_level
-      V_CURRENT_VERSION = `v1.0.0.3-2023-12-19-20:04`
+      V_CURRENT_VERSION = LOCAL_CURRENT_VERSION
       V_BACKEND_ENDPOINT =
          'https://gnhlcq59x6.execute-api.us-east-1.amazonaws.com/oncrebeqa'
       V_KUARSIS_PUBLIC_STATIC_FOLDER = 'https://oncareqa.kuarxis.com/images'
