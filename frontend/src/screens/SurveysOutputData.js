@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 import JSZip from 'jszip'
+import KuarxisDataGrid from '../components/KuarxisDataGrid'
 
 import { BACKEND_ENDPOINT } from '../constants/enviromentConstants'
 
@@ -14,7 +15,7 @@ import FormData from 'form-data'
 // } from '@syncfusion/ej2-react-popups'
 
 //import fs from "fs";
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
 import KuarxisPercentBarComponent from '../components/KuarxisPercentBar/KuarxisPercentBarComponent'
@@ -673,6 +674,7 @@ const SurveysOutputData = ({ match, history }) => {
    // }, 2000);
    const handleSearchText = async e => {
       log.functionName = 'handleSearchText'
+      LogThis(log, `START text=${e.target.value}`, L0)
       setsearchKeyword(e.target.value)
 
       if (!typingTimer.current)
@@ -698,7 +700,7 @@ const SurveysOutputData = ({ match, history }) => {
          }, 1000)
       }
 
-      LogThis(log, `START text=${e.target.value}`, L0)
+      LogThis(log, `END text=${e.target.value}`, L0)
    }
 
    const handlegridPageRowsQuantityText = async e => {
@@ -721,7 +723,7 @@ const SurveysOutputData = ({ match, history }) => {
                `surveyOutputData_gridPageRowsQuantityText`,
                rowsNumberString,
             )
-         }, 3000)
+         }, 1000)
       else {
          clearTimeout(typingTimer.current)
          typingTimer.current = setTimeout(() => {
@@ -738,7 +740,7 @@ const SurveysOutputData = ({ match, history }) => {
                `surveyOutputData_gridPageRowsQuantityText`,
                rowsNumberString,
             )
-         }, 3000)
+         }, 1000)
       }
       LogThis(log, `START text=${e.target.value}`, L0)
    }
@@ -1091,6 +1093,21 @@ const SurveysOutputData = ({ match, history }) => {
       }
    }, [])
 
+   const [isReRender, setisReRender] = useState(false)
+   // const KuarxisDataGridMemo = useMemo(() => {
+   //    return (
+   //       <KuarxisDataGrid
+   //          gridDataSourceArray={gridDataSourceArray}
+   //          pageSettings={pageSettings}
+   //          surveyOutputsInfo={surveyOutputsInfo}
+   //          surveySelected={surveySelected}
+   //          selectedPageNumber={selectedPageNumber}
+   //          history={history}
+   //          isReRender={true}
+   //       />
+   //    )
+   // }, [isReRender])
+
    return (
       <Container fluid>
          {/* {console.log(`Rendering`)} */}
@@ -1125,6 +1142,7 @@ const SurveysOutputData = ({ match, history }) => {
                            </Form.Control>
                         </Col>
                         <Col lg={2}>
+                           {/* {console.log(`START Rendering searchKeyword`)} */}
                            {!loading &&
                               success &&
                               surveyOutputsInfo &&
@@ -1137,6 +1155,7 @@ const SurveysOutputData = ({ match, history }) => {
                                     onChange={handleSearchText}
                                  ></Form.Control>
                               )}
+                           {/* {console.log(`ENDED Rendering searchKeyword`)} */}
                         </Col>
 
                         {!loading &&
@@ -1329,7 +1348,7 @@ const SurveysOutputData = ({ match, history }) => {
                   {gridDataSourceArray && gridDataSourceArray.length > 0 && (
                      <div>
                         <Container fluid>
-                           <GridComponent
+                           {/* <GridComponent
                               //style={{ width: '100%' }}
                               id="Grid"
                               dataSource={gridDataSourceArray}
@@ -1367,10 +1386,10 @@ const SurveysOutputData = ({ match, history }) => {
                                     width="100"
                                     type="number"
                                     template={generateOutputFileTemplate}
-                                 />
-                                 {/* {console.log(
+                                 />*/}
+                           {/* {console.log(
                                     `Started Adding Columns in Render of GridComponents`,
-                                 )} */}
+                                 )} 
                                  {surveyOutputsInfo.outputLayouts.map(
                                     (layout, keyVal) => {
                                        let encoder = new TextEncoder()
@@ -1593,7 +1612,18 @@ const SurveysOutputData = ({ match, history }) => {
                                     Aggregate,
                                  ]}
                               />
-                           </GridComponent>
+                           </GridComponent> */}
+                           <KuarxisDataGrid
+                              gridDataSourceArray={gridDataSourceArray}
+                              pageSettings={pageSettings}
+                              surveyOutputsInfo={surveyOutputsInfo}
+                              surveySelected={surveySelected}
+                              selectedPageNumber={selectedPageNumber}
+                              history={history}
+                              searchKeyword={searchKeyword}
+                              isReRender={false}
+                           />
+                           {/* {KuarxisDataGridMemo} */}
                         </Container>
                      </div>
                   )}

@@ -757,10 +757,11 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
          {/* {numberChartsLoading.current > 0 && <Loader />} */}
          <div>
             <Button variant="light" size="sm" onClick={resetFilters}>
-               <i class="fas fa-undo-alt fa-2x"></i> Reiniciar Filtros
+               <i className="fas fa-undo-alt fa-2x"></i> Reiniciar Filtros
             </Button>
             <Button variant="light" size="sm" onClick={goBackHandler}>
-               <i class="fas fa-step-backward fa-2x"></i> Regresar a Encuestas
+               <i className="fas fa-step-backward fa-2x"></i> Regresar a
+               Encuestas
             </Button>
             {/* <Button variant="light" size="sm" onClick={goBackHandler}>
                {`loadingStatusMessgae`}
