@@ -2432,7 +2432,7 @@ const superSurveyGetOutputValues = asyncHandler(async (req, res) => {
    const functionName = 'superSurveyGetOutputValues'
    const log = new LoggerSettings(srcFileName, functionName)
    try {
-      LogThis(log, `START BY user=${req.user.email}`, L3)
+      LogThis(log, `START BY user=${req.user.email}`, L0)
       /**
        * On 12/7/23 I was working on the pagination and lookup by keyword
        * This function won't work without page beein provided by the client, the keyword is optional.
@@ -3392,7 +3392,7 @@ const monkeyUpdateResponses2RedesignHelper = async req => {
                      LogThis(
                         log,
                         `question.fieldName=${question.fieldName}; key=${key}`,
-                        L1,
+                        L3,
                      )
                      let choice_id = null
                      answer = null
