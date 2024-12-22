@@ -23,6 +23,7 @@ const QTYPE_MATRIX_RATING = "MATRIX_RATING"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL = "MULTIPLE_CHOICE_VERTICAL"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL_THREE_COL = "MULTIPLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_PRESENTATION_DESCRIPTIVE = "QTYPE_PRESENTATION_DESCRIPTIVE"
+const QTYPE_DATETIME_DATE_ONLY = "DATETIME_DATE_ONLY"
 
 
 
@@ -278,6 +279,17 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                     score: null
                 }   
             }
+            else if (questionType===QTYPE_DATETIME_DATE_ONLY){
+                let monkeyAnswer = monkeyQuestion.details.answers.rows[0]
+                surveyQuestion.question = monkeyAnswer.text
+                surveyQuestion.monkeyInfo.id = monkeyAnswer.id
+                surveyQuestion.monkeyInfo.monkeyAnswers = {
+                    answerField: 'text',
+                    answerChoices: null,
+                    value: monkeyQuestion.details.position,
+                    score: null
+                }   
+            }
             else if(questionType===QTYPE_SINGLE_CHOICE_MENU || questionType === QTYPE_SINGLE_CHOICE_VERTICAL || questionType === QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL) {
 
                 if(surveyQuestion.monkeyInfo.answerType=="noother"){
@@ -310,7 +322,9 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 surveyQuestion.question = monkeyAnswer.text
                 surveyQuestion.monkeyInfo.id = monkeyQuestion.details.id
                 this.mapAnswerChoice(surveyQuestion, 'choice_id', [monkeyAnswer])
-            } 
+            } else {
+                throw Error(`SurveyMonkeyIntegrated: mapQuestiontoMonkey FATAL ERROR: missing logic to process this questionType for object: ${this.log.j(surveyQuestion)}`)
+            }
 
         }
  

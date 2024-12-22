@@ -298,8 +298,8 @@ const AnalyzeQuestionResponse = (
          }
          pushValueCol(value, realValue, score)
 
-         //LogVars(log, L0, "Final values=", "cols", cols)
          break
+
       case 'single_choice_menu':
          //throw new Error(`BREAKING EXECUTION`)
          //questionMonkeyPosition = questionItem.monkeyPosition;
@@ -498,6 +498,31 @@ const AnalyzeQuestionResponse = (
                   pushEmptyCol()
                }
             }
+         }
+         break
+      case 'DATETIME_DATE_ONLY':
+         {
+            // for (
+            //    let rowIndex = 0;
+            //    rowIndex < monkeyQuestionAnswersConf.rows.length;
+            //    rowIndex++
+            // ) {
+            let monkeyRowConf = monkeyQuestionAnswersConf.rows[0]
+
+            let monkeyResponseAnswer = monkeyResponseAnswers.find(
+               monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
+            )
+
+            if (HasData(monkeyResponseAnswer)) {
+               let text = monkeyResponseAnswer.text
+               let value = monkeyResponseAnswer.position
+
+               //when choice is selected, the value, real and score are in the selected choice found in survey config.
+               pushValueCol(value, text, value)
+            } else {
+               pushEmptyCol()
+            }
+            //}
          }
          break
       case 'multiple_choice_vertical_three_col':
@@ -743,6 +768,17 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
             value = parseInt(monkeyAnswer.text.trim())
             realValue = monkeyAnswer.text.trim()
             score = parseInt(monkeyAnswer.text.trim())
+         } else {
+            value = ''
+            realValue = ''
+            score = ''
+         }
+         return pushValueCol(value, realValue, score)
+      case 'DATETIME_DATE_ONLY':
+         if (monkeyAnswer && monkeyAnswer.text) {
+            value = monkeyAnswer.text.trim()
+            realValue = monkeyAnswer.text.trim()
+            score = ''
          } else {
             value = ''
             realValue = ''
