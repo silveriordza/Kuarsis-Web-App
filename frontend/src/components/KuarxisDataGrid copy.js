@@ -535,87 +535,81 @@ const KuarxisDataGrid = ({
                }
             })}
          </ColumnsDirective>
-         {surveyOutputsInfo.outputLayouts.some(
-            layout => layout.dataType === 'Integer',
-         ) && (
-            <AggregatesDirective>
-               <AggregateDirective>
-                  <AggregateColumnsDirective>
-                     {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
-                        newLogger.LogThis(`Adding aggregate average captions`)
-                        let encoder = new TextEncoder()
-                        let utf8Array = encoder.encode(layout.fieldName)
-                        let utf8String = new TextDecoder()
-                           .decode(utf8Array)
-                           .replace(/,/g, ' ')
-                           .replace(/:/g, '')
-                        if (layout.dataType === 'Integer') {
-                           return (
-                              <AggregateColumnDirective
-                                 key={keyVal}
-                                 field={utf8String}
-                                 type="Average"
-                                 footerTemplate={
-                                    aggregateAverageCaptionTemplate
-                                 }
-                              />
-                           )
-                        }
-                     })}
-                  </AggregateColumnsDirective>
-               </AggregateDirective>
-               <AggregateDirective>
-                  <AggregateColumnsDirective>
-                     {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
-                        //layout.showInSurveyOutputScreen
-                        newLogger.LogThis(`Adding aggregate Max captions`)
-                        let encoder = new TextEncoder()
-                        let utf8Array = encoder.encode(layout.fieldName)
-                        let utf8String = new TextDecoder()
-                           .decode(utf8Array)
-                           .replace(/,/g, ' ')
-                           .replace(/:/g, '')
-                        if (layout.dataType === 'Integer') {
-                           return (
-                              <AggregateColumnDirective
-                                 key={keyVal}
-                                 field={utf8String}
-                                 type="Max"
-                                 footerTemplate={aggregateMaxCaptionTemplate}
-                              />
-                           )
-                        }
-                     })}
-                  </AggregateColumnsDirective>
-               </AggregateDirective>
-               <AggregateDirective>
-                  <AggregateColumnsDirective>
-                     {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
-                        //layout.showInSurveyOutputScreen
-                        newLogger.LogThis(
-                           `Adding aggregate Min captions ${layout.fieldName}`,
+         <AggregatesDirective>
+            <AggregateDirective>
+               <AggregateColumnsDirective>
+                  {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
+                     newLogger.LogThis(`Adding aggregate average captions`)
+                     let encoder = new TextEncoder()
+                     let utf8Array = encoder.encode(layout.fieldName)
+                     let utf8String = new TextDecoder()
+                        .decode(utf8Array)
+                        .replace(/,/g, ' ')
+                        .replace(/:/g, '')
+                     if (layout.dataType === 'Integer') {
+                        return (
+                           <AggregateColumnDirective
+                              key={keyVal}
+                              field={utf8String}
+                              type="Average"
+                              footerTemplate={aggregateAverageCaptionTemplate}
+                           />
                         )
-                        let encoder = new TextEncoder()
-                        let utf8Array = encoder.encode(layout.fieldName)
-                        let utf8String = new TextDecoder()
-                           .decode(utf8Array)
-                           .replace(/,/g, ' ')
-                           .replace(/:/g, '')
-                        if (layout.dataType === 'Integer') {
-                           return (
-                              <AggregateColumnDirective
-                                 key={keyVal}
-                                 field={utf8String}
-                                 type="Min"
-                                 footerTemplate={aggregateMinCaptionTemplate}
-                              />
-                           )
-                        }
-                     })}
-                  </AggregateColumnsDirective>
-               </AggregateDirective>
-            </AggregatesDirective>
-         )}
+                     }
+                  })}
+               </AggregateColumnsDirective>
+            </AggregateDirective>
+            <AggregateDirective>
+               <AggregateColumnsDirective>
+                  {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
+                     //layout.showInSurveyOutputScreen
+                     newLogger.LogThis(`Adding aggregate Max captions`)
+                     let encoder = new TextEncoder()
+                     let utf8Array = encoder.encode(layout.fieldName)
+                     let utf8String = new TextDecoder()
+                        .decode(utf8Array)
+                        .replace(/,/g, ' ')
+                        .replace(/:/g, '')
+                     if (layout.dataType === 'Integer') {
+                        return (
+                           <AggregateColumnDirective
+                              key={keyVal}
+                              field={utf8String}
+                              type="Max"
+                              footerTemplate={aggregateMaxCaptionTemplate}
+                           />
+                        )
+                     }
+                  })}
+               </AggregateColumnsDirective>
+            </AggregateDirective>
+            <AggregateDirective>
+               <AggregateColumnsDirective>
+                  {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
+                     //layout.showInSurveyOutputScreen
+                     newLogger.LogThis(
+                        `Adding aggregate Min captions ${layout.fieldName}`,
+                     )
+                     let encoder = new TextEncoder()
+                     let utf8Array = encoder.encode(layout.fieldName)
+                     let utf8String = new TextDecoder()
+                        .decode(utf8Array)
+                        .replace(/,/g, ' ')
+                        .replace(/:/g, '')
+                     if (layout.dataType === 'Integer') {
+                        return (
+                           <AggregateColumnDirective
+                              key={keyVal}
+                              field={utf8String}
+                              type="Min"
+                              footerTemplate={aggregateMinCaptionTemplate}
+                           />
+                        )
+                     }
+                  })}
+               </AggregateColumnsDirective>
+            </AggregateDirective>
+         </AggregatesDirective>
          <Inject
             services={[
                Page,

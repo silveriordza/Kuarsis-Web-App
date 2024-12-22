@@ -6,6 +6,13 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: Kuarxys Survey System WebPage child of ArtPixan WebPage, focused on analyzing results of Survey Monkey surveys.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.2
+Version date: 12/22/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Issue fixed: when surveys does not have any Integer (Numeric) value and only contain strings, it had an error related to "Cannot delete child", because the DataGrid in the SurveyOutputScreen specifically in the KuarxisDataGrid.js component was adding AggregateColumnDirectives for all columns that were Integer, but if there are no Integers it resulted in a the AggregateDirective parent of AggregateDirective in which turn it didn't have any AggregateColumnsDirective because the no outputlayout.dataType="Integer". To fix this, we added a condition to check if there is any Integers in survey output layout, if there are non, then the whole AggregatesDirective section is not added, otherwise it is added and it will add corresponding child directives for all integer columns.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.1 -> tagkuarxisFeSurveySystemQA-v1.0.8.1
 Version date: 6/9/24
 Modificator name: Silverio Rodriguez Alcorta
