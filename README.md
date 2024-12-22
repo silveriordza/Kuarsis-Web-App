@@ -6,6 +6,13 @@ Kuarsis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Application Description: This is the backend all Web Front End Kuarxis applications are sharing.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
+Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.8.2
+Version date: 12/22/24
+Modificator name: Silverio Rodriguez Alcorta
+ENHANCEMENTS:
+1.- Added logic in the SurveyMonkeyIntegrator and in the AnalyzeSurveyReponses functions for when a survey is being created and integrated and when the answers are being analyzed for the Survey Type= datetime and subtype "date only", a user added a Survey that didn't had logic to process that type, and strangly is not handled as a datetime in SurveyMonkey, it is handled as a Row with a Text data in the row Answer, which made it coplex to process.
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.8.1 -> tagkuarxisBeSurveySystemQA-v1.0.8.1
 Version date: 6/9/24
 Modificator name: Silverio Rodriguez Alcorta
