@@ -587,7 +587,9 @@ const KuarxisDataGrid = ({
                <AggregateColumnsDirective>
                   {surveyOutputsInfo.outputLayouts.map((layout, keyVal) => {
                      //layout.showInSurveyOutputScreen
-                     newLogger.LogThis(`Adding aggregate Min captions`)
+                     newLogger.LogThis(
+                        `Adding aggregate Min captions ${layout.fieldName}`,
+                     )
                      let encoder = new TextEncoder()
                      let utf8Array = encoder.encode(layout.fieldName)
                      let utf8String = new TextDecoder()
