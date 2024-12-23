@@ -14,12 +14,14 @@ class SurveyMultiTemplateManager extends SurveyFieldManager {
             this.preProcessTemplate = this.preProcessTemplate.bind(this); // Bind A to  
         }
         
+    
         
      //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
     preProcessTemplate ()  {
         this.setOneToManyConstantLink(this.linkField, this.linkValue)
         this.prepareOneToManyConstantTemplate()
     }
+
 
     async save(configs, collectionToLInk, linkField, linkValue){
         this.log.setFunctionName('save')
@@ -28,6 +30,7 @@ class SurveyMultiTemplateManager extends SurveyFieldManager {
         this.linkValue=linkValue[0][this.externalLinkField]
         this.collectionToLink=collectionToLInk
         
+
         SurveyMultiTemplateManager.prototype.preProcessTemplate.call(this);
         return await super.save(this.configs, this.collectionToLink)
     }

@@ -613,6 +613,209 @@
                ]
             },
             "position": 2521
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_1Micomprensiondecomo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 601
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_2Mispacientessesient",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 611
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_3Esdificilparamiverl",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 621
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_4Consideroqueelenten",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 631
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_5Tengounbuensentidod",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 641
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_6Porquelagenteesdife",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 651
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_7Tratodenoponeratenc",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 661
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_8Atenderlasexperienc",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 671
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_9Tratodeimaginarmeam",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 681
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_10Mispacientesvalora",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 691
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_11Lasenfermedadesdem",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 701
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_12Preguntarlesalospa",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 711
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_13Tratodeatenderloqu",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 721
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_14Creoquelaemocionno",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 731
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_15Laempatiaesunahabi",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 741
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_16Uncomponenteimport",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 751
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_17Tratodepensarcomom",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 761
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_18Nomepermitoamimism",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 771
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_19Nodisfrutoleerlite",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 781
+         },
+         {
+            "surveyShortName": "JSPE_HP",
+            "fieldName": "JEFF_HP_20Creoquelaempatiaes",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 791
+         },
+         {
+            "surveyShortName": "JEFF_HP",
+            "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2791
+         },
+         {
+            "surveyShortName": "JEFF_HP",
+            "fieldName": "JSPE-HP_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "JeffHp%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 2801
          }
       ],
       "multiSurveys": [
