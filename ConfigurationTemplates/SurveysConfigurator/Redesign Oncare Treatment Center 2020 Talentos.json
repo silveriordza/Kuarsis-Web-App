@@ -351,6 +351,268 @@
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
             "position": 371
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_1_1Mesientoemocionalmenteagotadopormitraba",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 381
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_2_2Cuandoterminomijornadadetrabajomesiento",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 391
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_3_3Cuandomelevantoporlamananaymeenfrentoao",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 401
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_4_4Sientoquepuedoentenderfacilmentealospac",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 411
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_5_5Sientoqueestoytratandoaalgunospacientes",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 421
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_6_6Sientoquetrabajartodoeldiaconlagentemec",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 431
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_7_7Sientoquetratoconmuchaeficacialosproble",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 441
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_8_8Sientoquemitrabajomeestadesgastando",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 451
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_9_9Sientoqueestoyinfluyendopositivamenteen",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 461
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_10_10Sientoquemehehechomasduroconlagente",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 471
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_11_11Mepreocupaqueestetrabajomeesteendureci",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 481
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_12_12Mesientoconmuchaenergiaenmitrabajo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 491
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_13_13Mesientofrustradoenmitrabajo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 501
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_14_14Sientoqueestoydemasiadotiempoenmitraba",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 511
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_15_15Sientoquerealmentenomeimportaloqueleso",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 521
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_16_16Sientoquetrabajarencontactodirectoconl",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 531
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_17_17Sientoquepuedocrearconfacilidadunclima",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 541
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_18_18Mesientoestimadodespuesdehabertrabajad",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 551
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_19_19Creoqueconsigomuchascosasvaliosasenest",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 561
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_20_20Mesientocomosiestuvieraallimitedemispo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 571
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_21_21Sientoqueenmitrabajolosproblemasemocio",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 581
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "CM_22_22Meparecequelospacientesmeculpandealgun",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 591
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "BURN_EMOCIONAL_MAX_42",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2471
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "BURN_DESPERS_MAX_36",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2481
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "BURN_LOGROS_MAX_48",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2491
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "BURN_TOTAL_MAX_126",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2501
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "BURN_RESULTADO",
+            "dataType": "String",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2511
+         },
+         {
+            "surveyShortName": "CM",
+            "fieldName": "BURN_SEMAPHORE",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "BURN",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 20, "style": "green" },
+                  { "min": 21, "max": 40, "style": "orange" },
+                  { "min": 41, "max": 60, "style": "yellow" },
+                  { "min": 61, "max": 127, "style": "red" }
+               ]
+            },
+            "position": 2521
          }
       ],
       "multiSurveys": [
@@ -361,6 +623,11 @@
             "surveyShortName": "SOCIODEMO",
             "position": 40,
             "monkeyPosition": 3
+         },
+         {
+            "surveyShortName": "CM",
+            "position": 50,
+            "monkeyPosition": 4
          }
       ]
    },
@@ -387,6 +654,12 @@
          "surveyName": "SOCIODEMO",
          "surveyShortName": "SOCIODEMO",
          "description": "Datos sociodemográficos.",
+         "instructions": ""
+      },
+      {
+         "surveyName": "CM",
+         "surveyShortName": "CM",
+         "description": "Cuestionario Masclach de Burnout en Personal Medico para la encuesta V2.0 DE ON23-00003",
          "instructions": ""
       }
    ],
@@ -1020,7 +1293,402 @@
             "subPosition": 22,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 1,
+         "fieldName": "CM_1_1Mesientoemocionalmenteagotadopormitraba",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "1. Me siento emocionalmente agotado por mi trabajo",
+         "questionShort": "1. Me siento emocionalmente agotado por ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 2,
+         "fieldName": "CM_2_2Cuandoterminomijornadadetrabajomesiento",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "2. Cuando termino mi jornada de trabajo me siento vacío",
+         "questionShort": "2. Cuando termino mi jornada de trabajo ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 3,
+         "fieldName": "CM_3_3Cuandomelevantoporlamananaymeenfrentoao",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "3. Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
+         "questionShort": "3. Cuando me levanto por la mañana y me ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 4,
+         "fieldName": "CM_4_4Sientoquepuedoentenderfacilmentealospac",
+         "subScale": "BURN_LOGROS",
+         "question": "4. Siento que puedo entender fácilmente a los pacientes.",
+         "questionShort": "4. Siento que puedo entender fácilmente ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 5,
+         "fieldName": "CM_5_5Sientoqueestoytratandoaalgunospacientes",
+         "subScale": "BURN_DESPERS",
+         "question": "5. Siento que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
+         "questionShort": "5. Siento que estoy tratando a algunos p",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 6,
+         "fieldName": "CM_6_6Sientoquetrabajartodoeldiaconlagentemec",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "6. Siento que trabajar todo el día con la gente me cansa.",
+         "questionShort": "6. Siento que trabajar todo el día con l",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 7,
+         "fieldName": "CM_7_7Sientoquetratoconmuchaeficacialosproble",
+         "subScale": "BURN_LOGROS",
+         "question": "7. Siento que trato con mucha eficacia los problemas de mis pacientes.",
+         "questionShort": "7. Siento que trato con mucha eficacia l",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 8,
+         "fieldName": "CM_8_8Sientoquemitrabajomeestadesgastando",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "8. Siento que mi trabajo me está desgastando.",
+         "questionShort": "8. Siento que mi trabajo me está desgast",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 9,
+         "fieldName": "CM_9_9Sientoqueestoyinfluyendopositivamenteen",
+         "subScale": "BURN_LOGROS",
+         "question": "9. Siento que estoy influyendo positivamente en la vida de otras personas a través de mi trabajo",
+         "questionShort": "9. Siento que estoy influyendo positivam",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 10,
+         "fieldName": "CM_10_10Sientoquemehehechomasduroconlagente",
+         "subScale": "BURN_DESPERS",
+         "question": "10. Siento que me he hecho mas duro con la gente",
+         "questionShort": "10. Siento que me he hecho mas duro con ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 11,
+         "fieldName": "CM_11_11Mepreocupaqueestetrabajomeesteendureci",
+         "subScale": "BURN_DESPERS",
+         "question": "11. Me preocupa que este trabajo me esté endureciendo emocionalmente",
+         "questionShort": "11. Me preocupa que este trabajo me esté",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 12,
+         "fieldName": "CM_12_12Mesientoconmuchaenergiaenmitrabajo",
+         "subScale": "BURN_LOGROS",
+         "question": "12. Me siento con mucha energía en mi trabajo",
+         "questionShort": "12. Me siento con mucha energía en mi tr",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 13,
+         "fieldName": "CM_13_13Mesientofrustradoenmitrabajo",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "13. Me siento frustrado en mi trabajo",
+         "questionShort": "13. Me siento frustrado en mi trabajo",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 14,
+         "fieldName": "CM_14_14Sientoqueestoydemasiadotiempoenmitraba",
+         "subScale": "BURN_DESPERS",
+         "question": "14. Siento que estoy demasiado tiempo en mi trabajo",
+         "questionShort": "14. Siento que estoy demasiado tiempo en",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 15,
+         "fieldName": "CM_15_15Sientoquerealmentenomeimportaloqueleso",
+         "subScale": "BURN_DESPERS",
+         "question": "15. Siento que realmente no me importa lo que les ocuerre a mis pacientes",
+         "questionShort": "15. Siento que realmente no me importa l",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 16,
+         "fieldName": "CM_16_16Sientoquetrabajarencontactodirectoconl",
+         "subScale": "BURN_DESPERS",
+         "question": "16. Siento que trabajar en contacto directo con la gente me cansa",
+         "questionShort": "16. Siento que trabajar en contacto dire",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 16,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 17,
+         "fieldName": "CM_17_17Sientoquepuedocrearconfacilidadunclima",
+         "subScale": "BURN_LOGROS",
+         "question": "17. Siento que puedo crear con facilidad un clima agradable con mis pacientes",
+         "questionShort": "17. Siento que puedo crear con facilidad",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 17,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 18,
+         "fieldName": "CM_18_18Mesientoestimadodespuesdehabertrabajad",
+         "subScale": "BURN_LOGROS",
+         "question": "18. Me siento estimado después de haber trabajado íntimamente con los pacientes",
+         "questionShort": "18. Me siento estimado después de haber ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 18,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 19,
+         "fieldName": "CM_19_19Creoqueconsigomuchascosasvaliosasenest",
+         "subScale": "BURN_LOGROS",
+         "question": "19. Creo que consigo muchas cosas valiosas en este trabajo",
+         "questionShort": "19. Creo que consigo muchas cosas valios",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 19,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 20,
+         "fieldName": "CM_20_20Mesientocomosiestuvieraallimitedemispo",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "20. Me siento como si estuviera al límite de mis posiblidades",
+         "questionShort": "20. Me siento como si estuviera al límit",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 20,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 21,
+         "fieldName": "CM_21_21Sientoqueenmitrabajolosproblemasemocio",
+         "subScale": "BURN_LOGROS",
+         "question": "21. Siento que en mi trabajo los problemas emocionales son tratados de forma adeuada",
+         "questionShort": "21. Siento que en mi trabajo los problem",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 21,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM",
+         "position": 22,
+         "fieldName": "CM_22_22Meparecequelospacientesmeculpandealgun",
+         "subScale": "BURN_DESPERS",
+         "question": "22. Me parece que los pacientes me culpan de algunos de sus problemas",
+         "questionShort": "22. Me parece que los pacientes me culpa",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 22,
+            "answerType": "noother"
+         }
       }
    ],
-   "calculatedFields": []
+   "calculatedFields": [
+      {
+         "surveyShortName": "CM",
+         "description": "BURN_EMOCIONAL_MAX_42",
+         "shortDescription": "BURN_EMOCIONAL_MAX_42",
+         "fieldName": "BURN_EMOCIONAL_MAX_42",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_EMOCIONAL"],
+         "position": 1
+      },
+      {
+         "surveyShortName": "CM",
+         "description": "BURN_DESPERS_MAX_36",
+         "shortDescription": "BURN_DESPERS_MAX_36",
+         "fieldName": "BURN_DESPERS_MAX_36",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_DESPERS"],
+         "position": 31
+      },
+      {
+         "surveyShortName": "CM",
+         "description": "BURN_LOGROS_MAX_48",
+         "shortDescription": "BURN_LOGROS_MAX_48",
+         "fieldName": "BURN_LOGROS_MAX_48",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_LOGROS"],
+         "position": 61
+      },
+      {
+         "surveyShortName": "CM",
+         "description": "BURN_TOTAL_MAX_126",
+         "shortDescription": "BURN_TOTAL_MAX_126",
+         "fieldName": "BURN_TOTAL_MAX_126",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
+         "position": 91
+      },
+      {
+         "surveyShortName": "CM",
+         "description": "BURN_RESULTADO",
+         "shortDescription": "BURN_RESULTADO",
+         "fieldName": "BURN_RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "BURN_TOTAL_MAX_126",
+            "ranges": [
+               { "min": 0, "max": 20, "resultIfTrue": "Nivel Bajo" },
+               { "min": 21, "max": 40, "resultIfTrue": "Moderado" },
+               { "min": 41, "max": 60, "resultIfTrue": "Alto" },
+               { "min": 61, "max": 127, "resultIfTrue": "Muy Alto" }
+            ]
+         },
+         "subScales": ["BURN_TOTAL_MAX_126"],
+         "position": 121
+      },
+      {
+         "surveyShortName": "CM",
+         "description": "BURN_SEMAPHORE",
+         "shortDescription": "BURN_SEMAPHORE",
+         "fieldName": "BURN_SEMAPHORE",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "BURN_TOTAL_MAX_126" },
+         "subScales": ["BURN_SEMAPHORE"],
+         "position": 151
+      }
+   ]
 }
