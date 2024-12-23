@@ -153,12 +153,215 @@
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
             "position": 151
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_1_Edad",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 161
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_2_Sexo",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 171
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_3_Nacionalidad",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 181
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_4_Estadocivil",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 191
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_5_Numerodehijos",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 201
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_6_Ingresofamiliarmensualaproximado",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 211
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_7_Actualmentepagaalguntipoderentaocredito",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 221
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_8_Siespecifiquecantidadpromediomensualenp",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 231
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_9_Tieneintencionderealizaralgunasubespeci",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 241
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_10_EnmielecciondecarreraMedicinafuemiopcion",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 251
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_11_Surelacionconalgunapersonaosituacioncerc",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 261
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_12_Senalelapersonaquemayorpesotuvoensumomen",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 271
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_13_Otroespecifique",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 281
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_14_Durantesuvidahatenidoalgunproblemadesal",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 291
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_15_Padecealgunaenfermedad",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 301
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_16_Siespecifique",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 311
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_17_Especifiquedequetipo",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 321
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_18_Siaplicaespecifique",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 331
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_19_Hasidohospitalizadoalgunavez",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 341
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_20_Cuantotiempodurosuhospitalizacion",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 351
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_21_Siaplicaespecifique",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 361
+         },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "fieldName": "SOCIODEMO_22_NumerodeinmunizacionescontraSARS-CoV-2",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 371
          }
       ],
       "multiSurveys": [
          { "surveyShortName": "INFO", "position": 10, "monkeyPosition": 0 },
          { "surveyShortName": "CONSENT", "position": 20, "monkeyPosition": 1 },
-         { "surveyShortName": "FICHA", "position": 30, "monkeyPosition": 2 }
+         { "surveyShortName": "FICHA", "position": 30, "monkeyPosition": 2 },
+         {
+            "surveyShortName": "SOCIODEMO",
+            "position": 40,
+            "monkeyPosition": 3
+         }
       ]
    },
    "surveys": [
@@ -178,6 +381,12 @@
          "surveyName": "FICHA",
          "surveyShortName": "FICHA",
          "description": "Ficha de identificación",
+         "instructions": ""
+      },
+      {
+         "surveyName": "SOCIODEMO",
+         "surveyShortName": "SOCIODEMO",
+         "description": "Datos sociodemográficos.",
          "instructions": ""
       }
    ],
@@ -479,6 +688,336 @@
          "monkeyInfo": {
             "position": 8,
             "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 1,
+         "fieldName": "SOCIODEMO_1_Edad",
+         "subScale": "SOCIODEMO",
+         "question": "Edad:",
+         "questionShort": "Edad:",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 2,
+         "fieldName": "SOCIODEMO_2_Sexo",
+         "subScale": "SOCIODEMO",
+         "question": "Sexo",
+         "questionShort": "Sexo",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 3,
+         "fieldName": "SOCIODEMO_3_Nacionalidad",
+         "subScale": "SOCIODEMO",
+         "question": "Nacionalidad",
+         "questionShort": "Nacionalidad",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 4,
+         "fieldName": "SOCIODEMO_4_Estadocivil",
+         "subScale": "SOCIODEMO",
+         "question": "Estado civil",
+         "questionShort": "Estado civil",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 5,
+         "fieldName": "SOCIODEMO_5_Numerodehijos",
+         "subScale": "SOCIODEMO",
+         "question": "Número de hijos",
+         "questionShort": "Número de hijos",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 6,
+         "fieldName": "SOCIODEMO_6_Ingresofamiliarmensualaproximado",
+         "subScale": "SOCIODEMO",
+         "question": "Ingreso familiar mensual aproximado:",
+         "questionShort": "Ingreso familiar mensual aproximado:",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 7,
+         "fieldName": "SOCIODEMO_7_Actualmentepagaalguntipoderentaocredito",
+         "subScale": "SOCIODEMO",
+         "question": "¿Actualmente paga algún tipo de renta o crédito para su hogar?",
+         "questionShort": "¿Actualmente paga algún tipo de renta o ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 8,
+         "fieldName": "SOCIODEMO_8_Siespecifiquecantidadpromediomensualenp",
+         "subScale": "SOCIODEMO",
+         "question": "Si, (especifique cantidad promedio mensual en pesos MXN)",
+         "questionShort": "Si, (especifique cantidad promedio mensu",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 8,
+            "answerType": "other"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 9,
+         "fieldName": "SOCIODEMO_9_Tieneintencionderealizaralgunasubespeci",
+         "subScale": "SOCIODEMO",
+         "question": "¿Tiene intención de realizar alguna subespecialidad u otro nivel de posgrado?",
+         "questionShort": "¿Tiene intención de realizar alguna sube",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 10,
+         "fieldName": "SOCIODEMO_10_EnmielecciondecarreraMedicinafuemiopcion",
+         "subScale": "SOCIODEMO",
+         "question": "En mi elección de carrera, Medicina fue mi opción:",
+         "questionShort": "En mi elección de carrera, Medicina fue ",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 11,
+         "fieldName": "SOCIODEMO_11_Surelacionconalgunapersonaosituacioncerc",
+         "subScale": "SOCIODEMO",
+         "question": "Su relación con alguna persona o situación cercana contribuyó a su elección de carrera:",
+         "questionShort": "Su relación con alguna persona o situaci",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 12,
+         "fieldName": "SOCIODEMO_12_Senalelapersonaquemayorpesotuvoensumomen",
+         "subScale": "SOCIODEMO",
+         "question": "Señale la persona que mayor peso tuvo en su momento:",
+         "questionShort": "Señale la persona que mayor peso tuvo en",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 13,
+         "fieldName": "SOCIODEMO_13_Otroespecifique",
+         "subScale": "SOCIODEMO",
+         "question": "Otro (especifique)",
+         "questionShort": "Otro (especifique)",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 13,
+            "answerType": "other"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 14,
+         "fieldName": "SOCIODEMO_14_Durantesuvidahatenidoalgunproblemadesal",
+         "subScale": "SOCIODEMO",
+         "question": "¿Durante su vida ha tenido algún problema de salud crónico o de relevancia para su desarrollo?",
+         "questionShort": "¿Durante su vida ha tenido algún problem",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 15,
+         "fieldName": "SOCIODEMO_15_Padecealgunaenfermedad",
+         "subScale": "SOCIODEMO",
+         "question": "¿Padece alguna enfermedad?",
+         "questionShort": "¿Padece alguna enfermedad?",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 16,
+         "fieldName": "SOCIODEMO_16_Siespecifique",
+         "subScale": "SOCIODEMO",
+         "question": "Si (especifique)",
+         "questionShort": "Si (especifique)",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 16,
+            "answerType": "other"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 17,
+         "fieldName": "SOCIODEMO_17_Especifiquedequetipo",
+         "subScale": "SOCIODEMO",
+         "question": "Especifique de que tipo",
+         "questionShort": "Especifique de que tipo",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 17,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 18,
+         "fieldName": "SOCIODEMO_18_Siaplicaespecifique",
+         "subScale": "SOCIODEMO",
+         "question": "Si aplica (especifique)",
+         "questionShort": "Si aplica (especifique)",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 18,
+            "answerType": "other"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 19,
+         "fieldName": "SOCIODEMO_19_Hasidohospitalizadoalgunavez",
+         "subScale": "SOCIODEMO",
+         "question": "¿Ha sido hospitalizado alguna vez?",
+         "questionShort": "¿Ha sido hospitalizado alguna vez?",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 19,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 20,
+         "fieldName": "SOCIODEMO_20_Cuantotiempodurosuhospitalizacion",
+         "subScale": "SOCIODEMO",
+         "question": "¿Cuánto tiempo duró su hospitalización?",
+         "questionShort": "¿Cuánto tiempo duró su hospitalización?",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 20,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 21,
+         "fieldName": "SOCIODEMO_21_Siaplicaespecifique",
+         "subScale": "SOCIODEMO",
+         "question": "Si aplica (especifique)",
+         "questionShort": "Si aplica (especifique)",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 21,
+            "answerType": "other"
+         }
+      },
+      {
+         "surveyShortName": "SOCIODEMO",
+         "position": 22,
+         "fieldName": "SOCIODEMO_22_NumerodeinmunizacionescontraSARS-CoV-2",
+         "subScale": "SOCIODEMO",
+         "question": "Número de inmunizaciones contra SARS-CoV-2",
+         "questionShort": "Número de inmunizaciones contra SARS-CoV",
+         "weightType": "NO_WEIGHT",
+         "weights": {},
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 22,
             "answerType": "noother"
          }
       }
