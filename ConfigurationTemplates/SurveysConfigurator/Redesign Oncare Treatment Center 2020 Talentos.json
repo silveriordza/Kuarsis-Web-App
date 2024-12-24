@@ -551,6 +551,501 @@
             "position": 591
          },
          {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_1_1Elentendimientodelmedicodelossentimient",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 601
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_2_2Lospacientessesientenmejorcuandosusmedi",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 611
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_3_3Esdificilparaunmedicoverlascosasdesdela",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 621
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_4Entenderellenguajecorporalest",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 631
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_5Elsentidodelhumordelmedicocon",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 641
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_6Porquelagenteesdiferenteesdif",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 651
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_7Poneratencionalasemocionesdel",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 661
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_8Atenderconcuidadolasexperienc",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 671
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_9Elmedicodeberiatratardeponers",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 681
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_10Elpacientevaloraalmedicoquee",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 691
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_11Laenfermedaddelpacientepuede",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 701
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_12Preguntaralpacientequeesloqu",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 711
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_13Losmedicosdeberiandetratarde",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 721
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_14Yocreoquelasemocionesnotiene",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 731
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_15Laempatiaesunahabilidadterap",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 741
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_16Elentendimientodelmedicodele",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 751
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_17Elmedicodeberiatratardepensa",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 761
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_18Elmediconodeberiapermitirsea",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 771
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_19Nodisfrutoleerliteraturanome",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 781
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_20Creoquelaempatiaesunfactorte",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 791
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_1Losprofesionalesdelasaluddebe",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 801
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_2Durantesueducaciontodoslosest",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 811
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_3Losprofesionalesdelasaludpued",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 821
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_4Losprofesionalesdelasaludnopu",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 831
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_5Debidoaladiferenciacionderole",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 841
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_6Todoslosprofesionalesdelasalu",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 851
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_7Todoslosprofesionalesdelasalu",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 861
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_8Lafuncionprimariadeotrosprofe",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 871
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_9Losprofesionalesdelasaluddebe",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 881
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_10Todoslosprofesionalesdelasal",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 891
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_11Losprofesionalesdelasaludnod",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 901
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_12Loscentrosmedicosacademicosd",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 911
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_13Paracontribuiralmejorinteres",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 921
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_14Losprofesionalesdelasaluddeb",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 931
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_15Laeducacioninterprofesionaly",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 941
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_16Eltrabajoenequipointegradoen",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 951
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_17Lapracticacolaborativafuncio",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 961
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_18Loserroresmedicosseminimizar",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 971
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_19Lacolaboracioninterprofesion",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 981
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_STATIC_ON23_20Lasatisfaccionconeltrabajono",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 991
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_1Cuandotengoproblemasgravesyco",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1001
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_2Aunquemedoycuentaquealgunosde",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1011
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_3Soyunapersonaprudentequeactua",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1021
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_4Cuandolossentimientosylairame",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1031
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_5Cuandomeencolerizoaunquedeseo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1041
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_6Soyunapersonaestable",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1051
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_7Poractuarprecipitadamenteterm",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1061
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_8Dadoqueactuocomopiensoysiento",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1071
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_9Odioquelagentemedigaquedeberi",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1081
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_10Soyunapersonainestable;cambi",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1091
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_11Aunquetengociertaideadelporq",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1101
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_12Soytanimprudentequetiendoaac",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1111
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_13Siactuaratodoeltiempocomopie",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1121
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_14Aunquetratodecontrolarmerein",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1131
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_15Cuandomeenredoenliosconlosde",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1141
+         },
+         {
             "surveyShortName": "CM",
             "fieldName": "BURN_EMOCIONAL_MAX_42",
             "dataType": "Integer",
@@ -615,196 +1110,52 @@
             "position": 2521
          },
          {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_1Micomprensiondecomo",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 601
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_2Mispacientessesient",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 611
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_3Esdificilparamiverl",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 621
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_4Consideroqueelenten",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 631
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_5Tengounbuensentidod",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 641
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_6Porquelagenteesdife",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 651
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_7Tratodenoponeratenc",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 661
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_8Atenderlasexperienc",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 671
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_9Tratodeimaginarmeam",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 681
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_10Mispacientesvalora",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 691
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_11Lasenfermedadesdem",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 701
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_12Preguntarlesalospa",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 711
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_13Tratodeatenderloqu",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 721
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_14Creoquelaemocionno",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 731
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_15Laempatiaesunahabi",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 741
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_16Uncomponenteimport",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 751
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_17Tratodepensarcomom",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 761
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_18Nomepermitoamimism",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 771
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_19Nodisfrutoleerlite",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 781
-         },
-         {
-            "surveyShortName": "JSPE_HP",
-            "fieldName": "JEFF_HP_20Creoquelaempatiaes",
-            "dataType": "Integer",
-            "outputAsReal": false,
-            "showInSurveyOutputScreen": false,
-            "displayType": { "type": "asIs" },
-            "position": 791
-         },
-         {
-            "surveyShortName": "JEFF_HP",
-            "fieldName": "JSPE-HP_EMPATIA_PROFESIONALES_TOTAL_MAX_140",
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2791
+            "position": 2531
          },
          {
-            "surveyShortName": "JEFF_HP",
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_CUIDADO_COMPASIVO",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2541
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2551
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_OTROS",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2561
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "fieldName": "JSPE-HP_TOTAL_MAX140",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2571
+         },
+         {
+            "surveyShortName": "JSPE-HP",
             "fieldName": "JSPE-HP_PERCENT_OF_MAX",
             "dataType": "Float",
             "outputAsReal": false,
@@ -815,7 +1166,67 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 2801
+            "position": 2581
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2591
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "fieldName": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "COLAB%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 2601
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_TOTAL_MAX_75",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2611
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_RESULTADO",
+            "dataType": "String",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2621
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "fieldName": "FIAD15_ON23_SEMAFORO",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "FIAD15",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 30, "style": "green" },
+                  { "min": 31, "max": 45, "style": "orange" },
+                  { "min": 46, "max": 60, "style": "yellow" },
+                  { "min": 61, "max": 1000, "style": "red" }
+               ]
+            },
+            "position": 2631
          }
       ],
       "multiSurveys": [
@@ -831,6 +1242,21 @@
             "surveyShortName": "CM",
             "position": 50,
             "monkeyPosition": 4
+         },
+         {
+            "surveyShortName": "JSPE-HP",
+            "position": 60,
+            "monkeyPosition": 5
+         },
+         {
+            "surveyShortName": "JEFF_STATIC_ON23",
+            "position": 70,
+            "monkeyPosition": 6
+         },
+         {
+            "surveyShortName": "FIAD15_ON23",
+            "position": 80,
+            "monkeyPosition": 7
          }
       ]
    },
@@ -863,6 +1289,24 @@
          "surveyName": "CM",
          "surveyShortName": "CM",
          "description": "Cuestionario Masclach de Burnout en Personal Medico para la encuesta V2.0 DE ON23-00003",
+         "instructions": ""
+      },
+      {
+         "surveyName": "JSPE-HP",
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP V2.0 DE ON23-00003",
+         "instructions": ""
+      },
+      {
+         "surveyName": "JEFF_STATIC_ON23",
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "description": "JeffSTATIC for V2.0 DE ON23-00003",
+         "instructions": ""
+      },
+      {
+         "surveyName": "FIAD15_ON23",
+         "surveyShortName": "FIAD15_ON23",
+         "description": "FIAD-15 (NOFP) César Garza Guerrero, 2014 for V2.0 DE ON23-00003",
          "instructions": ""
       }
    ],
@@ -1826,6 +2270,1011 @@
             "subPosition": 22,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 1,
+         "fieldName": "JSPE-HP_1_1Elentendimientodelmedicodelossentimient",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "1. El entendimiento del médico de los sentimientos del paciente y sus familiares es un factor que no influye en el tratamiento médico o quirúrgico.",
+         "questionShort": "1. El entendimiento del médico de los se",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 2,
+         "fieldName": "JSPE-HP_2_2Lospacientessesientenmejorcuandosusmedi",
+         "subScale": "JSPE-HP_CUIDADO_COMPASIVO",
+         "question": "2. Los pacientes se sienten mejor cuando sus médicos comprenden sus sentimientos.",
+         "questionShort": "2. Los pacientes se sienten mejor cuando",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 3,
+         "fieldName": "JSPE-HP_3_3Esdificilparaunmedicoverlascosasdesdela",
+         "subScale": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "question": "3. Es difícil para un médico ver las cosas desde la perspectiva de los pacientes.",
+         "questionShort": "3. Es difícil para un médico ver las cos",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 4,
+         "fieldName": "JSPE-HP_4Entenderellenguajecorporalest",
+         "subScale": "JSPE-HP_OTROS",
+         "question": "4. Entender el lenguaje corporal es tan importante como la comunicación verbal en la relación médico-paciente.",
+         "questionShort": "4. Entender el lenguaje corpor",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 5,
+         "fieldName": "JSPE-HP_5Elsentidodelhumordelmedicocon",
+         "subScale": "JSPE-HP_CUIDADO_COMPASIVO",
+         "question": "5. El sentido del humor del médico contribuye a un mejor resultado clínico.",
+         "questionShort": "5. El sentido del humor del mé",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 6,
+         "fieldName": "JSPE-HP_6Porquelagenteesdiferenteesdif",
+         "subScale": "JSPE-HP_OTROS",
+         "question": "6. Porque la gente es diferente, es difícil ver las cosas desde la perspectiva del paciente.",
+         "questionShort": "6. Porque la gente es diferent",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 7,
+         "fieldName": "JSPE-HP_7Poneratencionalasemocionesdel",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "7. Poner atención a las emociones del paciente no es importante al tomar su historia.",
+         "questionShort": "7. Poner atención a las emocio",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 8,
+         "fieldName": "JSPE-HP_8Atenderconcuidadolasexperienc",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "8. Atender con cuidado las experiencias personales del paciente no influye en los resultados del tratamiento.",
+         "questionShort": "8. Atender con cuidado las exp",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 9,
+         "fieldName": "JSPE-HP_9Elmedicodeberiatratardeponers",
+         "subScale": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "question": "9. El medico debería tratar de ponerse en los zapatos del paciente cuando les proveen de cuidado.",
+         "questionShort": "9. El medico debería tratar de",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 10,
+         "fieldName": "JSPE-HP_10Elpacientevaloraalmedicoquee",
+         "subScale": "JSPE-HP_CUIDADO_COMPASIVO",
+         "question": "10. El paciente valora al médico que entiende sus sentimientos lo cual es terapéutico por sí mismo.",
+         "questionShort": "10. El paciente valora al médi",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 11,
+         "fieldName": "JSPE-HP_11Laenfermedaddelpacientepuede",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "11. La enfermedad del paciente puede ser curada solamente por el tratamiento médico o quirúrgico; por lo tanto, lazos emocionales del médico con su paciente no tienen influencia significativa en el tratamiento médico o quirúrgico",
+         "questionShort": "11. La enfermedad del paciente",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 12,
+         "fieldName": "JSPE-HP_12Preguntaralpacientequeesloqu",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "12. Preguntar al paciente que es lo que está pasando en su vida personal no es útil en el entendimiento de sus quejas físicas.",
+         "questionShort": "12. Preguntar al paciente que ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 13,
+         "fieldName": "JSPE-HP_13Losmedicosdeberiandetratarde",
+         "subScale": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "question": "13. Los médicos deberían de tratar de entender que está pasando en la mente de los pacientes poniendo atención a su comunicación no verbal y lenguaje corporal.",
+         "questionShort": "13. Los médicos deberían de tr",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 14,
+         "fieldName": "JSPE-HP_14Yocreoquelasemocionesnotiene",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "14. Yo creo que las emociones no tienen lugar en el tratamiento de la enfermedad médica.",
+         "questionShort": "14. Yo creo que las emociones ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 15,
+         "fieldName": "JSPE-HP_15Laempatiaesunahabilidadterap",
+         "subScale": "JSPE-HP_OTROS",
+         "question": "15. La empatía es una habilidad terapéutica sin la cual el éxito como médico puede estar limitada.",
+         "questionShort": "15. La empatía es una habilida",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 16,
+         "fieldName": "JSPE-HP_16Elentendimientodelmedicodele",
+         "subScale": "JSPE-HP_CUIDADO_COMPASIVO",
+         "question": "16. El entendimiento del médico del estado emocional de los pacientes tanto como el de sus familias, es un importante componente de la relación médico-paciente.",
+         "questionShort": "16. El entendimiento del médic",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 16,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 17,
+         "fieldName": "JSPE-HP_17Elmedicodeberiatratardepensa",
+         "subScale": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "question": "17. El médico debería tratar de pensar como sus pacientes para poder darles un mejor cuidado.",
+         "questionShort": "17. El médico debería tratar d",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 17,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 18,
+         "fieldName": "JSPE-HP_18Elmediconodeberiapermitirsea",
+         "subScale": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "question": "18. El médico no debería permitirse a sí mismo ser influido por fuertes ligas personales entre sus pacientes y los miembros de la familia.",
+         "questionShort": "18. El médico no debería permi",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 18,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 19,
+         "fieldName": "JSPE-HP_19Nodisfrutoleerliteraturanome",
+         "subScale": "JSPE-HP_OTROS",
+         "question": "19. No disfruto leer literatura no médica o de arte.",
+         "questionShort": "19. No disfruto leer literatur",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 19,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "position": 20,
+         "fieldName": "JSPE-HP_20Creoquelaempatiaesunfactorte",
+         "subScale": "JSPE-HP_CUIDADO_COMPASIVO",
+         "question": "20. Creo que la empatía es un factor terapéutico importante en el tratamiento médico.",
+         "questionShort": "20. Creo que la empatía es un ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 20,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 1,
+         "fieldName": "JEFF_STATIC_ON23_1Losprofesionalesdelasaluddebe",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "1. Los profesionales de la salud deben ser considerados como colegas y colaboradores en lugar de como superiores y subordinados.",
+         "questionShort": "1. Los profesionales de la sal",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 2,
+         "fieldName": "JEFF_STATIC_ON23_2Durantesueducaciontodoslosest",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "2. Durante su educación, todos los estudiantes de profesiones de la salud deben estar involucrados en trabajo en equipo interprofesional con el fin de entender su papel respectivo.",
+         "questionShort": "2. Durante su educación, todos",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 3,
+         "fieldName": "JEFF_STATIC_ON23_3Losprofesionalesdelasaludpued",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "3. Los profesionales de la salud pueden contribuir a las decisiones respecto al bienestar de los pacientes.",
+         "questionShort": "3. Los profesionales de la sal",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 4,
+         "fieldName": "JEFF_STATIC_ON23_4Losprofesionalesdelasaludnopu",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "4. Los profesionales de la salud no pueden ser responsables ante sus pacientes por el cuidado/servicio que proveen.",
+         "questionShort": "4. Los profesionales de la sal",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 5,
+         "fieldName": "JEFF_STATIC_ON23_5Debidoaladiferenciacionderole",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "5. Debido a la diferenciación de roles, no existen muchas áreas comunes de responsabilidad entre los profesionales de la salud al proveer cuidados a sus pacientes.",
+         "questionShort": "5. Debido a la diferenciación ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 6,
+         "fieldName": "JEFF_STATIC_ON23_6Todoslosprofesionalesdelasalu",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "6. Todos los profesionales de la salud tienen su propia experiencia y conocimientos especiales para proveer cuidados de calidad a sus pacientes.",
+         "questionShort": "6. Todos los profesionales de ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 7,
+         "fieldName": "JEFF_STATIC_ON23_7Todoslosprofesionalesdelasalu",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "7. Todos los profesionales de la salud deben contribuir a las decisiones respecto a la mejora del cuidado de sus pacientes.",
+         "questionShort": "7. Todos los profesionales de ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 8,
+         "fieldName": "JEFF_STATIC_ON23_8Lafuncionprimariadeotrosprofe",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "8. La función primaria de otros profesionales de la salud es seguir, sin cuestionar, las órdenes del médico que está tratando a los pacientes.",
+         "questionShort": "8. La función primaria de otro",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 9,
+         "fieldName": "JEFF_STATIC_ON23_9Losprofesionalesdelasaluddebe",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "9. Los profesionales de la salud deben estar involucrados en las decisiones sobre elaboración de políticas concernientes a su trabajo.",
+         "questionShort": "9. Los profesionales de la sal",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 10,
+         "fieldName": "JEFF_STATIC_ON23_10Todoslosprofesionalesdelasal",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "10. Todos los profesionales de la salud deben tener la responsabilidad de monitorear los efectos de las intervenciones en sus pacientes.",
+         "questionShort": "10. Todos los profesionales de",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 11,
+         "fieldName": "JEFF_STATIC_ON23_11Losprofesionalesdelasaludnod",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "11. Los profesionales de la salud no deben cuestionar las decisiones hechas por sus colegas interprofesionales cuando creen que pudieran tener efectos perjudiciales sobre el paciente.",
+         "questionShort": "11. Los profesionales de la sa",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 12,
+         "fieldName": "JEFF_STATIC_ON23_12Loscentrosmedicosacademicosd",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "12. Los centros médicos académicos deben desarrollar programas educativos interprofesionales para mejorar la práctica colaborativa.",
+         "questionShort": "12. Los centros médicos académ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 13,
+         "fieldName": "JEFF_STATIC_ON23_13Paracontribuiralmejorinteres",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "13. Para contribuir al mejor interés del paciente, los profesionales de la salud deben usar su propio juicio en lugar de consultar con sus colegas interprofesionales.",
+         "questionShort": "13. Para contribuir al mejor i",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 14,
+         "fieldName": "JEFF_STATIC_ON23_14Losprofesionalesdelasaluddeb",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "14. Los profesionales de la salud deben hacerse conscientes de que sus colegas interprofesionales puedes contribuir a una atención de alta calidad.",
+         "questionShort": "14. Los profesionales de la sa",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 15,
+         "fieldName": "JEFF_STATIC_ON23_15Laeducacioninterprofesionaly",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "15. La educación interprofesional y la colaboración interprofesional en la práctica no están vinculadas entre sí.",
+         "questionShort": "15. La educación interprofesio",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 16,
+         "fieldName": "JEFF_STATIC_ON23_16Eltrabajoenequipointegradoen",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "16. El trabajo en equipo integrado en el cuidado a la salud no requiere educación interprofesional integrada.",
+         "questionShort": "16. El trabajo en equipo integ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 16,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 17,
+         "fieldName": "JEFF_STATIC_ON23_17Lapracticacolaborativafuncio",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "17. La práctica colaborativa funciona mejor cuando los profesionales de la salud desarrollan relaciones funcionales para implementar metas mutuamente acordadas.",
+         "questionShort": "17. La práctica colaborativa f",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 17,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 18,
+         "fieldName": "JEFF_STATIC_ON23_18Loserroresmedicosseminimizar",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "18. Los errores médicos se minimizarán cuando exista colaboración entre los profesionales de la salud.",
+         "questionShort": "18. Los errores médicos se min",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 18,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 19,
+         "fieldName": "JEFF_STATIC_ON23_19Lacolaboracioninterprofesion",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "19. La colaboración interprofesional que incluye respeto mutuo y comunicación mejora el ambiente de trabajo.",
+         "questionShort": "19. La colaboración interprofe",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 6,
+            "8": 7
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 19,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "position": 20,
+         "fieldName": "JEFF_STATIC_ON23_20Lasatisfaccionconeltrabajono",
+         "subScale": "JEFF_STATIC_ON23",
+         "question": "20. La satisfacción con el trabajo no está relacionada con las prácticas colaborativas interprofesionales.",
+         "questionShort": "20. La satisfacción con el tra",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": {
+            "1": 7,
+            "2": 6,
+            "3": 6,
+            "4": 5,
+            "5": 4,
+            "6": 3,
+            "7": 2,
+            "8": 1
+         },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 20,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 1,
+         "fieldName": "FIAD15_ON23_1Cuandotengoproblemasgravesyco",
+         "subScale": "FIAD15_ON23",
+         "question": "1. Cuando tengo problemas graves y conflictos con los demás, el miedo y la preocupación me confunden tanto que termino por actuar irracionalmente.",
+         "questionShort": "1. Cuando tengo problemas grav",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 2,
+         "fieldName": "FIAD15_ON23_2Aunquemedoycuentaquealgunosde",
+         "subScale": "FIAD15_ON23",
+         "question": "2. Aunque me doy cuenta que algunos de mis actos son francamente agresivos e incorrectos, en el momento de actuarlos me es indiferente; pienso que esta vez no me van a descubrir, o no lo van a “notar”.",
+         "questionShort": "2. Aunque me doy cuenta que al",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 3,
+         "fieldName": "FIAD15_ON23_3Soyunapersonaprudentequeactua",
+         "subScale": "FIAD15_ON23",
+         "question": "3. Soy una persona prudente que actúa y responde en forma apropiada.",
+         "questionShort": "3. Soy una persona prudente qu",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "5": 1, "4": 2, "3": 3, "2": 4, "1": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 4,
+         "fieldName": "FIAD15_ON23_4Cuandolossentimientosylairame",
+         "subScale": "FIAD15_ON23",
+         "question": "4. Cuando los sentimientos y la ira me invaden, me trastorno tanto que no puedo contenerme ni serenarme; termino por reaccionar de manera atropellada o fuera de mí.",
+         "questionShort": "4. Cuando los sentimientos y l",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 5,
+         "fieldName": "FIAD15_ON23_5Cuandomeencolerizoaunquedeseo",
+         "subScale": "FIAD15_ON23",
+         "question": "5. Cuando me encolerizo, aunque deseo actuar al calor del momento, logro contenerme y después serenarme.",
+         "questionShort": "5. Cuando me encolerizo, aunqu",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "5": 1, "4": 2, "3": 3, "2": 4, "1": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 6,
+         "fieldName": "FIAD15_ON23_6Soyunapersonaestable",
+         "subScale": "FIAD15_ON23",
+         "question": "6. Soy una persona estable.",
+         "questionShort": "6. Soy una persona estable.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "5": 1, "4": 2, "3": 3, "2": 4, "1": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 7,
+         "fieldName": "FIAD15_ON23_7Poractuarprecipitadamenteterm",
+         "subScale": "FIAD15_ON23",
+         "question": "7. Por actuar precipitadamente termino por involucrarme en acciones inapropiadas y situaciones muy conflictivas.",
+         "questionShort": "7. Por actuar precipitadamente",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 8,
+         "fieldName": "FIAD15_ON23_8Dadoqueactuocomopiensoysiento",
+         "subScale": "FIAD15_ON23",
+         "question": "8. Dado que actúo como pienso y siento, vivo con problemas con los demás; la gente me considera impulsivo(a) y agresivo(a).",
+         "questionShort": "8. Dado que actúo como pienso ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 9,
+         "fieldName": "FIAD15_ON23_9Odioquelagentemedigaquedeberi",
+         "subScale": "FIAD15_ON23",
+         "question": "9. Odio que la gente me diga que debería sentirme culpable por ser tan agresivo(a), sin darse cuenta que constantemente me están atacando de modo injustificado.",
+         "questionShort": "9. Odio que la gente me diga q",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 10,
+         "fieldName": "FIAD15_ON23_10Soyunapersonainestable;cambi",
+         "subScale": "FIAD15_ON23",
+         "question": "10. Soy una persona inestable; cambio de manera de ser de un momento a otro.",
+         "questionShort": "10. Soy una persona inestable;",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 11,
+         "fieldName": "FIAD15_ON23_11Aunquetengociertaideadelporq",
+         "subScale": "FIAD15_ON23",
+         "question": "11. Aunque tengo cierta idea del por qué de la intensidad de mis emociones, no siempre logro contenerme ni serenarme.",
+         "questionShort": "11. Aunque tengo cierta idea d",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 12,
+         "fieldName": "FIAD15_ON23_12Soytanimprudentequetiendoaac",
+         "subScale": "FIAD15_ON23",
+         "question": "12. Soy tan imprudente, que tiendo a actuar de manera inapropiada y hasta destructiva sin anticipar las consecuencias, y si las anticipo, me es indiferente.",
+         "questionShort": "12. Soy tan imprudente, que ti",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 13,
+         "fieldName": "FIAD15_ON23_13Siactuaratodoeltiempocomopie",
+         "subScale": "FIAD15_ON23",
+         "question": "13. Si actuara todo el tiempo como pienso y siento, ya estaría en graves problemas con los demás.",
+         "questionShort": "13. Si actuara todo el tiempo ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 13,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 14,
+         "fieldName": "FIAD15_ON23_14Aunquetratodecontrolarmerein",
+         "subScale": "FIAD15_ON23",
+         "question": "14. Aunque trato de controlarme, reincido en acciones y desplantes inapropiados.",
+         "questionShort": "14. Aunque trato de controlarm",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 14,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "position": 15,
+         "fieldName": "FIAD15_ON23_15Cuandomeenredoenliosconlosde",
+         "subScale": "FIAD15_ON23",
+         "question": "15. Cuando me enredo en líos con los demás, mis miedos y mis odios me llevan a mal interpretar y distorsionar todo.",
+         "questionShort": "15. Cuando me enredo en líos c",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 15,
+            "answerType": "noother"
+         }
       }
    ],
    "calculatedFields": [
@@ -1892,6 +3341,142 @@
          "criteria": { "fieldNameValue": "BURN_TOTAL_MAX_126" },
          "subScales": ["BURN_SEMAPHORE"],
          "position": 151
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "shortDescription": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "fieldName": "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL"],
+         "position": 181
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP_CUIDADO_COMPASIVO",
+         "shortDescription": "JSPE-HP_CUIDADO_COMPASIVO",
+         "fieldName": "JSPE-HP_CUIDADO_COMPASIVO",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["JSPE-HP_CUIDADO_COMPASIVO"],
+         "position": 211
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "shortDescription": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "fieldName": "JSPE-HP_TOMA_DE_PERSPECTIVA",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["JSPE-HP_TOMA_DE_PERSPECTIVA"],
+         "position": 241
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP_OTROS",
+         "shortDescription": "JSPE-HP_OTROS",
+         "fieldName": "JSPE-HP_OTROS",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["JSPE-HP_OTROS"],
+         "position": 271
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP_TOTAL_MAX140",
+         "shortDescription": "JSPE-HP_TOTAL_MAX140",
+         "fieldName": "JSPE-HP_TOTAL_MAX140",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": [
+            "JSPE-HP_OTROS",
+            "JSPE-HP_INVOLUCRAMIENTO_EMOCIONAL",
+            "JSPE-HP_CUIDADO_COMPASIVO",
+            "JSPE-HP_TOMA_DE_PERSPECTIVA"
+         ],
+         "position": 301
+      },
+      {
+         "surveyShortName": "JSPE-HP",
+         "description": "JSPE-HP_PERCENT_OF_MAX",
+         "shortDescription": "JSPE-HP_PERCENT_OF_MAX",
+         "fieldName": "JSPE-HP_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": { "fieldNameValue": "JSPE-HP_TOTAL_MAX140", "max": 140 },
+         "subScales": ["NA"],
+         "position": 331
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "description": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+         "shortDescription": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+         "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["JEFF_STATIC_ON23"],
+         "position": 361
+      },
+      {
+         "surveyShortName": "JEFF_STATIC_ON23",
+         "description": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "shortDescription": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "fieldName": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+            "max": 140
+         },
+         "subScales": ["NA"],
+         "position": 391
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "description": "FIAD15_ON23_TOTAL_MAX_75",
+         "shortDescription": "FIAD15_ON23_TOTAL_MAX_75",
+         "fieldName": "FIAD15_ON23_TOTAL_MAX_75",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["FIAD15_ON23"],
+         "position": 421
+      },
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "description": "FIAD15_ON23_RESULTADO",
+         "shortDescription": "FIAD15_ON23_RESULTADO",
+         "fieldName": "FIAD15_ON23_RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "FIAD15_ON23_TOTAL_MAX_75",
+            "ranges": [
+               {
+                  "min": 15,
+                  "max": 30,
+                  "resultIfTrue": "Alta Estabilidad Emocional"
+               },
+               {
+                  "min": 31,
+                  "max": 45,
+                  "resultIfTrue": "Nivel Moderado de Impulsividad"
+               },
+               {
+                  "min": 46,
+                  "max": 60,
+                  "resultIfTrue": "Nivel Alto de Impulsividad"
+               },
+               {
+                  "min": 61,
+                  "max": 1000,
+                  "resultIfTrue": "Muy Alta Agresividad"
+               }
+            ]
+         },
+         "subScales": ["NA"],
+         "position": 451
+      },
+
+      {
+         "surveyShortName": "FIAD15_ON23",
+         "description": "FIAD15_ON23_SEMAFORO",
+         "shortDescription": "FIAD15_ON23_SEMAFORO",
+         "fieldName": "FIAD15_ON23_SEMAFORO",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "FIAD15_ON23_TOTAL_MAX_75" },
+         "subScales": ["FIAD15_ON23_SEMAFORO"],
+         "position": 481
       }
    ]
 }
