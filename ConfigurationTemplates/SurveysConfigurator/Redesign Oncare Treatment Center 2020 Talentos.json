@@ -2027,6 +2027,114 @@
             "position": 2231
          },
          {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_1-Hapodidoconcentrarsebienenl",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2241
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2-Suspreocupacioneslehanhecho",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2251
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_3-Hasentidoqueestadesempenand",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2261
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_4-Sehasentidocapazdetomardeci",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2271
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_5-Sehasentidoconstantementeag",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2281
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_6-Hasentidoquenopuedesuperars",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2291
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_7-Hasidocapazdedisfrutardesus",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2301
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_8-Hasidocapazdehacerfrenteade",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2311
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_9-Sehasentidopocofelizodeprim",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2321
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_10-Haperdidoconfianzaensimism",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2331
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_11-Hapensadoqueustedesunapers",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2341
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_12-Sesienterazonablementefeli",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2351
+         },
+         {
             "surveyShortName": "CM",
             "fieldName": "BURN_EMOCIONAL_MAX_42",
             "dataType": "Integer",
@@ -2258,7 +2366,7 @@
             "showInSurveyOutputScreen": true,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
-               "header": "ZKPQ_SEMAFORO",
+               "header": "ZKPQ",
                "type": "rangesSemaphore",
                "styleCriterias": [
                   { "min": 0, "max": 20, "style": "green" },
@@ -2269,6 +2377,43 @@
                ]
             },
             "position": 2681
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_TOTAL_MAX_60",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2691
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_RESULTADO",
+            "dataType": "String",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2701
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_SEMAFORO",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "CGS12",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 12, "style": "green" },
+                  { "min": 13, "max": 24, "style": "orange" },
+                  { "min": 25, "max": 36, "style": "yellow" },
+                  { "min": 37, "max": 50, "style": "red" }
+               ]
+            },
+            "position": 2711
          }
       ],
       "multiSurveys": [
@@ -2309,6 +2454,11 @@
             "surveyShortName": "ZKPQ",
             "position": 100,
             "monkeyPosition": 9
+         },
+         {
+            "surveyShortName": "CGS12",
+            "position": 110,
+            "monkeyPosition": 10
          }
       ]
    },
@@ -2371,6 +2521,12 @@
          "surveyName": "ZKPQ",
          "surveyShortName": "ZKPQ",
          "description": "CUESTIONARIO DE PERSONALIDAD ZUCKERMAN-KULHMAN (ZKPQ) for V2.0 DE ON23-00003",
+         "instructions": ""
+      },
+      {
+         "surveyName": "CGS12",
+         "surveyShortName": "CGS12",
+         "description": "CUESTIONARIO GENERAL DE SALUD- BREVE (CGS-12) for V2.0 DE ON23-00003",
          "instructions": ""
       }
    ],
@@ -5974,6 +6130,186 @@
             "subPosition": 99,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 1,
+         "fieldName": "CGS12_1-Hapodidoconcentrarsebienenl",
+         "subScale": "CGS12",
+         "question": "1.- ¿Ha podido concentrarse bien en lo que hace?",
+         "questionShort": "1.- ¿Ha podido concentrarse bi",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 2,
+         "fieldName": "CGS12_2-Suspreocupacioneslehanhecho",
+         "subScale": "CGS12",
+         "question": "2.- ¿Sus preocupaciones le han hecho perder mucho el sueño?",
+         "questionShort": "2.- ¿Sus preocupaciones le han",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 3,
+         "fieldName": "CGS12_3-Hasentidoqueestadesempenand",
+         "subScale": "CGS12",
+         "question": "3.- ¿Ha sentido que está desempeñando un papel útil en la vida?",
+         "questionShort": "3.- ¿Ha sentido que está desem",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 4,
+         "fieldName": "CGS12_4-Sehasentidocapazdetomardeci",
+         "subScale": "CGS12",
+         "question": "4.- ¿Se ha sentido capaz de tomar decisiones?",
+         "questionShort": "4.- ¿Se ha sentido capaz de to",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 5,
+         "fieldName": "CGS12_5-Sehasentidoconstantementeag",
+         "subScale": "CGS12",
+         "question": "5.- ¿Se ha sentido constantemente agobiado y en tensión?",
+         "questionShort": "5.- ¿Se ha sentido constanteme",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 6,
+         "fieldName": "CGS12_6-Hasentidoquenopuedesuperars",
+         "subScale": "CGS12",
+         "question": "6.- ¿Ha sentido que no puede superar sus dificultades?",
+         "questionShort": "6.- ¿Ha sentido que no puede s",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 7,
+         "fieldName": "CGS12_7-Hasidocapazdedisfrutardesus",
+         "subScale": "CGS12",
+         "question": "7.- ¿Ha sido capaz de disfrutar de sus actividades normales de cada día?",
+         "questionShort": "7.- ¿Ha sido capaz de disfruta",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 8,
+         "fieldName": "CGS12_8-Hasidocapazdehacerfrenteade",
+         "subScale": "CGS12",
+         "question": "8.- ¿Ha sido capaz de hacer frente adecuadamente a sus problemas?",
+         "questionShort": "8.- ¿Ha sido capaz de hacer fr",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 9,
+         "fieldName": "CGS12_9-Sehasentidopocofelizodeprim",
+         "subScale": "CGS12",
+         "question": "9.- ¿Se ha sentido poco feliz o deprimido/a?",
+         "questionShort": "9.- ¿Se ha sentido poco feliz ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 10,
+         "fieldName": "CGS12_10-Haperdidoconfianzaensimism",
+         "subScale": "CGS12",
+         "question": "10.- ¿Ha perdido confianza en sí mismo/a?",
+         "questionShort": "10.- ¿Ha perdido confianza en ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 11,
+         "fieldName": "CGS12_11-Hapensadoqueustedesunapers",
+         "subScale": "CGS12",
+         "question": "11.- ¿Ha pensado que usted es una persona que no vale para nada?",
+         "questionShort": "11.- ¿Ha pensado que usted es ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 11,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 12,
+         "fieldName": "CGS12_12-Sesienterazonablementefeli",
+         "subScale": "CGS12",
+         "question": "12.- ¿Se siente razonablemente feliz considerando todas las circunstancias?",
+         "questionShort": "12.- ¿Se siente razonablemente",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 4, "2": 3, "3": 2, "4": 1, "5": 0 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 12,
+            "answerType": "noother"
+         }
       }
    ],
    "calculatedFields": [
@@ -6236,6 +6572,55 @@
          "criteria": { "fieldNameValue": "ZKPQ_TOTAL_MAX_100" },
          "subScales": ["ZKPQ_SEMAFORO"],
          "position": 631
+      },
+      {
+         "surveyShortName": "CGS12",
+         "description": "CGS12_TOTAL_MAX_60",
+         "shortDescription": "CGS12_TOTAL_MAX_60",
+         "fieldName": "CGS12_TOTAL_MAX_60",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["CGS12"],
+         "position": 661
+      },
+      {
+         "surveyShortName": "CGS12",
+         "description": "CGS12_RESULTADO",
+         "shortDescription": "CGS12_RESULTADO",
+         "fieldName": "CGS12_RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "CGS12_TOTAL_MAX_60",
+            "ranges": [
+               { "min": 0, "max": 12, "resultIfTrue": "Buena salud mental" },
+               {
+                  "min": 13,
+                  "max": 24,
+                  "resultIfTrue": "Salud mental promedio"
+               },
+               {
+                  "min": 25,
+                  "max": 36,
+                  "resultIfTrue": "Salud mental en riesgo"
+               },
+               {
+                  "min": 37,
+                  "max": 48,
+                  "resultIfTrue": "Salud mental deficiente"
+               }
+            ]
+         },
+         "subScales": ["NA"],
+         "position": 691
+      },
+      {
+         "surveyShortName": "CGS12",
+         "description": "CGS12_SEMAFORO",
+         "shortDescription": "CGS12_SEMAFORO",
+         "fieldName": "CGS12_SEMAFORO",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "CGS12_TOTAL_MAX_60" },
+         "subScales": ["CGS12_SEMAFORO"],
+         "position": 721
       }
    ]
 }
