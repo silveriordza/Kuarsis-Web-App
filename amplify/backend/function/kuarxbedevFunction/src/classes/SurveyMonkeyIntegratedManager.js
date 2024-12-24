@@ -20,6 +20,7 @@ const QTYPE_SINGLE_CHOICE_MENU = "SINGLE_CHOICE_MENU"
 const QTYPE_SINGLE_CHOICE_VERTICAL = "SINGLE_CHOICE_VERTICAL"
 const QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL = "SINGLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_MATRIX_RATING = "MATRIX_RATING"
+const QTYPE_MATRIX_SINGLE = "MATRIX_SINGLE"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL = "MULTIPLE_CHOICE_VERTICAL"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL_THREE_COL = "MULTIPLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_PRESENTATION_DESCRIPTIVE = "QTYPE_PRESENTATION_DESCRIPTIVE"
@@ -214,6 +215,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
 
             } else 
             if (questionType===QTYPE_MATRIX_RATING ||
+                questionType===QTYPE_MATRIX_SINGLE ||
                 questionType===QTYPE_MULTIPLE_CHOICE_VERTICAL){
                 this.log.HasDataException(row, `row data missing`)
                 return `${page.position}.${question.position}.${other.position}`
@@ -234,6 +236,8 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 return answerChoice.weight
             } else if (answerChoice.hasOwnProperty("quiz_options")){
                 return answerChoice.quiz_options.score
+            } else {
+                return 0
             }
         }
         mapAnswerChoice(question, answerField, answerChoices){
@@ -311,7 +315,10 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 }   
 
             } else 
-            if (questionType===QTYPE_MATRIX_RATING) {
+            if (
+                questionType===QTYPE_MATRIX_RATING ||
+                questionType===QTYPE_MATRIX_SINGLE
+            ) {
                 let monkeyAnswer = monkeyQuestion.details.answers.rows[surveyQuestion.monkeyInfo.subPosition-1]
                 surveyQuestion.question = monkeyAnswer.text
                 surveyQuestion.monkeyInfo.id = monkeyAnswer.id
