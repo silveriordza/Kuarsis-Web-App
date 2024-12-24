@@ -1046,6 +1046,96 @@
             "position": 1141
          },
          {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_1Puedollegaraquedarmecompletam",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1151
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_2Missentimientossonfacilmenteh",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1161
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_3Cuandoentroenalgunlocalmesien",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1171
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_4Cuandotengoexitonomegustacomp",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1181
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_5Tengobastanteconmiscosascomop",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1191
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_6Sientoquetengouncaracterdisti",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1201
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_7Siempreinterpretodemodoperson",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1211
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_8Confacilidadmemetoenlascosasq",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1221
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_9Medesagradaestarconungrupodeg",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1231
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_10Enelfondomefastidiaqueotrage",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 1241
+         },
+         {
             "surveyShortName": "CM",
             "fieldName": "BURN_EMOCIONAL_MAX_42",
             "dataType": "Integer",
@@ -1227,6 +1317,29 @@
                ]
             },
             "position": 2631
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_NARCISISMO_TOTAL_MAX_50",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2641
+         },
+         {
+            "surveyShortName": "HSNS",
+            "fieldName": "HSNS_NARCISISMO_PERCENT_OF_MAX",
+            "dataType": "Float",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "HSNS-Narcisismo%",
+               "type": "percentBarWithCriterias",
+               "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
+            },
+            "position": 2651
          }
       ],
       "multiSurveys": [
@@ -1257,6 +1370,11 @@
             "surveyShortName": "FIAD15_ON23",
             "position": 80,
             "monkeyPosition": 7
+         },
+         {
+            "surveyShortName": "HSNS",
+            "position": 90,
+            "monkeyPosition": 8
          }
       ]
    },
@@ -1307,6 +1425,12 @@
          "surveyName": "FIAD15_ON23",
          "surveyShortName": "FIAD15_ON23",
          "description": "FIAD-15 (NOFP) César Garza Guerrero, 2014 for V2.0 DE ON23-00003",
+         "instructions": ""
+      },
+      {
+         "surveyName": "HSNS",
+         "surveyShortName": "HSNS",
+         "description": "ESCLA DE NARCISISMO DE HIGH-SENSIVITY NARCISISM SCALE (HSNS) for V2.0 DE ON23-00003",
          "instructions": ""
       }
    ],
@@ -3275,6 +3399,156 @@
             "subPosition": 15,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 1,
+         "fieldName": "HSNS_1Puedollegaraquedarmecompletam",
+         "subScale": "HSNS",
+         "question": "1. Puedo llegar a quedarme completamente enfrascado o distraído pensando en mis asuntos, mi salud, mis preocupaciones o mis relaciones con los demás",
+         "questionShort": "1. Puedo llegar a quedarme com",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 2,
+         "fieldName": "HSNS_2Missentimientossonfacilmenteh",
+         "subScale": "HSNS",
+         "question": "2. Mis sentimientos son fácilmente heridos por el ridículo o comentarios críticos de los demás",
+         "questionShort": "2. Mis sentimientos son fácilm",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 3,
+         "fieldName": "HSNS_3Cuandoentroenalgunlocalmesien",
+         "subScale": "HSNS",
+         "question": "3. Cuando entro en algún local me siento inseguro y siento que las miradas de los demás se fijan en mí",
+         "questionShort": "3. Cuando entro en algún local",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 4,
+         "fieldName": "HSNS_4Cuandotengoexitonomegustacomp",
+         "subScale": "HSNS",
+         "question": "4. Cuando tengo éxito no me gusta compartir el mérito con otros",
+         "questionShort": "4. Cuando tengo éxito no me gu",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 4,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 5,
+         "fieldName": "HSNS_5Tengobastanteconmiscosascomop",
+         "subScale": "HSNS",
+         "question": "5. Tengo bastante con mis cosas como para preocuparme por los de otra gente",
+         "questionShort": "5. Tengo bastante con mis cosa",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "5": 1, "4": 2, "3": 3, "2": 4, "1": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 5,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 6,
+         "fieldName": "HSNS_6Sientoquetengouncaracterdisti",
+         "subScale": "HSNS",
+         "question": "6. Siento que tengo un carácter distinto a la mayoría de la gente",
+         "questionShort": "6. Siento que tengo un carácte",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 6,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 7,
+         "fieldName": "HSNS_7Siempreinterpretodemodoperson",
+         "subScale": "HSNS",
+         "question": "7. Siempre interpreto de modo personal los comentarios de los demás",
+         "questionShort": "7. Siempre interpreto de modo ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 7,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 8,
+         "fieldName": "HSNS_8Confacilidadmemetoenlascosasq",
+         "subScale": "HSNS",
+         "question": "8. Con facilidad me meto en las cosas que me interesan y me olvido de los demás",
+         "questionShort": "8. Con facilidad me meto en la",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "5": 1, "4": 2, "3": 3, "2": 4, "1": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 8,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 9,
+         "fieldName": "HSNS_9Medesagradaestarconungrupodeg",
+         "subScale": "HSNS",
+         "question": "9. Me desagrada estar con un grupo de gente a menos que sepa que uno de los presentes en el grupo me aprecia",
+         "questionShort": "9. Me desagrada estar con un g",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 9,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "HSNS",
+         "position": 10,
+         "fieldName": "HSNS_10Enelfondomefastidiaqueotrage",
+         "subScale": "HSNS",
+         "question": "10. En el fondo me fastidia que otra gente me venga con sus problemas, pidiéndome mi tiempo y mi comprensión",
+         "questionShort": "10. En el fondo me fastidia qu",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "5": 1, "4": 2, "3": 3, "2": 4, "1": 5 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 10,
+            "answerType": "noother"
+         }
       }
    ],
    "calculatedFields": [
@@ -3467,7 +3741,6 @@
          "subScales": ["NA"],
          "position": 451
       },
-
       {
          "surveyShortName": "FIAD15_ON23",
          "description": "FIAD15_ON23_SEMAFORO",
@@ -3477,6 +3750,28 @@
          "criteria": { "fieldNameValue": "FIAD15_ON23_TOTAL_MAX_75" },
          "subScales": ["FIAD15_ON23_SEMAFORO"],
          "position": 481
+      },
+      {
+         "surveyShortName": "HSNS",
+         "description": "HSNS_NARCISISMO_TOTAL_MAX_50",
+         "shortDescription": "HSNS_NARCISISMO_TOTAL_MAX_50",
+         "fieldName": "HSNS_NARCISISMO_TOTAL_MAX_50",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["HSNS"],
+         "position": 511
+      },
+      {
+         "surveyShortName": "HSNS",
+         "description": "HSNS_NARCISISMO_PERCENT_OF_MAX",
+         "shortDescription": "HSNS_NARCISISMO_PERCENT_OF_MAX",
+         "fieldName": "HSNS_NARCISISMO_PERCENT_OF_MAX",
+         "calculationType": "CAL_PERCENT_OF_NUMBER",
+         "criteria": {
+            "fieldNameValue": "HSNS_NARCISISMO_TOTAL_MAX_50",
+            "max": 50
+         },
+         "subScales": ["NA"],
+         "position": 541
       }
    ]
 }
