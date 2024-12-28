@@ -22,6 +22,20 @@ class SurveyTemplateManager extends TemplateManager {
             this.prepareOneToManyConstantTemplate()
             return await super.save()
         }
+
+        async loadExistentFromMultis (surveyMultis, surveysFound){
+            const identifierValue = []
+            if(this.log.HasData(surveyMultis)){
+         
+                    for(const surveyMulti of surveyMultis){
+                        if(!surveysFound?.some(surveyFound=> surveyFound.surveyShortName===surveyMulti.surveyShortName)){
+                            identifierValue.push(surveyMulti.surveyShortName)
+                        }
+                    }
+                
+            }
+            return await this.load(identifierValue)
+        }
         
         async load(identifierValue){
             this.log.setFunctionName("load")

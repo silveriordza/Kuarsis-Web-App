@@ -21,6 +21,9 @@ class TemplateManager {
       this.oneToManyLinkField = ''
       this.oneToManyLinkValue = ''
 
+      this.manyToManyStaticField = ''
+      this.manyToManyStaticValue = ''
+
       //configs is the template as it came from the JSON Template configuration file, or in case it came from the database, it is the lean version of the mongoDB collection objects.
       this.configs = null
 
@@ -63,6 +66,29 @@ class TemplateManager {
       )
       return result
    }
+
+   async deleteManyToManyMatchingTemplates() {
+      const log = this.log
+
+      log.setFunctionName('deleteAllMatchingTemplates')
+
+      //const identifiersList = this.identifiersList
+
+      this.getIdentifiersManyToMany()
+
+      log.HasDataMultipeEx(
+         'collectionName,identifierFieldName, identifiersList',
+         this.collectionName,
+         this.manyToManyStaticField,
+         this.identifiersList,
+      )
+
+      const result = await this.mongoDBManager.deleteManyWithCheck(
+         this.manyToManyStaticField,
+         this.identifiersList,
+      )
+      return result
+   }
    //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
    getIdentifiersList() {
       this.log.HasDataMultipeEx(
@@ -74,6 +100,30 @@ class TemplateManager {
       this.identifiersList = this.configs.map(
          template => template[this.identifierFieldName],
       )
+      return this.identifiersList
+   }
+
+   //Updates the namesList in the parent TemplateMangaer based on specific function for the type of template.
+   getIdentifiersManyToMany() {
+      this.log.HasDataMultipeEx(
+         'configs, identifierFieldName',
+         this.configs,
+         this.manyToManyStaticField,
+      )
+      this.identifiersList = []
+      for (const config of this.configs) {
+         if (
+            !this.identifiersList?.some(
+               id => id === config[this.manyToManyStaticField],
+            )
+         ) {
+            this.identifiersList.push(config[this.manyToManyStaticField])
+         }
+      }
+
+      // this.identifiersList = this.configs.map(
+      //    template => template[this.oneToManyLinkField],
+      // )
       return this.identifiersList
    }
 
@@ -99,6 +149,16 @@ class TemplateManager {
       this.log.HasDataMultipeEx('configs', this.configs)
 
       await this.deleteAllMatchingTemplates()
+
+      this.collection = await this.mongoDBManager.insertMany(this.configs)
+      this.configs = this.mongoDBManager.leanCollectionList(this.collection)
+
+      return this.configs
+   }
+   async saveManyToMany() {
+      this.log.HasDataMultipeEx('configs', this.configs)
+
+      await this.deleteManyToManyMatchingTemplates()
 
       this.collection = await this.mongoDBManager.insertMany(this.configs)
       this.configs = this.mongoDBManager.leanCollectionList(this.collection)

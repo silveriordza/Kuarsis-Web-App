@@ -50,7 +50,7 @@ class MongoDBManager {
    async deleteManyWithCheck(filterByField, identifiersList) {
       this.log.setFunctionName('deleteManyWithCheck')
       const filter = {}
-      filter[filterByField] = { $in: identifiersList }
+      filter[filterByField] = { $exists: true, $in: identifiersList }
 
       const result = await this.collection.deleteMany(filter)
       this.isDeletedEx(

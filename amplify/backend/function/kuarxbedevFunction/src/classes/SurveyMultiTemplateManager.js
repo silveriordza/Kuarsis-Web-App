@@ -5,10 +5,11 @@ const { addPropertyMatchingValueInArray } = require("../utils/Functions.js")
 const sourceFilename = "SurveyMultiTemplateManager.js"
 
 class SurveyMultiTemplateManager extends SurveyFieldManager { 
-    constructor(collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField){
+    constructor(collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField, manyToManyStaticField){
         super(     
             collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField
             )
+            this.manyToManyStaticField = manyToManyStaticField
             this.log = new LogManager (sourceFilename, "constructor")
             this.log.LogThis(`START`, L3)
             this.preProcessTemplate = this.preProcessTemplate.bind(this); // Bind A to  
@@ -30,9 +31,10 @@ class SurveyMultiTemplateManager extends SurveyFieldManager {
         this.linkValue=linkValue[0][this.externalLinkField]
         this.collectionToLink=collectionToLInk
         
+        
 
         SurveyMultiTemplateManager.prototype.preProcessTemplate.call(this);
-        return await super.save(this.configs, this.collectionToLink)
+        return await super.saveManyToMany(this.configs, this.collectionToLink)
     }
     
 }

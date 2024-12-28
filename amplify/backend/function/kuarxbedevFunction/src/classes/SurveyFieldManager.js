@@ -49,6 +49,16 @@ class SurveyFieldManager extends TemplateManager {
       SurveyFieldManager.prototype.preProcessTemplate.call(this)
       return await super.save()
    }
+
+   async saveManyToMany(configs, collectionToLInk) {
+      this.log.setFunctionName('save')
+      this.configs = configs
+      this.collectionToLink = collectionToLInk
+      this.preProcessTemplate()
+      //If I don't add the call like below with prototype and the name of the class, there was an issue because the child class of SurveyFieldManager is SurveyMiltiManager and both share the function preProcessTemplate with the same name and when the child invokes save of the parent then the parent was calling the child's preProcessTemplate if invoked form the parent with this.preProcessTemplate. To fix that I added theis explicit invokation.
+      SurveyFieldManager.prototype.preProcessTemplate.call(this)
+      return await super.saveManyToMany()
+   }
 }
 
 module.exports = SurveyFieldManager

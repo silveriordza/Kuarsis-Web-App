@@ -834,46 +834,6 @@ const monkeyWebhookCompletedEventHelper = async req => {
          L0,
       )
 
-      // let newResponseFound = await MonkeyNewResponse.findOne({
-      //    respondent_id: resources.respondent_id,
-      //    monkeyId: resources.survey_id,
-      // })
-
-      // if (newResponseFound) {
-
-      //    LogThis(
-      //       log,
-      //       `updating respondent ${resources.respondent_id}, status=${SURVEY_PROCESS_STATUS.UPDATED}`,
-      //       L0,
-      //    )
-      //    newResponseFound.event_type = bd.event_type
-      //    newResponseFound.event_datetime = bd.event_datetime
-      //    newResponseFound.process_status = SURVEY_PROCESS_STATUS.UPDATED
-      // } else {
-      //    LogThis(log, `creating respondent id ${resources.respondent_id}`, L0)
-      //    LogThis(
-      //       log,
-      //       `resources.event_datetime=${
-      //          bd.event_datetime
-      //       }; date converted=${new Date(bd.event_datetime)}; status=${
-      //          SURVEY_PROCESS_STATUS.NEW
-      //       }`,
-      //       L0,
-      //    )
-      //    newResponseFound = new MonkeyNewResponse({
-      //       monkeyId: resources.survey_id,
-      //       respondent_id: resources.respondent_id,
-      //       event_type: bd.event_type,
-      //       event_datetime: bd.event_datetime,
-      //       process_status: SURVEY_PROCESS_STATUS.NEW,
-      //    })
-      // }
-      // LogThis(
-      //    log,
-      //    `Saving new response trigger into database for respondent_id ${resources.respondent_id}`,
-      //    L0,
-      // )
-      // await newResponseFound.save()
       LogThis(
          log,
          `Saving new response trigger into database completed for respondent_id ${resources.respondent_id}`,
