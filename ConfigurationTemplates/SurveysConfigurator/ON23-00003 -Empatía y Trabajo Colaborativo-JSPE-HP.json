@@ -57,7 +57,7 @@
 
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_2_Favordeindicarfecha",
+            "fieldName": "FICHA-ON23-JSPEHP_1_InicialesdesunombrecompletoEjAntonioRui",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -66,7 +66,7 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_3_Correoelectronico",
+            "fieldName": "FICHA-ON23-JSPEHP_2_Favordeindicarfecha",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -75,7 +75,7 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_4_Hospitalenelquelabora",
+            "fieldName": "FICHA-ON23-JSPEHP_3_Correoelectronico",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -84,7 +84,7 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_5_Otroespecifique",
+            "fieldName": "FICHA-ON23-JSPEHP_4_Hospitalenelquelabora",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -93,7 +93,7 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_6_EspecialidadSubespecialidad",
+            "fieldName": "FICHA-ON23-JSPEHP_5_Otroespecifique",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -102,7 +102,7 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_7_Otroespecifique",
+            "fieldName": "FICHA-ON23-JSPEHP_6_EspecialidadSubespecialidad",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -111,7 +111,7 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_8_Anoderesidencia",
+            "fieldName": "FICHA-ON23-JSPEHP_7_Otroespecifique",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
@@ -120,12 +120,21 @@
          },
          {
             "surveyShortName": "FICHA-ON23-JSPEHP",
-            "fieldName": "FICHA-ON23-JSPEHP_9_Universidaddonderealizosucarrerademedici",
+            "fieldName": "FICHA-ON23-JSPEHP_8_Anoderesidencia",
             "dataType": "String",
             "outputAsReal": true,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
             "position": 121
+         },
+         {
+            "surveyShortName": "FICHA-ON23-JSPEHP",
+            "fieldName": "FICHA-ON23-JSPEHP_9_Universidaddonderealizosucarrerademedici",
+            "dataType": "String",
+            "outputAsReal": true,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 131
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -134,7 +143,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 131
+            "position": 141
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -143,7 +152,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 141
+            "position": 151
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -152,7 +161,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 151
+            "position": 161
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -161,7 +170,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 161
+            "position": 171
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -170,7 +179,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 171
+            "position": 181
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -179,7 +188,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 181
+            "position": 191
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -188,7 +197,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 191
+            "position": 201
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -197,7 +206,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 201
+            "position": 211
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -206,7 +215,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 211
+            "position": 221
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -215,7 +224,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 221
+            "position": 231
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -224,7 +233,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 231
+            "position": 241
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -233,7 +242,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 241
+            "position": 251
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -242,7 +251,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 251
+            "position": 261
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -251,7 +260,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 261
+            "position": 271
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -260,7 +269,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 271
+            "position": 281
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -269,7 +278,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 281
+            "position": 291
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -278,7 +287,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 291
+            "position": 301
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -287,7 +296,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 301
+            "position": 311
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -296,7 +305,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 311
+            "position": 321
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -305,7 +314,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 321
+            "position": 331
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -314,7 +323,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 331
+            "position": 341
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -323,7 +332,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 341
+            "position": 351
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -332,7 +341,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 351
+            "position": 361
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -341,7 +350,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 361
+            "position": 371
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -350,7 +359,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 371
+            "position": 381
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -359,7 +368,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 381
+            "position": 391
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -368,7 +377,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 391
+            "position": 401
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -377,7 +386,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 401
+            "position": 411
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -386,7 +395,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 411
+            "position": 421
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -395,7 +404,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 421
+            "position": 431
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -404,7 +413,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 431
+            "position": 441
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -413,7 +422,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 441
+            "position": 451
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -422,7 +431,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 451
+            "position": 461
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -431,7 +440,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 461
+            "position": 471
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -440,7 +449,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 471
+            "position": 481
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -449,7 +458,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 481
+            "position": 491
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -458,7 +467,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 491
+            "position": 501
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -467,7 +476,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 501
+            "position": 511
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -476,7 +485,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 511
+            "position": 521
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
@@ -485,7 +494,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 521
+            "position": 531
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -494,7 +503,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 531
+            "position": 541
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -503,7 +512,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 541
+            "position": 551
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -512,7 +521,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 551
+            "position": 561
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -521,7 +530,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 561
+            "position": 571
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -530,7 +539,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 571
+            "position": 581
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -539,7 +548,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 581
+            "position": 591
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -548,7 +557,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 591
+            "position": 601
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -557,7 +566,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 601
+            "position": 611
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -566,7 +575,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 611
+            "position": 621
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -575,7 +584,205 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": false,
             "displayType": { "type": "asIs" },
-            "position": 621
+            "position": 631
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_1_Mesientoemocionalmenteagotado",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 641
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_2_Mesientocansadoalfinaldelajorn",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 651
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_3_Cuandomelevantoporlamananaymee",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 661
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_4_Tengofacilidadparacomprenderco",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 671
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_5_Creoqueestoytratandoaalgunospa",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 681
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_6_Sientoquetrabajartodoeldiaconp",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 691
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_7_Creoquetratoconmuchaeficacialo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 701
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_8_Sientoquemitrabajomeestadesgas",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 711
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_9_Creoqueconmitrabajoestoyinfluy",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 721
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_10_Mehevueltomasinsensibleconlage",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 731
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_11_Piensoqueestetrabajomeestaendu",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 741
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_12_Mesientoconmuchaenergiaenmitra",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 751
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_13_Mesientofrustradoaenmitrabajo",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 761
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_14_Creoquetrabajodemasiado",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 771
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_15_Nomepreocuparealmenteloqueleso",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 781
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_16_Trabajardirectamenteconpacient",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 791
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_17_Sientoquepuedocrearconfacilida",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 801
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_18_Mesientomotivadodespuesdetraba",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 811
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_19_Creoqueconsigomuchascosasvalio",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 821
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_20_Mesientoacabadoenmitrabajoalli",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 831
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_21_Enmitrabajotratolosproblemasem",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 841
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_22_Creoquelospacientesmeculpandea",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 851
          },
 
          {
@@ -585,7 +792,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 631
+            "position": 861
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -594,7 +801,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 641
+            "position": 871
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -603,7 +810,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 651
+            "position": 881
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -612,7 +819,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 661
+            "position": 891
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -621,7 +828,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 671
+            "position": 901
          },
          {
             "surveyShortName": "JSPE-HP-ON23003",
@@ -631,34 +838,34 @@
             "showInSurveyOutputScreen": true,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
-               "header": "JeffHp%",
+               "header": "JSPE-HP%",
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 681
+            "position": 911
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
-            "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+            "fieldName": "JEFF_STATIC_ON23_COLAB_TOTAL_MAX_140",
             "dataType": "Integer",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 691
+            "position": 921
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23_V2",
-            "fieldName": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+            "fieldName": "JEFF_STATIC_ON23_COLAB_PERCENT_OF_MAX",
             "dataType": "Float",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": {
                "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
-               "header": "COLAB%",
+               "header": "JEFFSTATIC%",
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 701
+            "position": 931
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -667,7 +874,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 711
+            "position": 941
          },
          {
             "surveyShortName": "HSNS_ON23_V2",
@@ -681,7 +888,71 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 721
+            "position": 951
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_EMOCIONAL_MAX_42",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 961
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_DESPERS_MAX_36",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 971
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_LOGROS_MAX_48",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 981
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_TOTAL_MAX_126",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 991
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_RESULTADO",
+            "dataType": "String",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 1001
+         },
+         {
+            "surveyShortName": "CM_V2",
+            "fieldName": "CM_V2_SEMAPHORE",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "BURN",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 20, "style": "green" },
+                  { "min": 21, "max": 40, "style": "orange" },
+                  { "min": 41, "max": 60, "style": "yellow" },
+                  { "min": 61, "max": 127, "style": "red" }
+               ]
+            },
+            "position": 1011
          }
       ],
       "multiSurveys": [
@@ -714,6 +985,12 @@
             "surveyShortName": "HSNS_ON23_V2",
             "position": 50,
             "monkeyPosition": 4
+         },
+         {
+            "superSurveyShortName": "ON23-00003-EmpatiaTrabajoJSPEHP",
+            "surveyShortName": "CM_V2",
+            "position": 60,
+            "monkeyPosition": 5
          }
       ]
    },
@@ -740,6 +1017,12 @@
          "surveyName": "HSNS_ON23_V2",
          "surveyShortName": "HSNS_ON23_V2",
          "description": "HSNS_ON23_V2",
+         "instructions": ""
+      },
+      {
+         "surveyName": "CM_V2",
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2",
          "instructions": ""
       }
    ],
@@ -1022,7 +1305,7 @@
          "question": "El entendimiento del médico de les sentimientos del paciente y sus familiares es un factor que no influye en el tratamiento médico o quirúrgico.",
          "questionShort": "El entendimiento del médico de les senti",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -1322,16 +1605,7 @@
          "question": "Los profesionales de la salud deben ser considerados como colegas y colaboradores en lugar de como superiores y subordinados.",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 1,
             "subPosition": 1,
@@ -1346,16 +1620,7 @@
          "question": "Durante su educación, todos los estudiantes de profesiones de la salud deben estar involucrados en trabajo en equipo interprofesional con el fin de entender su papel respectivo",
          "questionShort": "Durante su educación, todos lo",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 2,
             "subPosition": 1,
@@ -1370,16 +1635,7 @@
          "question": "Los profesionales de la salud pueden contribuir a las decisiones respecto al bienestar de los pacientes",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 3,
             "subPosition": 1,
@@ -1394,16 +1650,7 @@
          "question": "Los profesionales de la salud no pueden ser responsables ante sus pacientes por el cuidado/servicio que proveen",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 4,
             "subPosition": 1,
@@ -1418,16 +1665,7 @@
          "question": "Debido a la diferenciación de roles, no existen muchas áreas comunes de responsabilidad entre los profesionales de la salud al proveer cuidados de calidad a sus pacientes.",
          "questionShort": "Debido a la diferenciación de ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 5,
             "subPosition": 1,
@@ -1442,16 +1680,7 @@
          "question": "Los profesionales de la salud no pueden ser responsables ante sus pacientes por el cuidado/servicio que proveen",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 6,
             "subPosition": 1,
@@ -1466,16 +1695,7 @@
          "question": "Todos los profesionales de la salud tienen su propia experiencia y conocimientos especiales para proveer cuidados de calidad a sus pacientes.",
          "questionShort": "Todos los profesionales de la ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 7,
             "subPosition": 1,
@@ -1490,16 +1710,7 @@
          "question": "La función primaria de otros profesionales de la salud es seguir sin cuestionar las órdenes del médico que está tratando a los pacientes.",
          "questionShort": "La función primaria de otros p",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 8,
             "subPosition": 1,
@@ -1514,16 +1725,7 @@
          "question": "Los profesionales de la salud deben estar involucrados en las decisiones sobre elaboración de políticas concernientes a su trabajo.",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 9,
             "subPosition": 1,
@@ -1538,16 +1740,7 @@
          "question": "Todos los profesionales de la salud deben tener la responsabilidad de monitorear los efectos de las intervenciones en sus pacientes.",
          "questionShort": "Todos los profesionales de la ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 10,
             "subPosition": 1,
@@ -1562,16 +1755,7 @@
          "question": "Los profesionales de la salud no deben cuestionar las decisiones hechas por sus colegas interprofesionales cuando creen que pudieran tener efectos perjudiciales sobre el paciente.",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 11,
             "subPosition": 1,
@@ -1586,16 +1770,7 @@
          "question": "Los centros médicos académicos deben desarrollar programas educativos interprofesionales para mejorar la práctica colaborativa.",
          "questionShort": "Los centros médicos académicos",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 12,
             "subPosition": 1,
@@ -1610,16 +1785,7 @@
          "question": "Para contribuir al mejor interés del paciente, los profesionales de la salud deben usar su propio juicio en lugar de consultar con sus colegas interprofesionales.",
          "questionShort": "Para contribuir al mejor inter",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 13,
             "subPosition": 1,
@@ -1634,16 +1800,7 @@
          "question": "Los profesionales de la salud deben hacerse conscientes de que sus colegas interprofesionales pueden contribuir a una atención de alta calidad.",
          "questionShort": "Los profesionales de la salud ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 14,
             "subPosition": 1,
@@ -1658,16 +1815,7 @@
          "question": "La educación interprofesional y la colaboración interprofesional en la práctica no están vinculadas entre sí.",
          "questionShort": "La educación interprofesional ",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 15,
             "subPosition": 1,
@@ -1682,16 +1830,7 @@
          "question": "El trabajo en equipo integrado en el cuidado a la salud no requiere educación interprofesional integrada.",
          "questionShort": "El trabajo en equipo integrado",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 16,
             "subPosition": 1,
@@ -1706,16 +1845,7 @@
          "question": "La práctica colaborativa funciona mejor cuando los profesionales de la salud desarrollan relaciones funcionales para implementar metas mutuamente acordadas.",
          "questionShort": "La práctica colaborativa funci",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 17,
             "subPosition": 1,
@@ -1730,16 +1860,7 @@
          "question": "Los errores médicos se minimizarán cuando exista colaboración entre los profesionales de la salud.",
          "questionShort": "Los errores médicos se minimiz",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 18,
             "subPosition": 1,
@@ -1754,16 +1875,7 @@
          "question": "La colaboración interprofesional que incluye respeto mutuo y comunicación mejora el ambiente de trabajo.",
          "questionShort": "La colaboración interprofesion",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 1,
-            "2": 2,
-            "3": 3,
-            "4": 4,
-            "5": 5,
-            "6": 6,
-            "7": 6,
-            "8": 7
-         },
+         "weights": { "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7 },
          "monkeyInfo": {
             "position": 19,
             "subPosition": 1,
@@ -1778,16 +1890,7 @@
          "question": "La satisfacción con el trabajo no está relacionada con las prácticas colaborativas interprofesionales.",
          "questionShort": "La satisfacción con el trabajo",
          "weightType": "WEIGHTED_PAIRS",
-         "weights": {
-            "1": 7,
-            "2": 6,
-            "3": 6,
-            "4": 5,
-            "5": 4,
-            "6": 3,
-            "7": 2,
-            "8": 1
-         },
+         "weights": { "1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1 },
          "monkeyInfo": {
             "position": 20,
             "subPosition": 1,
@@ -1943,6 +2046,336 @@
             "subPosition": 1,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 1,
+         "fieldName": "CM_V2_1_Mesientoemocionalmenteagotado",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Me siento emocionalmente agotado/a por mi trabajo.",
+         "questionShort": "Me siento emocionalmente agota",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 1,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 2,
+         "fieldName": "CM_V2_2_Mesientocansadoalfinaldelajorn",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Me siento cansado al final de la jornada de trabajo.",
+         "questionShort": "Me siento cansado al final de ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 3,
+         "fieldName": "CM_V2_3_Cuandomelevantoporlamananaymee",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Cuando me levanto por la mañana y me enfrento a otra jornada de trabajo me siento fatigado.",
+         "questionShort": "Cuando me levanto por la mañan",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 4,
+         "fieldName": "CM_V2_4_Tengofacilidadparacomprenderco",
+         "subScale": "BURN_LOGROS",
+         "question": "Tengo facilidad para comprender como se sienten mis pacientes.",
+         "questionShort": "Tengo facilidad para comprende",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 5,
+         "fieldName": "CM_V2_5_Creoqueestoytratandoaalgunospa",
+         "subScale": "BURN_DESPERS",
+         "question": "Creo que estoy tratando a algunos pacientes como si fueran objetos impersonales.",
+         "questionShort": "Creo que estoy tratando a algu",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 6,
+         "fieldName": "CM_V2_6_Sientoquetrabajartodoeldiaconp",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Siento que trabajar todo el día con pacientes supone un gran esfuerzo y me cansa.",
+         "questionShort": "Siento que trabajar todo el dí",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 7,
+         "fieldName": "CM_V2_7_Creoquetratoconmuchaeficacialo",
+         "subScale": "BURN_LOGROS",
+         "question": "Creo que trato con mucha eficacia los problemas de mis pacientes.",
+         "questionShort": "Creo que trato con mucha efica",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 8,
+         "fieldName": "CM_V2_8_Sientoquemitrabajomeestadesgas",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Siento que mi trabajo me está desgastando. Me siento quemado por mi trabajo.",
+         "questionShort": "Siento que mi trabajo me está ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 8,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 9,
+         "fieldName": "CM_V2_9_Creoqueconmitrabajoestoyinfluy",
+         "subScale": "BURN_LOGROS",
+         "question": "Creo que con mi trabajo estoy influyendo positivamente en la vida de mis pacientes.",
+         "questionShort": "Creo que con mi trabajo estoy ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 9,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 10,
+         "fieldName": "CM_V2_10_Mehevueltomasinsensibleconlage",
+         "subScale": "BURN_DESPERS",
+         "question": "Me he vuelto más insensible con la gente desde que ejerzo mi profesión.",
+         "questionShort": "Me he vuelto más insensible co",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 10,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 11,
+         "fieldName": "CM_V2_11_Piensoqueestetrabajomeestaendu",
+         "subScale": "BURN_DESPERS",
+         "question": "Pienso que este trabajo me está endureciendo emocionalmente.",
+         "questionShort": "Pienso que este trabajo me est",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 11,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 12,
+         "fieldName": "CM_V2_12_Mesientoconmuchaenergiaenmitra",
+         "subScale": "BURN_LOGROS",
+         "question": "Me siento con mucha energía en mi trabajo.",
+         "questionShort": "Me siento con mucha energía en",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 12,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 13,
+         "fieldName": "CM_V2_13_Mesientofrustradoaenmitrabajo",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Me siento frustrado/a en mi trabajo.",
+         "questionShort": "Me siento frustrado/a en mi tr",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 13,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 14,
+         "fieldName": "CM_V2_14_Creoquetrabajodemasiado",
+         "subScale": "BURN_DESPERS",
+         "question": "Creo que trabajo demasiado.",
+         "questionShort": "Creo que trabajo demasiado.",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 14,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 15,
+         "fieldName": "CM_V2_15_Nomepreocuparealmenteloqueleso",
+         "subScale": "BURN_DESPERS",
+         "question": "No me preocupa realmente lo que les ocurra a algunos de mis pacientes.",
+         "questionShort": "No me preocupa realmente lo qu",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 15,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 16,
+         "fieldName": "CM_V2_16_Trabajardirectamenteconpacient",
+         "subScale": "BURN_DESPERS",
+         "question": "Trabajar directamente con pacientes me produce estrés.",
+         "questionShort": "Trabajar directamente con paci",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 16,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 17,
+         "fieldName": "CM_V2_17_Sientoquepuedocrearconfacilida",
+         "subScale": "BURN_LOGROS",
+         "question": "Siento que puedo crear con facilidad un clima agradable con mis pacientes.",
+         "questionShort": "Siento que puedo crear con fac",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 17,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 18,
+         "fieldName": "CM_V2_18_Mesientomotivadodespuesdetraba",
+         "subScale": "BURN_LOGROS",
+         "question": "Me siento motivado después de trabajar en contacto con pacientes .",
+         "questionShort": "Me siento motivado después de ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 18,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 19,
+         "fieldName": "CM_V2_19_Creoqueconsigomuchascosasvalio",
+         "subScale": "BURN_LOGROS",
+         "question": "Creo que consigo muchas cosas valiosas en este trabajo.",
+         "questionShort": "Creo que consigo muchas cosas ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 19,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 20,
+         "fieldName": "CM_V2_20_Mesientoacabadoenmitrabajoalli",
+         "subScale": "BURN_EMOCIONAL",
+         "question": "Me siento acabado en mi trabajo, al límite de mis posibilidades.",
+         "questionShort": "Me siento acabado en mi trabaj",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 20,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 21,
+         "fieldName": "CM_V2_21_Enmitrabajotratolosproblemasem",
+         "subScale": "BURN_LOGROS",
+         "question": "En mi trabajo trato los problemas emocionalmente con mucha calma.",
+         "questionShort": "En mi trabajo trato los proble",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "7": 0, "6": 1, "5": 2, "4": 3, "3": 4, "2": 5, "1": 6 },
+         "monkeyInfo": {
+            "position": 21,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "position": 22,
+         "fieldName": "CM_V2_22_Creoquelospacientesmeculpandea",
+         "subScale": "BURN_DESPERS",
+         "question": "Creo que los pacientes me culpan de algunos de sus problemas.",
+         "questionShort": "Creo que los pacientes me culp",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, "7": 6 },
+         "monkeyInfo": {
+            "position": 22,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
       }
    ],
    "calculatedFields": [
@@ -2011,21 +2444,21 @@
       },
       {
          "surveyShortName": "JEFF_STATIC_ON23_V2",
-         "description": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
-         "shortDescription": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
-         "fieldName": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+         "description": "JEFF_STATIC_ON23_COLAB_TOTAL_MAX_140",
+         "shortDescription": "JEFF_STATIC_ON23_COLAB_TOTAL_MAX_140",
+         "fieldName": "JEFF_STATIC_ON23_COLAB_TOTAL_MAX_140",
          "calculationType": "CAL_SUM_THE_GROUP",
          "subScales": ["JEFF_STATIC_ON23_V2"],
          "position": 181
       },
       {
          "surveyShortName": "JEFF_STATIC_ON23_V2",
-         "description": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
-         "shortDescription": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
-         "fieldName": "JEFF_COLAB_INTERPERS_PERCENT_OF_MAX",
+         "description": "JEFF_STATIC_ON23_COLAB_PERCENT_OF_MAX",
+         "shortDescription": "JEFF_STATIC_ON23_COLAB_PERCENT_OF_MAX",
+         "fieldName": "JEFF_STATIC_ON23_COLAB_PERCENT_OF_MAX",
          "calculationType": "CAL_PERCENT_OF_NUMBER",
          "criteria": {
-            "fieldNameValue": "JEFF_COLABORACION_INTERPERSONAL_TOTAL_MAX_140",
+            "fieldNameValue": "JEFF_STATIC_ON23_COLAB_TOTAL_MAX_140",
             "max": 140
          },
          "subScales": ["NA"],
@@ -2052,6 +2485,70 @@
          },
          "subScales": ["NA"],
          "position": 271
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2_EMOCIONAL_MAX_42",
+         "shortDescription": "CM_V2_EMOCIONAL_MAX_42",
+         "fieldName": "CM_V2_EMOCIONAL_MAX_42",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_EMOCIONAL"],
+         "position": 301
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2_DESPERS_MAX_36",
+         "shortDescription": "CM_V2_DESPERS_MAX_36",
+         "fieldName": "CM_V2_DESPERS_MAX_36",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_DESPERS"],
+         "position": 331
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2_LOGROS_MAX_48",
+         "shortDescription": "CM_V2_LOGROS_MAX_48",
+         "fieldName": "CM_V2_LOGROS_MAX_48",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_LOGROS"],
+         "position": 361
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2_TOTAL_MAX_126",
+         "shortDescription": "CM_V2_TOTAL_MAX_126",
+         "fieldName": "CM_V2_TOTAL_MAX_126",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["BURN_EMOCIONAL", "BURN_DESPERS", "BURN_LOGROS"],
+         "position": 391
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2_RESULTADO",
+         "shortDescription": "CM_V2_RESULTADO",
+         "fieldName": "CM_V2_RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "CM_V2_TOTAL_MAX_126",
+            "ranges": [
+               { "min": 0, "max": 20, "resultIfTrue": "Nivel Bajo" },
+               { "min": 21, "max": 40, "resultIfTrue": "Moderado" },
+               { "min": 41, "max": 60, "resultIfTrue": "Alto" },
+               { "min": 61, "max": 127, "resultIfTrue": "Muy Alto" }
+            ]
+         },
+         "subScales": ["CM_V2_TOTAL_MAX_126"],
+         "position": 421
+      },
+      {
+         "surveyShortName": "CM_V2",
+         "description": "CM_V2_SEMAPHORE",
+         "shortDescription": "CM_V2_SEMAPHORE",
+         "fieldName": "CM_V2_SEMAPHORE",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "CM_V2_TOTAL_MAX_126" },
+         "subScales": ["CM_V2_SEMAPHORE"],
+         "position": 451
       }
    ]
 }
