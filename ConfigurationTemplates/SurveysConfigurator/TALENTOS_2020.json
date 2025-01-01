@@ -2,9 +2,9 @@
    "surveySuperiors": {
       "surveySuperiorList": [
          {
-            "surveyName": "v2.0 de ON23-00003 - Empatía y Trabajo colaborativo",
-            "superSurveyShortName": "v20deON230003_EMPATIAYTRABAJO",
-            "description": "v2.0 de ON23-00003 - Empatía y Trabajo colaborativo",
+            "surveyName": "Oncare Treatment Center 2020 Talentos",
+            "superSurveyShortName": "TALENTOS_2020",
+            "description": "Encuesta para Talentos de OnCare Treatment Center para el año 2020",
             "position": 1
          }
       ],
@@ -4782,11 +4782,22 @@
          },
          {
             "surveyShortName": "FIAD-15",
-            "fieldName": "FIAD-15 RESULTADO",
+            "fieldName": "FIAD-15_RESULTADO",
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "displayType": { "type": "asIs" },
+            "displayType": {
+               "type": "asIs",
+               "displayAsPieChart": {
+                  "calculationType": "countSeries",
+                  "seriesStyles": {
+                     "Nivel Funcional": "#0cc50c",
+                     "Nivel Alto": "#008000",
+                     "Nivel Intermedio": "#ffa500",
+                     "Nivel Limitrofe": "#ff0000"
+                  }
+               }
+            },
             "position": 5291
          },
          {
@@ -4980,7 +4991,18 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "displayType": { "type": "asIs" },
+            "displayType": {
+               "type": "asIs",
+               "displayAsPieChart": {
+                  "calculationType": "countSeries",
+                  "seriesStyles": {
+                     "Sin Ansiedad": "#0cc50c",
+                     "Ansiedad Leve": "#008000",
+                     "Ansiedad Moderada": "#ffa500",
+                     "Ansiedad Severa": "#ff0000"
+                  }
+               }
+            },
             "position": 5441
          },
 
@@ -5062,7 +5084,19 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "displayType": { "type": "asIs" },
+            "displayType": {
+               "type": "asIs",
+               "displayAsPieChart": {
+                  "calculationType": "countSeries",
+                  "seriesStyles": {
+                     "Sin Depresión": "#0cc50c",
+                     "Depresión Ligera": "#008000",
+                     "Depresión Moderada": "#ffa500",
+                     "Depresión Severa - requiere ayuda": "#ff0000",
+                     "Depresión Muy Severa - requiere ayuda": "#ff0000"
+                  }
+               }
+            },
             "position": 5501
          },
          {
@@ -5578,77 +5612,116 @@
          }
       ],
       "multiSurveys": [
-         { "surveyShortName": "INFO", "position": 10, "monkeyPosition": 0 },
-         { "surveyShortName": "Datos", "position": 20, "monkeyPosition": 1 },
-         { "surveyShortName": "CSG", "position": 30, "monkeyPosition": 2 },
          {
+            "superSurveyShortName": "TALENTOS_2020",
+            "surveyShortName": "INFO",
+            "position": 10,
+            "monkeyPosition": 0
+         },
+         {
+            "superSurveyShortName": "TALENTOS_2020",
+            "surveyShortName": "Datos",
+            "position": 20,
+            "monkeyPosition": 1
+         },
+         {
+            "superSurveyShortName": "TALENTOS_2020",
+            "surveyShortName": "CSG",
+            "position": 30,
+            "monkeyPosition": 2
+         },
+         {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "Fiad-15",
             "position": 40,
             "monkeyPosition": 3
          },
-         { "surveyShortName": "BURN", "position": 50, "monkeyPosition": 4 },
          {
+            "superSurveyShortName": "TALENTOS_2020",
+            "surveyShortName": "BURN",
+            "position": 50,
+            "monkeyPosition": 4
+         },
+         {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "ESTRES",
             "position": 60,
             "monkeyPosition": 5
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "HAMILTON",
             "position": 70,
             "monkeyPosition": 6
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "JEFF_STATIC",
             "position": 80,
             "monkeyPosition": 7
          },
-         { "surveyShortName": "BECK", "position": 90, "monkeyPosition": 8 },
          {
+            "superSurveyShortName": "TALENTOS_2020",
+            "surveyShortName": "BECK",
+            "position": 90,
+            "monkeyPosition": 8
+         },
+         {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "SCL90",
             "position": 100,
             "monkeyPosition": 10
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "JEFF_HP",
             "position": 130,
             "monkeyPosition": 11
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "E_EFF_17",
             "position": 160,
             "monkeyPosition": 12
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "VIOLENCIA_PADECIDA",
             "position": 190,
             "monkeyPosition": 13
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "VIOLENCIA_PADECIDA_DETALLES",
             "position": 220,
             "monkeyPosition": 14
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "VIOLENCIA_PADECIDA_TIPOS",
             "position": 250,
             "monkeyPosition": 15
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "VIOLENCIA_EJERCIDA_DETALLES",
             "position": 280,
             "monkeyPosition": 16
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "ACTITUD_APRENDIZAJE",
             "position": 310,
             "monkeyPosition": 17
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "JEFF_MEDICO_ENFERMERIA",
             "position": 340,
             "monkeyPosition": 18
          },
          {
+            "superSurveyShortName": "TALENTOS_2020",
             "surveyShortName": "TEST_DE_ZAVIC",
             "position": 370,
             "monkeyPosition": 19
@@ -5663,27 +5736,15 @@
          "instructions": ""
       },
       {
-         "surveyName": "CONSENT",
-         "surveyShortName": "CONSENT",
-         "description": "Carta de consentimiento informado",
+         "surveyName": "Datos",
+         "surveyShortName": "Datos",
+         "description": "Informacion de la persona encuestada.",
          "instructions": ""
       },
       {
-         "surveyName": "FICHA",
-         "surveyShortName": "FICHA",
-         "description": "Ficha de identificación",
-         "instructions": ""
-      },
-      {
-         "surveyName": "SOCIODEMO",
-         "surveyShortName": "SOCIODEMO",
-         "description": "Datos sociodemográficos",
-         "instructions": ""
-      },
-      {
-         "surveyName": "CM",
-         "surveyShortName": "CM",
-         "description": "CM",
+         "surveyName": "Cuestionario General de Salud.",
+         "surveyShortName": "CSG",
+         "description": "Cuestionario General de Salud.",
          "instructions": ""
       },
       {
@@ -13951,9 +14012,9 @@
       },
       {
          "surveyShortName": "FIAD-15",
-         "description": "FIAD-15 RESULTADO",
-         "shortDescription": "FIAD-15 RESULTADO",
-         "fieldName": "FIAD-15 RESULTADO",
+         "description": "FIAD-15_RESULTADO",
+         "shortDescription": "FIAD-15_RESULTADO",
+         "fieldName": "FIAD-15_RESULTADO",
          "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
          "criteria": {
             "fieldNameValue": "FIAD-15_TOTAL_MAX_60",
