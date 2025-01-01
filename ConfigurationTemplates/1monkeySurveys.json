@@ -1,304 +1,312 @@
 {
-  "surveys": [
-    {
-      "id": "516096351",
-      "title": "Survey System Tests",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/516096351"
-    },
-    {
-      "id": "182423261",
-      "title": "Oncare Treatment Center 2020 Talentos",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/182423261"
-    },
-    {
-      "id": "318719294",
-      "title": "General Oncare Treatment Center PI2022",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/318719294"
-    },
-    {
-      "id": "409826478",
-      "title": "Silver - Copia - Oncare Treatment Center 2020 Talentos",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/409826478"
-    },
-    {
-      "id": "307212753",
-      "title": "Cuidados Paliativos\n\nStaf médico",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/307212753"
-    },
-    {
-      "id": "514940613",
-      "title": "PREVENCION 2023",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/514940613"
-    },
-    {
-      "id": "514806110",
-      "title": "Silver - CSG Prototype",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/514806110"
-    },
-    {
-      "id": "512028989",
-      "title": "v2.0 de ON23-00003 - Empatía y Trabajo colaborativo",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/512028989"
-    },
-    {
-      "id": "407714646",
-      "title": "Copia de v2.0 de ON23-00003 - Empatía y Trabajo colaborativo",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/407714646"
-    },
-    {
-      "id": "404804859",
-      "title": "ON23-00003 - Empatía y Trabajo colaborativo",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/404804859"
-    },
-    {
-      "id": "506713713",
-      "title": "ON22-00022 - Actitudes y preferencias del profesional de salud",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/506713713"
-    },
-    {
-      "id": "402762662",
-      "title": "Psiconcología - Centro Universitario Contra el Cáncer",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/402762662"
-    },
-    {
-      "id": "507759614",
-      "title": "Evaluación conocimiento básico en Oncología",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/507759614"
-    },
-    {
-      "id": "308764899",
-      "title": "Laboratorio de Investigación Básica Clínica\n\nEvaluación de la eficacia en generación de anticuerpos neutralizantes vs SARS-CoV-2",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/308764899"
-    },
-    {
-      "id": "68191499",
-      "title": "Cuestionario de Estudiantes (6to año)",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/68191499"
-    },
-    {
-      "id": "505115357",
-      "title": "Funciones del Yo",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/505115357"
-    },
-    {
-      "id": "317237777",
-      "title": "ESCALAS DE PERSONALIDAD",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/317237777"
-    },
-    {
-      "id": "304779305",
-      "title": "Centro Universitario Contra en Cáncer 2021 Empleados",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/304779305"
-    },
-    {
-      "id": "310155247",
-      "title": "Evaluación de riesgo para Cáncer",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/310155247"
-    },
-    {
-      "id": "316916681",
-      "title": "Clase: Psiconcología",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/316916681"
-    },
-    {
-      "id": "315527540",
-      "title": "Retroalimentación sobre el Simposio \" Acompañamiento médico del Cuidador\"",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/315527540"
-    },
-    {
-      "id": "314952949",
-      "title": "Simposio Acompañamiento médico del Cuidador",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/314952949"
-    },
-    {
-      "id": "313981131",
-      "title": "Protocolo Radioterapia",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/313981131"
-    },
-    {
-      "id": "312481748",
-      "title": "Ev. 2 Diplomado en Psiconcología y Cuidados Paliativos",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/312481748"
-    },
-    {
-      "id": "312001912",
-      "title": "Evaluación 5 Diplomado en Psiconcología y Cuidados Paliativos",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/312001912"
-    },
-    {
-      "id": "311559887",
-      "title": "Diplomado de Psiconcología y Cuidados Paliativos Evaluación 3",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/311559887"
-    },
-    {
-      "id": "310142369",
-      "title": "Cuestionarios Cuidador  CP",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/310142369"
-    },
-    {
-      "id": "310367859",
-      "title": "cuestionarios de Paciente CP",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/310367859"
-    },
-    {
-      "id": "296964670",
-      "title": "Suiza   EEM-versión Estudiantes Noviembre 2020",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/296964670"
-    },
-    {
-      "id": "284565588",
-      "title": "ONCARE a tu cuidado",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/284565588"
-    },
-    {
-      "id": "297532046",
-      "title": "COMPLETA EEM-versión Noviembre 2020",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/297532046"
-    },
-    {
-      "id": "284565431",
-      "title": "ANTIGUA Oncare Treatment Center- Mental Health",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/284565431"
-    },
-    {
-      "id": "291587764",
-      "title": "Oncare Treatment Center- Mental Health 2020",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/291587764"
-    },
-    {
-      "id": "168477049",
-      "title": "Version impresa EEM-versión 11/2018",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/168477049"
-    },
-    {
-      "id": "278076938",
-      "title": "Psicométricos datos generales",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/278076938"
-    },
-    {
-      "id": "290831677",
-      "title": "Copy of Oncare Treatment Center 2020 Talentos",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/290831677"
-    },
-    {
-      "id": "162743903",
-      "title": "Copia de EEM-versión 11/2018",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/162743903"
-    },
-    {
-      "id": "283230991",
-      "title": "Copia de Psicométricos datos generales",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/283230991"
-    },
-    {
-      "id": "88447545",
-      "title": "Protocolo de Burnout",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/88447545"
-    },
-    {
-      "id": "162000365",
-      "title": "EEM-versión 11/2018",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/162000365"
-    },
-    {
-      "id": "162644397",
-      "title": "Factores de riesgo y factores protectores en el síndrome del cuidador (ON16-00010)",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/162644397"
-    },
-    {
-      "id": "162582640",
-      "title": "Centro Universitario Contra el Cáncer",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/162582640"
-    },
-    {
-      "id": "157757388",
-      "title": "Clima Laboral",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/157757388"
-    },
-    {
-      "id": "121724318",
-      "title": "Cuestionario de estudiantes (Agosto - Diciembre 2017)",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/121724318"
-    },
-    {
-      "id": "87885315",
-      "title": "Cuestionario de estudiantes (Febrero - Junio 2017)",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/87885315"
-    },
-    {
-      "id": "88063259",
-      "title": "Cuestionario de re-aplicacion para residentes",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/88063259"
-    },
-    {
-      "id": "88132382",
-      "title": "Cuestionario de residentes",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/88132382"
-    },
-    {
-      "id": "74497191",
-      "title": "Cuestionario de estudiantes (Agosto-Enero 2016-2017)",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/74497191"
-    },
-    {
-      "id": "80798887",
-      "title": "Evaluación de clase de Oncología Pregrado",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/80798887"
-    },
-    {
-      "id": "67664323",
-      "title": "Cuestionario de Estudiantes (5to año) (ago-dic 2015)",
-      "nickname": "",
-      "href": "https://api.surveymonkey.com/v3/surveys/67664323"
-    }
-  ]
+   "data": [
+      {
+         "id": "414572658",
+         "title": "ON23-00003 -Empatía y Trabajo Colaborativo-JSPE-HP",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/414572658"
+      },
+      {
+         "id": "182423261",
+         "title": "Oncare Treatment Center 2020 Talentos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/182423261"
+      },
+      {
+         "id": "519979677",
+         "title": "ON23-003 Empatía y Trabajo Colaborativo- Cuestionario de Conocimientos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/519979677"
+      },
+      {
+         "id": "318719294",
+         "title": "General Oncare Treatment Center PI2022",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/318719294"
+      },
+      {
+         "id": "512028989",
+         "title": "v2.0 de ON23-00003 - Empatía y Trabajo colaborativo",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/512028989"
+      },
+      {
+         "id": "516572874",
+         "title": "ON23-00019 Disfunción Sexual y Calidad de Vida en Pacientes con Cáncer de Próstata Tratados con Radioterapia",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/516572874"
+      },
+      {
+         "id": "519615088",
+         "title": "CAMPAMENTO DE OTOÑO CUCC 2024",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/519615088"
+      },
+      {
+         "id": "414590591",
+         "title": "ON23-00003-TEST R1-2023 R2-2024",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/414590591"
+      },
+      {
+         "id": "518893430",
+         "title": "Copy EEM-HSNS English version",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/518893430"
+      },
+      {
+         "id": "514806110",
+         "title": "Silver - CSG Prototype",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/514806110"
+      },
+      {
+         "id": "307212753",
+         "title": "Cuidados Paliativos\n\nStaf médico",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/307212753"
+      },
+      {
+         "id": "514940613",
+         "title": "PREVENCION 2023",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/514940613"
+      },
+      {
+         "id": "516096351",
+         "title": "Survey System Tests",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/516096351"
+      },
+      {
+         "id": "516175398",
+         "title": "Silver Test - Subset of Oncare Treatment Center 2020 Talentos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/516175398"
+      },
+      {
+         "id": "409826478",
+         "title": "Silver - Copia - Oncare Treatment Center 2020 Talentos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/409826478"
+      },
+      {
+         "id": "407714646",
+         "title": "Copia de v2.0 de ON23-00003 - Empatía y Trabajo colaborativo",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/407714646"
+      },
+      {
+         "id": "404804859",
+         "title": "ON23-00003 - Empatía y Trabajo colaborativo",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/404804859"
+      },
+      {
+         "id": "506713713",
+         "title": "ON22-00022 - Actitudes y preferencias del profesional de salud",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/506713713"
+      },
+      {
+         "id": "402762662",
+         "title": "Psiconcología - Centro Universitario Contra el Cáncer",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/402762662"
+      },
+      {
+         "id": "507759614",
+         "title": "Evaluación conocimiento básico en Oncología",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/507759614"
+      },
+      {
+         "id": "308764899",
+         "title": "Laboratorio de Investigación Básica Clínica\n\nEvaluación de la eficacia en generación de anticuerpos neutralizantes vs SARS-CoV-2",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/308764899"
+      },
+      {
+         "id": "68191499",
+         "title": "Cuestionario de Estudiantes (6to año)",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/68191499"
+      },
+      {
+         "id": "505115357",
+         "title": "Funciones del Yo",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/505115357"
+      },
+      {
+         "id": "317237777",
+         "title": "ESCALAS DE PERSONALIDAD",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/317237777"
+      },
+      {
+         "id": "304779305",
+         "title": "Centro Universitario Contra en Cáncer 2021 Empleados",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/304779305"
+      },
+      {
+         "id": "310155247",
+         "title": "Evaluación de riesgo para Cáncer",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/310155247"
+      },
+      {
+         "id": "316916681",
+         "title": "Clase: Psiconcología",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/316916681"
+      },
+      {
+         "id": "315527540",
+         "title": "Retroalimentación sobre el Simposio \" Acompañamiento médico del Cuidador\"",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/315527540"
+      },
+      {
+         "id": "314952949",
+         "title": "Simposio Acompañamiento médico del Cuidador",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/314952949"
+      },
+      {
+         "id": "313981131",
+         "title": "Protocolo Radioterapia",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/313981131"
+      },
+      {
+         "id": "312481748",
+         "title": "Ev. 2 Diplomado en Psiconcología y Cuidados Paliativos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/312481748"
+      },
+      {
+         "id": "312001912",
+         "title": "Evaluación 5 Diplomado en Psiconcología y Cuidados Paliativos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/312001912"
+      },
+      {
+         "id": "311559887",
+         "title": "Diplomado de Psiconcología y Cuidados Paliativos Evaluación 3",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/311559887"
+      },
+      {
+         "id": "310142369",
+         "title": "Cuestionarios Cuidador  CP",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/310142369"
+      },
+      {
+         "id": "310367859",
+         "title": "cuestionarios de Paciente CP",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/310367859"
+      },
+      {
+         "id": "296964670",
+         "title": "Suiza   EEM-versión Estudiantes Noviembre 2020",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/296964670"
+      },
+      {
+         "id": "284565588",
+         "title": "ONCARE a tu cuidado",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/284565588"
+      },
+      {
+         "id": "297532046",
+         "title": "COMPLETA EEM-versión Noviembre 2020",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/297532046"
+      },
+      {
+         "id": "284565431",
+         "title": "ANTIGUA Oncare Treatment Center- Mental Health",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/284565431"
+      },
+      {
+         "id": "291587764",
+         "title": "Oncare Treatment Center- Mental Health 2020",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/291587764"
+      },
+      {
+         "id": "168477049",
+         "title": "Version impresa EEM-versión 11/2018",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/168477049"
+      },
+      {
+         "id": "278076938",
+         "title": "Psicométricos datos generales",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/278076938"
+      },
+      {
+         "id": "290831677",
+         "title": "Copy of Oncare Treatment Center 2020 Talentos",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/290831677"
+      },
+      {
+         "id": "162743903",
+         "title": "Copia de EEM-versión 11/2018",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/162743903"
+      },
+      {
+         "id": "283230991",
+         "title": "Copia de Psicométricos datos generales",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/283230991"
+      },
+      {
+         "id": "88447545",
+         "title": "Protocolo de Burnout",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/88447545"
+      },
+      {
+         "id": "162000365",
+         "title": "EEM-versión 11/2018",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/162000365"
+      },
+      {
+         "id": "162644397",
+         "title": "Factores de riesgo y factores protectores en el síndrome del cuidador (ON16-00010)",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/162644397"
+      },
+      {
+         "id": "162582640",
+         "title": "Centro Universitario Contra el Cáncer",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/162582640"
+      },
+      {
+         "id": "157757388",
+         "title": "Clima Laboral",
+         "nickname": "",
+         "href": "https://api.surveymonkey.com/v3/surveys/157757388"
+      }
+   ],
+   "per_page": 50,
+   "page": 1,
+   "total": 71,
+   "links": {
+      "self": "https://api.surveymonkey.com/v3/surveys?per_page=50&page=1",
+      "next": "https://api.surveymonkey.com/v3/surveys?per_page=50&page=2",
+      "last": "https://api.surveymonkey.com/v3/surveys?per_page=50&page=2"
+   }
 }

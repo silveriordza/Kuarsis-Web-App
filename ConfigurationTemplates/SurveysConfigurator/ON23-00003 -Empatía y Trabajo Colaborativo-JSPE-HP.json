@@ -932,9 +932,21 @@
             "dataType": "String",
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
-            "displayType": { "type": "asIs" },
+            "displayType": {
+               "type": "asIs",
+               "displayAsPieChart": {
+                  "calculationType": "countSeries",
+                  "seriesStyles": {
+                     "Nivel Bajo": "#0cc50c",
+                     "Moderado": "#008000",
+                     "Alto": "#ffa500",
+                     "Muy Alto": "#ff0000"
+                  }
+               }
+            },
             "position": 1001
          },
+
          {
             "surveyShortName": "CM_V2",
             "fieldName": "CM_V2_SEMAPHORE",
