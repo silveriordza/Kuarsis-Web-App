@@ -862,6 +862,7 @@ const bulkMonkeyWebhookCompletedEventTalentosRedesign2020 = asyncHandler(
          //LogThis(log, `req.headers=${JSON.stringify(req.headers, null, 2)}`, L0)
 
          const respondentIdsList = req.body.respondentIdsList
+         const surveyToBulk = req.body.surveyMonkeyId
          const reqWebhook = {}
          let result = null
          let respondentIdProcessed = []
@@ -869,6 +870,9 @@ const bulkMonkeyWebhookCompletedEventTalentosRedesign2020 = asyncHandler(
             webhookCompletedEventRequestTemplate.object_id = respondentId
             webhookCompletedEventRequestTemplate.resources.respondent_id =
                respondentId
+            webhookCompletedEventRequestTemplate.filter_id = surveyToBulk
+            webhookCompletedEventRequestTemplate.resources.survey_id =
+               surveyToBulk
             reqWebhook.body = webhookCompletedEventRequestTemplate
             result = await monkeyUpdateResponses2RedesignHelper(reqWebhook)
             respondentIdProcessed.push(respondentId)
