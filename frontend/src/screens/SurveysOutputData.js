@@ -639,11 +639,11 @@ const SurveysOutputData = ({ match, history }) => {
          const selectedSurvey =
             surveyDetailsInfo.surveySuperiors[e.target.selectedIndex - 1]
          setsurveySelected(e.target.selectedIndex - 1)
-         history.push(
-            `/surveyoutput/survey/${
-               e.target.selectedIndex - 1
-            }/page/${selectedPageNumber}`,
-         )
+         // history.push(
+         //    `/surveyoutput/survey/${
+         //       e.target.selectedIndex - 1
+         //    }/page/${selectedPageNumber}`,
+         // )
       }
    }
 
@@ -1123,7 +1123,7 @@ const SurveysOutputData = ({ match, history }) => {
                         <Col lg={3}>
                            <Form.Control
                               as="select"
-                              value={selectedSurveySuperior ?? ''}
+                              value={selectedSurveySuperior?.surveyName ?? ''}
                               onChange={handleSelectSurveySuperior}
                            >
                               <option key={50000} value={'NoSurveySelected'}>
@@ -1133,7 +1133,10 @@ const SurveysOutputData = ({ match, history }) => {
                               {surveyDetailsInfo.surveySuperiors.map(
                                  (element, index) => {
                                     return (
-                                       <option key={index} value={element}>
+                                       <option
+                                          key={index}
+                                          value={element.surveyName}
+                                       >
                                           {element.surveyName}
                                        </option>
                                     )
@@ -1348,271 +1351,6 @@ const SurveysOutputData = ({ match, history }) => {
                   {gridDataSourceArray && gridDataSourceArray.length > 0 && (
                      <div>
                         <Container fluid>
-                           {/* <GridComponent
-                              //style={{ width: '100%' }}
-                              id="Grid"
-                              dataSource={gridDataSourceArray}
-                              allowPaging={true}
-                              pageSettings={pageSettings}
-                              allowFiltering={true}
-                              filterSettings={filterSettings}
-                              allowGrouping={true}
-                              groupSettings={groupSettings}
-                              allowSorting={true}
-                              allowMultiSorting={true}
-                              sortSettings={sortSettings}
-                              allowResizing={true}
-                              // //width={1500}
-                              excelExportComplete={excelExportComplete}
-                              toolbarClick={toolbarClick}
-                              toolbar={toolbarOptions}
-                              allowExcelExport={true}
-                              // allowPdfExport={true}
-                              showColumnChooser={true}
-                              // enableInfiniteScrolling={true}
-                              ref={g => (grid = g)}
-                              height={(
-                                 50 * parseInt(gridPageRowsQuantityText)
-                              ).toString()}
-                              created={gridCreatedHandler}
-                              dataBound={dataBound}
-                              // dataStateChange={dataStateChange}
-                              load={gridLoadCompletedHandler}
-                           >
-                              <ColumnsDirective>
-                                 <ColumnDirective
-                                    field="INFO_1"
-                                    headerText="CSV"
-                                    width="100"
-                                    type="number"
-                                    template={generateOutputFileTemplate}
-                                 />*/}
-                           {/* {console.log(
-                                    `Started Adding Columns in Render of GridComponents`,
-                                 )} 
-                                 {surveyOutputsInfo.outputLayouts.map(
-                                    (layout, keyVal) => {
-                                       let encoder = new TextEncoder()
-                                       let utf8Array = encoder.encode(
-                                          layout.fieldName,
-                                       )
-                                       let utf8String = new TextDecoder()
-                                          .decode(utf8Array)
-                                          .replace(/,/g, ' ')
-                                          .replace(/:/g, '')
-
-                                       switch (layout.dataType) {
-                                          case 'Date':
-                                             newLogger.LogThis(
-                                                `Adding date column`,
-                                             )
-                                             return (
-                                                <ColumnDirective
-                                                   key={keyVal}
-                                                   field={utf8String}
-                                                   width="250"
-                                                   visible={
-                                                      layout.showInSurveyOutputScreen
-                                                   }
-                                                   format="yMd"
-                                                   type="datetime"
-                                                />
-                                             )
-                                          case 'Integer':
-                                             newLogger.LogThis(
-                                                `Adding base on type Integer column`,
-                                             )
-                                             return prepareDisplayBasedOnType(
-                                                keyVal,
-                                                utf8String,
-                                                layout,
-                                                '250',
-                                                'number',
-                                             )
-                                          case 'Float':
-                                             newLogger.LogThis(
-                                                `Adding base on type Integer column`,
-                                             )
-                                             return prepareDisplayBasedOnType(
-                                                keyVal,
-                                                utf8String,
-                                                layout,
-                                                '250',
-                                                'number',
-                                             )
-
-                                          case 'String':
-                                             newLogger.LogThis(
-                                                `Adding string column`,
-                                             )
-                                             return utf8String === 'INFO_1' ? (
-                                                <ColumnDirective
-                                                   key={keyVal}
-                                                   field={utf8String}
-                                                   width="250"
-                                                   visible={
-                                                      layout.showInSurveyOutputScreen
-                                                   }
-                                                   clipMode="EllipsisWithTooltip"
-                                                   template={props => {
-                                                      newLogger.LogThis(
-                                                         `Adding template for info1 link`,
-                                                      )
-                                                      return (
-                                                         <Link
-                                                            to="/surveyoutput/detail"
-                                                            onClick={e =>
-                                                               handleOutputDetailLinkClick(
-                                                                  e,
-                                                                  props.INFO_1,
-                                                               )
-                                                            }
-                                                         >
-                                                            {props.INFO_1}
-                                                         </Link>
-                                                      )
-                                                   }}
-                                                />
-                                             ) : (
-                                                <ColumnDirective
-                                                   key={keyVal}
-                                                   field={utf8String}
-                                                   width="250"
-                                                   visible={
-                                                      layout.showInSurveyOutputScreen
-                                                   }
-                                                   clipMode="EllipsisWithTooltip"
-                                                   type="string"
-                                                />
-                                             )
-                                          default:
-                                             throw Error(
-                                                `Invalid dataType for field ${utf8String}`,
-                                             )
-                                       }
-                                    },
-                                 )}
-                              </ColumnsDirective>
-                              <AggregatesDirective>
-                                 <AggregateDirective>
-                                    <AggregateColumnsDirective>
-                                       {surveyOutputsInfo.outputLayouts.map(
-                                          (layout, keyVal) => {
-                                             newLogger.LogThis(
-                                                `Adding aggregate average captions`,
-                                             )
-                                             let encoder = new TextEncoder()
-                                             let utf8Array = encoder.encode(
-                                                layout.fieldName,
-                                             )
-                                             let utf8String = new TextDecoder()
-                                                .decode(utf8Array)
-                                                .replace(/,/g, ' ')
-                                                .replace(/:/g, '')
-                                             if (
-                                                layout.dataType === 'Integer'
-                                             ) {
-                                                return (
-                                                   <AggregateColumnDirective
-                                                      key={keyVal}
-                                                      field={utf8String}
-                                                      type="Average"
-                                                      footerTemplate={
-                                                         aggregateAverageCaptionTemplate
-                                                      }
-                                                   />
-                                                )
-                                             }
-                                          },
-                                       )}
-                                    </AggregateColumnsDirective>
-                                 </AggregateDirective>
-                                 <AggregateDirective>
-                                    <AggregateColumnsDirective>
-                                       {surveyOutputsInfo.outputLayouts.map(
-                                          (layout, keyVal) => {
-                                             //layout.showInSurveyOutputScreen
-                                             newLogger.LogThis(
-                                                `Adding aggregate Max captions`,
-                                             )
-                                             let encoder = new TextEncoder()
-                                             let utf8Array = encoder.encode(
-                                                layout.fieldName,
-                                             )
-                                             let utf8String = new TextDecoder()
-                                                .decode(utf8Array)
-                                                .replace(/,/g, ' ')
-                                                .replace(/:/g, '')
-                                             if (
-                                                layout.dataType === 'Integer'
-                                             ) {
-                                                return (
-                                                   <AggregateColumnDirective
-                                                      key={keyVal}
-                                                      field={utf8String}
-                                                      type="Max"
-                                                      footerTemplate={
-                                                         aggregateMaxCaptionTemplate
-                                                      }
-                                                   />
-                                                )
-                                             }
-                                          },
-                                       )}
-                                    </AggregateColumnsDirective>
-                                 </AggregateDirective>
-                                 <AggregateDirective>
-                                    <AggregateColumnsDirective>
-                                       {surveyOutputsInfo.outputLayouts.map(
-                                          (layout, keyVal) => {
-                                             //layout.showInSurveyOutputScreen
-                                             newLogger.LogThis(
-                                                `Adding aggregate Min captions`,
-                                             )
-                                             let encoder = new TextEncoder()
-                                             let utf8Array = encoder.encode(
-                                                layout.fieldName,
-                                             )
-                                             let utf8String = new TextDecoder()
-                                                .decode(utf8Array)
-                                                .replace(/,/g, ' ')
-                                                .replace(/:/g, '')
-                                             if (
-                                                layout.dataType === 'Integer'
-                                             ) {
-                                                return (
-                                                   <AggregateColumnDirective
-                                                      key={keyVal}
-                                                      field={utf8String}
-                                                      type="Min"
-                                                      footerTemplate={
-                                                         aggregateMinCaptionTemplate
-                                                      }
-                                                   />
-                                                )
-                                             }
-                                          },
-                                       )}
-                                    </AggregateColumnsDirective>
-                                 </AggregateDirective>
-                              </AggregatesDirective>
-                              <Inject
-                                 services={[
-                                    Page,
-                                    Sort,
-                                    Filter,
-                                    Resize,
-                                    Group,
-                                    Toolbar,
-                                    ExcelExport,
-                                    // PdfExport,
-                                    ColumnChooser,
-                                    LazyLoadGroup,
-                                    //InfiniteScroll,
-                                    Aggregate,
-                                 ]}
-                              />
-                           </GridComponent> */}
                            <KuarxisDataGrid
                               gridDataSourceArray={gridDataSourceArray}
                               pageSettings={pageSettings}
@@ -1623,11 +1361,9 @@ const SurveysOutputData = ({ match, history }) => {
                               searchKeyword={searchKeyword}
                               isReRender={false}
                            />
-                           {/* {KuarxisDataGridMemo} */}
                         </Container>
                      </div>
                   )}
-                  {/* <div>{console.log(`RENDER ENDED`)}</div> */}
                </>
             )}
       </Container>
