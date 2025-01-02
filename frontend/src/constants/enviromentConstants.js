@@ -7,7 +7,7 @@ const ONCARE_RED = 'ONCARE_RED'
 const ONCARE_QA = 'ONCARE_QA'
 const ARTPIXANDEV = 'ARTPIXANDEV'
 const ARTPIXANPROD = 'ARTPIXANPROD'
-const ENVIRONMENT = LOCAL
+const ENVIRONMENT = ONCARE_DEV
 
 // LOCALHOST DEV VARIABLES
 
@@ -22,7 +22,7 @@ const dev_debug_level = L0
 const red_debug_level = L0
 const qa_debug_level = L0
 const artpixanprod_debug_level = OFF
-const LOCAL_CURRENT_VERSION = `v1.0.8.2-2024-12-21-19:48`
+const LOCAL_CURRENT_VERSION = `v1.0.8.2-2025-01-02-08:04`
 
 let V_LOG_LEVEL = null
 let V_CURRENT_VERSION = null
