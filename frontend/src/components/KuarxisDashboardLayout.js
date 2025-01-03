@@ -229,7 +229,9 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       .filter(layout => 'displayAsPieChart' in layout.displayType)
       .map(layout => {
          const pieDefinition = layout.displayType.displayAsPieChart
-         pieDefinition.surveyShortName = layout.surveyShortName
+         pieDefinition.pieChartName =
+            layout.surveyShortName + '_' + layout.fieldName
+         //pieDefinition.surveyShortName = layout.surveyShortName
          pieDefinition.seriesField = layout.fieldName
          return pieDefinition
       })
@@ -299,7 +301,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
          )
 
          pieAggregatedData.set(
-            pieDefinition.surveyShortName,
+            pieDefinition.pieChartName,
             pieAggregatedDataArray,
          )
          pieFinalAggregatedValues = {}
@@ -317,7 +319,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       numberChartsLoading.current = numberChartsLoading.current - 1
       //setnumberChartsLoading(chartsLoading)
    }
-   function kuarxisPayChart(surveyShortName) {
+   function kuarxisPayChart(pieChartName) {
       return (
          // <div
          // // style={{
@@ -329,8 +331,8 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
          // // }}
          // >
          <AccumulationChartComponent
-            id={`${surveyShortName}_kuarxisPieChart`}
-            pointClick={args => pointClickFilter(args, surveyShortName)}
+            id={`${pieChartName}_kuarxisPieChart`}
+            pointClick={args => pointClickFilter(args, pieChartName)}
             legendSettings={legendSettings}
             enableSmartLabels={true}
             tooltip={{ enable: true, duration: 500 }}
@@ -348,7 +350,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
             />
             <AccumulationSeriesCollectionDirective>
                <AccumulationSeriesDirective
-                  dataSource={dashboardData.get(surveyShortName)}
+                  dataSource={dashboardData.get(pieChartName)}
                   //xName="text"
                   xName="xNameSeries"
                   yName="yNameValues"
@@ -545,12 +547,10 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       aggregateData(dataSourceFilteredLocal)
    }
 
-   const pointClickFilter = (args, surveyShortName) => {
+   const pointClickFilter = (args, pieChartName) => {
       // document.getElementById('lbl').innerText =
       //    'X : ' + args.point.x + '\nY : ' + args.point.y
-      const pie = pieDefinitions.find(
-         pie => pie.surveyShortName === surveyShortName,
-      )
+      const pie = pieDefinitions.find(pie => pie.pieChartName === pieChartName)
 
       if (!pie) {
          throw Error(`Pie Definition not found while filtering pointClick`)
@@ -768,8 +768,8 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
 
       const listOfSurveys = pieDefinitonsIn.reduce(
          (uniqueSurveys, pieDefinition) => {
-            if (!uniqueSurveys.includes(pieDefinition.surveyShortName)) {
-               uniqueSurveys.push(pieDefinition.surveyShortName)
+            if (!uniqueSurveys.includes(pieDefinition.pieChartName)) {
+               uniqueSurveys.push(pieDefinition.pieChartName)
             }
             return uniqueSurveys
          },
