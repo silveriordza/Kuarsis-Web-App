@@ -109,7 +109,7 @@ router
 router.route('/surveymonkey/refresh')
 
 router.route('/surveymonkey/updateresponses/:id').put(monkeyUpdateResponses2)
-
+//Route to get all Super Surveys List
 router
    .route('/')
    .get(protect, hasAccess, superSurveyGetList)
