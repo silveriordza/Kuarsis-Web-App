@@ -202,65 +202,76 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       }
    }
 
-   const kuarxisPieData = [
-      {
-         'FIAD-15 RESULTADO': 'Nivel Alto',
-         BECK_ES_CASO_DEPRESION: 'Sin Depresion',
-      },
-      {
-         'FIAD-15 RESULTADO': 'Nivel Funcional',
-         BECK_ES_CASO_DEPRESION: 'Depresion Ligera',
-      },
-      {
-         'FIAD-15 RESULTADO': 'Nivel Intermedio',
-         BECK_ES_CASO_DEPRESION: 'Depresion Moderada',
-      },
-      {
-         'FIAD-15 RESULTADO': 'Nivel Limitrofe',
-         BECK_ES_CASO_DEPRESION: 'Depresion Severa',
-      },
-      {
-         'FIAD-15 RESULTADO': 'Nivel Limitrofe',
-         BECK_ES_CASO_DEPRESION: 'Depresion Muy Severa',
-      },
-   ]
+   // const kuarxisPieData = [
+   //    {
+   //       'FIAD-15 RESULTADO': 'Nivel Alto',
+   //       BECK_ES_CASO_DEPRESION: 'Sin Depresion',
+   //    },
+   //    {
+   //       'FIAD-15 RESULTADO': 'Nivel Funcional',
+   //       BECK_ES_CASO_DEPRESION: 'Depresion Ligera',
+   //    },
+   //    {
+   //       'FIAD-15 RESULTADO': 'Nivel Intermedio',
+   //       BECK_ES_CASO_DEPRESION: 'Depresion Moderada',
+   //    },
+   //    {
+   //       'FIAD-15 RESULTADO': 'Nivel Limitrofe',
+   //       BECK_ES_CASO_DEPRESION: 'Depresion Severa',
+   //    },
+   //    {
+   //       'FIAD-15 RESULTADO': 'Nivel Limitrofe',
+   //       BECK_ES_CASO_DEPRESION: 'Depresion Muy Severa',
+   //    },
+   // ]
 
-   const pieDefinitions = [
-      {
-         surveyShortName: 'FIAD_15',
-         seriesField: 'FIAD-15 RESULTADO',
-         calculationType: 'countSeries',
-         seriesStyles: {
-            'Nivel Funcional': '#0cc50c',
-            'Nivel Alto': '#008000',
-            'Nivel Intermedio': '#ffa500',
-            'Nivel Limitrofe': '#ff0000',
-         },
-      },
-      {
-         surveyShortName: 'BECK',
-         seriesField: 'BECK_ES_CASO_DEPRESION',
-         calculationType: 'countSeries',
-         seriesStyles: {
-            'Sin Depresión': '#0cc50c',
-            'Depresión Ligera': '#008000',
-            'Depresión Moderada': '#ffa500',
-            'Depresión Severa - requiere ayuda': '#ff0000',
-            'Depresión Muy Severa - requiere ayuda': '#ff0000',
-         },
-      },
-      {
-         surveyShortName: 'HAMILTON',
-         seriesField: 'HAMILTON_ANSIEDAD_RESULTADO',
-         calculationType: 'countSeries',
-         seriesStyles: {
-            'Sin Ansiedad': '#0cc50c',
-            'Ansiedad Leve': '#008000',
-            'Ansiedad Moderada': '#ffa500',
-            'Ansiedad Severa': '#ff0000',
-         },
-      },
-   ]
+   const pieDefinitions = data.outputLayouts
+      .filter(layout => 'displayAsPieChart' in layout.displayType)
+      .map(layout => {
+         const pieDefinition = layout.displayType.displayAsPieChart
+         pieDefinition.pieChartName =
+            layout.surveyShortName + '_' + layout.fieldName
+         //pieDefinition.surveyShortName = layout.surveyShortName
+         pieDefinition.seriesField = layout.fieldName
+         return pieDefinition
+      })
+
+   // [
+   //    {
+   //       surveyShortName: 'FIAD_15',
+   //       seriesField: 'FIAD-15 RESULTADO',
+   //       calculationType: 'countSeries',
+   //       seriesStyles: {
+   //          'Nivel Funcional': '#0cc50c',
+   //          'Nivel Alto': '#008000',
+   //          'Nivel Intermedio': '#ffa500',
+   //          'Nivel Limitrofe': '#ff0000',
+   //       },
+   //    },
+   //    {
+   //       surveyShortName: 'BECK',
+   //       seriesField: 'BECK_ES_CASO_DEPRESION',
+   //       calculationType: 'countSeries',
+   //       seriesStyles: {
+   //          'Sin Depresión': '#0cc50c',
+   //          'Depresión Ligera': '#008000',
+   //          'Depresión Moderada': '#ffa500',
+   //          'Depresión Severa - requiere ayuda': '#ff0000',
+   //          'Depresión Muy Severa - requiere ayuda': '#ff0000',
+   //       },
+   //    },
+   //    {
+   //       surveyShortName: 'HAMILTON',
+   //       seriesField: 'HAMILTON_ANSIEDAD_RESULTADO',
+   //       calculationType: 'countSeries',
+   //       seriesStyles: {
+   //          'Sin Ansiedad': '#0cc50c',
+   //          'Ansiedad Leve': '#008000',
+   //          'Ansiedad Moderada': '#ffa500',
+   //          'Ansiedad Severa': '#ff0000',
+   //       },
+   //    },
+   // ]
 
    // Function to aggregate data
    const aggregateData = dataSourceInput => {
@@ -290,7 +301,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
          )
 
          pieAggregatedData.set(
-            pieDefinition.surveyShortName,
+            pieDefinition.pieChartName,
             pieAggregatedDataArray,
          )
          pieFinalAggregatedValues = {}
@@ -308,7 +319,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       numberChartsLoading.current = numberChartsLoading.current - 1
       //setnumberChartsLoading(chartsLoading)
    }
-   function kuarxisPayChart(surveyShortName) {
+   function kuarxisPayChart(pieChartName) {
       return (
          // <div
          // // style={{
@@ -320,8 +331,8 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
          // // }}
          // >
          <AccumulationChartComponent
-            id={`${surveyShortName}_kuarxisPieChart`}
-            pointClick={args => pointClickFilter(args, surveyShortName)}
+            id={`${pieChartName}_kuarxisPieChart`}
+            pointClick={args => pointClickFilter(args, pieChartName)}
             legendSettings={legendSettings}
             enableSmartLabels={true}
             tooltip={{ enable: true, duration: 500 }}
@@ -339,7 +350,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
             />
             <AccumulationSeriesCollectionDirective>
                <AccumulationSeriesDirective
-                  dataSource={dashboardData.get(surveyShortName)}
+                  dataSource={dashboardData.get(pieChartName)}
                   //xName="text"
                   xName="xNameSeries"
                   yName="yNameValues"
@@ -536,12 +547,10 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       aggregateData(dataSourceFilteredLocal)
    }
 
-   const pointClickFilter = (args, surveyShortName) => {
+   const pointClickFilter = (args, pieChartName) => {
       // document.getElementById('lbl').innerText =
       //    'X : ' + args.point.x + '\nY : ' + args.point.y
-      const pie = pieDefinitions.find(
-         pie => pie.surveyShortName === surveyShortName,
-      )
+      const pie = pieDefinitions.find(pie => pie.pieChartName === pieChartName)
 
       if (!pie) {
          throw Error(`Pie Definition not found while filtering pointClick`)
@@ -752,6 +761,45 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
       aggregateData(dataSource)
    }
 
+   const buildPieChartPanelsDirectives = (pieDefinitonsIn, maxRowsInGrid) => {
+      let row = 0
+      let col = -1
+      const panelDirectivesArray = []
+
+      const listOfSurveys = pieDefinitonsIn.reduce(
+         (uniqueSurveys, pieDefinition) => {
+            if (!uniqueSurveys.includes(pieDefinition.pieChartName)) {
+               uniqueSurveys.push(pieDefinition.pieChartName)
+            }
+            return uniqueSurveys
+         },
+         [],
+      )
+      let cardCount = 0
+      for (const pieSurvey of listOfSurveys) {
+         col++
+         cardCount++
+         if (col > maxRowsInGrid - 1) {
+            row++
+            col = 0
+         }
+         panelDirectivesArray.push(
+            <PanelDirective
+               key={cardCount}
+               header={`<div>${pieSurvey}</div>`}
+               //content={colChart}
+               content={() => kuarxisPayChart(pieSurvey)}
+               //content="<div>Fiad-15 Content</div>"
+               col={col}
+               row={row}
+               sizeX={1}
+               sizeY={1}
+            ></PanelDirective>,
+         )
+      }
+      return panelDirectivesArray
+   }
+
    return (
       <div>
          {/* {numberChartsLoading.current > 0 && <Loader />} */}
@@ -777,7 +825,11 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
                //cellAspectRatio={1}
             >
                <PanelsDirective>
-                  <PanelDirective
+                  {pieDefinitions &&
+                     pieDefinitions.length > 0 &&
+                     buildPieChartPanelsDirectives(pieDefinitions, 8)}
+
+                  {/* <PanelDirective
                      header="<div>FIAD_15</div>"
                      //content={colChart}
                      content={() => kuarxisPayChart('FIAD_15')}
@@ -804,7 +856,7 @@ const KuarxisDashboardLayout = ({ data, goBackHandler }) => {
                      row={0}
                      sizeX={1}
                      sizeY={1}
-                  ></PanelDirective>
+                  ></PanelDirective> */}
                   <PanelDirective
                      header="<div>Resultados de encuestas</div>"
                      content={colGrid}
