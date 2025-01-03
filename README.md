@@ -7,10 +7,11 @@ Application Description: This is the backend all Web Front End Kuarxis applicati
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.8.2
-Version date: 12/22/24
+Version date: 01/02/25
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:
 1.- Added logic in the SurveyMonkeyIntegrator and in the AnalyzeSurveyReponses functions for when a survey is being created and integrated and when the answers are being analyzed for the Survey Type= datetime and subtype "date only", a user added a Survey that didn't had logic to process that type, and strangly is not handled as a datetime in SurveyMonkey, it is handled as a Row with a Text data in the row Answer, which made it coplex to process.
+2.- Added logic to allow the ReUse of Multi Surveys for existent surveys, as long as the layout of the Survey matches exactly in SurveyMonkey, it can be added to the MultiSurveys without adding all fields manually, SurveySystem will find the existent Survey and will re-use is questions and calculated fields.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
 Git Tag: tagkuarxisBeSurveySystemDEV-v1.0.8.1 -> tagkuarxisBeSurveySystemQA-v1.0.8.1

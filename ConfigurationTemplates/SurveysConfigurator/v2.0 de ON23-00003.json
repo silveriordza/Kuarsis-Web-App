@@ -2134,6 +2134,105 @@
             "displayType": { "type": "asIs" },
             "position": 2351
          },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_2-Suspreocupacioneslehanhecho",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2361
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_3-Hasentidoqueestadesempenand",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2371
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_4-Sehasentidocapazdetomardeci",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2381
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_5-Sehasentidoconstantementeag",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2391
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_6-Hasentidoquenopuedesuperars",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2401
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_7-Hasidocapazdedisfrutardesus",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2411
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_8-Hasidocapazdehacerfrenteade",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2421
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_9-Sehasentidopocofelizodeprim",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2431
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_10-Haperdidoconfianzaensimism",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2441
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_11-Hapensadoqueustedesunapers",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2451
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12_2_12-Sesienterazonablementefeli",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": false,
+            "displayType": { "type": "asIs" },
+            "position": 2461
+         },
 
          {
             "surveyShortName": "CM",
@@ -2142,7 +2241,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2471
+            "position": 2361
          },
          {
             "surveyShortName": "CM",
@@ -2151,7 +2250,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2481
+            "position": 2371
          },
          {
             "surveyShortName": "CM",
@@ -2160,7 +2259,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2491
+            "position": 2381
          },
          {
             "surveyShortName": "CM",
@@ -2169,7 +2268,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2501
+            "position": 2391
          },
          {
             "surveyShortName": "CM",
@@ -2189,7 +2288,7 @@
                   }
                }
             },
-            "position": 2511
+            "position": 2401
          },
          {
             "surveyShortName": "CM",
@@ -2208,7 +2307,7 @@
                   { "min": 61, "max": 127, "style": "red" }
                ]
             },
-            "position": 2521
+            "position": 2411
          },
          {
             "surveyShortName": "JSPE-HP",
@@ -2217,7 +2316,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2531
+            "position": 2421
          },
          {
             "surveyShortName": "JSPE-HP",
@@ -2226,7 +2325,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2541
+            "position": 2431
          },
          {
             "surveyShortName": "JSPE-HP",
@@ -2235,7 +2334,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2551
+            "position": 2441
          },
          {
             "surveyShortName": "JSPE-HP",
@@ -2244,7 +2343,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2561
+            "position": 2451
          },
          {
             "surveyShortName": "JSPE-HP",
@@ -2253,7 +2352,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2571
+            "position": 2461
          },
          {
             "surveyShortName": "JSPE-HP",
@@ -2267,7 +2366,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 2581
+            "position": 2471
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23",
@@ -2276,7 +2375,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2591
+            "position": 2481
          },
          {
             "surveyShortName": "JEFF_STATIC_ON23",
@@ -2290,7 +2389,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 2601
+            "position": 2491
          },
          {
             "surveyShortName": "FIAD15_ON23",
@@ -2299,7 +2398,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2611
+            "position": 2501
          },
          {
             "surveyShortName": "FIAD15_ON23",
@@ -2319,7 +2418,7 @@
                   }
                }
             },
-            "position": 2621
+            "position": 2511
          },
          {
             "surveyShortName": "FIAD15_ON23",
@@ -2338,7 +2437,7 @@
                   { "min": 61, "max": 1000, "style": "red" }
                ]
             },
-            "position": 2631
+            "position": 2521
          },
          {
             "surveyShortName": "HSNS",
@@ -2347,7 +2446,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2641
+            "position": 2531
          },
          {
             "surveyShortName": "HSNS",
@@ -2361,7 +2460,7 @@
                "type": "percentBarWithCriterias",
                "styleCriterias": [{ "min": 0, "max": 100, "style": "green" }]
             },
-            "position": 2651
+            "position": 2541
          },
          {
             "surveyShortName": "ZKPQ",
@@ -2370,7 +2469,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2661
+            "position": 2551
          },
          {
             "surveyShortName": "ZKPQ",
@@ -2391,7 +2490,7 @@
                   }
                }
             },
-            "position": 2671
+            "position": 2561
          },
          {
             "surveyShortName": "ZKPQ",
@@ -2411,7 +2510,7 @@
                   { "min": 81, "max": 101, "style": "red" }
                ]
             },
-            "position": 2681
+            "position": 2571
          },
          {
             "surveyShortName": "CGS12",
@@ -2420,7 +2519,7 @@
             "outputAsReal": false,
             "showInSurveyOutputScreen": true,
             "displayType": { "type": "asIs" },
-            "position": 2691
+            "position": 2581
          },
          {
             "surveyShortName": "CGS12",
@@ -2440,7 +2539,7 @@
                   }
                }
             },
-            "position": 2701
+            "position": 2591
          },
          {
             "surveyShortName": "CGS12",
@@ -2459,7 +2558,55 @@
                   { "min": 37, "max": 50, "style": "red" }
                ]
             },
-            "position": 2711
+            "position": 2601
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12-2_TOTAL_MAX_60",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": { "type": "asIs" },
+            "position": 2611
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12-2_RESULTADO",
+            "dataType": "String",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "type": "asIs",
+               "displayAsPieChart": {
+                  "calculationType": "countSeries",
+                  "seriesStyles": {
+                     "Buena salud mental": "#0cc50c",
+                     "Salud mental promedio": "#008000",
+                     "Salud mental en riesgo": "#ffa500",
+                     "Salud mental deficiente": "#ff0000"
+                  }
+               }
+            },
+            "position": 2621
+         },
+         {
+            "surveyShortName": "CGS12",
+            "fieldName": "CGS12-2_SEMAFORO",
+            "dataType": "Integer",
+            "outputAsReal": false,
+            "showInSurveyOutputScreen": true,
+            "displayType": {
+               "displayInScreens": ["OutputScreen", "SingleOutputScreen"],
+               "header": "CGS12-2",
+               "type": "rangesSemaphore",
+               "styleCriterias": [
+                  { "min": 0, "max": 12, "style": "green" },
+                  { "min": 13, "max": 24, "style": "orange" },
+                  { "min": 25, "max": 36, "style": "yellow" },
+                  { "min": 37, "max": 50, "style": "red" }
+               ]
+            },
+            "position": 2631
          }
       ],
       "multiSurveys": [
@@ -6199,6 +6346,171 @@
             "subPosition": 12,
             "answerType": "noother"
          }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 13,
+         "fieldName": "CGS12_2_2-Suspreocupacioneslehanhecho",
+         "subScale": "CGS12-2",
+         "question": "2.- ¿Sus preocupaciones le han hecho perder mucho el sueño? Responda:",
+         "questionShort": "2.- ¿Sus preocupaciones le han",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 2,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 14,
+         "fieldName": "CGS12_2_3-Hasentidoqueestadesempenand",
+         "subScale": "CGS12-2",
+         "question": "3.- ¿Ha sentido que está desempeñando un papel útil en la vida?",
+         "questionShort": "3.- ¿Ha sentido que está desem",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 15,
+         "fieldName": "CGS12_2_4-Sehasentidocapazdetomardeci",
+         "subScale": "CGS12-2",
+         "question": "4.- ¿Se ha sentido capaz de tomar decisiones?",
+         "questionShort": "4.- ¿Se ha sentido capaz de to",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 3,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 16,
+         "fieldName": "CGS12_2_5-Sehasentidoconstantementeag",
+         "subScale": "CGS12-2",
+         "question": "5.- ¿Se ha sentido constantemente agobiado y en tensión?",
+         "questionShort": "5.- ¿Se ha sentido constanteme",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 17,
+         "fieldName": "CGS12_2_6-Hasentidoquenopuedesuperars",
+         "subScale": "CGS12-2",
+         "question": "6.- ¿Ha sentido que no puede superar sus dificultades?",
+         "questionShort": "6.- ¿Ha sentido que no puede s",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 4,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 18,
+         "fieldName": "CGS12_2_7-Hasidocapazdedisfrutardesus",
+         "subScale": "CGS12-2",
+         "question": "7.- ¿Ha sido capaz de disfrutar de sus actividades normales de cada día?",
+         "questionShort": "7.- ¿Ha sido capaz de disfruta",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 19,
+         "fieldName": "CGS12_2_8-Hasidocapazdehacerfrenteade",
+         "subScale": "CGS12-2",
+         "question": "8.- ¿Ha sido capaz de hacer frente adecuadamente a sus problemas?",
+         "questionShort": "8.- ¿Ha sido capaz de hacer fr",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 5,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 20,
+         "fieldName": "CGS12_2_9-Sehasentidopocofelizodeprim",
+         "subScale": "CGS12-2",
+         "question": "9.- ¿Se ha sentido poco feliz o deprimido/a?",
+         "questionShort": "9.- ¿Se ha sentido poco feliz ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 21,
+         "fieldName": "CGS12_2_10-Haperdidoconfianzaensimism",
+         "subScale": "CGS12-2",
+         "question": "10.- ¿Ha perdido confianza en sí mismo/a?",
+         "questionShort": "10.- ¿Ha perdido confianza en ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 2,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 22,
+         "fieldName": "CGS12_2_11-Hapensadoqueustedesunapers",
+         "subScale": "CGS12-2",
+         "question": "11.- ¿Ha pensado que usted es una persona que no vale para nada?",
+         "questionShort": "11.- ¿Ha pensado que usted es ",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 6,
+            "subPosition": 3,
+            "answerType": "noother"
+         }
+      },
+      {
+         "surveyShortName": "CGS12",
+         "position": 23,
+         "fieldName": "CGS12_2_12-Sesienterazonablementefeli",
+         "subScale": "CGS12-2",
+         "question": "12.- ¿Se siente razonablemente feliz considerando todas las circunstancias? Responda:",
+         "questionShort": "12.- ¿Se siente razonablemente",
+         "weightType": "WEIGHTED_PAIRS",
+         "weights": { "1": 0, "2": 1, "3": 2, "4": 3 },
+         "monkeyInfo": {
+            "position": 7,
+            "subPosition": 1,
+            "answerType": "noother"
+         }
       }
    ],
    "calculatedFields": [
@@ -6510,6 +6822,55 @@
          "criteria": { "fieldNameValue": "CGS12_TOTAL_MAX_60" },
          "subScales": ["CGS12_SEMAFORO"],
          "position": 721
+      },
+      {
+         "surveyShortName": "CGS12",
+         "description": "CGS12-2_TOTAL_MAX_60",
+         "shortDescription": "CGS12-2_TOTAL_MAX_60",
+         "fieldName": "CGS12-2_TOTAL_MAX_60",
+         "calculationType": "CAL_SUM_THE_GROUP",
+         "subScales": ["CGS12-2"],
+         "position": 751
+      },
+      {
+         "surveyShortName": "CGS12",
+         "description": "CGS12-2_RESULTADO",
+         "shortDescription": "CGS12-2_RESULTADO",
+         "fieldName": "CGS12-2_RESULTADO",
+         "calculationType": "CAL_CRITERIA_ON_OTHER_FIELD_RANGES",
+         "criteria": {
+            "fieldNameValue": "CGS12-2_TOTAL_MAX_60",
+            "ranges": [
+               { "min": 0, "max": 12, "resultIfTrue": "Buena salud mental" },
+               {
+                  "min": 13,
+                  "max": 24,
+                  "resultIfTrue": "Salud mental promedio"
+               },
+               {
+                  "min": 25,
+                  "max": 36,
+                  "resultIfTrue": "Salud mental en riesgo"
+               },
+               {
+                  "min": 37,
+                  "max": 48,
+                  "resultIfTrue": "Salud mental deficiente"
+               }
+            ]
+         },
+         "subScales": ["NA"],
+         "position": 781
+      },
+      {
+         "surveyShortName": "CGS12",
+         "description": "CGS12-2_SEMAFORO",
+         "shortDescription": "CGS12-2_SEMAFORO",
+         "fieldName": "CGS12-2_SEMAFORO",
+         "calculationType": "CAL_COPY_VALUE",
+         "criteria": { "fieldNameValue": "CGS12-2_TOTAL_MAX_60" },
+         "subScales": ["CGS12-2_SEMAFORO"],
+         "position": 811
       }
    ]
 }

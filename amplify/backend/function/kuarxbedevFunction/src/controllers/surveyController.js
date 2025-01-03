@@ -2106,7 +2106,9 @@ const getSuperSurveyConfigs = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const superSurveyGetList = asyncHandler(async (req, res) => {
    try {
-      const surveySuperiors = await SurveySuperior.find({}).lean()
+      const surveySuperiors = await SurveySuperior.find({})
+         .sort({ position: 1 })
+         .lean()
 
       res.status(200).json({ surveySuperiors: surveySuperiors })
    } catch (error) {
