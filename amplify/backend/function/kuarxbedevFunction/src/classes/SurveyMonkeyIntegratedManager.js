@@ -20,9 +20,11 @@ const QTYPE_SINGLE_CHOICE_MENU = "SINGLE_CHOICE_MENU"
 const QTYPE_SINGLE_CHOICE_VERTICAL = "SINGLE_CHOICE_VERTICAL"
 const QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL = "SINGLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_MATRIX_RATING = "MATRIX_RATING"
+const QTYPE_MATRIX_SINGLE = "MATRIX_SINGLE"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL = "MULTIPLE_CHOICE_VERTICAL"
 const QTYPE_MULTIPLE_CHOICE_VERTICAL_THREE_COL = "MULTIPLE_CHOICE_VERTICAL_THREE_COL"
 const QTYPE_PRESENTATION_DESCRIPTIVE = "QTYPE_PRESENTATION_DESCRIPTIVE"
+const QTYPE_DATETIME_DATE_ONLY = "DATETIME_DATE_ONLY"
 
 
 
@@ -213,6 +215,7 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
 
             } else 
             if (questionType===QTYPE_MATRIX_RATING ||
+                questionType===QTYPE_MATRIX_SINGLE ||
                 questionType===QTYPE_MULTIPLE_CHOICE_VERTICAL){
                 this.log.HasDataException(row, `row data missing`)
                 return `${page.position}.${question.position}.${other.position}`
@@ -233,6 +236,8 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 return answerChoice.weight
             } else if (answerChoice.hasOwnProperty("quiz_options")){
                 return answerChoice.quiz_options.score
+            } else {
+                return 0
             }
         }
         mapAnswerChoice(question, answerField, answerChoices){
@@ -278,6 +283,17 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                     score: null
                 }   
             }
+            else if (questionType===QTYPE_DATETIME_DATE_ONLY){
+                let monkeyAnswer = monkeyQuestion.details.answers.rows[0]
+                surveyQuestion.question = monkeyAnswer.text
+                surveyQuestion.monkeyInfo.id = monkeyAnswer.id
+                surveyQuestion.monkeyInfo.monkeyAnswers = {
+                    answerField: 'text',
+                    answerChoices: null,
+                    value: monkeyQuestion.details.position,
+                    score: null
+                }   
+            }
             else if(questionType===QTYPE_SINGLE_CHOICE_MENU || questionType === QTYPE_SINGLE_CHOICE_VERTICAL || questionType === QTYPE_SINGLE_CHOICE_VERTICAL_THREE_COL) {
 
                 if(surveyQuestion.monkeyInfo.answerType=="noother"){
@@ -299,7 +315,10 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 }   
 
             } else 
-            if (questionType===QTYPE_MATRIX_RATING) {
+            if (
+                questionType===QTYPE_MATRIX_RATING ||
+                questionType===QTYPE_MATRIX_SINGLE
+            ) {
                 let monkeyAnswer = monkeyQuestion.details.answers.rows[surveyQuestion.monkeyInfo.subPosition-1]
                 surveyQuestion.question = monkeyAnswer.text
                 surveyQuestion.monkeyInfo.id = monkeyAnswer.id
@@ -310,7 +329,9 @@ class SurveyMonkeyIntegratedManager extends TemplateManager {
                 surveyQuestion.question = monkeyAnswer.text
                 surveyQuestion.monkeyInfo.id = monkeyQuestion.details.id
                 this.mapAnswerChoice(surveyQuestion, 'choice_id', [monkeyAnswer])
-            } 
+            } else {
+                throw Error(`SurveyMonkeyIntegrated: mapQuestiontoMonkey FATAL ERROR: missing logic to process this questionType for object: ${this.log.j(surveyQuestion)}`)
+            }
 
         }
  

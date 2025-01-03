@@ -298,8 +298,8 @@ const AnalyzeQuestionResponse = (
          }
          pushValueCol(value, realValue, score)
 
-         //LogVars(log, L0, "Final values=", "cols", cols)
          break
+
       case 'single_choice_menu':
          //throw new Error(`BREAKING EXECUTION`)
          //questionMonkeyPosition = questionItem.monkeyPosition;
@@ -426,18 +426,11 @@ const AnalyzeQuestionResponse = (
             ) {
                let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
                LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
-               //for(let monkeyResponseIndex=0; monkeyResponseIndex<monkeyResponseAnswers.length ; monkeyResponseIndex++){
+
                let monkeyResponseAnswer = monkeyResponseAnswers.find(
                   monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
                )
 
-               // HasDataException(
-               //    monkeyResponseAnswer,
-               //    `The monkey answer row was not found in the answers responses for ${j(
-               //       monkeyRowConf,
-               //    )}`,
-               //    log,
-               // )
                if (HasData(monkeyResponseAnswer)) {
                   if (monkeyResponseAnswer['choice_id']) {
                      const monkeyAnswerChoiceConf =
@@ -456,11 +449,46 @@ const AnalyzeQuestionResponse = (
                      pushChoiceCol(monkeyAnswerChoiceConf, true)
                      //When choice is selected, other values are empty in the output file.
                   } else {
-                     // throw Error(
-                     //    `The choice_id value was not found in the answer as expected: ${j(
-                     //       monkeyResponseAnswer,
-                     //    )}`,
-                     // )
+                     pushEmptyCol()
+                  }
+               } else {
+                  pushEmptyCol()
+               }
+            }
+         }
+         break
+      case 'matrix_single': //for updating responses from survey monkey
+         {
+            for (
+               let rowIndex = 0;
+               rowIndex < monkeyQuestionAnswersConf.rows.length;
+               rowIndex++
+            ) {
+               let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
+               LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
+
+               let monkeyResponseAnswer = monkeyResponseAnswers.find(
+                  monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
+               )
+
+               if (HasData(monkeyResponseAnswer)) {
+                  if (monkeyResponseAnswer['choice_id']) {
+                     const monkeyAnswerChoiceConf =
+                        monkeyQuestionAnswersConf.choices.find(
+                           confChoice =>
+                              confChoice.id == monkeyResponseAnswer.choice_id,
+                        )
+                     HasDataException(
+                        monkeyAnswerChoiceConf,
+                        `Choice in monkey response not found in survey config ${j(
+                           monkeyResponseAnswer.choice_id,
+                        )}`,
+                        log,
+                     )
+                     //when choice is selected, the value, real and score are in the selected choice found in survey config.
+                     pushChoiceCol(monkeyAnswerChoiceConf, true)
+                     //When choice is selected, other values are empty in the output file.
+                  } else {
                      pushEmptyCol()
                   }
                } else {
@@ -498,6 +526,31 @@ const AnalyzeQuestionResponse = (
                   pushEmptyCol()
                }
             }
+         }
+         break
+      case 'DATETIME_DATE_ONLY':
+         {
+            // for (
+            //    let rowIndex = 0;
+            //    rowIndex < monkeyQuestionAnswersConf.rows.length;
+            //    rowIndex++
+            // ) {
+            let monkeyRowConf = monkeyQuestionAnswersConf.rows[0]
+
+            let monkeyResponseAnswer = monkeyResponseAnswers.find(
+               monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
+            )
+
+            if (HasData(monkeyResponseAnswer)) {
+               let text = monkeyResponseAnswer.text
+               let value = monkeyResponseAnswer.position
+
+               //when choice is selected, the value, real and score are in the selected choice found in survey config.
+               pushValueCol(value, text, value)
+            } else {
+               pushEmptyCol()
+            }
+            //}
          }
          break
       case 'multiple_choice_vertical_three_col':
@@ -749,6 +802,17 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
             score = ''
          }
          return pushValueCol(value, realValue, score)
+      case 'DATETIME_DATE_ONLY':
+         if (monkeyAnswer && monkeyAnswer.text) {
+            value = monkeyAnswer.text.trim()
+            realValue = monkeyAnswer.text.trim()
+            score = ''
+         } else {
+            value = ''
+            realValue = ''
+            score = ''
+         }
+         return pushValueCol(value, realValue, score)
       //break
       case 'SINGLE_CHOICE_MENU':
          return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
@@ -762,42 +826,11 @@ const AnalyzeQuestionResponseRedesign = (surveyQuestion, monkeyAnswer) => {
       case 'MATRIX_RATING': //for updating responses from survey monkey
          {
             return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
-            // for (
-            //    let rowIndex = 0;
-            //    rowIndex < monkeyQuestionAnswersConf.rows.length;
-            //    rowIndex++
-            // ) {
-            //    let monkeyRowConf = monkeyQuestionAnswersConf.rows[rowIndex]
-            //    LogThis(log, `monkeyRowConf = ${j(monkeyRowConf)}`)
-
-            //    let monkeyResponseAnswer = monkeyResponseAnswers.find(
-            //       monkeyResponse => monkeyResponse.row_id == monkeyRowConf.id,
-            //    )
-
-            //    if (HasData(monkeyResponseAnswer)) {
-            //       if (monkeyResponseAnswer['choice_id']) {
-            //          const monkeyAnswerChoiceConf =
-            //             monkeyQuestionAnswersConf.choices.find(
-            //                confChoice =>
-            //                   confChoice.id == monkeyResponseAnswer.choice_id,
-            //             )
-            //          HasDataException(
-            //             monkeyAnswerChoiceConf,
-            //             `Choice in monkey response not found in survey config ${j(
-            //                monkeyResponseAnswer.choice_id,
-            //             )}`,
-            //             log,
-            //          )
-            //          //when choice is selected, the value, real and score are in the selected choice found in survey config.
-            //          pushChoiceCol(monkeyAnswerChoiceConf, true)
-            //          //When choice is selected, other values are empty in the output file.
-            //       } else {
-            //          pushEmptyCol()
-            //       }
-            //    } else {
-            //       pushEmptyCol()
-            //    }
-            // }
+         }
+         break
+      case 'MATRIX_SINGLE': //for updating responses from survey monkey
+         {
+            return ProcessSingleChoiceAnswer(surveyQuestion, monkeyAnswer)
          }
          break
       case 'open_ended_numerical': //for updating responses from survey monkey

@@ -102,6 +102,9 @@ const addPropertyMatchingValueInArray = (
          )
       })
       //if (idFound) {
+      console.log(
+         `object=${JSON.stringify(object)}; idFound=${JSON.stringify(idFound)}`,
+      )
       object[fieldNameToAdd] = idFound[externalIdField]
       //}
    })

@@ -166,6 +166,12 @@ const sourceFile = "SurveyProcessManager.js"
       
       surveySuperiorResult.surveysResult=surveysResult
 
+      const surveysResultFinal = await surveys.loadExistentFromMultis(superSurveyConfig.surveySuperiors.multiSurveys, surveysResult)
+
+      for(const surveysFinal of surveysResultFinal){
+        surveysResult.push(surveysFinal)
+      }
+
       const questions = new SurveyFieldManager ('SurveyQuestion', 'fieldName', 'surveyShortName', "surveyId", 'Survey', "_id" )
       const questionsResult = await questions.save(superSurveyConfig.questions, surveysResult)
       this.questions = questions
@@ -181,8 +187,8 @@ const sourceFile = "SurveyProcessManager.js"
       const outputLayoutsResult = await outputLayouts.save(superSurveyConfig.surveySuperiors.outputLayout,"surveySuperiorId", surveySuperiorResult, this.updateDynamicTable)
       this.outputLayouts = outputLayouts
       surveySuperiorResult.outputLayoutsResult=outputLayoutsResult
-
-      const surveyMulti = new SurveyMultiTemplateManager ('SurveyMulti', 'surveyShortName', 'surveyShortName', "surveyId", 'Survey', "_id" )
+      // constructor(collectionName, identifierFieldName, templateFieldToLink, referencedLinkField, linkedCollection, externalLinkField)
+      const surveyMulti = new SurveyMultiTemplateManager ('SurveyMulti', 'surveyShortName', 'surveyShortName', "surveyId", 'Survey', "_id", "superSurveyShortName" )
       const surveyMultiResult = await surveyMulti.save(superSurveyConfig.surveySuperiors.multiSurveys, surveysResult, "superSurveyId", surveySuperiorResult)
       this.surveyMulti = surveyMulti
       surveySuperiorResult.surveyMultiResult=surveyMultiResult

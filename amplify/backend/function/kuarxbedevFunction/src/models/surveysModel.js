@@ -66,11 +66,13 @@ const surveyMultiModel = mongoose.Schema(
          ref: 'SuperSurvey',
       },
       //The template has the shortSurveyName value which the code will use to match with the survey and get its surveyId which will store in this field.
+      superSurveyShortName: { type: String, required: true },
       surveyId: {
          type: mongoose.Schema.Types.ObjectId,
          required: true,
          ref: 'Survey',
       },
+      surveyShortName: { type: String, required: true },
       //This is the position of the survey within the superSurvey in KSS.
       position: { type: Number, required: true },
       //This is the corresponding position in Survey Monkey for this survey within the Overall Survey. This is the Pages.Page.position field in Survey Monkey.
