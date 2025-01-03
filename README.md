@@ -6,7 +6,7 @@ Kuarxis Owner CEO, CTO: Silverio Rodriguez Alcorta
 Version Description: Kuarxys Survey System WebPage child of ArtPixan WebPage, focused on analyzing results of Survey Monkey surveys.
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
-Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.2
+Git Tag: tagkuarxisFeSurveySystemDEV-v1.0.8.2->tagkuarxisFeSurveySystemQA-v1.0.8.2
 Version date: 01/02/25
 Modificator name: Silverio Rodriguez Alcorta
 ENHANCEMENTS:
