@@ -35,7 +35,7 @@
 export const BACKEND_ENDPOINT =
   'https://we568vitke.execute-api.us-east-1.amazonaws.com/kuarxbeprd'
 export const KUARSIS_PUBLIC_STATIC_FOLDER = 'https://www.kuarxis.com/images'
-export const KUARSIS_BANNER_MAIN_LOGO = 'KuarsisLogo256px.png'
+export const KUARSIS_BANNER_MAIN_LOGO = 'KuarxisLogo256px.png'
 export const KUARSIS_PUBLIC_BUCKET_URL =
   'https://kuarsis-products-s3-public.s3.amazonaws.com/'
 
