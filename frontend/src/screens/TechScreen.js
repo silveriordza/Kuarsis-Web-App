@@ -6,10 +6,10 @@ const TechScreen = () => {
   return (
     <section>
       <section>
-        <KuarsisCarousel pageToDisplay='Kuarsis-Tech' />
+        <KuarsisCarousel pageToDisplay='Kuarxis-Tech' />
       </section>
       <section className='mt-2'>
-        <KuarsisMainWithSides pageToDisplay='Kuarsis-Tech' />
+        <KuarsisMainWithSides pageToDisplay='Kuarxis-Tech' />
       </section>
     </section>
   )

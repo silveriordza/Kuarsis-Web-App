@@ -41,12 +41,12 @@ const Header = ({ history }) => {
               src={
                 KUARSIS_PUBLIC_STATIC_FOLDER + '/' + KUARSIS_BANNER_MAIN_LOGO
               }
-              alt='KuarsisLogoMissing'
+              alt='KuarxisLogoMissing'
               width='50'
               height='50'
               fluid
             />
-            <span style={{ marginLeft: '10px' }}>Kuarsis Companies</span>
+            <span style={{ marginLeft: '10px' }}>Kuarxis Companies</span>
           </Navbar.Brand>
           {/* Navbar.Toggle is the tag that makes the Hamburger menu button to appear on mobiles, if you remove this line, the hamburger will not show up on mobile devices */}
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -56,25 +56,25 @@ const Header = ({ history }) => {
           >
             <Nav>
               <NavDropdown title='Vision Mision' id='visionmision'>
-                <LinkContainer to='/kuarsistech'>
-                  <NavDropdown.Item>Kuarsis Tech</NavDropdown.Item>
+                <LinkContainer to='/kuarxistech'>
+                  <NavDropdown.Item>Kuarxis-Tech</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='/kuarsispixan'>
-                  <NavDropdown.Item>Kuarsis Pixan</NavDropdown.Item>
+                <LinkContainer to='/kuarxispixan'>
+                  <NavDropdown.Item>ArtPixan</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='/kuarsistaanah'>
-                  <NavDropdown.Item>Kuarsis Taanah</NavDropdown.Item>
+                <LinkContainer to='/kuarxistaanah'>
+                  <NavDropdown.Item>Taanah</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
             </Nav>
             <Nav>
-              <LinkContainer to='/kuarsistech'>
-                <Nav.Link>Tech</Nav.Link>
+              <LinkContainer to='/kuarxistech'>
+                <Nav.Link>Kuarxis-Tech</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/pixan'>
-                <Nav.Link>Pixan</Nav.Link>
+              <LinkContainer to='/ArtPixan'>
+                <Nav.Link>ArtPixan</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/kuarsistaanah'>
+              <LinkContainer to='/kuarxistaanah'>
                 <Nav.Link>Taanah</Nav.Link>
               </LinkContainer>
             </Nav>

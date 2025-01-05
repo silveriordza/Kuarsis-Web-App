@@ -3,61 +3,61 @@ export const PageSettings = [
     _id: '1',
     pageName: 'Home',
     title1: 'Our Vision',
-    description1: 'To bring pieces of Paradise to Earth.',
+    description1: 'The reason of our existance is to bring pieces of paradise to Earth',
     title2: 'Our Mision',
     description2:
-      'Build software technology that helps making our customers lifes easier and happier, and also provide expert advise about software development processes. Create the best photos that inspire joy and peace in our customers. Be the best host of houses and apparments for rent.',
-    title3: 'Our Strategy',
+      'Our mission is to unify values, principles, culture, and leadership across all Kuarxis Companies. We strive to replace unfair, nonsensical, inefficient, ineffective services, processes, or products with solutions that enhance fairness, efficiency, and effectiveness in the daily lives of people.',
+    title3: 'Our companies:',
     description3: [
       {
         descId: 1,
-        desc: 'Kuarsis Tech: will bring Paradise to Earth by creating Software Technology that helps customers making a complex, stressful, sad life be simpler, relaxed and happier.',
+        desc: 'Kuarxis-Tech: Brings pieces of paradise to Earth by creating software solutions and providing IT services that enhance fairness, efficiency, and effectiveness in people\'s daily lives.',
       },
       {
         descId: 2,
-        desc: 'Pixan Company: will bring joy, peace and happiness from Paradise to Earth by creating photos and images.',
+        desc: 'ArtPixan Company: brings pieces of paradise to Earth by running a fair business that produces and promotes art, bringing joy, peace, love, and happiness to people\'s daily lives.',
       },
       {
         descId: 3,
-        desc: 'Taanah Company: will bring relaxation and comfort from Paradise to Earth by providing houses and apparments for rent',
+        desc: 'Taanah Company: brings pieces of paradise to Earth by running a fair business that excels in hospitality services, offering rental homes and apartments for both business and leisure stays.' 
       },
     ],
     sidebar: [
       {
         sidebarId: 1,
         sidebarText:
-          'In paradise there is only joy and happiness, no suffering exist. Henry Ford brought the car from paradise to Earth, as a result we suffer less while traveling long distances. Kuarsis mission is to keep bringing small pieces of Paradise to Earth.',
+          'In paradise, there is only joy and happiness, with no suffering. Henry Ford brought the car from paradise to Earth, making long-distance travel easier and less burdensome. Kuarxis\' mission is to continue bringing pieces of paradise to Earth.',
       },
     ],
     linkToCompanyWebsite: '',
     settings: [
       {
         priority: 1,
-        label: 'Kuarsis Companies',
-        subLabel: 'Kuarsis-Tech | Pixan | Taanah',
-        imageSrc: './images/KuarsisLogo256px.png',
-        alt: 'Kuarsis Companies Image',
+        label: 'Kuarxis Companies',
+        subLabel: 'Kuarxis-Tech | ArtPixan | Taanah',
+        imageSrc: './images/KuarxisLogo256px.png',
+        alt: 'Kuarxis Companies Image',
         height: '425px',
         width: '425px',
       },
       {
         priority: 2,
-        label: 'Kuarsis-Tech',
+        label: 'Kuarxis-Tech',
         subLabel:
           'Software Development, IT Project Management and Scrum Framework',
         imageSrc:
-          './images/KuarsisTechHome1radowan-nakif-rehan-cYyqhdbJ9TI-unsplash.jpg',
-        alt: 'Kuarsis-Tech image',
+          './images/KuarxisTechHome1radowan-nakif-rehan-cYyqhdbJ9TI-unsplash.jpg',
+        alt: 'Kuarxis-Tech image',
         height: '427px',
         width: '100%',
       },
       {
         priority: 3,
-        label: 'Pixan',
+        label: 'ArtPixan',
         subLabel: 'Photography stock for your business or enjoyment.',
         imageSrc:
           './images/PixanHome-2020509-NewportBridgeSunrise-Toma2_SURREAL_VERSION1.0.jpg',
-        alt: 'Kuarsis-Pixan Image',
+        alt: 'Kuarxis-ArtPixan Image',
         height: '427px',
         width: '100%',
       },
@@ -67,7 +67,7 @@ export const PageSettings = [
         subLabel: 'Houses or rooms for rent.',
         imageSrc:
           './images/TaanahHome-alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg',
-        alt: 'Kuarsis-Taanah image',
+        alt: 'Kuarxis-Taanah image',
         height: '427px',
         width: '100%',
       },
@@ -75,72 +75,72 @@ export const PageSettings = [
   },
   {
     _id: '2',
-    pageName: 'Kuarsis-Tech',
+    pageName: 'Kuarxis-Tech',
     title1: 'Our Vision',
-    description1: 'Be the best software development company on Earth.',
+    description1: 'All our businesses are run with fairness. Existent processes, services and products in the world, all make sense.',
     title2: 'Our Mision',
     description2:
-      'Develop high quality software that makes people lifes easier and happier by eliminating the non-sense annoyanses from the world. Provide expert advisory about software development, IT project management and Scrum Frameworks for Agile Software Development.',
+      'Bring pieces of paradise to Earth by creating software solutions and providing IT services that enhance fairness, efficiency, and effectiveness eliminating nonsensical experiences from people\'s daily lives.',
     title3: 'Our Strategy',
     description3: [
       {
         descId: 1,
-        desc: 'To bring Paradise to Earth by providing expert advisory in software development, IT project management and Scrum Framework.',
+        desc: 'To provide expert advisory in software development, IT project management and IT Scrum Framework to all people maintaining or creating software that enhances fairness, efficiency, and effectiveness in people\'s lives',
       },
       {
         descId: 2,
-        desc: 'Making people lives easier by developing Software.',
+        desc: 'Develop software products and software services that are fair, efficient and effective to replace the nonsensical experiences.',
       },
     ],
     sidebar: [
       {
         sidebarId: 1,
         sidebarText:
-          'To see our software offering go to the Tech link on the menu above. If you need guidance about software development, IT project management or scrum framework, you can request expert advisory on a pay-per-hour basis.',
+          'To see our software offering go to the Kuarxis-Tech link on the menu above. If you need guidance about software development, IT project management or scrum framework, you can request expert advisory on a pay-per-hour basis.',
       },
       {
         sidebarId: 2,
         sidebarText:
-          'Kuarsis-Tech is always developing new Software for our customers. I you like this website you rent it and we can customize it to your needs',
+          'Kuarxis-Tech is always developing new Software for our customers',
       },
     ],
-    linkToCompanyWebsite: '/kuarsistech',
+    linkToCompanyWebsite: '/kuarxistech',
     settings: [
       {
         priority: 1,
-        label: 'Kuarsis-Tech',
+        label: 'Kuarxis-Tech',
         subLabel: 'Software Development and IT management, made simple.',
-        imageSrc: './images/KuarsisLogo256px.png',
-        alt: 'Kuarsis-Tech image',
+        imageSrc: './images/KuarxisLogo256px.png',
+        alt: 'Kuarxis-Tech image',
         height: '425px',
         width: '425px',
       },
       {
         priority: 2,
-        label: 'Kuarsis-Tech Software Development',
+        label: 'Kuarxis-Tech Software Development',
         subLabel: 'Innovative software solutions for common annoying problems.',
         imageSrc:
           './images/1-OverwhelmedBySoftware-PhotobyThisisEngineering_RAEngonUnsplash.jpg',
-        alt: 'Kuarsis-Tech Overwhelmed by Software image',
+        alt: 'Kuarxis-Tech Overwhelmed by Software image',
         height: '390px',
         width: '100%',
       },
       {
         priority: 3,
-        label: 'Kuarsis-Tech Expert software development advisory',
+        label: 'Kuarxis-Tech Expert software development advisory',
         subLabel:
           'Software Development Process, IT Project Management, IT Scrum Framework.',
         imageSrc:
           './images/2-TechnologyStrategyPhotobyJESHOOTS.COMonUnsplash.jpg',
-        alt: 'Kuarsis-Tech Strategy image',
+        alt: 'Kuarxis-Tech Strategy image',
         height: '390px',
         width: '100%',
       },
     ],
-  },
+  }, 
   {
     _id: '3',
-    pageName: 'Pixan',
+    pageName: 'ArtPixan',
     title1: 'Our Vision',
     description1:
       'Bringing Paradise to Earth by creating photos and images that inspire joy, relaxation and happiness in our customers.',
@@ -152,35 +152,35 @@ export const PageSettings = [
     description3: [
       {
         descId: 1,
-        desc: 'Kuarsis will create photographs and images from around the world, our customers can purchase licenses to use the photos for personal or business needs.',
+        desc: 'Kuarxis will create photographs and images from around the world, our customers can purchase licenses to use the photos for personal or business needs.',
       },
     ],
     sidebar: [
       {
         sidebarId: 1,
         sidebarText:
-          'Pixan offers photos of sunsets, sunrises, bridges, traveling, nighscapes, seascapes and more.',
+          'ArtPixan offers photos of sunsets, sunrises, bridges, traveling, nighscapes, seascapes and more.',
       },
     ],
-    linkToCompanyWebsite: '/pixan',
+    linkToCompanyWebsite: '/ArtPixan',
     settings: [
       {
         priority: 1,
-        label: 'Pixan',
+        label: 'ArtPixan',
         subLabel: 'Photography stock online store.',
         imageSrc:
           './images/PixanHome-2020509-NewportBridgeSunrise-Toma2_SURREAL_VERSION1.0.jpg',
-        alt: 'Kuarsis-Pixan Image',
+        alt: 'Kuarxis-ArtPixan Image',
         height: '390px',
         width: '100%',
       },
       {
         priority: 2,
-        label: 'Pixan',
+        label: 'ArtPixan',
         subLabel:
           'Nightscapes, Landscapes, Sunsets, Sunrises, Beaches, Bridges, Mansions and more.',
         imageSrc: './images/PixanRebelSpirit.jpg',
-        alt: 'Kuarsis-Pixan Image',
+        alt: 'Kuarxis-ArtPixan Image',
         height: '390px',
         width: '100%',
       },
@@ -218,14 +218,14 @@ export const PageSettings = [
         sidebarText: 'Casa del Nogal is for you! Book now thru Taanah!',
       },
     ],
-    linkToCompanyWebsite: '/kuarsistaanah',
+    linkToCompanyWebsite: '/kuarxistaanah',
     settings: [
       {
         priority: 1,
         label: 'Taanah',
         subLabel: 'Renting a house or rooms for business or leisure.',
-        imageSrc: './images/KuarsisLogo256px.png',
-        alt: 'Kuarsis-Taanah Logo',
+        imageSrc: './images/KuarxisLogo256px.png',
+        alt: 'Kuarxis-Taanah Logo',
         height: '425px',
         width: '425px',
       },
@@ -234,7 +234,7 @@ export const PageSettings = [
         label: 'Looking for a wonderful house or room for rent?',
         subLabel: 'For business or leisure, Taanah is the best host.',
         imageSrc: './images/Taanah1-laurentiu-morariu-m49NDxxGR0U-unsplash.jpg',
-        alt: 'Kuarsis-Taanah Place to Stay',
+        alt: 'Kuarxis-Taanah Place to Stay',
         height: '390px',
         width: '100%',
       },
@@ -244,7 +244,7 @@ export const PageSettings = [
         subLabel:
           '3 rooms, 2.5 restrooms, kitchen and living room. Rent full house or private rooms.',
         imageSrc: './images/Taanah2-anthony-rooke--NJO7AF0mUo-unsplash.jpg',
-        alt: 'Kuarsis-Taanah Casa del Nogal',
+        alt: 'Kuarxis-Taanah Casa del Nogal',
         height: '390px',
         width: '100%',
       },

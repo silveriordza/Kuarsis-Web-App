@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col className='text-center py-3'>
-            &copy; 2023 Kuarsis Companies. All rights reserved. <br />
+            &copy; 2025 Kuarxis Companies. All rights reserved. <br />
             This webpage is a prototype in development, please don't use real credit
             cards or real paypal accounts.
           </Col>

@@ -12,7 +12,7 @@ import TaanahScreen from './screens/TaanahScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import PixanHomeScreen from './screens/PixanHomeScreen'
-import PixanProductScreen from './screens/PixanProductScreen'
+import PixanProductScreen from './screens/PixanHomeScreen'
 import CartScreen from './screens/CartScreen'
 import ShippingScreen from './screens/ShippingScreen'
 import PaymentScreen from './screens/PaymentScreen'
@@ -35,15 +35,15 @@ const App = () => {
             <Route path='/profile' component={ProfileScreen} />
             <Route path='/sign-up' component={RegisterScreen} exact />
             <Route path='/sign-in' component={LoginScreen} exact />
-            <Route path='/kuarsistaanah' component={TaanahScreen} exact />
-            <Route path='/kuarsispixan' component={PixanScreen} exact />
-            <Route path='/kuarsistech' component={TechScreen} exact />
+            <Route path='/kuarxistaanah' component={TaanahScreen} exact />
+            <Route path='/kuarxispixan' component={PixanScreen} exact />
+            <Route path='/kuarxistech' component={TechScreen} exact />
             <Route
-              path='/pixan/page/:pageNumber'
+              path='/ArtPixan/page/:pageNumber'
               component={PixanHomeScreen}
               exact
             />
-            <Route path='/pixan' component={PixanHomeScreen} exact />
+            <Route path='/ArtPixan' component={PixanHomeScreen} exact />
             <Route
               path='/admin/productlist'
               component={ProductListScreen}

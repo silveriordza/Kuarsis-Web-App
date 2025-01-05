@@ -17,10 +17,10 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
-    "Kuarsis",
-    "Kuarsis-Tech",
-    "Kuarsis-Pixan",
-    "Kuarsis-Taanah",
+    "Kuarxis",
+    "Kuarxis-Tech",
+    "Kuarxis-ArtPixan",
+    "Kuarxis-Taanah",
     "software",
     "photography",
     "houses",

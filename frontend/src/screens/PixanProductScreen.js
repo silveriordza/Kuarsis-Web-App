@@ -33,7 +33,7 @@ const PixanProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <Link className='btn btn-light my-3' to='/pixan'>
+      <Link className='btn btn-light my-3' to='/ArtPixan'>
         Go Back
       </Link>
       {loading ? (
