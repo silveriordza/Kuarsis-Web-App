@@ -1,4 +1,28 @@
 {
+  "kuarxwfdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfdev-213718-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-kuarxwfdev-213718",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfdev-213718/30848fb0-f841-11ed-b978-0e3ce783bc9f",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d26emoszy6nzyt",
+          "type": "manual"
+        }
+      },
+      "function": {
+        "kuarxbedevFunction": {}
+      }
+    }
+  },
   "kuarxbedev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-kuarxiswebapp-kuarxbedev-160224-authRole",
@@ -29,30 +53,6 @@
           "deploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
           "s3Key": "amplify-builds/kuarxbedevFunction-595078316d3143774537-build.zip"
         }
-      }
-    }
-  },
-  "kuarxwfdev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
-      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfdev-213718-deployment",
-      "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
-      "StackName": "amplify-kuarxiswebapp-kuarxwfdev-213718",
-      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfdev-213718/30848fb0-f841-11ed-b978-0e3ce783bc9f",
-      "AmplifyAppId": "d26emoszy6nzyt"
-    },
-    "categories": {
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d26emoszy6nzyt",
-          "type": "manual"
-        }
-      },
-      "function": {
-        "kuarxbedevFunction": {}
       }
     }
   }

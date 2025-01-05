@@ -6,10 +6,10 @@ const PixanScreen = () => {
   return (
     <section>
       <section>
-        <KuarsisCarousel pageToDisplay='Pixan' />
+        <KuarsisCarousel pageToDisplay='ArtPixan' />
       </section>
       <section className='mt-2'>
-        <KuarsisMainWithSides pageToDisplay='Pixan' />
+        <KuarsisMainWithSides pageToDisplay='ArtPixan' />
       </section>
     </section>
   )
