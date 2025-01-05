@@ -24,7 +24,7 @@ const PixanHomeScreen = ({ match }) => {
   return (
     <>
       <Meta />
-      <h1>Pixan Photos by Silver</h1>
+      <h1>ArtPixan Photos by Silver</h1>
       {loading ? (
         <Loader />
       ) : error ? (
