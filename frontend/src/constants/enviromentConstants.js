@@ -22,13 +22,13 @@
 
 
 // LOCALHOST PROD VARIABLES
-/*
-export const BACKEND_ENDPOINT = 'http://localhost:5000'
-export const KUARSIS_PUBLIC_STATIC_FOLDER = 'http://localhost:3000/images'
-export const KUARSIS_BANNER_MAIN_LOGO = 'KuarxisLogo256px.png'
-export const KUARSIS_PUBLIC_BUCKET_URL =
-  'https://kuarsis-products-s3-public.s3.amazonaws.com/'
-*/
+
+// export const BACKEND_ENDPOINT = 'http://localhost:5000'
+// export const KUARSIS_PUBLIC_STATIC_FOLDER = 'http://localhost:3000/images'
+// export const KUARSIS_BANNER_MAIN_LOGO = 'KuarxisLogo256px.png'
+// export const KUARSIS_PUBLIC_BUCKET_URL =
+//   'https://kuarsis-products-s3-public.s3.amazonaws.com/'
+
 
 //CONSTANTS FOR WWW.KUARSIS.COM PROD ENVIRONMENT
 

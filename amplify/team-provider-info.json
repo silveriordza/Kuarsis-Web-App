@@ -1,104 +1,80 @@
 {
-   "kuarxwfdev": {
-      "awscloudformation": {
-         "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
-         "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
-         "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
-         "Region": "us-east-1",
-         "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfdev-213718-deployment",
-         "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
-         "StackName": "amplify-kuarxiswebapp-kuarxwfdev-213718",
-         "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfdev-213718/30848fb0-f841-11ed-b978-0e3ce783bc9f",
-         "AmplifyAppId": "d26emoszy6nzyt"
+  "kuarxwfdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfdev-213718-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-kuarxwfdev-213718",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfdev-213718/30848fb0-f841-11ed-b978-0e3ce783bc9f",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d26emoszy6nzyt",
+          "type": "manual"
+        }
       },
-      "categories": {
-         "hosting": {
-            "amplifyhosting": {
-               "appId": "d26emoszy6nzyt",
-               "type": "manual"
-            }
-         },
-         "function": {
-            "kuarxbedevFunction": {}
-         }
+      "function": {
+        "kuarxbedevFunction": {}
       }
-   },
-   "kuarxbedev": {
-      "awscloudformation": {
-         "AuthRoleName": "amplify-kuarxiswebapp-kuarxbedev-160224-authRole",
-         "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxbedev-160224-unauthRole",
-         "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxbedev-160224-authRole",
-         "Region": "us-east-1",
-         "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
-         "UnauthRoleName": "amplify-kuarxiswebapp-kuarxbedev-160224-unauthRole",
-         "StackName": "amplify-kuarxiswebapp-kuarxbedev-160224",
-         "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxbedev-160224/682b4780-f812-11ed-b21c-0aeae03a8761",
-         "AmplifyAppId": "d26emoszy6nzyt"
-      },
-      "categories": {
-         "function": {
-            "kuarxbedevFunction": {
-               "jwtSecretVar": "JWT_SECRET",
-               "kuarsisAmplifyAppid": "d26emoszy6nzyt",
-               "kuarsisAmplifyEnvironmentName": "kuarxbedev",
-               "kuarsisAwsKuarsisMainRegion": "us-east-1",
-               "kuarsisAwsProductsS3AccessKeyVar": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY",
-               "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY",
-               "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev",
-               "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
-               "mongoUriVar": "MONGO_URI",
-               "paypalClientIdVar": "PAYPAL_CLIENT_ID",
-               "port": "5000",
-               "secretsPathAmplifyAppId": "d26emoszy6nzyt",
-               "deploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
-               "s3Key": "amplify-builds/kuarxbedevFunction-595078316d3143774537-build.zip"
-            }
-         }
+    }
+  },
+  "kuarxbedev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-kuarxbedev-160224-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxbedev-160224-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxbedev-160224-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-kuarxbedev-160224-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-kuarxbedev-160224",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxbedev-160224/682b4780-f812-11ed-b21c-0aeae03a8761",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    },
+    "categories": {
+      "function": {
+        "kuarxbedevFunction": {
+          "jwtSecretVar": "JWT_SECRET",
+          "kuarsisAmplifyAppid": "d26emoszy6nzyt",
+          "kuarsisAmplifyEnvironmentName": "kuarxbedev",
+          "kuarsisAwsKuarsisMainRegion": "us-east-1",
+          "kuarsisAwsProductsS3AccessKeyVar": "KUARSIS_AWS_PRODUCTS_S3_ACCESS_KEY",
+          "kuarsisAwsProductsS3SecretKeyVar": "KUARSIS_AWS_PRODUCTS_S3_SECRET_KEY",
+          "kuarsisPrivateBucketName": "kuarsis-products-s3-private-dev",
+          "kuarsisPublicBucketName": "kuarsis-products-s3-public-dev",
+          "mongoUriVar": "MONGO_URI",
+          "paypalClientIdVar": "PAYPAL_CLIENT_ID",
+          "port": "5000",
+          "secretsPathAmplifyAppId": "d26emoszy6nzyt",
+          "deploymentBucketName": "amplify-kuarxiswebapp-kuarxbedev-160224-deployment",
+          "s3Key": "amplify-builds/kuarxbedevFunction-595078316d3143774537-build.zip"
+        }
       }
-   },
-   "kuarxwfdev": {
-      "awscloudformation": {
-         "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
-         "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
-         "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfdev-213718-authRole",
-         "Region": "us-east-1",
-         "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfdev-213718-deployment",
-         "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfdev-213718-unauthRole",
-         "StackName": "amplify-kuarxiswebapp-kuarxwfdev-213718",
-         "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfdev-213718/30848fb0-f841-11ed-b978-0e3ce783bc9f",
-         "AmplifyAppId": "d26emoszy6nzyt"
-      },
-      "categories": {
-         "hosting": {
-            "amplifyhosting": {
-               "appId": "d26emoszy6nzyt",
-               "type": "manual"
-            }
-         },
-         "function": {
-            "kuarxbedevFunction": {}
-         }
+    }
+  },
+  "kuarxwfprd": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfprd-223316-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfprd-223316-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfprd-223316-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfprd-223316-deployment",
+      "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfprd-223316-unauthRole",
+      "StackName": "amplify-kuarxiswebapp-kuarxwfprd-223316",
+      "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfprd-223316/575e3820-f9db-11ed-999d-0eba04984243",
+      "AmplifyAppId": "d26emoszy6nzyt"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d26emoszy6nzyt",
+          "type": "manual"
+        }
       }
-   },
-   "kuarxwfprd": {
-      "awscloudformation": {
-         "AuthRoleName": "amplify-kuarxiswebapp-kuarxwfprd-223316-authRole",
-         "UnauthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfprd-223316-unauthRole",
-         "AuthRoleArn": "arn:aws:iam::704484783207:role/amplify-kuarxiswebapp-kuarxwfprd-223316-authRole",
-         "Region": "us-east-1",
-         "DeploymentBucketName": "amplify-kuarxiswebapp-kuarxwfprd-223316-deployment",
-         "UnauthRoleName": "amplify-kuarxiswebapp-kuarxwfprd-223316-unauthRole",
-         "StackName": "amplify-kuarxiswebapp-kuarxwfprd-223316",
-         "StackId": "arn:aws:cloudformation:us-east-1:704484783207:stack/amplify-kuarxiswebapp-kuarxwfprd-223316/575e3820-f9db-11ed-999d-0eba04984243",
-         "AmplifyAppId": "d26emoszy6nzyt"
-      },
-      "categories": {
-         "hosting": {
-            "amplifyhosting": {
-               "appId": "d26emoszy6nzyt",
-               "type": "manual"
-            }
-         }
-      }
-   }
+    }
+  }
 }
