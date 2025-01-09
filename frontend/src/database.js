@@ -77,7 +77,7 @@ export const PageSettings = [
     _id: '2',
     pageName: 'Kuarxis-Tech',
     title1: 'Our Vision',
-    description1: 'We envision a world that is more fair, efficient, effective, and where any non-sense is turned into sense.',
+    description1: 'We envision a world that is more fair, more efficient, and more effective, where every nonsensical element is transformed into something that makes sense, all with the help of our software solutions and services.',
     title2: 'Our Mission',
     description2:
       'Bring pieces of paradise to Earth by creating software solutions and providing IT services that enhance fairness, efficiency, and effectiveness that help turning the non-sense into sense in people\'s daily lives.',
@@ -85,18 +85,18 @@ export const PageSettings = [
     description3: [
       {
         descId: 1,
-        desc: 'We are developing software solutions that will help making value investing simpler (ValueMiner), and a website for photographers to sell their photos (ArtPixan).',
+        desc: 'Developing software solutions to simplify value investing (KuarxValueMiner) and an adaptable online store platform (KuarxStore) for any type of online business.',
       },
       {
         descId: 2,
-        desc: 'We provide expert advisory in software development processes, IT project management, and IT Scrum Framework.',
+        desc: 'Providing expert advisory in software development processes, IT project management, and IT Scrum Framework.',
       },
     ],
     sidebar: [
       {
         sidebarId: 1,
         sidebarText:
-          'If you are interested in our services or solutions please contact: silverio.rodriguez@kuarxis.com',
+          'If you are interested in our services or solutions please contact: customer.care@kuarxis.com',
       },
       {
         sidebarId: 2,
@@ -143,23 +143,28 @@ export const PageSettings = [
     pageName: 'ArtPixan',
     title1: 'Our Vision',
     description1:
-      'Bringing Paradise to Earth by creating photos and images that inspire joy, relaxation and happiness in our customers.',
+      'The industry of artistic high-quality photography becomes fairer for both customers and photographers, with the help of our ArtPixan platform.',
     title2: 'Our Mision',
     description2:
-      'Creating inspiring and original photos for your business or enjoyment.',
+      'Offering the best online photography store for licensing photos, while being the fairest to both customers and photographers.',
     title3: 'Our Strategy',
 
     description3: [
       {
         descId: 1,
-        desc: 'Kuarxis will create photographs and images from around the world, our customers can purchase licenses to use the photos for personal or business needs.',
+        desc: 'Creating our own high-quality artistic photos and licensing them at a fair price to customers through ArtPixan, an online store powered by KuarxStore from Kuarxis-Tech, customized for the photography business',
       },
+      {
+        descId: 2,
+        desc: 'Helping fellow photographers by providing them with the ArtPixan platform to sell their photos, ensuring fair payment for their work and fair prices for customers.',
+      },
+      
     ],
     sidebar: [
       {
         sidebarId: 1,
         sidebarText:
-          'ArtPixan offers photos of sunsets, sunrises, bridges, traveling, nighscapes, seascapes and more.',
+          'ArtPixan offers high-quality artistic photos of sunsets, sunrises, bridges, travel, nightscapes, seascapes, and more, at a fair price for our customers and fair remuneration to the photographers.',
       },
     ],
     linkToCompanyWebsite: '/ArtPixan',
@@ -191,31 +196,31 @@ export const PageSettings = [
     pageName: 'Taanah',
     title1: 'Our Vision',
     description1:
-      'Bringing Paradise to Earth by providing relaxing and confortable house and rooms for rent.',
+      'Becoming the world\'s best host for guests renting houses or rooms.',
     title2: 'Our Mision',
     description2:
-      'Being the best host in the world for guests renting a house or rooms.',
+      'Bringing paradise to Earth by offering relaxing and comfortable houses and rooms for rent.',
     title3: 'Our Strategy',
 
     description3: [
       {
         descId: 1,
-        desc: 'Renting our house Casa del Nogal.',
+        desc: 'Offering our house, Casa del Nogal, for rent.',
       },
       {
         descId: 2,
-        desc: 'Accquiring new houses to rent.',
+        desc: 'Expanding our portfolio by acquiring new houses for rent.',
       },
     ],
     sidebar: [
       {
         sidebarId: 1,
         sidebarText:
-          'Traveling to Monterrey, Nuevo Leon for business or leisure?',
+          'Visiting Monterrey, Nuevo León, for business or leisure?',
       },
       {
         sidebarId: 2,
-        sidebarText: 'Casa del Nogal is for you! Book now thru Taanah!',
+        sidebarText: 'Casa del Nogal is waiting for you! Book your stay now at customer.care@kuarxis.com',
       },
     ],
     linkToCompanyWebsite: '/kuarxistaanah',
@@ -223,7 +228,7 @@ export const PageSettings = [
       {
         priority: 1,
         label: 'Taanah',
-        subLabel: 'Renting a house or rooms for business or leisure.',
+        subLabel: 'Offering houses or rooms for rent, perfect for business or leisure.',
         imageSrc: './images/KuarxisLogo256px.png',
         alt: 'Kuarxis-Taanah Logo',
         height: '425px',
@@ -231,7 +236,7 @@ export const PageSettings = [
       },
       {
         priority: 2,
-        label: 'Looking for a wonderful house or room for rent?',
+        label: 'Searching for the perfect house or room to rent?',
         subLabel: 'For business or leisure, Taanah is the best host.',
         imageSrc: './images/Taanah1-laurentiu-morariu-m49NDxxGR0U-unsplash.jpg',
         alt: 'Kuarxis-Taanah Place to Stay',
@@ -240,9 +245,9 @@ export const PageSettings = [
       },
       {
         priority: 3,
-        label: 'Taanah is now renting "Casa del Nogal"',
+        label: 'Taanah is now offering \'Casa del Nogal\' for rent!',
         subLabel:
-          '3 rooms, 2.5 restrooms, kitchen and living room. Rent full house or private rooms.',
+          '3 rooms, 2.5 bathrooms, kitchen, and living room. Rent the entire house or individual rooms.',
         imageSrc: './images/Taanah2-anthony-rooke--NJO7AF0mUo-unsplash.jpg',
         alt: 'Kuarxis-Taanah Casa del Nogal',
         height: '390px',
