@@ -33,7 +33,7 @@ const KuarsisMainWithSides = ({ pageToDisplay }) => {
               </div>
             ))}
             {/* <div> */}
-            {pageSettings.linkToCompanyWebsite ? (
+            {/* {pageSettings.linkToCompanyWebsite ? (
               <p>
                 To visit {pageSettings.pageName} webpage click{' '}
                 <Link
@@ -45,7 +45,7 @@ const KuarsisMainWithSides = ({ pageToDisplay }) => {
               </p>
             ) : (
               ''
-            )}
+            )} */}
             {/* </div> */}
           </div>
         </Col>
