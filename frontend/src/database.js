@@ -169,7 +169,12 @@ export const PageSettings = [
       {
         sidebarId: 2,
         sidebarText:
-          'Interested in selling photos, contact us: customer.care@kuarxis.com',
+          'Go to ArtPixan by clicking the ArtPixan link in the top menu.',
+      },
+      {
+        sidebarId: 3,
+        sidebarText:
+          'Interested in selling your photos, contact us: customer.care@kuarxis.com',
       },
     ],
     linkToCompanyWebsite: '/ArtPixan',
