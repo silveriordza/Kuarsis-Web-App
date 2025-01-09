@@ -166,6 +166,16 @@ export const PageSettings = [
         sidebarText:
           'ArtPixan offers high-quality artistic photos of sunsets, sunrises, bridges, travel, nightscapes, seascapes, and more, at a fair price for our customers and fair remuneration to the photographers.',
       },
+      {
+        sidebarId: 2,
+        sidebarText:
+          'Go to ArtPixan by clicking the ArtPixan link in the top menu.',
+      },
+      {
+        sidebarId: 3,
+        sidebarText:
+          'Interested in selling your photos, contact us: customer.care@kuarxis.com',
+      },
     ],
     linkToCompanyWebsite: '/ArtPixan',
     settings: [
