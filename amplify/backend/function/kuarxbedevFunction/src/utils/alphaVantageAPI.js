@@ -51,13 +51,14 @@ const getBalanceSheets = async symbols => {
    const params = {
       function: 'BALANCE_SHEET',
       symbol: 'HPAI',
-      apikey: 'DKNJPXH33DBI2HQC',
+      apikey: 'UC397SSPO5KK4FT3',
    }
    let apiResponses = null
 
-   await BalanceSheetAnnual.deleteMany({})
-   await BalanceSheetQuarterly.deleteMany({})
-
+   await BalanceSheetAnnual.deleteMany({ symbol: { $in: symbols } })
+   await BalanceSheetQuarterly.deleteMany({ symbol: { $in: symbols } })
+   let annualReports = null
+   let quarterlyReports = null
    for (const symbol of symbols) {
       params.symbol = symbol
       try {
@@ -69,8 +70,8 @@ const getBalanceSheets = async symbols => {
          break
       }
 
-      const annualReports = apiResponses?.data?.annualReports
-      const quarterlyReports = apiResponses?.data?.quarterlyReports
+      annualReports = apiResponses?.data?.annualReports
+      quarterlyReports = apiResponses?.data?.quarterlyReports
       // for (const annualReport in annualReports) {
       //    annualReport.symbol = params.symbol
       // }
@@ -89,7 +90,7 @@ const getBalanceSheets = async symbols => {
       }
    }
 
-   return apiResponses?.data
+   return { annualReports: annualReports, quarterlyReports: quarterlyReports }
 }
 
 module.exports = {

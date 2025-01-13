@@ -15,6 +15,11 @@ let asyncHandler = require('express-async-handler')
 // } = require('../utils/Functions.js')
 const { getBalanceSheets } = require('../utils/alphaVantageAPI.js')
 
+const {
+   secEdgarBulkUpdate,
+   secEdgarBulkQuarterUpdate,
+} = require('../utils/secEdgarAPI.js')
+
 let {
    BalanceSheetAnnual,
    BalanceSheetQuarterly,
@@ -57,11 +62,44 @@ const postBalanceSheets = asyncHandler(async (req, res) => {
    let ownerId = req.user._id
 
    res.status(201).json({
-      symbols: symbols,
       letBalanceSheets: letBalanceSheets,
    })
 })
 
+const postSecEdgarBulkController = asyncHandler(async (req, res) => {
+   const functionName = 'postSecEdgarBulkController'
+   const log = new LoggerSettings(srcFileName, functionName)
+
+   const { years } = req.body
+
+   const success = await secEdgarBulkUpdate(years)
+
+   let ownerId = req.user._id
+
+   res.status(201).json({
+      success: success,
+   })
+})
+
+const postSecEdgarBulkUpdateQuarterController = asyncHandler(
+   async (req, res) => {
+      const functionName = 'postSecEdgarBulkUpdateQuarterController'
+      const log = new LoggerSettings(srcFileName, functionName)
+
+      const { quarters } = req.body
+
+      const success = await secEdgarBulkQuarterUpdate(quarters)
+
+      let ownerId = req.user._id
+
+      res.status(201).json({
+         success: success,
+      })
+   },
+)
+
 module.exports = {
    postBalanceSheets,
+   postSecEdgarBulkController,
+   postSecEdgarBulkUpdateQuarterController,
 }

@@ -131,7 +131,61 @@ const BalanceSheetQuarterly = mongoose.model(
    balanceSheetQuarterlyModel,
 )
 
+const edgarCompanyFactsAnnual = mongoose.Schema(
+   {
+      symbol: { type: String, required: true },
+      cik: { type: Number, required: true },
+      year: { type: Number, required: true },
+      InterestExpense: { type: Number, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+
+const EdgarCompanyFactsAnnual = mongoose.model(
+   'EdgarCompanyFactsAnnual',
+   edgarCompanyFactsAnnual,
+)
+
+const edgarCompanyFactsQuarter = mongoose.Schema(
+   {
+      symbol: { type: String, required: true },
+      cik: { type: Number, required: true },
+      year: { type: Number, required: true },
+      quarter: { type: Number, required: true },
+      startDate: { type: Date, required: true },
+      endDate: { type: Date, required: true },
+      InterestExpense: { type: Number, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+
+const EgarCompanyFactsQuarter = mongoose.model(
+   'EgarCompanyFactsQuarter',
+   edgarCompanyFactsQuarter,
+)
+
+const edgarCikToTickerMaps = mongoose.Schema(
+   {
+      cikTickerMap: { type: mongoose.Schema.Types.Mixed, required: true },
+   },
+   {
+      timestamps: true,
+   },
+)
+
+const EdgarCikToTickerMaps = mongoose.model(
+   'EdgarCikToTickerMaps',
+   edgarCikToTickerMaps,
+)
+
 module.exports = {
    BalanceSheetAnnual,
    BalanceSheetQuarterly,
+   EdgarCompanyFactsAnnual,
+   EdgarCikToTickerMaps,
+   EgarCompanyFactsQuarter,
 }
