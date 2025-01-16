@@ -13,6 +13,7 @@ let {
    postBalanceSheets,
    postSecEdgarBulkController,
    postSecEdgarBulkUpdateQuarterController,
+   postEdgarBulkCompanyFactsUpdateController,
 } = require('../controllers/valueMinerController.js')
 
 let { protect, admin, hasAccess } = require('../middleware/authMiddleware.js')
@@ -26,5 +27,9 @@ router
 router
    .route('/edgar/bulkupdatequarter')
    .post(protect, admin, postSecEdgarBulkUpdateQuarterController)
+
+router
+   .route('/edgar/edgarbulkcompanyfactsupdate')
+   .post(protect, admin, postEdgarBulkCompanyFactsUpdateController)
 
 module.exports = router

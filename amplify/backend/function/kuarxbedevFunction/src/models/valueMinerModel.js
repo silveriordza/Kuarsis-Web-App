@@ -182,10 +182,28 @@ const EdgarCikToTickerMaps = mongoose.model(
    edgarCikToTickerMaps,
 )
 
+const edgarCompaniesFacts = mongoose.Schema(
+   {
+      ticker: { type: String, required: true, unique: true },
+      cik: { type: String, required: true, unique: true },
+      companyName: { type: String, required: true, unique: true },
+      edgarData: { type: mongoose.Schema.Types.Mixed },
+   },
+   {
+      timestamps: true,
+   },
+)
+
+const EdgarCompaniesFacts = mongoose.model(
+   'EdgarCompaniesFacts',
+   edgarCompaniesFacts,
+)
+
 module.exports = {
    BalanceSheetAnnual,
    BalanceSheetQuarterly,
    EdgarCompanyFactsAnnual,
    EdgarCikToTickerMaps,
    EgarCompanyFactsQuarter,
+   EdgarCompaniesFacts,
 }

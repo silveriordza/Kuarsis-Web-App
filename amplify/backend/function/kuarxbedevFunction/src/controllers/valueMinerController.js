@@ -18,7 +18,8 @@ const { getBalanceSheets } = require('../utils/alphaVantageAPI.js')
 const {
    secEdgarBulkUpdate,
    secEdgarBulkQuarterUpdate,
-} = require('../utils/secEdgarAPI.js')
+   edgarBulkCompanyFactsUpdate,
+} = require('../utils/kuarxEdgarAPI.js')
 
 let {
    BalanceSheetAnnual,
@@ -98,8 +99,26 @@ const postSecEdgarBulkUpdateQuarterController = asyncHandler(
    },
 )
 
+const postEdgarBulkCompanyFactsUpdateController = asyncHandler(
+   async (req, res) => {
+      const functionName = 'postEdgarBulkCompanyFactsUpdateController'
+      const log = new LoggerSettings(srcFileName, functionName)
+
+      const { configs } = req.body
+
+      const status = await edgarBulkCompanyFactsUpdate(configs)
+
+      let ownerId = req.user._id
+
+      res.status(201).json({
+         status: status,
+      })
+   },
+)
+
 module.exports = {
    postBalanceSheets,
    postSecEdgarBulkController,
    postSecEdgarBulkUpdateQuarterController,
+   postEdgarBulkCompanyFactsUpdateController,
 }

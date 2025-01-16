@@ -167,7 +167,7 @@ const HasData = dataToCheck => {
    if (
       !(
          dataToCheck &&
-         ((Array.isArray(dataToCheck) && dataToCheck.length > 0) ||
+         ((Array.isArray(dataToCheck) && dataToCheck?.length > 0) ||
             (typeof dataToCheck === 'string' && dataToCheck != '') ||
             (typeof dataToCheck === 'number' && Number.isFinite(dataToCheck)) ||
             typeof dataToCheck === 'object')
